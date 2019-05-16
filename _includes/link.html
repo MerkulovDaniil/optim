@@ -1,0 +1,10 @@
+{% comment %} 
+Usage: {% include link.html title='Gradient descent'%}
+{% endcomment %}
+{% for page in site.pages %} 
+  {% if page.title == include.title %}
+    {% assign url = page.url %} 
+    {% break %}
+  {%endif%} 
+{%endfor%}
+[{{ include.title }}]({{site.baseurl}}{{ url }})
