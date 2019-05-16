@@ -1,0 +1,56 @@
+{% comment %} 
+Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...'%}
+{% endcomment %}
+
+<button type="button" name="@bibtex" class="btn" onclick="myFunction1()">@bibtex</button>
+{% if include.file %}
+<button type="button" name="Files" class="btn" onclick="myFunction2()">Files</button> 
+{% endif %}
+{% if include.tabname %}
+<button type="button" name="{{include.tabname}}" class="btn" onclick="myFunction3()">{{include.tabname}}</button>
+{% endif %}
+
+<script>
+function myFunction1() {
+  var x = document.getElementById("@bibtex");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function myFunction2() {
+  var x = document.getElementById("files");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function myFunction3() {
+  var x = document.getElementById("{{include.tabname}}");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+<div id="@bibtex" style="display: none">
+  <div class="code-example" style="background-color: #f5f6fa">
+    <code style="border: none">
+    {{include.bibtex | newline_to_br}}
+    </code>
+  </div>
+</div>
+
+<div id="files" style="display: none">
+{{include.file}}
+</div>
+
+<div id="{{include.tabname}}" style="display: none">
+{{include.tabcontent}}
+</div>
