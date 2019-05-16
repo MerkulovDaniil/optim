@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Optim
 description: Systematic review of modern optimization methods
-baseurl: "/optim/" # the subpath of your site, e.g. /blog
+baseurl: "/optim" # the subpath of your site, e.g. /blog
 url: "http://merkulov.top" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: pretty
