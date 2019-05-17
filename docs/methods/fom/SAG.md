@@ -21,6 +21,7 @@ nav_order: 3
 A classical problem of minimizing finite sum of the smooth and convex functions was considered. 
 
 $$
+\tag{SAG}
 \min\limits_{x \in \mathbb{R}^{p}} g(x) := \frac{1}{n} \sum_{i=1}^{n} f_i(x)
 $$
 
