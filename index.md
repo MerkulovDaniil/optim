@@ -19,5 +19,10 @@ Welcome to the optim - attempt to build intuitive systematic review of optimizat
 
 ## Notations and terms
 
+These notations will be used by default (unless otherwise specified)
+
 * $\theta$ -- optimizing variable
 * $\mathbb{R}^p$ -- $p$-dimensional Euclidian space
+* $x^*$ -- global optimizer of the problem
+* $\\| \cdot \\|$ -- norm of the vector(matrix) (if nothing specified, we often use Euclidian (Frobenius) norm)
+* $\\| \cdot \\|_*$ -- dual norm (norm in dual space) (if nothing specified, we often use Euclidian (Frobenius) norm)
