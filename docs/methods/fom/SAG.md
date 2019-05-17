@@ -15,7 +15,7 @@ nav_order: 3
   pages={83--112},
   year={2017},
   publisher={Springer}
-}'%}
+}' file='assets/files/SAG.pdf'%}
 
 ## Summary
 A classical problem of minimizing finite sum of the smooth and convex functions was considered. 

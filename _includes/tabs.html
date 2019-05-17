@@ -1,9 +1,8 @@
 {% comment %} 
 Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...'%}
 {% endcomment %}
-
-<button type="button" name="@bibtex" class="btn" onclick="myFunction1()">@bibtex</button>
 {% if include.file %}
+<button type="button" name="@bibtex" class="btn" onclick="myFunction1()">@bibtex</button>{% endif %} {% if include.file %}
 <button type="button" name="Files" class="btn" onclick="myFunction2()">Files</button> 
 {% endif %}
 {% if include.tabname %}
@@ -48,7 +47,7 @@ function myFunction3() {
 </div>
 
 <div id="files" style="display: none">
-{{include.file}}
+<a href="{{include.file | relative_url}}">💣 .pdf file</a>
 </div>
 
 <div id="{{include.tabname}}" style="display: none">

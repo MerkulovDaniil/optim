@@ -13,7 +13,7 @@ nav_order: 1
   number={1847},
   pages={536--538},
   year={1847}
-}'%}
+}' file='/assets/files/GD.pdf'%}
 
 ## Summary
 A classical problem of minimizing finite sum of the smooth and convex functions was considered. 
