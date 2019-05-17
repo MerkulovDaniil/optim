@@ -1,7 +1,7 @@
 {% comment %} 
 Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...'%}
 {% endcomment %}
-{% if include.file %}
+{% if include.bibtex %}
 <button type="button" name="@bibtex" class="btn" onclick="myFunction1()">@bibtex</button>{% endif %} {% if include.file %}
 <button type="button" name="Files" class="btn" onclick="myFunction2()">Files</button> 
 {% endif %}
