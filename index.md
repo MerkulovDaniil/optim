@@ -20,4 +20,4 @@ Welcome to the optim - attempt to build intuitive systematic review of optimizat
 ## Notations and terms
 
 * $\theta$ -- optimizing variable
-* $\mathbb{R}^p$ -- $p$ - dimensional Euclidian space
+* $\mathbb{R}^p$ -- $p$-dimensional Euclidian space
