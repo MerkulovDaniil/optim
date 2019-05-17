@@ -16,12 +16,21 @@ nav_order: 2
 }' file='/assets/files/SGD.pdf'%}
 
 ## Summary
-A classical problem of minimizing finite sum of the smooth and convex functions was considered. 
-$$
-\underset{x \in \mathbb{R}^{p}}{\operatorname{minimize}} g(x) :=\frac{1}{n} \sum{i=1}^{n} f{i}(x)
-$$
-This problem usually arise in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. Baseline solution to the problem is to calculate the loss function and the corresponding gradient vector only on the small subset of indicies from  , which usually referrs as Stochastic Gradient Descent(SGD)
+Suppose, our target function is the sum of functions.
 
-## Contributions
+$$
+\min\limits_{x \in \mathbb{R}^{p}} g(x) := \frac{1}{n} \sum_{i=1}^{n} f_i(x)
+$$
 
-## Opportunities
+This problem usually arise in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. 
+
+## Bounds
+
+| Conditions | $\Vert \mathbb{E} [f(x_k)] - f(x^*)\Vert \leq$ | Type of convergence | $\Vert \mathbb{E}[x_k] - x^* \Vert \leq$ |
+| ---------- | ---------------------- | ------------------- | --------------------- |
+| Convex | $ \mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) $ | Sublinear |                       |
+| $ \mu$-Strongly convex | $\mathcal{O}\left(\dfrac{1}{k} \right) $ | Sublinear |                       |
+
+
+
+## Materials
