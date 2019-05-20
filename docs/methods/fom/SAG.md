@@ -24,10 +24,41 @@ $$
 \min\limits_{x \in \mathbb{R}^{p}} g(x) := \frac{1}{n} \sum_{i=1}^{n} f_i(x)
 $$
 
-This problem usually arise in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. Baseline solution to the problem is to calculate the loss function and the corresponding gradient vector only on the small subset of indicies from $i = 1, \ldots, n$, which usually referrs as {% include link.html title='Stochastic Gradient Descent'%} 
+This problem usually arise in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. Baseline solution to the problem is to calculate the loss function and the corresponding gradient vector only on the small subset of indicies from $i = 1, \ldots, n$, which usually referrs as {% include link.html title='Stochastic Gradient Descent'%}. The authors claims, that the convergence rate of proposed algorithm is the same a for the full {% include link.html title='Gradient Descent'%} method ($\mathcal{O}\left( \dfrac{1}{k}\right)$ for convex functions and $\mathcal{O}\left( \dfrac{1}{\sqrt{k}}\right)$ for strongly convex objectives), but the iteration costs remains the same as for the stochastic version.
 
-{% include link.html title='Stochastic Gradient Descent' %}
+The method itself take the following form:
 
-## Contributions
+$$
+\tag{SAG} 
+x_{k+1}=x_{k}-\frac{\alpha_{k}}{p} \sum_{i=1}^{p} y^{i}_{k}
+$$
 
-## Opportunities
+where at each iteration only random summand of a gradient is updated:
+
+$$
+\tag{SAG} 
+y^{i}_{k}=\left\{\begin{array}{ll}{f_{i}^{\prime}\left(x_{k}\right)} & {\text { if } i=i_{k}} \\ {y^{i}_{k-1}} & {\text { otherwise }}\end{array}\right.
+$$
+
+* There is a dependency on dimensionality factor $n$ in bounds. However, it can be improved using restart technique.
+* Empirical results were only shown on logistic regression with Tikhonov regularization problems on different datasets.
+* Batch and non- uniform versions are also presented in the paper.
+* The first known paper, that contains proof of linear convergence for the convex case.
+
+## Bounds
+For a constant step size $\alpha = \dfrac{1}{16 L}$, where $L$ stands for the Lipschitz constant of a gradient of each function $ f_i(x) $ (in practice, it means that $ L = \max\limits_{i=1, \ldots, n} L_i $).
+
+$$
+\mathbb{E}\left[g\left(\overline{x}_{k}\right)\right]-g\left(x^{*}\right) \leqslant \frac{32 n}{k} C_{0},
+$$
+
+where $ C_{0}=g\left(x_{0}\right)-g\left(x^{*}\right)+\frac{4 L}{n}\left\|x_{0}-x^{*}\right\|^{2}+\frac{\sigma^{2}}{16 L} $ in convex case and
+
+$$
+\mathbb{E}\left[g\left(x_{k}\right)\right]-g\left(x^{*}\right) \leqslant\left(1-\min \left\{\frac{\mu}{16 L}, \frac{1}{8 n}\right\}\right)^{k} C_{0}
+$$
+
+in $\mu$ - strongly convex case.
+
+
+
