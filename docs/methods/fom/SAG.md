@@ -52,10 +52,10 @@ $$
 \mathbb{E}\left[g\left(\overline{x}_{k}\right)\right]-g\left(x^{*}\right) \leqslant \frac{32 n}{k} C_{0},
 $$
 
-where $ C_{0}=g\left(x_{0}\right)-g\left(x^{*}\right)+\frac{4 L}{n}\left\|x_{0}-x^{*}\right\|^{2}+\frac{\sigma^{2}}{16 L} $ in convex case and
+where $ C_0=g\left(x_0\right)-g\left(x^*\right)+\frac{4L}{n} \\| x_0 - x^\ast\\|^2 +\frac{\sigma^2}{16L}$  in convex case and
 
 $$
-\mathbb{E}\left[g\left(x_{k}\right)\right]-g\left(x^{*}\right) \leqslant\left(1-\min \left\{\frac{\mu}{16 L}, \frac{1}{8 n}\right\}\right)^{k} C_{0}
+\mathbb{E}\left[g\left(x_{k}\right)\right]-g\left(x^*\right) \leqslant\left(1-\min \left\{\frac{\mu}{16 L}, \frac{1}{8 n}\right\}\right)^{k} C_{0}
 $$
 
 in $\mu$ - strongly convex case.
