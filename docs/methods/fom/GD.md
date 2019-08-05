@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Gradient Descent
-parent: First Order Methods
+title: Gradient descent
+parent: First order methods
 grand_parent: Methods
 nav_order: 1
 ---
@@ -24,8 +24,8 @@ x_{k+1} = x_k - \eta_k\nabla f(x_k)
 $$
 
 * The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method's behaviour. 
-* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $\eta_k = \dfrac{1}{L}$
-* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $\mathcal{O}(p)$)
+* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $$\eta_k = \dfrac{1}{L}$$
+* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $$\mathcal{O}(p)$$)
 * If function has Lipschitz-continious gradient, then method could be rewritten as follows:
 
 $$ \begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
@@ -39,8 +39,8 @@ $$ \begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
 | Convex<br/>Lipschitz-continious gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
 | $\mu$-Strongly convex<br/>Lipschitz-continious hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
 
-* $R = \\| x_0 - x^*\\|$ - initial distance
-* $\overline{R} = \dfrac{2\mu}{M}$
+* $$R = \\| x_0 - x^*\\|$$ - initial distance
+* $$\overline{R} = \dfrac{2\mu}{M}$$
 
 ## Materials
 

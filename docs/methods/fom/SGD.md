@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Stochastic Gradient Descent
-parent: First Order Methods
+title: Stochastic gradient descent
+parent: First order methods
 grand_parent: Methods
 nav_order: 2
 ---
