@@ -2,16 +2,80 @@
 layout: default
 permalink: /Excersises
 title: Excersises
-nav_exclude: true
+nav_order: 4
 ---
- 
-* Show, that these conditions are equivivalent:
 
-$$ \|\nabla f(x) - \nabla f(z)\|\le L\|x-z\| $$
+# Convex sets
+1. Покажите, что множество выпукло тогда и только тогда, когда его пересечение с любой прямой выпукло.
+1. Покажите, что выпуклая оболочка множества $S$ есть пересечение всех выпуклых множеств, содержащих $S$.
+1. Пусть $x \\in \\mathbb{R}$ - случайная величина с заданным вероятностным распределением $\\mathbb{P}(x = a_i) = p_i$, где $i = 1, \\ldots, n$, а $a_1 < \\ldots < a_n$. Говорят, что вектор вероятностей исходов $p \\in \\mathbb{R}^n$ принадлежит вероятностному симплексу, т.е. $P = \\{ p \\mid \\mathbf{1}^Tp = 1, p \\succeq 0 \\} = \\{ p \\mid p_1 + \\ldots + p_n = 1, p_i \\ge 0 \\}$. 
+Определите, выпукло ли множество таких $p$, которые удовлетворяют условию:
+	1. $\alpha < \\mathbb{E} f(x) < \\beta$, где $\mathbb{E}f(x)$ означает математическое ожидание заданной функции $f(x): \\mathbb{R} \\rightarrow \\mathbb{R}$, т.е. $\mathbb{E}f(x) = \\sum\limits_{i=1}^n p_i f(a_i)$
+	1. $\mathbb{E}x^2 \\le \\alpha$
+	1. $\mathbb{V}x \\le \\alpha$
+1. Докажите, что если множество выпукло, то его внутренность так же выпукла. Верно ли обратное?
+1. Докажите, что если множество выпукло, то его замыкание так же выпукло. Верно ли обратное?
+1. Доказать, что множество симметричных положительно определенных квадратичных матриц выпукло.
+1. Показать, что множество $S$ выпукло тогда и только тогда, когда $\forall \\lambda_1, \\lambda_2 \\geq 0:  \\lambda_1S + \\lambda_2 S = (\lambda_1 + \\lambda_2)S$
+1. Посчитать сумму Минковского отрезка и квадрата на плоскости, отрезка и треугольника, отрезка и окружности.
+1. Найти минимальное $k$, при котором множество $\\{x \\in \\mathbb{R}^2 \\mid (x_1^2 + 1) x_2\le 2, x_2 \\ge k\\}$ выпукло.
+1. Доказать, что множество $\{x \\in \\mathbb{R}^2 \\mid e^{x_1}\le x_2\}$ выпукло.
+1. Привести пример двух замкнутых выпуклых множеств, сумма которых не замкнута
+1. Найти выпуклые и конические оболочки следующих множеств: $ \\{x \\in \\mathbb{R}^2 \\mid x_1^2 = x_2 \\}$, $ \\{x \\in \\mathbb{R}^2 \\mid x_1^2 = x_2, x_1 \\ge 0 \\}$, $ \\{x \\in \\mathbb{R}^2 \\mid x_1 x_2 = 1 \\} $
+1. Показать, что множество направлений строгого локального убывания дифференцируемой функции в точке является выпуклым конусом.
+1. Доказать, что множество
+\\[ K = \\{ x \\in \\mathbb{R}^3 \|  x_1^2 - 2x_1x_3 + x_2^2 \\leq 0, x_3 \\geq 0 \\} \\]
+есть выпуклый конус
+1. Найти выпуклые оболочки следующих множеств:
+	1. $x^2 + y^2 \\leq 1, xy = 0$
+	1. $x^2 + y^2 = 1, x - y = 0$
+	1. $x^2 + y^2 = 1, \|x\| \\leq 1, \|y\| \\leq 1$
+	1. $y \\leq e^x, y \\geq \|x\|$
+1. Для произвольного множества $S$ пусть $\tilde{S}$ состоит из всех отрезков $[a,b]$,  у которых концы $a,b \\in S$. Верно ли, что $\tilde{S} = \\text{conv}(S)$ ?
+1. Является ли заданное множество выпуклым многогранником (представимо в форме $Ax \\preceq  b, Cx = d$):
+	1. $S = \\{ y_1a_1 + y_2a_2 \| -1 \\leq y_1, y_2 \\leq 1 \\}; a_1, a_2 \\in \\mathbb{R}^n$
+	1. $S = \\{x \\in \\mathbb{R}^n \| x \\succeq 0, \\mathbf{1}^\top x = 1, \\sum\limits_{i=1}^n x_ia_i = b_1, \\sum\limits_{i=1}^n x_ia_i^2 = b_2 \\}; a_1, \\ldots a_n, b_1, b_2 \\in \\mathbb{R}$
+	1. $S = \\{x \\in \\mathbb{R}^n \| x \\succeq 0, x^\top y \\leq 1, \\|  y\\|_2  = 1 \\}$
+	1. $S = \\{x \\in \\mathbb{R}^n \| x \\succeq 0, x^\top y \\leq 1, \\sum\limits_{i=1}^n \|y_i\| = 1 \\}$
+1. Пусть $S \\subseteq \\mathbb{R}^n$ - множество решений квадратичного неравенства: 
+\\[
+S = \\{x \\in \\mathbb{R}^n \\| x^\top A x + b^\top x + c \\leq 0 \\}; A \\in \\mathbb{S}^n, b \\in \\mathbb{R}^n, c \\in \\mathbb{R}
+\\]
+	1. Покажите, что если $A \\succeq 0$, то $S$ - выпукло. Верно ли обратное?
+	1. Покажите, что пересечение $S$ с гиперплоскостью, определяемой уравнением $g^\top x + h = 0, g \\neq 0$ - выпукло, если $A + \\lambda gg^\top \\succeq 0$ для некоторого действительного $\lambda \\in \\mathbb{R}$. Верно ли обратное?
+1. Покажите, что гиперболическое множество $ \\{x \\in \\mathbb{R}^n_+ | \\prod\limits_{i=1}^n x_i \\geq 1 \\} $ выпукло. 
+Подсказка: для $0 \\leq \\theta \\leq 1$ справедливо $a^\\theta b^{1 - \\theta} \\leq \\theta a + (1-\theta)b$  при неотрицательных $a,b$.
+1. Какие из множеств являются выпуклыми:
+	1. Полоса, $ \\{x \\in \\mathbb{R}^n \\| \\alpha \\leq a^\top x \\leq \\beta \\}$
+	1. Прямоугольник, $ \\{x \\in \\mathbb{R}^n \\| \\alpha_i \\leq x_i \\leq \\beta_i, i = \\overline{1,n} \\}$
+	1. Клин, $ \\{x \\in \\mathbb{R}^n \\| a_1^\top x \\leq b_1, a_2^\top x \\leq b_2 \\}$
+	1. Множество точек, более близких к заданной точке, чем к заданному множетву, не содержащему точку, $ \\{x \\in \\mathbb{R}^n \\|  \\|x - x_0\|_2 \\leq \\|x-y\|_2, \\forall y \\in S \\subseteq \\mathbb{R}^n \\}$
+	1. Множество точек, более близких к одному множеству, чем к другому, $ \\{x \\in \\mathbb{R}^n \\|  \\mathbf{dist}(x,S) \\leq \\mathbf{dist}(x,T) , S,T \\subseteq \\mathbb{R}^n \\}$ 
+	1. Множество точек, чье расстояние до заданной точки не превышает некоторой доли расстояния до другой заданной точки, $ \\{x \\in \\mathbb{R}^n \\|  \\|x - a\|_2 \\leq \\theta\|x-b\|_2, a,b \\in \\mathbb{R}^n, 0 \\leq \\theta \\leq 1 \\}$
+1. Что представляет из себя коническая оболочка множества произведений прямоугольных матриц ранга $k$ $ \\{XX^\top \\| X \\in \\mathbb{R}^{n \\times k}, \\mathbf{rank} X = k \\}$?
+1. Пусть $K \\subseteq \\mathbb{R}^n_+$ - конус. Доказать, что он выпуклый тогда и только тогда, когда множество $ \\{x \\in K \\| \\sum\limits_{i=1}^n x_i = 1 \\}$ - выпукло.
+1. Пусть $S$ таково, что $\forall x,y \\in S \\to \\dfrac{1}{2}(x+y) \\in S$. Является ли такое множество выпуклым?
+1. Найти коническую оболочку следующих множеств в $\mathbb{R}^2$:
+	1. $y = x^2$
+	1. $y = x^2, x \\geq 0$
+	1. $y = x^2 + x, x \\geq 0$
+	1. $xy=1, x > 0$
+	1. $y = \\sin x, 0 \\leq x \\leq \\pi$
+	1. $y = e^x$
+1. Пусть $S_1 = \\{x^2 + y^2 \\leq 1 \\}$ - круг в $\\mathbb{R^3}$, а $S_2$ - отрезок $\\left[(0,0,-1), (0,0,1)\\right]$. Как выглядит их выпуклая комбинация с коэффициентами $\\alpha, \\beta$.
+1. Является ли следующее множество выпуклым:
+\\[
+\\{a \\in \\mathbb{R}^k \| p(0) = 1, |p(t)| \\leq 1 \\;\; \\forall \\alpha \\leq t \\leq \\beta, \\;\; p(t) = a_1 + a_2t + \\ldots + a_kt^{k-1} \\}
+\\]
+1. Доказать, что для того, чтобы $K \\subseteq \\mathbb{R}^n$ было выпуклым конусом необходимо и достаточно, чтобы $K$ содержало все возможные неотрицательные комбинации своих точек.
+1. Доказать, что для того, чтобы $S \\subseteq \\mathbb{R}^n$ было афинным множеством необходимо и достаточно, чтобы $S$ содержало все возможные афинные комбинации своих точек.
 
+
+# Uncategorized
+
+1. Show, that these conditions are equivivalent:
+\\[ \\|\nabla f(x) - \\nabla f(z) \\| \le L \\|x-z\\| \\]
 and
-
-$$ f(z) \le f(x) + \nabla f(x)^T(z-x) + \frac L 2 \|z-x\|^2 $$
-
-* Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
-* Prove, that if $g(x)$ - convex function, then $f(x) = g(x) + \dfrac{\lambda}{2}\\|x\\|^2_2$ will be strongly convex function
+\\[ f(z) \\le f(x) + \\nabla f(x)^T(z-x) + \\frac L 2 \\|z-x\|^2 \\]
+1. Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
+1. Prove, that if $g(x)$ - convex function, then $f(x) = g(x) + \\dfrac{\lambda}{2}\\|x\\|^2_2$ will be strongly convex function
