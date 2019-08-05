@@ -53,7 +53,7 @@
           {% endif %}
         {% endunless %}
         <div id="main-content" class="page-content" role="main">
-          {{ content }}
+          {% include anchor_headings.html html=content %}
 
           {% if page.has_children == true and page.has_toc != false %}
           <hr>
@@ -73,6 +73,5 @@
       </div>
     </div>
   </div>
-
 </body>
 </html>
