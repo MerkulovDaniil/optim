@@ -2,16 +2,21 @@
 Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...'%}
 {% endcomment %}
 {% if include.bibtex %}
-<button type="button" name="@bibtex" class="btn" onclick="myFunction1()">@bibtex</button>{% endif %} {% if include.file %}
-<button type="button" name="Files" class="btn" onclick="myFunction2()">Files</button> 
+{%  assign bibtexcounter   = bibtexcounter    | plus:1 %}
+{% endif %}
+{% if include.file %}
+{% assign filescounter     = filescounter     | plus:1 %}
 {% endif %}
 {% if include.tabname %}
-<button type="button" name="{{include.tabname}}" class="btn" onclick="myFunction3()">{{include.tabname}}</button>
+{% assign othertabscounter = othertabscounter | plus:1 %}
 {% endif %}
+{% if include.bibtex %}<button type="button" name="@bibtex{{ bibtexcounter }}" class="btn" onclick="myFunction1({{ bibtexcounter }})">@bibtex</button>{% endif %}
+{% if include.file %}<button type="button" name="Files{{ filescounter }}" class="btn" onclick="myFunction2({{ filescounter }})">Files</button>{% endif %}
+{% if include.tabname %}<button type="button" name="{{include.tabname}}{{ othertabscounter }}" class="btn" onclick="myFunction3({{ othertabscounter }})">{{include.tabname}}</button>{% endif %}
 
 <script>
-function myFunction1() {
-  var x = document.getElementById("@bibtex");
+function myFunction1(id) {
+  var x = document.getElementById("@bibtex"+String(id));
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -19,8 +24,8 @@ function myFunction1() {
   }
 }
 
-function myFunction2() {
-  var x = document.getElementById("files");
+function myFunction2(id) {
+  var x = document.getElementById("Files"+String(id));
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -28,8 +33,8 @@ function myFunction2() {
   }
 }
 
-function myFunction3() {
-  var x = document.getElementById("{{include.tabname}}");
+function myFunction3(id) {
+  var x = document.getElementById("{{include.tabname}}"+String(id));
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -38,7 +43,7 @@ function myFunction3() {
 }
 </script>
 
-<div id="@bibtex" style="display: none">
+<div id="@bibtex{{ bibtexcounter }}" style="display: none">
   <div class="code-example" style="background-color: #f5f6fa">
     <code style="border: none">
     {{include.bibtex | newline_to_br}}
@@ -46,10 +51,10 @@ function myFunction3() {
   </div>
 </div>
 
-<div id="files" style="display: none">
+<div id="Files{{ filescounter }}" style="display: none">
 <a href="{{include.file | relative_url}}" target="_blank">💣 .pdf file</a>
 </div>
 
-<div id="{{include.tabname}}" style="display: none">
+<div id="{{include.tabname}}{{ othertabscounter }}" style="display: none">
 {{include.tabcontent}}
 </div>
