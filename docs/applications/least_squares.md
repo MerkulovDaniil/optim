@@ -5,6 +5,8 @@ parent: Applications
 ---
 
 # Problem
+
+![](../lls_idea.svg)
 In a least-squares, or linear regression, problem, we have measurements $$ X \in \mathbb{R}^{m \times n} $$ and $$ y \in \mathbb{R}^{m} $$ and seek a vector $$ \theta \in \mathbb{R}^{n} $$ such that $$ X \theta $$ is close to $$ y $$. Closeness is defined as the sum of the squared differences: 
 
 $$ 
@@ -28,19 +30,58 @@ Note, that the function needn't be linear in the argument $$x$$ but only in the 
 
 # Approaches
 
-* If the matrix $$X$$ is relatively small, we can write down and calculate exact solution:
+## Moore–Penrose inverse
+If the matrix $$X$$ is relatively small, we can write down and calculate exact solution:
 
 $$
-\theta^* = (X^\top X)^{-1} X^\top y
+\theta^* = (X^\top X)^{-1} X^\top y = X^\dagger y, 
 $$
 
-However, this approach squares the condition number of the problem, which could be an obstacle in case of ill-conditioned huge scale problem. 
+where $$X^\dagger$$ is called [pseudo-inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) matrix. However, this approach squares the condition number of the problem, which could be an obstacle in case of ill-conditioned huge scale problem. 
 
-* Otherwise, we could use iterative methods.
+## QR decomposition
+For any matrix $$X \in \mathbb{R}^{m \times n}$$ there is exists QR decomposition:
+
+$$
+X = Q \cdot R,
+$$
+
+where  $$Q$$ is an orthogonal matrix (its columns are orthogonal unit vectors meaning  $$Q^\top Q=QQ^\top=I$$ and $$R$$ is an upper triangular matrix. It is important to notice, that since $$Q^{-1} = Q^\top$$, we have:
+
+$$
+QR\theta = y \quad \longrightarrow \quad R \theta = Q^\top y
+$$
+
+Now, process of finding theta consists of two steps:
+1. Find the QR decomposition of $$X$$.
+1. Solve triangular system $$R \theta = Q^\top y$$, which is triangular and, therefore, easy to solve.
+
+## Cholesky decomposition
+For any positive definite matrix $$A \in \mathbb{R}^{n \times n}$$ there is exists Cholesky decomposition:
+
+$$
+X^\top X = A = L^\top \cdot L,
+$$
+
+where  $$L$$ is an lower triangular matrix. We have:
+
+$$
+L^\top L\theta = y \quad \longrightarrow \quad L^\top z_\theta = y
+$$
+
+Now, process of finding theta consists of two steps:
+1. Find the Cholesky decomposition of $$X^\top X$$.
+1. Find the $$z_\theta = L\theta$$ by solving triangular system $$L^\top z_\theta = y$$
+1. Find the $$\theta$$ by solving triangular system $$L\theta = z_\theta$$
+
+Note, that in this case the error stil proportional to the squared condition number.
+
+![](../lls_times.svg)
+
 
 # Code
-* [Colab notebook](https://colab.research.google.com/drive/1en8JLreLD4t4SUgzgxB7GyQ7y_fe8Z-X)
-
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1en8JLreLD4t4SUgzgxB7GyQ7y_fe8Z-X)
 # References
 * [CVXPY documentation](https://www.cvxpy.org/examples/basic/least_squares.html)
 * [Interactive example](http://setosa.io/ev/ordinary-least-squares-regression/)
+* [Jupyter notebook by A. Katrutsa](https://nbviewer.jupyter.org/github/amkatrutsa/MIPT-Opt/blob/master/16-LSQ/Seminar16en.ipynb)
