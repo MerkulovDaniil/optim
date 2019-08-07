@@ -60,6 +60,16 @@ It is not that easy, right?
 ![](../tv_start2.png)
 ![](../tv_finish2.png)
 
+Only 5% of all pixels are left:
+
+![](../tv_start3.png)
+![](../tv_finish3.png)
+
+What about 1% of all pixels?
+
+![](../tv_start4.png)
+![](../tv_finish4.png)
+
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1eo2gCGoCfIYP5qAv8tPGpSw1U4w-wpDe)
 # References
