@@ -41,3 +41,5 @@ nav_order: 6
 * [Blog](http://blog.mrtz.org/) by Moritz Hardt.
 
 * [Blog](http://www.pokutta.com/blog/) by Sebastian Pokutta with great cheat sheets on optimization.
+
+* [Nice set of python applied math etudes](https://www.numerical-tours.com/python/)
