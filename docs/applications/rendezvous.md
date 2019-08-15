@@ -34,4 +34,4 @@ Problem of this type arise in space engeneering - just imagine, that the first b
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1kEbqeg17abuhL8rXYvnKjzEw892psIpW)
 
 # References
-* [https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF](Jupyter notebook) by A. Katrutsa
+* [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa

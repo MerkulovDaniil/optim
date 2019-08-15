@@ -32,5 +32,5 @@ $$
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1L6gTok0LLBPJFKxT6bhV1rp-li-SbaC4)
 
 # References
-* [https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF](Jupyter notebook) by A. Katrutsa
+* [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa
 * [https://cvxopt.org/examples/book/ellipsoids.html](CVXOPT documentation)
