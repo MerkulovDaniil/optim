@@ -1,8 +1,8 @@
 ---
 layout: default
-permalink: /Excersises
-title: Excersises
-nav_order: 4
+title: Convex sets
+parent: Excersises
+nav_order: 1
 ---
 
 # Convex sets
@@ -82,21 +82,3 @@ nav_order: 4
 
 1. Доказать, что для того, чтобы $$K \subseteq \mathbb{R}^n$$ было выпуклым конусом необходимо и достаточно, чтобы $$K$$ содержало все возможные неотрицательные комбинации своих точек.
 1. Доказать, что для того, чтобы $$S \subseteq \mathbb{R}^n$$ было афинным множеством необходимо и достаточно, чтобы $$S$$ содержало все возможные афинные комбинации своих точек.
-
-
-# Uncategorized
-
-1. Show, that these conditions are equivivalent:
-    
-    $$
-     \|\nabla f(x) - \nabla f(z) \| \le L \|x-z\| 
-    $$
-    
-    and
-    
-    $$
-    f(z) \le f(x) + \nabla f(x)^T(z-x) + \frac L 2 \|z-x\|^2
-    $$
-
-1. Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
-1. Prove, that if $$g(x)$$ - convex function, then $$f(x) = g(x) + \dfrac{\lambda}{2}\|x\|^2_2$$ will be strongly convex function

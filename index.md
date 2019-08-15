@@ -24,8 +24,8 @@ The site has simple built-in search 🔍. You can use it to find anything you wa
 * All formulas (both inline and block style) should be arranged with double dollar sign (`$$ x^2 $$` stands for inline $$x^2$$, if you'll arrange it with new line symbols, you'll recieve block style) due to `kramdown` preprocessor.
 * If you want to place just one *inline* formula on the paragrah, please write this way: `\$$ x^2 $$` (weird, I know).
 
-## Pictures
-* Pictures and should be in `.svg` vector format if possible.
+## Figures
+* Figures and graphs should be in `.svg` vector format if possible.
 * By default all pictures are centered and has 75% of linewidth. However, if you will use `#button` suffix at the end of the path (or url) to the picture, it will be displayed in inline style with 150px in width (was primarly done for [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)]() buttons).
 
 ## Names
