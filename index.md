@@ -9,6 +9,8 @@ permalink: /
 
 Welcome to the fmin.xyz - attempt to build intuitive systematic review of optimization theory, methods and applications. The initial goal of creating literature review for PhD thesis has transformed to the idea of something, that could be useful for people, making comparison of different optimizers easier and nice.
 
+[![](/assets/images/discord.svg)](https://discord.gg/vQv7Gfv)
+
 The site contains following parts:
 
 * {% include link.html title="Theory"%}
