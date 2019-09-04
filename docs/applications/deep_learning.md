@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Deep Learning
+title: Deep learning
 parent: Applications
 ---
 
