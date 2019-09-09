@@ -97,6 +97,9 @@ def catch_problem_from_string(string, path, temporal_path, number):
 path = os.getcwd()
 if not os.path.exists(os.path.join(path, title)):
 	os.mkdir(os.path.join(path, title))
+	print("Folder created")
+else:
+	print("The folder is already exists")
 
 filename = os.path.join(path, title, title+'.md')
 
