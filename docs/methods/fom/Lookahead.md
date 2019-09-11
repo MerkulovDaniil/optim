@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Lookahead Optimizer: $$k$$ steps forward, $$1$$ step back"
+title: "Lookahead Optimizer: $k$ steps forward, $1$ step back"
 parent: First order methods
 grand_parent: Methods
-nav_order: 4
+nav_order: 7
 ---
 
 {% include tabs.html bibtex = '@article{zhang2019lookahead,
@@ -33,3 +33,17 @@ Authors introduced separation on the *fast weights* and *slow weights*, which na
 The paper contains proof for optimal step-size of the quadratic loss function and provides understanding why this technique could reduce variance of {% include link.html title="Stochastic gradient descent" %} in the noisy quadratic case. Moreover, this work compares the convergence rate in dependency of condition number of the squared system.
 
 It is worth to say, that autor claims significant improvement in practical huge scale settings (ImageNet, CIFAR10,CIFAR100)
+
+![](../fast_vs_slow.png)
+![](../imagenet_train_loss.png)
+
+# Pros
+* Interesting idea, costs almost nothing, why not to try?
+* Works with any SGD-like optimizer (SGD, Adam, RmsProp)
+* Analytical approach to quadratic case.
+* Wide set of empirical tests (Image classifiaction, Neural Translation, LSTM training)
+
+# Cons
+* Lack of test loss pictures, the majority of them obtained for the train loss\accuracy 
+* Lack of pictures with different batch sizes
+* Difficult to analyze the method analytically
