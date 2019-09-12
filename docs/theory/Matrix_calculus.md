@@ -135,3 +135,4 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * [Good introduction](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf)
 * [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
 * [MSU seminars](http://www.machinelearning.ru/wiki/images/a/ab/MOMO18_Seminar1.pdf) (Rus.)
+* [Online tool](http://www.matrixcalculus.org/) for analytic expression of a derivative.
