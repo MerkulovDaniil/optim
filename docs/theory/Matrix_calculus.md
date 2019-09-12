@@ -134,4 +134,4 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 # References
 * [Good introduction](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf)
 * [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
-* [MSU seminars](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf) (Rus.)
+* [MSU seminars](http://www.machinelearning.ru/wiki/images/a/ab/MOMO18_Seminar1.pdf) (Rus.)
