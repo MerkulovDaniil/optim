@@ -90,7 +90,7 @@ Hint: For $$0 \leq \theta \leq 1$$ it is valid, that $$a^\theta b^{1 - \theta} \
 1. Let $$x \in \mathbb{R}$$ is a random variable with a given probability distribution of $$\mathbb{P}(x = a_i) = p_i$$, where $$i = 1, \ldots, n$$, and $$a_1 < \ldots < a_n$$. It is said that the probability vector of outcomes of $$p \in \mathbb{R}^n$$ belongs to the probabilistic simplex, i.e. $$P = \{ p \mid \mathbf{1}^Tp = 1, p \succeq 0 \} = \{ p \mid p_1 + \ldots + p_n = 1, p_i \ge 0 \}$$. 
     Determine if the following sets of $$p$$ are convex:
     
-    1. $\mathbb{P}(x > \alpha) \le \beta$
-    1. $\mathbb{E} |x^{201}| \le \alpha \mathbb{E}|x|$
-    1. $\mathbb{E} |x^{2}| \ge \alpha $
-    1. $\mathbb{V}x \ge \alpha$
+    1. \$$\mathbb{P}(x > \alpha) \le \beta$$
+    1. \$$\mathbb{E} \Vert x^{201}\Vert \le \alpha \mathbb{E}\Vert x \Vert$$
+    1. \$$\mathbb{E} \Vert x^{2}\Vert \ge \alpha $$
+    1. \$$\mathbb{V}x \ge \alpha$$
