@@ -128,7 +128,7 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * \$$d\langle X, Y\rangle = \langle dX, Y\rangle+ \langle X, dY\rangle$$
 * \$$d\left( \dfrac{X}{\phi}\right) = \dfrac{\phi dX - (d\phi) X}{\phi^2}$$
 * \$$d\left( \det X \right) = \det X \langle X^{-\top}, dX \rangle \$$
-* \$$d \text{tr } X = I$$
+* \$$d \text{tr } X = \langle I, dX\rangle$$
 * \$$df(g(x)) = \dfrac{df}{dg} \cdot dg(x)$$
 
 # References
