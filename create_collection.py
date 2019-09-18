@@ -20,13 +20,19 @@ parser.add_argument(
 parser.add_argument( 
     '--leave_sources', 
     default=True, 
-    help='provide the list of the chapters to be included in the collection (list of strings)' 
+    help='should the script leave all temporary files or not?' 
+) 
+parser.add_argument( 
+    '--hw_mode', 
+    default=False, 
+    help='in hw mode there is no additional space after examples' 
 ) 
 my_namespace = parser.parse_args() 
  
 title    		= my_namespace.title 
 chapters 		= my_namespace.chapters 
 leave_sources	= my_namespace.leave_sources 
+hw_mode			= my_namespace.hw_mode 
  
 def find_file_with_title(title, docs): 
 	path = os.getcwd() 
@@ -90,14 +96,16 @@ def catch_problem_from_string(string, path, temporal_path, number):
 	polished_string = polished_string.replace('\n1. ', '\nTASK. ', number-1) 
 	polished_string = polished_string[polished_string.find('\n1. ')+4:] 
 	polished_string = polished_string[:polished_string.find('\n1. ')] 
-	polished_string = polished_string.replace('\n    ', '\n') 
-	polished_string = polished_string.replace('\n\t', '\n')
 	polished_string = handle_with_kramdowns_math_list(polished_string) 
 	return polished_string 
  
 def handle_with_kramdowns_math_list(string): 
 	polished_string = string.replace('\n* \$$', '\n* $$')
-	polished_string = polished_string.replace('\n1. \$$', '\n1. $$') 
+	polished_string = polished_string.replace('\n1. \$$'	, '\n1. $$')
+	polished_string = polished_string.replace('\t* \$$'		, '\t* $$')
+	polished_string = polished_string.replace('\t1. \$$'	, '\t1. $$')
+	polished_string = polished_string.replace('    * \$$'	, '\t* $$')
+	polished_string = polished_string.replace('    1. \$$'	, '\t1. $$')    
 	return polished_string
  
 
@@ -148,17 +156,25 @@ for chapter in chapters:
 		numbers 			= chapter[chapter.find('#')+1:].split(',') 
 		chapter 			= chapter[:chapter.rfind('#')] 
 		chapter_path 		= find_file_with_title(chapter, excersises) 
-		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)] 
+		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)]
+		if hw_mode:
+			main_file.write('\n# {}\n'.format(chapter)) 
 		with open(chapter_path) as f: 
 			polished_chapter = f.read() 
 			for number in numbers: 
 				excersises_counter += 1 
 				number 	= int(number) 
 				problem = catch_problem_from_string(polished_chapter, chapter_parent_path, os.path.join(path, pdf_folder_name, title), number) 
-				print(problem) 
-				main_file.write('\n\n##### Example {}\n'.format(excersises_counter)) 
-				main_file.write(problem) 
-				main_file.write('\n![](solution.svg)\n') 
+				print(problem)
+				if not hw_mode:
+					main_file.write('\n\n##### Example {}\n'.format(excersises_counter)) 
+					main_file.write(problem) 
+					main_file.write('\n![](solution.svg)\n') 
+				else:
+					main_file.write('\n1. ') 
+					main_file.write(problem) 
+					# if not main_file.read().endswith('\n'):
+					# 	main_file.write('\n') 
 		 
 	# Including material 
 	else: 
