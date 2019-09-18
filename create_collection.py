@@ -1,3 +1,5 @@
+# USAGE:
+# python create_collection.py --title "Seminar" --chapters "Matrix calculus", "Gradient descent", "#ex#Matrix calculus#1,2,3"
 # Parsing arguments 
 import argparse 
 import os, shutil 
@@ -17,7 +19,7 @@ parser.add_argument(
 ) 
 parser.add_argument( 
     '--leave_sources', 
-    default=False, 
+    default=True, 
     help='provide the list of the chapters to be included in the collection (list of strings)' 
 ) 
 my_namespace = parser.parse_args() 
@@ -89,24 +91,33 @@ def catch_problem_from_string(string, path, temporal_path, number):
 	polished_string = polished_string[polished_string.find('\n1. ')+4:] 
 	polished_string = polished_string[:polished_string.find('\n1. ')] 
 	polished_string = polished_string.replace('\n    ', '\n') 
-	polished_string = polished_string.replace('\n\t', '\n') 
+	polished_string = polished_string.replace('\n\t', '\n')
+	polished_string = handle_with_kramdowns_math_list(polished_string) 
 	return polished_string 
  
 def handle_with_kramdowns_math_list(string): 
 	return string.replace('\n* \$$', '\n* $$') 
  
- 
- 
- 
+
+
+
 # Creating new document and temporary folder 
-path = os.getcwd() 
-if not os.path.exists(os.path.join(path, title)): 
-	os.mkdir(os.path.join(path, title)) 
+pdf_folder_name = 'pdfs'
+path = os.getcwd()
+if not os.path.exists(os.path.join(path, pdf_folder_name)): 
+	os.mkdir(os.path.join(path, pdf_folder_name)) 
+	print("Temp folder created") 
+else: 
+	print("Temp folder is already exists") 
+
+path = os.getcwd()
+if not os.path.exists(os.path.join(path, pdf_folder_name, title)): 
+	os.mkdir(os.path.join(path, pdf_folder_name, title)) 
 	print("Folder created") 
 else: 
 	print("The folder is already exists") 
  
-filename = os.path.join(path, title, title+'.md') 
+filename = os.path.join(path, pdf_folder_name, title, title+'.md') 
  
 main_file = open(filename,"w+") 
 main_file.write("<!-- This file was created by Danya Merkulov's script. See fmin.xyz for more details -->\n") 
@@ -130,7 +141,7 @@ excersises_counter = 0
 for chapter in chapters: 
 	# Incuding excersises 
 	if chapter.startswith('#ex'): 
-		shutil.copy2(os.path.join(path, 'assets', 'images', 'solution.svg'), os.path.join(path, title)) 
+		shutil.copy2(os.path.join(path, 'assets', 'images', 'solution.svg'), os.path.join(path, pdf_folder_name, title)) 
 		chapter 			= chapter.replace('#ex#', '') 
 		numbers 			= chapter[chapter.find('#')+1:].split(',') 
 		chapter 			= chapter[:chapter.rfind('#')] 
@@ -141,7 +152,7 @@ for chapter in chapters:
 			for number in numbers: 
 				excersises_counter += 1 
 				number 	= int(number) 
-				problem = catch_problem_from_string(polished_chapter, chapter_parent_path, os.path.join(path, title), number) 
+				problem = catch_problem_from_string(polished_chapter, chapter_parent_path, os.path.join(path, pdf_folder_name, title), number) 
 				print(problem) 
 				main_file.write('\n\n##### Example {}\n'.format(excersises_counter)) 
 				main_file.write(problem) 
@@ -156,7 +167,7 @@ for chapter in chapters:
 			polished_chapter = f.read() 
 			polished_chapter = delete_header_from_string(polished_chapter) 
 			polished_chapter = increase_header_levels(polished_chapter) 
-			polished_chapter = change_relative_paths_to_absolute(polished_chapter, chapter_parent_path, os.path.join(path, title)) 
+			polished_chapter = change_relative_paths_to_absolute(polished_chapter, chapter_parent_path, os.path.join(path, pdf_folder_name, title)) 
 			polished_chapter = handle_with_liquid(polished_chapter) 
 			polished_chapter = handle_with_kramdowns_math_list(polished_chapter) 
 			main_file.write(polished_chapter) 
