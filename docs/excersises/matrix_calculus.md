@@ -71,7 +71,7 @@ nav_order: 0
     $$
 
 1. Find the gradient $$\nabla f(x)$$ and hessian $$f''(x)$$, if $$f(x) = \frac{1}{3}\|x\|_2^3$$
-1. Посчитать $$\nabla f(X)$$, if $$f(X) = \| AX - B\|_F, X \in \mathbb{R}^{k \times n}, A \in \mathbb{R}^{m \times k}, B \in \mathbb{R}^{m \times n}$$
+1. Calculate $$\nabla f(X)$$, if $$f(X) = \| AX - B\|_F, X \in \mathbb{R}^{k \times n}, A \in \mathbb{R}^{m \times k}, B \in \mathbb{R}^{m \times n}$$
 1. Calculate the derivatives of the loss function with respect to parameters $$\frac{\partial L}{\partial W}, \frac{\partial L}{\partial b}$$ for the single object $$x_i$$ (or, $$n = 1$$)
 ![](../simple_learning.svg)
 1. Find the gradient $$\nabla f(x)$$ and hessian $$f''(x)$$, if $$f(x) = \langle x, x\rangle^{\langle x, x\rangle}, x \in \mathbb{R}^p \setminus \{0\}$$
