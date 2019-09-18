@@ -96,7 +96,9 @@ def catch_problem_from_string(string, path, temporal_path, number):
 	return polished_string 
  
 def handle_with_kramdowns_math_list(string): 
-	return string.replace('\n* \$$', '\n* $$') 
+	polished_string = string.replace('\n* \$$', '\n* $$')
+	polished_string = polished_string.replace('\n1. \$$', '\n1. $$') 
+	return polished_string
  
 
 
