@@ -17,26 +17,26 @@ nav_order: 5
 1. При каких $$a,b,c$$ функция $$f(x,y,z) = x^2 + 2axy + by^2 + cz^2$$ выпукла, строго выпукла, сильно выпукла?
 1. Выпуклы ли следующие функции: $$f(x) = e^x - 1, \; x \in \mathbb{R};\;\;\; f(x_1, x_2) = x_1x_2, \; x \in \mathbb{R}^2_{++};\;\;\; f(x_1, x_2) = 1/(x_1x_2), \; x \in \mathbb{R}^2_{++}$$?
 1. Докажите, что множество $$S = \left\{ x \in \mathbb{R}^n \mid \prod\limits_{i=1}^n x_i \geq 1 \right\}$$ выпукло.
-1. Докажите, что функция $$f(X) = \mathbf{tr}(X^{-1}), X \in S^n_{++}$$ выпукла, а $$g(X) = (\det X)^{1/n}, X \in S^n_{++}$$ вогнута.
-1. Расстоянием Кульбака - Лейблера между между $$p,q \in \mathbb{R}^n_{++}$$ называется:
+1. Prove, that function $$f(X) = \mathbf{tr}(X^{-1}), X \in S^n_{++}$$ is convex, while $$g(X) = (\det X)^{1/n}, X \in S^n_{++}$$ is concave.
+1. Kullback–Leibler divergence between $$p,q \in \mathbb{R}^n_{++}$$ is:
 	
 	$$
 	D(p,q) = \sum\limits_{i=1}^n (p_i \log(p_i/q_i) - p_i + q_i)
 	$$
 	
-	Докажите, что $$D(p,q) \geq 0 \forall p,q \in \mathbb{R}^n_{++}$$ и $$D(p,q) = 0 \leftrightarrow p = q$$  
+	Prove, that $$D(p,q) \geq 0 \forall p,q \in \mathbb{R}^n_{++}$$ и $$D(p,q) = 0 \leftrightarrow p = q$$  
 	
-	Подсказка: 
+	Hint: 
 	$$
 	D(p,q) = f(p) - f(q) - \nabla f(q)^T(p-q), \;\;\;\; f(p) = \sum\limits_{i=1}^n p_i \log p_i
 	$$
-1. Пусть $$x$$ - действительнозначная переменная, принимающая конечный набор значений $$a_1 < a_2 < \ldots < a_n$$ с вероятностями $$\mathbb{P}(x = a_i) = p_i$$. Оцените выпуклость и вогнутость следующих функций от $$p$$ на множестве $$\left\{p \mid \sum\limits_{i=1}^n p_i = 1, p_i \ge 0 \right\}$$  
-* \$$\mathbb{E}x$$
-* \$$\mathbb{P}\{x \ge \alpha\}$$
-* \$$\mathbb{P}\{\alpha \le x \le \beta\}$$
-* \$$\sum\limits_{i=1}^n p_i \log p_i​$$
-* \$$\mathbb{V}x = \mathbb{E}(x - \mathbb{E}x)^2$$
-* \$$\mathbf{quartile}(x) = {\operatorname{inf}}\left\{ \beta \mid \mathbb{P}\{x \le \beta\} \ge 0.25 \right\}$$
+1. Let $$x$$ be a real variable with the values $$a_1 < a_2 < \ldots < a_n$$ with probabilities $$\mathbb{P}(x = a_i) = p_i$$. Derive the convexity or concavity of the following functions from $$p$$ on the set of $$\left\{p \mid \sum\limits_{i=1}^n p_i = 1, p_i \ge 0 \right\}$$  
+	* \$$\mathbb{E}x$$
+	* \$$\mathbb{P}\{x \ge \alpha\}$$
+	* \$$\mathbb{P}\{\alpha \le x \le \beta\}$$
+	* \$$\sum\limits_{i=1}^n p_i \log p_i​$$
+	* \$$\mathbb{V}x = \mathbb{E}(x - \mathbb{E}x)^2$$
+	* \$$\mathbf{quartile}(x) = {\operatorname{inf}}\left\{ \beta \mid \mathbb{P}\{x \le \beta\} \ge 0.25 \right\}$$ 
 1.  Определения выпуклости и сильной выпуклости. Критерии выпуклости и сильной выпуклости первого и второго порядков
 1.  Геометрическая интерпретация выпуклости и сильной выпуклости. (подпирание прямой и параболлой)
 1.  Приведите различные три операции сохраняющие выпуклость функции.
@@ -57,8 +57,8 @@ nav_order: 5
 
 1.  Выпукла ли функция $$f(X, y) = y^T X^{-1}y$$  на множестве $$\mathbf{dom} f = \{X, y \mid X + X^T \succeq 0\}$$ ? Известно, что эта функция выпукла, если $$X$$ - симметричная матрица (упражнение - доказать). Докажите выпуклость или приведите простой контпример.
 1.  Пусть функция $$h(x)$$ - выпуклая на $$\mathbb{R}$$ неубывающая функция, кроме того: $$h(x) = 0$$ при $$x \le 0$$. Докажите, что функция $$h\left(\|x\|_2\right)$$ выпукла на $$\mathbb{R}^n$$.
-1.  Является ли выпуклой функция, возвращающая арифметическое среднее координат вектора: $$a(x) = \frac{1}{n}\sum\limits_{i=1}^n x_i$$, геометрическое среднее: $$g(x) = \prod\limits_{i=1}^n \left(x_i \right)^{1/n}$$
-1.  Покажите, что функция, определенная на множестве всех положительных знаменателей является выпуклой
+1.  Is the function returning the arithmetic mean of vector coordinates is a convex one: : $$a(x) = \frac{1}{n}\sum\limits_{i=1}^n x_i$$, what about geometric mean: $$g(x) = \prod\limits_{i=1}^n \left(x_i \right)^{1/n}$$?
+1.  Show, that the following function is convex on the set of all positive denominators
 	
 	$$
 	f(x) = \dfrac{1}{x_1 - \dfrac{1}{x_2 - \dfrac{1}{x_3 - \dfrac{1}{\ldots}}}}, x \in \mathbb{R}^n
@@ -67,4 +67,4 @@ nav_order: 5
 1. Влияют ли линейные члены квадратичной функции на ее выпуклость? Сильную выпуклость?
 1. Пусть $$f(x) : \mathbb{R}^n \to \mathbb{R}$$ такова, что $$\forall x,y \to f\left( \dfrac{x+y}{2}\right) \leq \dfrac{1}{2}(f(x)+f(y))$$. Является ли такая функция выпуклой?
 1. Найти множество, на котором функция $$f(x,y) = e^{xy}$$ является выпуклой.
-1. Является ли функция $$f(x) = -x \ln x - (1-x) \ln (1-x)$$ выпуклой?
+1. Is $$f(x) = -x \ln x - (1-x) \ln (1-x)$$ convex? 
