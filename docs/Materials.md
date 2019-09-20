@@ -7,14 +7,14 @@ nav_order: 6
 
 # Materials
 
+## Books
+
 * [Universal gradient descent. Alexander Gasnikov](https://arxiv.org/ftp/arxiv/papers/1711/1711.00394.pdf) - (in Russian) - probably, the most comprehensive book on the modern numerical methods, which covers a lot of theoretical and practical aspects of mathematical programming. {% include tabs.html bibtex = '@article{gasnikov2017universal,
   title={Universal gradient descent},
   author={Gasnikov, Alexander},
   journal={arXiv preprint arXiv:1711.00394},
   year={2017}
 }'%}
-
-* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt. {% include tabs.html file='assets/files/ee227c-notes.pdf' %}
 
 * [Convex Optimization: Algorithms and Complexity](https://arxiv.org/pdf/1405.4980.pdf) by Sébastien Bubeck. 
 {% include tabs.html bibtex = '@article{bubeck2015convex,
@@ -36,10 +36,25 @@ nav_order: 6
   publisher={Cambridge university press}
 }' %}
 
+## Courses
+
+* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt. {% include tabs.html file='assets/files/ee227c-notes.pdf' %}
+
+
+## Blogs
+
 * [I'm a bandit](https://blogs.princeton.edu/imabandit/) blog by Sébastien Bubeck.
 
 * [Blog](http://blog.mrtz.org/) by Moritz Hardt.
 
 * [Blog](http://www.pokutta.com/blog/) by Sebastian Pokutta with great cheat sheets on optimization.
+
+* [Blog](http://ruder.io/) by Sebastian Ruder about NLP and optimization.
+
+## Software and apps
+
+* [Sci hub telegram bot](https://teleg.one/scihubot) allows you to access almost all the scientific papers in one click.
+
+## Other
 
 * [Nice set of python applied math etudes](https://www.numerical-tours.com/python/)
