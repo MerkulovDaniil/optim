@@ -21,7 +21,7 @@ This function is usually subjected to the domain $$(x+5)^2 + (y+5)^2 < 25$$, but
 
 # Algorithm
 
-## Concepts, used in algorithm:
+## Related definitions:
 
 * $$\textbf{Simplex}$$ -- polytope with the least possible number of vertices in $$n$$-dimensional space. (So, it's $$(n+1)$$-polytope.) In our $$2D$$ case it will be triangle.
 * $$\textbf{Best point }x_1$$ -- vertex of the simplex, function value in which is the smallest among all vertices.
@@ -42,7 +42,7 @@ takes into account cases when simplex becomes degenerate (three or more vertices
 
 ## Steps of the algorithm
 
-### $$1$$. Ordering
+**1. Ordering**
 
 Order vertices according to values in them:
 
@@ -50,11 +50,11 @@ $$f(x_1) \leqslant f(x_2) \leqslant \ldots \leqslant f(x_n) \leqslant f(x_{n+1})
 
 Check the termination condition. Possible exit with solution $$x_{\min} = x_1$$.
 
-### $$2$$. Centroid calculation
+**2. Centroid calculation**
 
 $$x_o = \dfrac{\sum\limits_{k=1}^{n}{x_k}}{n}$$
 
-### $$3$$. Reflection
+**3. Reflection**
 
 Calculate the reflected point $$x_r$$:
 
@@ -67,7 +67,7 @@ The next step is figured out according to the value of $$f(x_r)$$ in dependency 
 * $$f(x_1) \leqslant f(x_r) < f(x_n)$$: new simplex with $$x_{n+1} \rightarrow x_r$$. Go to step $$1$$.
 * $$f(x_r) \geqslant f(x_n)$$: Go to step $$5$$.
 
-### $$4$$. Expansion
+**4. Expansion**
 
 Calculate the expanded point $$x_e$$:
 
@@ -80,7 +80,7 @@ The next step is figured out according to the ratio between $$f(x_e)$$ and $$f(x
 * $$f(x_e) < f(x_r)$$: new simplex with $$x_{n+1} \rightarrow x_e$$. Go to step $$1$$.
 * $$f(x_e) > f(x_r)$$: new simplex with $$x_{n+1} \rightarrow x_r$$. Go to step $$1$$.
 
-### $$5$$. Contraction
+**5. Contraction**
 
 Calculate the contracted point $$x_c$$:
 
@@ -93,7 +93,7 @@ The next step is figured out according to the ratio between $$f(x_c)$$ and $$f(x
 * $$f(x_c) < f(x_{n+1})$$: new simplex with $$x_{n+1} \rightarrow x_c$$. Go to step $$1$$.
 * $$f(x_c) \geqslant f(x_{n+1})$$: Go to step $$6$$.
 
-### $$6$$. Shrinkage
+**6. Shrinkage**
 
 Replace all points of simplex $$x_i$$ with new ones, except for the best point $$x_1$$:
 
@@ -109,19 +109,19 @@ Go to step $$1$$.
 This algorithm, as any method in global optimization, is highly dependable on the initial coonditions. 
 For instance, if we use different initial simplex or different set of parameters $$\{ \alpha, \beta, \gamma, \sigma \}$$ the resulting optimal point will differ.
 
-## Example $$1$$. Some random initial simplex and default set of parameters
+## Some random initial simplex and default set of parameters
 
 ![](../nm_SquareDomain1.gif)
 
-## Example $$2$$. Different initial simplex and same set of parameters
+## Different initial simplex and same set of parameters
 
 ![](../nm_SquareDomain2.gif)
 
-## Example $$3$$. Same initial simplex and different set of parameters
+## Same initial simplex and different set of parameters
 
 ![](../nm_SquareDomain3.gif)
 
-## Example $$4$$. Round domain
+## Round domain
 
 ![](../nm_RoundDomain.gif)
 
