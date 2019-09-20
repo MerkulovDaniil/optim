@@ -39,8 +39,8 @@ $$ \begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
 | Convex<br/>Lipschitz-continious gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
 | $\mu$-Strongly convex<br/>Lipschitz-continious hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
 
-* $$R = \\| x_0 - x^*\\|$$ - initial distance
-* $$\overline{R} = \dfrac{2\mu}{M}$$
+* $$R = \| x_0 - x^*\| $$ - initial distance
+* \$$\overline{R} = \dfrac{2\mu}{M}$$
 
 ## Materials
 
