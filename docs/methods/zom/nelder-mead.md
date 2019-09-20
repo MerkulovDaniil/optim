@@ -1,8 +1,23 @@
 ---
 layout: default
-title: Nelder-Mead
-parent: Applications
+title: Nelder–Mead
+parent: Zero order methods
+grand_parent: Methods
+nav_order: 1
 ---
+
+{% include tabs.html bibtex = '@article{nelder1965simplex,
+  title={A simplex method for function minimization},
+  author={Nelder, John A and Mead, Roger},
+  journal={The computer journal},
+  volume={7},
+  number={4},
+  pages={308--313},
+  year={1965},
+  publisher={Oxford University Press}
+}' file='assets/files/Nelder1965.pdf'%}
+
+
 
 # Problem
 
@@ -11,7 +26,9 @@ In this case, we can only rely on the values of the function at each point. Or, 
 
 Let's take, for instance, Mishra's Bird function:
 
-$$f(x,y) = \sin{y} \cdot e^{\left( 1 - \cos{x} \right)^2} + \cos{x} \cdot e^{\left( 1 - \sin{y} \right)^2} + (x - y)^2$$
+$$
+f(x,y) = \sin{y} \cdot e^{\left( 1 - \cos{x} \right)^2} + \cos{x} \cdot e^{\left( 1 - \sin{y} \right)^2} + (x - y)^2
+$$
 
 ![](../nm_mishra3d.svg)
 
@@ -46,19 +63,25 @@ takes into account cases when simplex becomes degenerate (three or more vertices
 
 Order vertices according to values in them:
 
-$$f(x_1) \leqslant f(x_2) \leqslant \ldots \leqslant f(x_n) \leqslant f(x_{n+1})$$
+$$
+f(x_1) \leqslant f(x_2) \leqslant \ldots \leqslant f(x_n) \leqslant f(x_{n+1})
+$$
 
 Check the termination condition. Possible exit with solution $$x_{\min} = x_1$$.
 
 **2. Centroid calculation**
 
-$$x_o = \dfrac{\sum\limits_{k=1}^{n}{x_k}}{n}$$
+$$
+x_o = \dfrac{\sum\limits_{k=1}^{n}{x_k}}{n}
+$$
 
 **3. Reflection**
 
 Calculate the reflected point $$x_r$$:
 
-$$x_r = x_o + \alpha \left( x_o - x_{n+1} \right)$$
+$$
+x_r = x_o + \alpha \left( x_o - x_{n+1} \right)
+$$
 
 where $$\alpha$$ -- reflection coefficient, $$\alpha > 0$$. (If $$\alpha \leqslant 0$$, reflected point $$x_r$$ will not overlap the centroid)
 
@@ -71,7 +94,9 @@ The next step is figured out according to the value of $$f(x_r)$$ in dependency 
 
 Calculate the expanded point $$x_e$$:
 
-$$x_e = x_o + \gamma \left( x_r - x_o \right)$$
+$$
+x_e = x_o + \gamma \left( x_r - x_o \right)
+$$
 
 where $$\gamma$$ -- expansion coefficient, $$\gamma > 1$$. (If $$\gamma < 1$$, expanded point $$x_e$$ will be contracted towards centroid, 
 if $$\gamma = 1$$: $$x_e = x_r$$)
@@ -84,7 +109,9 @@ The next step is figured out according to the ratio between $$f(x_e)$$ and $$f(x
 
 Calculate the contracted point $$x_c$$:
 
-$$x_c = x_o + \beta \left( x_{n+1} - x_o \right)$$
+$$
+x_c = x_o + \beta \left( x_{n+1} - x_o \right)
+$$
 
 where $$\beta$$ -- contraction coefficient, $$0 < \beta \leqslant 0.5$$. (If $$\beta > 0.5$$, contraction is insufficient, 
 if $$\beta \leqslant 0$$, contracted point $$x_c$$ overlaps the centroid)
@@ -97,7 +124,9 @@ The next step is figured out according to the ratio between $$f(x_c)$$ and $$f(x
 
 Replace all points of simplex $$x_i$$ with new ones, except for the best point $$x_1$$:
 
-$$x_i = x_1 + \sigma \left( x_i - x_1 \right)$$
+$$
+x_i = x_1 + \sigma \left( x_i - x_1 \right)
+$$
 
 where $$\sigma$$ -- shrinkage coefficient, $$0 < \sigma < 1$$. (If $$\sigma \geqslant 1$$, shrinked point $$x_i$$ overlaps the best point $$x_1$$, 
 if $$\sigma \leqslant 0$$, shrinked point $$x_i$$ becomes extended)
