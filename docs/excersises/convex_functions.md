@@ -7,14 +7,14 @@ nav_order: 5
 
 # Convex functions
 
-1. Покажите, что функция $$f(x) = \|x\|$$ выпукла на $$\mathbb{R}^n$$.
-1. Покажите, что $$f(x) = c^Tx + b$$ выпукла и вогнута. 
-1. Покажите, что функция $$f(x) = x^TAx$$, где $$A\succeq 0$$ - выпукла на $$\mathbb{R}^n$$.
-1. Показать, что функция $$f(A) = \lambda_{max}(A)$$ - выпукла, если $$A \in S^n$$.
-1. Доказать, что функция $$-\log\det X$$ выпукла по $$X \in S^n_{++}$$.
-1. Покажите с помощью критериев первого и второго порядков, что функция $$f(x) = \sum\limits_{i=1}^n x_i^4$$ выпукла.
-1. При каких $$x \in \mathbb{R}^n$$ функция $$f(x) = \dfrac{-1}{2(1 + x^Tx)}$$ выпукла, строго выпукла, сильно выпукла?  
-1. При каких $$a,b,c$$ функция $$f(x,y,z) = x^2 + 2axy + by^2 + cz^2$$ выпукла, строго выпукла, сильно выпукла?
+1. Show, that $$f(x) = \|x\|$$ is convex on $$\mathbb{R}^n$$.
+1. Show, that $$f(x) = c^Tx + b$$ is convex and concave. 
+1. Show, that $$f(x) = x^TAx$$, where $$A\succeq 0$$ - is convex on $$\mathbb{R}^n$$.
+1. Show, that $$f(A) = \lambda_{max}(A)$$ - is convex, if $$A \in S^n$$.
+1. Prove, that $$-\log\det X$$ is convex on $$X \in S^n_{++}$$.
+1. Show, that $$f(x)$$ is convex, using first and second order criteria, if $$f(x) = \sum\limits_{i=1}^n x_i^4$$.
+1. Find the set of $$x \in \mathbb{R}^n$$, where the function $$f(x) = \dfrac{-1}{2(1 + x^Tx)}$$ is convex, strictly convex, strongly convex?  
+1. Find the values of $$a,b,c$$, where $$f(x,y,z) = x^2 + 2axy + by^2 + cz^2$$ is convex, strictly convex, strongly convex? 
 1. Выпуклы ли следующие функции: $$f(x) = e^x - 1, \; x \in \mathbb{R};\;\;\; f(x_1, x_2) = x_1x_2, \; x \in \mathbb{R}^2_{++};\;\;\; f(x_1, x_2) = 1/(x_1x_2), \; x \in \mathbb{R}^2_{++}$$?
 1. Докажите, что множество $$S = \left\{ x \in \mathbb{R}^n \mid \prod\limits_{i=1}^n x_i \geq 1 \right\}$$ выпукло.
 1. Prove, that function $$f(X) = \mathbf{tr}(X^{-1}), X \in S^n_{++}$$ is convex, while $$g(X) = (\det X)^{1/n}, X \in S^n_{++}$$ is concave.
