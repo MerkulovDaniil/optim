@@ -25,7 +25,7 @@ $$
 * Если множество - открыто, и точка в нем не лежит, то её проекции на это множество не существует
 * Если точка лежит в множестве, то её проекция - это сама точка
 * 	$$
-	\pi_S(\mathbf{y}) = \underset{\mathbf{y}}{\operatorname{argmin}} \|\mathbf{x}-\mathbf{y}\|
+	\pi_S(\mathbf{y}) = \underset{\mathbf{x}}{\operatorname{argmin}} \|\mathbf{x}-\mathbf{y}\|
 	$$
 
 * Пусть $$S \subseteq \mathbb{R}^n$$ - выпуклое замкнутое множество. Пусть так же имеются точки $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Тогда если для всех $$\mathbf{x} \in S$$ справедливо неравенство: 
