@@ -113,7 +113,7 @@ $$
 	$$
 
 	$$
-	 \alpha (c^Tx) - \alpha (c^T y) - \alpha^2 c^Tc) = 
+	 \alpha (c^Tx) - \alpha (c^T y) - \alpha^2 (c^Tc) = 
 	$$
 
 	$$
@@ -134,10 +134,6 @@ $$
 * Из рисунка строим гипотезу: $$\pi = y + \sum\limits_{i=1}^m\alpha_i A_i = y + A^T \alpha$$. Коэффициент $$\alpha$$ подбирается так, чтобы $$\pi \in S$$: $$A \pi = b$$, т.е.: 
 
 	$$
-	c^T (y + A^T \alpha) = b
-	$$
-
-	$$
 	A(y + A^T\alpha) = b
 	$$
 
@@ -156,7 +152,7 @@ $$
 	$$
 
 	$$
-	 \alpha^T (Ax) - \alpha^T (A y) - \alpha^T AA^T \alpha) = 
+	 \alpha^T (Ax) - \alpha^T (A y) - \alpha^T (AA^T \alpha) = 
 	$$
 
 	$$
