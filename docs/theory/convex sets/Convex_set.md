@@ -7,7 +7,7 @@ nav_order: 2
 ---
 
 # Line segment
-Даны 2 точки $$x_1, x_2 \in \mathbb{R}^n$$. Тогда отрезок, соединяющий их определяется следующим образом:
+Suppose $$x_1, x_2 $$ are two points in $$\mathbb{R^n}$$. Then the line segment between them is defined as follows:
 
 $$
 x = \theta x_1 + (1 - \theta)x_2, \theta \in [0,1]
@@ -16,17 +16,17 @@ $$
 ![center](../line_segment.svg)
 
 # Convex set
-Множество $$C$$ называется выпуклым, если для любых $$x_1, x_2$$ из $$A$$ отрезок, соединяющий их, так же лежит в $$C$$, т.е. 
+The set $$S$$ is called **convex** if for any $$x_1, x_2$$ from $$S$$ the line segment between them also lies in $$S$$, i.e. 
 
 $$
-\forall \theta \in [0,1], \forall x_1, x_2 \in C: \\ \theta x_1 + (1- \theta) x_2 \in C
+\forall \theta \in [0,1], \forall x_1, x_2 \in S: \\ \theta x_1 + (1- \theta) x_2 \in S
 $$
 
 ## Examples: 
 
-* Любое афинное множество
-* Луч
-* Отрезок
+* Any affine set
+* Ray
+* Line segment
 
 ![center](../convex_1.svg)
 

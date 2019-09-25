@@ -16,7 +16,11 @@ $$
 ![](../line.svg)
 
 # Affine set
-The set $$A$$ is called **affine** if for any $$x_1, x_2$$ from $$A$$ the line passing through them also lies in $$A$$, i.e. $$\forall \theta \in \mathbb{R}, \forall x_1, x_2 \in A: \theta x_1 + (1- \theta) x_2 \in
+The set $$A$$ is called **affine** if for any $$x_1, x_2$$ from $$A$$ the line passing through them also lies in $$A$$, i.e. 
+
+$$
+\forall \theta \in \mathbb{R}, \forall x_1, x_2 \in A: \theta x_1 + (1- \theta) x_2 \in A
+$$
 
 ## Examples: 
 * \$$\mathbb{R}^n$$
