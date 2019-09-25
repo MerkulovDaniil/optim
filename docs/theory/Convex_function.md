@@ -142,14 +142,14 @@ $$
     For the infinite dimension case:
     
     $$
-    f \left( \int\limits_{S} p(x)dx \right) \leq \int\limits_{S} f(x)p(x)dx
+    f \left( \int\limits_{S} xp(x)dx \right) \leq \int\limits_{S} xf(x)p(x)dx
     $$
 
     If the integrals exist and $$p(x) \geq 0, \;\;\; \int\limits_{S} p(x)dx = 1$$
 * If the function $$f(x)$$ and the set $$S$$ are convex, then any local minimum $$x^* = \text{arg}\min\limits_{x \in S} f(x)$$ will be the global one. Strong convexity guarantees the uniqueness of the solution.
 
 # Operations that preserve convexity  
-  
+
 * Non-negative sum of the convex functions: $$\alpha f(x) + \beta g(x), (\alpha > 0 , \beta > 0)$$
 * Composition with affine function $$f(Ax + b)$$  is convex, if $$f(x)$$ is covex
 * Pointwise maximum (supremum): If $$f_1(x), \ldots, f_m(x)$$ are convex, then $$f(x) = \max \{f_1(x), \ldots, f_m(x)\}$$ is convex
