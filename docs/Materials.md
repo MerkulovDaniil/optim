@@ -42,7 +42,7 @@ nav_order: 6
   author={Nesterov, Yurii},
   volume={137},
   publisher={Springer}
-}', file='assets/files/Nesterov_the_best.pdf'%}
+}' file='assets/files/Nesterov_the_best.pdf'%}
 
 
 
