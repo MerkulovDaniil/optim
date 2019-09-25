@@ -156,7 +156,7 @@ $$
 	$$
 
 	$$
-	 \alpha^T (Ax) - \alpha^T (A y) - \alpha^T AA^T \alpha) = 
+	 \alpha^T (Ax) - \alpha^T (A y) - \alpha^T AA^T \alpha = 
 	$$
 
 	$$
