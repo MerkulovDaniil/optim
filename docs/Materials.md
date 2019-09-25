@@ -34,7 +34,17 @@ nav_order: 6
   author={Boyd, Stephen and Vandenberghe, Lieven},
   year={2004},
   publisher={Cambridge university press}
-}' %}
+}'%}
+
+* []()
+{% include tabs.html bibtex = '@book{nesterov2018lectures,
+  title={Lectures on convex optimization},
+  author={Nesterov, Yurii},
+  volume={137},
+  publisher={Springer}
+}', file='assets/files/Nesterov_the_best.pdf'%}
+
+
 
 ## Courses
 
