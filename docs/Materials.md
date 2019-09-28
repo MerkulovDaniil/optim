@@ -51,7 +51,7 @@ nav_order: 6
 * [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt. {% include tabs.html file='assets/files/ee227c-notes.pdf' %}
 
 
-## Blogs
+## Blogs and personal pages
 
 * [I'm a bandit](https://blogs.princeton.edu/imabandit/) blog by Sébastien Bubeck.
 
@@ -60,6 +60,8 @@ nav_order: 6
 * [Blog](http://www.pokutta.com/blog/) by Sebastian Pokutta with great cheat sheets on optimization.
 
 * [Blog](http://ruder.io/) by Sebastian Ruder about NLP and optimization.
+
+* [Personal page](https://richtarik.org/) of Peter Richtarik with announcements and news.
 
 ## Software and apps
 
