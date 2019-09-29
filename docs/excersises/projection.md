@@ -6,6 +6,11 @@ nav_order: 2
 ---
 
 # Projection
+1. Prove that projection is a nonexpansive operator, i.e. prove, that if $$S \in \mathbb{R}^{n}$$ is nonempty, closed and convex set, then for any $$(x_{1}, x_{2}) \in \mathbb{R}^{n} \times \mathbb{R}^{n}$$
+    
+    $$
+    \lVert \pi_{S}(x_{2}) - \pi_{S}(x_{1}) \rVert_{2} \leq \lVert x_{2} - x_{1} \rVert_{2}
+    $$
 
 1. Let us have two different points $$a, b \in \mathbb{R}^n$$. Prove that the set of points which in the Euclidean norm are closer to the point $$a$$ than to $$b$$ make up a half-space. Is this true for another norm?
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}$$, $$y \notin S$$
