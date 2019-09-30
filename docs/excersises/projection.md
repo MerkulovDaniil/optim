@@ -6,12 +6,6 @@ nav_order: 2
 ---
 
 # Projection
-1. Prove that projection is a nonexpansive operator, i.e. prove, that if $$S \in \mathbb{R}^{n}$$ is nonempty, closed and convex set, then for any $$(x_{1}, x_{2}) \in \mathbb{R}^{n} \times \mathbb{R}^{n}$$
-    
-    $$
-    \lVert \pi_{S}(x_{2}) - \pi_{S}(x_{1}) \rVert_{2} \leq \lVert x_{2} - x_{1} \rVert_{2}
-    $$
-
 1. Let us have two different points $$a, b \in \mathbb{R}^n$$. Prove that the set of points which in the Euclidean norm are closer to the point $$a$$ than to $$b$$ make up a half-space. Is this true for another norm?
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}$$, $$y \notin S$$
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$
@@ -24,3 +18,8 @@ nav_order: 2
 1. Find the projection of the matrix $$X$$ on a set of matrices of rank $$k, \;\;\; X \in \mathbb{R}^{m \times n}, k \leq n \leq m$$. In Frobenius norm and spectral norm.
 1. Find a projection of the $$X$$ matrix on a set of symmetrical positive semi-definite matrices of $$X \in \mathbb{R}^{n \times n}$$. In Frobenius norm and the scalar product associated with it.
 1. Find the projection $$\pi_S(y)$$ of point $$y$$ onto the set $$ S = \{x_1, x_2 \in \mathbb{R}^2 \mid \mid \vert x_1\vert + \vert x_2\vert = 1 \} $$ in $$\| \cdot \|_1$$ norm. Consider the different positions of $$y$$.
+1. Prove that projection is a nonexpansive operator, i.e. prove, that if $$S \in \mathbb{R}^{n}$$ is nonempty, closed and convex set, then for any $$(x_{1}, x_{2}) \in \mathbb{R}^{n} \times \mathbb{R}^{n}$$
+    
+    $$
+    \lVert \pi_{S}(x_{2}) - \pi_{S}(x_{1}) \rVert_{2} \leq \lVert x_{2} - x_{1} \rVert_{2}
+    $$
