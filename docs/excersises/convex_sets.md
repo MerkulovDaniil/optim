@@ -94,3 +94,5 @@ Hint: For $$0 \leq \theta \leq 1$$ it is valid, that $$a^\theta b^{1 - \theta} \
     1. \$$\mathbb{E} \vert x^{201}\vert \le \alpha \mathbb{E}\vert x \vert$$
     1. \$$\mathbb{E} \vert x^{2}\vert \ge \alpha $$
     1. \$$\mathbb{V}x \ge \alpha$$ 
+1. Prove, that ball in $$\mathbb{R}^n$$ (i.e. the following set $$\{ \mathbf{x} \mid \| \mathbf{x} - \mathbf{x}_c \| \leq r \}$$) - is convex. 
+1. Prove, that if $$S$$ is convex, then $$S+S = 2S$$. Give an counterexample in case, when $$S$$ - is not convex.
