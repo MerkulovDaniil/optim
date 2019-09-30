@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Uncategorized
-parent: Excersises
+parent: Exercises
 nav_order: 666
 ---
 

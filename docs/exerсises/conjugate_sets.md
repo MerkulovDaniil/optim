@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Conjugate sets
-parent: Excersises
+parent: Exercises
 nav_order: 4
 ---
 

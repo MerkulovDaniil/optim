@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Subgradient and subdifferential
-parent: Excersises
+parent: Exercises
 nav_order: 6
 ---
 

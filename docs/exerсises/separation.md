@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Separation
-parent: Excersises
+parent: Exercises
 nav_order: 3
 ---
 

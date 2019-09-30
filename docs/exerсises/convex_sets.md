@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Convex sets
-parent: Excersises
+parent: Exercises
 nav_order: 1
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: default
-permalink: /Excersises
+permalink: /Exercises
 has_children: true
-title: Excersises
+title: Exercises
 nav_order: 4
 ---
 

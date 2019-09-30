@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Convex functions
-parent: Excersises
+parent: Exercises
 nav_order: 5
 ---
 

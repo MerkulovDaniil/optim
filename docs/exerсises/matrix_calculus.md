@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Matrix calculus
-parent: Excersises
+parent: Exercises
 nav_order: 0
 ---
 
