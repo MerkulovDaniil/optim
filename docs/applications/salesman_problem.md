@@ -44,7 +44,7 @@ $$
 $$
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1CBXSIB9nRqA9nqmUYQpQrVSm1YOx_7go)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Travelling%20salesman%20problem.ipynb)
 
 # References
 * [General information about genetic algorithms](http://www.rubicite.com/Tutorials/GeneticAlgorithms.aspx)

@@ -162,4 +162,4 @@ For instance, if we use different initial simplex or different set of parameters
 ![](../nm_RoundDomain.svg)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1g4rPRq14T5eAF5E_z-5dJJ-fvfUbxfCS)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nelder%20Mead.ipynb)

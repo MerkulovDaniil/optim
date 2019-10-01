@@ -80,7 +80,7 @@ Note, that in this case the error stil proportional to the squared condition num
 
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1en8JLreLD4t4SUgzgxB7GyQ7y_fe8Z-X)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Least_squares.ipynb)
 # References
 * [CVXPY documentation](https://www.cvxpy.org/examples/basic/least_squares.html)
 * [Interactive example](http://setosa.io/ev/ordinary-least-squares-regression/)
