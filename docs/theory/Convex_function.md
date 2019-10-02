@@ -142,7 +142,7 @@ $$
     For the infinite dimension case:
     
     $$
-    f \left( \int\limits_{S} x p(x)dx \right) \leq \int\limits_{S} f(x)p(x)dx
+    f \left( \int\limits_{S} x p(x)dx \right) \leq \int\limits_{S} f((p(x))dx
     $$
 
     If the integrals exist and $$p(x) \geq 0, \;\;\; \int\limits_{S} p(x)dx = 1$$
