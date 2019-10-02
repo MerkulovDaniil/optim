@@ -20,7 +20,7 @@ $$
 Множество $$S^{**}$$ называется вторым сопряженным к множеству $$S$$, если:
 
 $$
-S^{**} = \{x \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S^*\}
+S^{**} = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S^*\}
 $$
 
 ## Inter-conjugate and self-conjugate sete
@@ -84,7 +84,7 @@ $$
 	$$
 
     Последнее исходит из того, что $$p \in B(0,1/r)$$, а $$x \in B(0,r)$$
-    
+  
     Значит, $$Y \subset X^*$$
 
 # Dual cones
