@@ -66,5 +66,13 @@ nav_order: 5
 
 1. Влияют ли линейные члены квадратичной функции на ее выпуклость? Сильную выпуклость?
 1. Пусть $$f(x) : \mathbb{R}^n \to \mathbb{R}$$ такова, что $$\forall x,y \to f\left( \dfrac{x+y}{2}\right) \leq \dfrac{1}{2}(f(x)+f(y))$$. Является ли такая функция выпуклой?
-1. Найти множество, на котором функция $$f(x,y) = e^{xy}$$ является выпуклой.
-1. Is $$f(x) = -x \ln x - (1-x) \ln (1-x)$$ convex? 
+1. Find the set, on which the function $$f(x,y) = e^{xy}$$ will be convex.
+1. Is $$f(x) = -x \ln x - (1-x) \ln (1-x)$$ convex?
+1. Prove, that adding $$\lambda \|x\|_2^2$$ to any convex function $$g(x)$$ ensures strong convexity of a resulting function $$f(x) = g(x) + \lambda \|x\|_2^2$$. Find the constant of the strong convexity $$\mu$$.
+1. Prove, that function
+	
+	$$
+	f(x) = \log\left( \sum\limits_{i=1}^n e^{x_i}\right)
+	$$
+
+	is convex using any differential criterion.
