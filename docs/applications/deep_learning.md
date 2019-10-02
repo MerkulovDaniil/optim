@@ -37,7 +37,7 @@ where we initially sample randomly only $$b \ll n$$ points and calculate sample 
 
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/15mwtjt_kxRNCQKHxGDpK9drgpEieT0y3)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Deep%20learning.ipynb)
 
 # References
 * [Optimization for Deep Learning Highlights in 2017](http://ruder.io/deep-learning-optimization-2017/)

@@ -136,38 +136,38 @@ main_file.write("%s\n"%title)
 # All documents list 
 docs = []  
 for root, dirs, files in os.walk(os.path.join(path, 'docs')): 
-	dirs[:] = [d for d in dirs if d != 'excersises'] 
+	dirs[:] = [d for d in dirs if d != 'exercises'] 
 	for file in files: 
 		if file.endswith(".md"): 
 			docs.append(os.path.join(root, file)) 
  
-excersises = []  
-for root, dirs, files in os.walk(os.path.join(path, 'docs', 'excersises')): 
+exercises = []  
+for root, dirs, files in os.walk(os.path.join(path, 'docs', 'exercises')): 
 	for file in files: 
 		if file.endswith(".md"): 
-			excersises.append(os.path.join(root, file)) 
+			exercises.append(os.path.join(root, file)) 
  
-excersises_counter = 0 
+exercises_counter = 0 
 for chapter in chapters: 
-	# Incuding excersises 
+	# Incuding exercises 
 	if chapter.startswith('#ex'): 
 		shutil.copy2(os.path.join(path, 'assets', 'images', 'solution.svg'), os.path.join(path, pdf_folder_name, title)) 
 		chapter 			= chapter.replace('#ex#', '') 
 		numbers 			= chapter[chapter.find('#')+1:].split(',') 
 		chapter 			= chapter[:chapter.rfind('#')] 
-		chapter_path 		= find_file_with_title(chapter, excersises) 
+		chapter_path 		= find_file_with_title(chapter, exercises) 
 		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)]
 		if hw_mode:
 			main_file.write('\n# {}\n'.format(chapter)) 
 		with open(chapter_path) as f: 
 			polished_chapter = f.read() 
 			for number in numbers: 
-				excersises_counter += 1 
+				exercises_counter += 1 
 				number 	= int(number) 
 				problem = catch_problem_from_string(polished_chapter, chapter_parent_path, os.path.join(path, pdf_folder_name, title), number) 
 				print(problem)
 				if not hw_mode:
-					main_file.write('\n\n##### Example {}\n'.format(excersises_counter)) 
+					main_file.write('\n\n##### Example {}\n'.format(exercises_counter)) 
 					main_file.write(problem) 
 					main_file.write('\n![](solution.svg)\n') 
 				else:

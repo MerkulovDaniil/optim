@@ -31,7 +31,7 @@ $$
 Problem of this type arise in space engeneering - just imagine, that the first body is the spaceship, while the second, say, Mars.
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1kEbqeg17abuhL8rXYvnKjzEw892psIpW)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Rendezvous.ipynb)
 
 # References
 * [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa

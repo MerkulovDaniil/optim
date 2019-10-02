@@ -36,7 +36,7 @@ nav_order: 6
   publisher={Cambridge university press}
 }'%}
 
-* []()
+* Lectures on Convex Optimization by Yurii Nesterov
 {% include tabs.html bibtex = '@book{nesterov2018lectures,
   title={Lectures on convex optimization},
   author={Nesterov, Yurii},
@@ -48,10 +48,17 @@ nav_order: 6
 
 ## Courses
 
-* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt. {% include tabs.html file='assets/files/ee227c-notes.pdf' %}
+* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt @ UC Berkley {% include tabs.html file='assets/files/ee227c-notes.pdf' %} 
+* [Convex Optimization](http://www.stat.cmu.edu/~ryantibs/convexopt/) course by Ryan Tibshirani @ CMU
+* [Convex Optimization](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) course by Lieven Vandenberghe @ UCLA
+* [Convex Optimization](http://suvrit.de/teach/ee227a/lectures.html) course by Suvrit Sra @ UC Berkley
+* [Advanced Optimization and Randomized Methods](https://www.cs.cmu.edu/~suvrit/teach/aopt.html) course by Alex Smola and Suvrit Sra @ CMU
+* [Optimizaion methods](https://github.com/amkatrutsa/MIPT-Opt) course by Alexandr Katrutsa @ MIPT
+* [Convex Analysis and Optimization](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-253-convex-analysis-and-optimization-spring-2012/) course by Dimitri Bertsekas @ MIT
+* [Optimization for Machine Learning](https://github.com/epfml/OptML_course) course by Martin Jaggi @ EPFL
 
 
-## Blogs
+## Blogs and personal pages
 
 * [I'm a bandit](https://blogs.princeton.edu/imabandit/) blog by Sébastien Bubeck.
 
@@ -60,6 +67,10 @@ nav_order: 6
 * [Blog](http://www.pokutta.com/blog/) by Sebastian Pokutta with great cheat sheets on optimization.
 
 * [Blog](http://ruder.io/) by Sebastian Ruder about NLP and optimization.
+
+* [Personal page](https://richtarik.org/) of Peter Richtarik with announcements and news.
+
+* [Personal page](http://suvrit.de) of Suvrit Sra.
 
 ## Software and apps
 

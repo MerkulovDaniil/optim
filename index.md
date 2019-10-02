@@ -15,7 +15,7 @@ The site contains following parts:
 
 * {% include link.html title="Theory"%}
 * {% include link.html title="Methods"%}
-* {% include link.html title="Excersises"%}
+* {% include link.html title="Exercises"%}
 * {% include link.html title="Applications"%}
 
 The site has simple built-in search 🔍. You can use it to find anything you want.
