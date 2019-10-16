@@ -25,7 +25,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 	f(x) + f^*(y) \ge \langle y,x \rangle
 	$$
 
-* Let the functions $$f(x). f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function.
+* Let the functions $$f(x), f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function.
 
 ![](../doubl_conj.svg)
 
