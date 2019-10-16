@@ -7,28 +7,29 @@ nav_order: 5
 
 # Conjugate (dual) function
 
-Пусть $$f: \mathbb{R}^n \to \mathbb{R}$$. 
-Функция $$f^*: \mathbb{R}^n \to \mathbb{R}$$ называется сопряжённой функцией к функции $$f(x)$$ и определена как
+Let $$f: \mathbb{R}^n \to \mathbb{R}$$. 
+The function $$f^*: \mathbb{R}^n \to \mathbb{R}$$ is called convex conjugate (Fenchel's conjugate, dual) $$f(x)$$ and is defined as follows:
 
 $$
 f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right).
 $$
-Область определения $$f^*$$  это множество таких $$y$$, что супремум конечен. 
+
+Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$, where the supremum is finite. 
 ![](../conj.svg)
 
 ## Properties
-* $$f^*(y)$$ - выпуклая функция как поточечный супремум функций выпуклых по $$y$$
-* Неравенство Фенхеля - Юнга: 
+* $$f^*(y)$$ - always convex function (point-wise supremum of convex functions) on $$y$$
+* Fenchel–Young inequality: 
 	
 	$$
 	f(x) + f^*(y) \ge \langle y,x \rangle
 	$$
 
-* Пусть функции $$f(x). f^*(y), f^{**}(x)$$ определены на $$\mathbb{R}^n$$. Тогда $$f^{**}(x) = f(x)$$ тогда и только тогда, когда $$f(x)$$ - выпуклая функция.
+* Let the functions $$f(x). f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function.
 
 ![](../doubl_conj.svg)
 
-* Частный случай сопряжения, когда функция дифференцируема называется преобразованием Лежандра. Пусть $$f(x)$$ - выпукла и дифференцируема, $$\mathbf{dom}\; f = \mathbb{R}^n$$. Тогда $$x^* = \underset{x}{\operatorname{argmin}} \langle x,y\rangle - f(x)$$. В этом случае $$y = \nabla f(x^*)$$. Стало быть:
+* The Legendre transformation as a special case of Fenchel's conjugate (in case of differentiable function). Let $$f(x)$$ - convex and differentiable, $$\mathbf{dom}\; f = \mathbb{R}^n$$. Then $$x^* = \underset{x}{\operatorname{argmin}} \langle x,y\rangle - f(x)$$. In that case $$y = \nabla f(x^*)$$. That's why:
 	
 	$$
 	f^*(y) = \langle \nabla f(x^*), x^* \rangle - f(x^*)
@@ -38,13 +39,13 @@ $$
 	f^*(y) = \langle \nabla f(z), z \rangle - f(z), \;\;\;\;\;\; y = \nabla f(z), \;\; z \in \mathbb{R}^n
 	$$
 
-* Пусть $$f(x,y) = f_1(x) + f_2(y)$$, где $$f_1, f_2$$ - выпуклые функции, тогда 
+* Let $$f(x,y) = f_1(x) + f_2(y)$$, where $$f_1, f_2$$ - convex functions, then 
 	
 	$$
 	f^*(p,q) = f_1^*(p) + f_2^*(q)
 	$$
 
-* Пусть $$f(x) \le g(x)\;\; \forall x \in X$$. Пусть так же $$f^*(y), g^*(y)$$ определены на $$Y$$. Тогда $$\forall x \in X, \forall y \in Y$$
+* Let $$f(x) \le g(x)\;\; \forall x \in X$$. Let also $$f^*(y), g^*(y)$$ are defined on $$Y$$. Then $$\forall x \in X, \forall y \in Y$$
 	
 	$$
 	f^*(y) \ge g^*(y) \;\;\;\;\;\; f^{**}(y) \le g^{**}(y)
@@ -52,13 +53,13 @@ $$
 
 ## Examples
 
-Схема поиска сопряженной функции, в целом, стандартна:
-1. Запись $$f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$
-1. Поиск тех значений $$y$$, при которых $$ \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$ конечен. Эти значения составляют область определения сопряженной функции $$f^*(y)$$
-1. Поиск $$x^*$$, при котором $$f(x,y)$$ достигает своего максимального значения как функция по $$x$$. $$f^*(y) = f(x^*, y)$$
+The scheme of recovering the convex conjugate is pretty algorithmic:
+1. Write down the definition $$f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$
+1. Find those $$y$$, where $$ \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$ is finite. That's the domain of the dual function $$f^*(y)$$
+1. Find $$x^*$$, which maximize $$f(x,y)$$ as a function on $$x$$. $$f^*(y) = f(x^*, y)$$
 
 ### 1 
-Найти $$f^*(y)$$, если $$f(x) = ax + b$$
+Find $$f^*(y)$$, if $$f(x) = ax + b$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx - ax - b$$
@@ -66,7 +67,7 @@ $$
 * Значит, $$f^*(a) = -b$$
 
 ### 2
-Найти $$f^*(y)$$, если $$f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$$
+Find $$f^*(y)$$, if $$f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx + \log x$$.
@@ -74,7 +75,7 @@ $$
 * Её максимум достигается при $$x = -1/y$$. Значит, $$f^*(y) = -\log(-y) - 1$$
 
 ### 3
-Найти $$f^*(y)$$, если $$f(x) = e^x$$
+Find $$f^*(y)$$, if $$f(x) = e^x$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx -e^x$$.
@@ -82,7 +83,7 @@ $$
 * Её максимум достигается при $$x = \log y$$. Значит, $$f^*(y) = y \log y - y$$. Полагая, что $$0 \log 0 = 0$$.
 
 ### 4
-Найти $$f^*(y)$$, если $$f(x) = x \log x, x \neq 0, \;\;\; f(0) = 0, \;\;\; x \in \mathbb{R}_+$$
+Find $$f^*(y)$$, if $$f(x) = x \log x, x \neq 0, \;\;\; f(0) = 0, \;\;\; x \in \mathbb{R}_+$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =xy - x \log x$$.
@@ -90,7 +91,7 @@ $$
 * Её максимум достигается при $$x = e^{y-1}$$. Значит, $$f^*(y) = e^{y-1}$$.
 
 ### 5
-Найти $$f^*(y)$$, если $$f(x) =\frac{1}{2} x^T A x, \;\;\; A \in \mathbb{S}^n_{++}$$
+Find $$f^*(y)$$, if $$f(x) =\frac{1}{2} x^T A x, \;\;\; A \in \mathbb{S}^n_{++}$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =y^Tx - \frac{1}{2}x^TAx$$.
@@ -98,7 +99,7 @@ $$
 * Её максимум достигается при $$x = A^{-1}y$$. Значит, $$f^*(y) =  \frac{1}{2}y^TA^{-1}y$$.
 
 ### 6
-Найти $$f^*(y)$$, если $$f(x) =\max\limits_{i} x_i, \;\;\; x \in \mathbb{R}^n$$
+Find $$f^*(y)$$, if $$f(x) =\max\limits_{i} x_i, \;\;\; x \in \mathbb{R}^n$$
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =y^Tx - \max\limits_{i}x_i$$.
