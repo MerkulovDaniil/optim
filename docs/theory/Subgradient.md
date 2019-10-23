@@ -120,7 +120,7 @@ $$\partial f(x) = q(g(x))^{q-1} \partial g(x)$$
 По теореме о поточечном максимуме:
 
 $$
-\partial g(x) = \begin{cases} \partial f_0(x), \quad f_0(x) > 0,\\ \{0\}, \quad f_0(x) < 0 \\ \{a \mid a = \lambda a', \; 0 \le \lambda \le 1, \; a' \in \partial f_0(x), \;\; f_0(x) = 0 \} \end{cases}
+\partial g(x) = \begin{cases} \partial f_0(x), \quad f_0(x) > 0,\\ \{0\}, \quad f_0(x) < 0 \\ \{a \mid a = \lambda a', \; 0 \le \lambda \le 1, \; a' \in \partial f_0(x)\}, \;\; f_0(x) = 0 \end{cases}
 $$
 
 ## 4
