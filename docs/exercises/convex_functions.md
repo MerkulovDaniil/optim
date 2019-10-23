@@ -76,3 +76,9 @@ nav_order: 5
 	$$
 
 	is convex using any differential criterion.
+1. Prove, that a function $$f$$ is strongly convex with parameter $$\mu$$ if and only if the function
+	$$
+	x \mapsto f(x)- \frac{\mu}{2} \|x\|^{2}
+	$$
+	is convex.
+	

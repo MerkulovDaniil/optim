@@ -54,26 +54,26 @@ nav_order: 4
     * \$$K = \mathbb{R}^2$$
     * \$$K = \{(x_1, x_2) \mid \vert x_1\vert \leq x_2\}$$
     * \$$K = \{(x_1, x_2) \mid x_1 + x_2 = 0\}$$
-1. Найти и изобразить на плоскости множество, сопряженное к многогранному конусу: 
+1. Find and sketch on the plane a conjugate set to a multifaced cone: 
     
     $$
      S = \mathbf{conv} \left\{ (-4,-1), (-2,-1), (-2,1)\right\} + \mathbf{cone} \left\{ (1,0), (2,1)\right\} 
     $$
 
-1. Найти и изобразить на плоскости множество, сопряженное к полиэдру: 
+1. Find and sketch on the plane a conjugate set to a polyhedra: 
     
     $$
     S = \left\{ x \in \mathbb{R}^2 \mid -3x_1 + 2x_2 \le 7, x_1 + 5x_2 \le 9, x_1 - x_2 \le 3, -x_2 \le 1\right\}
     $$
 
-1. Доказать, что если понятие сопряженного множества к множеству $$S$$ вводить как: 
+1. Prove, that if we define the conjugate set to $$S$$ as follows: 
     
     $$
     S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \le 1 \;\; \forall x \in S\}, 
     $$
 
-    ,то единичный шар с центром в нуле - единственное самосопряженное множество в $$\mathbb{R}^n$$.
-1. Найти множество, сопряженное к эллипсоиду: 
+    , then unit ball with the zero point as the center is the only self conjugate set in $$\mathbb{R}^n$$.
+1. Find the conjugate set to the ellipsoid: 
     
     $$
      S = \left\{ x \in \mathbb{R}^n \mid \sum\limits_{i = 1}^n a_i^2 x_i^2 \le \varepsilon^2 \right\}

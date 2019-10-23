@@ -67,7 +67,7 @@ $$
 
 ## Second order differential criterion of convexity
 
-Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ if and only if $$\forall x \in \mathbf{relint}(S)$$:
+Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
 
 $$
 \nabla^2 f(x) \succeq 0
@@ -118,7 +118,7 @@ f(x + \Delta x) \ge f(x) + \nabla f^T(x)\Delta x + \dfrac{\mu}{2}\|\Delta x\|^2
 $$
 
 ## Second order differential criterion of strong convexity
-Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is called $$\mu$$-strogly convex if and only if $$\forall x \in \mathbf{relint}(S)$$:
+Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is called $$\mu$$-strogly convex if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
 
 $$
 \nabla^2 f(x) \succeq \mu I
