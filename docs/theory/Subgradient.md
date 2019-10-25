@@ -120,7 +120,7 @@ $$\partial f(x) = q(g(x))^{q-1} \partial g(x)$$
 По теореме о поточечном максимуме:
 
 $$
-\partial g(x) = \begin{cases} \partial f_0(x), \quad f_0(x) > 0,\\ \{0\}, \quad f_0(x) < 0 \\ \{a \mid a = \lambda a', \; 0 \le \lambda \le 1, \; a' \in \partial f_0(x), \;\; f_0(x) = 0 \} \end{cases}
+\partial g(x) = \begin{cases} \partial f_0(x), \quad f_0(x) > 0,\\ \{0\}, \quad f_0(x) < 0 \\ \{a \mid a = \lambda a', \; 0 \le \lambda \le 1, \; a' \in \partial f_0(x)\}, \;\; f_0(x) = 0 \end{cases}
 $$
 
 ## 4
@@ -150,7 +150,7 @@ $$
 
 Рассмотрим эту сумму как поточечный максимум линейных функций по $$x$$: $$g(x) = s^\top x$$, где $$s_i = \{ -1, 1\}$$. Каждая такая функция однозначно определяется набором коэффициентов $$\{s_i\}_{i=1}^n$$.
 
-Тогда по теореме Моро Рокафеллара, в каждой точке $$\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x_0)} \partial g_i(x)\right)$
+Тогда по теореме Моро Рокафеллара, в каждой точке $$\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x_0)} \partial g_i(x)\right)$$
 
 Заметим, что $$\partial g(x) = \partial \left( \max \{s^\top x, -s^\top x\} \right) = \begin{cases} -s,  &s^\top x < 0\\ \mathbf{conv}(-s;s), &s^\top x = 0 \\ s,  &s^\top x > 0 \end{cases}$$. 
 
