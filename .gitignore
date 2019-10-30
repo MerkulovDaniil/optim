@@ -8,3 +8,5 @@ node_modules
 Matrix Calculus/
 
 pdfs/
+assets/Notebooks/.ipynb_checkpoints
+.jekyll-metadata

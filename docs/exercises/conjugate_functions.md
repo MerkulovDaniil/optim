@@ -20,6 +20,9 @@ nav_order: 7
 1. Find $$f^*(Y)$$, if $$f(X) = - \ln \det X, X \in \mathbb{S}^n_{++}$$
 1. Find $$f^*(y)$$, if $$f(x) = \|x\|$$
 1. Find $$f^*(y)$$, if $$f(x) = \dfrac{1}{2}\|x\|^2$$
+1. Name any 3 non-trivial facts about conjugate function.
+1. Find conjugate function to the $$f(x) = \dfrac{1}{x}, \;\; x \in \mathbb{R}_{++}$$
+1. Find conjugate function to the $$f(x) = x^p, \;\; x \in \mathbb{R}_{++}, \;\; p>1$$
 1. Prove, that if $$f(x_1, x_2) = g_1(x_1) + g_2(x_2)$$, then $$f^*(y_1, y_2) = g_1^*(y_1) + g_2^*(y_2)$$
 1. Prove, that if $$f(x) = g(x-b)$$, then $$f^*(y) = b^\top y + g^*(y)$$
 1. Prove, that if $$f(x) = \alpha g(x)$$, then $$f^*(y) = \alpha g^*(y/\alpha)$$
