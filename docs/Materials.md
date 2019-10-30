@@ -44,6 +44,22 @@ nav_order: 6
   publisher={Springer}
 }' file='assets/files/Nesterov_the_best.pdf'%}
 
+* Методы оптимизации, Часть I. Введение в выпуклый анализ и теорию оптимизации
+{% include tabs.html bibtex = '@article{жадан2014методы,
+  title={Методы оптимизации. Часть 1. Введение в выпуклый анализ и теорию оптимизации: учебное пособие},
+  author={Жадан, ВГ},
+  journal={М.: МФТИ},
+  year={2014}
+}' file='assets/files/Zhadan_1.pdf'%}
+
+* Методы оптимизации, Часть II. Численные алгоритмы
+{% include tabs.html bibtex = '@article{жадан2015методы,
+  title={Методы оптимизации. Часть 2. Численные алгоритмы: учебное пособие},
+  author={Жадан, ВГ},
+  journal={М.: МФТИ},
+  year={2015}
+}' file='assets/files/Zhadan_2.pdf'%}
+
 
 
 ## Courses
