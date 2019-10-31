@@ -251,7 +251,7 @@ $$
 2.
 	$$ \begin{split}
     & g(x^*) = 0 \\
-    & - \nabla f(x^*) = \lambda g(x^*), \;\; \lambda > 0 \\
+    & - \nabla f(x^*) = \lambda \nabla g(x^*), \;\; \lambda > 0 \\
     & \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
     \end{split}
     $$
