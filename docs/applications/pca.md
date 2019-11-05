@@ -104,7 +104,7 @@ We have the dataset matrix $$A \in \mathbb{R}^{150 \times 4}$$
 ![](../pca_pr_iris.svg)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Total%20variation%20inpainting.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PCA.ipynb)
 
 # Related materials
 * [Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)
