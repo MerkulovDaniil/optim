@@ -72,7 +72,7 @@ $$
 
 * $$\partial (\alpha f)(x) = \alpha \partial f(x)$$, for   $$\alpha \geq 0$$
 * $$\partial (\sum f_i)(x) = \sum \partial f_i (x)$$,  $$f_i$$ - выпуклые функции
-* $$\partial (f(Ax + b))(x) = A^T\partial f(Ax + b) $$ $$f$$ - выпуклая функция}
+* $$\partial (f(Ax + b))(x) = A^T\partial f(Ax + b) $$, $$f$$ - выпуклая функция
 
 # Examples
 Концептуально, различают три способа решения задач на поиск субградиента:
