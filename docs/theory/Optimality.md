@@ -120,11 +120,11 @@ $$
 
 Пусть в процессе такого движения мы пришли в точку, где 
 $$
-\nabla f(x) = \mu \nabla h(x)
+\nabla f(x) = \lambda \nabla h(x)
 $$
 
 $$
-\langle  \delta x, - \nabla f(x)\rangle = -\langle  \delta x, \mu\nabla h(x)\rangle = 0  
+\langle  \delta x, - \nabla f(x)\rangle = -\langle  \delta x, \lambda\nabla h(x)\rangle = 0  
 $$
 
 Тогда мы пришли в точку бюджетного множества, двигаясь из которой не получится уменьшить нашу функцию. Это и есть локальный минимум в ограниченной задаче:)
@@ -134,20 +134,20 @@ $$
 Так давайте определим функцию Лагранжа (исключительно для удобства):
 
 $$
-L(x, \mu) = f(x) + \mu h(x)
+L(x, \lambda) = f(x) + \lambda h(x)
 $$
 
 Тогда точка $$x^*$$ - локальный минимум описанной выше задачи, тогда и только тогда, когда:
 
 $$
 \begin{split}
-& \nabla_x L(x^*, \mu^*) = 0 \text{ то, что мы написали выше}\\
-& \nabla_\mu L(x^*, \mu^*) = 0 \text{ условие нахождения в бюджетном множестве}\\
-& \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
+& \nabla_x L(x^*, \lambda^*) = 0 \text{ то, что мы написали выше}\\
+& \nabla_\lambda L(x^*, \lambda^*) = 0 \text{ условие нахождения в бюджетном множестве}\\
+& \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
 \end{split}
 $$
 
-Сразу же заметим, что $$L(x^*, \mu^*) = f(x^*)$$.
+Сразу же заметим, что $$L(x^*, \lambda^*) = f(x^*)$$.
 
 ### General formulation
 
@@ -161,16 +161,16 @@ $$
 Solution 
 
 $$
-L(x, \mu) = f(x) + \sum\limits_{i=1}^m\mu_i g_i(x) = f(x) + \mu^\top g(x)
+L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i g_i(x) = f(x) + \lambda^\top g(x)
 $$
 
-Пусть $$f(x)$$ и $$h_i(x)$$ дважды дифференцируемы в точке $$x^*$$ и непрерывно дифференцируемы в некоторой окрестности $$x^*$$. Условия локального минимума для $$x \in \mathbb{R}^n, \mu \in \mathbb{R}^m $$ запишутся как
+Пусть $$f(x)$$ и $$h_i(x)$$ дважды дифференцируемы в точке $$x^*$$ и непрерывно дифференцируемы в некоторой окрестности $$x^*$$. Условия локального минимума для $$x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ запишутся как
 
 $$
 \begin{split}
-& \nabla_x L(x^*, \mu^*) = 0 \\
-& \nabla_\mu L(x^*, \mu^*) = 0 \\
-& \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
+& \nabla_x L(x^*, \lambda^*) = 0 \\
+& \nabla_\lambda L(x^*, \lambda^*) = 0 \\
+& \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
 \end{split}
 $$
 
@@ -251,8 +251,8 @@ $$
 2.
 	$$ \begin{split}
     & g(x^*) = 0 \\
-    & - \nabla f(x^*) = \lambda \nabla g(x^*), \;\; \lambda > 0 \\
-    & \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
+    & - \nabla f(x^*) = \mu \nabla g(x^*), \;\; \mu > 0 \\
+    & \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
     \end{split}
     $$
    
@@ -270,30 +270,30 @@ $$
 Определим функцию Лагранжа:
 
 $$
-L (x, \lambda) = f(x) + \lambda g(x)
+L (x, \mu) = f(x) + \mu g(x)
 $$
 
 Тогда точка $$x^*$$ - локальный минимум описанной выше задачи, тогда и только тогда, когда:
 
 $$
 \begin{split}
-    & (1) \; \nabla_x L (x^*, \lambda^*) = 0 \\
-    & (2) \; \lambda^* \geq 0 \\
-    & (3) \; \lambda^* g(x^*) = 0 \\
+    & (1) \; \nabla_x L (x^*, \mu^*) = 0 \\
+    & (2) \; \mu^* \geq 0 \\
+    & (3) \; \mu^* g(x^*) = 0 \\
     & (4) \; g(x^*) \leq 0\\
-    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
+    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
 \end{split}
 $$
 
-Сразу же заметим, что $$L(x^*, \lambda^*) = f(x^*)$$. Условия $$\lambda^* > 0 , (1), (4)$$ при этом реализуют первый сценарий, а условия $$\lambda^* > 0 , (1), (3)$$ - второй.
+Сразу же заметим, что $$L(x^*, \mu^*) = f(x^*)$$. Условия $$\mu^* > 0 , (1), (4)$$ при этом реализуют первый сценарий, а условия $$\mu^* > 0 , (1), (3)$$ - второй.
 
 ### General formulation
 
 $$
 \begin{split}
 & f(x) \to \min\limits_{x \in \mathbb{R}^n}\\
-\text{s.t. } & g_i(x) = 0, \; i = 1,\ldots,m\\
-& h_j(x) \leq 0, \; j = 1,\ldots, p
+\text{s.t. } & g_i(x) \leq 0, \; i = 1,\ldots,m\\
+& h_j(x) = 0, \; j = 1,\ldots, p
 \end{split}
 $$
 
@@ -302,7 +302,7 @@ $$
 Solution
 
 $$
-L(x, \lambda, \mu) = f(x) + \sum\limits_{i=1}^m\mu_i g_i(x) + \sum\limits_{j=1}^p \lambda_j h_j(x)
+L(x, \mu, \lambda) = f(x) + \sum\limits_{j=1}^p\lambda_j h_j(x) + \sum\limits_{i=1}^m \mu_i g_i(x)
 $$
 
 # Karush-Kuhn-Tucker conditions
@@ -321,13 +321,13 @@ $$
 }' file='/assets/files/karush.pdf' %}
 
 Пусть $$x^*$$ решение задачи математического программирования, и функции $$f, h_j, g_i$$ дифференцирумы. 
-Тогда найдутся такие $$\mu^*$$ и $$\lambda^*$$, что выполнены следующие условия:
+Тогда найдутся такие $$\lambda^*$$ и $$\mu^*$$, что выполнены следующие условия:
 
-* \$$\nabla_x L(x^*, \mu^*, \lambda^*) = 0$$
-* \$$\nabla_\mu L(x^*, \mu^*, \lambda^*) = 0$$
-* \$$ \lambda^*_j \geq 0$$
-* \$$\lambda^*_j h_j(x^*) = 0$$
-* \$$h_j(x^*) \leq 0$$
+* \$$\nabla_x L(x^*, \lambda^*, \mu^*) = 0$$
+* \$$\nabla_\lambda L(x^*, \lambda^*, \mu^*) = 0$$
+* \$$ \mu^*_j \geq 0$$
+* \$$\mu^*_j g_j(x^*) = 0$$
+* \$$g_j(x^*) \leq 0$$
 
 В выпуклом случае эти условия являются достаточными!
 
