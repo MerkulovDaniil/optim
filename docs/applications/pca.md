@@ -64,7 +64,7 @@ A^\top
 \end{align*}
 $$
 
-Then, consider matrix $$A A^\top$:
+Then, consider matrix $$A A^\top$$:
 
 $$
 \begin{align*}
