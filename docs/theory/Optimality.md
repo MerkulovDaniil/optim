@@ -10,7 +10,7 @@ nav_order: 8
 Пусть $$S \subset \mathbb{R}^n$$ - компактное множество и пусть $$f(x)$$ непрерывная функция на $$S$$. 
 Тогда точка глобального минимума функции $$f (x)$$ на $$S$$ существует.
 
-![](../files/goodnews.png)
+![](../goodnews.png)
 
 ## Lagrange multipliers
 Consider simple yet practical case of equality constraints:

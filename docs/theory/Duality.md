@@ -2,7 +2,7 @@
 layout: default
 parent: Theory
 title: Duality
-nav_order: 9
+nav_order: 10
 ---
 
 # Duality
@@ -113,9 +113,7 @@ Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$.
 * “Easy” necessary and sufficient conditions: unknown.
 
 ## Slater's sufficient condition
-**Theorem** Let the primal problem be convex. If there is a feasible point such that is strictly feasible for the non-affine constraints (and merely feasible for affine, linear ones), then strong duality holds. Moreover, in this case, the dual optimal is attained (i.e., $$d^* > -\infty$$). 
-
-**Example** 
+**Theorem** Let the primal problem be the {% include link.html title='Convex optimization problem' %}. If there is a feasible point such that is strictly feasible for the non-affine constraints (and merely feasible for affine, linear ones), then strong duality holds. Moreover, in this case, the dual optimal is attained (i.e., $$d^* > -\infty$$). 
 
 $$
 \begin{split}
@@ -187,22 +185,22 @@ $$
 $$
 
 $$
-g(\lambda) = \frac{1}{4} \lambda^\top A^\top A \lambda + \lambda^\top (-\frac{1}{2} A A^\top \lambda - b) = -\frac{1}{4} \lambda^\top A^\top A \lambda - b^\top \lambda
+g(\lambda) = \frac{1}{4} \lambda^\top A A^\top \lambda + \lambda^\top (-\frac{1}{2} A A^\top \lambda - b) = -\frac{1}{4} \lambda^\top A A^\top \lambda - b^\top \lambda
 $$
 
 Here we see lower bound property:
 
 $$
-p^* \geq -\frac{1}{4} \lambda^\top A^\top A \lambda - b^\top \lambda \forall \lambda
+p^* \geq -\frac{1}{4} \lambda^\top A A^\top \lambda - b^\top \lambda \forall \lambda
 $$
 
 Let's solve the dual problem:
 
 $$
-d^* = -b^\top \left( A^\top A \right)^{-1}b
+d^* = b^\top \left( A A^\top \right)^{-1}b
 $$
 
-Calculate the primal optimal and check whether this problem has strong duality or not (hint: 🙅‍♂️ and you don't need to calculate $$p^*$$).
+Calculate the primal optimal and check whether this problem has strong duality or not.
 
 ## Fenchel - Rockafellar problem
 ### Problem
