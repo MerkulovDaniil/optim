@@ -168,7 +168,7 @@ $$
 ### Lagrangian
 
 $$
-L(x,y, \lambda) = x^\top x + \lambda^\top (Ax - b)
+L(x,\lambda) = x^\top x + \lambda^\top (Ax - b)
 $$
 
 
