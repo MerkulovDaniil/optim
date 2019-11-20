@@ -10,7 +10,7 @@ nav_order: 9
 Duality lets us associate to any constrained optimization problem, a concave maximization problem whose solutions lower bound the optimal value of the original problem. What is interesting is there are cases, when one can solve the primal problem by first solving the dual one. Now, consider general constrained optimization problem:
 
 $$
-\text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega} 
+\text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega}
 $$
 
 We'll build $g(y)$, that preserves uniform bound:
@@ -35,7 +35,7 @@ $$
 \end{split}
 $$
 
-And the Lagrangian, assoiated with this problem:
+And the Lagrangian, associated with this problem:
 
 $$
 L(x, \lambda, \mu) = f(x) + \sum\limits_{j=1}^p\lambda_j h_j(x) + \sum\limits_{i=1}^m \mu_i g_i(x) = f(x) + \lambda^\top h(x) + \mu^\top g(x)
@@ -47,7 +47,7 @@ $$
 \min\limits_{x \in S} f(x)  = \min\limits_{x \in \mathbb{R}^n} \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} L(x, \lambda, \mu)
 $$
 
-Because $\lambda$ don't affect the eqality entries (since they all are equal to zero), while $\mu$ is positive and decreases Lagrangian (since all inequality entries are non - positive). Moreover, it can be seen, that:
+Because $\lambda$ don't affect the equality entries (since they all are equal to zero), while $\mu$ is positive and decreases Lagrangian (since all inequality entries are non - positive). Moreover, it can be seen, that:
 
 $$
 \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} \min\limits_{x \in \mathbb{R}^n} L(x, \lambda, \mu) \leq \min\limits_{x \in \mathbb{R}^n} \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} L(x, \lambda, \mu)
@@ -73,13 +73,13 @@ $$
 * **Construction of lower bound on solution of the direct problem.**
 
 	It could be very complicated to solve the initial problem. But if we have the dual problem, we can take an arbitrary $y \in \Omega$ and substitute it in $g(y)$ - we'll immediately obtain some lower bound.
-* **Checking for the problem's solvability and attainability of the solution.** 
+* **Checking for the problem's solvability and attainability of the solution.**
 
 	From the inequality $\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x) $ follows: if $\min\limits_{x \in S} f(x) = -\infty$, then $\Omega = \varnothing$ and vice versa.
-* **Sometimes it is easier to solve a dual problem than a primal one.** 
+* **Sometimes it is easier to solve a dual problem than a primal one.**
 
 	In this case, if the strong duality holds: $g(y^∗) = f(x^∗)$ we lose nothing.
-* **Obtaining a lower bound on the function's residual.** 
+* **Obtaining a lower bound on the function's residual.**
 
 	$f(x) - f^∗ \leq f(x) - g(y)$ for an arbitrary $y \in \Omega$
 * **Dual function is always concave**
@@ -87,13 +87,13 @@ $$
 	As a pointwise minimume of affine functions.
 
 # Weak duality
-It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have 
+It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have
 
 $$
 p^* \geq d^*
 $$
 
-While the difference between them is often called **duality gap:** 
+While the difference between them is often called **duality gap:**
 
 $$
 p^* - d^* \geq 0
@@ -102,20 +102,20 @@ $$
 Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we were managed to solve dual problem (which is almost convex, no matter the initial problem was or not), than we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
 
 # Strong duality
-Strong duality if duality gap is zero: 
+Strong duality if duality gap is zero:
 
 $$
 p^∗ = d^*
 $$
 
-Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$. 
+Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$.
 * Several sufficient conditions known!
 * “Easy” necessary and sufficient conditions: unknown.
 
 ## Slater's sufficient condition
-**Theorem** Let the primal problem be convex. If there is a feasible point such that is strictly feasible for the non-affine constraints (and merely feasible for affine, linear ones), then strong duality holds. Moreover, in this case, the dual optimal is attained (i.e., $$d^* > -\infty$$). 
+**Theorem** Let the primal problem be convex. If there is a feasible point such that is strictly feasible for the non-affine constraints (and merely feasible for affine, linear ones), then strong duality holds. Moreover, in this case, the dual optimal is attained (i.e., $$d^* > -\infty$$).
 
-**Example** 
+**Example**
 
 $$
 \begin{split}
@@ -177,7 +177,7 @@ $$
 ### Dual function
 
 $$
-g(\lambda) = \min\limits_{x \in \mathbb{R}^n} L(x, \lambda) 
+g(\lambda) = \min\limits_{x \in \mathbb{R}^n} L(x, \lambda)
 $$
 
 Setting gradient to zero to find minimum 🤔:
@@ -206,7 +206,7 @@ Calculate the primal optimal and check whether this problem has strong duality o
 
 ## Fenchel - Rockafellar problem
 ### Problem
-Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. We call Fenchel - Rockafellar problem the following minimization task: 
+Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. We call Fenchel - Rockafellar problem the following minimization task:
 
 $$
 f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
@@ -315,7 +315,7 @@ $$
 $$
 \begin{split}
 d = \min_{\lambda \in [0,1]^m} & \sum\limits_{i=1}^m \text{Bin_Ent}\lambda_i, \\
- & \sum\limits_{i=1}^m \lambda_i a_i = 0 
+ & \sum\limits_{i=1}^m \lambda_i a_i = 0
 \end{split}
 $$
 
