@@ -35,7 +35,7 @@ $$
 \end{split}
 $$
 
-And the Lagrangian, assoiated with this problem:
+And the Lagrangian, associated with this problem:
 
 $$
 L(x, \lambda, \mu) = f(x) + \sum\limits_{j=1}^p\lambda_j h_j(x) + \sum\limits_{i=1}^m \mu_i g_i(x) = f(x) + \lambda^\top h(x) + \mu^\top g(x)
@@ -47,7 +47,7 @@ $$
 \min\limits_{x \in S} f(x)  = \min\limits_{x \in \mathbb{R}^n} \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} L(x, \lambda, \mu)
 $$
 
-Because $\lambda$ don't affect the eqality entries (since they all are equal to zero), while $\mu$ is positive and decreases Lagrangian (since all inequality entries are non - positive). Moreover, it can be seen, that:
+Because $\lambda$ don't affect the equality entries (since they all are equal to zero), while $\mu$ is positive and decreases Lagrangian (since all inequality entries are non - positive). Moreover, it can be seen, that:
 
 $$
 \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} \min\limits_{x \in \mathbb{R}^n} L(x, \lambda, \mu) \leq \min\limits_{x \in \mathbb{R}^n} \max\limits_{\lambda \in \mathbb{R}^p, \mu \in \mathbb{R}^m_{+}} L(x, \lambda, \mu)
