@@ -100,7 +100,7 @@ nav_order: 10
 	$$
 	\begin{split}
 	& c^\top x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-	\text{s.t. } & Ax \preeq b \\
+	\text{s.t. } & Ax \preceq b \\
 	& x \succeq 0
 	\end{split}
 	$$
