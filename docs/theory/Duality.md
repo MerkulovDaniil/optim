@@ -191,7 +191,7 @@ $$
 Here we see lower bound property:
 
 $$
-p^* \geq -\frac{1}{4} \lambda^\top A A^\top \lambda - b^\top \lambda \forall \lambda
+p^* \geq -\frac{1}{4} \lambda^\top A A^\top \lambda - b^\top \lambda, \quad \forall \lambda
 $$
 
 Let's solve the dual problem:
