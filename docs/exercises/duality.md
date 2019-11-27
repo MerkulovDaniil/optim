@@ -156,7 +156,7 @@ solution.
 	& \sum_i x_i \ln x_i \to \min\limits_{x \in \mathbb{R}^{n} }\\
 	\text{s.t. } & Ax \preceq b \\
 	& 1^\top x = 1 \\
-	& x > 0
+	& x \succ 0
 	\end{split}
 	$$
 
