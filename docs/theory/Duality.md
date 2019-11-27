@@ -335,13 +335,6 @@ $$
 L(x,y, \lambda, \mu) = \sum_i x_i \ln x_i + \lambda^\top (Ax - b)
 $$
 
-
-### Dual function
-
-
-
-## Logistic regression with $$l_1$$ regularizer
-## Nonconvex problem with strong duality
 # References
 
 * [Convex Optimization — Boyd & Vandenberghe @ Stanford](http://web.stanford.edu/class/ee364a/lectures/duality.pdf)
