@@ -1,9 +1,9 @@
 ﻿---
 layout: default
-title: Nelder–Mead
+title: Simulated Annealing
 parent: Zero order methods
 grand_parent: Methods
-nav_order: 1
+nav_order: 2
 ---
 
 # Problem
