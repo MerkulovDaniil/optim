@@ -58,4 +58,4 @@ $$E$$ - the number of intersections. At the begining $$E = N(N-1)$$, because eve
 
 $$\alpha = 0.95$$
 
-![](../sa_result.png)
+![](../sa_result.svg)
