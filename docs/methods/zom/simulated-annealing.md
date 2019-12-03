@@ -54,6 +54,8 @@ In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the boa
 
 The $$g(x_k)$$ - is the function that takes current queens placement $$x_k$$ and change 2 random rows.
 
+$$E$$ - the number of intersections. At the begining $$E = N(N-1)$$, because every queen intersects others.
+
 $$\alpha = 0.95$$
 
 ![](../sa_result.png)
