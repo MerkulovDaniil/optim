@@ -2,7 +2,7 @@
 layout: default
 title: Duality
 parent: Exercises
-nav_order: 10
+nav_order: 11
 ---
 
 # Duality
@@ -224,3 +224,33 @@ solution.
 	1. Write down the dual problem
 	1. Check whether problem holds strong duality or not
 	1. Write down the solution of the dual problem
+
+1. **A penalty method for equality constraints.** We consider the problem
+minimize
+	
+	$$
+	\begin{split}
+	& f_0(x) \to \min\limits_{x \in \mathbb{R}^{n} }\\
+	\text{s.t. } & Ax = b,
+	\end{split}
+	$$
+
+	where $$f_0(x): \mathbb{R}^n \to\mathbb{R} $$ is convex and differentiable, and $$\alpha \in \mathbb{R}^{m \times n}$$ with $$\mathbf{rank }A = m$$. In a quadratic penalty method, we form an auxiliary function
+
+	$$
+	\phi(x) = f_0(x) + \alpha \|Ax - b\|_2^2,
+	$$
+	
+	where $$\alpha > 0$$ is a parameter. This auxiliary function consists of the objective plus the penalty term $$\alpha \|Ax - b\|_2^2$$. The idea is that a minimizer of the auxiliary function, $$\tilde{x}$$, should be an approximate solution of the original problem. Intuition suggests that the larger the penalty weight $$\alpha$$, the better the approximation $$\tilde{x}$$ to a solution of the original problem. Suppose $$\tilde{x}$$ is a minimizer of $$\phi(x)$$. Show how to find, from $$\tilde{x}$$, a dual feasible point for the original problem. Find the corresponding lower bound on the optimal value of the original problem.
+
+1. **Analytic centering.** Derive a dual problem for
+	
+	$$
+	\begin{split}
+	& -\sum_{i=1}^m \log (b_i - a_i^\top x) \to \min\limits_{x \in \mathbb{R}^{n} }\\
+	\text{s.t. } & Ax = b,
+	\end{split}
+	$$
+
+	with domain $$\{x | a^\top_i x < b_i , i = [1,m]\}$$. First introduce new variables $$y_i$$ and equality constraints $$y_i = b_i − a^\top_i x$$. (The solution of this problem is called the analytic center of the linear inequalities $$a^\top_i x \leq b_i ,i = [1,m]$$. Analytic centers have geometric applications, and play an important role in barrier methods.)
+	with domain $$\{x | a^\top_i x < b_i , i = [1,m]\}$$. First introduce new variables $$y_i$$ and equality constraints $$y_i = b_i − a^\top_i x$$. (The solution of this problem is called the analytic center of the linear inequalities $$a^\top_i x \leq b_i ,i = [1,m]$$. Analytic centers have geometric applications, and play an important role in barrier methods.)

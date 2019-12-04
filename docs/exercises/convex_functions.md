@@ -81,4 +81,7 @@ nav_order: 5
 	x \mapsto f(x)- \frac{\mu}{2} \|x\|^{2}
 	$$
 	is convex.
+
+1. Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
+1. Prove, that if $$g(x)$$ - convex function, then $$f(x) = g(x) + \dfrac{\lambda}{2}\|x\|^2_2$$ will be strongly convex function
 	

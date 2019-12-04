@@ -7,9 +7,9 @@ nav_order: 4
 
 # Conjugate sets
 
-1. Prove, that $$S^* = \left(\overline{S}\right)^*$$
-1. Prove, that $$\left( \mathbf{conv}(S) \right)^* = S^*$$
-1. Prove, that if $$B(0,r)$$ is a ball of radius $$r$$ at some norm with the center in zero, then $$\left( B(0,r) \right)^* = B(0,1/r)$$
+1. Prove that $$S^* = \left(\overline{S}\right)^*$$
+1. Prove that $$\left( \mathbf{conv}(S) \right)^* = S^*$$
+1. Prove that if $$B(0,r)$$ is a ball of radius $$r$$ at some norm with the center in zero, then $$\left( B(0,r) \right)^* = B(0,1/r)$$
 1. Find a dual cone for a monotonous non-negative cone: 
     
     $$
@@ -22,7 +22,7 @@ nav_order: 4
 1. How to write down a set conjugate to the polyhedron?
 1. Draw a conjugate set by hand for simple sets. Conjugate to zero, conjugate to the halfline, to two random points, to their convex hull, etc.
 1. Give examples of self-conjugate sets.
-1. Using a lemma about a cone conjugate, conjugate to the sum of cones and a lemma about a cone, conjugate to the intersection of closed convex cones, prove, that cones
+1. Using a lemma about a cone conjugate, conjugate to the sum of cones and a lemma about a cone, conjugate to the intersection of closed convex cones, prove that cones
     
     $$
     K_1 = \{x \in \mathbb{R}^n \mid x = Ay, y \ge 0, y \in \mathbb{R}^m, A \in \mathbb{R}^{n \times}, \}, \;\; K_2 = \{p \in \mathbb{R}^n \mid A^Tp \ge 0\}
@@ -42,7 +42,7 @@ nav_order: 4
     K = \{(x, y, z) \mid y > 0, y e^{x/y} \leq z\}
     $$
 
-1. Prove, that's fair for closed convex cones:
+1. Prove that's fair for closed convex cones:
     
     $$
     (K_1 \cap K_2)^* = K_1^* + K_2^*
@@ -66,7 +66,7 @@ nav_order: 4
     S = \left\{ x \in \mathbb{R}^2 \mid -3x_1 + 2x_2 \le 7, x_1 + 5x_2 \le 9, x_1 - x_2 \le 3, -x_2 \le 1\right\}
     $$
 
-1. Prove, that if we define the conjugate set to $$S$$ as follows: 
+1. Prove that if we define the conjugate set to $$S$$ as follows: 
     
     $$
     S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \le 1 \;\; \forall x \in S\}, 
@@ -78,3 +78,7 @@ nav_order: 4
     $$
      S = \left\{ x \in \mathbb{R}^n \mid \sum\limits_{i = 1}^n a_i^2 x_i^2 \le \varepsilon^2 \right\}
     $$
+
+1. Let $$L$$ be the subspace of a Euclidian space $$X$$. Prove that $$L^* = L^\bot$$, where $$L^\bot$$ - orthogonal complement to $$L$$.
+
+1. Let $$\mathbb{A}_n$$ be the set of all $$n$$ dimensional antisymmetric matrices. Show that $$\left( \mathbb{A}_n\right)^* = \mathbb{S}_n$$. 

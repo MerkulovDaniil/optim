@@ -95,3 +95,4 @@ nav_order: 6
 ## Other
 
 * [Nice set of python applied math etudes](https://www.numerical-tours.com/python/)
+* [Example functions](https://www.sfu.ca/~ssurjano/optimization.html) to test optimization algorithms.
