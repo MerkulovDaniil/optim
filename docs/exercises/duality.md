@@ -139,7 +139,7 @@ solution.
 	$$
 	\begin{split}
 	& x^\top W x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-	\text{s.t. } & x_1^2 = 1, i = 1, \ldots, n \\
+	\text{s.t. } & x_i^2 = 1, i = 1, \ldots, n \\
 	\end{split}
 	$$
 
