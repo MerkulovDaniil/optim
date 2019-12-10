@@ -52,13 +52,11 @@ A gif from [Wikipedia](https://en.wikipedia.org/wiki/Markdown):
 
 In our example we solve the N queens puzzle - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1NTBSgC_fUuqt9YxN68cUq00tLcjfw-vy)
-
 ## The Problem
 
 Let $$E(x)$$ - the number of intersections, where $$x$$ - the array of placement queens at the field (the number in array means the column, the index of the number means the row).
 
-**_The problem is_** to find $$x^*$$ where $$E$$ reach the global minimum, that is predefined and equals to 0 (no two queens threaten each other).
+**_The problem is_** to find $$x^*$$ where $$E(x^*) =  \min_{x \in X} E(x)$$ - the global minimum, that is predefined and equals to 0 (no two queens threaten each other).
 
 In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the board's diagonal . So at the begining $$E = N(N-1)$$, because every queen intersects others.
 
@@ -66,6 +64,10 @@ $$\alpha = 0.95$$
 
 ## Results
 
-Results of applying this algorithm to the problem below:
+Results of applying this algorithm with $$\alpha = 0.95$$ to the N queens puzzle for $$N = 10$$ below:
 
 ![](../sa_result.svg)
+
+You also can run it for desired $$N$$:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1NTBSgC_fUuqt9YxN68cUq00tLcjfw-vy)
