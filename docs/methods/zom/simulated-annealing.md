@@ -6,7 +6,7 @@ grand_parent: Methods
 nav_order: 2
 ---
 
-# Problem
+# Fofrmulation of a Problem
 
 We need to optimize the global optimum of a given function on some space using only the values of the function in some points on the space.
 
@@ -38,13 +38,17 @@ The name and inspiration come from annealing in metallurgy, a technique involvin
 
 The algorithm can stop working according to various criteria, for example, achieving an optimal state or lowering the temperature below a predetermined level $$T_{min}$$.
 
+## Theoretical facts
+
+As it mentioned in [Simulated annealing: a proof of convergence](https://ieeexplore.ieee.org/document/295910) the algorithm converges almost surely to a global maximum.
+
 ## Illustration
 
 A gif from [Wikipedia](https://en.wikipedia.org/wiki/Markdown):
 
 ![](../sa_wiki.gif)
 
-# Example
+# Application Example
 
 In our example we solve the N queens puzzle - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
 
