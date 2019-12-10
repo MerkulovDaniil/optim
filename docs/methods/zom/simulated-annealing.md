@@ -68,6 +68,6 @@ Results of applying this algorithm with $$\alpha = 0.95$$ to the N queens puzzle
 
 ![](../sa_result.svg)
 
-You also can run it for desired $$N$$:
+You can also can run it for desired $$N$$:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1NTBSgC_fUuqt9YxN68cUq00tLcjfw-vy)
