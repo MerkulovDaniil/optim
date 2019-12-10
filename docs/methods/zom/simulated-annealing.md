@@ -60,8 +60,6 @@ Let $$E(x)$$ - the number of intersections, where $$x$$ - the array of placement
 
 In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the board's diagonal . So at the begining $$E = N(N-1)$$, because every queen intersects others.
 
-$$\alpha = 0.95$$
-
 ## Results
 
 Results of applying this algorithm with $$\alpha = 0.95$$ to the N queens puzzle for $$N = 10$$ below:
