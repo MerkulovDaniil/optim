@@ -38,7 +38,7 @@ The name and inspiration come from annealing in metallurgy, a technique involvin
 
 The algorithm can stop working according to various criteria, for example, achieving an optimal state or lowering the temperature below a predetermined level $$T_{min}$$.
 
-## Theoretical facts
+## Convergence
 
 As it mentioned in [Simulated annealing: a proof of convergence](https://ieeexplore.ieee.org/document/295910) the algorithm converges almost surely to a global maximum.
 
@@ -52,6 +52,8 @@ A gif from [Wikipedia](https://en.wikipedia.org/wiki/Markdown):
 
 In our example we solve the N queens puzzle - the problem of placing N chess queens on an N×N chessboard so that no two queens threaten each other.
 
+![](../8queens.gif)
+
 ## The Problem
 
 Let $$E(x)$$ - the number of intersections, where $$x$$ - the array of placement queens at the field (the number in array means the column, the index of the number means the row).
@@ -62,10 +64,12 @@ In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the boa
 
 ## Results
 
-Results of applying this algorithm with $$\alpha = 0.95$$ to the N queens puzzle for $$N = 10$$ below:
+Results of applying this algorithm with $$\alpha = 0.95$$ to the $$N$$ queens puzzle for $$N = 10$$ below:
 
-![](../sa_result.svg)
+![](../sa-example.svg)
 
-You can also can run it for desired $$N$$:
+Results of running the code for $$N$$ from $$4$$ to $$50$$ and measuring the time it takes to find the solution:
+
+![](../sa-runs.svg)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1NTBSgC_fUuqt9YxN68cUq00tLcjfw-vy)
