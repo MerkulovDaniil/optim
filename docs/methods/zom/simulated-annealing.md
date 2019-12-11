@@ -20,7 +20,7 @@ Simulated Annealing is a probabilistic technique for approximating the global op
 
 The name and inspiration come from annealing in metallurgy, a technique involving heating and controlled cooling of a material to increase the size of its crystals and reduce their defects. Both are attributes of the material that depend on its thermodynamic free energy. Heating and cooling the material affects both the temperature and the thermodynamic free energy. The simulation of annealing can be used to find an approximation of a global minimum for a function with many variables.
 
-## Steps of the algorithm
+## Steps of the Algorithm
 
 1️⃣ Let $$ k = 0 $$ - current iteration, $$T = T_k$$ - initial temperature.
 
