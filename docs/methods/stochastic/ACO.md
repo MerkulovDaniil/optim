@@ -30,14 +30,14 @@ $\Delta f_i$ - the amount of pheromone deposited, usually defined as $$1/L_k$$, 
 $$  f(x) = An + \sum_{1}^{n}(x_i^2 - Acos(2\pi x_i),$$ 
 where $$A = 10$$ and $$x \in [-5.12, 5.12]$$.  
 It has a global minimum at $$\textbf x = 0$$ where $$f(\textbf x) = 0$$.  
-<img alt="Rastrigin function (2 dimensions)" src="https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/Rastrigin_function.png" width="420">
-<img alt="Rastrigin function (1 dimension)" src="https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/Rastrigin-1-dimension.png" width="420">
+<img alt="Rastrigin function (2 dimensions)" src="./Rastrigin_function.png" width="425">
+<img alt="Rastrigin function (1 dimension)" src="./Rastrigin-1-dimension.png" width="425">
 
 
 ## Testing
 For testing the library [inspired](https://pythonhosted.org/inspyred/index.html) was used.
 The algorythm Ant Colony Optimization was applied to the finding the minimum Rastrigin function. The code you can see [here](https://colab.research.google.com/drive/1OtNLm2e8ACRs1E6OTJ-GhPatb9LdVYo3#scrollTo=lobtGNTWdRjn).
 It is possible to see the result of this algorithm at the graph:
-![](./20000.png)  
-![](./50000.png)  
+<img src="./20000.png" width="425">
+<img src="./50000.png" width="425">
 The axis X shows the number of iterations, and the the axis Y - the minimum found by ants. It is important to see that Ant Colony Optimization Algorythm does not always give an optimal result.
