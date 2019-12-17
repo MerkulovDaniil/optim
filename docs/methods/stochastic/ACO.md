@@ -3,7 +3,7 @@
 The ant colony optimization algorithm (ACO) is one of the stochastic optimization methods used for solving tasks for finding minimum of any functions. This algorithm inspired by the behavior of real ants, which choose the best way relying on instincts.
 
 ## Biololgical process
-![Ants in the real life](https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/Knapsack_ants.svg)  
+![Ants in the real life](./Knapsack_ants.svg)  
 In the real world at a new place of a ant-heap ants walk in random order and after finding food return to the colony leaving pheromones along their path. When other ants feel such path, they go along it, so the smell from that path become stronger. As a result ants have a lot of paths marked pheromones. Which ones are the most successful? The fact is that pheromones evaporate over time, it makes short paths smell stronger because ants takes less time to go along it. Therefore after the passage of time all ants will go along the most optimal path. The evaporation of pheromones excludes the desire for a locally optimal solution. If pheromones don't evaporate, the path chosen first will be the most attractive.
 
 ## Algorithm
