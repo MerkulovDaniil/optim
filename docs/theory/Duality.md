@@ -287,7 +287,7 @@ $$
 \end{split}
 $$
 
-where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to R$$ and $$g: \mathbb{R}^m \to R$$ be the following functions
+where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to R$$ and $$g: \mathbb{R}^m \to \mathbb{R}$$ be the following functions
 
 $$
 f(x) = 0, \quad g(y) = \sum\limits_{i=1}^m \ln\left(1 + e^{y_i} \right)
