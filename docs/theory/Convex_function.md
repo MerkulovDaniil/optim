@@ -6,7 +6,7 @@ nav_order: 3
 ---
 
 # Convex function
-The function $$f(x)$$, **which is defined on the convex set** $$S \subset \mathbb{R}^n$$, is called **convex** $$S$$, if:
+The function $$f(x)$$, **which is defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called **convex** $$S$$, if:
 
 $$
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2)
@@ -67,7 +67,7 @@ $$
 
 ## Second order differential criterion of convexity
 
-Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
+Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is convex if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
 
 $$
 \nabla^2 f(x) \succeq 0
