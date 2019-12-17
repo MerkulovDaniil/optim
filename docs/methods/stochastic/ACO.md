@@ -11,8 +11,8 @@ This behaviour can be replicated in code in the following steps:
 Populate the simulation with a colony of ants.
 For each ant, send the ant at any point x, where x - random coordinate at the beginning. After the first run, the next point selection becomes gradually more influenced by the amount of pheromone.
 Once all ants have completed a first step, deposit pheromone on each point. The amount of pheromone deposited by each ant is proportional to the distance to the minimum detected at a given moment.
-In subsequent iterations, a probability distribution for next point selection from a list of possibilities is generated according to the following formula:
- $$ \large P_i = \frac{l_i^q \cdot f_i^p}  {\sum_{k=0}^{N}l_l^q \cdot f_k^p}, $$
+In subsequent iterations, a probability distribution for next point selection from a list of possibilities is generated according to the following formula:  
+ $$ \large P_i = \frac{l_i^q \cdot f_i^p}  {\sum_{k=0}^{N}l_l^q \cdot f_k^p}, $$  
  where
 $P_i$ — probability of transition along the path $i$,
 $l_i$ —  the reciprocal of the weight (length) of the $i$-th transition,
@@ -20,7 +20,7 @@ $f_i$ — the amount of pheromone on the $i$-th transition,
 $q$ — the value that determines the "greed" of the algorithm,
 $p$ — the value that determines the "herd" of the algorithm.
 Feromone update:
-$$ f_i = (1 - \rho) \cdot f_i + \Delta f_i, $$
+$$ f_i = (1 - \rho) \cdot f_i + \Delta f_i, $$  
 where
 $f_i$  - the amount of pheromone on the $i$-th transition,
 $\rho$ - pheromone evaporation rate,
@@ -28,7 +28,7 @@ $\Delta f_i$ - the amount of pheromone deposited, usually defined as $$1/L_k$$, 
  
 ## Rastrigin function
 $$  f(x) = An + \sum_{1}^{n}(x_i^2 - Acos(2\pi x_i),$$ 
-where $$A = 10$$ and $$x \in [-5.12, 5.12]$$.
+where $$A = 10$$ and $$x \in [-5.12, 5.12]$$.  
 It has a global minimum at $$\textbf x = 0$$ where $$f(\textbf x) = 0$$.  
 <img alt="Rastrigin function (2 dimensions)" src="https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/Rastrigin_function.png" width="420">
 <img alt="Rastrigin function (1 dimension)" src="https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/Rastrigin-1-dimension.png" width="420">
