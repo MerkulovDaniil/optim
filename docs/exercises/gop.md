@@ -83,7 +83,7 @@ satisfies $$0 \leq \alpha \leq n$$)? What if we change the equality to an inequa
 	\end{split}
 	$$
 
-	where $$A \in \mathbb{S}^n_{++}, c \neq 0$$.
+	where $$A \in \mathbb{S}^n_{++}, c \neq 0, x_c \in \mathbb{R}^n$$.
 
 1. Give an explicit solution of the following QP.
 	
@@ -105,7 +105,7 @@ satisfies $$0 \leq \alpha \leq n$$)? What if we change the equality to an inequa
 	\end{split}
 	$$
 
-	where $$A \in \mathbb{R}^{m \times n}$$ with $$\mathbf{rank }A = n$$, and$$A \in \mathbb{C}^{k \times n}$$ with $$\mathbf{rank }B = k$$. Give the KKT conditions, and derive expressions for the primal solution $$x^*$$ and the dual solution $$\lambda^*$$.
+	where $$A \in \mathbb{R}^{m \times n}$$ with $$\mathbf{rank }A = n$$, and $$C \in \mathbb{C}^{k \times n}$$ with $$\mathbf{rank }C = k$$. Give the KKT conditions, and derive expressions for the primal solution $$x^*$$ and the dual solution $$\lambda^*$$.
 
 1. Derive the KKT conditions for the problem
 	
