@@ -48,7 +48,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 * Let $$f(x) \le g(x)\;\; \forall x \in X$$. Let also $$f^*(y), g^*(y)$$ are defined on $$Y$$. Then $$\forall x \in X, \forall y \in Y$$
 	
 	$$
-	f^*(y) \ge g^*(y) \;\;\;\;\;\; f^{**}(y) \le g^{**}(y)
+	f^*(y) \ge g^*(y) \;\;\;\;\;\; f^{**}(x) \le g^{**}(x)
 	$$
 
 ## Examples
