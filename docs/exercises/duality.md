@@ -139,7 +139,7 @@ solution.
 	$$
 	\begin{split}
 	& x^\top W x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-	\text{s.t. } & x_1^2 = 1, i = 1, \ldots, n \\
+	\text{s.t. } & x_i^2 = 1, i = 1, \ldots, n \\
 	\end{split}
 	$$
 
@@ -246,10 +246,7 @@ minimize
 1. **Analytic centering.** Derive a dual problem for
 	
 	$$
-	\begin{split}
-	& -\sum_{i=1}^m \log (b_i - a_i^\top x) \to \min\limits_{x \in \mathbb{R}^{n} }\\
-	\text{s.t. } & Ax = b,
-	\end{split}
+	-\sum_{i=1}^m \log (b_i - a_i^\top x) \to \min\limits_{x \in \mathbb{R}^{n} }
 	$$
 
 	with domain $$\{x | a^\top_i x < b_i , i = [1,m]\}$$. First introduce new variables $$y_i$$ and equality constraints $$y_i = b_i − a^\top_i x$$. (The solution of this problem is called the analytic center of the linear inequalities $$a^\top_i x \leq b_i ,i = [1,m]$$. Analytic centers have geometric applications, and play an important role in barrier methods.)
