@@ -38,5 +38,6 @@ It has a global minimum at $$\textbf x = 0$$ where $$f(\textbf x) = 0$$.
 For testing the library [inspired](https://pythonhosted.org/inspyred/index.html) was used.
 The algorythm Ant Colony Optimization was applied to the finding the minimum Rastrigin function. The code you can see [here](https://colab.research.google.com/drive/1OtNLm2e8ACRs1E6OTJ-GhPatb9LdVYo3#scrollTo=lobtGNTWdRjn).
 It is possible to see the result of this algorithm at the graph:
-![](https://github.com/Elena-Chernenkova/optim/blob/contribution/docs/methods/stochastic/20%D0%BA.png)  
+![](./20000.png)  
+![](./50000.png)  
 The axis X shows the number of iterations, and the the axis Y - the minimum found by ants. It is important to see that Ant Colony Optimization Algorythm does not always give an optimal result.
