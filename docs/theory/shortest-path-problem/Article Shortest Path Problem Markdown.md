@@ -56,7 +56,7 @@ function Dijkstra(Graph, source):
 Full code inplementation could be find  [here](https://web.archive.org/web/20131103204953/http://krasprog.ru/persons.php?page=kormyshov&blog=94)
 
 ***Time Complexity***
-Time Complexity of Dijkstra's Algorithm is $O(V^2)$ but with min-priority queue it drops down to $O(V+E*log(V))$.[[1]](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+Time Complexity of Dijkstra's Algorithm is $O(V^2)$ but with min-priority queue it drops down to $O(V+E*log(V))$.[[Wikipedia]](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
 
 ***Example solution***
 
@@ -97,7 +97,7 @@ We initialize the solution matrix same as the input graph matrix as a first step
 Full code inplementation could be find [here](https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/)
 
 ***Time Complexity***
-Time Complexity of Floyd Warshall  algorithm is $O(V^3)$[[2]](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
+Time Complexity of Floyd Warshall  algorithm is $O(V^3)$[[Wikipedia]](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)
 
 ***Example solution***
 On input we have following graph:
