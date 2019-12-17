@@ -1,12 +1,10 @@
-1. ---
-   layout: default
-   title: Bee Algorithm
-   parent: Zero order methods
-   grand_parent: Methods
-
-   nav_order: 3
-
-   ---
+﻿---
+layout: default
+title: Bee Algorithm
+parent: Zero order methods
+grand_parent: Methods
+nav_order: 3
+---
 
    # Bee Algorithm
 
@@ -50,7 +48,7 @@
     - population **n** = 300 
     - number of elite bees **e** = 5
     - selected sites **m** = 15
-   - bees round elite points **nep** = 30
+    - bees round elite points **nep** = 30
     - bees around selected points **nsp** = 10
     - stopping criteria: **max_iteration** = 2000
 
@@ -60,7 +58,7 @@
 
    The Schwefel function is complex, with many local minima. The plot shows the two-dimensional form of the function.
 
-   ![schwef](./Schwefel function_plot.svg)
+   ![schwef](./Schwefel_function_plot.svg)
 
    The function is usually evaluated on the hypercube $$ x_i \in [-500, 500] $$  for all $$ i = 1, ..., d $$.
 
@@ -86,7 +84,7 @@
 
    The Rosenbrock function, also referred to as the Valley or Banana function, is a popular test problem for gradient-based optimization algorithms. It is shown in the plot below in its two-dimensional form.
 
-   ![rosen](./Rosenbrock function_plot.svg)
+   ![rosen](./Rosenbrock_function_plot.svg)
 
    The function is unimodal, and the global minimum lies in a narrow, parabolic valley. However, even though this valley is easy to find, convergence to the minimum is difficult.
 
