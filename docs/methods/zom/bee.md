@@ -29,15 +29,15 @@ nav_order: 3
 
    The list below shows the pseudo code for a simple Bee Algorithm.
 
-     1. Initialize the set of parameters: number of scout bees - **n**, number of elite bees - **e**, number of selected regions out of n points - **m**, number of recruited around elite regions - **nep**, number of recruited around other selected (**m-e**) regions - **nsp**, and stopping criteria.
-      2. Every bee evaluates the value of target function
-      3. While (stopping criteria not met):    //*Forming new population*
-         1. Elite bees (**e**) that have better fitness are selected and saved for the next population
-         2. Select sites for neighbourhood search (**m-e**)
-         3. Recruit bees around selected sites and evaluate fitness. More bees will be recruited around elite points(**nep**) and fewer bees will be recruited around the remaining selected points(**nsp**).
-         4. Select the bee with the highest fitness from each site.
-         5. Assign remaining bees (**n-m-e**) to search randomly and evaluate their fitness.
-      4. End While
+1. Initialize the set of parameters: number of scout bees - **n**, number of elite bees - **e**, number of selected regions out of n points - **m**, number of recruited around elite regions - **nep**, number of recruited around other selected (**m-e**) regions - **nsp**, and stopping criteria.
+2. Every bee evaluates the value of target function
+3. While (stopping criteria not met):    //*Forming new population*
+   1. Elite bees (**e**) that have better fitness are selected and saved for the next population
+   2. Select sites for neighbourhood search (**m-e**)
+   3. Recruit bees around selected sites and evaluate fitness. More bees will be recruited around elite points(**nep**) and fewer bees will be recruited around the remaining selected points(**nsp**).
+   4. Select the bee with the highest fitness from each site.
+   5. Assign remaining bees (**n-m-e**) to search randomly and evaluate their fitness.
+4. End While
 
    ## Examples
 
@@ -45,12 +45,12 @@ nav_order: 3
 
    The following parameters were set for this test: 
 
-    - population **n** = 300 
-    - number of elite bees **e** = 5
-    - selected sites **m** = 15
-    - bees round elite points **nep** = 30
-    - bees around selected points **nsp** = 10
-    - stopping criteria: **max_iteration** = 2000
+   - population **n** = 300 
+   - number of elite bees **e** = 5
+   - selected sites **m** = 15
+   - bees round elite points **nep** = 30
+   - bees around selected points **nsp** = 10
+   - stopping criteria: **max_iteration** = 2000
 
    A random point is selected from the definition area to initialize the algorithm.
 
