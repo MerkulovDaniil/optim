@@ -91,7 +91,7 @@ The function $$f(x)$$ defined ob the convex set $$S \subseteq \mathbb{R}^n$$ is 
 $$f: S \to \mathbb{R}$$ is convex if and only if $$S$$ is convex set and the function $$g(t) = f(x + tv)$$ defined on $$\left\{ t \mid x + tv \in S \right\}$$  is convex for any $$x \in S, v \in \mathbb{R}^n$$, which allows to check convexity of the scalar function in order to establish covexity of the vector function.
 
 # Strong convexity
-$$f(x)$$, **defined on the convex set** $$S \in \mathbb{R}^n$$, is called $$\mu$$-strongly convex (strogly convex) on $$S$$, if:
+$$f(x)$$, **defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called $$\mu$$-strongly convex (strogly convex) on $$S$$, if:
 
 $$
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \mu \lambda (1 - \lambda)\|x_1 - x_2\|
