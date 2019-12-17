@@ -75,7 +75,7 @@
 
    The plot below shows drop of the target function at one run of the algorithm. It can be seen that after approximately 200 function evaluations, the bee algorithm reaches close to the optimum.
 
-   ![Schwefel function](./Schwefel function.svg)
+   ![Schwefel function](./Schwefel_function.svg)
 
    Also the fall of the target function averaged over 100 runs of the algorithm can be observed in the following graph.
 
@@ -103,7 +103,7 @@
 
    To test the algorithm the four-dimensional Rosenbrock function was chosen. The plot below shows drop of the target function at one run of the algorithm. It can be seen that after approximately 1500 function evaluations, the bee algorithm reaches close to the optimum.
 
-   ![Rosenbrock function](./Rosenbrock function.svg)
+   ![Rosenbrock function](./Rosenbrock_function.svg)
 
    Also the fall of the target function averaged over 100 runs of the algorithm can be observed in the following graph.
 
