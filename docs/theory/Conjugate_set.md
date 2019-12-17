@@ -23,7 +23,7 @@ $$
 S^{**} = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S^*\}
 $$
 
-## Inter-conjugate and self-conjugate sete
+## Inter-conjugate and self-conjugate sets
 * Множества $$S_1$$ и $$S_2$$ называются **взаимосопряженными**, если $$S_1^* = S_2, S_2^* = S_1$$.
 * Множество $$S$$ называется **самосопряженным**, если $$S^{*} = S$$
 
