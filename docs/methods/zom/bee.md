@@ -123,8 +123,7 @@ nav_order: 3
 
    5.	[Алгоритм пчел для оптимизации функции](https://jenyay.net/Programming/Bees)
 
-   6.	[An Idea Based on Honey Bee Swarm for Numerical Optimization, Technical Report - TR06](https://www.researchgate.net/publication/255638348_An_Idea_Based_on_Honey_Bee_Swarm_for_Numerical_Optimization_Technical_Report_-_TR06
-      http://www.dmi.unict.it/mpavone/nc-cs/materiale/tr06_2005.pdf)
+   6.	[An Idea Based on Honey Bee Swarm for Numerical Optimization, Technical Report - TR06](https://www.researchgate.net/publication/255638348_An_Idea_Based_on_Honey_Bee_Swarm_for_Numerical_Optimization_Technical_Report_-_TR06)
 
    7.	[Grouped Bees Algorithm: A Grouped Version of the Bees Algorithm](https://www.researchgate.net/publication/313111267_Grouped_Bees_Algorithm_A_Grouped_Version_of_the_Bees_Algorithm)
 
