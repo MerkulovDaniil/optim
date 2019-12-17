@@ -6,7 +6,7 @@ nav_order: 3
 ---
 
 # Convex function
-The function $$f(x)$$, **which is defined on the convex set** $$S \in \mathbb{R}^n$$, is called **convex** $$S$$, if:
+The function $$f(x)$$, **which is defined on the convex set** $$S \subset \mathbb{R}^n$$, is called **convex** $$S$$, if:
 
 $$
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2)
