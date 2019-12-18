@@ -25,7 +25,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 	f(x) + f^*(y) \ge \langle y,x \rangle
 	$$
 
-* Let the functions $$f(x), f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function.
+* Let the functions $$f(x), f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function (Fenchel - Moreau theorem).
 
 ![](../doubl_conj.svg)
 
@@ -48,7 +48,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 * Let $$f(x) \le g(x)\;\; \forall x \in X$$. Let also $$f^*(y), g^*(y)$$ are defined on $$Y$$. Then $$\forall x \in X, \forall y \in Y$$
 	
 	$$
-	f^*(y) \ge g^*(y) \;\;\;\;\;\; f^{**}(y) \le g^{**}(y)
+	f^*(y) \ge g^*(y) \;\;\;\;\;\; f^{**}(x) \le g^{**}(x)
 	$$
 
 ## Examples

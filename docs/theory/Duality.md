@@ -283,11 +283,11 @@ Convex case is especially important since if we have Fenchel - Rockafellar probl
 
 $$
 \begin{split}
-& \sum\limits_{i=1}^m \ln\left(1 + e^{\langle a_i, x \rangle}\right) \to \min\limits_{x \mathbb{R}^n },
+& \sum\limits_{i=1}^m \ln\left(1 + e^{\langle a_i, x \rangle}\right) \to \min\limits_{x \in \mathbb{R}^n },
 \end{split}
 $$
 
-where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to R$$ and $$g: \mathbb{R}^m \to R$$ be the following functions
+where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to \mathbb{R}$$ and $$g: \mathbb{R}^m \to \mathbb{R}$$ be the following functions
 
 $$
 f(x) = 0, \quad g(y) = \sum\limits_{i=1}^m \ln\left(1 + e^{y_i} \right)
