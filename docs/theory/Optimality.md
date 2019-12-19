@@ -61,7 +61,7 @@ $$
 H_f(x^*) = \nabla^2 f(x^*) \succeq (\preceq) 0,
 $$
 
-then $$x^*$$ is a local minimum(maximum) of $$f(x)$$. 
+then (if necessary condition is also satisfied) $$x^*$$ is a local minimum(maximum) of $$f(x)$$.
 
 ### Convex case
 It should be mentioned, that in **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
