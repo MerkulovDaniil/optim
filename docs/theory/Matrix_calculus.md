@@ -130,6 +130,7 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * \$$d\left( \det X \right) = \det X \langle X^{-\top}, dX \rangle $$
 * \$$d \text{tr } X = \langle I, dX\rangle$$
 * \$$df(g(x)) = \dfrac{df}{dg} \cdot dg(x)$$
+* \$$H = (J(\nabla f))^T$$
 
 # References
 * [Good introduction](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf)
