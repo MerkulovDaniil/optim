@@ -19,7 +19,7 @@ $$
 * \$$\mathbb{R}^n$$
 * Affine sets, containing $$0$$
 * Ray
-* $$\mathbf{S}^n_+$$ - the set of symmetric positive-definite matrices
+* $$\mathbf{S}^n_+$$ - the set of symmetric positive semi-definite matrices
 
 # Related definitions
 ## Conic combination
