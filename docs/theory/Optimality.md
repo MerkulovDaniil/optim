@@ -40,7 +40,7 @@ $$
 
 ## Unconstrained optimization
 ### General case
-Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ be a continuously differentiable function.
+Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ be a twice differentiable function.
 
 $$
 \tag{UP}
@@ -61,7 +61,7 @@ $$
 H_f(x^*) = \nabla^2 f(x^*) \succeq (\preceq) 0,
 $$
 
-then $$x^*$$ is a local minimum(maximum) of $$f(x)$$. 
+then (if necessary condition is also satisfied) $$x^*$$ is a local minimum(maximum) of $$f(x)$$.
 
 ### Convex case
 It should be mentioned, that in **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
@@ -297,7 +297,7 @@ $$
 \end{split}
 $$
 
-Данная формулировка представляет собой общую задачу математического программирования.
+Данная формулировка представляет собой общую задачу математического программирования. С этого момента и далее мы рассматриваем только $$\textbf{регулярные}$$ задачи. Это очень важное с формальной точки зрения замечание. Желающих разобраться подробнее просим обратиться к гуглу.
 
 Solution
 

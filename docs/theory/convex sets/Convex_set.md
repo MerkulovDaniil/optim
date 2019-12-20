@@ -10,7 +10,7 @@ nav_order: 2
 Suppose $$x_1, x_2 $$ are two points in $$\mathbb{R^n}$$. Then the line segment between them is defined as follows:
 
 $$
-x = \theta x_1 + (1 - \theta)x_2, \theta \in [0,1]
+x = \theta x_1 + (1 - \theta)x_2, \; \theta \in [0,1]
 $$
 
 ![center](../line_segment.svg)
@@ -19,7 +19,7 @@ $$
 The set $$S$$ is called **convex** if for any $$x_1, x_2$$ from $$S$$ the line segment between them also lies in $$S$$, i.e. 
 
 $$
-\forall \theta \in [0,1], \forall x_1, x_2 \in S: \\ \theta x_1 + (1- \theta) x_2 \in S
+\forall \theta \in [0,1], \; \forall x_1, x_2 \in S: \\ \theta x_1 + (1- \theta) x_2 \in S
 $$
 
 ## Examples: 
@@ -34,13 +34,13 @@ $$
 
 # Related definitions
 ## Convex combination
-Пусть $$x_1, x_2, \ldots, x_k \in S$$, тогда точка $$\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$$ называется выпуклой комбинацией точек $$x_1, x_2, \ldots, x_k$$ при условии $$\sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0$$
+Пусть $$x_1, x_2, \ldots, x_k \in S$$, тогда точка $$\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$$ называется выпуклой комбинацией точек $$x_1, x_2, \ldots, x_k$$ при условии $$\sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0$$
 
 ## Convex hull
 Множество всех выпуклых комбинаций точек множества $$S$$ называется выпуклой оболочкой множества $$S$$.
 
 $$
-\mathbf{conv}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0\right\}
+\mathbf{conv}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0\right\}
 $$
 
 Примеры:
@@ -55,14 +55,14 @@ $$
 ## By definition
 
 $$
-x_1, x_2 \in S,  0 \le \theta \le 1 \;\; \rightarrow \;\; \theta x_1 + (1-\theta)x_2 \in S
+x_1, x_2 \in S, \; 0 \le \theta \le 1 \;\; \rightarrow \;\; \theta x_1 + (1-\theta)x_2 \in S
 $$
 
 ## Показать, что $$S$$ получено из простых выпуклых множеств с помощью операций, сохраняющих выпуклость:
 
 ### Линейная комбинация выпуклых множеств выпукла
 
-Пусть есть 2 выпуклых множества $$S_x, S_y$$, пусть множество $$S = \left\{s \mid s = c_1 x + c_2 y, x \in S_x, y \in S_y, c_1, c_2 \in \mathbb{R}\right\}$$
+Пусть есть 2 выпуклых множества $$S_x, S_y$$, пусть множество $$S = \left\{s \mid s = c_1 x + c_2 y, \; x \in S_x, \; y \in S_y, \; c_1, c_2 \in \mathbb{R}\right\}$$
 
 Возьмем две точки из $$S$$: $$s_1 = c_1 x_1 + c_2 y_1, s_2 = c_1 x_2 + c_2 y_2$$ и докажем, что отрезок между ними $$\theta s_1 + (1 - \theta)s_2, \theta \in [0,1]$$ так же принадлежит $$S$$
 

@@ -11,7 +11,7 @@ nav_order: 4
 Внутренностью множества $$S$$ называется следующее множество: 
 
 $$
-\mathbf{int} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon > 0, B(\mathbf{x}, \varepsilon) \subset S\}
+\mathbf{int} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon > 0, \; B(\mathbf{x}, \varepsilon) \subset S\}
 $$
 
 где $$B(\mathbf{x}, \varepsilon) = \mathbf{x} + \varepsilon B$$ - шар с центром в т. $$\mathbf{x}$$ и радиусом $$\varepsilon$$
@@ -20,7 +20,7 @@ $$
 Относительной внутренностью множества $$S$$ называется следующее множество: 
 
 $$
-\mathbf{relint} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon > 0, B(\mathbf{x}, \varepsilon) \cap \mathbf{aff} (S) \subseteq S\}
+\mathbf{relint} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon > 0, \; B(\mathbf{x}, \varepsilon) \cap \mathbf{aff} (S) \subseteq S\}
 $$
 
 
