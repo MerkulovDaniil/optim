@@ -40,7 +40,7 @@ $$
 
 ## Unconstrained optimization
 ### General case
-Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ be a continuously differentiable function.
+Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ be a twice differentiable function.
 
 $$
 \tag{UP}
