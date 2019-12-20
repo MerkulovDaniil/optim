@@ -99,7 +99,7 @@ $$
 p^* - d^* \geq 0
 $$
 
-Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we were managed to solve dual problem (which is almost convex, no matter the initial problem was or not), than we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
+Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we were managed to solve dual problem (which is always convex, no matter the initial problem was or not), than we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
 
 # Strong duality
 Strong duality if duality gap is zero: 
