@@ -3,7 +3,6 @@ layout: default
 title: Nelder–Mead
 parent: Zero order methods
 grand_parent: Methods
-nav_order: 1
 ---
 
 {% include tabs.html bibtex = '@article{nelder1965simplex,
