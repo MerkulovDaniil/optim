@@ -276,7 +276,7 @@ $$
 \end{split}
 $$
 
-Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $$(f, g, A)$$, than the dual problem has the form $$(f^*, g^*, -A^*)$$
+Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $$(f, g, A)$$, than the dual problem has the form $$(g^*, f^*, -A^*)$$
 
 ## Logistic regression
 ### Problem
