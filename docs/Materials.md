@@ -97,3 +97,4 @@ nav_order: 6
 * [Nice set of python applied math etudes](https://www.numerical-tours.com/python/)
 * [Example functions](https://www.sfu.ca/~ssurjano/optimization.html) to test optimization algorithms.
 * [100 numpy exercises](https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises.ipynb)
+* [ML Python libraries overview](https://neerc.ifmo.ru/wiki/index.php?title=Обзор_библиотек_для_машинного_обучения_на_Python)
