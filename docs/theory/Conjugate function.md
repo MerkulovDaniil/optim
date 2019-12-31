@@ -27,6 +27,8 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 
 * Let the functions $$f(x), f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function (Fenchel - Moreau theorem).
 
+* Consequence from Fenchel–Young inequality: $$f(x) \ge f^{**}(x)$$ 
+
 ![](../doubl_conj.svg)
 
 * The Legendre transformation as a special case of Fenchel's conjugate (in case of differentiable function). Let $$f(x)$$ - convex and differentiable, $$\mathbf{dom}\; f = \mathbb{R}^n$$. Then $$x^* = \underset{x}{\operatorname{argmin}} \langle x,y\rangle - f(x)$$. In that case $$y = \nabla f(x^*)$$. That's why:
