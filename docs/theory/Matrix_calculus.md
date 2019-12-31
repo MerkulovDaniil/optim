@@ -131,6 +131,8 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * \$$d \text{tr } X = \langle I, dX\rangle$$
 * \$$df(g(x)) = \dfrac{df}{dg} \cdot dg(x)$$
 * \$$H = (J(\nabla f))^T$$
+* \$$ d(X^{-1})=-X^{-1}(dX)X^{-1}$$
+
 
 # References
 * [Good introduction](https://atmos.washington.edu/~dennis/MatrixCalculus.pdf)
