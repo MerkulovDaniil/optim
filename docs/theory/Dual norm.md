@@ -28,5 +28,5 @@ The intuition for the finite-dimension space is how the linear function (element
 
 # Examples
 
-* Let $$f(x) = \|x\|$$, then $$f^*(y) = \mathbb{O}_{\|y\|_* \leq 1}$$
+* Let $$f(x) = \|x\|$$, then $$f^*(y) = \mathbb{O}_{\|y\|_* \leq 1} = \begin{cases}0 & \|y\|_*\leq 1 \\ +\infty & \|y\|_* > 1\\ \end{cases}$$
 * The Euclidian norm is self dual $$\left(\|x\|_2\right)_* = \|x\|_2$$.
