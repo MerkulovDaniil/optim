@@ -16,6 +16,8 @@ $$
 
 где $$B(\mathbf{x}, \varepsilon) = \mathbf{x} + \varepsilon B$$ - шар с центром в т. $$\mathbf{x}$$ и радиусом $$\varepsilon$$
 
+Пусть $$S \subseteq \mathbb{R}^n$$ - непустое выпуклое множество и $$\mathbf{dim}(S) = n$$, тогда $$\mathbf{int}(S)$$ непусто. 
+
 # Relative interior
 Относительной внутренностью множества $$S$$ называется следующее множество: 
 
