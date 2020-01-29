@@ -1,5 +1,5 @@
 {% comment %} 
-Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...'%}
+Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent = '...' inline = False%}
 {% endcomment %}
 {% if include.bibtex %}
 {%  assign bibtexcounter   = bibtexcounter    | plus:1 %}
@@ -10,6 +10,7 @@ Usage: {% include tabs.html bibtex = '...' file='...' tabname = '...' tabcontent
 {% if include.tabname %}
 {% assign othertabscounter = othertabscounter | plus:1 %}
 {% endif %}
+{% if include.inline %}{% else %}<button type="button" name="button" class="btn"><a href="https://github.com/MerkulovDaniil/optim/edit/master/{{page.path}}">Edit this page</a></button>{% endif %}
 {% if include.bibtex %}<button type="button" name="@bibtex{{ bibtexcounter }}" class="btn" onclick="myFunction1({{ bibtexcounter }})">@bibtex</button>{% endif %}
 {% if include.file %}<button type="button" name="Files{{ filescounter }}" class="btn" onclick="myFunction2({{ filescounter }})">Files</button>{% endif %}
 {% if include.tabname %}<button type="button" name="{{include.tabname}}{{ othertabscounter }}" class="btn" onclick="myFunction3({{ othertabscounter }})">{{include.tabname}}</button>{% endif %}
@@ -46,15 +47,16 @@ function myFunction3(id) {
 <div id="@bibtex{{ bibtexcounter }}" style="display: none">
   <div class="code-example" style="background-color: #f5f6fa">
     <code style="border: none">
-    {{include.bibtex | newline_to_br}}
+{{include.bibtex | newline_to_br}}
     </code>
   </div>
 </div>
 
 <div id="Files{{ filescounter }}" style="display: none">
-<a href="{{include.file | relative_url}}" target="_blank">💣 .pdf file</a>
+<a href="{{include.file | relative_url}}" target="_blank">📝 .pdf file</a>
 </div>
 
 <div id="{{include.tabname}}{{ othertabscounter }}" style="display: none">
 {{include.tabcontent}}
 </div>
+{% if include.inline %}<br>{% else %}<hr>{% endif %}

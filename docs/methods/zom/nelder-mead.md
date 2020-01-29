@@ -3,9 +3,8 @@ layout: default
 title: Nelder–Mead
 parent: Zero order methods
 grand_parent: Methods
----
-
-{% include tabs.html bibtex = '@article{nelder1965simplex,
+bibtex: |
+  @article{nelder1965simplex,
   title={A simplex method for function minimization},
   author={Nelder, John A and Mead, Roger},
   journal={The computer journal},
@@ -14,10 +13,9 @@ grand_parent: Methods
   pages={308--313},
   year={1965},
   publisher={Oxford University Press}
-}' file='assets/files/Nelder1965.pdf'%}
-
-
-
+  }
+file: assets/files/Nelder1965.pdf  
+---
 # Problem
 
 Sometimes the multidimensional function is so difficult to evaluate that even expressing the $$1^{\text{st}}$$ derivative for gradient-based methods of finding optimum becomes an impossible task.

@@ -4,15 +4,15 @@ title: "ADAM: A Method for Stochastic Optimization"
 parent: First order methods
 grand_parent: Methods
 nav_order: 4
----
-
-{% include tabs.html bibtex = '@article{kingma2014adam,
+bibtex: |
+  @article{kingma2014adam,
   title={Adam: A method for stochastic optimization},
   author={Kingma, Diederik P and Ba, Jimmy},
   journal={arXiv preprint arXiv:1412.6980},
   year={2014}
-}' file='assets/files/ADAM.pdf'%}
-
+  }
+file: assets/files/ADAM.pdf
+---
 ## Summary
 
 Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second order moment of stochastic gradients.

@@ -4,14 +4,15 @@ title: "Lookahead Optimizer: $k$ steps forward, $1$ step back"
 parent: First order methods
 grand_parent: Methods
 nav_order: 7
----
-
-{% include tabs.html bibtex = '@article{zhang2019lookahead,
+bibtex: |
+  @article{zhang2019lookahead,
   title={Lookahead Optimizer: k steps forward, 1 step back},
   author={Zhang, Michael R and Lucas, James and Hinton, Geoffrey and Ba, Jimmy},
   journal={arXiv preprint arXiv:1907.08610},
   year={2019}
-}' file='https://arxiv.org/pdf/1907.08610'%}
+  }
+file: https://arxiv.org/pdf/1907.08610
+---
 
 # Summary
 

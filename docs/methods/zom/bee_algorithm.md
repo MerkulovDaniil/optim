@@ -4,11 +4,10 @@ title: Bee algorithm
 parent: Zero order methods
 grand_parent: Methods
 ---
+# Algorithm
+
 
 The Bee Algorithm was mathematically first described relatively recently. It is one of the representatives of a large family of algorithms that allow modeling swarm intelligence. This article will provide an example of the application of the Bee Algorithm to search for the global extremum of the function. The two-dimensional Schwefel function, having a large number of local minima, and the Rosenbrock function, whose global minimum lies in a narrow, parabolic valley, were chosen as the target functions.
-
-
-# Algorithm
 
 ## Intuition
 
