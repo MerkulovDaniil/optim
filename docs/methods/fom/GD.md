@@ -17,16 +17,6 @@ file: /assets/files/GD.pdf
 ---
 ## Summary
 
-
-@article{cauchy1847methode,
-  title={M{\'e}thode g{\'e}n{\'e}rale pour la r{\'e}solution des systemes d’{\'e}quations simultan{\'e}es}, author={Cauchy, Augustin},
-  journal={Comp. Rend. Sci. Paris},
-  volume={25},
-  number={1847},
-  pages={536--538},
-  year={1847}
-}
-
 A classical problem of function minimization is considered. 
 
 $$

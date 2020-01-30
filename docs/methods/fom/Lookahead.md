@@ -19,15 +19,15 @@ file: https://arxiv.org/pdf/1907.08610
 The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family.
 Main idea is quite simple: 
 
-* Set some number $$k$$. Take initial parameter weights $$\theta_0 = \hat{\theta}_0$$
-* Do $$k$$ steps with your favorite optimization algorithm: $$\hat{\theta}_1, \ldots, \hat{\theta}_k$$
-* Take some value between initial $$\theta_0$$ and $$\hat{\theta}_k$$:
+* Set some number $$k$$. Take initial parameter weights $$x_0 = \hat{x}_0$$
+* Do $$k$$ steps with your favorite optimization algorithm: $$\hat{x}_1, \ldots, \hat{x}_k$$
+* Take some value between initial $$x_0$$ and $$\hat{x}_k$$:
 
     $$
-    \theta_{t+1} = (1 - \alpha)\theta_{t} + \alpha\hat{\theta_k}
+    x_{t+1} = (1 - \alpha)x_{t} + \alpha\hat{x_k}
     $$
 
-* Update $$\hat{\theta_0}$$ with the last output of the algorithm.
+* Update $$\hat{x_0}$$ with the last output of the algorithm.
 * Repeat ~~profit~~
 
 Authors introduced separation on the *fast weights* and *slow weights*, which naturally arises in the described procedure.
