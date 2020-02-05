@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /Materials
 title: Materials
 nav_order: 6
 has_children: True

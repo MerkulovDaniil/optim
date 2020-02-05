@@ -1,6 +1,5 @@
 ---
 layout: default
-permalink: /ToDo
 title: To do
 nav_exclude: True
 ---
