@@ -152,6 +152,8 @@ $$
 
 	where $$q \in (0, 1)$$ and $$ 0 < C < \infty$$
 
+![](../convergence.svg)
+
 ## Root test
 
 Пусть $$\{r_k\}_{k=m}^\infty$$ — последовательность неотрицательных чисел,
