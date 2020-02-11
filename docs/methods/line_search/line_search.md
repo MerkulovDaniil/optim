@@ -19,7 +19,7 @@ $$
 f(x) \to \min_{x \in [a,b]}
 $$
 
-Line search is on of the simplest formal optimization problems, however, it is an important link in solving more complex tasks, so it is very important to solve it effectively. Let's restrict the class of problems under consideration where $$f(x)4$$ is a *unimodal function*.
+Line search is on of the simplest formal optimization problems, however, it is an important link in solving more complex tasks, so it is very important to solve it effectively. Let's restrict the class of problems under consideration where $$f(x)$$ is a *unimodal function*.
 
 Function $$f(x)$$ is called **unimodal** on $$[a, b]$$, if there is $$x_* \in [a, b]$$, that $$f(x_1) > f(x_2) \;\;\; \forall a \le x_1 < x_2 < x_*$$ and $$f(x_1) < f(x_2) \;\;\; \forall x_* \le x_1 < x_2 < b$$
 
