@@ -180,3 +180,6 @@ $$
 * Если $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} =1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
 * Ситуация $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} \gt 1$$ невозможна. 
 * Во всех остальных случаях (т. е. когда $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim_{k \to \infty} \sup \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^\infty$$
+
+# References
+* [CMC seminars (ru)](http://www.machinelearning.ru/wiki/images/9/9a/MOMO18_Extra1.pdf)
