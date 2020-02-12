@@ -329,7 +329,10 @@ $$
 * \$$\mu^*_j g_j(x^*) = 0$$
 * \$$g_j(x^*) \leq 0$$
 
-В выпуклом случае эти условия являются достаточными!
+Эти условия являются достаточными, если задача регулярна, т. е. если:
+1) данная задача есть задача выпуклой оптимизации (т. е. функции $$ f$$  и $$ g_i$$ выпуклые, $$ h_i$$ - аффинные) и выполнено условие Слейтера;
+  либо
+2) выполнена сильная двойственность.	
 
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.
