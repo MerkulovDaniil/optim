@@ -6,6 +6,13 @@ title: Conic set
 nav_order: 3
 ---
 
+# Cone
+A  non-empty set $S$ is called cone, if:
+
+$$
+\forall x \in S, \; \theta \ge 0 \;\; \rightarrow \;\; \theta x \in S
+$$
+
 # Convex cone
 The set $S$ is called convex cone, if:
 
