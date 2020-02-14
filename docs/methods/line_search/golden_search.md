@@ -36,4 +36,4 @@ $$
 where $\tau = \frac{\sqrt{5} + 1}{2}$.
 
 * The geometric progression constant **more** than the dichotomy method - $$0.618$$ worse than $$0.5$$
-* The number of function calls ** is less** than for the dichotomy method - $$0.707$$ worse than $$0.618$$ - (for each iteration of the dichotomy method, except for the first one, the function is calculated no more than 2 times, and for the gold method - no more than one)
+* The number of function calls **is less** than for the dichotomy method - $$0.707$$ worse than $$0.618$$ - (for each iteration of the dichotomy method, except for the first one, the function is calculated no more than 2 times, and for the gold method - no more than one)
