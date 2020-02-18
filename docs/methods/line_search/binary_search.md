@@ -43,7 +43,7 @@ $$
 Note, that at each iteration we ask oracle no more, than 2 times, so the number of function evaluations is $$N = 2*k$$, which implies:
 
 $$
-|x_{k+1} - x_*| \leq (0.5)^{\frac{N}{2}+1} \cdot (b-a) \leq \leq (0.707)^{N}  \frac{b-a}{2}
+|x_{k+1} - x_*| \leq (0.5)^{\frac{N}{2}+1} \cdot (b-a) \leq  (0.707)^{N}  \frac{b-a}{2}
 $$
 
 By marking the right side of the last inequality for $$\varepsilon$$, we get the number of method iterations needed to achieve $$\varepsilon$$ accuracy:
