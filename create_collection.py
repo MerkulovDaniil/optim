@@ -39,7 +39,7 @@ def find_file_with_title(title, docs):
 	string_to_find = '\ntitle: %s'%title 
 	path_to_file = 0 
 	for file in docs: 
-		with open(file) as f: 
+		with open(file, encoding="utf8") as f: 
 			if string_to_find in f.read(): 
 				path_to_file = file 
 				continue 

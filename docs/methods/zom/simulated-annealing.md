@@ -33,7 +33,7 @@ The name and inspiration come from annealing in metallurgy, a technique involvin
 
 **Step 6** If $$\Delta E < 0$$ then the approximation found is better than it was. So accept $$x_{k+1}$$ as new started point at the next step and go to the step **Step 3**
 
-**Step 7** If $$\Delta E < 0$$, then we accept $$x_{k+1}$$ with the probability of $$P(\Delta E) = \exp^{-\Delta E / T_k}$$. If we don't accept $$x_{k+1}$$, then we let $$k = k+ 1$$. Go to the step **Step 3**
+**Step 7** If $$\Delta E >= 0$$, then we accept $$x_{k+1}$$ with the probability of $$P(\Delta E) = \exp^{-\Delta E / T_k}$$. If we don't accept $$x_{k+1}$$, then we let $$k = k+ 1$$. Go to the step **Step 3**
 
 The algorithm can stop working according to various criteria, for example, achieving an optimal state or lowering the temperature below a predetermined level $$T_{min}$$.
 
