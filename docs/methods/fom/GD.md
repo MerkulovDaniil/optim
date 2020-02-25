@@ -120,7 +120,7 @@ This is, surely, not a proof at all, but some kind of intuitive explanation.
 Some general highlights about Lipcshitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
 
 $$
-f(y) - f(x) - \langle \nabla f(x), y-x \rangle \leq \frac{L}{2} \|y-x\|^2,
+|f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,
 $$
 
 which geometrically means, that if we'll fix some point $$x_0 \in \mathbb{R}^n$$ and define two parabolas:
@@ -130,7 +130,7 @@ $$
 $$
 
 $$
-\phi_2(x) = f(x_0) + \langle \nabla f(x_0), x + x_0 \rangle - \frac{L}{2} \|x-x_0\|^2.
+\phi_2(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle + \frac{L}{2} \|x-x_0\|^2.
 $$
 
 Then 
