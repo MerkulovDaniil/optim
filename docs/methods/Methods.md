@@ -16,7 +16,7 @@ $$
 $$
 
 Some necessary or\and sufficient conditions are known (See {% include link.html title='Optimality conditions. KKT'%} and {% include link.html title='Convex optimization problem' %})
-* In fact, there might be very challenging to recognize the convinient form of optimization problem.
+* In fact, there might be very challenging to recognize the convenient form of optimization problem.
 * Analytical solution of KKT could be inviable
 
 ## Iterative methods
