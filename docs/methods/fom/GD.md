@@ -222,7 +222,7 @@ This strategy of inexact line search works well in practice, as well as it has t
 Let's consider the following scalar function while being at a specific point of $$x_k$$: 
 
 $$
-\phi(\eta) = f(x_k - \eta\nabla f(x_k), \eta \geq 0
+\phi(\eta) = f(x_k - \eta\nabla f(x_k)), \eta \geq 0
 $$
 
 consider first order approximation of  $$\phi(h)$$:
