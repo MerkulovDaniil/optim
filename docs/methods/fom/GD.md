@@ -225,7 +225,7 @@ $$
 \phi(\eta) = f(x_k - \eta\nabla f(x_k)), \eta \geq 0
 $$
 
-consider first order approximation of  $$\phi(h)$$:
+consider first order approximation of  $$\phi(\eta)$$:
 
 $$
 \phi(\eta) \approx f(x_k) - \eta\nabla f(x_k)^\top \nabla f(x_k)
