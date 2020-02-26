@@ -51,7 +51,7 @@ The algorithm maintains the set of test points in the form of simplex. For each 
 Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value 
 in the domain.
 
-The simplex movements finishes when its sides become too small (termination condition by sides) or its area become too small (termination condition by area). I prefer the second condition, because it 
+The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it 
 takes into account cases when simplex becomes degenerate (three or more vertices on one axis).
 
 ## Steps of the algorithm
