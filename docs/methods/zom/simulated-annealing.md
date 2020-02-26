@@ -63,11 +63,11 @@ In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the boa
 
 ## Results
 
-Results of applying this algorithm with $$\alpha = 0.95$$ to the $$N$$ queens puzzle for $$N = 10$$ avareged by 100 runs are below:
+Results of applying this algorithm with $$\alpha = 0.95$$ to the $$N$$ queens puzzle for $$N = 10$$ averaged by 100 runs are below:
 
 ![](../sa-example.svg)
 
-Results of running the code for $$N$$ from $$4$$ to $$40$$ and measuring the time it takes to find the solution avareged by 100 runs are below:
+Results of running the code for $$N$$ from $$4$$ to $$40$$ and measuring the time it takes to find the solution averaged by 100 runs are below:
 
 ![](../sa-runs.svg)
 
