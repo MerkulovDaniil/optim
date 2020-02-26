@@ -25,7 +25,7 @@ $$
 x_{k+1} = x_k - \eta_k\nabla f(x_k)
 $$
 
-* The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method's behaviour. 
+* The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method's behavior. 
 * One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $$\eta_k = \dfrac{1}{L}$$
 * In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $$\mathcal{O}(p)$$)
 * If function has Lipschitz-continious gradient, then method could be rewritten as follows:
@@ -79,7 +79,7 @@ $$
 
 ## Gradient flow ODE
 
-Let's consider the following ODE, which is refferred as Gradient Flow equation.
+Let's consider the following ODE, which is referred as Gradient Flow equation.
 
 $$
 \label{GF}
