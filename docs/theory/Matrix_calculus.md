@@ -98,7 +98,7 @@ named gradient of  $$f(x)$$ . This vector indicates the direction of steepest as
 ## Naive approach
 The basic idea of naive approach is to reduce matrix\vector derivatives to the well-known scalar derivatives.
 ![](../matrix_calculus.svg)
-One of the most important practical trick here is to separate indicies of sum ($$i$$) and partial derivatives ($$k$$). Ignoring this simple rule tends to produce mistakes.
+One of the most important practical trick here is to separate indices of sum ($$i$$) and partial derivatives ($$k$$). Ignoring this simple rule tends to produce mistakes.
 ## Guru approach
 The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convinient to use the differential notation here.
 
