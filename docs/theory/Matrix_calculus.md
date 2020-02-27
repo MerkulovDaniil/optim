@@ -103,7 +103,7 @@ One of the most important practical trick here is to separate indicies of sum ($
 The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convinient to use the differential notation here.
 
 ### Differentials
-After obtaining the differential notaion of $df$ we can retrieve the gradient using following formula:
+After obtaining the differential notation of $df$ we can retrieve the gradient using following formula:
 
 $$
 df(x) = \langle \nabla f(x), dx\rangle
