@@ -25,7 +25,7 @@ Rules of formatting and contributing could be found on the [readme page](https:/
 
 # Principles
 
-* This site aims on researchers and enthisiasts with some prior expertise in the field (not just the Wikipedia clone).
+* This site aims on researchers and enthusiasts with some prior expertise in the field (not just the Wikipedia clone).
 * The fundamental primitive structure of this site is the page.
 * The page should consist short self-sufficient material about the topic.
 * If the page is based on paper, bibtex label should be added at the beginning.
