@@ -19,7 +19,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 
 ## Properties
 * $$f^*(y)$$ - always closed convex function (point-wise supremum of closed convex functions) on $$y$$
-(Function $$f:X\rightarrrow R$$ is called closed if $$\mathbf{epi}(f)$$ is a closed set in $$X\times R$$)
+(Function $$f:X\rightarrow R$$ is called closed if $$\mathbf{epi}(f)$$ is a closed set in $$X\times R$$)
 * Fenchel–Young inequality: 
 	
 	$$
