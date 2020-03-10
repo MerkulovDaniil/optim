@@ -44,7 +44,7 @@ $$
 x_{k+1} = x_k - \left[ f''(x_k)\right]^{-1}f'(x_k).
 $$
 
-With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f'''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
+With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
 
 ## Second order Taylor approximation of the function
 Let us now give us the function $$f(x)$$ and a certain point $$x_k$$. Let us consider the square approximation of this function near $$x_k$$:
@@ -127,7 +127,7 @@ $$
 
 The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 l}{3M}$$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* < \frac{2 l}{3M}\|$$) to the solution with **quadratic speed**. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution with **quadratic speed**. 
 
 
 ## Theorem
