@@ -59,9 +59,9 @@ The idea of the method is to find the point $$x_{k+1}$$, that minimizes the func
 
 $$
 \begin{align*}
-\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x+{k+1})(x_{k+1} - x_k) = 0 \\
-f''(x+{k})(x_{k+1} - x_k) &= -f'(x_{k}) \\
-\left[ f''(x_k)\right]^{-1} f''(x+{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
+\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x_{k+1})(x_{k+1} - x_k) = 0 \\
+f''(x_{k})(x_{k+1} - x_k) &= -f'(x_{k}) \\
+\left[ f''(x_k)\right]^{-1} f''(x_{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
 x_{k+1} &= x_k -\left[ f''(x_k)\right]^{-1} f'(x_{k}).
 \end{align*}
 $$
