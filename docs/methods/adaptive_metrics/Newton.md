@@ -127,7 +127,7 @@ $$
 
 The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 l}{3M}$$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* < \frac{2 l}{3M}\|$$) to the solution with **quadratic speed**. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution with **quadratic speed**. 
 
 
 ## Theorem
