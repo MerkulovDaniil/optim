@@ -44,7 +44,7 @@ $$
 x_{k+1} = x_k - \left[ f''(x_k)\right]^{-1}f'(x_k).
 $$
 
-With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f'''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
+With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
 
 ## Second order Taylor approximation of the function
 Let us now give us the function $$f(x)$$ and a certain point $$x_k$$. Let us consider the square approximation of this function near $$x_k$$:
