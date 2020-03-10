@@ -101,5 +101,4 @@ $$
 
 # Comparison of quasi Newton methods
 
-http://fa.bianp.net/blog/2013/numerical-optimizers-for-logistic-regression/
-https://nbviewer.jupyter.org/github/fabianp/pytron/blob/master/doc/benchmark_logistic.ipynb
+[Link](https://nbviewer.jupyter.org/github/fabianp/pytron/blob/master/doc/benchmark_logistic.ipynb)
