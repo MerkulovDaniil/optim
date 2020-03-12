@@ -24,7 +24,7 @@ $$
 f(x) \to \min\limits_{x \in S},
 $$
 
-Where $$f(x)$$ is convex function, defined on the convex set $$S$$. The neccessity of affine equality constraint is essential see Slater's condition in {% include link.html title = 'Duality' %}. 
+Where $$f(x)$$ is convex function, defined on the convex set $$S$$. The necessity of affine equality constraint is essential see Slater's condition in {% include link.html title = 'Duality' %}. 
 
 For example, this problem is not convex optimization problem (but implies minimizing convex function over the convex set):
 
