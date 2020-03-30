@@ -32,7 +32,7 @@ $$
 Ax = b
 $$
 
-Without special efforts the problem can be presented in the form of minimization of the quadratic function, and then generalised on a case of *non* quadratic function. We will start with the parabolic case and try to construct a  conjugate gradients method for it.
+Without special efforts the problem can be presented in the form of minimization of the quadratic function, and then generalized on a case of *non* quadratic function. We will start with the parabolic case and try to construct a  conjugate gradients method for it.
 Let us consider the classical problem of minimization of the quadratic function:
 
 $$
