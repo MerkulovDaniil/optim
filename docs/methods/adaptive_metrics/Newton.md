@@ -161,3 +161,6 @@ It's not nice:
 * Quadratic evaluation of the function by the first order oracle (superlinear convergence)
 * The combination of the Newton method and the gradient descent (interesting direction)
 * Higher order methods (most likely useless)
+
+# Code
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)
