@@ -59,9 +59,9 @@ The idea of the method is to find the point $$x_{k+1}$$, that minimizes the func
 
 $$
 \begin{align*}
-\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x+{k+1})(x_{k+1} - x_k) = 0 \\
-f''(x+{k})(x_{k+1} - x_k) &= -f'(x_{k}) \\
-\left[ f''(x_k)\right]^{-1} f''(x+{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
+\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x_{k})(x_{k+1} - x_k) = 0 \\
+f''(x_{k})(x_{k+1} - x_k) &= -f'(x_{k}) \\
+\left[ f''(x_{k})\right]^{-1} f''(x_{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
 x_{k+1} &= x_k -\left[ f''(x_k)\right]^{-1} f'(x_{k}).
 \end{align*}
 $$
@@ -161,3 +161,6 @@ It's not nice:
 * Quadratic evaluation of the function by the first order oracle (superlinear convergence)
 * The combination of the Newton method and the gradient descent (interesting direction)
 * Higher order methods (most likely useless)
+
+# Code
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)
