@@ -43,6 +43,10 @@ $$
 \mathbf{conv}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0\right\}
 $$
 
+* Множество $$\mathbf{conv}(S)$$ является наименьшим выпуклым множеством, содержащим $$S$$.
+* Множество $$S$$ является выпуклым тогда и только тогда, когда $$S = \mathbf{conv}(S)$$.
+
+
 Примеры:
 ![center](../convex_hull.svg)
 

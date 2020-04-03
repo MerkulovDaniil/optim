@@ -311,14 +311,14 @@ $$
   author={Kuhn, Harold W and Tucker, Albert W},
   year={1951},
   publisher={University of California Press, Berkeley}
-}' file='/assets/files/kuhntucker.pdf' %}
+}' file='/assets/files/kuhntucker.pdf' inline = 'True'%}
 
 {% include tabs.html bibtex = '@article{karush1939minima,
   title={Minima of functions of several variables with inequalities as side constraints},
   author={Karush, William},
   journal={M. Sc. Dissertation. Dept. of Mathematics, Univ. of Chicago},
   year={1939}
-}' file='/assets/files/karush.pdf' %}
+}' file='/assets/files/karush.pdf' inline = 'True'%}
 
 Пусть $$x^*$$ решение задачи математического программирования, и функции $$f, h_j, g_i$$ дифференцирумы. 
 Тогда найдутся такие $$\lambda^*$$ и $$\mu^*$$, что выполнены следующие условия:
@@ -329,7 +329,10 @@ $$
 * \$$\mu^*_j g_j(x^*) = 0$$
 * \$$g_j(x^*) \leq 0$$
 
-В выпуклом случае эти условия являются достаточными!
+Эти условия являются достаточными, если задача регулярна, т. е. если:
+1) данная задача есть задача выпуклой оптимизации (т. е. функции $$ f$$  и $$ g_i$$ выпуклые, $$ h_i$$ - аффинные) и выполнено условие Слейтера;
+  либо
+2) выполнена сильная двойственность.	
 
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.

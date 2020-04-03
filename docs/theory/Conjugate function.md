@@ -18,7 +18,8 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 ![](../conj.svg)
 
 ## Properties
-* $$f^*(y)$$ - always convex function (point-wise supremum of convex functions) on $$y$$
+* $$f^*(y)$$ - always closed convex function (point-wise supremum of closed convex functions) on $$y$$
+(Function $$f:X\rightarrow R$$ is called closed if $$\mathbf{epi}(f)$$ is a closed set in $$X\times R$$)
 * Fenchel–Young inequality: 
 	
 	$$
@@ -26,6 +27,9 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 	$$
 
 * Let the functions $$f(x), f^*(y), f^{**}(x)$$ are defined on the $$\mathbb{R}^n$$. Then, $$f^{**}(x) = f(x)$$ if and only if $$f(x)$$ - proper convex function (Fenchel - Moreau theorem).
+(proper convex function = closed convex function)
+
+* Consequence from Fenchel–Young inequality: $$f(x) \ge f^{**}(x)$$ 
 
 ![](../doubl_conj.svg)
 

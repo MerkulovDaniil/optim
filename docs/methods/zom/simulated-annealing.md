@@ -33,7 +33,7 @@ The name and inspiration come from annealing in metallurgy, a technique involvin
 
 **Step 6** If $$\Delta E < 0$$ then the approximation found is better than it was. So accept $$x_{k+1}$$ as new started point at the next step and go to the step **Step 3**
 
-**Step 7** If $$\Delta E < 0$$, then we accept $$x_{k+1}$$ with the probability of $$P(\Delta E) = \exp^{-\Delta E / T_k}$$. If we don't accept $$x_{k+1}$$, then we let $$k = k+ 1$$. Go to the step **Step 3**
+**Step 7** If $$\Delta E >= 0$$, then we accept $$x_{k+1}$$ with the probability of $$P(\Delta E) = \exp^{-\Delta E / T_k}$$. If we don't accept $$x_{k+1}$$, then we let $$k = k+ 1$$. Go to the step **Step 3**
 
 The algorithm can stop working according to various criteria, for example, achieving an optimal state or lowering the temperature below a predetermined level $$T_{min}$$.
 
@@ -63,11 +63,11 @@ In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the boa
 
 ## Results
 
-Results of applying this algorithm with $$\alpha = 0.95$$ to the $$N$$ queens puzzle for $$N = 10$$ avareged by 100 runs are below:
+Results of applying this algorithm with $$\alpha = 0.95$$ to the $$N$$ queens puzzle for $$N = 10$$ averaged by 100 runs are below:
 
 ![](../sa-example.svg)
 
-Results of running the code for $$N$$ from $$4$$ to $$40$$ and measuring the time it takes to find the solution avareged by 100 runs are below:
+Results of running the code for $$N$$ from $$4$$ to $$40$$ and measuring the time it takes to find the solution averaged by 100 runs are below:
 
 ![](../sa-runs.svg)
 

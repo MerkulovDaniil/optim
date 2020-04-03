@@ -1,7 +1,6 @@
 ---
 layout: default
 has_children: true
-permalink: /Applications
 title: Applications
 nav_order: 5
 ---

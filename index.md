@@ -7,9 +7,7 @@ permalink: /
 
 # Introduction
 
-Welcome to the fmin.xyz - attempt to build intuitive systematic review of optimization theory, methods and applications. The initial goal of creating literature review for PhD thesis has transformed to the idea of something, that could be useful for people, making comparison of different optimizers easier and nice.
-
-[![](/assets/images/discord.svg)](https://discord.gg/vQv7Gfv)
+Welcome to the fmin.xyz - attempt to build intuitive systematic review of optimization theory, methods and applications.
 
 The site contains following parts:
 
@@ -17,14 +15,17 @@ The site contains following parts:
 * {% include link.html title="Methods"%}
 * {% include link.html title="Exercises"%}
 * {% include link.html title="Applications"%}
+* {% include link.html title="Materials"%}
 
 The site has simple built-in search 🔍. You can use it to find anything you want.
 
 Rules of formatting and contributing could be found on the [readme page](https://github.com/MerkulovDaniil/optim) on the github repo.
 
+[![](/assets/images/discord.svg)](https://discord.gg/vQv7Gfv)
+
 # Principles
 
-* This site aims on researchers and enthisiasts with some prior expertise in the field (not just the Wikipedia clone).
+* This site aims on researchers and enthusiasts with some prior expertise in the field (not just the Wikipedia clone).
 * The fundamental primitive structure of this site is the page.
 * The page should consist short self-sufficient material about the topic.
 * If the page is based on paper, bibtex label should be added at the beginning.

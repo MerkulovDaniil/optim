@@ -4,32 +4,33 @@ title: "Lookahead Optimizer: $k$ steps forward, $1$ step back"
 parent: First order methods
 grand_parent: Methods
 nav_order: 7
----
-
-{% include tabs.html bibtex = '@article{zhang2019lookahead,
+bibtex: |
+  @article{zhang2019lookahead,
   title={Lookahead Optimizer: k steps forward, 1 step back},
   author={Zhang, Michael R and Lucas, James and Hinton, Geoffrey and Ba, Jimmy},
   journal={arXiv preprint arXiv:1907.08610},
   year={2019}
-}' file='https://arxiv.org/pdf/1907.08610'%}
+  }
+file: https://arxiv.org/pdf/1907.08610
+---
 
 # Summary
 
 The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family.
-Main idea is quite simple: 
+The main idea is quite simple: 
 
-* Set some number $$k$$. Take initial parameter weights $$\theta_0 = \hat{\theta}_0$$
-* Do $$k$$ steps with your favorite optimization algorithm: $$\hat{\theta}_1, \ldots, \hat{\theta}_k$$
-* Take some value between initial $$\theta_0$$ and $$\hat{\theta}_k$$:
+* Set some number $$k$$. Take initial parameter weights $$x_0 = \hat{x}_0$$
+* Do $$k$$ steps with your favorite optimization algorithm: $$\hat{x}_1, \ldots, \hat{x}_k$$
+* Take some value between initial $$x_0$$ and $$\hat{x}_k$$:
 
     $$
-    \theta_{t+1} = (1 - \alpha)\theta_{t} + \alpha\hat{\theta_k}
+    x_{t+1} = (1 - \alpha)x_{t} + \alpha\hat{x_k}
     $$
 
-* Update $$\hat{\theta_0}$$ with the last output of the algorithm.
+* Update $$\hat{x_0}$$ with the last output of the algorithm.
 * Repeat ~~profit~~
 
-Authors introduced separation on the *fast weights* and *slow weights*, which naturally arises in the described procedure.
+Authors introduced separation on the *fast weights* and *slow weights*, which naturally arise in the described procedure.
 The paper contains proof for optimal step-size of the quadratic loss function and provides understanding why this technique could reduce variance of {% include link.html title="Stochastic gradient descent" %} in the noisy quadratic case. Moreover, this work compares the convergence rate in dependency of condition number of the squared system.
 
 It is worth to say, that autor claims significant improvement in practical huge scale settings (ImageNet, CIFAR10,CIFAR100)
@@ -41,7 +42,7 @@ It is worth to say, that autor claims significant improvement in practical huge 
 * Interesting idea, costs almost nothing, why not to try?
 * Works with any SGD-like optimizer (SGD, Adam, RmsProp)
 * Analytical approach to quadratic case.
-* Wide set of empirical tests (Image classifiaction, Neural Translation, LSTM training)
+* Wide set of empirical tests (Image classification, Neural Translation, LSTM training)
 
 # Cons
 * Lack of test loss pictures, the majority of them obtained for the train loss\accuracy 

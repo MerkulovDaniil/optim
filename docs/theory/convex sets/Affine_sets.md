@@ -36,3 +36,5 @@ The set of all affine combinations of points in set $$S$$ is called the affine h
 $$
 \mathbf{aff}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1\right\}
 $$
+
+* The set $$\mathbf{aff}(S)$$ is the smallest affine set containing $$S$$.

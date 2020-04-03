@@ -3,9 +3,8 @@ layout: default
 title: Nelder–Mead
 parent: Zero order methods
 grand_parent: Methods
----
-
-{% include tabs.html bibtex = '@article{nelder1965simplex,
+bibtex: |
+  @article{nelder1965simplex,
   title={A simplex method for function minimization},
   author={Nelder, John A and Mead, Roger},
   journal={The computer journal},
@@ -14,10 +13,9 @@ grand_parent: Methods
   pages={308--313},
   year={1965},
   publisher={Oxford University Press}
-}' file='assets/files/Nelder1965.pdf'%}
-
-
-
+  }
+file: assets/files/Nelder1965.pdf  
+---
 # Problem
 
 Sometimes the multidimensional function is so difficult to evaluate that even expressing the $$1^{\text{st}}$$ derivative for gradient-based methods of finding optimum becomes an impossible task.
@@ -53,7 +51,7 @@ The algorithm maintains the set of test points in the form of simplex. For each 
 Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value 
 in the domain.
 
-The simplex movements finishes when its sides become too small (termination condition by sides) or its area become too small (termination condition by area). I prefer the second condition, because it 
+The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it 
 takes into account cases when simplex becomes degenerate (three or more vertices on one axis).
 
 ## Steps of the algorithm

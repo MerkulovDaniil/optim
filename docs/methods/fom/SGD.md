@@ -4,17 +4,17 @@ title: Stochastic gradient descent
 parent: First order methods
 grand_parent: Methods
 nav_order: 2
----
-
-{% include tabs.html bibtex = '@article{robbins1951stochastic,
+bibtex: |
+  @article{robbins1951stochastic,
   title={A stochastic approximation method},
   author={Robbins, Herbert and Monro, Sutton},
   journal={The annals of mathematical statistics},
   pages={400--407},
   year={1951},
   publisher={JSTOR}
-}' file='/assets/files/SGD.pdf'%}
-
+  }
+file: /assets/files/SGD.pdf
+---
 ## Summary
 Suppose, our target function is the sum of functions.
 
@@ -22,7 +22,7 @@ $$
 \min\limits_{x \in \mathbb{R}^{p}} g(x) := \frac{1}{n} \sum_{i=1}^{n} f_i(x)
 $$
 
-This problem usually arise in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. 
+This problem usually arises in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. 
 
 ## Bounds
 
