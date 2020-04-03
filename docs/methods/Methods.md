@@ -131,7 +131,7 @@ $$
 * Linear
 
 	$$
-	\| x_{k+1} - x_* \|_2 \leq Cq^k \qquad\text{or} \qquad \| x_{k+1} - x_* \|_2 \leq C\| x_k - x_* \|_2,
+	\| x_{k+1} - x_* \|_2 \leq Cq^k \qquad\text{or} \qquad \| x_{k+1} - x_* \|_2 \leq q\| x_k - x_* \|_2,
 	$$
 
 	where $$q \in (0, 1)$$ and $$ 0 < C < \infty$$

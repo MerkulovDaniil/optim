@@ -44,7 +44,7 @@ $$
 x_{k+1} = x_k - \left[ f''(x_k)\right]^{-1}f'(x_k).
 $$
 
-With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f'''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
+With the only clarification that in the multidimensional case: $$x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$$.
 
 ## Second order Taylor approximation of the function
 Let us now give us the function $$f(x)$$ and a certain point $$x_k$$. Let us consider the square approximation of this function near $$x_k$$:
@@ -161,3 +161,6 @@ It's not nice:
 * Quadratic evaluation of the function by the first order oracle (superlinear convergence)
 * The combination of the Newton method and the gradient descent (interesting direction)
 * Higher order methods (most likely useless)
+
+# Code
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)
