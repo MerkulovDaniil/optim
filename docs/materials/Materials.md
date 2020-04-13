@@ -95,3 +95,4 @@ has_toc: False
 * [100 numpy exercises](https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises.ipynb)
 * [Collection of Interactive Machine Learning Examples](https://research.google.com/seedbank/)
 * [ML Python libraries overview (Russ)](https://neerc.ifmo.ru/wiki/index.php?title=Обзор_библиотек_для_машинного_обучения_на_Python)
+* [A VISUAL INTRODUCTION TO MACHINE LEARNING] (http://www.r2d3.us/)
