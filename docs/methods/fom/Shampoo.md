@@ -3,7 +3,7 @@ layout: default
 title: "Shampoo: Preconditioned Stochastic Tensor Optimization"
 parent: First order methods
 grand_parent: Methods
-nav_order: 8
+nav_order: 9
 bibtex: |
   @article{gupta2018shampoo,
   title={Shampoo: Preconditioned stochastic tensor optimization},

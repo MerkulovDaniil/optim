@@ -3,7 +3,7 @@ layout: default
 title: Stochastic gradient descent
 parent: First order methods
 grand_parent: Methods
-nav_order: 2
+nav_order: 5
 bibtex: |
   @article{robbins1951stochastic,
   title={A stochastic approximation method},

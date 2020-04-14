@@ -3,7 +3,7 @@ layout: default
 title: "Lookahead Optimizer: $k$ steps forward, $1$ step back"
 parent: First order methods
 grand_parent: Methods
-nav_order: 7
+nav_order: 8
 bibtex: |
   @article{zhang2019lookahead,
   title={Lookahead Optimizer: k steps forward, 1 step back},

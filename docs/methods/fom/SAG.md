@@ -3,7 +3,7 @@ layout: default
 title: Stochastic average gradient
 parent: First order methods
 grand_parent: Methods
-nav_order: 3
+nav_order: 6
 bibtex: |
   @article{schmidt2017minimizing,
   title={Minimizing finite sums with the stochastic average gradient},
