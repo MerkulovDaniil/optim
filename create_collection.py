@@ -181,7 +181,7 @@ for chapter in chapters:
 		main_file.write('\n# %s\n'%chapter) 
 		chapter_path 		= find_file_with_title(chapter, docs) 
 		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)] 
-		with open(chapter_path) as f: 
+		with open(chapter_path, encoding='utf-8') as f: 
 			polished_chapter = f.read() 
 			polished_chapter = delete_header_from_string(polished_chapter) 
 			polished_chapter = increase_header_levels(polished_chapter) 
