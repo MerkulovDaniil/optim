@@ -25,7 +25,7 @@ $$
 $$
 
 
-This problem usually arises in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. Baseline solution to the problem is to calculate the loss function and the corresponding gradient vector only on the small subset of indicies from $$i = 1, \ldots, n$$, which usually referrs as {% include link.html title='Stochastic gradient descent'%}. The authors claims, that the convergence rate of proposed algorithm is the same a for the full {% include link.html title='Gradient descent'%} method ($$\mathcal{O}\left( \dfrac{1}{k}\right)$$ for convex functions and $$\mathcal{O}\left( \dfrac{1}{\sqrt{k}}\right)$$ for strongly convex objectives), but the iteration costs remains the same as for the stochastic version.
+This problem usually arises in Deep Learning, where the gradient of the loss function is calculating over the huge number of data points, which could be very expensive in terms of the iteration cost. Baseline solution to the problem is to calculate the loss function and the corresponding gradient vector only on the small subset of indicies from $$i = 1, \ldots, n$$, which usually refers as {% include link.html title='Stochastic gradient descent'%}. The authors claims, that the convergence rate of proposed algorithm is the same a for the full {% include link.html title='Gradient descent'%} method ($$\mathcal{O}\left( \dfrac{1}{k}\right)$$ for convex functions and $$\mathcal{O}\left( \dfrac{1}{\sqrt{k}}\right)$$ for strongly convex objectives), but the iteration costs remains the same as for the stochastic version.
 
 The method itself takes the following form:
 
