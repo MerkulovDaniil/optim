@@ -53,7 +53,7 @@ $$
 The simplest option is when the amendment $\Delta B_k$ has a rank equal to one. Then you can look for an amendment in the form
 
 $$
-B_k = \mu_k q_k q_k^\top.
+\Delta B_k = \mu_k q_k q_k^\top.
 $$
 
 where $\mu_k$ is a scalar and $q_k$ is a non-zero vector. Then mark the right side of the equation to find $\Delta B_k$ for $\Delta z_k$:
