@@ -28,7 +28,7 @@ def binary_search(f, a, b, epsilon):
 ![](../binary_search.gif)
 
 # Bounds
-The length of the line segment on $$k+1$$-th iteration::
+The length of the line segment on $$k+1$$-th iteration:
 
 $$
 \Delta_{k+1} = b_{k+1} - a_{k+1} = \dfrac{1}{2^k}(b-a)
