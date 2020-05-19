@@ -167,7 +167,7 @@ $$
 * Log-concavity: $$\log f$$ concave; **not** closed under addition!
 * Exponentially convex: $$[f(x_i + x_j )] \succeq 0$$, for $$x_1, \ldots , x_n$$ 
 * Operator convex: $$f(\lambda X + (1 − \lambda )Y ) \preceq \lambda f(X) + (1 − \lambda )f(Y)$$ 
-* Quasiconvex: $$f(\lambda x + (1 − \lambda y)) \leq \max \{f(x), f(y)\}$$
+* Quasiconvex: $$f(\lambda x + (1 − \lambda) y) \leq \max \{f(x), f(y)\}$$
 * Pseudoconvex: $$\langle \nabla f(y), x − y \rangle \geq 0 \longrightarrow f(x) \geq f(y)$$
 * Discrete convexity: $$f : \mathbb{Z}^n \to \mathbb{Z}$$; “convexity + matroid theory.”
 
