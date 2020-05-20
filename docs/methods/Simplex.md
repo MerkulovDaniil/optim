@@ -168,7 +168,7 @@ $$
 In the following problem simplex algorithm needs to check $$2^n - 1$$ vertexes with $$x_0 = 0$$. 
 
 $$
-\begin{align*} & \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x2 + \dots + 2x{n-1} + x_n\\
+\begin{align*} & \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
 \text{s.t. } & x_1 \leq 5\\
 & 4x_1 + x_2 \leq 25\\
 & 8x_1 + 4x_2 + x_3 \leq 125\\
