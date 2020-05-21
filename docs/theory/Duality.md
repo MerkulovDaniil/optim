@@ -257,7 +257,7 @@ $$
 
 which allows us to formulate one of the most important theorems, that connects dual problems and conjugate functions:
 
-**Fenchel - Rockafellar theorem** Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. Let $$p, d \in [- \infty, + \infty]$$ - optimal values of primal and dual problems:
+**Fenchel - Rockafellar theorem** Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. Let $$p^*, d^* \in [- \infty, + \infty]$$ - optimal values of primal and dual problems:
 
 $$
 p^* = f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
