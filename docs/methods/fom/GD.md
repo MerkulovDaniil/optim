@@ -115,7 +115,7 @@ $$
 
 This is, surely, not a proof at all, but some kind of intuitive explanation.
 
-## Minimizer of Lipcshitz parabola
+## Minimizer of Lipschitz parabola
 
 Some general highlights about Lipcshitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
 
