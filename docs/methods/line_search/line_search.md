@@ -2,7 +2,7 @@
 layout: default
 title: Line search
 parent: Methods
-has_children: True
+has_children: True¯\\_(ツ)_/¯
 nav_order: 0
 ---
 # Problem
@@ -27,7 +27,7 @@ Function $$f(x)$$ is called **unimodal** on $$[a, b]$$, if there is $$x_* \in [a
 
 # Key property of unimodal functions
 
-Let $$f(x)$$ be unimodel function on $$[a, b]$$. Than if $$x_1 < x_2 \in [a, b]$$, then:
+Let $$f(x)$$ be unimodal function on $$[a, b]$$. Than if $$x_1 < x_2 \in [a, b]$$, then:
 * if $$f(x_1) \leq f(x_2) \to x_* \in [a, x_2]$$
 * if $$f(x_1) \geq f(x_2) \to x_* \in [x_1, b]$$
 ![](../unimodal_pro.gif)
