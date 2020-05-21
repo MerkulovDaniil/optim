@@ -2,7 +2,7 @@
 layout: default
 title: Line search
 parent: Methods
-has_children: True¯\\_(ツ)_/¯
+has_children: True
 nav_order: 0
 ---
 # Problem
