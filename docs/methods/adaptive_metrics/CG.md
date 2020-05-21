@@ -39,7 +39,7 @@ $$
 f(x) = \frac{1}{2}x^\top A x - b^\top x + c \to \min\limits_{x \in \mathbb{R}^n }
 $$
 
-Here $$x \in \mathbb{R}^n, A \in \mathbb{R}^{n \times n}$$ and $$b, c \in \mathbb{R}^n $$.
+Here $$x \in \mathbb{R}^n, A \in \mathbb{R}^{n \times n}$$, $$b \in \mathbb{R}^n, c \in \mathbb{R}$$.
 
 # Method of conjugate gradients for the quadratic function
 
