@@ -47,7 +47,7 @@ def GeneralScheme(x, epsilon):
 # Challenges
 
 ## Unsolvability
-In general, **optimization problems are unsolvable.**  ¯\_(ツ)_/¯
+In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
 Consider the following simple optimization problem of a function over unit cube:
 
