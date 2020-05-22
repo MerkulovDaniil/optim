@@ -105,7 +105,7 @@ for any $$x_1, x_2 \in S$$ and $$0 \le \lambda \le 1$$ for some $$\mu > 0$$.
 
 ## First order differential criterion of strong convexity
 
-Differentiable $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ $$\mu$$-strogly convex if and only if $$\forall x,y \in S$$:
+Differentiable $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ $$\mu$$-strongly convex if and only if $$\forall x,y \in S$$:
 
 $$
 f(y) \ge f(x) + \nabla f^T(x)(y-x) + \dfrac{\mu}{2}\|y-x\|^2
@@ -118,7 +118,7 @@ f(x + \Delta x) \ge f(x) + \nabla f^T(x)\Delta x + \dfrac{\mu}{2}\|\Delta x\|^2
 $$
 
 ## Second order differential criterion of strong convexity
-Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is called $$\mu$$-strogly convex if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
+Twice differentiable function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is called $$\mu$$-strongly convex if and only if $$\forall x \in \mathbf{int}(S) \neq \emptyset$$:
 
 $$
 \nabla^2 f(x) \succeq \mu I
