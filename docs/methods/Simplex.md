@@ -121,7 +121,7 @@ $$
 \end{align*}
 $$
 
-Definition: a **basis** $$B$$ is a subset of $$n$$ (integer) numbers between $$1$$ and $$m$$, so that $$\text{rank} A_B = n$$. Note, that we can associate submatrix $$A_B$$ and corresponding right-hand side $$b_b$$ with the basis $$B$$. Also, we can derive a point of intersection of all these hyperplanes from basis: $$x_B = A^{-1}_B b_B$$. 
+Definition: a **basis** $$B$$ is a subset of $$n$$ (integer) numbers between $$1$$ and $$m$$, so that $$\text{rank} A_B = n$$. Note, that we can associate submatrix $$A_B$$ and corresponding right-hand side $$b_B$$ with the basis $$B$$. Also, we can derive a point of intersection of all these hyperplanes from basis: $$x_B = A^{-1}_B b_B$$. 
 
 If $$A x_B \leq b$$, then basis $$B$$ is **feasible**. 
 
