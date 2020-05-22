@@ -124,13 +124,13 @@ $$
 If we also have strong convexity:
 
 $$
-\mathbb{E}[\|x_{k} - x^*\|^2] \leq (1 - 2\alpha_k \mu) \|x_{k-1} - x^*\| + \alpha_k^2 B^2
+\mathbb{E}[\|x_{k} - x^*\|^2] \leq (1 - 2\alpha_k \mu)^{k} \|x_{k-1} - x^*\| + \alpha_k^2 B^2
 $$
 
 And finally, with $\alpha_k = \alpha < \frac{2}{\mu}$:
 
 $$
-\mathbb{E}[\|x_{k} - x^*\|^2] \leq (1 - 2\alpha_k \mu) R^2 + \frac{\alpha B^2}{2\mu},
+\mathbb{E}[\|x_{k} - x^*\|^2] \leq (1 - 2\alpha_k \mu)^{k} R^2 + \frac{\alpha B^2}{2\mu},
 $$
 
 where $R = \|x_0- x^*\| $
