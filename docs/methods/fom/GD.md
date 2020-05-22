@@ -117,7 +117,7 @@ This is, surely, not a proof at all, but some kind of intuitive explanation.
 
 ## Minimizer of Lipschitz parabola
 
-Some general highlights about Lipcshitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
+Some general highlights about Lipschitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
 
 $$
 |f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,
@@ -136,7 +136,7 @@ $$
 Then 
 
 $$
-\phi_1(x) \leq f(x) \leq \phi_2(x) \forall x \in \mathbb{R}^n.
+\phi_1(x) \leq f(x) \leq \phi_2(x) \quad \forall x \in \mathbb{R}^n.
 $$
 
 Now, if we have global upper bound on the function, in a form of parabola, we can try to go directly to its minimum.
@@ -154,7 +154,7 @@ $$
 
 This way leads to the $$\frac{1}{L}$$ stepsize choosing. However, often the $$L$$ constant is not known.
 
-But if the function is twice continuously differentiable and its gradient has Lipchitz constant $$L$$, we can derive a way to estimate this constant $$\forall x \in \mathbb{R}^n$$:
+But if the function is twice continuously differentiable and its gradient has Lipschitz constant $$L$$, we can derive a way to estimate this constant $$\forall x \in \mathbb{R}^n$$:
 
 $$
 \|\nabla^2 f(x) \| \leq L
