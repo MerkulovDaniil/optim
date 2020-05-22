@@ -154,7 +154,7 @@ $$
 
 This way leads to the $$\frac{1}{L}$$ stepsize choosing. However, often the $$L$$ constant is not known.
 
-But if the function is twice continuously differentiable and its gradient has Lipchitz constant $$L$$, we can derive a way to estimate this constant $$\forall x \in \mathbb{R}^n$$:
+But if the function is twice continuously differentiable and its gradient has Lipschitz constant $$L$$, we can derive a way to estimate this constant $$\forall x \in \mathbb{R}^n$$:
 
 $$
 \|\nabla^2 f(x) \| \leq L
