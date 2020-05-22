@@ -3,7 +3,7 @@ layout: default
 title: "Lookahead Optimizer: $k$ steps forward, $1$ step back"
 parent: First order methods
 grand_parent: Methods
-nav_order: 7
+nav_order: 8
 bibtex: |
   @article{zhang2019lookahead,
   title={Lookahead Optimizer: k steps forward, 1 step back},
@@ -33,7 +33,7 @@ The main idea is quite simple:
 Authors introduced separation on the *fast weights* and *slow weights*, which naturally arise in the described procedure.
 The paper contains proof for optimal step-size of the quadratic loss function and provides understanding why this technique could reduce variance of {% include link.html title="Stochastic gradient descent" %} in the noisy quadratic case. Moreover, this work compares the convergence rate in dependency of condition number of the squared system.
 
-It is worth to say, that autor claims significant improvement in practical huge scale settings (ImageNet, CIFAR10,CIFAR100)
+It is worth to say, that author claims significant improvement in practical huge scale settings (ImageNet, CIFAR10,CIFAR100)
 
 ![](../fast_vs_slow.png)
 ![](../imagenet_train_loss.png)

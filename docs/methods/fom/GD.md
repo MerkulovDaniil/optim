@@ -115,7 +115,7 @@ $$
 
 This is, surely, not a proof at all, but some kind of intuitive explanation.
 
-## Minimizer of Lipcshitz parabola
+## Minimizer of Lipschitz parabola
 
 Some general highlights about Lipcshitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
 
@@ -252,9 +252,10 @@ Note, that Goldstein-Armijo conditions determine the location of the function $$
 
 | Conditions | $\Vert f(x_k) - f(x^*)\Vert \leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
 | ---------- | ---------------------- | ------------------- | --------------------- |
-| Convex<br/>Lipschitz-continious function($G$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{GR}{k}$ | Sublinear |                       |
-| Convex<br/>Lipschitz-continious gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
-| $\mu$-Strongly convex<br/>Lipschitz-continious hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
+| Convex<br/>Lipschitz-continuous function($G$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{GR}{k}$ | Sublinear |                       |
+| Convex<br/>Lipschitz-continuous gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
 
 * $$R = \| x_0 - x^*\| $$ - initial distance
 * \$$\overline{R} = \dfrac{2\mu}{M}$$

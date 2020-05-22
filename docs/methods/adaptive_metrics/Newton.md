@@ -59,9 +59,9 @@ The idea of the method is to find the point $$x_{k+1}$$, that minimizes the func
 
 $$
 \begin{align*}
-\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x_{k})(x_{k+1} - x_k) = 0 \\
+\nabla \tilde{f}(x_{k+1}) &= f'(x_{k}) + f''(x_{k+1})(x_{k+1} - x_k) = 0 \\
 f''(x_{k})(x_{k+1} - x_k) &= -f'(x_{k}) \\
-\left[ f''(x_{k})\right]^{-1} f''(x_{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
+\left[ f''(x_k)\right]^{-1} f''(x_{k})(x_{k+1} - x_k) &= -\left[ f''(x_k)\right]^{-1} f'(x_{k}) \\
 x_{k+1} &= x_k -\left[ f''(x_k)\right]^{-1} f'(x_{k}).
 \end{align*}
 $$
@@ -87,7 +87,7 @@ Used here is: $$G_k = \int_0^1 \left( f''(x_k) - f''(x^* + \tau (x_k - x^*)) d \
 $$
 \begin{align*} 
 \| G_k\| = \left\| \int_0^1 \left( f''(x_k) - f''(x^* + \tau (x_k - x^*)) d \tau\right)\right\| \leq \\
-\leq \int_0^1 \left\| f''(x_k) - f''(x^* + \tau (x_k - x^*)).   \right\|d\tau \leq \qquad \text{(Hessian's Lipschitz сontinuity)}\\
+\leq \int_0^1 \left\| f''(x_k) - f''(x^* + \tau (x_k - x^*))   \right\|d\tau \leq \qquad \text{(Hessian's Lipschitz сontinuity)}\\
 \leq \int_0^1 M\|x_k - x^* - \tau (x_k - x^*)\| d \tau = \int_0^1 M\|x_k - x^*\|(1- \tau)d \tau = \frac{r_k}{2}M,
 \end{align*} 
 $$
@@ -127,7 +127,7 @@ $$
 
 The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 l}{3M}$$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* < \frac{2 l}{3M}\|$$) to the solution with **quadratic speed**. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution with **quadratic speed**. 
 
 
 ## Theorem

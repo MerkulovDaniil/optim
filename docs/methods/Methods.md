@@ -47,7 +47,7 @@ def GeneralScheme(x, epsilon):
 # Challenges
 
 ## Unsolvability
-In general, **optimization problems are unsolvable.**  ¯\_(ツ)_/¯
+In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
 Consider the following simple optimization problem of a function over unit cube:
 
@@ -65,7 +65,7 @@ $$
 | f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
 $$
 
-with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$- dimensional unit cube $$Bn = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}$$. 
+with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$- dimensional unit cube $$\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}$$. 
 
 Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minimizer of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quality
 
