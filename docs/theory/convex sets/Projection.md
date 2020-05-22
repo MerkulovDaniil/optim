@@ -28,7 +28,7 @@ $$
 	\pi_S(\mathbf{y}) = \underset{\mathbf{x}}{\operatorname{argmin}} \|\mathbf{x}-\mathbf{y}\|
 	$$
 
-* Пусть $$S \subseteq \mathbb{R}^n$$ - выпуклое замкнутое множество. Пусть так же имеются точки $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Тогда если для всех $$\mathbf{x} \in S$$ справедливо неравенство: 
+* Пусть $$S \subseteq \mathbb{R}^n$$ - выпуклое замкнутое множество. Пусть также имеются точки $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Тогда если для всех $$\mathbf{x} \in S$$ справедливо неравенство: 
 	
 	$$
 	\langle \pi  -\mathbf{y}, \mathbf{x} - \pi\rangle \ge 0, 
