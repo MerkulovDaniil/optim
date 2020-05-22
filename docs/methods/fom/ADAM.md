@@ -3,7 +3,7 @@ layout: default
 title: "ADAM: A Method for Stochastic Optimization"
 parent: First order methods
 grand_parent: Methods
-nav_order: 4
+nav_order: 7
 bibtex: |
   @article{kingma2014adam,
   title={Adam: A method for stochastic optimization},

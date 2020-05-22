@@ -155,7 +155,7 @@ $$
 
 * Non-negative sum of the convex functions: $$\alpha f(x) + \beta g(x), (\alpha \geq 0 , \beta \geq 0)$$
 
-* Composition with affine function $$f(Ax + b)$$  is convex, if $$f(x)$$ is covex
+* Composition with affine function $$f(Ax + b)$$  is convex, if $$f(x)$$ is convex
 * Pointwise maximum (supremum): If $$f_1(x), \ldots, f_m(x)$$ are convex, then $$f(x) = \max \{f_1(x), \ldots, f_m(x)\}$$ is convex
 * If $$f(x,y)$$ is convex on $$x$$ for any $$y \in Y$$: $$g(x) = \underset{y \in Y}{\operatorname{sup}}f(x,y)$$ is convex
 * If $$f(x)$$ is convex on $$S$$, then $$g(x,t) = t f(x/t)$$ - is convex with $$x/t \in S, t > 0$$ 
@@ -167,7 +167,7 @@ $$
 * Log-concavity: $$\log f$$ concave; **not** closed under addition!
 * Exponentially convex: $$[f(x_i + x_j )] \succeq 0$$, for $$x_1, \ldots , x_n$$ 
 * Operator convex: $$f(\lambda X + (1 − \lambda )Y ) \preceq \lambda f(X) + (1 − \lambda )f(Y)$$ 
-* Quasiconvex: $$f(\lambda x + (1 − \lambda y)) \leq \max \{f(x), f(y)\}$$
+* Quasiconvex: $$f(\lambda x + (1 − \lambda) y) \leq \max \{f(x), f(y)\}$$
 * Pseudoconvex: $$\langle \nabla f(y), x − y \rangle \geq 0 \longrightarrow f(x) \geq f(y)$$
 * Discrete convexity: $$f : \mathbb{Z}^n \to \mathbb{Z}$$; “convexity + matroid theory.”
 

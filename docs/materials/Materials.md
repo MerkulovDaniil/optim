@@ -94,3 +94,5 @@ has_toc: False
 * [Example functions](https://www.sfu.ca/~ssurjano/optimization.html) to test optimization algorithms.
 * [100 numpy exercises](https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises.ipynb)
 * [Collection of Interactive Machine Learning Examples](https://research.google.com/seedbank/)
+* [ML Python libraries overview (Russ)](https://neerc.ifmo.ru/wiki/index.php?title=Обзор_библиотек_для_машинного_обучения_на_Python)
+* [Nice Visualisation of some ML ideas](http://www.r2d3.us/)
