@@ -66,7 +66,7 @@ x_{k+1} &= x_k -\left[ f''(x_k)\right]^{-1} f'(x_{k}).
 \end{align*}
 $$
 
-Let us immediately note the limitations related to the necessity of the Hessian's unbornness (for the method to exist), as well as his positive definiteness (for the convergence guarantee). 
+Let us immediately note the limitations related to the necessity of the Hessian's unbornness (for the method to exist), as well as its positive definiteness (for the convergence guarantee). 
 
 # Convergence
 Let's try to get an estimate of how quickly the classical Newton method converges.  We will try to enter the necessary data and constants as needed in the conclusion (to illustrate the methodology of obtaining such estimates). 
