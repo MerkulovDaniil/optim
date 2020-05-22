@@ -85,7 +85,7 @@ The function is convex if and only if its epigraph is convex set.
 ## Connection with sublevel set
 If $$f(x)$$ - is a convex function defined on the convex set $$S \subseteq \mathbb{R}^n$$, then for any $$\beta$$ sublevel set $$\mathcal{L}_\beta$$ is convex.
 
-The function $$f(x)$$ defined ob the convex set $$S \subseteq \mathbb{R}^n$$ is closed if and only if for any $$\beta$$ sublevel set $$\mathcal{L}_\beta$$ is closed.
+The function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is closed if and only if for any $$\beta$$ sublevel set $$\mathcal{L}_\beta$$ is closed.
 
 ## Reduction to a line
 $$f: S \to \mathbb{R}$$ is convex if and only if $$S$$ is convex set and the function $$g(t) = f(x + tv)$$ defined on $$\left\{ t \mid x + tv \in S \right\}$$  is convex for any $$x \in S, v \in \mathbb{R}^n$$, which allows to check convexity of the scalar function in order to establish covexity of the vector function.
