@@ -81,7 +81,7 @@ $$
 
 Our goal is to find the $$p$$ for some $$\varepsilon$$. So, we need to sample $$ \left(\frac{L}{2 \varepsilon}\right)^n$$ points, since we need to measure function in $$p^n$$ points. Doesn't look scary, but if we'll take $$L = 2, n = 11, \varepsilon = 0.01$$, computations on the modern personal computers will take 31,250,000 years.
 
-## Stoping rules
+## Stopping rules
 * Argument closeness: 
 
 $$
