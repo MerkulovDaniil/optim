@@ -136,7 +136,7 @@ $$
 Then 
 
 $$
-\phi_1(x) \leq f(x) \leq \phi_2(x) \forall x \in \mathbb{R}^n.
+\phi_1(x) \leq f(x) \leq \phi_2(x) \quad \forall x \in \mathbb{R}^n.
 $$
 
 Now, if we have global upper bound on the function, in a form of parabola, we can try to go directly to its minimum.
