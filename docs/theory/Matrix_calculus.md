@@ -109,7 +109,7 @@ $$
 df(x) = \langle \nabla f(x), dx\rangle
 $$
 
-Than, if we have differential of the above form and we need to calculate the second derivative of the matrix\vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, than calculate $$d(df)$$
+Then, if we have differential of the above form and we need to calculate the second derivative of the matrix\vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, then calculate $$d(df)$$
 
 $$
 d^2f(x) = \langle \nabla^2 f(x) dx_1, dx_2\rangle = \langle H_f(x) dx_1, dx_2\rangle
