@@ -84,7 +84,7 @@ $$
 	$f(x) - f^∗ \leq f(x) - g(y)$ for an arbitrary $y \in \Omega$
 * **Dual function is always concave**
 
-	As a pointwise minimume of affine functions.
+	As a pointwise minimum of affine functions.
 
 # Weak duality
 It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have 
