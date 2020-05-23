@@ -60,7 +60,7 @@ f''(x) = \dfrac{\partial^2 f}{\partial x_i \partial x_j} = \begin{pmatrix}
     \frac{\partial^2 f}{\partial x_1 \partial x_1} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \dots  & \frac{\partial^2 f}{\partial x_1\partial x_n} \\
     \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2 \partial x_2} & \dots  & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
     \vdots & \vdots & \ddots & \vdots \\
-    \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \dots  & \frac{\partial f}{\partial x_n \partial x_n}
+    \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \dots  & \frac{\partial^2 f}{\partial x_n \partial x_n}
 \end{pmatrix}
 $$
 
@@ -109,7 +109,7 @@ $$
 df(x) = \langle \nabla f(x), dx\rangle
 $$
 
-Than, if we have differential of the above form and we need to calculate the second derivative of the matrix\vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, than calculate $$d(df)$$
+Then, if we have differential of the above form and we need to calculate the second derivative of the matrix\vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, then calculate $$d(df)$$
 
 $$
 d^2f(x) = \langle \nabla^2 f(x) dx_1, dx_2\rangle = \langle H_f(x) dx_1, dx_2\rangle
