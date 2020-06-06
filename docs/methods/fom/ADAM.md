@@ -42,4 +42,4 @@ All vector operations are element-wise. $$\alpha = 0.001, \beta_1 = 0.9, \beta_2
 | ---------- | ---------------------- | ------------------- | --------------------- |
 | Convex | $$ \mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) $$ | Sublinear |                       |
 
-Version of Adam for a strongly convex functions is considered i [this](https://arxiv.org/pdf/1905.02957.pdf) work. The obtained rate is $ \mathcal{O}\left(\dfrac{\log k}{\sqrt{k}} \right) $, while the version for truly linear rate remains undiscovered.
+Version of Adam for a strongly convex functions is considered in [this](https://arxiv.org/pdf/1905.02957.pdf) work. The obtained rate is $ \mathcal{O}\left(\dfrac{\log k}{\sqrt{k}} \right) $, while the version for truly linear rate remains undiscovered.

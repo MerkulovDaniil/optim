@@ -88,7 +88,7 @@ $$
 \| x_k - x_*  \|_2 < \varepsilon
 $$ 
 
-* Function value clossness: 
+* Function value closeness: 
 
 $$
 \| f_k - f^* \|_2 < \varepsilon
