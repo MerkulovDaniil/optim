@@ -111,8 +111,8 @@ Thus, we formulate an algorithm:
 
 1. Let $$k = 0$$ and $$x_k = x_0$$, count $$d_k = d_0 = -\nabla f(x_0)$$.
 
-2. By the procedure of line search we find the optimal length of step
-:
+2. By the procedure of line search we find the optimal length of step: 
+
   Calculate $$\alpha$$ minimizing $$f(x_k + \alpha_k d_k)$$ by the formula
 
   $$
