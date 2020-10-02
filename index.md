@@ -7,9 +7,9 @@ permalink: /
 
 # Introduction
 
-Welcome to the fmin.xyz - attempt to build intuitive systematic review of optimization theory, methods and applications.
+Welcome to the fmin.xyz - an attempt to build an intuitive systematic review of optimization theory, methods, and applications.
 
-The site contains following parts:
+The site contains the following parts:
 
 * {% include link.html title="Theory"%}
 * {% include link.html title="Methods"%}
@@ -17,7 +17,7 @@ The site contains following parts:
 * {% include link.html title="Applications"%}
 * {% include link.html title="Materials"%}
 
-The site has simple built-in search 🔍. You can use it to find anything you want.
+The site has a simple built-in search 🔍. You can use it to find anything you want.
 
 Rules of formatting and contributing could be found on the [readme page](https://github.com/MerkulovDaniil/optim) on the github repo.
 
@@ -25,9 +25,9 @@ Rules of formatting and contributing could be found on the [readme page](https:/
 
 # Principles
 
-* This site aims on researchers and enthusiasts with some prior expertise in the field (not just the Wikipedia clone).
+* This site is aimed at researchers and enthusiasts with some prior expertise in the field (not just the Wikipedia clone).
 * The fundamental primitive structure of this site is the page.
-* The page should consist short self-sufficient material about the topic.
+* The page should consists of short self-sufficient material about the topic.
 * If the page is based on paper, bibtex label should be added at the beginning.
 * The general structure of the site is flexible and should be improved over the time iteratively.
 
