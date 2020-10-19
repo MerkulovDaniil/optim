@@ -68,7 +68,7 @@ $$
 
 Пусть есть 2 выпуклых множества $$S_x, S_y$$, пусть множество $$S = \left\{s \mid s = c_1 x + c_2 y, \; x \in S_x, \; y \in S_y, \; c_1, c_2 \in \mathbb{R}\right\}$$
 
-Возьмем две точки из $$S$$: $$s_1 = c_1 x_1 + c_2 y_1, s_2 = c_1 x_2 + c_2 y_2$$ и докажем, что отрезок между ними $$\theta s_1 + (1 - \theta)s_2, \theta \in [0,1]$$ так же принадлежит $$S$$
+Возьмем две точки из $$S$$: $$s_1 = c_1 x_1 + c_2 y_1, s_2 = c_1 x_2 + c_2 y_2$$ и докажем, что отрезок между ними $$\theta s_1 + (1 - \theta)s_2, \theta \in [0,1]$$ также принадлежит $$S$$
 
 $$
 \theta s_1 + (1 - \theta)s_2
@@ -99,8 +99,8 @@ $$
 
 Примеры аффинных функций: растяжение, проекция, перенос, множество решений линейного матричного неравенства $$\left\{ x \mid x_1 A_1 + \ldots + x_m A_m \preceq B\right\}$$ Здесь $$A_i, B \in \mathbf{S}^p$$ - симметричные матрицы $$p \times p$$. 
 
-Отметим так же, что прообраз выпуклого множества при аффинном отображении так же выпуклый.
+Также отметим, что прообраз выпуклого множества при аффинном отображении тоже является выпуклым.
 
 $$
-S \subseteq \mathbb{R}^m \text{ convex}\; \rightarrow \; f^{-1}(S) = \left\{ x \in \mathbb{R}^n \mid f(x) \in S \right\} \text{ convex} \;\; \left(f(x) = \mathbf{A}x + \mathbf{b}\right)
+S \subseteq \mathbb{R}^n \text{ convex}\; \rightarrow \; f^{-1}(S) = \left\{ x \in \mathbb{R}^n \mid f(x) \in S \right\} \text{ convex} \;\; \left(f(x) = \mathbf{A}x + \mathbf{b}\right)
 $$
