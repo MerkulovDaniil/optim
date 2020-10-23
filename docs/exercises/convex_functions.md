@@ -24,7 +24,7 @@ nav_order: 5
 	D(p,q) = \sum\limits_{i=1}^n (p_i \log(p_i/q_i) - p_i + q_i)
 	$$
 	
-	Prove, that $$D(p,q) \geq 0 \forall p,q \in \mathbb{R}^n_{++}$$ и $$D(p,q) = 0 \leftrightarrow p = q$$  
+	Prove, that $$D(p,q) \geq 0 \forall p,q \in \mathbb{R}^n_{++}$$ and $$D(p,q) = 0 \leftrightarrow p = q$$  
 	
 	Hint: 
 	$$
