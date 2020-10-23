@@ -11,7 +11,7 @@ nav_order: 2
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n}, b \in \mathbb{R}^{m} \}$$, $$y \notin S$$
 1. Illustrate the geometric inequality that connects $$\pi_S(y), y \notin S, x \in S$$, from which it follows that $$\pi_S(y)$$ is a projection of the $$y$$ point onto a convex set of $$S$$.
-1. For which sets does the projection of the point outside this set exist? Uniquie?
+1. For which sets does the projection of the point outside this set exist? Unique?
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid c^T x \ge b \}$$
 1. Find $$\pi_S (y) = \pi$$ if $$S = \{x \in \mathbb{R}^n \mid x = x_0 + X \alpha, X \in \mathbb{R}^{n \times m}, \alpha \in \mathbb{R}^{m}\}$$, $$y \in S$$
 1. Let $$S \subseteq \mathbb{R}^n$$ be a closed set, and $$x \in \mathbb{R}^n$$ be a point not lying in it. Show that the projection in $$l_2$$ norm will be unique, while in $$l_\infty$$ norm this statement is not valid.
