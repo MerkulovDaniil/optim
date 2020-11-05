@@ -164,3 +164,6 @@ $$
 $$
 \partial f(x) = \left\{ g \; : \; \|g\|_\infty \leq 1, \quad g^\top x = \|x\|_1 \right\}
 $$
+
+# References
+* [Lecture Notes for ORIE 6300: Mathematical Programming I by Damek Davis](https://people.orie.cornell.edu/dsd95/teaching/orie6300/ORIE6300Fall2019notes.pdf)
