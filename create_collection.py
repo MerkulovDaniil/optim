@@ -129,7 +129,7 @@ else:
  
 filename = os.path.join(path, pdf_folder_name, title, title+'.md') 
  
-main_file = open(filename,"w+") 
+main_file = open(filename,"w+", encoding='utf-8') 
 main_file.write("<!-- This file was created by Danya Merkulov's script. See fmin.xyz for more details -->\n") 
 main_file.write("%s\n"%title) 
  
@@ -159,13 +159,12 @@ for chapter in chapters:
 		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)]
 		if hw_mode:
 			main_file.write('\n# {}\n'.format(chapter)) 
-		with open(chapter_path) as f: 
+		with open(chapter_path, encoding='utf-8') as f: 
 			polished_chapter = f.read() 
 			for number in numbers: 
 				exercises_counter += 1 
 				number 	= int(number) 
 				problem = catch_problem_from_string(polished_chapter, chapter_parent_path, os.path.join(path, pdf_folder_name, title), number) 
-				print(problem)
 				if not hw_mode:
 					main_file.write('\n\n##### Example {}\n'.format(exercises_counter)) 
 					main_file.write(problem) 

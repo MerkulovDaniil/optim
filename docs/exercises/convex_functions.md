@@ -8,12 +8,12 @@ nav_order: 5
 # Convex functions
 
 1. Show, that $$f(x) = \|x\|$$ is convex on $$\mathbb{R}^n$$.
-1. Show, that $$f(x) = c^Tx + b$$ is convex and concave. 
-1. Show, that $$f(x) = x^TAx$$, where $$A\succeq 0$$ - is convex on $$\mathbb{R}^n$$.
+1. Show, that $$f(x) = c^\topx + b$$ is convex and concave. 
+1. Show, that $$f(x) = x^\topAx$$, where $$A\succeq 0$$ - is convex on $$\mathbb{R}^n$$.
 1. Show, that $$f(A) = \lambda_{max}(A)$$ - is convex, if $$A \in S^n$$.
 1. Prove, that $$-\log\det X$$ is convex on $$X \in S^n_{++}$$.
 1. Show, that $$f(x)$$ is convex, using first and second order criteria, if $$f(x) = \sum\limits_{i=1}^n x_i^4$$.
-1. Find the set of $$x \in \mathbb{R}^n$$, where the function $$f(x) = \dfrac{-1}{2(1 + x^Tx)}$$ is convex, strictly convex, strongly convex?  
+1. Find the set of $$x \in \mathbb{R}^n$$, where the function $$f(x) = \dfrac{-1}{2(1 + x^\topx)}$$ is convex, strictly convex, strongly convex?  
 1. Find the values of $$a,b,c$$, where $$f(x,y,z) = x^2 + 2axy + by^2 + cz^2$$ is convex, strictly convex, strongly convex? 
 1. Выпуклы ли следующие функции: $$f(x) = e^x - 1, \; x \in \mathbb{R};\;\;\; f(x_1, x_2) = x_1x_2, \; x \in \mathbb{R}^2_{++};\;\;\; f(x_1, x_2) = 1/(x_1x_2), \; x \in \mathbb{R}^2_{++}$$?
 1. Докажите, что множество $$S = \left\{ x \in \mathbb{R}^n \mid \prod\limits_{i=1}^n x_i \geq 1 \right\}$$ выпукло.
@@ -28,7 +28,7 @@ nav_order: 5
 	
 	Hint: 
 	$$
-	D(p,q) = f(p) - f(q) - \nabla f(q)^T(p-q), \;\;\;\; f(p) = \sum\limits_{i=1}^n p_i \log p_i
+	D(p,q) = f(p) - f(q) - \nabla f(q)^\top(p-q), \;\;\;\; f(p) = \sum\limits_{i=1}^n p_i \log p_i
 	$$
 1. Let $$x$$ be a real variable with the values $$a_1 < a_2 < \ldots < a_n$$ with probabilities $$\mathbb{P}(x = a_i) = p_i$$. Derive the convexity or concavity of the following functions from $$p$$ on the set of $$\left\{p \mid \sum\limits_{i=1}^n p_i = 1, p_i \ge 0 \right\}$$  
 	* \$$\mathbb{E}x$$
@@ -48,14 +48,14 @@ nav_order: 5
 
 	For $$x, y \in \mathbb{R}^n$$
 
-1.  Доказать, что что матричная норма $$f(X) = \|X\|_2 = \sup\limits_{y \in \mathbb{R}^n} \dfrac{\|Xy\|_2}{\|y\|_2}$$ выпукла.
+1.  Prove that spectral matrix norm $$f(X) = \|X\|_2 = \sup\limits_{y \in \mathbb{R}^n} \dfrac{\|Xy\|_2}{\|y\|_2}$$ is convex.
 1.  Доказать, что:
 
 	* если $$f(x)$$ - выпукла, то $$\exp f(x)$$ так же выпукла.
 	* если $$f(x)$$ - выпукла, то $$g(x)^p$$ выпукла для $$p \ge 1, f(x) \ge 0$$.
 	* если $$f(x)$$ - вогнута, то $$1/f(x)$$ выпукла для $$f(x) > 0$$.
 
-1.  Выпукла ли функция $$f(X, y) = y^T X^{-1}y$$  на множестве $$\mathbf{dom} f = \{X, y \mid X + X^T \succeq 0\}$$ ? Известно, что эта функция выпукла, если $$X$$ - симметричная матрица (упражнение - доказать). Докажите выпуклость или приведите простой контпример.
+1.  Выпукла ли функция $$f(X, y) = y^\top X^{-1}y$$  на множестве $$\mathbf{dom} f = \{X, y \mid X + X^\top \succeq 0\}$$ ? Известно, что эта функция выпукла, если $$X$$ - симметричная матрица (упражнение - доказать). Докажите выпуклость или приведите простой контпример.
 1.  Пусть функция $$h(x)$$ - выпуклая на $$\mathbb{R}$$ неубывающая функция, кроме того: $$h(x) = 0$$ при $$x \le 0$$. Докажите, что функция $$h\left(\|x\|_2\right)$$ выпукла на $$\mathbb{R}^n$$.
 1.  Is the function returning the arithmetic mean of vector coordinates is a convex one: : $$a(x) = \frac{1}{n}\sum\limits_{i=1}^n x_i$$, what about geometric mean: $$g(x) = \prod\limits_{i=1}^n \left(x_i \right)^{1/n}$$?
 1.  Show, that the following function is convex on the set of all positive denominators

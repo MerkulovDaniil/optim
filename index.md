@@ -21,8 +21,6 @@ The site has simple built-in search 🔍. You can use it to find anything you wa
 
 Rules of formatting and contributing could be found on the [readme page](https://github.com/MerkulovDaniil/optim) on the github repo.
 
-[![](/assets/images/discord.svg)](https://discord.gg/vQv7Gfv)
-
 # Principles
 
 * This site aims on researchers and enthusiasts with some prior expertise in the field (not just the Wikipedia clone).

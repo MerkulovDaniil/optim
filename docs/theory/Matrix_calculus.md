@@ -38,6 +38,7 @@ Finally, just to remind:
 * \$$AB \neq BA$$
 * \$$e^{A} =\sum\limits_{k=0}^{\infty }{1 \over k!}A^{k}$$
 * \$$e^{A+B} \neq e^{A} e^{B}$$
+* \$$\langle x, Ay\rangle = \langle A^\top x, y\rangle$$
 
 ## Gradient
 Gradient

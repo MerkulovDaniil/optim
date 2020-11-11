@@ -10,7 +10,7 @@ nav_order: 1
 1. Show that the convex hull of the $$S$$ set is the intersection of all convex sets containing $$S$$.
 1. Let $$x \in \mathbb{R}$$ is a random variable with a given probability distribution of $$\mathbb{P}(x = a_i) = p_i$$, where $$i = 1, \ldots, n$$, and $$a_1 < \ldots < a_n$$. It is said that the probability vector of outcomes of $$p \in \mathbb{R}^n$$ belongs to the probabilistic simplex, i.e. $$P = \{ p \mid \mathbf{1}^Tp = 1, p \succeq 0 \} = \{ p \mid p_1 + \ldots + p_n = 1, p_i \ge 0 \}$$. 
     Determine if the following sets of $$p$$ are convex:
-	1. $$ \alpha < \mathbb{E} f(x) < \beta$$, где $$\mathbb{E}f(x)$$ означает математическое ожидание заданной функции $$f(x): \mathbb{R} \rightarrow \mathbb{R} $$, т.е. $$ \mathbb{E}f(x) = \sum\limits_{i=1}^n p_i f(a_i) $$ 
+	1. $$ \alpha < \mathbb{E} f(x) < \beta$$, where $$\mathbb{E}f(x)$$ stands for expected value of $$f(x): \mathbb{R} \rightarrow \mathbb{R} $$, i.e. $$ \mathbb{E}f(x) = \sum\limits_{i=1}^n p_i f(a_i) $$ 
 	1. \$$ \mathbb{E}x^2 \le \alpha $$
 	1. \$$ \mathbb{V}x \le \alpha $$
 1. Prove that if the set is convex, its interior is also convex. Is the opposite true?
