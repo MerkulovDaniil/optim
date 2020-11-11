@@ -140,3 +140,4 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
 * [MSU seminars](http://www.machinelearning.ru/wiki/images/a/ab/MOMO18_Seminar1.pdf) (Rus.)
 * [Online tool](http://www.matrixcalculus.org/) for analytic expression of a derivative.
+* [Determinant derivative](https://charlesfrye.github.io/math/2019/01/25/frechet-determinant.html)
