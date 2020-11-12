@@ -7,8 +7,8 @@ nav_order: 8
 
 # Background
 ## Extreme value (Weierstrass) theorem
-Пусть $$S \subset \mathbb{R}^n$$ - компактное множество и пусть $$f(x)$$ непрерывная функция на $$S$$. 
-Тогда точка глобального минимума функции $$f (x)$$ на $$S$$ существует.
+Let $$S \subset \mathbb{R}^n$$ be compact set and $$f(x)$$ continuous function on $$S$$. 
+So that, the point of the global minimum of the function $$f (x)$$ on $$S$$ exists.
 
 ![](../goodnews.png)
 
@@ -35,8 +35,7 @@ $$
 f(x) \to \min\limits_{x \in S}
 $$
 
-Будем говорить, что задача имеет решение, если множество таких $x^* \in S$, что в них достигается минимум или инфимум данной функции **не пусто**
-
+We say that the problem has a solution if the following set **is not empty**: $x^* \in S$, in which the minimum or the infimum of the given function is achieved.  
 
 ## Unconstrained optimization
 ### General case
@@ -108,7 +107,7 @@ We will try to illustrate approach to solve this problem through the simple exam
 
 ![](../kkt_images/KKT_p017.svg)
 
-Итого, имеем: чтобы двигаясь из $$x_F$$ по бюджетному множеству в сторону уменьшения функции, нам необходимо гарантировать два условия:
+Generally: in order to move from $$ x_F $$ along the budget set towards decreasing the function, we need to guarantee two conditions:
 
 $$
 \langle \delta x, \nabla h(x_F) \rangle = 0
@@ -118,7 +117,7 @@ $$
 \langle \delta x, - \nabla f(x_F) \rangle > 0
 $$
 
-Пусть в процессе такого движения мы пришли в точку, где 
+Let's assume, that in the process of such a movement we have come to the point where
 $$
 \nabla f(x) = \lambda \nabla h(x)
 $$
@@ -127,27 +126,26 @@ $$
 \langle  \delta x, - \nabla f(x)\rangle = -\langle  \delta x, \lambda\nabla h(x)\rangle = 0  
 $$
 
-Тогда мы пришли в точку бюджетного множества, двигаясь из которой не получится уменьшить нашу функцию. Это и есть локальный минимум в ограниченной задаче:)
-
+Then we came to the point of the budget set, moving from which it will not be possible to reduce our function. This is the local minimum in the limited problem :)
 ![](../kkt_images/KKT_p021.svg)
 
-Так давайте определим функцию Лагранжа (исключительно для удобства):
+So let's define a Lagrange function (just for our convenience):
 
 $$
 L(x, \lambda) = f(x) + \lambda h(x)
 $$
 
-Тогда точка $$x^*$$ - локальный минимум описанной выше задачи, тогда и только тогда, когда:
+Then the point $$ x^* $$ be the local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
-& \nabla_x L(x^*, \lambda^*) = 0 \text{ то, что мы написали выше}\\
-& \nabla_\lambda L(x^*, \lambda^*) = 0 \text{ условие нахождения в бюджетном множестве}\\
+& \nabla_x L(x^*, \lambda^*) = 0 \text{ that's written above}\\
+& \nabla_\lambda L(x^*, \lambda^*) = 0 \text{ condition of being in budget set}\\
 & \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
 \end{split}
 $$
 
-Сразу же заметим, что $$L(x^*, \lambda^*) = f(x^*)$$.
+We should notice that $$L(x^*, \lambda^*) = f(x^*)$$.
 
 ### General formulation
 
@@ -164,7 +162,7 @@ $$
 L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i g_i(x) = f(x) + \lambda^\top g(x)
 $$
 
-Пусть $$f(x)$$ и $$h_i(x)$$ дважды дифференцируемы в точке $$x^*$$ и непрерывно дифференцируемы в некоторой окрестности $$x^*$$. Условия локального минимума для $$x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ запишутся как
+Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ are written as
 
 $$
 \begin{split}
@@ -174,7 +172,7 @@ $$
 \end{split}
 $$
 
-В заисимости от поведения гессиана критические точки могут иметь разный характер
+Depending on the behavior of the Hessian, the critical points can have a different character.
 
 ![](../kkt_images/critical.png)
 
@@ -200,9 +198,9 @@ $$
 
 ![](../kkt_images/KKT_p030.png)
 
-Таким образом, если ограничения типа неравенств неактивны в задаче БМ, то можно не парится и выписывать решение задачи БМ. Однако, так бывает не всегда:) Рассмотрим второй игрушечный пример
+Thus, if the constraints of the type of inequalities are inactive in the UM problem, then don't worry and write out the solution to the UM problem. However, this  is not a heal-all :) Consider the second childish example
 $$
-f(x) = (x_1 - 1.1)^2 + (x_2 - 1.1)^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
+f(x) = (x_1 - 1.1)^2 + (x_2 + 1.1)^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
 $$
 
 $$
@@ -228,7 +226,7 @@ $$
 
 ![](../kkt_images/KKT_p040.png)
 
-Итого, мы имеем проблему:
+So, we have a problem:
 
 $$
 \begin{split}
@@ -237,7 +235,7 @@ $$
 \end{split}
 $$
 
-И два возможных случая:
+Two possible cases:
 
 1.
 	$$
@@ -257,7 +255,7 @@ $$
     $$
    
 
-Объединяя два возможных случая, можно записать общие условия для задачи:
+Combining two possible cases, we can write down the general conditions for the problem:
 
 $$
 \begin{split}
@@ -267,13 +265,13 @@ $$
 \end{split}
 $$
 
-Определим функцию Лагранжа:
+Let's define the Lagrange function:
 
 $$
 L (x, \mu) = f(x) + \mu g(x)
 $$
 
-Тогда точка $$x^*$$ - локальный минимум описанной выше задачи, тогда и только тогда, когда:
+Then $$x^*$$ point - local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
@@ -285,7 +283,7 @@ $$
 \end{split}
 $$
 
-Сразу же заметим, что $$L(x^*, \mu^*) = f(x^*)$$. Условия $$\mu^* > 0 , (1), (4)$$ при этом реализуют первый сценарий, а условия $$\mu^* > 0 , (1), (3)$$ - второй.
+It's noticeable, that $$L(x^*, \mu^*) = f(x^*)$$. Conditions $$\mu^* = 0 , (1), (4)$$ are the first scenario realization, and conditions $$\mu^* > 0 , (1), (3)$$ - the second.
 
 ### General formulation
 
@@ -297,7 +295,7 @@ $$
 \end{split}
 $$
 
-Данная формулировка представляет собой общую задачу математического программирования. С этого момента и далее мы рассматриваем только $$\textbf{регулярные}$$ задачи. Это очень важное с формальной точки зрения замечание. Желающих разобраться подробнее просим обратиться к гуглу.
+This formulation is a general problem of mathematical programming. From now, we only consider $$ \textbf{regular} $$ tasks. This is a very important remark from a formal point of view. Those wishing to understand in more detail, please refer to Google.
 
 Solution
 
@@ -320,8 +318,8 @@ $$
   year={1939}
 }' file='/assets/files/karush.pdf' inline = 'True'%}
 
-Пусть $$x^*$$ решение задачи математического программирования, и функции $$f, h_j, g_i$$ дифференцирумы. 
-Тогда найдутся такие $$\lambda^*$$ и $$\mu^*$$, что выполнены следующие условия:
+Let $$ x^* $$ be a solution to a mathematical programming problem, and the functions $$ f, h_j, g_i $$ are differentiable.
+Then there are $$ \lambda^* $$ and $$ \mu^* $$ such that the following conditions are carried out:
 
 * \$$\nabla_x L(x^*, \lambda^*, \mu^*) = 0$$
 * \$$\nabla_\lambda L(x^*, \lambda^*, \mu^*) = 0$$
@@ -329,10 +327,10 @@ $$
 * \$$\mu^*_j g_j(x^*) = 0$$
 * \$$g_j(x^*) \leq 0$$
 
-Эти условия являются достаточными, если задача регулярна, т. е. если:
-1) данная задача есть задача выпуклой оптимизации (т. е. функции $$ f$$  и $$ g_i$$ выпуклые, $$ h_i$$ - аффинные) и выполнено условие Слейтера;
-  либо
-2) выполнена сильная двойственность.	
+These conditions are sufficient if the problem is regular, i.e. if:
+1) the given problem is a convex optimization problem (i.e., the functions $$ f $$ and $$ g_i $$ are convex, $$ h_i $$ are affine) and the Slater condition is satisfied;
+   or
+2) strong duality is fulfilled.
 
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.
