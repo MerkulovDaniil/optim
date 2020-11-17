@@ -106,7 +106,7 @@ We will try to illustrate approach to solve this problem through the simple exam
 
 ![](../kkt_images/KKT_p016.svg)
 
-![](../kkt_images/KKT_p017.svg)
+![](../kkt_images/KKT_p017_n.png)
 
 Итого, имеем: чтобы двигаясь из $$x_F$$ по бюджетному множеству в сторону уменьшения функции, нам необходимо гарантировать два условия:
 
