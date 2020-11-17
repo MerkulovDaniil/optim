@@ -161,7 +161,7 @@ $$
 Solution 
 
 $$
-L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i h_i(x) = f(x) + \lambda^\top g(x)
+L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i h_i(x) = f(x) + \lambda^\top h(x)
 $$
 
 Пусть $$f(x)$$ и $$h_i(x)$$ дважды дифференцируемы в точке $$x^*$$ и непрерывно дифференцируемы в некоторой окрестности $$x^*$$. Условия локального минимума для $$x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ запишутся как
