@@ -57,7 +57,7 @@ nav_order: 5
 
 1.  Выпукла ли функция $$f(X, y) = y^T X^{-1}y$$  на множестве $$\mathbf{dom} f = \{X, y \mid X + X^T \succeq 0\}$$ ? Известно, что эта функция выпукла, если $$X$$ - симметричная матрица (упражнение - доказать). Докажите выпуклость или приведите простой контрпример.
 1.  Пусть функция $$h(x)$$ - выпуклая на $$\mathbb{R}$$ неубывающая функция, кроме того: $$h(x) = 0$$ при $$x \le 0$$. Докажите, что функция $$h\left(\|x\|_2\right)$$ выпукла на $$\mathbb{R}^n$$.
-1.  Is the function returning the arithmetic mean of vector coordinates is a convex one: : $$a(x) = \frac{1}{n}\sum\limits_{i=1}^n x_i$$, what about geometric mean: $$g(x) = \prod\limits_{i=1}^n \left(x_i \right)^{1/n}$$?
+1.  Is the function returning the arithmetic mean of vector coordinates is a convex one: $$a(x) = \frac{1}{n}\sum\limits_{i=1}^n x_i$$, what about geometric mean: $$g(x) = \prod\limits_{i=1}^n \left(x_i \right)^{1/n}$$?
 1.  Show, that the following function is convex on the set of all positive denominators
 	
 	$$
