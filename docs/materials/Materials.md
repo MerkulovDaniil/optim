@@ -83,6 +83,7 @@ has_toc: False
 * [Blog](http://ruder.io/) by Sebastian Ruder about NLP and optimization.
 * [Personal page](https://richtarik.org/) of Peter Richtarik with announcements and news.
 * [Personal page](http://suvrit.de) of Suvrit Sra.
+* [Blog](http://fa.bianp.net/) by Fabian Pedregosa.
 
 ## Software and apps
 
