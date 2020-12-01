@@ -72,7 +72,7 @@ nav_order: 4
     S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \le 1 \;\; \forall x \in S\}, 
     $$
 
-    , then unit ball with the zero point as the center is the only self conjugate set in $$\mathbb{R}^n$$.
+    then unit ball with the zero point as the center is the only self conjugate set in $$\mathbb{R}^n$$.
 1. Find the conjugate set to the ellipsoid: 
     
     $$
