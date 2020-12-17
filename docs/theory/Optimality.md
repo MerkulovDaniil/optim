@@ -105,7 +105,7 @@ We will try to illustrate approach to solve this problem through the simple exam
 
 ![](../kkt_images/KKT_p016.svg)
 
-![](../kkt_images/KKT_p017.svg)
+![](../kkt_images/KKT_p017_n.png)
 
 Generally: in order to move from $$ x_F $$ along the budget set towards decreasing the function, we need to guarantee two conditions:
 
@@ -159,7 +159,7 @@ $$
 Solution 
 
 $$
-L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i g_i(x) = f(x) + \lambda^\top g(x)
+L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i h_i(x) = f(x) + \lambda^\top h(x)
 $$
 
 Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ are written as
