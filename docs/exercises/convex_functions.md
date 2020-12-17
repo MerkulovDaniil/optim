@@ -8,12 +8,12 @@ nav_order: 5
 # Convex functions
 
 1. Show, that $$f(x) = \|x\|$$ is convex on $$\mathbb{R}^n$$.
-1. Show, that $$f(x) = c^\topx + b$$ is convex and concave. 
-1. Show, that $$f(x) = x^\topAx$$, where $$A\succeq 0$$ - is convex on $$\mathbb{R}^n$$.
+1. Show, that $$f(x) = c^\top x + b$$ is convex and concave. 
+1. Show, that $$f(x) = x^\top Ax$$, where $$A\succeq 0$$ - is convex on $$\mathbb{R}^n$$.
 1. Show, that $$f(A) = \lambda_{max}(A)$$ - is convex, if $$A \in S^n$$.
 1. Prove, that $$-\log\det X$$ is convex on $$X \in S^n_{++}$$.
 1. Show, that $$f(x)$$ is convex, using first and second order criteria, if $$f(x) = \sum\limits_{i=1}^n x_i^4$$.
-1. Find the set of $$x \in \mathbb{R}^n$$, where the function $$f(x) = \dfrac{-1}{2(1 + x^\topx)}$$ is convex, strictly convex, strongly convex?  
+1. Find the set of $$x \in \mathbb{R}^n$$, where the function $$f(x) = \dfrac{-1}{2(1 + x^\top x)}$$ is convex, strictly convex, strongly convex?  
 1. Find the values of $$a,b,c$$, where $$f(x,y,z) = x^2 + 2axy + by^2 + cz^2$$ is convex, strictly convex, strongly convex? 
 1. Выпуклы ли следующие функции: $$f(x) = e^x - 1, \; x \in \mathbb{R};\;\;\; f(x_1, x_2) = x_1x_2, \; x \in \mathbb{R}^2_{++};\;\;\; f(x_1, x_2) = 1/(x_1x_2), \; x \in \mathbb{R}^2_{++}$$?
 1. Докажите, что множество $$S = \left\{ x \in \mathbb{R}^n \mid \prod\limits_{i=1}^n x_i \geq 1 \right\}$$ выпукло.
@@ -28,7 +28,7 @@ nav_order: 5
 	
 	Hint: 
 	$$
-	D(p,q) = f(p) - f(q) - \nabla f(q)^\top(p-q), \;\;\;\; f(p) = \sum\limits_{i=1}^n p_i \log p_i
+	D(p,q) = f(p) - f(q) - \nabla f(q)^\top (p-q), \;\;\;\; f(p) = \sum\limits_{i=1}^n p_i \log p_i
 	$$
 1. Let $$x$$ be a real variable with the values $$a_1 < a_2 < \ldots < a_n$$ with probabilities $$\mathbb{P}(x = a_i) = p_i$$. Derive the convexity or concavity of the following functions from $$p$$ on the set of $$\left\{p \mid \sum\limits_{i=1}^n p_i = 1, p_i \ge 0 \right\}$$  
 	* \$$\mathbb{E}x$$
