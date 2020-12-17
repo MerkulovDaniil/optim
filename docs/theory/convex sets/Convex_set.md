@@ -88,7 +88,6 @@ $$
 
 ### The intersection of any (!) number of convex sets is convex
 
-
 If the desired intersection is empty or contains one point, the property is proved by definition. Otherwise, take 2 points and a segment between them. These points must lie in all intersecting sets, and since they are all convex, the segment between them lies in all sets and, therefore, in their intersection.
 
 ### The image of the convex set under affine mapping is convex
@@ -97,7 +96,7 @@ $$
 S \subseteq \mathbb{R}^n \text{ convex}\;\; \rightarrow \;\; f(S) = \left\{ f(x) \mid x \in S \right\} \text{ convex} \;\;\;\; \left(f(x) = \mathbf{A}x + \mathbf{b}\right)
 $$
 
-Examples of affine functions: extension, projection, transposition, set of solutions of linear matrix inequality $$\left\{ x \mid x_1 A_1 + \ldots + x_m A_m \preceq B\right}$$$ Here $$A_i, B \in \mathbf{S}^p$$ are symmetric matrices $$p \times p$$. 
+Examples of affine functions: extension, projection, transposition, set of solutions of linear matrix inequality $$\left\{ x \mid x_1 A_1 + \ldots + x_m A_m \preceq B\right}$$ Here $$A_i, B \in \mathbf{S}^p$$ are symmetric matrices $$p \times p$$. 
 
 Note also that the prototype of the convex set under affine mapping is also convex.
 
