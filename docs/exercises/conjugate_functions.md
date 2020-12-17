@@ -15,7 +15,7 @@ nav_order: 7
 1. Find $$f^*(y)$$, if $$f(x) =\max\limits_{i} x_i, \;\;\; x \in \mathbb{R}^n$$
 1. Find $$f^*(y)$$, if $$f(x) = -\dfrac{1}{x}, \;\; x\in \mathbb{R}_{++}$$
 1. Find $$f^*(y)$$, if $$f(x) = -0,5 - \log x, \;\; x>0$$
-1. Find $$f^*(y)​$$, if $$f(x) = \log \left( \sum\limits_{i=1}^n e^{x_i} \right)​$$
+1. Find $$f^*(y)$$, if $$f(x) = \log \left( \sum\limits_{i=1}^n e^{x_i} \right)$$
 1. Find $$f^*(y)$$, if $$f(x) = - (a^2 - x^2)^{1/2}, \;\;\; \vert x\vert \le a, \;\;\; a>0$$
 1. Find $$f^*(Y)$$, if $$f(X) = - \ln \det X, X \in \mathbb{S}^n_{++}$$
 1. Find $$f^*(y)$$, if $$f(x) = \|x\|$$
