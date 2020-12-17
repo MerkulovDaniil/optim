@@ -94,7 +94,7 @@ $$f: S \to \mathbb{R}$$ is convex if and only if $$S$$ is convex set and the fun
 $$f(x)$$, **defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called $$\mu$$-strongly convex (strogly convex) on $$S$$, if:
 
 $$
-f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \mu \lambda (1 - \lambda)\|x_1 - x_2\|
+f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \mu \lambda (1 - \lambda)\|x_1 - x_2\|^2
 $$
 
 for any $$x_1, x_2 \in S$$ and $$0 \le \lambda \le 1$$ for some $$\mu > 0$$.
