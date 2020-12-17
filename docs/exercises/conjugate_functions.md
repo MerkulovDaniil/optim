@@ -25,6 +25,6 @@ nav_order: 7
 1. Find conjugate function to the $$f(x) = x^p, \;\; x \in \mathbb{R}_{++}, \;\; p>1$$
 1. Prove, that if $$f(x_1, x_2) = g_1(x_1) + g_2(x_2)$$, then $$f^*(y_1, y_2) = g_1^*(y_1) + g_2^*(y_2)$$
 1. Prove, that if $$f(x) = g(x-b)$$, then $$f^*(y) = b^\top y + g^*(y)$$
-1. Prove, that if $$f(x) = \alpha g(x)$$, then $$f^*(y) = \alpha g^*(y/\alpha)$$
+1. Prove, that if $$f(x) = \alpha g(x)$$ and $$ \alpha > 0 $$, then $$f^*(y) = \alpha g^*(y/\alpha)$$
 1. Prove, that if $$f(x) = g(Ax)$$, then $$f^*(y) = g^*(A^{-\top}y)$$
 1. Prove, that if $$f(x) = \inf\limits_{u+v = x} (g(u) + h(v))$$, then $$f^*(y) = g^*(y) + h^*(y)$$
