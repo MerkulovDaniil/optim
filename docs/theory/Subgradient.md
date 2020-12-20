@@ -150,7 +150,7 @@ $$
 
 Рассмотрим эту сумму как поточечный максимум линейных функций по $$x$$: $$g(x) = s^\top x$$, где $$s_i = \{ -1, 1\}$$. Каждая такая функция однозначно определяется набором коэффициентов $$\{s_i\}_{i=1}^n$$.
 
-Тогда по теореме Дубовицкого - Милютина, в каждой точке $$\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x_0)} \partial g_i(x)\right)$$
+Тогда по теореме Дубовицкого - Милютина, в каждой точке $$\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x)} \partial g_i(x)\right)$$
 
 Заметим, что $$\partial g(x) = \partial \left( \max \{s^\top x, -s^\top x\} \right) = \begin{cases} -s,  &s^\top x < 0\\ \mathbf{conv}(-s;s), &s^\top x = 0 \\ s,  &s^\top x > 0 \end{cases}$$. 
 
