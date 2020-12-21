@@ -52,7 +52,7 @@ Dijkstra’s Algorithm works well to find the shortest path, but it wastes time 
 | Because of considering both **cost** and result of **heuristic functuion** as result metric for  Dijkstra’s algorithm, we can find the shortest path faster, than raw Dijkstra’s algorithm, and precisely, than Greedy Best-First-Search |_________________________![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)|
 
 ## A-Star Implementation
-let's take a closer look at this algorithm and analyze it with code example. First of all You need to create a *Priority Queue* because you should consider points, which are closer to destination from start position. *Priority does not equal cost*. This Queue contains possible *points*, that are to be considered as possible shortest way to destination.
+Let's take a closer look at this algorithm and analyze it with code example. First of all You need to create a *Priority Queue* because you should consider points, which are closer to destination from start position. *Priority does not equal cost*. This Queue contains possible *points*, that are to be considered as possible shortest way to destination.
 ```python
 # Only main methods
 class PriorityQueue:
