@@ -87,7 +87,7 @@ $$
 	As a pointwise minimum of affine functions.
 
 # Weak duality
-It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have 
+It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have: 
 
 $$
 p^* \geq d^*
