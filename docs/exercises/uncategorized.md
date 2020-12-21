@@ -7,7 +7,7 @@ nav_order: 666
 
 # Uncategorized
 
-1. Show, that these conditions are equivivalent:
+1. Show, that these conditions are equivalent:
     
     $$
      \|\nabla f(x) - \nabla f(z) \| \le L \|x-z\| 
