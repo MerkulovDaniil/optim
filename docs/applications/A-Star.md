@@ -124,7 +124,7 @@ Now let's try to compare Dijkstras algorithm with A-Star. For this task we will 
 
 ![Comparison](../a_star_dijkstra.svg)
 
-It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra
+It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra.
 
 # Code
 
