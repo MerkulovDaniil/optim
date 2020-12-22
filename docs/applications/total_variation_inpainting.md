@@ -8,7 +8,7 @@ parent: Applications
 ![](../tv_start.png)
 
 ## Grayscale image
-A grayscale image is represented as an $$m \times n$$ matrix of intensities $$U^{orig}$$ (typically between the values $$0$$ and $$255$$). We are given all the values of corrupted picture, but some of them should be preserved as is through the recovering procedure: $$U^{corr}_{ij} \; \forall (i,j)\in K$$, where $$K\subset\{1,\ldots,m\}×\{1,\ldots,n\}$$ is the set of indices corresponding to known pixel values. Our job is to in-paint the image by guessing the missing pixel values, i.e., those with indices not in $$K$$. The reconstructed image will be represented by $$U \in \mathbb{R}^{m \times n}$$, where $$U$$ matches the known pixels, i.e., $$U_{ij}=U^{corr}_{ij}$$ for $$(i,j)\in K$$.
+A grayscale image is represented as an $$m \times n$$ matrix of intensities $$U^{orig}$$ (typically between the values $$0$$ and $$255$$). We are given all the values of corrupted picture, but some of them should be preserved as is through the recovering procedure: $$U^{corr}_{ij} \; \forall (i,j)\in K$$, where $$K\subset\{1,\ldots,m\}×\{1,\ldots,n\}$$ is the set of indices corresponding to known pixel values. Our job is to in-paint the image by guessing the missing pixel values, i.e., those with indices not in $$K$$. The reconstructed image will be represented by $$U \in \mathbb{R}^{m \times n}$$, where $$U$$ matches the known pixels, i.e. $$U_{ij}=U^{corr}_{ij}$$ for $$(i,j)\in K$$.
 
 The reconstruction $$U$$ is found by minimizing the total variation of $$U$$, subject to matching the known pixel values. We will use the $$l_{2}$$ total variation, defined as
 
