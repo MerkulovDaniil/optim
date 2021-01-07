@@ -42,7 +42,7 @@ $$
 $$
 
 * $$ \textbf{Sufficient conditions of existence of a projection}$$. If $$S \subseteq \mathbb{R}^n$$ - closed set, then for all points exist projection on set $$S$$.
-* $$\textbf{{Sufficient conditions of uniqueness of a projection}$$. Если $$S \subseteq \mathbb{R}^n$$ - convex set, then projection for all point on set $$S$$ is unique (if exists).
+* $$\textbf{Sufficient conditions of uniqueness of a projection}$$. Если $$S \subseteq \mathbb{R}^n$$ - convex set, then projection for all point on set $$S$$ is unique (if exists).
  
 #### Example 1
 Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid \|x - x_0\| \le R \}$$, $$y \notin S$$ 
