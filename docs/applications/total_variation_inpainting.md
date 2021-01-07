@@ -34,7 +34,7 @@ The crucial thing about this problem is defining set of known pixels $$K$$. Ther
 
 ## Color image
 
-For the color case we consider in-painting problem in a slightly different setting: destroying some random part of all pixels. In this case the image itself is 3d tensor (we convert all others color chemes to the RGB). As it was in the grayscale case, we construct the mask $$K$$ of known pixels for all color channels uniformly, based on the principle of similarity of particular 3d pixel to the vector $$[0, 0, 0]$$ (black pixel). The results are quite promising - note, that we have no information about the original picture, but assumption, that corrupted pixels are black. For the color picture we just sum all tv's on the each channel:
+For the color case we consider in-painting problem in a slightly different setting: destroying some random part of all pixels. In this case the image itself is 3d tensor (we convert all others color schemes to the RGB). As it was in the grayscale case, we construct the mask $$K$$ of known pixels for all color channels uniformly, based on the principle of similarity of particular 3d pixel to the vector $$[0, 0, 0]$$ (black pixel). The results are quite promising - note, that we have no information about the original picture, but assumption, that corrupted pixels are black. For the color picture we just sum all tv's on the each channel:
 
 $$
 \begin{split}\mathop{\bf tv}(U) =
