@@ -87,7 +87,7 @@ $$
 	As a pointwise minimum of affine functions.
 
 # Weak duality
-It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have 
+It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have: 
 
 $$
 p^* \geq d^*
@@ -246,7 +246,7 @@ $$
 \sup_{x \in E}\left[(-A^*\lambda)^\top x - f(x) \right] = \begin{cases} f^*(-A^*\lambda), &\text{ if } \lambda \in (-A^*)^{-1}(E_*)\\ +\infty, &\text{ otherwise} \end{cases}
 $$
 
-So, we have
+So, we have:
 
 $$
 \begin{split}
@@ -267,7 +267,7 @@ $$
 d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},
 $$
 
-Then we have weak duality: $$p^* \geq d^*$$. Furthermore, if the functions $$f$$ and $$g$$ are convex and $$A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing $$, then we have strong duality: $$p^* = d^*$$. While points $$x^* \in E \cap A^{-1}(G)$$ and $$\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$$ are optimal values for primal and dual problem if and only if
+Then we have weak duality: $$p^* \geq d^*$$. Furthermore, if the functions $$f$$ and $$g$$ are convex and $$A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing $$, then we have strong duality: $$p^* = d^*$$. While points $$x^* \in E \cap A^{-1}(G)$$ and $$\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$$ are optimal values for primal and dual problem if and only if:
 
 $$
 \begin{split}
@@ -276,7 +276,7 @@ $$
 \end{split}
 $$
 
-Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $$(f, g, A)$$, than the dual problem has the form $$(f^*, g^*, -A^*)$$
+Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $$(f, g, A)$$, than the dual problem has the form $$(f^*, g^*, -A^*)$$.
 
 ## Logistic regression
 ### Problem
@@ -287,7 +287,7 @@ $$
 \end{split}
 $$
 
-where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to \mathbb{R}$$ and $$g: \mathbb{R}^m \to \mathbb{R}$$ be the following functions
+where $$a_1, \ldots, a_m \in \mathbb{R}^n$$. Let $$f: \mathbb{R}^n \to \mathbb{R}$$ and $$g: \mathbb{R}^m \to \mathbb{R}$$ be the following functions:
 
 $$
 f(x) = 0, \quad g(y) = \sum\limits_{i=1}^m \ln\left(1 + e^{y_i} \right)

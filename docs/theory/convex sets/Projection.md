@@ -8,7 +8,7 @@ nav_order: 5
 
 # Projection
 ## Distance between point and set
-Расстоянием $$d$$ от точки $$\mathbf{y} \in \mathbb{R}^n$$ до замкнутого множества $$S \subset \mathbb{R}^n$$ является:
+The distance $$d$$ from point $$\mathbf{y} \in \mathbb{R}^n$$ to closed set $$S \subset \mathbb{R}^n$$:
 
 $$
 d(\mathbf{y}, S, \| \cdot \|) = \inf\{\|x - y\| \mid x \in S \}
@@ -16,43 +16,43 @@ $$
 
 
 ## Projection of a point on set
-Проекцией точки $$\mathbf{y} \in \mathbb{R}^n$$ на множество $$S \subseteq \mathbb{R}^n$$ называется точка $$\pi_S(\mathbf{y}) \in S$$: 
+Projection of a point $$\mathbf{y} \in \mathbb{R}^n$$ on set $$S \subseteq \mathbb{R}^n$$ is a point $$\pi_S(\mathbf{y}) \in S$$: 
 
 $$
 \| \pi_S(\mathbf{y}) - \mathbf{y}\| \le \|\mathbf{x} - \mathbf{y}\|, \forall \mathbf{x} \in S
 $$
 
-* Если множество - открыто, и точка в нем не лежит, то её проекции на это множество не существует
-* Если точка лежит в множестве, то её проекция - это сама точка
+* if set is open, and a point is beyond this set, then its projection on this set does not exist.
+* if a point is in set, then its projection is the point itself
 * 	$$
 	\pi_S(\mathbf{y}) = \underset{\mathbf{x}}{\operatorname{argmin}} \|\mathbf{x}-\mathbf{y}\|
 	$$
 
-* Пусть $$S \subseteq \mathbb{R}^n$$ - выпуклое замкнутое множество. Пусть также имеются точки $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Тогда если для всех $$\mathbf{x} \in S$$ справедливо неравенство: 
+* Let $$S \subseteq \mathbb{R}^n$$ - convex closed set. Let the point $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Then if for all  $$\mathbf{x} \in S$$ the inequality holds:
 	
 	$$
 	\langle \pi  -\mathbf{y}, \mathbf{x} - \pi\rangle \ge 0, 
 	$$
 
-	то $$\pi$$ является проекцией точки $$\mathbf{y}$$ на $$S$$, т.е. $$\pi_S (\mathbf{y}) = \pi$$ 
-* Пусть $$S \subseteq \mathbb{R}^n$$ - аффинное множество. Пусть также имеются точки $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Тогда $$\pi$$ является проекцией точки $$\mathbf{y}$$ на $$S$$, т.е. $$\pi_S (\mathbf{y}) = \pi$$ тогда и только тогда, когда для всех $$\mathbf{x} \in S$$ справедливо равенство: 
+	then $$\pi$$ is the projection of the point $$\mathbf{y}$$ на $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$ 
+* Let $$S \subseteq \mathbb{R}^n$$ - affine set. Let we have points $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Then $$\pi$$ is a projection of point $$\mathbf{y}$$ на $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$ if and only if for all $$\mathbf{x} \in S$$ the inequality holds: 
 
 $$
 \langle \pi  -\mathbf{y}, \mathbf{x} - \pi\rangle = 0 
 $$
 
-* $$ \textbf{Достаточное условие существования проекции}$$. Если $$S \subseteq \mathbb{R}^n$$ - замкнутое множество, то проекция любой точки на множество $$S$$ существует.
-* $$\textbf{Достаточное условие единственности проекции}$$. Если $$S \subseteq \mathbb{R}^n$$ - выпуклое множество, то проекция любой точки на множество $$S$$ единственна (если существует).
+* $$ \textbf{Sufficient conditions of existence of a projection}$$. If $$S \subseteq \mathbb{R}^n$$ - closed set, then for all points exist projection on set $$S$$.
+* $$\textbf{Sufficient conditions of uniqueness of a projection}$$. Если $$S \subseteq \mathbb{R}^n$$ - convex set, then projection for all point on set $$S$$ is unique (if exists).
  
 #### Example 1
-Найти $$\pi_S (y) = \pi$$, если $$S = \{x \in \mathbb{R}^n \mid \|x - x_0\| \le R \}$$, $$y \notin S$$ 
+Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid \|x - x_0\| \le R \}$$, $$y \notin S$$ 
 
-Решение:
+Solution:
 ![](../proj_cir.gif)
 
-* Из рисунка строим гипотезу: $$\pi = x_0 + R \cdot \frac{y - x_0}{\|y - x_0\|}$$ 
+* Build a hypothesis from the figure: $$\pi = x_0 + R \cdot \frac{y - x_0}{\|y - x_0\|}$$ 
 
-* Проверяем неравенство для выпуклого замкнутого множества: $$(\pi - y)^T(x - \pi) \ge 0$$ 
+* Check the inequality for a convex closed set: $$(\pi - y)^T(x - \pi) \ge 0$$ 
 
 	$$
 	\left( x_0 - y + R \frac{y - x_0}{\|y - x_0\|} \right)^T\left( x - x_0 - R \frac{y - x_0}{\|y - x_0\|} \right) =
@@ -74,7 +74,7 @@ $$
 	\left(R - \|y - x_0\| \right) \left( \frac{(y - x_0 )^T( x-x_0)}{\|y - x_0\|}-R \right)
 	$$
 
-* Первый сомножитель отрицателен по выбору точки $$y$$. Второй сомножитель также отрицателен, если применить к его записи теорему Коши - Буняковского: 
+* The first factor is negative for point selection $$y$$. The second factor is also negative if we apply the Cauchy - Bunyakovsky theorem to its notation: 
 
 	$$
 	(y - x_0 )^T( x-x_0) \le \|y - x_0\|\|x-x_0\|
@@ -85,13 +85,13 @@ $$
 	$$
 
 #### Example 2
-Найти $$\pi_S (y) = \pi$$, если $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$ 
+Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$ 
 
-Решение:
+Solution:
 
 ![](../proj_half.gif)
 
-* Из рисунка строим гипотезу: $$\pi = y + \alpha c$$. Коэффициент $$\alpha$$ подбирается так, чтобы $$\pi \in S$$: $$c^T \pi = b$$, т.е.: 
+* Build a hypothesis from the figure: $$\pi = y + \alpha c$$. Coefficient $$\alpha$$ is chosen so that $$\pi \in S$$: $$c^T \pi = b$$, so: 
 
 	$$
 	c^T (y + \alpha c) = b
@@ -105,7 +105,7 @@ $$
 	c^Ty = b - \alpha c^T c
 	$$
 
-* Проверяем неравенство для выпуклого замкнутого множества: $$(\pi - y)^T(x - \pi) \ge 0$$ 
+* Check the inequality for a convex closed set: $$(\pi - y)^T(x - \pi) \ge 0$$ 
 
 	$$
 	(y + \alpha c - y)^T(x - y - \alpha c) = 
@@ -128,13 +128,13 @@ $$
 	$$
 
 #### Example 3
-Найти $$\pi_S (y) = \pi$$, если $$S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n},  b \in \mathbb{R}^{m} \}$$, $$y \notin S$$ 
+Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n},  b \in \mathbb{R}^{m} \}$$, $$y \notin S$$ 
 
-Решение:
+Solution:
 
 ![](../proj_poly.gif)
 
-* Из рисунка строим гипотезу: $$\pi = y + \sum\limits_{i=1}^m\alpha_i A_i = y + A^T \alpha$$. Коэффициент $$\alpha$$ подбирается так, чтобы $$\pi \in S$$: $$A \pi = b$$, т.е.: 
+* Build a hypothesis from the figure: $$\pi = y + \sum\limits_{i=1}^m\alpha_i A_i = y + A^T \alpha$$. Coefficient $$\alpha$$ is chosen so that $$\pi \in S$$: $$A \pi = b$$, so: 
 
 	$$
 	A(y + A^T\alpha) = b
@@ -144,7 +144,7 @@ $$
 	Ay = b - A A^T\alpha
 	$$
 
-* Проверяем неравенство для выпуклого замкнутого множества: $$(\pi - y)^T(x - \pi) \ge 0$$ 
+* Check the inequality for a convex closed set: $$(\pi - y)^T(x - \pi) \ge 0$$ 
 
 	$$
 	(y + A^T\alpha  - y)^T(x - y - A^T\alpha) = 

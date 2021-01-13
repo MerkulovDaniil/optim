@@ -11,7 +11,7 @@ The knapsack problem or rucksack problem is a problem in combinatorial optimizat
 ![Wikipedia](https://upload.wikimedia.org/wikipedia/commons/f/fd/Knapsack.svg)
 
 ## Definitions
-The most common problem is the 0-1 knapsack problem, which restricts the number  $x_{i}$ of copies of each kind of item to zero or one. Given a set of $n$ items numbered from $1$ up to $n$, each with a weigh$w_{i}$ and a value $v_{i}$, along with a maximum weight capacity $W$, 
+The most common problem is the 0-1 knapsack problem, which restricts the number  $x_{i}$ of copies of each kind of item to zero or one. Given a set of $n$ items numbered from $1$ up to $n$, each with a weigh $w_{i}$ and a value $v_{i}$, along with a maximum weight capacity $W$, 
 
 $$
 \begin{split}
