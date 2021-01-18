@@ -15,6 +15,7 @@ nav_order: 0
 1. Find $$\nabla f(x)$$, if $$f(x) = \|x\|_2 , x \in \mathbb{R}^p \setminus \{0\}$$.
 1. Find $$\nabla f(x)$$, if $$f(x) = \|Ax\|_2 , x \in \mathbb{R}^p \setminus \{0\}$$.
 1. Find $$\nabla f(x), f''(x)$$, if $$f(x) = \dfrac{-1}{1 + x^\top x}$$.
+1. Calculate $$df(x)$$ and $$\nabla f(x)$$ for the function $$f(x) = \log(x^{\top}\mathrm{A}x)$$.
 1. Find $$f'(X)$$, if $$f(X) = \det X$$  
 
     Note: here under $$f'(X)$$ assumes first order approximation of $$f(X)$$ using Taylor series:
