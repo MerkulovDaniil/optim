@@ -3,7 +3,6 @@ layout: default
 title: Zero order methods
 parent: Methods
 has_children: True
-permalink: /Methods/zom
 nav_order: 0
 ---
 

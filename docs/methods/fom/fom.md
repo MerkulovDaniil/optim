@@ -3,7 +3,6 @@ layout: default
 title: First order methods
 parent: Methods
 has_children: True
-permalink: /Methods/fom
 nav_order: 1
 ---
 
