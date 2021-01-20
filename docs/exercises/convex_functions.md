@@ -83,5 +83,6 @@ nav_order: 5
 	is convex.
 
 1. Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
-1. Prove, that if $$g(x)$$ - convex function, then $$f(x) = g(x) + \dfrac{\lambda}{2}\|x\|^2_2$$ will be strongly convex function
+1. Prove, that if $$g(x)$$ - convex function, then $$f(x) = g(x) + \dfrac{\lambda}{2}\|x\|^2_2$$ will be strongly convex function.
+1. Find then $f(x) = x^T A x$ is strongly convex and find strong convexity constant.
 	
