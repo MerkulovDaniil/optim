@@ -19,3 +19,6 @@ nav_order: 6
 1. Find $$\partial f(x)$$, if $$f(x) = x^3$$
 1. Find $$f(x) = \lambda_{max} (A(x)) = \sup\limits_{\|y\|_2 = 1} y^T A(x)y$$, где $$A(x) = A_0 + x_1A_1 + \ldots + x_nA_n$$, all the matrices $$A_i \in \mathbb{S}^k$$ are symmetric and defined.
 1. Find subdifferential of a function $$f(x,y) = x^2 + xy + y^2 + 3\vert x + y − 2\vert$$ at points $$(1,0)$$ and $$(1,1)$$.
+1. Find subdifferential of a function $$f(x) = \sin x$$ on the set $$X = [0, \frac32 \pi]$$.
+1. Find subdifferential of a function $$f(x) = \vert c^{\top}x\vert, \; x \in \mathbb{R}^n$$.
+1. Find subdifferential of a function $$f(x) = \|x\|_1, \; x \in \mathbb{R}^n$$.

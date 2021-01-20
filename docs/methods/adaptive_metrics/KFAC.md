@@ -3,7 +3,7 @@ layout: default
 title: KFAC
 parent: Adaptive metric methods
 grand_parent: Methods
-nav: 4
+nav_exclude: True
 bibtex: |
   @inproceedings{martens2015optimizing,
   title={Optimizing neural networks with kronecker-factored approximate curvature},

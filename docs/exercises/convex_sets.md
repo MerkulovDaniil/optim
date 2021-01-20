@@ -96,3 +96,9 @@ Hint: For $$0 \leq \theta \leq 1$$ it is valid, that $$a^\theta b^{1 - \theta} \
     1. \$$\mathbb{V}x \ge \alpha$$ 
 1. Prove, that ball in $$\mathbb{R}^n$$ (i.e. the following set $$\{ \mathbf{x} \mid \| \mathbf{x} - \mathbf{x}_c \| \leq r \}$$) - is convex. 
 1. Prove, that if $$S$$ is convex, then $$S+S = 2S$$. Give an counterexample in case, when $$S$$ - is not convex.
+1. Which of the following operations does not preserve convexity if $X,Y \subseteq \mathbb{R}^n$ are convex sets?
+    1. \$$X \cup Y$$
+    1. \$$X \times Y = \left\{ (x,y) \; \mid \; x \in X, y \in Y \right\}$$
+    1. \$$\alpha X + \beta Y = \{ \alpha x + \beta y \; \mid \; x \in X, \; y \in Y, \; \alpha,  \beta \in \mathbb{R} \}$$
+    1. \$$\alpha X  = \{ \alpha x  \; \mid \; x \in X, \; \alpha  \in \mathbb{R_{-}} \}$$
+    1. \$$X^{c} = \{x \in \mathbb{R}^n \; \mid \; x \notin X\}$$
