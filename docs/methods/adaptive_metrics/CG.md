@@ -87,7 +87,7 @@ $$
 
 This concept becomes particularly interesting when matrix $$A$$ is positive defined, then $$x,y$$ vectors will be orthogonal if the scalar product is defined by the matrix $$A$$. Therefore, this property is also called $$A$$ - orthogonality.
 
-![](.../files/eigenvectors.png)
+![](../eigenvectors.png)
 
 Then we will build the method in such a way that the next direction is $$A$$ - orthogonal with the previous one:
 

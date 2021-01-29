@@ -29,7 +29,7 @@ $$
 x_{k+1} = x_k - \dfrac{\varphi(x_k)}{\varphi'(x_k)}.
 $$
 
-![](.../files/newton_1.png)
+![](../newton_1.png)
 
 This reasoning can be applied to the unconditional minimization task of the $$f(x)$$ function by writing down the necessary extremum condition:
 
