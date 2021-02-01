@@ -35,5 +35,3 @@ def nutrient_rule(model, j):
     value = sum(model.W[i,j]*model.x[i] for i in model.p)
     return model.Nmin[j] <= value <= model.Nmax[j]
 model.nutrient_limit = Constraint(model.n, rule=nutrient_rule)
-
-model.volume_min = Constraint(rule=volume_rule_min)
