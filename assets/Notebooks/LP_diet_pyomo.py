@@ -13,7 +13,7 @@ model.n = Set()
 model.c    = Param(model.p, within=PositiveReals)
 
 # Amount of nutrient in each food
-model.W    = Param(model.n, model.p, within=NonNegativeReals)
+model.W    = Param(model.p, model.n, within=NonNegativeReals)
 
 # Lower and upper bound on each nutrient
 model.Nmin = Param(model.n, within=NonNegativeReals, default=0.0)
