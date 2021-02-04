@@ -21,7 +21,7 @@ model.Nmax = Param(model.n, within=NonNegativeReals, default=infinity)
 
 # Defining variables
 # Number of servings consumed of each food
-model.x = Var(model.p, within=NonNegativeReals) 
+model.x = Var(model.p, within=NonNegativeIntegers) 
 
 # Defining cost function
 # Minimize the cost of food that is consumed
