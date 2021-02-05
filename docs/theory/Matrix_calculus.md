@@ -8,25 +8,25 @@ nav_order: 1
 # Useful definitions and notations
 We will treat all vectors as column vectors by default.
 ## Matrix and vector multiplication
-Let $$A$$ be $$m \times n$$, and $$B$$ be $$n \times p$$, and let the product $$AB$$ be
+Let $$A$$ be $$m \times n$$, and $$B$$ be $$n \times p$$, and let the product $$AB$$ be:
 
 $$
 C = AB
 $$
 
-then $$C$$ is a $$m \times p$$ matrix, with element $(i, j)$ given by 
+then $$C$$ is a $$m \times p$$ matrix, with element $(i, j)$ given by: 
 
 $$
 c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}
 $$
 
-Let $$A$$ be $$m \times n$$, and $$x$$ be $$n \times 1$$, then the typical element of the product
+Let $$A$$ be $$m \times n$$, and $$x$$ be $$n \times 1$$, then the typical element of the product:
 
 $$
 z = Ax
 $$
 
-is given by
+is given by:
 
 $$
 z_i = \sum_{k=1}^n a_{ik}x_k
