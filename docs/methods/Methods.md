@@ -40,7 +40,7 @@ def GeneralScheme(x, epsilon):
 
 ## Oracle conception
 
-![](../oracle.svg)
+![](../oracle.jpg)
 
 ## Complexity
 
