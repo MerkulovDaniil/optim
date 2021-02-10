@@ -59,7 +59,7 @@ Let $$E(x)$$ - the number of intersections, where $$x$$ - the array of placement
 
 **_The problem is_** to find $$x^*$$ where $$E(x^*) =  \min_{x \in X} E(x)$$ - the global minimum, that is predefined and equals to 0 (no two queens threaten each other).
 
-In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the board's diagonal . So at the begining $$E = N(N-1)$$, because every queen intersects others.
+In this code $$x_0 = [0,1,2,...,N]$$ that means all queens are placed at the board's diagonal . So at the beginning $$E = N(N-1)$$, because every queen intersects others.
 
 ## Results
 
