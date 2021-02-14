@@ -84,6 +84,7 @@ has_toc: False
 * [Personal page](https://richtarik.org/) of Peter Richtarik with announcements and news.
 * [Personal page](http://suvrit.de) of Suvrit Sra.
 * [Blog](http://fa.bianp.net/) by Fabian Pedregosa.
+* [Blog](http://www.offconvex.org/) with beatiful insights about modern non-convex optimization.
 
 ## Software and apps
 
