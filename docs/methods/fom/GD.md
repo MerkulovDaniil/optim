@@ -143,7 +143,7 @@ Now, if we have global upper bound on the function, in a form of parabola, we ca
 
 $$
 \begin{align*}
-& \phi_2(x) = 0 \\
+& \nabla \phi_2(x) = 0 \\
 & \nabla f(x_0) + L (x^* - x_0) = 0 \\
 & x^* = x_0 - \frac{1}{L}\nabla f(x_0) \\
 & x_{k+1} = x_k - \frac{1}{L} \nabla f(x_k)
