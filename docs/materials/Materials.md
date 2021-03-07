@@ -85,6 +85,7 @@ has_toc: False
 * [Personal page](http://suvrit.de) of Suvrit Sra.
 * [Blog](http://fa.bianp.net/) by Fabian Pedregosa.
 * [Blog](http://www.offconvex.org/) with beatiful insights about modern non-convex optimization.
+* Machine Learning Research [Blog](https://francisbach.com/) by Francis Bach.
 
 ## Software and apps
 
