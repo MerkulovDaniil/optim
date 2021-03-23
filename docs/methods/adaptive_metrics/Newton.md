@@ -68,6 +68,10 @@ $$
 
 Let us immediately note the limitations related to the necessity of the Hessian's unbornness (for the method to exist), as well as its positive definiteness (for the convergence guarantee). 
 
+![https://francisbach.com/self-concordant-analysis-newton/](../approx_taylor.gif)
+
+Quadratic approximation and Newton step (in green) for varying starting points (in red). Note that when the starting point is far from the global minimizer (in 0), the Newton step totally overshoots the global minimizer. Picture was taken from the [post](https://francisbach.com/self-concordant-analysis-newton/).
+
 # Convergence
 Let's try to get an estimate of how quickly the classical Newton method converges.  We will try to enter the necessary data and constants as needed in the conclusion (to illustrate the methodology of obtaining such estimates). 
 
@@ -134,12 +138,7 @@ Thus, we have an important result: Newton's method for the function with Lipschi
 
 Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with super linear speed. If, in addition, Hessian is Lipschitz сontinious, then this method converges locally to $$x^*$$ with a quadratic speed.
 
-# Examples
-Let's look at some interesting features of Newton's method. Let's first apply it to the function 
 
-$$
-f(x) = x^4
-$$
 
 # Summary
 It's nice:
@@ -161,6 +160,10 @@ It's not nice:
 * Quadratic evaluation of the function by the first order oracle (superlinear convergence)
 * The combination of the Newton method and the gradient descent (interesting direction)
 * Higher order methods (most likely useless)
+
+# Materials
+* [Going beyond least-squares – I : self-concordant analysis of Newton method](https://francisbach.com/self-concordant-analysis-newton/)
+* [Going beyond least-squares – II : Self-concordant analysis for logistic regression](https://francisbach.com/self-concordant-analysis-for-logistic-regression/)
 
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)
