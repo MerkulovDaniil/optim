@@ -66,7 +66,7 @@ x_{k+1} &= x_k -\left[ f''(x_k)\right]^{-1} f'(x_{k}).
 \end{align*}
 $$
 
-Let us immediately note the limitations related to the necessity of the Hessian's unbornness (for the method to exist), as well as its positive definiteness (for the convergence guarantee). 
+Let us immediately note the limitations related to the necessity of the Hessian's non-degeneracy (for the method to exist), as well as its positive definiteness (for the convergence guarantee). 
 
 ![https://francisbach.com/self-concordant-analysis-newton/](../approx_taylor.gif)
 
@@ -91,7 +91,7 @@ Used here is: $$G_k = \int_0^1 \left( f''(x_k) - f''(x^* + \tau (x_k - x^*)) d \
 $$
 \begin{align*} 
 \| G_k\| = \left\| \int_0^1 \left( f''(x_k) - f''(x^* + \tau (x_k - x^*)) d \tau\right)\right\| \leq \\
-\leq \int_0^1 \left\| f''(x_k) - f''(x^* + \tau (x_k - x^*))   \right\|d\tau \leq \qquad \text{(Hessian's Lipschitz сontinuity)}\\
+\leq \int_0^1 \left\| f''(x_k) - f''(x^* + \tau (x_k - x^*))   \right\|d\tau \leq \qquad \text{(Hessian's Lipschitz continuity)}\\
 \leq \int_0^1 M\|x_k - x^* - \tau (x_k - x^*)\| d \tau = \int_0^1 M\|x_k - x^*\|(1- \tau)d \tau = \frac{r_k}{2}M,
 \end{align*} 
 $$
@@ -106,7 +106,7 @@ $$
 
 Quadratic convergence already smells.  All that remains is to estimate the value of Hessian's reverse. 
 
-Because of Hessian's Lipschitz сontinuity and symmetry: 
+Because of Hessian's Lipschitz continuity and symmetry: 
 
 $$
 \begin{align*} 
@@ -155,7 +155,7 @@ It's not nice:
 * the hessian may not be positively determined $$\to$$ direction $$-(f''(x))^{-1}f'(x)$$ may not be a descending direction
 
 ## Possible directions 
-* Newton's damped method (adaptice stepsize)
+* Newton's damped method (adaptive stepsize)
 * Quasi-Newton methods (we don't calculate the Hessian, we build its estimate - BFGS)
 * Quadratic evaluation of the function by the first order oracle (superlinear convergence)
 * The combination of the Newton method and the gradient descent (interesting direction)
