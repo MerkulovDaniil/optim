@@ -136,7 +136,7 @@ Thus, we have an important result: Newton's method for the function with Lipschi
 
 ## Theorem
 
-Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with super linear speed. If, in addition, Hessian is Lipschitz сontinious, then this method converges locally to $$x^*$$ with a quadratic speed.
+Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with super linear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $$x^*$$ with a quadratic speed.
 
 
 
