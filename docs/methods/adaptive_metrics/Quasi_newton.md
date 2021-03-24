@@ -40,7 +40,7 @@ $$
 Now let's formulate our method as:
 
 $$
-\Delta x_k = B_{k+1} \Delta y_k, \text{ where } \;\; y_k = \nabla f(x_{k+1}) - \nabla f(x_k)
+\Delta x_k = B_{k+1} \Delta y_k, \text{ where } \;\; \Delta y_k = \nabla f(x_{k+1}) - \nabla f(x_k)
 $$
 
 in case you set the task of finding an update $\Delta B_k$:
