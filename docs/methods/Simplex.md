@@ -191,9 +191,9 @@ $$
 $$
 
 An initial basis for $$\text{LP.Phase 1}$$ is $$\tilde{A}_B = I, \tilde{A}_N = A$$ with corresponding basic feasible solution $$\tilde{x}_N = 0, \tilde{x}_B = \tilde{A}^{-1}_B \tilde{b} = \tilde{b} \geq 0$$. We can therefore run the simplex method on $$\text{LP.Phase 1}$$, which will converge to an optimum $$\tilde{x}^*$$. $$\tilde{x} = (\tilde{x}_N \; \tilde{x}_B)$$. There are several possible outcomes:
+
 * \$$\tilde{c}^\top \tilde{x} > 0$$. Original primal is infeasible.
 * \$$\tilde{c}^\top \tilde{x} = 0 \to 1^\top z^* = 0$$. The obtained solution is a start point for the original problem (probably with slight modification).
-
 
 # About convergence
 ## [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
