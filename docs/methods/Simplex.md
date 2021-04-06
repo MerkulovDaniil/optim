@@ -184,7 +184,7 @@ $$
 \end{align*}
 $$
 
-which can be written in canonical form $$\min\{\tilde{c}^\top \tilde{x} | \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}$$ by setting
+which can be written in canonical form $$\min\{\tilde{c}^\top \tilde{x} \mid \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}$$ by setting
 
 $$
 \tilde{x} = \begin{bmatrix}x\\z\end{bmatrix}, \quad \tilde{A} = [A \; I], \quad \tilde{b} = b, \quad \tilde{c} = \begin{bmatrix}0_n\\1_m\end{bmatrix}
