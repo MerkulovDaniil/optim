@@ -189,3 +189,4 @@ $$
 * [Simplex method.](https://yadi.sk/i/lzCxOVbnkFfZc) in V. Lempitsky optimization course.
 * [Overview of different LP solvers](https://medium.com/opex-analytics/optimization-modeling-in-python-pulp-gurobi-and-cplex-83a62129807a)
 * [TED talks watching optimization](https://www.analyticsvidhya.com/blog/2017/10/linear-optimization-in-python/)
+* [Overview of ellipsoid method](https://www.stat.cmu.edu/~ryantibs/convexopt-F13/scribes/lec15.pdf)
