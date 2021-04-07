@@ -161,6 +161,39 @@ $$
 x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 $$
 
+## Finding an initial basic feasible solution
+
+Let us consider $$\text{LP.Canonical}$$.
+
+$$
+\begin{align*}
+&\min_{x \in \mathbb{R}^n} c^{\top}x \\
+\text{s.t. } & Ax = b\\
+& x_i \geq 0, \; i = 1,\dots, n
+\end{align*}
+$$
+
+The proposed algorithm requires an initial basic feasible solution and corresponding basis. To compute this solution and basis, we start by multiplying by $$−1$$ any row $$i$$ of $$Ax = b$$ such that $$b_i < 0$$. This ensures that $$b \geq 0$$. We then introduce artificial variables $$z \in \mathbb{R}^m$$ and consider the following LP:
+
+$$
+\tag{LP.Phase 1}
+\begin{align*}
+&\min_{x \in \mathbb{R}^n, z \in \mathbb{R}^m} 1^{\top}z \\
+\text{s.t. } & Ax + Iz = b\\
+& x_i, z_j \geq 0, \; i = 1,\dots, n \; j = 1,\dots, m
+\end{align*}
+$$
+
+which can be written in canonical form $$\min\{\tilde{c}^\top \tilde{x} \mid \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}$$ by setting
+
+$$
+\tilde{x} = \begin{bmatrix}x\\z\end{bmatrix}, \quad \tilde{A} = [A \; I], \quad \tilde{b} = b, \quad \tilde{c} = \begin{bmatrix}0_n\\1_m\end{bmatrix}
+$$
+
+An initial basis for $$\text{LP.Phase 1}$$ is $$\tilde{A}_B = I, \tilde{A}_N = A$$ with corresponding basic feasible solution $$\tilde{x}_N = 0, \tilde{x}_B = \tilde{A}^{-1}_B \tilde{b} = \tilde{b} \geq 0$$. We can therefore run the simplex method on $$\text{LP.Phase 1}$$, which will converge to an optimum $$\tilde{x}^*$$. $$\tilde{x} = (\tilde{x}_N \; \tilde{x}_B)$$. There are several possible outcomes:
+
+* \$$\tilde{c}^\top \tilde{x} > 0$$. Original primal is infeasible.
+* \$$\tilde{c}^\top \tilde{x} = 0 \to 1^\top z^* = 0$$. The obtained solution is a start point for the original problem (probably with slight modification).
 
 # About convergence
 ## [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
@@ -179,6 +212,12 @@ $$
 
 [](../LP_KM.svg)
 
+# Summary
+* A wide variety of applications could be formulated as the linear programming.
+* Simplex algorithm is simple, but could work exponentially long.
+* Khachiyan’s ellipsoid method is the first to be proved running at polynomial complexity for LPs. However, it is usually slower than simplex in real problems.
+* Interior point methods are the last word in this area. However, good implementations of simplex-based methods and interior point methods are similar for routine applications of linear programming.
+
 # Code
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb)
@@ -189,3 +228,6 @@ $$
 * [Simplex method.](https://yadi.sk/i/lzCxOVbnkFfZc) in V. Lempitsky optimization course.
 * [Overview of different LP solvers](https://medium.com/opex-analytics/optimization-modeling-in-python-pulp-gurobi-and-cplex-83a62129807a)
 * [TED talks watching optimization](https://www.analyticsvidhya.com/blog/2017/10/linear-optimization-in-python/)
+* [Overview of ellipsoid method](https://www.stat.cmu.edu/~ryantibs/convexopt-F13/scribes/lec15.pdf)
+* [Comprehensive overview of linear programming](http://www.mit.edu/~kircher/lp.pdf)
+* [Converting LP to a standard form](https://sites.math.washington.edu/~burke/crs/407/lectures/L4-lp_standard_form.pdf)
