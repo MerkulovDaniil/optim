@@ -56,9 +56,9 @@ $$
 $$
 \begin{align*}
  \langle \alpha_k g_k, x_{k} - x^* \rangle 
- &\leq \langle x_t - x_{k+1}, x_{k} - x^* \rangle - \|x_{k} - x_{k+1}\|^2 - \langle \alpha_k g_k, x_{k+1} - x_k \rangle = \\
- &= \langle x_t - x_{k+1}, x_{k} - x^* \rangle - \frac{1}{2}\|x_{k} - x_{k+1}\|^2 -\frac{1}{2}\left(\|x_{k} - x_{k+1}\|^2 + 2\langle \alpha_k g_k, x_{k+1} - x_k \rangle\right) \leq \\
- &\leq \langle x_t - x_{k+1}, x_{k} - x^* \rangle - \frac{1}{2}\|x_{k} - x_{k+1}\|^2 -\frac{1}{2} \left( - \alpha_k^2 g_k^2\right) = \\
+ &\leq \langle x_k - x_{k+1}, x_{k} - x^* \rangle - \|x_{k} - x_{k+1}\|^2 - \langle \alpha_k g_k, x_{k+1} - x_k \rangle = \\
+ &= \langle x_k - x_{k+1}, x_{k} - x^* \rangle - \frac{1}{2}\|x_{k} - x_{k+1}\|^2 -\frac{1}{2}\left(\|x_{k} - x_{k+1}\|^2 + 2\langle \alpha_k g_k, x_{k+1} - x_k \rangle\right) \leq \\
+ &\leq \langle x_k - x_{k+1}, x_{k} - x^* \rangle - \frac{1}{2}\|x_{k} - x_{k+1}\|^2 -\frac{1}{2} \left( - \alpha_k^2 g_k^2\right) = \\
  &= \langle x_k - x_{k+1}, x_k - x^* \rangle - \dfrac{1}{2}\|x_k - x_{k+1}\|^2 + \dfrac{1}{2}\alpha_k^2 g_k^2 \; \blacksquare
 \end{align*}
 $$
