@@ -2,7 +2,7 @@
 layout: default
 parent: Convex sets
 grand_parent: Theory
-title: Convex set
+title: Convex set 
 nav_order: 2
 ---
 
