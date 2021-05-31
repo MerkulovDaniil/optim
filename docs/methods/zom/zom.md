@@ -13,3 +13,4 @@ Now we have only zero order information from the oracle. Typical speed of conveg
 # Code
 * Global optimization illustration - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Global_optimization_illustration.ipynb)
 * Nevergrad library - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nevergrad.ipynb)
+* Optuna quickstart [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/optuna/optuna-examples/blob/main/quickstart.ipynb)
