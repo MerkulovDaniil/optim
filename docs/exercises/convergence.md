@@ -5,7 +5,7 @@ parent: Exercises
 nav_order: 12
 ---
 
-1. Show with the definition that the sequence $$\left\{ \dfrac{1}{k} \right\}_{k=1}^\infty$$ does not have a linear convergence rate (but it converges to zero).
+1. Show with the definition that the sequence $$\left\{ \dfrac{1}{k} \right\}_{k=1}^\infty$$ does have a linear convergence to zero.
 1. Show with the definition that the sequence $$\left\{ \dfrac{1}{k^k} \right\}_{k=1}^\infty$$ does not have a linear convergence rate (but it converges to zero).
 1. Determine the convergence or divergence of a given sequence $$r_{k} = 0.707^k$$.
 1. Determine the convergence or divergence of a given sequence $$r_{k} = 0.707^{2^k}$$.
