@@ -68,7 +68,7 @@ $$
 
 Let there be 2 convex sets $$S_x, S_y$$, let the set $$S = \left\{s \mid s = c_1 x + c_2 y, \; x \in S_x, \; y \in S_y, \; c_1, c_2 \in \mathbb{R}\right\}$$
 
-Take two points from $$S$$: $$s_1 = c_1 x_1 + c_2 y_1, s_2 = c_1 x_2 + c_2 y_2$$ and prove that the segment between them $${theta s_1 + (1 - \theta)s_2, \theta \in [0,1]$$ also belongs to $$S$$
+Take two points from $$S$$: $$s_1 = c_1 x_1 + c_2 y_1, s_2 = c_1 x_2 + c_2 y_2$$ and prove that the segment between them $$ \theta  s_1 + (1 - \theta)s_2, \theta \in [0,1] $$ also belongs to $$S$$
 
 $$
 \theta s_1 + (1 - \theta)s_2
