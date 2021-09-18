@@ -102,3 +102,4 @@ Hint: For $$0 \leq \theta \leq 1$$ it is valid, that $$a^\theta b^{1 - \theta} \
     1. \$$\alpha X + \beta Y = \{ \alpha x + \beta y \; \mid \; x \in X, \; y \in Y, \; \alpha,  \beta \in \mathbb{R} \}$$
     1. \$$\alpha X  = \{ \alpha x  \; \mid \; x \in X, \; \alpha  \in \mathbb{R_{-}} \}$$
     1. \$$X^{c} = \{x \in \mathbb{R}^n \; \mid \; x \notin X\}$$
+1. Show, that $$ \mathbf{conv}\{xx^\top: x \in \mathbb{R}^n, \|x\| = 1\} = \{A \in \mathbb{S}^n_+: \text{tr}(A) = 1\}$$.
