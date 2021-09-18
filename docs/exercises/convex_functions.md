@@ -85,4 +85,8 @@ nav_order: 5
 1. Give an example of a function, that satisfies Polyak Lojasiewicz condition, but doesn't have convexity property.
 1. Prove, that if $$g(x)$$ - convex function, then $$f(x) = g(x) + \dfrac{\lambda}{2}\|x\|^2_2$$ will be strongly convex function.
 1. Find then $f(x) = x^T A x$ is strongly convex and find strong convexity constant.
-	
+1. Let $$f: \mathbb{R}^n \to \mathbb{R}$$ be the following function:
+    $$
+    f(x) = \sum\limits_{i=1}^k x_{\lfloor i \rfloor},
+    $$
+    where $$1 \leq k \leq n$$, while the symbol $$x_{\lfloor i \rfloor}$$ stands for the $$i$$-th component of sorted ($$x_{\lfloor 1 \rfloor}$$ - maximum component of $$x$$ and $$x_{\lfloor n \rfloor}$$ - minimum component of $$x$$) vector of $$x$$. Show, that $$f$$ is a convex function.
