@@ -90,3 +90,8 @@ nav_order: 0
     1. \$$\nabla f(\mathrm{X}) = \mathrm{I}$$
     1. \$$\nabla f(\mathrm{X}) = \det (\mathrm{X})\cdot (\mathrm{X}^{-1})^{\top}$$
     1. \$$\nabla f(\mathrm{X}) = -\left(\mathrm{X}^{-2}\right)^{\top}$$
+1. Calculate the first and the second derivative of the following function $$f : S \to \mathbb{R}$$
+	$$
+	f(t) = \text{det}(A − tI_n),
+	$$
+	where $$A \in \mathbb{R}^{n \times n}, S := \{t \in \mathbb{R} : \text{det}(A − tI_n) \neq 0\}	$$.
