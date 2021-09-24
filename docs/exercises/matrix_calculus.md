@@ -81,15 +81,15 @@ nav_order: 0
 1. Find the gradient $$\nabla f(x)$$ and hessian $$f''(x)$$, if $$f(x) = \|xx^\top\|_2$$
 1. Find the gradient $$\nabla f(x)$$ and hessian $$f''(x)$$, if $$f(x) = \frac1n \sum\limits_{i=1}^n \log \left( 1 + \exp(a_i^{\top}x)  \right) + \frac{\mu}{2}\|x\|_2^2, \; a_i \in \mathbb R^n, \; \mu>0$$.
 1. Match functions with their gradients:
-	1. \$$f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}$$
+    1. \$$f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}$$
     1. \$$f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}^{-1}$$
     1. \$$f(\mathrm{X}) = \det \mathrm{X}$$
     1. \$$f(\mathrm{X}) = \ln \det \mathrm{X}$$
 
-    1. \$$\nabla f(\mathrm{X}) = \mathrm{X}^{-1}$$
-    1. \$$\nabla f(\mathrm{X}) = \mathrm{I}$$
-    1. \$$\nabla f(\mathrm{X}) = \det (\mathrm{X})\cdot (\mathrm{X}^{-1})^{\top}$$
-    1. \$$\nabla f(\mathrm{X}) = -\left(\mathrm{X}^{-2}\right)^{\top}$$
+    a. \$$\nabla f(\mathrm{X}) = \mathrm{X}^{-1}$$
+    b. \$$\nabla f(\mathrm{X}) = \mathrm{I}$$
+    c. \$$\nabla f(\mathrm{X}) = \det (\mathrm{X})\cdot (\mathrm{X}^{-1})^{\top}$$
+    d. \$$\nabla f(\mathrm{X}) = -\left(\mathrm{X}^{-2}\right)^{\top}$$
 1. Calculate the first and the second derivative of the following function $$f : S \to \mathbb{R}$$
 	$$
 	f(t) = \text{det}(A − tI_n),
