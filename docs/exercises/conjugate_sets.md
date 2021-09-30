@@ -28,7 +28,7 @@ nav_order: 4
     K_1 = \{x \in \mathbb{R}^n \mid x = Ay, y \ge 0, y \in \mathbb{R}^m, A \in \mathbb{R}^{n \times}, \}, \;\; K_2 = \{p \in \mathbb{R}^n \mid A^Tp \ge 0\}
     $$
     
-    are self dual.
+    are self conjugated.
 1. Find the sets $$S^{*}, S^{**}, S^{***}$$, if 
     
     $$
@@ -82,3 +82,7 @@ nav_order: 4
 1. Let $$L$$ be the subspace of a Euclidian space $$X$$. Prove that $$L^* = L^\bot$$, where $$L^\bot$$ - orthogonal complement to $$L$$.
 
 1. Let $$\mathbb{A}_n$$ be the set of all $$n$$ dimensional antisymmetric matrices. Show that $$\left( \mathbb{A}_n\right)^* = \mathbb{S}_n$$. 
+
+1. Prove, that $$B_p$$ and $$B_{p_*}$$ are inter-conjugate, i.e. $$(B_p)^* = B_{p_*}, (B_{p_*})^* = B_p$$, where $$B_p$$ is the unit ball (w.r.t. $$p$$ - norm) and $$p, p_*$$ are conjugated, i.e. $$p^{-1} + p^{-1}_* = 1$$. You can assume, that $$p_* = \infty$$ if $$p = 1$$ and vice versa.
+
+1. Prove, that $$K_p$$ and $$K_{p_*}$$ are inter-conjugate, i.e. $$(K_p)^* = K_{p_*}, (K_{p_*})^* = K_p$$, where $$K_p = \left\{ [x, \mu] \in \mathbb{R}^{n+1} : \|x\|_p \leq \mu \right\}, \; 1 < p < \infty$$ is the unit ball (w.r.t. $$p$$ - norm) and $$p, p_*$$ are conjugated, i.e. $$p^{-1} + p^{-1}_* = 1$$. You can assume, that $$p_* = \infty$$ if $$p = 1$$ and vice versa.
