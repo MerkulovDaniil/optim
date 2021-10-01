@@ -150,3 +150,8 @@ satisfies $$0 \leq \alpha \leq n$$)? What if we change the equality to an inequa
 	$$
 
 	for all feasible $$x$$. In other words the KKT conditions imply the simple optimality criterion or $$\nabla f_0(x^*)$$ defines a supporting hyperplane to the feasible set at $$x^*$$.
+1. Let $$X \in \mathbb{R}^{m \times n}$$ with $$\text{rk} X = n$$, $$\Omega \in \mathbb{S}_{++}^n$$, and $$W \in \mathbb{R}^{k \times n}$$. Find matrix $$G \in \mathbb{R}^{k \times m}$$, which solves the following optimization problem:
+    
+    $$
+    f(G) = \text{tr} \left(G \Omega G^\top \right) \to \min\limits_{GX = W}
+    $$
