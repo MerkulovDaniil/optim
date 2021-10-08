@@ -61,7 +61,8 @@ def increase_header_levels(string):
 	polished_string = polished_string.replace('\n# '		, '\n## ') 
 	return polished_string 
  
-def change_relative_paths_to_absolute(string, path, temporal_path): 
+def change_relative_paths_to_absolute(string, path, temporal_path):
+	polished_string = string.replace('![](../../', '![](')  
 	polished_string = string.replace('![](../', '![](') 
 	for basename in os.listdir(path): 
 	    if basename.endswith('.svg') or basename.endswith('.png') or basename.endswith('.jpg') or basename.endswith('.gif'): 
@@ -130,8 +131,8 @@ else:
 filename = os.path.join(path, pdf_folder_name, title, title+'.md') 
  
 main_file = open(filename,"w+", encoding='utf-8') 
-main_file.write("<!-- This file was created by Danya Merkulov's script. See fmin.xyz for more details -->\n") 
-main_file.write("%s\n"%title) 
+# main_file.write("<!-- This file was created by Danya Merkulov's script. See fmin.xyz for more details -->\n") 
+# main_file.write("%s\n"%title) 
  
 # All documents list 
 docs = []  

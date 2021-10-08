@@ -13,7 +13,7 @@ $$
 x = \theta x_1 + (1 - \theta)x_2, \; \theta \in [0,1]
 $$
 
-![center](../line_segment.svg)
+![](../line_segment.svg)
 
 # Convex set
 The set $$S$$ is called **convex** if for any $$x_1, x_2$$ from $$S$$ the line segment between them also lies in $$S$$, i.e. 
@@ -28,9 +28,9 @@ $$
 * Ray
 * Line segment
 
-![center](../convex_1.svg)
+![](../convex_1.svg)
 
-![center](../convex_2.svg)
+![](../convex_2.svg)
 
 # Related definitions
 ## Convex combination
@@ -48,7 +48,7 @@ $$
 
 
 Examples:
-![center](../convex_hull.svg)
+![](../convex_hull.svg)
 
 # Finding convexity
 
