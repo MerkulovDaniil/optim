@@ -22,3 +22,8 @@ nav_order: 6
 1. Find subdifferential of a function $$f(x) = \sin x$$ on the set $$X = [0, \frac32 \pi]$$.
 1. Find subdifferential of a function $$f(x) = \vert c^{\top}x\vert, \; x \in \mathbb{R}^n$$.
 1. Find subdifferential of a function $$f(x) = \|x\|_1, \; x \in \mathbb{R}^n$$.
+1. Suppose, that if $$f(x) = \|x\|_\infty$$. Prove that
+    $$
+    \partial f(0) = \textbf{conv}\{\pm e_1, \ldots , \pm e_n\},
+    $$
+    where $$e_i$$ is $$i$$-th canonical basis vector (column of identity matrix).
