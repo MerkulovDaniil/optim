@@ -8,15 +8,15 @@ nav_order: 10
 # General optimization problems
 1. **Linear Least squares** Write down exact solution of the linear least squares problem:
 
-$$
-\|Ax-b\|^2 \to \min_{x \in \mathbb{R}^n}, A \in \mathbb{R}^{m \times n}
-$$
+	$$
+	\|Ax-b\|^2 \to \min_{x \in \mathbb{R}^n}, A \in \mathbb{R}^{m \times n}
+	$$
 
-Consider three cases:
+	Consider three cases:
 
-* \$$m < n$$
-* \$$m = n$$
-* \$$m > n$$
+	1. \$$m < n$$
+	1. \$$m = n$$
+	1. \$$m > n$$
 
 1. To successfully write a test on optimization methods, a student must spend at least $\mathrm{K}$ kilocalories. The evening before the test, he goes to the store to buy food for dinner. There are $m$ items in the store, the unit price of each item is $p_i$, $i = 1, \ldots , m$. It is also known that each item's $i$-th unit gives the student energy equal to $k_i$ kilocalories. Formulate the problem of determining the contents of a minimum value basket for the successful writing of a test. Is this a convex problem? Why?
 
