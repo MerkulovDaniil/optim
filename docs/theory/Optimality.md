@@ -40,7 +40,7 @@ We say that the problem has a solution if the budget set **is not empty**: $x^* 
 
 Direction $$d \in \mathbb{R}^n$$ is a feasible direction at $$x^* \in S \subseteq \mathbb{R}^n$$ if small steps along $$d$$ do not take us outside of $$S$$.
 
-Consider a set $$S \subseteq \mathbb{R}^n$$ and a function $$f : \mathbb{R}^n \to \mathbb{R}%%. Suppose that $$x^* \in S$$ is a point of local minimum for $$f$$ over $$S$$, and further assume that $$f$$ is continuously differentiable around $$x^*$$.
+Consider a set $$S \subseteq \mathbb{R}^n$$ and a function $$f : \mathbb{R}^n \to \mathbb{R}$$. Suppose that $$x^* \in S$$ is a point of local minimum for $$f$$ over $$S$$, and further assume that $$f$$ is continuously differentiable around $$x^*$$.
 
 1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f^(x^*)^\top d \geq 0$$
 2. If, additionally, $$S$$ is convex then 
@@ -170,6 +170,7 @@ We should notice that $$L(x^*, \nu^*) = f(x^*)$$.
 ### General formulation
 
 $$
+\tag{ECP}
 \begin{split}
 & f(x) \to \min\limits_{x \in \mathbb{R}^n} \\
 \text{s.t. } & h_i(x) = 0, \; i = 1,\ldots, p
@@ -186,10 +187,10 @@ Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ a
 
 $$
 \begin{split}
-& \text{Necessary conditions} \\
+& \text{ECP: Necessary conditions} \\
 & \nabla_x L(x^*, \nu^*) = 0 \\
 & \nabla_\nu L(x^*, \nu^*) = 0 \\
-& \text{Sufficient conditions} \\
+& \text{ECP: Sufficient conditions} \\
 & \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle > 0,\\
 & \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y = 0
 \end{split}
@@ -261,26 +262,22 @@ Two possible cases:
 
 1. The inequality $$g(x) \leq 0$$ is **inactive** ($$g(x^*) < 0$$) 
     
-    $$
-    \begin{split}
+    $$ \begin{split}
     & g(x^*) < 0 \\
     & \nabla f(x^*) = 0 \\
     & \nabla^2 f(x^*) > 0
-    \end{split}
-    $$
+    \end{split}$$
     
 2. The inequality $$g(x) \leq 0$$ is **active** ($$g(x^*) = 0$$)
     
-    $$
-    \begin{split}
+    $$\begin{split}
     & \text{Necessary conditions} \\
     & g(x^*) = 0 \\
     & - \nabla f(x^*) = \lambda \nabla g(x^*), \;\; \lambda > 0 \\
     & \text{Sufficient conditions} \\
     & \langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0, \\
     & \forall y \neq \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0 \\
-    \end{split}
-    $$
+    \end{split}$$
    
 
 Combining two possible cases, we can write down the general conditions for the problem:
