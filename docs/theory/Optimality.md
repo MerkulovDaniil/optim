@@ -63,14 +63,14 @@ $$
 If $$x^*$$ - is a local minimum of $$f(x)$$, then:
 
 $$
-\tag{UP:Necessary}
+\tag{UP:Nec.}
 \nabla f(x^*) = 0
 $$
 
 If $$f(x)$$ at some point $$x^*$$ satisfies the following conditions:
 
 $$
-\tag{UP:Sufficient}
+\tag{UP:Suff.}
 H_f(x^*) = \nabla^2 f(x^*) \succ (\prec) 0,
 $$
 
