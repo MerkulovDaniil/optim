@@ -262,7 +262,7 @@ Two possible cases:
 
 1. The inequality $$g(x) \leq 0$$ is **inactive** ($$g(x^*) < 0$$) 
     
-    \$$ \begin{split}
+    $$ \begin{split}
     & g(x^*) < 0 \\
     & \nabla f(x^*) = 0 \\
     & \nabla^2 f(x^*) > 0
@@ -270,7 +270,7 @@ Two possible cases:
     
 2. The inequality $$g(x) \leq 0$$ is **active** ($$g(x^*) = 0$$)
     
-    \$$\begin{split}
+    $$\begin{split}
     & \text{Necessary conditions} \\
     & g(x^*) = 0 \\
     & - \nabla f(x^*) = \lambda \nabla g(x^*), \;\; \lambda > 0 \\
