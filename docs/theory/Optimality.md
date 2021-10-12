@@ -260,23 +260,21 @@ $$
 
 Two possible cases:
 
-1. The inequality $$g(x) \leq 0$$ is **inactive** ($$g(x^*) < 0$$) 
-    
-    $$ \begin{split}
+| The inequality $$g(x) \leq 0$$ is **inactive**. $$g(x^*) < 0$$ |  The inequality $$g(x) \leq 0$$ is **active**. $$g(x^*) = 0$$ |
+|---|---|
+| $$ \begin{split}
     & g(x^*) < 0 \\
     & \nabla f(x^*) = 0 \\
     & \nabla^2 f(x^*) > 0
-    \end{split}$$
-1. The inequality $$g(x) \leq 0$$ is **active** ($$g(x^*) = 0$$)
-    
-    $$\begin{split}
+    \end{split}$$  | $$\begin{split}
     & \text{Necessary conditions} \\
     & g(x^*) = 0 \\
     & - \nabla f(x^*) = \lambda \nabla g(x^*), \;\; \lambda > 0 \\
     & \text{Sufficient conditions} \\
     & \langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0, \\
     & \forall y \neq \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0 \\
-    \end{split}$$
+    \end{split}$$  |    
+    
 Combining two possible cases, we can write down the general conditions for the problem:
 
 $$
