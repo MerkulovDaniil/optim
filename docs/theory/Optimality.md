@@ -267,8 +267,7 @@ Two possible cases:
     & \nabla f(x^*) = 0 \\
     & \nabla^2 f(x^*) > 0
     \end{split}$$
-    
-2. The inequality $$g(x) \leq 0$$ is **active** ($$g(x^*) = 0$$)
+1. The inequality $$g(x) \leq 0$$ is **active** ($$g(x^*) = 0$$)
     
     $$\begin{split}
     & \text{Necessary conditions} \\
@@ -278,8 +277,6 @@ Two possible cases:
     & \langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0, \\
     & \forall y \neq \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0 \\
     \end{split}$$
-   
-
 Combining two possible cases, we can write down the general conditions for the problem:
 
 $$
