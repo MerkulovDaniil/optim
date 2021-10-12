@@ -377,6 +377,7 @@ $$
 & \langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle > 0 \\
 & \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y \leq 0, \nabla f_j(x^*)^\top y \leq 0 \\
 & i = 1,\ldots, p \quad \forall j: f_j(x^*) = 0
+\end{split}
 $$
 
 # References
