@@ -262,8 +262,8 @@ Two possible cases:
 
 | $$g(x) \leq 0$$ is inactive. $$g(x^*) < 0$$ | $$g(x) \leq 0$$ is active. $$g(x^*) = 0$$ |
 |:---:|:---:|
-| $$g(x^*) < 0$$ </br>  $$ \nabla f(x^*) = 0 $$</br> $$\nabla^2 f(x^*) > 0$$ | Necessary conditions </br> $$g(x^*) = 0$$ </br> $$- \nabla f(x^*) = \lambda \nabla g(x^*)$$, $$\lambda > 0$$ </br> Sufficient conditions </br> $$\langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0,$$ </br> $$\forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0$$ |    
- 
+| $$g(x^*) < 0$$ <br />  $$ \nabla f(x^*) = 0 $$<br /> $$\nabla^2 f(x^*) > 0$$ | Necessary conditions <br /> $$g(x^*) = 0$$ <br /> $$- \nabla f(x^*) = \lambda \nabla g(x^*)$$, $$\lambda > 0$$ <br /> Sufficient conditions <br /> $$\langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0,$$ <br /> $$\forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0$$ |  
+
 Combining two possible cases, we can write down the general conditions for the problem:
 
 $$
