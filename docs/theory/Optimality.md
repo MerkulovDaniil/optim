@@ -106,23 +106,23 @@ $$
 
 We will try to illustrate approach to solve this problem through the simple example with $$f(x) = x_1 + x_2$$ and $$h(x) = x_1^2 + x_2^2 - 2$$
 
-![](../kkt_images/eq_constr_1.svg)
+![](../eq_constr_1.svg)
 
-![](../kkt_images/eq_constr_2.svg)
+![](../eq_constr_2.svg)
 
-![](../kkt_images/eq_constr_3.svg)
+![](../eq_constr_3.svg)
 
-![](../kkt_images/eq_constr_4.svg)
+![](../eq_constr_4.svg)
 
-![](../kkt_images/eq_constr_5.svg)
+![](../eq_constr_5.svg)
 
-![](../kkt_images/eq_constr_6.svg)
+![](../eq_constr_6.svg)
 
-![](../kkt_images/eq_constr_7.svg)
+![](../eq_constr_7.svg)
 
-![](../kkt_images/eq_constr_8.svg)
+![](../eq_constr_8.svg)
 
-![](../kkt_images/eq_constr_9.png)
+![](../eq_constr_9.png)
 
 Generally: in order to move from $$ x_F $$ along the budget set towards decreasing the function, we need to guarantee two conditions:
 
@@ -144,7 +144,7 @@ $$
 $$
 
 Then we came to the point of the budget set, moving from which it will not be possible to reduce our function. This is the local minimum in the constrained problem :)
-![](../kkt_images/eq_constr_10.svg)
+![](../eq_constr_10.svg)
 
 So let's define a Lagrange function (just for our convenience):
 
@@ -198,7 +198,7 @@ $$
 
 Depending on the behavior of the Hessian, the critical points can have a different character.
 
-![](../kkt_images/critical.png)
+![](../critical.png)
 
 ## Optimization with inequality conditions
 ### Example
@@ -214,13 +214,13 @@ $$
 \end{split}
 $$
 
-![](../kkt_images/ineq_constr_1.svg)
+![](../ineq_constr_1.svg)
 
-![](../kkt_images/ineq_constr_2.svg)
+![](../ineq_constr_2.svg)
 
-![](../kkt_images/ineq_constr_3.svg)
+![](../ineq_constr_3.svg)
 
-![](../kkt_images/ineq_constr_4.svg)
+![](../ineq_constr_4.svg)
 
 Thus, if the constraints of the type of inequalities are inactive in the constrained problem, then don't worry and write out the solution to the unconstrained problem. However, this is not the whole story 🤔. Consider the second childish example
 
@@ -235,19 +235,19 @@ $$
 \end{split}
 $$
 
-![](../kkt_images/ineq_constr_5.svg)
+![](../ineq_constr_5.svg)
 
-![](../kkt_images/ineq_constr_6.svg)
+![](../ineq_constr_6.svg)
 
-![](../kkt_images/ineq_constr_7.svg)
+![](../ineq_constr_7.svg)
 
-![](../kkt_images/ineq_constr_8.svg)
+![](../ineq_constr_8.svg)
 
-![](../kkt_images/ineq_constr_9.svg)
+![](../ineq_constr_9.svg)
 
-![](../kkt_images/ineq_constr_10.svg)
+![](../ineq_constr_10.svg)
 
-![](../kkt_images/ineq_constr_11.svg)
+![](../ineq_constr_11.svg)
 
 So, we have a problem:
 
