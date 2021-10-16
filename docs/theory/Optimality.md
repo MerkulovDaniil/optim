@@ -42,7 +42,7 @@ Direction $$d \in \mathbb{R}^n$$ is a feasible direction at $$x^* \in S \subsete
 
 Consider a set $$S \subseteq \mathbb{R}^n$$ and a function $$f : \mathbb{R}^n \to \mathbb{R}$$. Suppose that $$x^* \in S$$ is a point of local minimum for $$f$$ over $$S$$, and further assume that $$f$$ is continuously differentiable around $$x^*$$.
 
-1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f^(x^*)^\top d \geq 0$$
+1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f(x^*)^\top d \geq 0$$
 2. If, additionally, $$S$$ is convex then 
     
     $$
