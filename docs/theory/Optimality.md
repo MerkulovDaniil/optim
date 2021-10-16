@@ -160,7 +160,7 @@ $$
 & \nabla_x L(x^*, \nu^*) = 0 \text{ that's written above}\\
 & \nabla_\nu L(x^*, \nu^*) = 0 \text{ budget constraint}\\
 & \text{Sufficient conditions} \\
-& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle \geq 0,\\
+& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle > 0,\\
 & \forall y \neq 0 \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
 \end{split}
 $$
