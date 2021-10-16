@@ -19,7 +19,7 @@ This idea could be used in a variety ways. For example, it might happen, that pr
 The first component should be defined in order to maximize variance. Suppose, we've already normalized the data, i.e. $$\sum\limits_i a_i = 0$$, then sample variance will become the sum of all squared projections of data points to our vector $${\mathbf{w}}_{(1)}$$, which implies the following optimization problem:
 
 $$
-\mathbf{w}_{(1)}={\underset  {\Vert {\mathbf{w}}\Vert =1}{\operatorname{\arg \,max}}}\,\left\{\sum _{i}\left({\mathbf{a}}_{(i)}\cdot {\mathbf{w}}\right)^{2}\right\}
+\mathbf{w}_{(1)}={\underset  {\Vert {\mathbf{w}}\Vert =1}{\operatorname{\arg \,max}}}\,\left\{\sum _{i}\left({\mathbf{a}}^{\top}_{(i)}\cdot {\mathbf{w}}\right)^{2}\right\}
 $$
 
 or
