@@ -45,6 +45,6 @@ It is worth to say, that author claims significant improvement in practical huge
 * Wide set of empirical tests (Image classification, Neural Translation, LSTM training)
 
 # Cons
-* Lack of test loss pictures, the majority of them obtained for the train loss\accuracy 
+* Lack of test loss pictures, the majority of them obtained for the train loss/accuracy
 * Lack of pictures with different batch sizes
 * Difficult to analyze the method analytically
