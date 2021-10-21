@@ -31,15 +31,17 @@ As for other discrete tasks, the backpack problem can be solved by completely so
 For each item, there are 2 options: the item is either put in a backpack or not. Then enumeration of all possible options has time complexity $O(2^n)$, which allows it to be used only for a small number of objects. With an increase in the number of objects, the task becomes unsolvable by this method in an acceptable time.
 
 ### Dynamic programming algorithm
-A similar dynamic programming solution for the 0/1 knapsack problem also runs in pseudo-polynomial time. Assume $w_{1},\,w_{2},\,\ldots ,\,w_{n}, W$ are strictly positive integers. Define $m(i,w)$  to be the maximum value that can be attained with weight less than or equal to $w$ using items up to $i$ (first $i$ i items). We can define $m(i,w)$ recursively as follows: 
+A similar dynamic programming solution for the 0/1 knapsack problem also runs in pseudo-polynomial time. Assume $w_{1},\,w_{2},\,\ldots ,\,w_{n}, W$ are strictly positive integers. Define $m(i,w)$  to be the maximum value that can be attained with weight less than or equal to $w$ using items up to $i$ (first $i$ items). We can define $m(i,w)$ recursively as follows: 
+
 $$
 m(i, w) = 
  \begin{cases}
    m(0,w)=0  \\
-   m(i,w)=m(i-1,w) &\text{$w_{i}>w,$ } \\
+   m(i,w)=m(i-1,w) &\text{$w_{i}>w$ } \\
    m(i,w)=max(m(i-1,w), m(i-1,w-w_{i})+w_{i}) &\text{$w_{i} \le w$ }
  \end{cases}
 $$
+
 The solution can then be found by calculating $m(n,W)$. To do this efficiently, we can use a table to store previous computations. This solution will therefore run in $O(nW)$ time and $O(nW)$ space.
 
 ## Approximation algorithms
