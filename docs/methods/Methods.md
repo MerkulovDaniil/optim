@@ -15,9 +15,9 @@ $$
 \end{split}
 $$
 
-Some necessary or\and sufficient conditions are known (See {% include link.html title='Optimality conditions. KKT'%} and {% include link.html title='Convex optimization problem' %})
+Some necessary or/and sufficient conditions are known (See {% include link.html title='Optimality conditions. KKT'%} and {% include link.html title='Convex optimization problem' %})
 * In fact, there might be very challenging to recognize the convenient form of optimization problem.
-* Analytical solution of KKT could be inviable
+* Analytical solution of KKT could be inviable.
 
 ## Iterative methods
 Typically, the methods generate an infinite sequence of approximate solutions
@@ -65,9 +65,13 @@ $$
 | f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
 $$
 
-with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$- dimensional unit cube $$\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}$$. 
+with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$-dimensional unit cube 
 
-Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minimizer of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quality
+$$
+\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
+$$ 
+
+Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minimizer of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quali/
 
 $$
 \| \tilde{x} − x_* \|_{\infty} \leq \frac{1}{2p},
@@ -160,10 +164,10 @@ $$
 сходящаяся к нулю, и пусть 
 
 $$ 
-\alpha = \lim_{k \to \infty} \sup \;\; r_k ^{1/k}
+\alpha = \lim_{k \to \infty} \sup_k \; r_k ^{1/k}
 $$
 
-* Если $$0 \leq \alpha \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константной $$\alpha$$. 
+* Если $$0 \leq \alpha \lt 1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константной $$\alpha$$. 
 * В частности, если $$\alpha = 0$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сверхлинейную сходимость.
 * Если $$\alpha = 1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
 * Случай $$\alpha \gt 1$$ невозможен.
@@ -178,10 +182,10 @@ $$
 
 * Если существует $$\alpha$$ и при этом $$0 \leq \alpha \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константой $$\alpha$$
 * В частности, если $$\alpha = 0$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сверхлинейную сходимость
-* Если $$\alpha$$ не существует, но при этом $$q = \lim_{k \to \infty} \sup \dfrac{r_{k+1}}{r_k} \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константой, не превосходящей $$q$$. 
-* Если $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} =1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
-* Ситуация $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} \gt 1$$ невозможна. 
-* Во всех остальных случаях (т. е. когда $$ \lim_{k \to \infty} \inf \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim_{k \to \infty} \sup \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^\infty$$
+* Если $$\alpha$$ не существует, но при этом $$q = \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k} \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константой, не превосходящей $$q$$. 
+* Если $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} =1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
+* Ситуация $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \gt 1$$ невозможна. 
+* Во всех остальных случаях (т. е. когда $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^/$$.
 
 # References
 * Code for convergence plots - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb)
