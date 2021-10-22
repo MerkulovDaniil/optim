@@ -91,7 +91,7 @@ The term dual feasible, to describe a pair $$(\lambda, \nu)$$ with $$\lambda \su
 | Variables | $$x \in \textbf{dom} f_0 \subseteq \mathbb{R^n}$$ | $$\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^m$$ |
 | Constraints | $$\begin{split} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{split}$$ | $$\lambda_i \geq 0, \forall i \in \overline{1,m}$$ |
 | Problem | $$\begin{split}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{split}$$ | $$\begin{split}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{split}$$ | 
-| Optimal | $$\begin{split} &x^* \text{ if feasible},  \\ &p^* = f(x^*)\end{split}$$ | $$\begin{split} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{split}$$ |
+| Optimal | $$\begin{split} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{split}$$ | $$\begin{split} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{split}$$ |
 
 
 ## Weak duality
