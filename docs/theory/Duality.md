@@ -38,7 +38,7 @@ $$
 And the Lagrangian, associated with this problem:
 
 $$
-L(x, \lambda, \mu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f_0(x) + \lambda^\top f(x) + \nu^\top h(x)
+L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f_0(x) + \lambda^\top f(x) + \nu^\top h(x)
 $$
 
 
@@ -60,13 +60,13 @@ $$
 Suppose some $$\hat{x}$$ is a feasible point ($$\hat{x} \in S$$) for the original problem, i.e., $$f_i(\hat{x}) \leq 0$$ and $$h_i(\hat{x}) = 0, \; λ \succeq 0$$. Then we have:
 
 $$
-L(\hat{x}, \lambda, \mu) = f_0(\hat{x}) + \lambda^\top f(\hat{x}) + \nu^\top h(\hat{x}) \leq f_0(\hat{x})
+L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \lambda^\top f(\hat{x}) + \nu^\top h(\hat{x}) \leq f_0(\hat{x})
 $$
 
 Hence
 
 $$
-g(\lambda, \nu) = \inf_{x\in \textbf{dom} f_0} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \mu)  \leq f_0(\hat{x})
+g(\lambda, \nu) = \inf_{x\in \textbf{dom} f_0} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
 $$
 
 A natural question is: What is the *best* lower bound that can be obtained from the Lagrange dual function. 
