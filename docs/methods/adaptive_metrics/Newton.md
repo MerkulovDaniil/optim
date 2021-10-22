@@ -104,7 +104,7 @@ $$
 r_{k+1}  \leq \left\|\left[ f''(x_k)\right]^{-1}\right\| \cdot \frac{r_k}{2}M \cdot r_k 
 $$
 
-Already looks like quadratic convergence.  All that remains is to estimate the value of Hessian's reverse. 
+Already smells like quadratic convergence. All that remains is to estimate the value of Hessian's reverse. 
 
 Because of Hessian's Lipschitz continuity and symmetry: 
 
