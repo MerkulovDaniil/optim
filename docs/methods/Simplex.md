@@ -210,7 +210,7 @@ $$
 \end{align*}
 $$
 
-[](../LP_KM.svg)
+![](../LP_KM.svg)
 
 # Summary
 * A wide variety of applications could be formulated as the linear programming.
