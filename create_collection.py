@@ -1,6 +1,6 @@
 # USAGE:
 # python create_collection.py --title "Seminar" --chapters "Matrix calculus", "Gradient descent", "#ex#Matrix calculus#1,2,3"
-# Parsing arguments 
+# Parsing arguments lib
 import argparse 
 import os, shutil 
  
