@@ -11,3 +11,4 @@ pdfs/
 assets/Notebooks/.ipynb_checkpoints
 .jekyll-metadata
 .jekyll-cache
+*.DS_Store
