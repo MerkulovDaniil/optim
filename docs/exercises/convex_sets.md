@@ -16,10 +16,10 @@ nav_order: 1
 1. Prove that if the set is convex, its interior is also convex. Is the opposite true?
 1. Prove that if the set is convex, its closure is also convex. Is the opposite true?
 1. Prove that the set of square symmetric positive definite matrices is convex.
-1. Show that the set of $$S$$ is convex if and only if 
+1. Show that the set of $$S$$ is convex if and only if
     
     $$
-    \forall \lambda_1, \lambda_2 \geq 0:  \lambda_1 S + \lambda_2 S = (\lambda_1 + \lambda_2)S
+    \forall \lambda_1, \lambda_2 \geq 0, \quad (\lambda_1, \lambda_2) \neq (0, 0):  \lambda_1 S + \lambda_2 S = (\lambda_1 + \lambda_2)S
     $$
 
 1. Calculate the Minkowski sum of the line segment and the square on the plane, the line segment and the triangle, the line segment and the circle, the line segment and the disk.
@@ -86,7 +86,7 @@ Hint: For $$0 \leq \theta \leq 1$$ it is valid, that $$a^\theta b^{1 - \theta} \
 1. Пусть $S_1, \ldots, S_k$ - произвольные непустые множества в $\mathbb{R}^n$. Докажите, что:
     * $ \mathbf{cone} \left( \bigcup\limits_{i=1}^k S_i\right) = \sum\limits_{i=1}^k \mathbf{cone} \left( S_i\right) $
     * $ \mathbf{conv} \left( \sum\limits_{i=1}^k S_i\right) = \sum\limits_{i=1}^k \mathbf{conv} \left( S_i\right) $
-1. Prove, that the set $S \subseteq \mathbb{R}^n$ is convex if and only if $(\alpha + \beta)S = \alpha S + \beta S$ for all non-negative $\alpha$ and $\beta$
+1. Prove, that the set $S \subseteq \mathbb{R}^n$ is convex if and only if $(\alpha + \beta)S = \alpha S + \beta S$ for all non-negative $\alpha$ and $\beta\quad (\alpha, \beta) \neq (0, 0)$
 1. Let $$x \in \mathbb{R}$$ is a random variable with a given probability distribution of $$\mathbb{P}(x = a_i) = p_i$$, where $$i = 1, \ldots, n$$, and $$a_1 < \ldots < a_n$$. It is said that the probability vector of outcomes of $$p \in \mathbb{R}^n$$ belongs to the probabilistic simplex, i.e. $$P = \{ p \mid \mathbf{1}^Tp = 1, p \succeq 0 \} = \{ p \mid p_1 + \ldots + p_n = 1, p_i \ge 0 \}$$. 
     Determine if the following sets of $$p$$ are convex:
     
