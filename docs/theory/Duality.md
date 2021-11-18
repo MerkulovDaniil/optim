@@ -126,13 +126,13 @@ Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$.
 	It could be very complicated to solve the initial problem. But if we have the dual problem, we can take an arbitrary $y \in \Omega$ and substitute it in $g(y)$ - we'll immediately obtain some lower bound.
 * **Checking for the problem's solvability and attainability of the solution.** 
 
-	From the inequality $\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x) $ follows: if $\min\limits_{x \in S} f(x) = -\infty$, then $\Omega = \varnothing$ and vice versa.
+	From the inequality $\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f_0(x) $ follows: if $\min\limits_{x \in S} f_0(x) = -\infty$, then $\Omega = \varnothing$ and vice versa.
 * **Sometimes it is easier to solve a dual problem than a primal one.** 
 
-	In this case, if the strong duality holds: $g(y^∗) = f(x^∗)$ we lose nothing.
+	In this case, if the strong duality holds: $g(y^∗) = f_0(x^∗)$ we lose nothing.
 * **Obtaining a lower bound on the function's residual.** 
 
-	$f(x) - f^∗ \leq f(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $$p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$$
+	$f_0(x) - f^∗ \leq f_0(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $$p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$$
 * **Dual function is always concave**
 
 	As a pointwise minimum of affine functions.
