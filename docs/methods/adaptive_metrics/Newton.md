@@ -37,7 +37,7 @@ $$
 f'(x^*) = 0
 $$
 
-Here $$\varphi(x) = f'(x) \;\;\;\; \varphi'(x) = f''(x)$$. Thus, we get the Newton optimization method in its classic form:
+Here $$\varphi(x) = f'(x), \; \varphi'(x) = f''(x)$$. Thus, we get the Newton optimization method in its classic form:
 
 $$
 \tag{Newton}
@@ -104,7 +104,7 @@ $$
 r_{k+1}  \leq \left\|\left[ f''(x_k)\right]^{-1}\right\| \cdot \frac{r_k}{2}M \cdot r_k 
 $$
 
-Quadratic convergence already smells.  All that remains is to estimate the value of Hessian's reverse. 
+Already smells like quadratic convergence. All that remains is to estimate the value of Hessian's reverse. 
 
 Because of Hessian's Lipschitz continuity and symmetry: 
 
@@ -131,12 +131,12 @@ $$
 
 The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 l}{3M}$$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges squarely near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution with **quadratic speed**. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution. 
 
 
 ## Theorem
 
-Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with super linear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $$x^*$$ with a quadratic speed.
+Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with superlinear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $$x^*$$ at a quadratic rate.
 
 
 
