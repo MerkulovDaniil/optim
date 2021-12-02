@@ -34,14 +34,14 @@ $$
 	\langle \pi  -\mathbf{y}, \mathbf{x} - \pi\rangle \ge 0, 
 	$$
 
-	then $$\pi$$ is the projection of the point $$\mathbf{y}$$ на $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$ 
-* Let $$S \subseteq \mathbb{R}^n$$ - affine set. Let we have points $$\mathbf{y} \in \mathbb{R}^n$$ и $$\mathbf{\pi} \in S$$. Then $$\pi$$ is a projection of point $$\mathbf{y}$$ на $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$ if and only if for all $$\mathbf{x} \in S$$ the inequality holds: 
+	then $$\pi$$ is the projection of the point $$\mathbf{y}$$ on $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$. 
+* Let $$S \subseteq \mathbb{R}^n$$ - affine set. Let we have points $$\mathbf{y} \in \mathbb{R}^n$$ and $$\mathbf{\pi} \in S$$. Then $$\pi$$ is a projection of point $$\mathbf{y}$$ on $$S$$, so $$\pi_S (\mathbf{y}) = \pi$$ if and only if for all $$\mathbf{x} \in S$$ the inequality holds: 
 
 $$
 \langle \pi  -\mathbf{y}, \mathbf{x} - \pi\rangle = 0 
 $$
 
-* $$ \textbf{Sufficient conditions of existence of a projection}$$. If $$S \subseteq \mathbb{R}^n$$ - closed set, then for all points exist projection on set $$S$$.
+* $$ \textbf{Sufficient conditions of existence of a projection}$$. If $$S \subseteq \mathbb{R}^n$$ - closed set, then for all points exists projection on set $$S$$.
 * $$\textbf{Sufficient conditions of uniqueness of a projection}$$. Если $$S \subseteq \mathbb{R}^n$$ - convex set, then projection for all point on set $$S$$ is unique (if exists).
  
 #### Example 1
@@ -85,7 +85,7 @@ Solution:
 	$$
 
 #### Example 2
-Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$ 
+Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid c^T x = b \}$$, $$y \notin S$$. 
 
 Solution:
 
@@ -128,7 +128,7 @@ Solution:
 	$$
 
 #### Example 3
-Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n},  b \in \mathbb{R}^{m} \}$$, $$y \notin S$$ 
+Find $$\pi_S (y) = \pi$$, if $$S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n},  b \in \mathbb{R}^{m} \}$$, $$y \notin S$$. 
 
 Solution:
 
