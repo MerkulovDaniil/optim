@@ -93,11 +93,11 @@ $$
 |       $\mathbb{R}^n$      | $\mathbb{R}^m$ | $\mathbb{R}^{m \times n}$ | $\dfrac{\partial f_i}{\partial x_j}$ (jacobian) |
 | $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{m \times n}$ |      $\dfrac{\partial f}{\partial x_{ij}}$     |
 
-named gradient of  $$f(x)$$ . This vector indicates the direction of steepest ascent. Thus, vector  $$−\nabla f(x)$$  means the direction of the steepest descent of the function in the point. Moreover, the gradient vector is always orthogonal to the contour line in the point.
+named gradient of  $$f(x)$$. This vector indicates the direction of steepest ascent. Thus, vector  $$−\nabla f(x)$$  means the direction of the steepest descent of the function in the point. Moreover, the gradient vector is always orthogonal to the contour line in the point.
 
 # General concept
 ## Naive approach
-The basic idea of naive approach is to reduce matrix\vector derivatives to the well-known scalar derivatives.
+The basic idea of naive approach is to reduce matrix/vector derivatives to the well-known scalar derivatives.
 ![](../matrix_calculus.svg)
 One of the most important practical trick here is to separate indices of sum ($$i$$) and partial derivatives ($$k$$). Ignoring this simple rule tends to produce mistakes.
 ## Guru approach
@@ -110,7 +110,7 @@ $$
 df(x) = \langle \nabla f(x), dx\rangle
 $$
 
-Then, if we have differential of the above form and we need to calculate the second derivative of the matrix\vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, then calculate $$d(df)$$
+Then, if we have differential of the above form and we need to calculate the second derivative of the matrix/vector function, we treat "old" $$dx$$ as the constant $$dx_1$$, then calculate $$d(df)$$
 
 $$
 d^2f(x) = \langle \nabla^2 f(x) dx_1, dx_2\rangle = \langle H_f(x) dx_1, dx_2\rangle
