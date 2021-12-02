@@ -65,7 +65,7 @@ f''(x) = \dfrac{\partial^2 f}{\partial x_i \partial x_j} = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-But actually, Hessian could be a tensor in such a way: $$\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$$ is just 3d tensor, every slice is just hessian of corresponding scalar function $$\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)$$
+But actually, Hessian could be a tensor in such a way: $$\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$$ is just 3d tensor, every slice is just hessian of corresponding scalar function $$\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)$$.
 
 ## Jacobian
 The extension of the gradient of multidimensional  $$f(x):\mathbb{R}^n→\mathbb{R}^m$$ :
@@ -93,13 +93,13 @@ $$
 |       $\mathbb{R}^n$      | $\mathbb{R}^m$ | $\mathbb{R}^{m \times n}$ | $\dfrac{\partial f_i}{\partial x_j}$ (jacobian) |
 | $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{m \times n}$ |      $\dfrac{\partial f}{\partial x_{ij}}$     |
 
-named gradient of  $$f(x)$$ . This vector indicates the direction of steepest ascent. Thus, vector  $$−\nabla f(x)$$  means the direction of the steepest descent of the function in the point. Moreover, the gradient vector is always orthogonal to the contour line in the point.
+named gradient of  $$f(x)$$. This vector indicates the direction of steepest ascent. Thus, vector  $$−\nabla f(x)$$  means the direction of the steepest descent of the function in the point. Moreover, the gradient vector is always orthogonal to the contour line in the point.
 
 # General concept
 ## Naive approach
 The basic idea of naive approach is to reduce matrix\vector derivatives to the well-known scalar derivatives.
 ![](../matrix_calculus.svg)
-One of the most important practical trick here is to separate indices of sum ($$i$$) and partial derivatives ($$k$$). Ignoring this simple rule tends to produce mistakes.
+One of the most important practical tricks here is to separate indices of sum ($$i$$) and partial derivatives ($$k$$). Ignoring this simple rule tends to produce mistakes.
 ## Guru approach
 The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convenient to use the differential notation here.
 
@@ -129,7 +129,7 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * \$$d\langle X, Y\rangle = \langle dX, Y\rangle+ \langle X, dY\rangle$$
 * \$$d\left( \dfrac{X}{\phi}\right) = \dfrac{\phi dX - (d\phi) X}{\phi^2}$$
 * \$$d\left( \det X \right) = \det X \langle X^{-\top}, dX \rangle $$
-* \$$d \text{tr } X = \langle I, dX\rangle$$
+* \$$d\left(\text{tr } X \right) = \langle I, dX\rangle$$
 * \$$df(g(x)) = \dfrac{df}{dg} \cdot dg(x)$$
 * \$$H = (J(\nabla f))^T$$
 * \$$ d(X^{-1})=-X^{-1}(dX)X^{-1}$$
