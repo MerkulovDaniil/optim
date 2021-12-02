@@ -74,7 +74,7 @@ Solution:
 	\left(R - \|y - x_0\| \right) \left( \frac{(y - x_0 )^T( x-x_0)}{\|y - x_0\|}-R \right)
 	$$
 
-* The first factor is negative for point selection $$y$$. The second factor is also negative if we apply the Cauchy - Bunyakovsky theorem to its notation: 
+* The first factor is negative for point selection $$y$$. The second factor is also negative, which follows from the Cauchy-Bunyakovsky inequality: 
 
 	$$
 	(y - x_0 )^T( x-x_0) \le \|y - x_0\|\|x-x_0\|
