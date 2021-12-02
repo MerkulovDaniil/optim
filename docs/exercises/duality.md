@@ -235,7 +235,7 @@ minimize
 	\end{split}
 	$$
 
-	where $$f_0(x): \mathbb{R}^n \to\mathbb{R} $$ is convex and differentiable, and $$\alpha \in \mathbb{R}^{m \times n}$$ with $$\mathbf{rank }A = m$$. In a quadratic penalty method, we form an auxiliary function
+	where $$f_0(x): \mathbb{R}^n \to\mathbb{R} $$ is convex and differentiable, and $$A \in \mathbb{R}^{m \times n}$$ with $$\mathbf{rank }A = m$$. In a quadratic penalty method, we form an auxiliary function
 
 	$$
 	\phi(x) = f_0(x) + \alpha \|Ax - b\|_2^2,
