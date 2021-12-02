@@ -18,24 +18,38 @@ Consider simple yet practical case of equality constraints:
 $$
 \begin{split}
 & f(x) \to \min\limits_{x \in \mathbb{R}^n} \\
-\text{s.t. } & h_i(x) = 0, i = 1, \ldots, m
+\text{s.t. } & h_i(x) = 0, i = 1, \ldots, p
 \end{split}
 $$
 
 The basic idea of Lagrange method implies switch from conditional to unconditional optimization through increasing the dimensionality of the problem:
 
 $$
-L(x, \lambda) = f(x) + \sum\limits_{i=1}^m \lambda_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m} \\
+L(x, \nu) = f(x) + \sum\limits_{i=1}^m \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
 $$
 
 # General formulations and conditions
-
 
 $$
 f(x) \to \min\limits_{x \in S}
 $$
 
-We say that the problem has a solution if the following set **is not empty**: $x^* \in S$, in which the minimum or the infimum of the given function is achieved.  
+We say that the problem has a solution if the budget set **is not empty**: $x^* \in S$, in which the minimum or the infimum of the given function is achieved.  
+
+## Optimization on the general set $$S$$.
+
+Direction $$d \in \mathbb{R}^n$$ is a feasible direction at $$x^* \in S \subseteq \mathbb{R}^n$$ if small steps along $$d$$ do not take us outside of $$S$$.
+
+Consider a set $$S \subseteq \mathbb{R}^n$$ and a function $$f : \mathbb{R}^n \to \mathbb{R}$$. Suppose that $$x^* \in S$$ is a point of local minimum for $$f$$ over $$S$$, and further assume that $$f$$ is continuously differentiable around $$x^*$$.
+
+1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f(x^*)^\top d \geq 0$$
+2. If, additionally, $$S$$ is convex then 
+    
+    $$
+    \nabla f(x^*)^\top(x − x^*) \geq 0, \forall x \in S.
+    $$
+    
+![](../general_first_order_local_optimality.svg)
 
 ## Unconstrained optimization
 ### General case
@@ -49,18 +63,21 @@ $$
 If $$x^*$$ - is a local minimum of $$f(x)$$, then:
 
 $$
-\tag{UP:Necessary}
+\tag{UP:Nec.}
 \nabla f(x^*) = 0
 $$
 
 If $$f(x)$$ at some point $$x^*$$ satisfies the following conditions:
 
 $$
-\tag{UP:Sufficient}
-H_f(x^*) = \nabla^2 f(x^*) \succeq (\preceq) 0,
+\tag{UP:Suff.}
+H_f(x^*) = \nabla^2 f(x^*) \succ (\prec) 0,
 $$
 
 then (if necessary condition is also satisfied) $$x^*$$ is a local minimum(maximum) of $$f(x)$$.
+
+Note, that if $$\nabla f(x^*) = 0, \nabla^2 f(x^*) = 0$$, i.e. the hessian is positive *semidefinite*, we cannot be sure if
+$$x^*$$ is a local minimum (see [Peano surface](https://en.wikipedia.org/wiki/Peano_surface) $$f(x,y) = (2x^2 - y)(y - x^2)$$).
 
 ### Convex case
 It should be mentioned, that in **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
@@ -74,7 +91,7 @@ $$
 One more important result for convex constrained case sounds as follows. If $$f(x): S \to \mathbb{R}$$ - convex function defined on the convex set $$S$$, then:
 * Any local minima is the global one.
 * The set of the local minimizers $$S^*$$ is convex.
-* If $$f(x)$$ - strongly convex function, then $$S^*$$ contains only one single point $$S^* = x^*$$.
+* If $$f(x)$$ - strictly or strongly (different cases 😀) convex function, then $$S^*$$ contains only one single point $$S^* = x^*$$.
 
 ## Optimization with equality conditions
 ### Intuition
@@ -89,23 +106,23 @@ $$
 
 We will try to illustrate approach to solve this problem through the simple example with $$f(x) = x_1 + x_2$$ and $$h(x) = x_1^2 + x_2^2 - 2$$
 
-![](../kkt_images/KKT_p009.svg)
+![](../eq_constr_1.svg)
 
-![](../kkt_images/KKT_p010.svg)
+![](../eq_constr_2.svg)
 
-![](../kkt_images/KKT_p011.svg)
+![](../eq_constr_3.svg)
 
-![](../kkt_images/KKT_p012.svg)
+![](../eq_constr_4.svg)
 
-![](../kkt_images/KKT_p013.svg)
+![](../eq_constr_5.svg)
 
-![](../kkt_images/KKT_p014.svg)
+![](../eq_constr_6.svg)
 
-![](../kkt_images/KKT_p015.svg)
+![](../eq_constr_7.svg)
 
-![](../kkt_images/KKT_p016.svg)
+![](../eq_constr_8.svg)
 
-![](../kkt_images/KKT_p017_n.png)
+![](../eq_constr_9.png)
 
 Generally: in order to move from $$ x_F $$ along the budget set towards decreasing the function, we need to guarantee two conditions:
 
@@ -119,62 +136,69 @@ $$
 
 Let's assume, that in the process of such a movement we have come to the point where
 $$
-\nabla f(x) = \lambda \nabla h(x)
+-\nabla f(x) = \nu \nabla h(x)
 $$
 
 $$
-\langle  \delta x, - \nabla f(x)\rangle = -\langle  \delta x, \lambda\nabla h(x)\rangle = 0  
+\langle  \delta x, - \nabla f(x)\rangle = \langle  \delta x, \nu\nabla h(x)\rangle = 0  
 $$
 
-Then we came to the point of the budget set, moving from which it will not be possible to reduce our function. This is the local minimum in the limited problem :)
-![](../kkt_images/KKT_p021.svg)
+Then we came to the point of the budget set, moving from which it will not be possible to reduce our function. This is the local minimum in the constrained problem :)
+![](../eq_constr_10.svg)
 
 So let's define a Lagrange function (just for our convenience):
 
 $$
-L(x, \lambda) = f(x) + \lambda h(x)
+L(x, \nu) = f(x) + \nu h(x)
 $$
 
 Then the point $$ x^* $$ be the local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
-& \nabla_x L(x^*, \lambda^*) = 0 \text{ that's written above}\\
-& \nabla_\lambda L(x^*, \lambda^*) = 0 \text{ condition of being in budget set}\\
-& \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
+& \text{Necessary conditions} \\
+& \nabla_x L(x^*, \nu^*) = 0 \text{ that's written above}\\
+& \nabla_\nu L(x^*, \nu^*) = 0 \text{ budget constraint}\\
+& \text{Sufficient conditions} \\
+& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle > 0,\\
+& \forall y \neq 0 \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
 \end{split}
 $$
 
-We should notice that $$L(x^*, \lambda^*) = f(x^*)$$.
+We should notice that $$L(x^*, \nu^*) = f(x^*)$$.
 
 ### General formulation
 
 $$
+\tag{ECP}
 \begin{split}
 & f(x) \to \min\limits_{x \in \mathbb{R}^n} \\
-\text{s.t. } & h_i(x) = 0, \; i = 1,\ldots, m 
+\text{s.t. } & h_i(x) = 0, \; i = 1,\ldots, p
 \end{split}
 $$
 
 Solution 
 
 $$
-L(x, \lambda) = f(x) + \sum\limits_{i=1}^m\lambda_i h_i(x) = f(x) + \lambda^\top h(x)
+L(x, \nu) = f(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f(x) + \nu^\top h(x)
 $$
 
-Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \lambda \in \mathbb{R}^m $$ are written as
+Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \nu \in \mathbb{R}^m $$ are written as
 
 $$
 \begin{split}
-& \nabla_x L(x^*, \lambda^*) = 0 \\
-& \nabla_\lambda L(x^*, \lambda^*) = 0 \\
-& \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla h(x^*)^\top y = 0
+& \text{ECP: Necessary conditions} \\
+& \nabla_x L(x^*, \nu^*) = 0 \\
+& \nabla_\nu L(x^*, \nu^*) = 0 \\
+& \text{ECP: Sufficient conditions} \\
+& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle > 0,\\
+& \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y = 0
 \end{split}
 $$
 
 Depending on the behavior of the Hessian, the critical points can have a different character.
 
-![](../kkt_images/critical.png)
+![](../critical.png)
 
 ## Optimization with inequality conditions
 ### Example
@@ -190,17 +214,18 @@ $$
 \end{split}
 $$
 
-![](../kkt_images/KKT_p027.png)
+![](../ineq_constr_1.svg)
 
-![](../kkt_images/KKT_p028.png)
+![](../ineq_constr_2.svg)
 
-![](../kkt_images/KKT_p029.png)
+![](../ineq_constr_3.svg)
 
-![](../kkt_images/KKT_p030.png)
+![](../ineq_constr_4.svg)
 
-Thus, if the constraints of the type of inequalities are inactive in the UM problem, then don't worry and write out the solution to the UM problem. However, this  is not a heal-all :) Consider the second childish example
+Thus, if the constraints of the type of inequalities are inactive in the constrained problem, then don't worry and write out the solution to the unconstrained problem. However, this is not the whole story 🤔. Consider the second childish example
+
 $$
-f(x) = (x_1 - 1.1)^2 + (x_2 + 1.1)^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
+f(x) = (x_1 - 1)^2 + (x_2 + 1)^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
 $$
 
 $$
@@ -210,21 +235,19 @@ $$
 \end{split}
 $$
 
-![](../kkt_images/KKT_p033.png)
+![](../ineq_constr_5.svg)
 
-![](../kkt_images/KKT_p034.png)
+![](../ineq_constr_6.svg)
 
-![](../kkt_images/KKT_p035.png)
+![](../ineq_constr_7.svg)
 
-![](../kkt_images/KKT_p036.png)
+![](../ineq_constr_8.svg)
 
-![](../kkt_images/KKT_p037.png)
+![](../ineq_constr_9.svg)
 
-![](../kkt_images/KKT_p038.png)
+![](../ineq_constr_10.svg)
 
-![](../kkt_images/KKT_p039.png)
-
-![](../kkt_images/KKT_p040.png)
+![](../ineq_constr_11.svg)
 
 So, we have a problem:
 
@@ -237,23 +260,9 @@ $$
 
 Two possible cases:
 
-1.
-	$$
-	\begin{split}
-    & g(x^*) < 0 \\
-    & \nabla f(x^*) = 0 \\
-    & \nabla^2 f(x^*) > 0
-    \end{split}
-    $$
-    
-2.
-	$$ \begin{split}
-    & g(x^*) = 0 \\
-    & - \nabla f(x^*) = \mu \nabla g(x^*), \;\; \mu > 0 \\
-    & \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
-    \end{split}
-    $$
-   
+| $$g(x) \leq 0$$ is inactive. $$g(x^*) < 0$$ | $$g(x) \leq 0$$ is active. $$g(x^*) = 0$$ |
+|:---:|:---:|
+| $$g(x^*) < 0$$ <br />  $$ \nabla f(x^*) = 0 $$<br /> $$\nabla^2 f(x^*) > 0$$ | Necessary conditions <br /> $$g(x^*) = 0$$ <br /> $$- \nabla f(x^*) = \lambda \nabla g(x^*)$$, $$\lambda > 0$$ <br /> Sufficient conditions <br /> $$\langle y, \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0,$$ <br /> $$\forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0$$ |  
 
 Combining two possible cases, we can write down the general conditions for the problem:
 
@@ -268,39 +277,40 @@ $$
 Let's define the Lagrange function:
 
 $$
-L (x, \mu) = f(x) + \mu g(x)
+L (x, \lambda) = f(x) + \lambda g(x)
 $$
 
 Then $$x^*$$ point - local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
-    & (1) \; \nabla_x L (x^*, \mu^*) = 0 \\
-    & (2) \; \mu^* \geq 0 \\
-    & (3) \; \mu^* g(x^*) = 0 \\
+    & (1) \; \nabla_x L (x^*, \lambda^*) = 0 \\
+    & (2) \; \lambda^* \geq 0 \\
+    & (3) \; \lambda^* g(x^*) = 0 \\
     & (4) \; g(x^*) \leq 0\\
-    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \mu^*) y \rangle \geq 0, \;\;\; \forall y \in \mathbb{R}^n : \nabla g(x^*)^\top y = 0
+    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0 \\
+    & \forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y \leq 0
 \end{split}
 $$
 
-It's noticeable, that $$L(x^*, \mu^*) = f(x^*)$$. Conditions $$\mu^* = 0 , (1), (4)$$ are the first scenario realization, and conditions $$\mu^* > 0 , (1), (3)$$ - the second.
+It's noticeable, that $$L(x^*, \lambda^*) = f(x^*)$$. Conditions $$\lambda^* = 0 , (1), (4)$$ are the first scenario realization, and conditions $$\lambda^* > 0 , (1), (3)$$ - the second. 
 
 ### General formulation
 
 $$
 \begin{split}
-& f(x) \to \min\limits_{x \in \mathbb{R}^n}\\
-\text{s.t. } & g_i(x) \leq 0, \; i = 1,\ldots,m\\
-& h_j(x) = 0, \; j = 1,\ldots, p
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\
+& h_i(x) = 0, \; i = 1,\ldots, p
 \end{split}
 $$
 
-This formulation is a general problem of mathematical programming. From now, we only consider $$ \textbf{regular} $$ tasks. This is a very important remark from a formal point of view. Those wishing to understand in more detail, please refer to Google.
+This formulation is a general problem of mathematical programming. 
 
-Solution
+The solution involves constructing a Lagrange function: 
 
 $$
-L(x, \mu, \lambda) = f(x) + \sum\limits_{j=1}^p\lambda_j h_j(x) + \sum\limits_{i=1}^m \mu_i g_i(x)
+L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
 $$
 
 # Karush-Kuhn-Tucker conditions
@@ -318,19 +328,38 @@ $$
   year={1939}
 }' file='/assets/files/karush.pdf' inline = 'True'%}
 
-Let $$ x^* $$ be a solution to a mathematical programming problem, and the functions $$ f, h_j, g_i $$ are differentiable.
-Then there are $$ \lambda^* $$ and $$ \mu^* $$ such that the following conditions are carried out:
+## Necessary conditions
+Let $$x^*$$, $$(\lambda^*, \nu^*)$$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $$p^*$$ is equal to the optimal value for the dual problem $$d^*$$).Let also the functions $$ f, f_i, h_i $$ be differentiable.
 
-* \$$\nabla_x L(x^*, \lambda^*, \mu^*) = 0$$
-* \$$\nabla_\lambda L(x^*, \lambda^*, \mu^*) = 0$$
-* \$$ \mu^*_j \geq 0$$
-* \$$\mu^*_j g_j(x^*) = 0$$
-* \$$g_j(x^*) \leq 0$$
+* \$$\nabla_x L(x^*, \lambda^*, \nu^*) = 0$$
+* \$$\nabla_\nu L(x^*, \lambda^*, \nu^*) = 0$$
+* \$$ \lambda^*_i \geq 0, i = 1,\ldots,m$$
+* \$$\lambda^*_i f_i(x^*) = 0, i = 1,\ldots,m$$
+* \$$f_i(x^*) \leq 0, i = 1,\ldots,m$$
 
-These conditions are sufficient if the problem is regular, i.e. if:
-1) the given problem is a convex optimization problem (i.e., the functions $$ f $$ and $$ g_i $$ are convex, $$ h_i $$ are affine) and the Slater condition is satisfied;
-   or
-2) strong duality is fulfilled.
+## Some regularity conditions
+These conditions are needed in order to make KKT solutions necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $$\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$$ with *semi-definite* hessian of Lagrangian.
+
+* **Slater's condition**. If for a convex problem (i.e., assuming minimization, $$ f_0,f_{i}$$ are convex and $$h_{i}$$ are affine), there exists a point $$x$$ such that $$h(x)=0$$ and $$f_{i}(x)<0$$. (Existance of strictly feasible point), than we have a zero duality gap and KKT conditions become necessary and sufficient.
+* **Linearity constraint qualification** If $$f_{i}$$ and $$h_{i}$$ are affine functions, then no other condition is needed.
+* For other examples, see [wiki](https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions#Regularity_conditions_(or_constraint_qualifications)).
+
+## Sufficient conditions
+For smooth, non-linear optimization problems, a second order sufficient condition is given as follows. The solution $$ x^{*},\lambda ^{*},\nu ^{*}$$, which satisfies the KKT conditions (above) is a constrained local minimum if for the Lagrangian,
+
+$$
+L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
+$$
+
+the following conditions holds:
+
+$$
+\begin{split}
+& \langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle > 0 \\
+& \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y \leq 0, \nabla f_j(x^*)^\top y \leq 0 \\
+& i = 1,\ldots, p \quad \forall j: f_j(x^*) = 0
+\end{split}
+$$
 
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.

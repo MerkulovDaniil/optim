@@ -58,9 +58,9 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 ## Examples
 
 The scheme of recovering the convex conjugate is pretty algorithmic:
-1. Write down the definition $$f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$
-1. Find those $$y$$, where $$ \sup\limits_{x \in \mathbf{dom} \; f} f(x,y)$$ is finite. That's the domain of the dual function $$f^*(y)$$
-1. Find $$x^*$$, which maximize $$f(x,y)$$ as a function on $$x$$. $$f^*(y) = f(x^*, y)$$
+1. Write down the definition $$f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)$$
+1. Find those $$y$$, where $$ \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)$$ is finite. That's the domain of the dual function $$f^*(y)$$
+1. Find $$x^*$$, which maximize $$g(x,y)$$ as a function on $$x$$. $$f^*(y) = g(x^*, y)$$
 
 ### 1 
 Find $$f^*(y)$$, if $$f(x) = ax + b$$

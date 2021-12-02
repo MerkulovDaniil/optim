@@ -18,14 +18,14 @@ If above inequality holds as strict inequality $$x_1 \neq x_2$$ and $$0 < \lambd
 ![](../convex_function.svg)
 
 ## Examples
-* \$$f(x) = x^p, p > 1,\;\;\; S = \mathbb{R}_+$$
-* \$$f(x) = \|x\|^p,\;\;\; p > 1, S = \mathbb{R}$$
-* \$$f(x) = e^{cx},\;\;\; c \in \mathbb{R}, S = \mathbb{R}$$
-* \$$f(x) = -\ln x,\;\;\; S = \mathbb{R}_{++}$$
-* \$$f(x) = x\ln x,\;\;\; S = \mathbb{R}_{++}$$
-* The sum of the largest $$k$$ coordinates $$f(x) = x_{(1)} + \ldots + x_{(k)},\;\;\;S = \mathbb{R}^n$$
+* \$$f(x) = x^p, p > 1,\;\;\; x \in \mathbb{R}_+$$
+* \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}$$
+* \$$f(x) = e^{cx},\;\;\; c \in \mathbb{R}, x \in \mathbb{R}$$
+* \$$f(x) = -\ln x,\;\;\; x \in \mathbb{R}_{++}$$
+* \$$f(x) = x\ln x,\;\;\; x \in \mathbb{R}_{++}$$
+* The sum of the largest $$k$$ coordinates $$f(x) = x_{(1)} + \ldots + x_{(k)},\;\;\;x \in \mathbb{R}^n$$
 * \$$f(X) = \lambda_{max}(X),\;\;\; X = X^T$$
-* \$$f(X) = - \log \det X, \;\;\; S = S^n_{++}$$
+* \$$f(X) = - \log \det X, \;\;\; X \in S^n_{++}$$
 
 # Epigraph
 For the function $$f(x)$$, defined on $$S \subseteq \mathbb{R}^n$$, the following set:

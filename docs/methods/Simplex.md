@@ -9,6 +9,18 @@ nav_order: 5
 
 Generally speaking, all problems with linear objective and linear equalities\inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.
 
+$$
+\tag{LP.Basic}
+\begin{align*}
+&\min_{x \in \mathbb{R}^n} c^{\top}x \\
+\text{s.t. } & Ax \leq b\\
+\end{align*}
+$$
+
+![](../LP.svg)
+
+for some vectors $$c \in \mathbb{R}^n$$, $$b \in \mathbb{R}^m$$ and matrix $$A \in \mathbb{R}^{m \times n}$$. Where the inequalities are interpreted component-wise.
+
 ## Standard form
 This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $$c \in \mathbb{R}^n$$, $$b \in \mathbb{R}^m$$ and matrix $$A \in \mathbb{R}^{m \times n}$$.
 
@@ -16,12 +28,10 @@ $$
 \tag{LP.Standard}
 \begin{align*}
 &\min_{x \in \mathbb{R}^n} c^{\top}x \\
-\text{s.t. } & Ax \leq b\\
+\text{s.t. } & Ax = b\\
 & x_i \geq 0, \; i = 1,\dots, n
 \end{align*}
 $$
-
-![](../LP.svg)
 
 ## Canonical form
 
@@ -29,7 +39,7 @@ $$
 \tag{LP.Canonical}
 \begin{align*}
 &\min_{x \in \mathbb{R}^n} c^{\top}x \\
-\text{s.t. } & Ax = b\\
+\text{s.t. } & Ax \leq b\\
 & x_i \geq 0, \; i = 1,\dots, n
 \end{align*}
 $$
@@ -48,10 +58,6 @@ $$
 $$
 
 ![](../diet_LP.svg)
-
-### Radiation treatment 
-
-
 
 # How to retrieve LP
 ## Basic transformations
@@ -195,7 +201,7 @@ An initial basis for $$\text{LP.Phase 1}$$ is $$\tilde{A}_B = I, \tilde{A}_N = A
 * \$$\tilde{c}^\top \tilde{x} > 0$$. Original primal is infeasible.
 * \$$\tilde{c}^\top \tilde{x} = 0 \to 1^\top z^* = 0$$. The obtained solution is a start point for the original problem (probably with slight modification).
 
-# About convergence
+# Convergence
 ## [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
 
 In the following problem simplex algorithm needs to check $$2^n - 1$$ vertexes with $$x_0 = 0$$. 
@@ -210,7 +216,15 @@ $$
 \end{align*}
 $$
 
-[](../LP_KM.svg)
+![](../LP_KM.svg)
+
+## Strong duality
+
+There are four possibilities:
+* Both the primal and the dual are infeasible.
+* The primal is infeasible and the dual is unbounded.
+* The primal is unbounded and the dual is infeasible.
+* Both the primal and the dual are feasible and their optimal values are equal.
 
 # Summary
 * A wide variety of applications could be formulated as the linear programming.
