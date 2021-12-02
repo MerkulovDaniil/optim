@@ -185,7 +185,7 @@ $$
 * Если $$\alpha$$ не существует, но при этом $$q = \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k} \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константой, не превосходящей $$q$$. 
 * Если $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} =1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
 * Ситуация $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \gt 1$$ невозможна. 
-* Во всех остальных случаях (т. е. когда $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^/$$.
+* Во всех остальных случаях (т. е. когда $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^\infty$$.
 
 # References
 * Code for convergence plots - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb)
