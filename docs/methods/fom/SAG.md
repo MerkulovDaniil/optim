@@ -43,23 +43,23 @@ $$
 
 * There is a dependency on dimensionality factor $n$ in bounds. However, it can be improved using restart technique.
 * Empirical results were only shown on logistic regression with Tikhonov regularization problems on different datasets.
-* Batch and non- uniform versions are also presented in the paper.
+* Batch and non-uniform versions are also presented in the paper.
 * The first known paper, that contains proof of linear convergence for the convex case.
 
 ## Bounds
 For a constant step size $\alpha = \dfrac{1}{16 L}$, where $L$ stands for the Lipschitz constant of a gradient of each function $ f_i(x) $ (in practice, it means that $ L = \max\limits_{i=1, \ldots, n} L_i $).
 
 $$
-\mathbb{E}\left[g\left(\overline{x}_{k}\right)\right]-g\left(x^{*}\right) \leqslant \frac{32 n}{k} C_{0},
+\mathbb{E}\left[g\left({x}_{k}\right)\right]-g\left(x^{*}\right) \leqslant \frac{32 n}{k} C_{0},
 $$
 
-where $ C_0=g\left(x_0\right)-g\left(x^*\right)+\frac{4L}{n} \\| x_0 - x^\ast\\|^2 +\frac{\sigma^2}{16L}$  in convex case and
+where $ C_0=g\left(x_0\right)-g\left(x^*\right)+\dfrac{4L}{n} \\| x_0 - x^\ast\\|^2 +\dfrac{\sigma^2}{16L}$  in convex case and
 
 $$
 \mathbb{E}\left[g\left(x_{k}\right)\right]-g\left(x^*\right) \leqslant\left(1-\min \left\{\frac{\mu}{16 L}, \frac{1}{8 n}\right\}\right)^{k} C_{0}
 $$
 
-in $\mu$ - strongly convex case.
+in $\mu$-strongly convex case.
 
 
 
