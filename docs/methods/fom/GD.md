@@ -26,8 +26,8 @@ x_{k+1} = x_k - \eta_k\nabla f(x_k)
 $$
 
 * The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method's behavior. 
-* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $$\eta_k = \dfrac{1}{L}$$
-* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $$\mathcal{O}(p)$$)
+* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $$\eta_k = \dfrac{1}{L}$$.
+* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $$\mathcal{O}(p)$$).
 * If function has Lipschitz-continious gradient, then method could be rewritten as follows:
 
 $$ \begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
@@ -241,7 +241,7 @@ $$
 \phi_2(\eta) = f(x_k) - \beta \eta \|\nabla f(x_k)\|^2
 $$
 
-Note, that Goldstein-Armijo conditions determine the location of the function $$\phi(\eta)$$ between $$\phi_1(\eta)$$ and $$\phi_2(\eta)$$. Typically, we choose $$\alpha = \rho$$ and $$\beta = 1 - \rho$$,while $$ \rho \in (0.5, 1)$$
+Note, that Goldstein-Armijo conditions determine the location of the function $$\phi(\eta)$$ between $$\phi_1(\eta)$$ and $$\phi_2(\eta)$$. Typically, we choose $$\alpha = \rho$$ and $$\beta = 1 - \rho$$, while $$ \rho \in (0.5, 1)$$.
 
 ![](../backtracking.svg)
 
