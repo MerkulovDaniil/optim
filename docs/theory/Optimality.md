@@ -7,7 +7,7 @@ nav_order: 8
 
 # Background
 ## Extreme value (Weierstrass) theorem
-Let $$S \subset \mathbb{R}^n$$ be compact set and $$f(x)$$ continuous function on $$S$$. 
+Let $$S \subset \mathbb{R}^n$$ be a compact set and $$f(x)$$ a continuous function on $$S$$. 
 So that, the point of the global minimum of the function $$f (x)$$ on $$S$$ exists.
 
 ![](../goodnews.png)
@@ -22,7 +22,7 @@ $$
 \end{split}
 $$
 
-The basic idea of Lagrange method implies switch from conditional to unconditional optimization through increasing the dimensionality of the problem:
+The basic idea of Lagrange method implies the switch from conditional to unconditional optimization through increasing the dimensionality of the problem:
 
 $$
 L(x, \nu) = f(x) + \sum\limits_{i=1}^m \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
@@ -42,7 +42,7 @@ Direction $$d \in \mathbb{R}^n$$ is a feasible direction at $$x^* \in S \subsete
 
 Consider a set $$S \subseteq \mathbb{R}^n$$ and a function $$f : \mathbb{R}^n \to \mathbb{R}$$. Suppose that $$x^* \in S$$ is a point of local minimum for $$f$$ over $$S$$, and further assume that $$f$$ is continuously differentiable around $$x^*$$.
 
-1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f(x^*)^\top d \geq 0$$
+1. Then for every feasible direction $$d \in \mathbb{R}^n$$ at $$x^*$$ it holds that $$\nabla f(x^*)^\top d \geq 0$$.
 2. If, additionally, $$S$$ is convex then 
     
     $$
@@ -80,9 +80,9 @@ Note, that if $$\nabla f(x^*) = 0, \nabla^2 f(x^*) = 0$$, i.e. the hessian is po
 $$x^*$$ is a local minimum (see [Peano surface](https://en.wikipedia.org/wiki/Peano_surface) $$f(x,y) = (2x^2 - y)(y - x^2)$$).
 
 ### Convex case
-It should be mentioned, that in **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
+It should be mentioned, that in the **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
 
-Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ - convex function, then the point $$x^*$$ is the solution of $$\text{(UP)}$$ if and only if:
+Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ - be a convex function, then the point $$x^*$$ is the solution of $$\text{(UP)}$$ if and only if:
 
 $$
 0_n \in \partial f(x^*)
@@ -104,7 +104,7 @@ $$
 \end{split}
 $$
 
-We will try to illustrate approach to solve this problem through the simple example with $$f(x) = x_1 + x_2$$ and $$h(x) = x_1^2 + x_2^2 - 2$$
+We will try to illustrate approach to solve this problem through the simple example with $$f(x) = x_1 + x_2$$ and $$h(x) = x_1^2 + x_2^2 - 2$$.
 
 ![](../eq_constr_1.svg)
 
@@ -152,7 +152,7 @@ $$
 L(x, \nu) = f(x) + \nu h(x)
 $$
 
-Then the point $$ x^* $$ be the local minimum of the problem described above, if and only if:
+Then the point $$ x^* $$ is the local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
@@ -280,7 +280,7 @@ $$
 L (x, \lambda) = f(x) + \lambda g(x)
 $$
 
-Then $$x^*$$ point - local minimum of the problem described above, if and only if:
+Then $$x^*$$ point - is a local minimum of the problem described above, if and only if:
 
 $$
 \begin{split}
@@ -293,7 +293,7 @@ $$
 \end{split}
 $$
 
-It's noticeable, that $$L(x^*, \lambda^*) = f(x^*)$$. Conditions $$\lambda^* = 0 , (1), (4)$$ are the first scenario realization, and conditions $$\lambda^* > 0 , (1), (3)$$ - the second. 
+It's noticeable, that $$L(x^*, \lambda^*) = f(x^*)$$. Conditions $$\lambda^* = 0 , (1), (4)$$ are the first scenario realization, and conditions $$\lambda^* > 0 , (1), (3)$$ - the second one. 
 
 ### General formulation
 
@@ -329,7 +329,7 @@ $$
 }' file='/assets/files/karush.pdf' inline = 'True'%}
 
 ## Necessary conditions
-Let $$x^*$$, $$(\lambda^*, \nu^*)$$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $$p^*$$ is equal to the optimal value for the dual problem $$d^*$$).Let also the functions $$ f, f_i, h_i $$ be differentiable.
+Let $$x^*$$, $$(\lambda^*, \nu^*)$$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $$p^*$$ is equal to the optimal value for the dual problem $$d^*$$). Let also the functions $$ f_0, f_i, h_i $$ be differentiable.
 
 * \$$\nabla_x L(x^*, \lambda^*, \nu^*) = 0$$
 * \$$\nabla_\nu L(x^*, \lambda^*, \nu^*) = 0$$
@@ -338,9 +338,9 @@ Let $$x^*$$, $$(\lambda^*, \nu^*)$$ be a solution to a mathematical programming 
 * \$$f_i(x^*) \leq 0, i = 1,\ldots,m$$
 
 ## Some regularity conditions
-These conditions are needed in order to make KKT solutions necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $$\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$$ with *semi-definite* hessian of Lagrangian.
+These conditions are needed in order to make KKT solutions the necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $$\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$$ with *semi-definite* hessian of Lagrangian.
 
-* **Slater's condition**. If for a convex problem (i.e., assuming minimization, $$ f_0,f_{i}$$ are convex and $$h_{i}$$ are affine), there exists a point $$x$$ such that $$h(x)=0$$ and $$f_{i}(x)<0$$. (Existance of strictly feasible point), than we have a zero duality gap and KKT conditions become necessary and sufficient.
+* **Slater's condition**. If for a convex problem (i.e., assuming minimization, $$ f_0,f_{i}$$ are convex and $$h_{i}$$ are affine), there exists a point $$x$$ such that $$h(x)=0$$ and $$f_{i}(x)<0$$ (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.
 * **Linearity constraint qualification** If $$f_{i}$$ and $$h_{i}$$ are affine functions, then no other condition is needed.
 * For other examples, see [wiki](https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions#Regularity_conditions_(or_constraint_qualifications)).
 
@@ -351,7 +351,7 @@ $$
 L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
 $$
 
-the following conditions holds:
+the following conditions hold:
 
 $$
 \begin{split}
