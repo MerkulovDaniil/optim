@@ -7,13 +7,13 @@ nav_order: 10
 
 # Duality
 
-Duality lets us associate to any constrained optimization problem, a concave maximization problem whose solutions lower bound the optimal value of the original problem. What is interesting is there are cases, when one can solve the primal problem by first solving the dual one. Now, consider general constrained optimization problem:
+Duality lets us associate to any constrained optimization problem a concave maximization problem, whose solutions lower bound the optimal value of the original problem. What is interesting is that there are cases, when one can solve the primal problem by first solving the dual one. Now, consider a general constrained optimization problem:
 
 $$
 \text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega} 
 $$
 
-We'll build $g(y)$, that preserves uniform bound:
+We'll build $g(y)$, that preserves the uniform bound:
 
 $$
 g(y) \leq f(x) \qquad \forall x \in S, \forall y \in \Omega
@@ -25,7 +25,7 @@ $$
 \max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x)  
 $$
 
-We'll consider one (of the many) possible way to construct $g(y)$ in case, when we have general mathematical programming problem with functional constraints:
+We'll consider one (of the many) possible way to construct $g(y)$ in case, when we have a general mathematical programming problem with functional constraints:
 
 $$
 \begin{split}
@@ -69,18 +69,18 @@ $$
 g(\lambda, \nu) = \inf_{x\in \textbf{dom} f_0} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
 $$
 
-A natural question is: What is the *best* lower bound that can be obtained from the Lagrange dual function. 
+A natural question is: what is the *best* lower bound that can be obtained from the Lagrange dual function? 
 This leads to the following optimization problem:
 
 $$
 \begin{split}
-& g(\lambda, \nu) \to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\
+& g(\lambda, \nu) \to \max\limits_{\lambda \in \mathbb{R}^m, \; \nu \in \mathbb{R}^p }\\
 \text{s.t. } & \lambda \succeq 0
 \end{split}
 $$
 
 
-The term dual feasible, to describe a pair $$(\lambda, \nu)$$ with $$\lambda \succeq 0$$ and $$g(\lambda, \nu) > −\infty$$, now makes sense. It means, as the name implies, that $$(\lambda, \nu)$$ is feasible for the dual problem. We refer to $$(\lambda^*, \nu^*)$$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
+The term "dual feasible", to describe a pair $$(\lambda, \nu)$$ with $$\lambda \succeq 0$$ and $$g(\lambda, \nu) > −\infty$$, now makes sense. It means, as the name implies, that $$(\lambda, \nu)$$ is feasible for the dual problem. We refer to $$(\lambda^*, \nu^*)$$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
 
 
 ## Summary
@@ -107,10 +107,10 @@ $$
 p^* - d^* \geq 0
 $$
 
-Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we were managed to solve dual problem (which is always convex, no matter the initial problem was or not), than we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
+Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we have managed to solve the dual problem (which is always convex, no matter whether the initial problem was or not), then we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
 
 ## Strong duality
-Strong duality if duality gap is zero: 
+Strong duality happens if duality gap is zero: 
 
 $$
 p^∗ = d^*
@@ -296,11 +296,11 @@ f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
 $$
 
 where $$A^{-1}(G) := \{x \in V : Ax \in G\}$$ — preimage of $$G$$.
-We'll build the dual problem using variable separation. Let's introduce new variable $$y = Ax$$. The the problem could be rewritten:
+We'll build the dual problem using variable separation. Let's introduce new variable $$y = Ax$$. The problem could be rewritten:
 
 $$
 \begin{split}
-& f(x) + g(y) \to \min\limits_{x \in E y \in G }\\
+& f(x) + g(y) \to \min\limits_{x \in E, \; y \in G }\\
 \text{s.t. } & Ax = y
 \end{split}
 $$
@@ -315,7 +315,7 @@ $$
 
 $$
 \begin{split}
-g_d(\lambda) &= \min\limits_{x \in E, y \in G} L(x,y, \lambda) \\
+g_d(\lambda) &= \min\limits_{x \in E, \; y \in G} L(x,y, \lambda) \\
 &= \min\limits_{x \in E}\left[ f(x) + (A^*\lambda)^\top x \right] + \min\limits_{y \in G} \left[g(y) - \lambda^\top y\right] = \\
 &= -\max\limits_{x \in E}\left[(-A^*\lambda)^\top x - f(x) \right] - \max\limits_{y \in G} \left[\lambda^\top y - g(y)\right]
 \end{split}
