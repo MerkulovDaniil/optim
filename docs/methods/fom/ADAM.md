@@ -32,9 +32,9 @@ $$
 
 All vector operations are element-wise. $$\alpha = 0.001, \beta_1 = 0.9, \beta_2 = 0.999$$ - the default values for hyperparameters ($$\epsilon$$ here is needed for avoiding zero division problems) and $$g_k = \nabla f(x_k, \xi_k)$$ is the sample of stochastic gradient.
 
-* We can consider this approach as normalization of each parameter by using individual learning rates on $$ \mathcal{N} (0,1)$$, since $$\mathbb{E}\_{\xi_k}[g_k] = \mathbb{E}\_{\xi_k}[\widehat{m_k}]$$ and $$\mathbb{E}\_{\xi_k}[g_k \odot g_k] = \mathbb{E}\_{\xi_k}[\widehat{v_k}]$$ 
+* We can consider this approach as normalization of each parameter by using individual learning rates on $$ \mathcal{N} (0,1)$$, since $$\mathbb{E}\_{\xi_k}[g_k] = \mathbb{E}\_{\xi_k}[\widehat{m_k}]$$ and $$\mathbb{E}\_{\xi_k}[g_k \odot g_k] = \mathbb{E}\_{\xi_k}[\widehat{v_k}]$$.
 * There are some [issues](https://www.fast.ai/2018/07/02/adam-weight-decay/) with Adam effectiveness and some [works](https://arxiv.org/pdf/1705.08292.pdf), stated, that adaptive metrics methods could lead to worse generalization.
-* The name came from "**Ada**ptive **M**oment estimation"
+* The name came from "**Ada**ptive **M**oment estimation".
 
 ## Bounds
 
@@ -42,4 +42,4 @@ All vector operations are element-wise. $$\alpha = 0.001, \beta_1 = 0.9, \beta_2
 | ---------- | ---------------------- | ------------------- | --------------------- |
 | Convex | $$ \mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) $$ | Sublinear |                       |
 
-Version of Adam for a strongly convex functions is considered in [this](https://arxiv.org/pdf/1905.02957.pdf) work. The obtained rate is $ \mathcal{O}\left(\dfrac{\log k}{\sqrt{k}} \right) $, while the version for truly linear rate remains undiscovered.
+Version of Adam for a strongly convex functions is considered in [this](https://arxiv.org/pdf/1905.02957.pdf) work. The obtained rate is $ \mathcal{O}\left(\dfrac{\log k}{\sqrt{k}} \right)$, while the version for truly linear rate remains undiscovered.
