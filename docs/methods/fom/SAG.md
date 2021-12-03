@@ -38,7 +38,7 @@ where at each iteration only random summand of a gradient is updated:
 
 $$
 \tag{SAG} 
-y^{i}_{k}=\left\{\begin{array}{ll}{f_{i}^{\prime}\left(x_{k}\right)} & {\text { if } i=i_{k}} \\ {y^{i}_{k-1}} & {\text { otherwise }}\end{array}\right.
+y^{i}_{k}=\left\{\begin{array}{ll}{f_{i}^{\prime}\left(x_{k}\right)}, & {\text { if } i=i_{k}} \\ {y^{i}_{k-1}}, & {\text { otherwise }}\end{array}\right.
 $$
 
 * There is a dependency on dimensionality factor $n$ in bounds. However, it can be improved using restart technique.
