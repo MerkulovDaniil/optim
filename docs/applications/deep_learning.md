@@ -8,7 +8,7 @@ parent: Applications
 
 ![](../dl.png)
 
-A lot of practical tasks nowadays are being solved by the deep learning approach, which is usually implies finding local minimum of a non - convex function, that generalizes well (enough 😉). The goal of this short text is to provide you an importance of the optimization behind neural network training.
+A lot of practical tasks nowadays are being solved using the deep learning approach, which is usually implies finding local minimum of a non-convex function, that generalizes well (enough 😉). The goal of this short text is to show you the importance of the optimization behind neural network training.
 
 ## Cross entropy
 One of the most commonly used loss functions in classification tasks is the normalized categorical cross-entropy in $$K$$ class problem:
