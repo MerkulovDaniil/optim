@@ -6,7 +6,7 @@ parent: Applications
 
 # Problem
 
-The **graph** is one of the most significant structures in the algorithms, because this structure can represent many real life cases, starting from streets and ending by network.
+The **graph** is one of the most significant structures in the algorithms, because this structure can represent many real life cases, from streets to networks.
 
 And one is the most popular problem is:
 **Find the least sum of graph edges for given start and end points** 
@@ -16,7 +16,7 @@ Generally we need determine input and output data:
 - **Output data:** paths (or intermediate points/nodes) with the least sum of graph edges as result
 
 # Solutions
-Today there are a variety of algorithms for solving this problem, and solutions have own advantages and disadvantages regarding the task, so let's consider main of them to find solution to the problem:
+Today there is a variety of algorithms for solving this problem, and solutions have their own advantages and disadvantages regarding the task, so let's consider main of them:
 
 ## Breadth First Search
 This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. 
@@ -52,7 +52,7 @@ Dijkstra’s Algorithm works well to find the shortest path, but it wastes time 
 | Because of considering both **cost** and result of **heuristic functuion** as result metric for  Dijkstra’s algorithm, we can find the shortest path faster, than raw Dijkstra’s algorithm, and precisely, than Greedy Best-First-Search |_________________________![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)|
 
 ## A-Star Implementation
-Let's take a closer look at this algorithm and analyze it with code example. First of all You need to create a *Priority Queue* because you should consider points, which are closer to destination from start position. *Priority does not equal cost*. This Queue contains possible *points*, that are to be considered as possible shortest way to destination.
+Let's take a closer look at this algorithm and analyze it with code example. First of all you need to create a *Priority Queue* because you should consider points, which are closer to destination from start position. *Priority does not equal cost*. This Queue contains possible *points*, that are to be considered as possible shortest way to destination.
 ```python
 # Only main methods
 class PriorityQueue:
@@ -115,7 +115,7 @@ def  a_star_search(graph, start, goal):
 ```
 
 # Results
-Now let's try to compare Dijkstras algorithm with A-Star. For this task we will generate map with size from 5 to 50 with step equal 3. Start position is in left top corner, and End position is opposite. Also, we will generate corners (the quantity is SIZE^0.4), with random length for one side and other side to the end of the map. Generated Maps you can find below, there is only example and comparison plot of iterations depending on the map size.
+Now let's try to compare Dijkstra's algorithm with A-Star. For this task we will generate map with size from 5 to 50 with step equal 3. Start position is in left top corner, and End position is opposite. Also, we will generate corners (the quantity is SIZE^0.4), with random length for one side and other side to the end of the map. Generated Maps you can find below, there is only example and comparison plot of iterations depending on the map size.
 
 | Dijkstras | A-Star |
 |---|---|
@@ -124,7 +124,7 @@ Now let's try to compare Dijkstras algorithm with A-Star. For this task we will 
 
 ![Comparison](../a_star_dijkstra.svg)
 
-It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra.
+It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra's.
 
 # Code
 
