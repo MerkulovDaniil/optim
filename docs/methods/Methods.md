@@ -71,7 +71,7 @@ $$
 \mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
 $$ 
 
-Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minimizer of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quali/
+Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minima of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quality:
 
 $$
 \| \tilde{x} − x_* \|_{\infty} \leq \frac{1}{2p},
@@ -185,7 +185,7 @@ $$
 * Если $$\alpha$$ не существует, но при этом $$q = \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k} \lt  1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет линейную сходимость с константой, не превосходящей $$q$$. 
 * Если $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} =1$$, то $$\{r_k\}_{k=m}^\infty$$ имеет сублинейную сходимость. 
 * Ситуация $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \gt 1$$ невозможна. 
-* Во всех остальных случаях (т. е. когда $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^/$$.
+* Во всех остальных случаях (т. е. когда $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) нельзя утверждать что-либо конкретное о скорости сходимости $$\{r_k\}_{k=m}^\infty$$.
 
 # References
 * Code for convergence plots - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb)
