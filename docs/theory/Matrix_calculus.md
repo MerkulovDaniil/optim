@@ -41,7 +41,6 @@ Finally, just to remind:
 * \$$\langle x, Ay\rangle = \langle A^\top x, y\rangle$$
 
 ## Gradient
-Gradient
 Let  $$f(x):\mathbb{R}^n→\mathbb{R}$$, then vector, which contains all first order partial derivatives:
 
 $$
