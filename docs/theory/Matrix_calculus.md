@@ -37,7 +37,7 @@ Finally, just to remind:
 * \$$C = AB \quad C^\top = B^\top A^\top$$
 * \$$AB \neq BA$$
 * \$$e^{A} =\sum\limits_{k=0}^{\infty }{1 \over k!}A^{k}$$
-* \$$e^{A+B} \neq e^{A} e^{B}$$
+* \$$e^{A+B} \neq e^{A} e^{B}$$ (but if $$A$$ and $$B$$ are commuting matrices, which means that $$AB = BA$$, $$e^{A+B} = e^{A} e^{B}$$)
 * \$$\langle x, Ay\rangle = \langle A^\top x, y\rangle$$
 
 ## Gradient
