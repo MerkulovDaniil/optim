@@ -6,19 +6,19 @@ nav_order: 3
 ---
 
 # Convex function
-The function $$f(x)$$, **which is defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called **convex** $$S$$, if:
+The function $$f(x)$$, **which is defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called **convex** on $$S$$, if:
 
 $$
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2)
 $$
 
 for any $$x_1, x_2 \in S$$ and $$0 \le \lambda \le 1$$.  
-If above inequality holds as strict inequality $$x_1 \neq x_2$$ and $$0 < \lambda < 1$$, then function is called strictly convex $$S$$
+If above inequality holds as strict inequality $$x_1 \neq x_2$$ and $$0 < \lambda < 1$$, then function is called strictly convex on $$S$$.
 
 ![](../convex_function.svg)
 
 ## Examples
-* \$$f(x) = x^p, p > 1,\;\;\; x \in \mathbb{R}_+$$
+* \$$f(x) = x^p, \;\;\; p > 1,\;\;\; x \in \mathbb{R}_+$$
 * \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}$$
 * \$$f(x) = e^{cx},\;\;\; c \in \mathbb{R}, x \in \mathbb{R}$$
 * \$$f(x) = -\ln x,\;\;\; x \in \mathbb{R}_{++}$$
@@ -34,7 +34,7 @@ $$
 \text{epi } f = \left\{[x,\mu] \in S \times \mathbb{R}: f(x) \le \mu\right\}
 $$
 
-is called **epigraph** of the function $$f(x)$$ 
+is called **epigraph** of the function $$f(x)$$. 
 
 ![](../epigraph.svg)
 
@@ -45,7 +45,7 @@ $$
 \mathcal{L}_\beta = \left\{ x\in S : f(x) \le \beta\right\}
 $$
 
-is called **sublevel set** or Lebesgue set of the function $$f(x)$$ 
+is called **sublevel set** or Lebesgue set of the function $$f(x)$$. 
 
 ![](../sublevel_set.svg)
 
@@ -80,7 +80,7 @@ $$
 $$
 
 ## Connection with epigraph
-The function is convex if and only if its epigraph is convex set.
+The function is convex if and only if its epigraph is a convex set.
 
 ## Connection with sublevel set
 If $$f(x)$$ - is a convex function defined on the convex set $$S \subseteq \mathbb{R}^n$$, then for any $$\beta$$ sublevel set $$\mathcal{L}_\beta$$ is convex.
@@ -88,10 +88,10 @@ If $$f(x)$$ - is a convex function defined on the convex set $$S \subseteq \math
 The function $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is closed if and only if for any $$\beta$$ sublevel set $$\mathcal{L}_\beta$$ is closed.
 
 ## Reduction to a line
-$$f: S \to \mathbb{R}$$ is convex if and only if $$S$$ is convex set and the function $$g(t) = f(x + tv)$$ defined on $$\left\{ t \mid x + tv \in S \right\}$$  is convex for any $$x \in S, v \in \mathbb{R}^n$$, which allows to check convexity of the scalar function in order to establish covexity of the vector function.
+$$f: S \to \mathbb{R}$$ is convex if and only if $$S$$ is a convex set and the function $$g(t) = f(x + tv)$$ defined on $$\left\{ t \mid x + tv \in S \right\}$$  is convex for any $$x \in S, v \in \mathbb{R}^n$$, which allows to check convexity of the scalar function in order to establish convexity of the vector function.
 
 # Strong convexity
-$$f(x)$$, **defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called $$\mu$$-strongly convex (strogly convex) on $$S$$, if:
+$$f(x)$$, **defined on the convex set** $$S \subseteq \mathbb{R}^n$$, is called $$\mu$$-strongly convex (strongly convex) on $$S$$, if:
 
 $$
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \mu \lambda (1 - \lambda)\|x_1 - x_2\|^2
@@ -131,7 +131,7 @@ $$
 $$
 
 # Facts
-* $$f(x)$$ is called (strictly) concave, if the function $$-f(x)$$ - (strictly) convex.
+* $$f(x)$$ is called (strictly) concave, if the function $$-f(x)$$ - is (strictly) convex.
 * Jensen's inequality for the convex functions:
 
     $$
@@ -153,13 +153,12 @@ $$
 
 
 
-* Non-negative sum of the convex functions: $$\alpha f(x) + \beta g(x), (\alpha \geq 0 , \beta \geq 0)$$
-
-* Composition with affine function $$f(Ax + b)$$  is convex, if $$f(x)$$ is convex
-* Pointwise maximum (supremum): If $$f_1(x), \ldots, f_m(x)$$ are convex, then $$f(x) = \max \{f_1(x), \ldots, f_m(x)\}$$ is convex
-* If $$f(x,y)$$ is convex on $$x$$ for any $$y \in Y$$: $$g(x) = \underset{y \in Y}{\operatorname{sup}}f(x,y)$$ is convex
-* If $$f(x)$$ is convex on $$S$$, then $$g(x,t) = t f(x/t)$$ - is convex with $$x/t \in S, t > 0$$ 
-* Let $$f_1: S_1 \to \mathbb{R}$$ and $$f_2: S_2 \to \mathbb{R}$$, where $$\operatorname{range}(f_1) \subseteq S_2$$. If $$f_1$$ and $$f_2$$ are convex, and $$f_2$$ is increasing, then $$f_2 \circ f_1$$ is convex on $$S_1$$
+* Non-negative sum of the convex functions: $$\alpha f(x) + \beta g(x), (\alpha \geq 0 , \beta \geq 0)$$.
+* Composition with affine function $$f(Ax + b)$$  is convex, if $$f(x)$$ is convex.
+* Pointwise maximum (supremum): If $$f_1(x), \ldots, f_m(x)$$ are convex, then $$f(x) = \max \{f_1(x), \ldots, f_m(x)\}$$ is convex.
+* If $$f(x,y)$$ is convex on $$x$$ for any $$y \in Y$$: $$g(x) = \underset{y \in Y}{\operatorname{sup}}f(x,y)$$ is convex.
+* If $$f(x)$$ is convex on $$S$$, then $$g(x,t) = t f(x/t)$$ - is convex with $$x/t \in S, t > 0$$. 
+* Let $$f_1: S_1 \to \mathbb{R}$$ and $$f_2: S_2 \to \mathbb{R}$$, where $$\operatorname{range}(f_1) \subseteq S_2$$. If $$f_1$$ and $$f_2$$ are convex, and $$f_2$$ is increasing, then $$f_2 \circ f_1$$ is convex on $$S_1$$.
 
 
 # Other forms of convexity
