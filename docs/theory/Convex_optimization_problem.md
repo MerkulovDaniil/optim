@@ -17,16 +17,16 @@ $$
 \tag{COP}
 $$
 
-where all the functions $$f(x), g_1(x), \ldots, g_m(x)$$ are convex and all equality constraints are affine. It sounds a bit strange, but not all convex problems are convex optimization problems. 
+where all the functions $$f(x), g_1(x), \ldots, g_m(x)$$ are convex and all the equality constraints are affine. It sounds a bit strange, but not all convex problems are convex optimization problems. 
 
 $$
 \tag{CP}
 f(x) \to \min\limits_{x \in S},
 $$
 
-Where $$f(x)$$ is convex function, defined on the convex set $$S$$. The necessity of affine equality constraint is essential see Slater's condition in {% include link.html title = 'Duality' %}. 
+where $$f(x)$$ is a convex function, defined on the convex set $$S$$. The necessity of affine equality constraint is essential (see Slater's condition in {% include link.html title = 'Duality' %}). 
 
-For example, this problem is not convex optimization problem (but implies minimizing convex function over the convex set):
+For example, this problem is not a convex optimization problem (but implies minimizing the convex function over the convex set):
 
 $$
 \begin{split}
@@ -37,7 +37,7 @@ $$
 \tag{CP}
 $$
 
-while the following equivalent problem is convex optimization problem
+while the following equivalent problem is a convex optimization problem
 
 $$
 \begin{split}
@@ -48,7 +48,7 @@ $$
 \tag{COP}
 $$
 
-Such confusion in notation is sometimes being avoided by naming problems of type $$\text{(CP)}$$ as *abstract form convex optimization problem*
+Such confusion in notation is sometimes being avoided by naming problems of type $$\text{(CP)}$$ as *abstract form convex optimization problem*.
 
 # Materials
 
