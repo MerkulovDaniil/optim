@@ -375,3 +375,4 @@ Convex case is especially important since if we have Fenchel - Rockafellar probl
 * {% include link.html title='Optimality conditions. KKT' %}
 * [Seminar 7 @ CMC MSU](http://www.machinelearning.ru/wiki/images/7/7f/MOMO18_Seminar7.pdf)
 * [Seminar 8 @ CMC MSU](http://www.machinelearning.ru/wiki/images/1/15/MOMO18_Seminar8.pdf)
+* [Convex Optimization @ Berkeley - 10th lecture](http://optml.mit.edu/teach/ee227a/lect10.pdf)
