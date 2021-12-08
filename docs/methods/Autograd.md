@@ -7,7 +7,7 @@ nav_order: 6
 
 # Idea
 ![](../differentiation_scheme.svg)
-Automatic differentiation is a scheme, that allow you to compute a value of gradient of function with a cost of computing function itself only twice.
+Automatic differentiation is a scheme, that allows you to compute a value of gradient of function with a cost of computing function itself only twice.
 ## Chain rule
 We will illustrate some important matrix calculus facts for specific cases
 ### Univariate chain rule
@@ -31,7 +31,7 @@ $$
 \dfrac{\partial }{\partial t} f(x_1(t), \ldots, x_n(t)) = \dfrac{\partial f}{\partial x_1} \dfrac{\partial x_1}{\partial t} + \ldots + \dfrac{\partial f}{\partial x_n} \dfrac{\partial x_n}{\partial t}
 $$
 
-But what if we will add another dimension $$f: \mathbb{R}^n \to \mathbb{R}^m$$, than the $$j$$-th output of $$f$$ will be:
+But if we will add another dimension $$f: \mathbb{R}^n \to \mathbb{R}^m$$, than the $$j$$-th output of $$f$$ will be:
 
 $$
 \dfrac{\partial }{\partial t} f_j(x_1(t), \ldots, x_n(t)) = \sum\limits_{i=1}^n \dfrac{\partial f_j}{\partial x_i} \dfrac{\partial x_i}{\partial t} = \sum\limits_{i=1}^n J_{ji}  \dfrac{\partial x_i}{\partial t},
