@@ -25,7 +25,7 @@ $$
 
 ## Inter-conjugate and self-conjugate sets
 * Множества $$S_1$$ и $$S_2$$ называются **взаимосопряженными**, если $$S_1^* = S_2, S_2^* = S_1$$.
-* Множество $$S$$ называется **самосопряженным**, если $$S^{*} = S$$
+* Множество $$S$$ называется **самосопряженным**, если $$S^{*} = S$$.
 
 ## Properties
 * Сопряженное множество всегда замкнуто, выпукло и содержит нуль.
@@ -35,15 +35,15 @@ $$
 	 S^{**} = \overline{ \mathbf{conv} (S \cup  \{0\}) }
 	$$
 
-* Если $$S_1 \subset S_2$$, то $$S_2^* \subset S_1^*$$
+* Если $$S_1 \subset S_2$$, то $$S_2^* \subset S_1^*$$.
 * $$\left( \bigcup\limits_{i=1}^m S_i \right)^* = \bigcap\limits_{i=1}^m S_i^*$$
-* Если $$S$$ - замкнуто, выпукло, включает $$0$$, то $$S^{**} = S$$
+* Если $$S$$ - замкнуто, выпукло, включает $$0$$, то $$S^{**} = S$$.
 * $$S^* = \left(\overline{S}\right)^*$$
 
 ## Examples
 
 ### 1
-Доказать, что $$S^* = \left(\overline{S}\right)^*$$
+Доказать, что $$S^* = \left(\overline{S}\right)^*$$.
 
 Решение:
 
@@ -51,21 +51,21 @@ $$
 * Пусть $$p \in S^*$$ и $$x_0 \in \overline{S}, x_0 = \underset{k \to \infty}{\operatorname{lim}} x_k$$. Тогда в силу непрерывности функции $$f(x) = p^Tx$$, имеем: $$p^T x_k \ge -1 \to p^Tx_0 \ge -1$$. Значит, $$p \in  \left(\overline{S}\right)^*$$, отсюда $$S^* \subset \left(\overline{S}\right)^*$$
 
 ### 2
-Доказать, что $$\left( \mathbf{conv}(S) \right)^* = S^*$$
+Доказать, что $$\left( \mathbf{conv}(S) \right)^* = S^*$$.
 
 Решение:
 
 * $$S \subset \mathbf{conv}(S) \to \left( \mathbf{conv}(S) \right)^* \subset S^*$$
 * Пусть $$p \in S^*$$, $$x_0 \in \mathbf{conv}(S)$$, т.е. $$x_0 = \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0$$.
 
-    Значит, $$p^T x_0 = \sum\limits_{i=1}^k\theta_i p^Tx_i \ge \sum\limits_{i=1}^k\theta_i (-1) = 1 * (-1) = -1$$. Значит, $$p \in  \left( \mathbf{conv}(S) \right)^*$$, отсюда $$S^* \subset \left( \mathbf{conv}(S) \right)^*$$
+    Значит, $$p^T x_0 = \sum\limits_{i=1}^k\theta_i p^Tx_i \ge \sum\limits_{i=1}^k\theta_i (-1) = 1 \cdot (-1) = -1$$. Значит, $$p \in  \left( \mathbf{conv}(S) \right)^*$$, отсюда $$S^* \subset \left( \mathbf{conv}(S) \right)^*$$
 
 ### 3
-Доказать, что если $$B(0,r)$$ - шар радиуса $$r$$ по некоторой норме с центром в нуле, то $$\left( B(0,r) \right)^* = B(0,1/r)$$
+Доказать, что если $$B(0,r)$$ - шар радиуса $$r$$ по некоторой норме с центром в нуле, то $$\left( B(0,r) \right)^* = B(0,1/r)$$.
 
 Решение:
 
-* Пусть $$B(0,r) = X, B(0,1/r) = Y$$. Возьмем вектор нормали $$p \in X^*$$, тогда для любого $$x \in X: p^Tx \ge -1$$
+* Пусть $$B(0,r) = X, B(0,1/r) = Y$$. Возьмем вектор нормали $$p \in X^*$$, тогда для любого $$x \in X: p^Tx \ge -1$$.
 * Из всех точек шара $$X$$ возьмем такую $$x \in X$$, что скалярное произведение её на $$p$$: $$p^Tx$$ было бы минимально, тогда это точка $$x = -\frac{p}{\|p\|}r$$
 
 	$$
@@ -76,16 +76,16 @@ $$
 	\|p\| \le \frac{1}{r} \in Y
 	$$
 
-	Значит, $$X^* \subset Y$$
+	Значит, $$X^* \subset Y$$.
 * Теперь пусть $$p \in Y$$. Нам надо показать, что $$p \in X^*$$, т.е. $$\langle p, x\rangle \geq -1$$. Достаточно применить неравенство Коши - Буняковского:
 
 	$$
 	\|\langle p, x\rangle\| \leq \|p\| \|x\| \leq \dfrac{1}{r} \cdot r = 1
 	$$
 
-    Последнее исходит из того, что $$p \in B(0,1/r)$$, а $$x \in B(0,r)$$
+    Последнее исходит из того, что $$p \in B(0,1/r)$$, а $$x \in B(0,r)$$.
   
-    Значит, $$Y \subset X^*$$
+    Значит, $$Y \subset X^*$$.
 
 # Dual cones
 Сопряженным конусом к конусу $$K$$ называется такое множество $$K^*$$, что: 
@@ -94,7 +94,7 @@ $$
 K^* = \left\{ y \mid \langle x, y\rangle \ge 0 \;\;\;\; \forall x \in K\right\}
 $$
 
-Чтобы показать, что это определение непосредственно следует из теории выше вспомним, что такое сопряженное множество и что такое конус $$\forall \lambda > 0$$
+Чтобы показать, что это определение непосредственно следует из теории выше, вспомним, что такое сопряженное множество и что такое конус $$\forall \lambda > 0$$
 
 $$
 \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\} \to \{\lambda y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -\dfrac{1}{\lambda} \;\; \forall x \in S\}
@@ -103,7 +103,7 @@ $$
 ![](../dual_cone.gif)
 
 ## Dual cones properties
-* Если $$K$$ - замкнутый выпуклый конус. Тогда $$K^{**} = K$$
+* Пусть $$K$$ - замкнутый выпуклый конус. Тогда $$K^{**} = K$$.
 * Для произвольного множества $$S \subseteq \mathbb{R}^n$$ и конуса $$K \subseteq \mathbb{R}^n$$: 
 
 	$$
@@ -116,7 +116,7 @@ $$
 	\left( \sum\limits_{i=1}^m K_i \right)^* = \bigcap\limits_{i=1}^m K_i^*
 	$$
 
-* Пусть $$K_1, \ldots, K_m$$ - конусы в $$\mathbb{R}^n$$. Пусть так же, их пересечение имеет внутреннюю точку, тогда:
+* Пусть $$K_1, \ldots, K_m$$ - конусы в $$\mathbb{R}^n$$. Пусть также их пересечение имеет внутреннюю точку, тогда:
 
 	$$
 	\left( \bigcap\limits_{i=1}^m K_i \right)^* = \sum\limits_{i=1}^m K_i^*
@@ -138,7 +138,7 @@ $$
 \sum\limits_{i=1}^nx_iy_i = y_1 (x_1-x_2) + (y_1 + y_2)(x_2 - x_3) + \ldots + (y_1 + y_2 + \ldots + y_{n-1})(x_{n-1} - x_n) + (y_1 + \ldots + y_n)x_n
 $$
 
-Так как в представленной сумме в каждом слагаемом второй множитель положительный, то:
+Так как в представленной сумме в каждом слагаемом второй множитель неотрицательный, то:
 
 $$
 y_1 \ge 0, \;\; y_1 + y_2 \ge 0, \;\;\ldots, \;\;y_1 + \ldots + y_n \ge 0
@@ -182,7 +182,7 @@ $$
 	\langle p, x_i\rangle \ge -\frac{1}{\theta} \to \langle p, x_i\rangle \ge 0 
 	$$
 
-	Значит, $$p \in Y \to X^* \subset Y$$
+	Значит, $$p \in Y \to X^* \subset Y$$.
 
 * Пусть, напротив, $$p \in Y$$. Для любой точки $$x \in X$$:
 
@@ -196,7 +196,7 @@ $$
 	\langle p, x\rangle = \sum\limits_{i=1}^m\theta_i \langle p, x_i\rangle  = \sum\limits_{i=1}^k\theta_i \langle p, x_i\rangle + \sum\limits_{i=k+1}^m\theta_i \langle p, x_i\rangle \ge \sum\limits_{i=1}^k\theta_i (-1) + \sum\limits_{i=1}^k\theta_i \cdot 0 = -1
 	$$
 
-	Значит, $$p \in X^* \to Y \subset X^*$$
+	Значит, $$p \in X^* \to Y \subset X^*$$.
 
 ### 5
 
@@ -227,7 +227,7 @@ $$
 $$
 
 
-$$Ax = b$$ при $$x \geq 0$$ означает, что $$b$$ лежит в конусе, натянутым на столбцы матрицы $$A$$
+$$Ax = b$$ при $$x \geq 0$$ означает, что $$b$$ лежит в конусе, натянутым на столбцы матрицы $$A$$.
 
 $$pA \geq 0, \; \langle p, b \rangle < 0$$ означает, что существует разделяющая гиперплоскость между вектором $$b$$ и конусом из столбцов матрицы $$A$$.
 
