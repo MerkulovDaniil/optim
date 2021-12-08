@@ -28,7 +28,7 @@ $$
 
 # Related definitions
 ## Affine combination
-Let we have $$x_1, x_2, \ldots, x_k \in S$$, then the point $$\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$$ is called affine combination of $$x_1, x_2, \ldots, x_k$$ if $$\sum\limits_{i=1}^k\theta_i = 1$$
+Let we have $$x_1, x_2, \ldots, x_k \in S$$, then the point $$\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$$ is called affine combination of $$x_1, x_2, \ldots, x_k$$ if $$\sum\limits_{i=1}^k\theta_i = 1$$.
 
 ## Affine hull
 The set of all affine combinations of points in set $$S$$ is called the affine hull of $$S$$:
