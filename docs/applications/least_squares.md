@@ -46,7 +46,7 @@ $$
 X = Q \cdot R,
 $$
 
-where  $$Q$$ is an orthogonal matrix (its columns are orthogonal unit vectors meaning  $$Q^\top Q=QQ^\top=I$$ and $$R$$ is an upper triangular matrix. It is important to notice, that since $$Q^{-1} = Q^\top$$, we have:
+where  $$Q$$ is an orthogonal matrix (its columns are orthogonal unit vectors, meaning  $$Q^\top Q=QQ^\top=I$$) and $$R$$ is an upper triangular matrix. It is important to notice, that since $$Q^{-1} = Q^\top$$, we have:
 
 $$
 QR\theta = y \quad \longrightarrow \quad R \theta = Q^\top y
@@ -71,8 +71,8 @@ $$
 
 Now, process of finding theta consists of two steps:
 1. Find the Cholesky decomposition of $$X^\top X$$.
-1. Find the $$z_\theta = L\theta$$ by solving triangular system $$L^\top z_\theta = y$$
-1. Find the $$\theta$$ by solving triangular system $$L\theta = z_\theta$$
+1. Find the $$z_\theta = L\theta$$ by solving triangular system $$L^\top z_\theta = y$$.
+1. Find the $$\theta$$ by solving triangular system $$L\theta = z_\theta$$.
 
 Note, that in this case the error stil proportional to the squared condition number.
 
