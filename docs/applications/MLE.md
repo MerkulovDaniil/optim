@@ -10,10 +10,10 @@ We need to estimate probability density $$p(x)$$ of a random variable from obser
 ![](../mle.svg)
 
 # Approach
-We will use idea of parametric distribution estimation, which involves choosing *the best* parameters, of a chosen family of densities $$p_\theta(x)$$, indexed by a parameter $$\theta$$. The idea is very natural: we choose such parameters, which maximizes the probability (or, logarithm of probability) of observed values.
+We will use idea of parametric distribution estimation, which involves choosing *the best* parameters, of a chosen family of densities $$p_\theta(x)$$, indexed by a parameter $$\theta$$. The idea is very natural: we choose such parameters, which maximizes the probability (or logarithm of probability) of observed values.
 
 $$
-\max\limits_{\theta} \log p_\theta(x) \to \theta^* 
+\arg \max\limits_{\theta} \log p_\theta(x) = \theta^* 
 $$
 
 ## Linear measurements with i.i.d. noise
@@ -26,7 +26,7 @@ $$
 
 where
 * $$\theta \in \mathbb{R}^n$$ - unknown vector of parameters
-* $$\xi_i$$ are IID noise with density $$p(z)$$
+* $$\xi_i$$ are IID noise random variables with density $$p(z)$$
 * $$x_i$$ - measurements, $$x \in \mathbb{R}^m$$
 
 Which implies the following optimization problem:
