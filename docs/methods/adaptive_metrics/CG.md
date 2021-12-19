@@ -24,7 +24,7 @@ file: /assets/files/CG.pdf
 
 # Introduction
 
-![](../CG_win.svg)
+![](../cg_win.svg)
 
 Originally, the conjugate gradients method  was created to solve a system of linear equations. 
 
@@ -79,7 +79,7 @@ Note, however, that if the next step is built in the same way (the fastest desce
 
 ![http://fourier.eng.hmc.edu/e176/lectures/](../steepest.png)
 
-In order to avoid this, we introduce the concept of $$A$$ - conjugated vectors: let's say that two vectors $$x$$, $$y$$ $$A$$ - are conjugated relative to each other if they are executed:
+In order to avoid this, we introduce the concept of $$A$$-conjugate vectors: let's say that two vectors $$x$$, $$y$$ are $$A$$-conjugate relative to each other if they are executed:
 
 $$
 x^\top A y = 0
@@ -159,7 +159,7 @@ This method is called the Polack - Ribier method.
 
 # Examples
 ## Example 1
-Prove that if a set of vectors $$d_1, \ldots, d_k$$ - $$A$$ - are conjugated (all vectors are conjugated in pairs of $$A$$), these vectors are linearly independent. $$A \in \mathbb{S}^n_{++}$$.
+Prove that if a set of vectors $$d_1, \ldots, d_k$$ - are $$A$$-conjugate (each pair of vectors is $$A$$-conjugate), these vectors are linearly independent. $$A \in \mathbb{S}^n_{++}$$.
 
 Solution:
 
