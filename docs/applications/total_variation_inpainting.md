@@ -52,7 +52,7 @@ $$
 \end{split}
 $$
 
-Results are presented below (these computations are really take time): 
+Results are presented below (these computations really take time): 
 ![](../tv_start1.png)
 ![](../tv_finish1.png)
 
