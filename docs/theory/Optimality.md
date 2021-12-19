@@ -82,7 +82,7 @@ $$x^*$$ is a local minimum (see [Peano surface](https://en.wikipedia.org/wiki/Pe
 ### Convex case
 It should be mentioned, that in the **convex** case (i.e., $$f(x)$$ is convex) necessary condition becomes sufficient. Moreover, we can generalize this result on the class of non-differentiable convex functions. 
 
-Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$ - be a convex function, then the point $$x^*$$ is the solution of $$\text{(UP)}$$ if and only if:
+Let $$f(x): \mathbb{R}^n \to \mathbb{R}$$, then the point $$x^*$$ is the solution of $$\text{(UP)}$$ if and only if:
 
 $$
 0_n \in \partial f(x^*)
