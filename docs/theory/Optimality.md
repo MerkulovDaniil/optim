@@ -122,7 +122,7 @@ We will try to illustrate approach to solve this problem through the simple exam
 
 ![](../eq_constr_8.svg)
 
-![](../eq_constr_9.png)
+![](../eq_constr_9.svg)
 
 Generally: in order to move from $$ x_F $$ along the budget set towards decreasing the function, we need to guarantee two conditions:
 

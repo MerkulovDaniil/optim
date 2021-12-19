@@ -45,6 +45,14 @@ has_toc: False
   publisher={Springer}
 }' file='assets/files/Nesterov_the_best.pdf' inline = 'True' %}
 
+* Minimume-volume ellipsoids
+{% include tabs.html bibtex = '@book{todd2016minimum,
+  title={Minimum-volume ellipsoids: Theory and algorithms},
+  author={Todd, Michael J},
+  year={2016},
+  publisher={SIAM}
+}' file='assets/files/MVE_book.pdf' inline = 'True' %}
+
 * Методы оптимизации, Часть I. Введение в выпуклый анализ и теорию оптимизации
 {% include tabs.html bibtex = '@article{жадан2014методы,
   title={Методы оптимизации. Часть 1. Введение в выпуклый анализ и теорию оптимизации: учебное пособие},
