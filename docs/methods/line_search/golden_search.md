@@ -6,7 +6,7 @@ grand_parent: Methods
 ---
 
 # Idea
-The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration one of the points will remains the golden point.
+The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration one of the points will remain the golden point.
 
 ![](../golden_search.svg)
 
