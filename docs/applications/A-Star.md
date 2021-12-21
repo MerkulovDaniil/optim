@@ -11,7 +11,7 @@ The **graph** is one of the most significant structures in the algorithms, becau
 And one is the most popular problem is:
 **Find the least sum of graph edges for given start and end points** 
 
-Generally we need determine input and output data:  
+Generally, we need determine input and output data:  
 - **Input data:** graph map and end or start point/node (or both for certain path)
 - **Output data:** paths (or intermediate points/nodes) with the least sum of graph edges as result
 
