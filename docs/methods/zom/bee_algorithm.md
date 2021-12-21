@@ -23,7 +23,7 @@ The nectar search process is described in more detail [here](https://www.researc
 
 And now imagine that the location of the global extremum is the site where the most nectar, and this site is the only one, that is, in other places there is nectar, but less. And bees do not live on a plane, where it is enough to know two coordinates to determine the location of sites, but in a multidimensional space, where each coordinate represents one parameter of a function that needs to be optimized. The amount of nectar found is the value of the target function at this point.
 
-The list below shows the pseudo code for a simple Bee Algorithm.
+The list below shows the pseudocode for a simple Bee Algorithm.
 
 1. Initialize the set of parameters: number of scout bees - **n**, number of elite bees - **e**, number of selected regions out of n points - **m**, number of recruited around elite regions - **nep**, number of recruited around other selected (**m-e**) regions - **nsp**, and stopping criteria.
 2. Every bee evaluates the value of target function
