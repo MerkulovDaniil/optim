@@ -73,14 +73,15 @@ has_toc: False
 
 ## Courses
 
-* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt @ UC Berkley
-* [Convex Optimization](http://www.stat.cmu.edu/~ryantibs/convexopt/) course by Ryan Tibshirani @ CMU
-* [Convex Optimization](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) course by Lieven Vandenberghe @ UCLA
-* [Convex Optimization](http://suvrit.de/teach/ee227a/lectures.html) course by Suvrit Sra @ UC Berkley
-* [Advanced Optimization and Randomized Methods](https://www.cs.cmu.edu/~suvrit/teach/aopt.html) course by Alex Smola and Suvrit Sra @ CMU
-* [Optimizaion methods](https://github.com/amkatrutsa/MIPT-Opt) course by Alexandr Katrutsa @ MIPT
-* [Convex Analysis and Optimization](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-253-convex-analysis-and-optimization-spring-2012/) course by Dimitri Bertsekas @ MIT
-* [Optimization for Machine Learning](https://github.com/epfml/OptML_course) course by Martin Jaggi @ EPFL
+* [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt @ UC Berkley.
+* [Convex Optimization](http://www.stat.cmu.edu/~ryantibs/convexopt/) course by Ryan Tibshirani @ CMU.
+* [Convex Optimization](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) course by Lieven Vandenberghe @ UCLA.
+* [Convex Optimization](http://suvrit.de/teach/ee227a/lectures.html) course by Suvrit Sra @ UC Berkley.
+* [Advanced Optimization and Randomized Methods](https://www.cs.cmu.edu/~suvrit/teach/aopt.html) course by Alex Smola and Suvrit Sra @ CMU.
+* [Optimizaion methods](https://github.com/amkatrutsa/MIPT-Opt) course by Alexandr Katrutsa @ MIPT.
+* [Convex Analysis and Optimization](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-253-convex-analysis-and-optimization-spring-2012/) course by Dimitri Bertsekas @ MIT.
+* [Optimization for Machine Learning](https://github.com/epfml/OptML_course) course by Martin Jaggi @ EPFL.
+* [Optimization for Machine Learning](http://optml.mit.edu/teach/6881/) course by Suvrit Sra.
 
 
 ## Blogs and personal pages
