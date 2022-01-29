@@ -217,34 +217,6 @@ $$
 
 ## Goldstein-Armijo
 
-This strategy of inexact line search works well in practice, as well as it has the following geometric interpretation:
-
-Let's consider the following scalar function while being at a specific point of $$x_k$$: 
-
-$$
-\phi(\eta) = f(x_k - \eta\nabla f(x_k)), \eta \geq 0
-$$
-
-consider first order approximation of  $$\phi(\eta)$$:
-
-$$
-\phi(\eta) \approx f(x_k) - \eta\nabla f(x_k)^\top \nabla f(x_k)
-$$
-
-Let's consider also 2 linear scalar functions $$\phi_1(\eta), \phi_2(\eta)$$:
-
-$$
-\phi_1(\eta) = f(x_k) - \alpha \eta \|\nabla f(x_k)\|^2
-$$
-and
-$$
-\phi_2(\eta) = f(x_k) - \beta \eta \|\nabla f(x_k)\|^2
-$$
-
-Note, that Goldstein-Armijo conditions determine the location of the function $$\phi(\eta)$$ between $$\phi_1(\eta)$$ and $$\phi_2(\eta)$$. Typically, we choose $$\alpha = \rho$$ and $$\beta = 1 - \rho$$, while $$ \rho \in (0.5, 1)$$.
-
-![](../backtracking.svg)
-
 # Convergence analysis
 ## Quadratic case
 
