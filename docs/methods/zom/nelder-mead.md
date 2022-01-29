@@ -48,11 +48,9 @@ In our $$2D$$ case it will be the center of the triangle side, which contains $$
 ## Main idea
 
 The algorithm maintains the set of test points in the form of simplex. For each point the function value is calculated and points are ordered accordingly.
-Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value 
-in the domain.
+Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value in the domain.
 
-The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it 
-takes into account cases when simplex becomes degenerate (three or more vertices on one axis).
+The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it takes into account cases when simplex becomes degenerate (three or more vertices on one axis).
 
 ## Steps of the algorithm
 

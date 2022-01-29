@@ -11,7 +11,7 @@ The **graph** is one of the most significant structures in the algorithms, becau
 And one is the most popular problem is:
 **Find the least sum of graph edges for given start and end points** 
 
-Generally we need determine input and output data:  
+Generally, we need determine input and output data:  
 - **Input data:** graph map and end or start point/node (or both for certain path)
 - **Output data:** paths (or intermediate points/nodes) with the least sum of graph edges as result
 
@@ -19,7 +19,7 @@ Generally we need determine input and output data:
 Today there is a variety of algorithms for solving this problem, and solutions have their own advantages and disadvantages regarding the task, so let's consider main of them:
 
 ## Breadth First Search
-This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. 
+This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. 
 
 | Origin Graph | Result Tree| Animation
 |---|---|---|
