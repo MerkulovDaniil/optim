@@ -13,3 +13,5 @@ nav_order: 12
 1. Determine the convergence or divergence of a given sequence $$r_{k} = \frac{1}{k!}$$.
 1. Determine the convergence or divergence of a given sequence $$r_k =\begin{cases} \frac{1}{k}, & \mbox{if } k\mbox{ is even} \\ \frac{1}{k^2}, & \mbox{if } k\mbox{ is odd} \end{cases}$$.
 1. Determine the convergence or divergence of a given sequence $$r_k =\begin{cases} \frac{1}{k^k}, & \mbox{if } k\mbox{ is even} \\ \frac{1}{k^{2k}}, & \mbox{if } k\mbox{ is odd} \end{cases}$$.
+1. Show that the sequence $$x_k = 1 + (0.5)^{2^k}$$ is quadratically converged to $$1$$.
+1. Determine the convergence or divergence of a given sequence $$r_k =\begin{cases} \left(\frac{1}{4}\right)^{2^k}, & \mbox{if } k\mbox{ is even} \\ \frac{x_{k-1}}{k}, & \mbox{if } k\mbox{ is odd} \end{cases}$$.
