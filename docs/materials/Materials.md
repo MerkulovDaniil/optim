@@ -29,13 +29,21 @@ has_toc: False
   publisher={Now Publishers, Inc.}
 }' inline = 'True' %}
 
-* [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/) materials by Boyd and Vandenberghe. 
+* [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/) materials by Stephen Boyd and Lieven Vandenberghe. 
 {% include tabs.html bibtex = '@book{boyd2004convex,
   title={Convex optimization},
   author={Boyd, Stephen and Vandenberghe, Lieven},
   year={2004},
   publisher={Cambridge university press}
 }' inline = 'True' %}
+
+* Numerical Optimization by Jorge Nocedal and Stephen J. Wright. 
+{% include tabs.html bibtex = '@book{nocedal2006numerical,
+  title={Numerical optimization},
+  author={Nocedal, Jorge and Wright, Stephen},
+  year={2006},
+  publisher={Springer Science \& Business Media}
+}' file='assets/files/NumericalOptimization.pdf' inline = 'True' %}
 
 * Lectures on Convex Optimization by Yurii Nesterov
 {% include tabs.html bibtex = '@book{nesterov2018lectures,
