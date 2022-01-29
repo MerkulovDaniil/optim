@@ -37,7 +37,7 @@ $$
 -\nabla f (x_k - \alpha \nabla f(x_k))^\top \nabla f(x_k) \geq c_2 \nabla f(x_k)^\top(- \nabla f(x_k))
 $$
 
-for some constant $$c_2 \in (c_1,1)$$, where $$c_1$$ is a constant from Armijo condition. Note that the left-handside is simply the derivative $$\nabla_\alpha \phi(\alpha)$$, so the curvature condition ensures that the slope of $$\phi(\alpha)$$ at the target point is greater than $$c_2$$ times the initial slope $$\nabla_\alpha \phi(\alpha)(0)$$. Typical values of $$c_2 \qpprox 0.9$$ for Newton or quasi-Newton method. The sufficient decrease and curvature conditions are known collectively as the Wolfe conditions.
+for some constant $$c_2 \in (c_1,1)$$, where $$c_1$$ is a constant from Armijo condition. Note that the left-handside is simply the derivative $$\nabla_\alpha \phi(\alpha)$$, so the curvature condition ensures that the slope of $$\phi(\alpha)$$ at the target point is greater than $$c_2$$ times the initial slope $$\nabla_\alpha \phi(\alpha)(0)$$. Typical values of $$c_2 \approx 0.9$$ for Newton or quasi-Newton method. The sufficient decrease and curvature conditions are known collectively as the Wolfe conditions.
 
 # Goldstein conditions
 
