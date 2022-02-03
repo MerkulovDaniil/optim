@@ -27,7 +27,7 @@ $$
 f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top \nabla f(x_k)
 $$
 
-for some constant $$c_1 \in (0,1)$$. (Note, that $$c_1 = 1$$ stands for the first order Taylor approximation of $$\phi(\alpha)$$). This is also called Armijo condition. The problem of this condition is, that it could accept arbitrary small values $$\alpha$$, which may slow down solution of the problem. In practice, $$c1$$ is chosen to be quite small, say $$c_1 \approx 10^{−4}$$.
+for some constant $$c_1 \in (0,1)$$. (Note, that $$c_1 = 1$$ stands for the first order Taylor approximation of $$\phi(\alpha)$$). This is also called Armijo condition. The problem of this condition is, that it could accept arbitrary small values $$\alpha$$, which may slow down solution of the problem. In practice, $$c_1$$ is chosen to be quite small, say $$c_1 \approx 10^{−4}$$.
 
 # Curvature condition
 
