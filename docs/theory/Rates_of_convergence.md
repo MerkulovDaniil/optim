@@ -39,7 +39,7 @@ where $$q < 0$$ and $$ 0 < C < \infty$$. Note, that sublinear convergence means,
 ## Quadratic convergence
 
 $$
-\| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq C\| x_k - x^* \|^2_2,
+\| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|^2_2,
 $$
 
 where $$q \in (0, 1)$$ and $$ 0 < C < \infty$$.
