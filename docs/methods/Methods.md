@@ -49,26 +49,26 @@ def GeneralScheme(x, epsilon):
 ## Unsolvability
 In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
-Consider the following simple optimization problem of a function over unit ball:
+Consider the following simple optimization problem of a function over unit cube:
 
 $$
 \begin{split}
 & \min_{x \in \mathbb{R}^n} f(x)\\
-\text{s.t. } &  x \in \mathbb{B}^n
+\text{s.t. } &  x \in [0,1]^n
 \end{split}
 $$
 
 We assume, that the objective function $$f (\cdot) : \mathbb{R}^n \to \mathbb{R}$$ is Lipschitz continuous on
-$$\mathbb{B}^n$$:
+$$[0,1]^n$$:
 
 $$
-| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
+| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in [0,1]^n,
 $$
 
-with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$-dimensional unit ball 
+with some constant $$L$$ (Lipschitz constant). Here $$[0,1]^n$$ - the $$n$$-dimensional unit cube
 
 $$
-\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
+[0,1]^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
 $$ 
 
 Our goal is to find such $$\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$$ for some positive $$\varepsilon$$. Here $$f^*$$ is the global minima of the problem. Uniform grid with $$p$$ points on each dimension guarantees at least this quality:
