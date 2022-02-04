@@ -49,7 +49,7 @@ def GeneralScheme(x, epsilon):
 ## Unsolvability
 In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
-Consider the following simple optimization problem of a function over unit cube:
+Consider the following simple optimization problem of a function over unit ball:
 
 $$
 \begin{split}
@@ -65,7 +65,7 @@ $$
 | f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
 $$
 
-with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$-dimensional unit cube 
+with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$-dimensional unit ball 
 
 $$
 \mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
