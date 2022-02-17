@@ -34,3 +34,4 @@ nav_order: 15
 	iris = sklearn.datasets.load_iris()
 	x, y = iris.data, iris.target
 	```
+1. Try to perform hyperparameter optimization in context of any metric for imbalanced classification problem with optuna and keras. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/optuna_keras.ipynb)
