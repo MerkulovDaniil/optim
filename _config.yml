@@ -63,9 +63,9 @@ search:
 heading_anchors: true
 
 # Aux links for the upper right navigation
-aux_links:
-  "Our discord server":
-    - "//discord.gg/vQv7Gfv"
+# aux_links:
+#   "Our discord server":
+#     - "//discord.gg/vQv7Gfv"
   
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
