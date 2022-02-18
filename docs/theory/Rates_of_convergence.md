@@ -6,11 +6,11 @@ title: Rates of convergence
 
 # Speed of convergence
 In order to compare perfomance of algorithms we need to define a terminology for different types of convergence.
-Let $$\{x_k\}$$ be a sequence in $$\mathbb{R}^n$$ that converges to some point $$x^*$$
+Let $$\{x_k\}$$ be a sequence in $$\mathbb{R}^n$$ that converges to some point $$x^*$$.
 
 ## Linear convergence
 
-We can define the *linear* convergence in a two different forms:
+We can define the *linear* convergence in two different forms:
 
 $$
 \| x_{k+1} - x^* \|_2 \leq Cq^k \quad\text{or} \quad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|_2,
@@ -39,7 +39,7 @@ where $$q < 0$$ and $$ 0 < C < \infty$$. Note, that sublinear convergence means,
 ## Quadratic convergence
 
 $$
-\| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq C\| x_k - x^* \|^2_2,
+\| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|^2_2,
 $$
 
 where $$q \in (0, 1)$$ and $$ 0 < C < \infty$$.
