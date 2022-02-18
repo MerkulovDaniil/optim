@@ -218,7 +218,9 @@ $$
 ## Goldstein-Armijo
 
 # Convergence analysis
-## Quadratic case
+
+## Convex case
+## Strongly convex case
 
 # Bounds
 
