@@ -90,6 +90,9 @@ has_toc: False
 * [Convex Analysis and Optimization](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-253-convex-analysis-and-optimization-spring-2012/) course by Dimitri Bertsekas @ MIT.
 * [Optimization for Machine Learning](https://github.com/epfml/OptML_course) course by Martin Jaggi @ EPFL.
 * [Optimization for Machine Learning](http://optml.mit.edu/teach/6881/) course by Suvrit Sra.
+* [Методы оптимизации](https://opt.mipt.ru) lectures by Alexander Gasnikov @ MIPT.
+* [Методы оптимизации](https://mipt21.fmin.xyz) seminars by Daniil Merkulov @ MIPT.
+* 
 
 
 ## Blogs and personal pages
