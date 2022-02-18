@@ -62,7 +62,7 @@ We assume, that the objective function $$f (\cdot) : \mathbb{R}^n \to \mathbb{R}
 $$\mathbb{B}^n$$:
 
 $$
-| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
+| f (x) − f (y) | \leq L \| x − y \| \forall x,y \in \mathbb{B}^n,
 $$
 
 with some constant $$L$$ (Lipschitz constant). Here $$\mathbb{B}^n$$ - the $$n$$-dimensional unit cube 
