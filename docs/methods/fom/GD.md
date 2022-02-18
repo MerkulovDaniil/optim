@@ -218,10 +218,94 @@ $$
 ## Goldstein-Armijo
 
 # Convergence analysis
-
 ## Convex case
+
+### Lipischitz continuity of the gradient
+Assume that  $$f: \mathbb{R}^n \to \mathbb{R}$$ is convex and differentiable, and additionally
+$$
+\|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
+$$
+
+i.e. , $$\nabla f$$ is Lipschitz continuous with constant $$L > 0$$.
+
+Since $$\nabla f$$ Lipschitz with constant $$L$$, which means $$\nabla^2 f \preceq LI$$, we have $$\forall x, y, z$$:
+
+$$
+(x − y)^\top(\nabla^2 f(z) − LI)(x − y) \leq 0
+$$
+
+$$
+(x − y)^\top\nabla^2 f(z)(x − y) \leq L \|x-y\|^2
+$$
+
+Now we'll consider second order Taylor approximation of $$f(y)$$ and Taylor’s Remainder Theorem (we assum, that the function $$f$$ is continuously differentiable), we have $$\forall x, y, \exists z ∈ [x, y]:$$
+
+$$
+\begin{align*}
+f(y) &= f(x) + \nabla f(x)^\top(y − x) + \frac{1}{2}(x − y)^\top \nabla^2 f(z)(x − y) \\
+& \leq f(x) + \nabla f(x)^\top(y − x) + \frac{L}{2} \|x-y\|^2
+\end{align*}
+$$
+
+For the gradient descent we have $$x = x_k, y = x_{k+1}, x_{k+1} = x_k - \eta_k\nabla f(x_k) $$:
+
+$$
+\begin{align*}
+f(x_{k+1}) &\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2} (\eta_k\nabla f(x_k))^2 \\
+& \leq f(x_k) - \left( 1 - \dfrac{L\eta}{2}\right)\eta \|\nabla f(x_k)\|^2
+\end{align*}
+$$
+
+### Optimal constant stepsize
+Now, if we'll consider constant stepsize strategy and will maximize $$\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}$$, we'll get $$\eta = \dfrac{1}{L}$$.
+
+$$
+f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
+$$
+
+### Convexity
+$$
+f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*) 
+$$
+
+That's why we have:
+
+$$
+\begin{align*}
+f(x_{k+1}) & \leq  f(x^*) + \nabla f(x_k)^\top (x_k − x^*) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2 \\
+& = f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_k − x^* − \dfrac{1}{L}\nabla f(x_k)\|^2\right) \\ 
+& =  f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_{k+1} − x^*\|^2\right)
+\end{align*}
+$$
+
+Thus, summing over all iterations, we have:
+
+$$
+\begin{align*}
+\sum\limits_{i=1}^k (f(x_i) - f(x^*)) &\leq \dfrac{L}{2} \left(\|x_0 − x^*\|^2 − \|x_{k} − x^*\|^2\right) \\
+& \leq  \dfrac{L}{2} \|x_0 − x^*\|^2 =  \dfrac{LR^2}{2},
+\end{align*}
+$$
+
+where $$R = \|x_0 - x^*\|$$. And due to convexity:
+
+$$
+f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k} 
+$$
+
 ## Strongly convex case
 
+If the function is strongly convex:
+
+$$
+f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n
+$$
+
+...
+
+$$
+\|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
+$$
 # Bounds
 
 | Conditions | $\Vert f(x_k) - f(x^*)\Vert \leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
@@ -238,3 +322,4 @@ $$
 
 * [The zen of gradient descent. Moritz Hardt](http://blog.mrtz.org/2013/09/07/the-zen-of-gradient-descent.html)
 * [Great visualization](http://fa.bianp.net/teaching/2018/eecs227at/gradient_descent.html)
+* [Cheatsheet on the different convergence theorems proofs](https://gowerrobert.github.io/pdf/M2_statistique_optimisation/grad_conv.pdf)
