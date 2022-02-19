@@ -44,14 +44,14 @@ for some constant $$c_2 \in (c_1,1)$$, where $$c_1$$ is a constant from Armijo c
 Let's consider also 2 linear scalar functions $$\phi_1(\alpha), \phi_2(\alpha)$$:
 
 $$
-\phi_1(\alpha) = f(x_k) - \alpha \alpha \|\nabla f(x_k)\|^2
+\phi_1(\alpha) = f(x_k) - \beta_1 \alpha \|\nabla f(x_k)\|^2
 $$
 and
 $$
-\phi_2(\alpha) = f(x_k) - \beta \alpha \|\nabla f(x_k)\|^2
+\phi_2(\alpha) = f(x_k) - \beta_2 \alpha \|\nabla f(x_k)\|^2
 $$
 
-Note, that Goldstein-Armijo conditions determine the location of the function $$\phi(\alpha)$$ between $$\phi_1(\alpha)$$ and $$\phi_2(\alpha)$$. Typically, we choose $$\alpha = \rho$$ and $$\beta = 1 - \rho$$, while $$ \rho \in (0.5, 1)$$.
+Note, that Goldstein-Armijo conditions determine the location of the function $$\phi(\alpha)$$ between $$\phi_1(\alpha)$$ and $$\phi_2(\alpha)$$. Typically, we choose $$\beta_1 = \rho$$ and $$\beta_2 = 1 - \rho$$, while $$ \rho \in (0.5, 1)$$.
 
 ![](../backtracking.svg)
 
