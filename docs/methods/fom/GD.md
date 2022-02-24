@@ -272,7 +272,7 @@ That's why we have:
 
 $$
 \begin{align*}
-f(x_{k+1}) & \leq  f(x^*) + \nabla f(x_k)^\top (x_k − x^*) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2 \\
+f(x_{k+1}) & \leq  f(x^*) + \nabla f(x_k)^\top (x_k − x^*) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2  =\\
 & = f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_k − x^* − \dfrac{1}{L}\nabla f(x_k)\|^2\right) \\ 
 & =  f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_{k+1} − x^*\|^2\right)
 \end{align*}
