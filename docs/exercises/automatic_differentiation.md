@@ -19,7 +19,7 @@ nav_order: 15
 
 1. In the following code for the gradient descent for linear regression change the manual gradient computation to the PyTorch/jax autograd way. Compare those two approaches in time.
 
-	In order to do this, set the tolerance rate for the function value $\varepsilon = 10^{-9}$. Compare the total time required to achieve the specified value of the function for analytical and automatic differentiation. Perform measurements for different values of $$n$$ from `np.logspace(1,4)`. 
+	In order to do this, set the tolerance rate for the function value $$\varepsilon = 10^{-9}$$. Compare the total time required to achieve the specified value of the function for analytical and automatic differentiation. Perform measurements for different values of $$n$$ from `np.logspace(1,4)`. 
 
 	For each $$n$$ value carry out at least 3 runs.
 	
