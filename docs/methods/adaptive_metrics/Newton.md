@@ -167,6 +167,8 @@ It's not nice:
 # Materials
 * [Going beyond least-squares – I : self-concordant analysis of Newton method](https://francisbach.com/self-concordant-analysis-newton/)
 * [Going beyond least-squares – II : Self-concordant analysis for logistic regression](https://francisbach.com/self-concordant-analysis-for-logistic-regression/)
+* Picture with gradient and Newton field was taken from [this tweet](https://twitter.com/keenanisalive/status/1421783338143129603) by Keenan Crane. 
+* About global damped Newton convergence issue. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/drive/1-LmO57VfJ1-AYMopMPYbkFvKBF7YNhW2?usp=sharing)
 
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)
