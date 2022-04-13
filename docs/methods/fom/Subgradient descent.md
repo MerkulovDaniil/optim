@@ -225,6 +225,20 @@ $$
 \min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \dfrac{1}{2}\|\omega\|_2^2 + C\sum\limits_{i=1}^m max[0, 1 - y_i(\omega^\top x_i + b)]
 $$
 
+# Bounds 
+
+| Conditions | $f(\bar{x}) - f(x^*)\leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
+| ---------- | ---------------------- | ------------------- | --------------------- |
+| Convex<br/>Lipschitz-continuous function($G$) | $\mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) \; \dfrac{GR}{\sqrt{k}}$ | Sublinear |                       |
+| Convex<br/>Lipschitz-continuous gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
+
+* $$R = \| x_0 - x^*\| $$ - initial distance
+* \$$\overline{R} = \dfrac{2\mu}{M}$$
+* \$$\overline{x} = \dfrac{1}{k}\sum_{i=1}^k x_i$$
+* \$$\|g_k\| \leq G$$
+
 # Code
 * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb) - Wolfe's example and why we usually have oscillations in non-smooth optimization.
 * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb) - Linear least squares with $$l_1$$- regularization.
