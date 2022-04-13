@@ -112,3 +112,8 @@ hr {
   background-color: $border-color;
   border: 0;
 }
+
+video {
+  max-width: 100%;
+  height: auto;
+}
