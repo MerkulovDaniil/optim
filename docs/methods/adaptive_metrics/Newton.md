@@ -68,11 +68,14 @@ $$
 
 Let us immediately note the limitations related to the necessity of the Hessian's non-degeneracy (for the method to exist), as well as its positive definiteness (for the convergence guarantee). 
 
-![https://francisbach.com/self-concordant-analysis-newton/](../approx_taylor.gif)
+<video autoplay loop muted playsinline src="../approx_taylor.mp4"></video>
 
 Quadratic approximation and Newton step (in green) for varying starting points (in red). Note that when the starting point is far from the global minimizer (in 0), the Newton step totally overshoots the global minimizer. Picture was taken from the [post](https://francisbach.com/self-concordant-analysis-newton/).
 
 # Convergence
+
+<video autoplay loop muted playsinline src="../newton_field.mp4"></video>
+
 Let's try to get an estimate of how quickly the classical Newton method converges.  We will try to enter the necessary data and constants as needed in the conclusion (to illustrate the methodology of obtaining such estimates). 
 
 $$
