@@ -84,7 +84,7 @@ has_toc: False
 * [Convex Optimization and Approximation](https://ee227c.github.io/) course by Moritz Hardt @ UC Berkley.
 * [Convex Optimization](http://www.stat.cmu.edu/~ryantibs/convexopt/) course by Ryan Tibshirani @ CMU.
 * [Convex Optimization](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) course by Lieven Vandenberghe @ UCLA.
-* [Convex Optimization](http://suvrit.de/teach/ee227a/lectures.html) course by Suvrit Sra @ UC Berkley.
+* [Convex Optimization](https://optml.mit.edu/teach/ee227a/index.html) course by Suvrit Sra @ UC Berkley.
 * [Advanced Optimization and Randomized Methods](https://www.cs.cmu.edu/~suvrit/teach/aopt.html) course by Alex Smola and Suvrit Sra @ CMU.
 * [Optimizaion methods](https://github.com/amkatrutsa/MIPT-Opt) course by Alexandr Katrutsa @ MIPT.
 * [Convex Analysis and Optimization](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-253-convex-analysis-and-optimization-spring-2012/) course by Dimitri Bertsekas @ MIT.
