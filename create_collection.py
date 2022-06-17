@@ -33,9 +33,6 @@ title    		= my_namespace.title
 chapters 		= my_namespace.chapters 
 leave_sources	= my_namespace.leave_sources 
 hw_mode			= my_namespace.hw_mode 
-
-title = "msai_5"
-chapters = ["Newton method", "Quasi Newton methods"]
  
 def find_file_with_title(title, docs): 
 	path = os.getcwd() 
@@ -67,9 +64,8 @@ def increase_header_levels(string):
 def change_relative_paths_to_absolute(string, path, temporal_path):
 	polished_string = string.replace('![](../../', '![](')  
 	polished_string = string.replace('![](../', '![](') 
-	polished_string = polished_string.replace('src="../', 'src="') 
 	for basename in os.listdir(path): 
-	    if basename.endswith('.svg') or basename.endswith('.png') or basename.endswith('.jpg') or basename.endswith('.gif') or basename.endswith('.mp4'): 
+	    if basename.endswith('.svg') or basename.endswith('.png') or basename.endswith('.jpg') or basename.endswith('.gif'): 
 	        pathname = os.path.join(path, basename) 
 	        if os.path.isfile(pathname): 
 	            shutil.copy2(pathname, temporal_path) 
