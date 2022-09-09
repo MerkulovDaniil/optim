@@ -40,8 +40,10 @@ $$
 where matrix $$J \in \mathbb{R}^{m \times n}$$ is the jacobian of the $$f$$. Hence, we could write it in a vector way:
 
 $$
-\dfrac{\partial f}{\partial t} = J^\top \dfrac{\partial x}{\partial t}\quad \iff \quad \left(\dfrac{\partial f}{\partial t}\right)^\top =  \left( \dfrac{\partial x}{\partial t}\right)^\top J
+\dfrac{\partial f}{\partial t} = J \dfrac{\partial x}{\partial t}\quad \iff \quad \left(\dfrac{\partial f}{\partial t}\right)^\top =  \left( \dfrac{\partial x}{\partial t}\right)^\top J^\top
 $$
+
+
 
 
 ## Backpropagation
@@ -79,6 +81,9 @@ Let $$v_1, . . . , v_N$$ be a topological ordering of the computation graph (i.e
 	* Compute derivatives $$\overline{v_i} = \sum\limits_{j \in \text{Children}(v_i)}\overline{v_j}\dfrac{\partial v_j}{\partial v_i}$$
 
 Note, that $$\overline{v_j}$$ term is coming from the children of $$\overline{v_i}$$, while $$\dfrac{\partial v_j}{\partial v_i}$$ is already precomputed effectively.
+
+![](../backpropagation.svg)
+
 
 ## Jacobian vector product
 The reason why it works so fast in practice is that the Jacobian of the operations are already developed in effective manner in automatic differentiation frameworks. Typically, we even do not construct or store the full Jacobian, doing matvec directly instead.
@@ -119,7 +124,7 @@ $$
 \partial^2 f (x) v = \partial [x \mapsto \partial f(x) \cdot v] = \partial g(x),
 $$
 
-where $$g(x) = \partial f(x) \cdot v$$ is a new scalar-valued function that dots the gradient of $$f$$ at $$x$$ with the vector $$v$$. Notice that we're only ever differentiating scalar-valued functions of vector-valued arguments, which is exactly where we know `grad` is efficient.
+where $$g(x) = \partial f(x) \cdot v$$ is a new vector-valued function that dots the gradient of $$f$$ at $$x$$ with the vector $$v$$. Notice that we're only ever differentiating scalar-valued functions of vector-valued arguments, which is exactly where we know `grad` is efficient.
 
 
 ```python

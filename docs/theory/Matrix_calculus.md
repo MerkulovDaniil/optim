@@ -117,7 +117,7 @@ $$
 In fact, Hessian could be a tensor in such a way: $$\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$$ is just 3d tensor, every slice is just hessian of corresponding scalar function $$\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)$$.
 
 ## Jacobian
-The extension of the gradient of multidimensional  $$f(x):\mathbb{R}^n→\mathbb{R}^m$$ :
+The extension of the gradient of multidimensional  $$f(x):\mathbb{R}^n→\mathbb{R}^m$$ is the following matrix:
 
 $$
 f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
