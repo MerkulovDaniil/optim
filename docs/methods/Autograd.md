@@ -144,3 +144,4 @@ def hvp(f, x, v):
 * [CSC321](https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec10.pdf) Lecture 10
 * [Why](https://medium.com/@karpathy/yes-you-should-understand-backprop-e2f06eab496b) you should understand backpropagation :)
 * [JAX autodiff cookbook](https://jax.readthedocs.io/en/latest/notebooks/autodiff_cookbook.html)
+* [Materials](https://harvard-iacs.github.io/2019-CS207/lectures/lecture10/notebook/) from CS207: Systems Development for Computational Science course with very intuitive explanation.
