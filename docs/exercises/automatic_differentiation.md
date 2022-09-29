@@ -126,7 +126,7 @@ nav_order: 15
 	\alpha_{k+1} = \alpha_k - \beta \frac{\partial L}{\partial \alpha}
 	$$
 
-	Choose any $$\beta$$ and the number of steps your need. Describe obtained results.
+	$$\frac{\partial L}{\partial \alpha}$$ should be computed at each step using automatic differentiation. Choose any $$\beta$$ and the number of steps your need. Describe obtained results. 
 
 1. Compare analytic and autograd (with any framework) approach for the gradient and hessian of:		
 	
