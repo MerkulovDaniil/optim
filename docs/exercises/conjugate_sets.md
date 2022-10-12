@@ -28,7 +28,7 @@ nav_order: 4
     K_1 = \{x \in \mathbb{R}^n \mid x = Ay, y \ge 0, y \in \mathbb{R}^m, A \in \mathbb{R}^{n \times}, \}, \;\; K_2 = \{p \in \mathbb{R}^n \mid A^Tp \ge 0\}
     $$
     
-    are self conjugated.
+    are inter conjugated.
 1. Find the sets $$S^{*}, S^{**}, S^{***}$$, if 
     
     $$
