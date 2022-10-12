@@ -34,7 +34,11 @@ nav_order: 4
     $$
     S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; 2x_1 + x_2 \ge -4, \;\; -2x_1 + x_2 \ge -4\}
     $$
-
+1. Find the sets $$S^{*}, S^{**}, S^{***}$$, if 
+    
+    $$
+    S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge -1, \;\; 2x_1 - x_2 \ge 0, \;\; -x_1 + 2x_2 \ge -2\}
+    $$
 1. Find conjugate cone for the cone of positive definite (semi-definite) matrices.
 1. Find the conjugate cone for the exponential cone:
     
@@ -85,6 +89,6 @@ nav_order: 4
 
 1. Prove, that $$B_p$$ and $$B_{p_*}$$ are inter-conjugate, i.e. $$(B_p)^* = B_{p_*}, (B_{p_*})^* = B_p$$, where $$B_p$$ is the unit ball (w.r.t. $$p$$ - norm) and $$p, p_*$$ are conjugated, i.e. $$p^{-1} + p^{-1}_* = 1$$. You can assume, that $$p_* = \infty$$ if $$p = 1$$ and vice versa.
 
-1. Prove, that $$K_p$$ and $$K_{p_*}$$ are inter-conjugate, i.e. $$(K_p)^* = K_{p_*}, (K_{p_*})^* = K_p$$, where $$K_p = \left\{ [x, \mu] \in \mathbb{R}^{n+1} : \|x\|_p \leq \mu \right\}, \; 1 < p < \infty$$ is the unit ball (w.r.t. $$p$$ - norm) and $$p, p_*$$ are conjugated, i.e. $$p^{-1} + p^{-1}_* = 1$$. You can assume, that $$p_* = \infty$$ if $$p = 1$$ and vice versa.
+1. Prove, that $$K_p$$ and $$K_{p_*}$$ are inter-conjugate, i.e. $$(K_p)^* = K_{p_*}, (K_{p_*})^* = K_p$$, where $$K_p = \left\{ [x, \mu] \in \mathbb{R}^{n+1} : \|x\|_p \leq \mu \right\}, \; 1 < p < \infty$$ is the norm cone (w.r.t. $$p$$ - norm) and $$p, p_*$$ are conjugated, i.e. $$p^{-1} + p^{-1}_* = 1$$. You can assume, that $$p_* = \infty$$ if $$p = 1$$ and vice versa.
 
 1. Suppose, $$S = S^*$$. Could the set $$S$$ be anything, but a unit ball? If it can, provide an example of another self-conjugate set. If it couldn't, prove it.
