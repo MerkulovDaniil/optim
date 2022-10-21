@@ -25,7 +25,7 @@ $$
 The basic idea of Lagrange method implies the switch from conditional to unconditional optimization through increasing the dimensionality of the problem:
 
 $$
-L(x, \nu) = f(x) + \sum\limits_{i=1}^m \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
+L(x, \nu) = f(x) + \sum\limits_{i=1}^p \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
 $$
 
 # General formulations and conditions
