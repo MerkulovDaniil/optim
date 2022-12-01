@@ -132,7 +132,7 @@ Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$.
 	In this case, if the strong duality holds: $g(y^∗) = f_0(x^∗)$ we lose nothing.
 * **Obtaining a lower bound on the function's residual.** 
 
-	$f_0(x) - f^∗ \leq f_0(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $$p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$$
+	$f_0(x) - f_0^∗ \leq f_0(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $$p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$$
 * **Dual function is always concave**
 
 	As a pointwise minimum of affine functions.
