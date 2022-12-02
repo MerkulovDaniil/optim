@@ -88,7 +88,7 @@ $$
 0_n \in \partial f(x^*)
 $$
 
-One more important result for convex constrained case sounds as follows. If $$f(x): S \to \mathbb{R}$$ - convex function defined on the convex set $$S$$, then:
+One more important result for convex unconstrained case sounds as follows. If $$f(x): S \to \mathbb{R}$$ - convex function defined on the convex set $$S$$, then:
 * Any local minima is the global one.
 * The set of the local minimizers $$S^*$$ is convex.
 * If $$f(x)$$ - strictly or strongly (different cases 😀) convex function, then $$S^*$$ contains only one single point $$S^* = x^*$$.
