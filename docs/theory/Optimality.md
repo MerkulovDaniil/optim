@@ -280,7 +280,10 @@ $$
 L (x, \lambda) = f(x) + \lambda g(x)
 $$
 
-Then $$x^*$$ point - is a local minimum of the problem described above, if and only if:
+The classical Karush-Kuhn-Tucker first and second order optimality conditions for a local minimizer
+$$x^*$$, stated under the linear independence constraint qualification (LICQ), can be written as follows: 
+
+If $$x^*$$ is a local minimum of the problem described above, then there exists a unique Lagrange multiplier $\lambda^*$ such that:
 
 $$
 \begin{split}
@@ -288,8 +291,10 @@ $$
     & (2) \; \lambda^* \geq 0 \\
     & (3) \; \lambda^* g(x^*) = 0 \\
     & (4) \; g(x^*) \leq 0\\
-    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0 \\
-    & \forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y \leq 0
+    & (5) \; \forall y \in C(x^*):  \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0 \\
+    &  \text{where } C(x^*) = \{y \ \in \mathbb{R}^n |  \nabla f(x^*) ^\top y \leq 0 \text{ and } \forall i \in I(x^*):  \nabla g_i(x^*)^⊤ y \leq 0
+    \} \text{ is the critical cone.} \\
+    & I(x^*) = \{i| g_i(x^*) = 0\} \\
 \end{split}
 $$
 
@@ -364,3 +369,7 @@ $$
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.
 * [One-line proof of KKT](https://link.springer.com/content/pdf/10.1007%2Fs11590-008-0096-3.pdf)
+* [On the Second Order Optimality Conditions for
+Optimization Problems with Inequality Constraints](https://www.scirp.org/pdf/OJOp_2013120315191950.pdf)
+* [On Second Order Optimality Conditions in
+Nonlinear Optimization](https://www.ime.usp.br/~ghaeser/secondorder.pdf)
