@@ -12,7 +12,7 @@ Welcome to the fmin.xyz - an attempt to build an intuitive systematic review of 
 The site contains the following parts:
 
 * {% include link.html title="Theory"%}
-* {% include link.html title="Methods"%}
+* {% include link.html title="Methods"%
 * {% include link.html title="Exercises"%}
 * {% include link.html title="Applications"%}
 * {% include link.html title="Materials"%}
