@@ -19,7 +19,7 @@ If above inequality holds as strict inequality $$x_1 \neq x_2$$ and $$0 < \lambd
 
 ## Examples
 * \$$f(x) = x^p, \;\;\; p > 1,\;\;\; x \in \mathbb{R}_+$$
-* \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}$$
+* \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}^n$$
 * \$$f(x) = e^{cx},\;\;\; c \in \mathbb{R}, x \in \mathbb{R}$$
 * \$$f(x) = -\ln x,\;\;\; x \in \mathbb{R}_{++}$$
 * \$$f(x) = x\ln x,\;\;\; x \in \mathbb{R}_{++}$$
