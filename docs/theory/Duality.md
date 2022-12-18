@@ -25,7 +25,7 @@ $$
 \max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x)  
 $$
 
-We'll consider one (of the many) possible way to construct $g(y)$ in case, when we have a general mathematical programming problem with functional constraints:
+We'll consider one of many possible ways to construct $g(y)$ in case, when we have a general mathematical programming problem with functional constraints:
 
 $$
 \begin{split}
