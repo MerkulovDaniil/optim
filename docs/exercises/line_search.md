@@ -33,4 +33,4 @@ always satisfies the Goldstein conditions.
     \alpha^k = \arg\min\limits_{\alpha \in \mathbb{R}^+}{f(x^k - \alpha \nabla f(x^k))}.
     $$
     
-    Implement any line search method in this problem and plot 2 graphs: function value from iteration number and function value from the number of function calss (calculate only the function calls, don't include the gradient calls).
+    Implement any line search method in this problem and plot 2 graphs: function value from iteration number and function value from the number of function calls (calculate only the function calls, don't include the gradient calls).
