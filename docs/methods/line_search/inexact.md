@@ -46,7 +46,9 @@ Let's consider also 2 linear scalar functions $$\phi_1(\alpha), \phi_2(\alpha)$$
 $$
 \phi_1(\alpha) = f(x_k) - c_1 \alpha \|\nabla f(x_k)\|^2
 $$
+
 and
+
 $$
 \phi_2(\alpha) = f(x_k) - c_2 \alpha \|\nabla f(x_k)\|^2
 $$
