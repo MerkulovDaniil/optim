@@ -57,6 +57,9 @@ Note, that Goldstein-Armijo conditions determine the location of the function $$
 
 ![](../backtracking.svg)
 
+<iframe src="../wolfe_fmin.html" seamless></iframe>
+
 # References
 
 * Numerical Optimization by J.Nocedal and S.J.Wright.
+
