@@ -60,5 +60,5 @@ Note, that Goldstein-Armijo conditions determine the location of the function $$
 # References
 
 * Numerical Optimization by J.Nocedal and S.J.Wright.
-* [Interactive Wolfe Line Search Example](../wolfe_fmin.html) by [fmin](https://fmin.xyz/docs/methods/line_search/wolfe_fmin.html) library.
+* [Interactive Wolfe Line Search Example](../wolfe_fmin.html) by [fmin](https://github.com/benfred/fmin) library.
 
