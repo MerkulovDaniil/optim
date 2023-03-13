@@ -246,3 +246,4 @@ $$
 # References
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta
 * [Lecture](http://suvrit.de/teach/ee227a/lect12.pdf) on subgradient methods @ Berkley
+* [Illustration of l1 regularization](https://github.com/ievron/RegularizationAnimation/blob/main/Regularization.gif)
