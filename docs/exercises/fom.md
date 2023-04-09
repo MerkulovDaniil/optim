@@ -8,7 +8,7 @@ nav_order: 16
 1. A function is said to belong to the class $f \in C^{k,p}_L (Q)$ if it $k$ times is continuously differentiable on $Q$ and the $p$th derivative has a Lipschitz constant $L$. 
 
     $$
-    \||\nabla^p f(x) - \nabla^p f(y)\| \leq L \|x-y\|, \qquad \forall x,y \in Q
+    \|\nabla^p f(x) - \nabla^p f(y)\| \leq L \|x-y\|, \qquad \forall x,y \in Q
     $$
 
     The most commonly used $C_L^{1,1}, C_L^{2,2}$ on $\mathbb{R}^n$. 
