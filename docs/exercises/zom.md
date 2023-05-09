@@ -13,6 +13,7 @@ nav_order: 15
 
 	* Consider global optimization from [here](https://docs.scipy.org/doc/scipy/reference/optimize.html#global-optimization).
 	* Plot 4 graphs for different $d$ from {10, 100, 1000, 10000}. On each graph you are to plot $f$ from $N_{fev}$ for 5 methods: `basinhopping`, `brute`, `differential_evolution`, `shgo`, `dual_annealing` from scipy, where $N_{fev}$ - the number of function evaluations. This information is usually available from `specific_optimizer.nfev`. If you will need bounds for the optimizer, use $x_i \in [-5, 5]$.
+	* Note, that it is crucial to fix seed and to use the same starting point for fair comparison.
 
 1. Machine learning models often have hyperparameters. To choose optimal one between them one can use GridSearch or RandomSearch. But these algorithms computationally uneffective and don't use any sort of information about type of optimized function. To overcome this problem one can use [bayesian optimization](https://distill.pub/2020/bayesian-optimization/). Using this method we optimize our model by sequentially chosing points based on prior information about function. ![Image](https://www.resibots.eu/limbo/_images/bo_concept.png). 
 
