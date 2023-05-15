@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Inexact line search
+title: Approximate line search
 parent: Line search
 grand_parent: Methods
 ---
 
-This strategy of inexact line search works well in practice, as well as it has the following geometric interpretation:
+This strategy of approximate line search works well in practice, as well as it has the following geometric interpretation:
 
 # Sufficient decrease
 
@@ -21,7 +21,7 @@ $$
 \phi(\alpha) \approx f(x_k) - \alpha\nabla f(x_k)^\top \nabla f(x_k)
 $$
 
-A popular inexact line search condition stipulates that $$\alpha$$ should first of all give sufficient decrease in the objective function $$f$$, as measured by the following inequality:
+A popular approximate line search condition stipulates that $$\alpha$$ should first of all give sufficient decrease in the objective function $$f$$, as measured by the following inequality:
 
 $$
 f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top \nabla f(x_k)
