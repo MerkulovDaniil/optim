@@ -64,7 +64,7 @@ $$
 p^* \geq g(\nu) \geq −\mathbf{1}^\top \nu = n \lambda_{min}(W)
 $$
 
-**Question** Can you obtain the same lower bound without knowledge of duality, but using the iddea of eigenvalues?
+**Question** Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?
 
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb)
