@@ -30,7 +30,7 @@ Each iteration of the algorithm starts with the crossing (breed) procedure. Form
 ![](../ordered_crossover.svg)
 
 ## Mutation
-In order to give our algorithm some ability to escape local minima we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, $0.05$). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose $$\text{mutation_rate} \cdot n$$ individuals and in each case swap random $$\text{mutation_rate} \cdot N$$ digits.
+In order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, $0.05$). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose $$\text{mutation_rate} \cdot n$$ individuals and in each case swap random $$\text{mutation_rate} \cdot N$$ digits.
 
 ## Selection
 At the end of the iteration we have increased populatuion (due to crossing results), than we just calculate total path distance to each individual and select top $n$ of them.
