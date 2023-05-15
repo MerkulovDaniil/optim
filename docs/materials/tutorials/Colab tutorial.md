@@ -10,7 +10,7 @@ This tutorial will highlight some
 
 This tool perfectly fits 90% of your tasks.
 * Fast prototyping
-* Sharing and simalteneous work
+* Sharing and simultaneous work
 
 
 
