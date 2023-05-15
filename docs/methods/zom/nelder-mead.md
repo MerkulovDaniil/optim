@@ -130,7 +130,7 @@ Go to step $$1$$.
 
 # Examples
 
-This algorithm, as any method in global optimization, is highly dependable on the initial coonditions. 
+This algorithm, as any method in global optimization, is highly dependable on the initial conditions. 
 For instance, if we use different initial simplex or different set of parameters $$\{ \alpha, \beta, \gamma, \sigma \}$$ the resulting optimal point will differ.
 
 ## Some random initial simplex and default set of parameters
