@@ -7,7 +7,7 @@ parent: Applications
 # Problem
 ![](../ellipsoid.svg)
 
-Let $$x_1, \ldots, x_n$$ be the points in $$\mathbb{R}^2$$. Given these points we need to find an ellipsoid, that contains all points with the minimum volume (in 2d case volume of an ellipsoin is just the square).
+Let $$x_1, \ldots, x_n$$ be the points in $$\mathbb{R}^2$$. Given these points we need to find an ellipsoid, that contains all points with the minimum volume (in 2d case volume of an ellipsoid is just the square).
 
 An invertible linear transformation applied to a unit sphere produces an ellipsoid with the square, that is $$\det A^{-1}$$ times bigger, than the unit sphere square, that's why we parametrize the interior of ellipsoid in the following way:
 
