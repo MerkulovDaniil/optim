@@ -120,7 +120,7 @@ f''(x_k) \succeq (\mu- Mr_k )I_n \\
 \end{align*} 
 $$
 
-So, (here we should already limit the necessity of being $$f''(x_k) \succ 0$$ for such estimations, i.e. $$r_k < \frac{l}{M}$$). 
+So, (here we should already limit the necessity of being $$f''(x_k) \succ 0$$ for such estimations, i.e. $$r_k < \frac{\mu}{M}$$). 
 
 $$
 \begin{align*} 
