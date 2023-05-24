@@ -115,8 +115,8 @@ $$
 \begin{align*} 
 f''(x_k) - f''(x^*) \succeq - Mr_k I_n \\
 f''(x_k) \succeq f''(x^*) - Mr_k I_n \\
-f''(x_k) \succeq l I_n - Mr_k I_n \\
-f''(x_k) \succeq (l - Mr_k )I_n \\
+f''(x_k) \succeq \mu I_n - Mr_k I_n \\
+f''(x_k) \succeq (\mu- Mr_k )I_n \\
 \end{align*} 
 $$
 
@@ -124,22 +124,22 @@ So, (here we should already limit the necessity of being $$f''(x_k) \succ 0$$ fo
 
 $$
 \begin{align*} 
-\left\|\left[ f''(x_k)\right]^{-1}\right\| \leq (l - Mr_k)^{-1} 
+\left\|\left[ f''(x_k)\right]^{-1}\right\| \leq (\mu - Mr_k)^{-1} 
 \end{align*} 
 $$ 
 
 $$ 
-r_{k+1}  \leq \dfrac{r_k^2 M}{2(l - Mr_k)} 
+r_{k+1}  \leq \dfrac{r_k^2 M}{2(\mu - Mr_k)} 
 $$
 
-The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 l}{3M}$$ 
+The convergence condition $$r_{k+1} < r_k$$ imposes additional conditions on $$r_k:  \;\;\; r_k < \frac{2 \mu}{3M}$$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($$\| x_0 - x^* \| < \frac{2 l}{3M}$$) to the solution. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($$\| x_0 - x^* \| < \frac{2 \mu}{3M}$$) to the solution. 
 
 
 ## Theorem
 
-Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$l I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with superlinear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $$x^*$$ at a quadratic rate.
+Let $$f(x)$$ be a strongly convex twice continuously differentiated function at $$\mathbb{R}^n$$, for the second derivative of which inequalities are executed: $$\mu I_n\preceq f''(x) \preceq L I_n $$. Then Newton's method with a constant step locally converges to solving the problem with superlinear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $$x^*$$ at a quadratic rate.
 
 
 
