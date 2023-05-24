@@ -251,7 +251,7 @@ For the gradient descent we have $$x = x_k, y = x_{k+1}, x_{k+1} = x_k - \eta_k\
 
 $$
 \begin{align*}
-f(x_{k+1}) &\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2} (\eta_k\nabla f(x_k))^2 \\
+f(x_{k+1}) &\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2} \| \eta_k\nabla f(x_k) \|^2  \\
 & \leq f(x_k) - \left( 1 - \dfrac{L\eta}{2}\right)\eta \|\nabla f(x_k)\|^2
 \end{align*}
 $$
