@@ -14,7 +14,7 @@ $$
 x^* = \text{arg}\min_{x \in B_\varepsilon(x_0)} f(x)
 $$
 
-Than, we can define another *steepest descent* direction in terms of minimizer of  function on a sphere:
+Then, we can define another *steepest descent* direction in terms of minimizer of  function on a sphere:
 
 $$
 s = \lim_{\varepsilon \to 0} \frac{x^* - x_0}{\varepsilon}
