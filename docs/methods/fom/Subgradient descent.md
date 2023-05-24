@@ -48,7 +48,7 @@ $$
 $$
 \begin{align*}
 \| x_{k+1} - x^* \|^2 & = \|x_k - x^* - \alpha_k g_k\|^2 = \\
-                      & = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
+                      & = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 \end{align*}
 $$
 
