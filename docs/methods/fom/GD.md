@@ -287,7 +287,7 @@ $$
 \end{align*}
 $$
 
-where $$R = \|x_0 - x^*\|$$. And due to convexity:
+where $$R = \|x_0 - x^*\|$$. And due to function monotonicity:
 
 $$
 f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k} 
