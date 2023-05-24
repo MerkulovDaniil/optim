@@ -8,7 +8,7 @@ nav_order: 5
 # Conjugate (dual) function
 
 Let $$f: \mathbb{R}^n \to \mathbb{R}$$. 
-The function $$f^*: \mathbb{R}^n \to \mathbb{R}$$ is called convex conjugate (Fenchel's conjugate, dual) $$f(x)$$ and is defined as follows:
+The function $$f^*: \mathbb{R}^n \to \mathbb{R}$$ is called convex conjugate (Fenchel's conjugate, dual, Legendre transform) $$f(x)$$ and is defined as follows:
 
 $$
 f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right).
@@ -33,7 +33,7 @@ Let's notice, that the domain of the function $$f^*$$  is the set of those $$y$$
 
 ![](../doubl_conj.svg)
 
-* The Legendre transformation as a special case of Fenchel's conjugate (in case of differentiable function). Let $$f(x)$$ - convex and differentiable, $$\mathbf{dom}\; f = \mathbb{R}^n$$. Then $$x^* = \underset{x}{\operatorname{argmin}} \langle x,y\rangle - f(x)$$. In that case $$y = \nabla f(x^*)$$. That's why:
+* In case of differentiable function, $$f(x)$$ - convex and differentiable, $$\mathbf{dom}\; f = \mathbb{R}^n$$. Then $$x^* = \underset{x}{\operatorname{argmin}} \langle x,y\rangle - f(x)$$. Therefore $$y = \nabla f(x^*)$$. That's why:
 	
 	$$
 	f^*(y) = \langle \nabla f(x^*), x^* \rangle - f(x^*)

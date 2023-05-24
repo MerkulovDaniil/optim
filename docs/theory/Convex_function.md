@@ -19,7 +19,7 @@ If above inequality holds as strict inequality $$x_1 \neq x_2$$ and $$0 < \lambd
 
 ## Examples
 * \$$f(x) = x^p, \;\;\; p > 1,\;\;\; x \in \mathbb{R}_+$$
-* \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}$$
+* \$$f(x) = \|x\|^p,\;\;\; p > 1, x \in \mathbb{R}^n$$
 * \$$f(x) = e^{cx},\;\;\; c \in \mathbb{R}, x \in \mathbb{R}$$
 * \$$f(x) = -\ln x,\;\;\; x \in \mathbb{R}_{++}$$
 * \$$f(x) = x\ln x,\;\;\; x \in \mathbb{R}_{++}$$
@@ -105,7 +105,7 @@ for any $$x_1, x_2 \in S$$ and $$0 \le \lambda \le 1$$ for some $$\mu > 0$$.
 
 ## First order differential criterion of strong convexity
 
-Differentiable $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ $$\mu$$-strongly convex if and only if $$\forall x,y \in S$$:
+Differentiable $$f(x)$$ defined on the convex set $$S \subseteq \mathbb{R}^n$$ is $$\mu$$-strongly convex if and only if $$\forall x,y \in S$$:
 
 $$
 f(y) \ge f(x) + \nabla f^T(x)(y-x) + \dfrac{\mu}{2}\|y-x\|^2

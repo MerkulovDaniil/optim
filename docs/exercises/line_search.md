@@ -15,3 +15,28 @@ nav_order: 13
 1. Show that if $$0 < c_2 < c_1 < 1$$, there may be no step lengths that satisfy the Wolfe conditions (sufficient decrease and curvature condition).
 1. Show that the one-dimensional minimizer of a strongly convex quadratic function
 always satisfies the Goldstein conditions.
+1. Consider the Rosenbrock function: 
+    
+    $$
+    f(x_1, x_2) =  10(x_2 − x_1^2)^2 + (x_1 − 1)^22
+    $$
+    
+    You are given the starting point $$x_0 = (-1, 2)^\top$$. Implement the gradient descent algorithm:
+    
+    $$
+    x^{k+1} = x^k - \alpha^k \nabla f(x^k),
+    $$
+    
+    where the stepsize is choosen at each iteration via solution of the following line search problem
+    
+    $$
+    \alpha^k = \arg\min\limits_{\alpha \in \mathbb{R}^+}{f(x^k - \alpha \nabla f(x^k))}.
+    $$
+    
+    Implement any line search method in this problem and plot 2 graphs: function value from iteration number and function value from the number of function calls (calculate only the function calls, don't include the gradient calls).
+1. Consider the function $$f(x) = (x + \sin x) e^x, \;\;\; x \in [-20, 0]$$ 
+    ![](https://raw.githubusercontent.com/MerkulovDaniil/optim/master/docs/exercises/Unimodal.svg)
+
+    a. Implement golden search and binary search methods for this function.
+
+    b. Minimize the function with these two methods and add Brent method from [scipy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brent.html). Compare 3 methods in terms of iterations, time, number of oracle calls.

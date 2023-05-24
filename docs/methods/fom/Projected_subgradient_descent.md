@@ -5,8 +5,29 @@ parent: First order methods
 grand_parent: Methods
 nav_order: 3
 ---
+# Intuition
+## Recap
+Suppose, we are to solve the following problem:
 
-# Introduction
+$$
+\tag{P}
+\min_{x \in S} f(x),
+$$
+
+When $$S = \mathbb{R}^n$$, we have the unconstrained problem, which sometimes could be solved with (sub)gradient descent algorithm:
+
+$$
+\tag{SD} 
+x_{k+1} = x_k - \alpha_k g_k,
+$$
+
+For this method we have the following bounds:
+
+
+
+
+# Bounds derivation
+## Introduction
 
 В этом разделе мы будем рассматривать работу в рамках какого-то выпуклого множества $$S \in \mathbb{R}^n$$, так, чтобы $$x_k \in S$$. Запишем для начала соотношение для итераций:
 
@@ -137,7 +158,7 @@ $$
 
 Полученное неравенство в точности совпадает с неравенством (Forward Target), которое нам как раз таки и следовало доказать. Таким образом, мы получаем
 
-# Algorithm
+## Algorithm
 
 $$
 x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle + \dfrac{1}{2} \| x - x_k\|^2 \right)
@@ -147,7 +168,7 @@ $$
 * Такая же скорость сходимости, как и для безусловного алгоритма. (Однако, стоимость каждой итерации может быть существенно больше из за необходимости решать задачу оптимизации на каждом шаге)
 * В частном случае $$S = \mathbb{R}^n$$ в точности совпадает с безусловным алгоритмом (убедитесь)
 
-## Adaptive stepsize (without $$T$$)
+### Adaptive stepsize (without $$T$$)
 
 Разберем теперь одну из стратегий того, как избежать знания количества шагов $$T$$ заранее для подбора длины шага $$\alpha_k$$. Для этого зададим "диаметр" нашего множества $$D$$:
 
@@ -192,7 +213,7 @@ $$
 
 Таким образом, мы получили, что в случае, когда количество шагов $$T$$ неизвестно заранее (весьма важное свойство), оценка ухудшается в $$\sqrt{2}$$ раз. Такие оценки называют anytime bounds.
 
-## Online learning:
+### Online learning:
 
 PSD - Projected Subgradient Descent
 

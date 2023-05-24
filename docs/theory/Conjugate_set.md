@@ -35,7 +35,7 @@ $$
 	 S^{**} = \overline{ \mathbf{conv} (S \cup  \{0\}) }
 	$$
 
-* Если $$S_1 \subset S_2$$, то $$S_2^* \subset S_1^*$$.
+* Если $$S_1 \subseteq S_2$$, то $$S_2^* \subseteq S_1^*$$.
 * $$\left( \bigcup\limits_{i=1}^m S_i \right)^* = \bigcap\limits_{i=1}^m S_i^*$$
 * Если $$S$$ - замкнуто, выпукло, включает $$0$$, то $$S^{**} = S$$.
 * $$S^* = \left(\overline{S}\right)^*$$

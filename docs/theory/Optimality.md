@@ -25,7 +25,7 @@ $$
 The basic idea of Lagrange method implies the switch from conditional to unconditional optimization through increasing the dimensionality of the problem:
 
 $$
-L(x, \nu) = f(x) + \sum\limits_{i=1}^m \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
+L(x, \nu) = f(x) + \sum\limits_{i=1}^p \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
 $$
 
 # General formulations and conditions
@@ -88,7 +88,7 @@ $$
 0_n \in \partial f(x^*)
 $$
 
-One more important result for convex constrained case sounds as follows. If $$f(x): S \to \mathbb{R}$$ - convex function defined on the convex set $$S$$, then:
+One more important result for convex unconstrained case sounds as follows. If $$f(x): S \to \mathbb{R}$$ - convex function defined on the convex set $$S$$, then:
 * Any local minima is the global one.
 * The set of the local minimizers $$S^*$$ is convex.
 * If $$f(x)$$ - strictly or strongly (different cases 😀) convex function, then $$S^*$$ contains only one single point $$S^* = x^*$$.
@@ -183,7 +183,7 @@ $$
 L(x, \nu) = f(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f(x) + \nu^\top h(x)
 $$
 
-Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \nu \in \mathbb{R}^m $$ are written as
+Let $$ f(x) $$ and $$ h_i(x) $$ be twice differentiable at the point $$ x^* $$ and continuously differentiable in some neighborhood $$ x^* $$. The local minimum conditions for $$ x \in \mathbb{R}^n, \nu \in \mathbb{R}^p $$ are written as
 
 $$
 \begin{split}
@@ -191,7 +191,7 @@ $$
 & \nabla_x L(x^*, \nu^*) = 0 \\
 & \nabla_\nu L(x^*, \nu^*) = 0 \\
 & \text{ECP: Sufficient conditions} \\
-& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle > 0,\\
+& \langle y , \nabla^2_{xx} L(x^*, \nu^*) y \rangle \geq 0,\\
 & \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y = 0
 \end{split}
 $$
@@ -280,7 +280,10 @@ $$
 L (x, \lambda) = f(x) + \lambda g(x)
 $$
 
-Then $$x^*$$ point - is a local minimum of the problem described above, if and only if:
+The classical Karush-Kuhn-Tucker first and second order optimality conditions for a local minimizer
+$$x^*$$, stated under the linear independence constraint qualification (LICQ), can be written as follows: 
+
+If $$x^*$$ is a local minimum of the problem described above, then there exists a unique Lagrange multiplier $\lambda^*$ such that:
 
 $$
 \begin{split}
@@ -288,8 +291,10 @@ $$
     & (2) \; \lambda^* \geq 0 \\
     & (3) \; \lambda^* g(x^*) = 0 \\
     & (4) \; g(x^*) \leq 0\\
-    & (5) \; \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle > 0 \\
-    & \forall y \neq 0 \in \mathbb{R}^n : \nabla g(x^*)^\top y \leq 0
+    & (5) \; \forall y \in C(x^*):  \langle y , \nabla^2_{xx} L(x^*, \lambda^*) y \rangle \geq 0 \\
+    &  \text{where } C(x^*) = \{y \ \in \mathbb{R}^n |  \nabla f(x^*) ^\top y \leq 0 \text{ and } \forall i \in I(x^*):  \nabla g_i(x^*)^⊤ y \leq 0
+    \} \text{ is the critical cone.} \\
+    & I(x^*) = \{i| g_i(x^*) = 0\} \\
 \end{split}
 $$
 
@@ -356,7 +361,7 @@ the following conditions hold:
 $$
 \begin{split}
 & \langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle > 0 \\
-& \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y \leq 0, \nabla f_j(x^*)^\top y \leq 0 \\
+& \forall y \neq 0 \in \mathbb{R}^n : \nabla h_i(x^*)^\top y = 0, \nabla f_0(x^*) ^\top y \leq 0,\nabla f_j(x^*)^\top y \leq 0 \\
 & i = 1,\ldots, p \quad \forall j: f_j(x^*) = 0
 \end{split}
 $$
@@ -364,3 +369,7 @@ $$
 # References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.
 * [One-line proof of KKT](https://link.springer.com/content/pdf/10.1007%2Fs11590-008-0096-3.pdf)
+* [On the Second Order Optimality Conditions for
+Optimization Problems with Inequality Constraints](https://www.scirp.org/pdf/OJOp_2013120315191950.pdf)
+* [On Second Order Optimality Conditions in
+Nonlinear Optimization](https://www.ime.usp.br/~ghaeser/secondorder.pdf)

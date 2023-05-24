@@ -39,8 +39,9 @@ def find_file_with_title(title, docs):
 	string_to_find = '\ntitle: %s'%title 
 	path_to_file = 0 
 	for file in docs: 
-		with open(file, encoding="utf8") as f: 
-			if string_to_find in f.read(): 
+		with open(file, encoding="utf8") as f:
+			if string_to_find in f.read():
+				print(file) 
 				path_to_file = file 
 				continue 
  
@@ -180,6 +181,7 @@ for chapter in chapters:
 	else: 
 		main_file.write('\n# %s\n'%chapter) 
 		chapter_path 		= find_file_with_title(chapter, docs) 
+		print(chapter_path)
 		chapter_parent_path = chapter_path[:chapter_path.rfind(os.sep)] 
 		with open(chapter_path, encoding='utf-8') as f: 
 			polished_chapter = f.read() 

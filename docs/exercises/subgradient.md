@@ -9,9 +9,13 @@ nav_order: 6
 
 1. Prove, that $$x_0$$ - is the minimum point of a convex function $$f(x)$$ if and only if $$0 \in \partial f(x_0)$$
 1. Find $$\partial f(x)$$, if $$f(x) = \text{ReLU}(x) = \max \{0, x\}$$
+1. Find $$\partial f(x)$$, if $$f(x) = \text{Leaky ReLU}(x) = \begin{cases}
+    x & \text{if } x > 0, \\
+    0.01x & \text{otherwise}.
+\end{cases}$$
 1. Find $$\partial f(x)$$, if $$f(x) = \|x\|_p$$ при $$p = 1,2, \infty$$
 1. Find $$\partial f(x)$$, if $$f(x) = \|Ax - b\|_1^2$$
-1. Find $$\partial f(x)$$, if $$f(x) = e^{\|x\|}$$
+1. Find $$\partial f(x)$$, if $$f(x) = e^{\|x\|}$$. Try do the task for an arbitrary norm. At least, try $$\|\cdot\| = \|\cdot\|_{\{2,1,\infty\}}$$.
 1. Describe the connection between subgradient of a scalar function $$f: \mathbb{R} \to \mathbb{R}$$ and global linear lower bound, which support (tangent) the graph of the function at a point.
 1. What can we say about subdifferential of a convex function in those points, where the function is differentiable?
 1. Does the subgradient coincide with the gradient of a function if the function is differentiable? Under which condition it holds?
