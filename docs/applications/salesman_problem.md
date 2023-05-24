@@ -5,7 +5,7 @@ parent: Applications
 ---
 
 # Problem
-Suppose, we have $$N$$ points in $$\mathbb{R}^d$$ Euclidian space (for simplicity we'll consider and plot case with $$d=2$$). Let's imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.
+Suppose, we have $$N$$ points in $$\mathbb{R}^d$$ Euclidian space (for simplicity, we'll consider and plot case with $$d=2$$). Let's imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.
 
 ![](../salesman_problem.svg)
 
