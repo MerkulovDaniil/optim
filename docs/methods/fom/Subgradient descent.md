@@ -202,7 +202,7 @@ $$
 ## Least squares with $$l_1$$ regularization
 
 $$
-\min_{x \in \mathbb{R^n}} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
+\min_{x \in \mathbb{R}^n} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
 $$
 
 Algorithm will be written as:
