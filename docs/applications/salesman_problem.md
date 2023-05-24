@@ -20,7 +20,7 @@ where $$x_k$$ is the $$k$$-th point from $$N$$ and $$y$$ stands for the $$N$$- d
 # 🧬Genetic (evolution) algorithm
 Our approach is based on the famous global optimization algorithm, known as evolution algorithm.
 ## Population and individuals
-Firstly we need to generate the set of random solutions as an initialization. We will call a set of solutions $$\{y_k\}_{k=1}^n$$ as *population*, while each solution is called *individual* (or creature).
+Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions $$\{y_k\}_{k=1}^n$$ as *population*, while each solution is called *individual* (or creature).
 
 Each creature contains integer numbers $$1, \ldots, N$$, which indicates the order of bypassing all the houses. The creature, that reflects the shortest path length among the others will be used as an output of an algorithm at the current iteration (generation).
 
