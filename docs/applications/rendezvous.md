@@ -28,7 +28,7 @@ $$
 \end{align*}
 $$
 
-Problem of this type arise in space engeneering - just imagine, that the first body is the spaceship, while the second, say, Mars.
+Problem of this type arise in space engineering - just imagine, that the first body is the spaceship, while the second, say, Mars.
 
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Rendezvous.ipynb)

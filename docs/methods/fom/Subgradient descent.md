@@ -48,7 +48,7 @@ $$
 $$
 \begin{align*}
 \| x_{k+1} - x^* \|^2 & = \|x_k - x^* - \alpha_k g_k\|^2 = \\
-                      & = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
+                      & = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 \end{align*}
 $$
 
@@ -64,8 +64,8 @@ $$
 
 $$
 \begin{align*}
-\sum\limits_{k = 0}^{T-1}2\alpha_k \langle g_k, x_k - x^* \rangle &=  \| x_0 - x^* \|^2 - \| x_{T} - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 g_k^2 \\
-&\leq \| x_0 - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 g_k^2 \\
+\sum\limits_{k = 0}^{T-1}2\alpha_k \langle g_k, x_k - x^* \rangle &=  \| x_0 - x^* \|^2 - \| x_{T} - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 \|g_k^2\| \\
+&\leq \| x_0 - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 \|g_k^2\| \\
 &\leq R^2 + G^2\sum\limits_{k=0}^{T-1}\alpha_k^2
 \end{align*}
 $$
@@ -92,7 +92,7 @@ $$
 
 $$
 \begin{align*}
-f(\overline{x}) - f^* &= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \right) - f^* \leq \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1} f(x_k) - f^* \right) \\
+f(\overline{x}) - f^* &= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \right) - f^* \leq \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1} (f(x_k) - f^* )\right) \\
 & \leq  \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1}\langle g_k, x_k - x^* \rangle\right) \\
 & \leq G R \dfrac{1}{ \sqrt{T}}
 \end{align*}
@@ -109,7 +109,7 @@ $$
 Попробуем выбирать на каждой итерации длину шага более оптимально. Тогда:
 
 $$
-\| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
+\| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 $$
 
 Минимизируя выпуклую правую часть по $$\alpha_k$$, получаем:
@@ -164,7 +164,7 @@ $$
 R_{T-1} = \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}^{T-1} f_k(x)
 $$
 
-В такой постановке цель игрока состоит в том, чтобы выбрать стратегию, которая минимизирует разницу его действия с наилучгим выбором на каждом шаге.
+В такой постановке цель игрока состоит в том, чтобы выбрать стратегию, которая минимизирует разницу его действия с наилучшим выбором на каждом шаге.
 
 Несмотря на весьма сложную (на первый взгляд) постановку задачи, существует стратегия, при которой регрет растет как $$\sqrt{T}$$, что означает, что усредненный регрет $$\dfrac{1}{T} R_{T-1}$$ падает, как $$\dfrac{1}{\sqrt{T}}$$
 
@@ -202,7 +202,7 @@ $$
 ## Least squares with $$l_1$$ regularization
 
 $$
-\min_{x \in \mathbb{R^n}} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
+\min_{x \in \mathbb{R}^n} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
 $$
 
 Algorithm will be written as:

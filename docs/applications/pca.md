@@ -11,7 +11,7 @@ Let's take a look at the simple 2d data. We have a set of blue points on the pla
 ![](https://i.stack.imgur.com/lNHqt.gif)
 [source](https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues)
 
-This idea could be used in a variety of ways. For example, it might happen, that projection of complex data on the principal plane (only 2 components) bring you enough intuition for clustering. The picture below plots projection of the labeled dataset onto the first to principal components (PCs), we can clearly see, that only two vectors (these PCs) would be enogh to differ Finnish people from Italian in particular dataset (celiac disease (Dubois et al. 2010))
+This idea could be used in a variety of ways. For example, it might happen, that projection of complex data on the principal plane (only 2 components) bring you enough intuition for clustering. The picture below plots projection of the labeled dataset onto the first to principal components (PCs), we can clearly see, that only two vectors (these PCs) would be enough to differ Finnish people from Italian in particular dataset (celiac disease (Dubois et al. 2010))
 ![](https://nla.skoltech.ru/files/pca_example.png)
 [source](https://privefl.github.io/bigsnpr/articles/how-to-PCA.html)
 

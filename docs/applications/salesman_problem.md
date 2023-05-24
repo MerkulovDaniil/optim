@@ -5,7 +5,7 @@ parent: Applications
 ---
 
 # Problem
-Suppose, we have $$N$$ points in $$\mathbb{R}^d$$ Euclidian space (for simplicity we'll consider and plot case with $$d=2$$). Let's imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.
+Suppose, we have $$N$$ points in $$\mathbb{R}^d$$ Euclidian space (for simplicity, we'll consider and plot case with $$d=2$$). Let's imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.
 
 ![](../salesman_problem.svg)
 
@@ -20,7 +20,7 @@ where $$x_k$$ is the $$k$$-th point from $$N$$ and $$y$$ stands for the $$N$$- d
 # 🧬Genetic (evolution) algorithm
 Our approach is based on the famous global optimization algorithm, known as evolution algorithm.
 ## Population and individuals
-Firstly we need to generate the set of random solutions as an initialization. We will call a set of solutions $$\{y_k\}_{k=1}^n$$ as *population*, while each solution is called *individual* (or creature).
+Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions $$\{y_k\}_{k=1}^n$$ as *population*, while each solution is called *individual* (or creature).
 
 Each creature contains integer numbers $$1, \ldots, N$$, which indicates the order of bypassing all the houses. The creature, that reflects the shortest path length among the others will be used as an output of an algorithm at the current iteration (generation).
 
@@ -33,7 +33,7 @@ Each iteration of the algorithm starts with the crossing (breed) procedure. Form
 In order to give our algorithm some ability to escape local minima we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, $0.05$). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose $$\text{mutation_rate} \cdot n$$ individuals and in each case swap random $$\text{mutation_rate} \cdot N$$ digits.
 
 ## Selection
-At the end of the iteration we have increased populatuion (due to crossing results), then we just calculate total path distance to each individual and select top $n$ of them.
+At the end of the iteration we have increased population (due to crossing results), then we just calculate total path distance to each individual and select top $n$ of them.
 ![](../salesman.gif)
 ![](../salesman_loss.svg)
 

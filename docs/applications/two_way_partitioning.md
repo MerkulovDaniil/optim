@@ -8,7 +8,7 @@ parent: Applications
 
 ![](../partition.svg)
 
-Suppose, we have a set of $$n$$ objects, which are needed to be splitted into two groups. Moreover, we have information about the preferences of all possible pairs of objects to be in the same group. this information could be presented in the matrix form: $$W \in \mathbb{R}^{n \times n}$$, where $$ \{w_{ij}\}$$ is the cost of having $$i$$-th and $$j$$-th object in the same partitions. It is easy to see, that the total number of partitions is finite and eqauls to $$2^n$$. So this problem can in principle be solved by simply checking the objective value of each feasible point. Since the number of feasible points grows exponentially, however, this is possible only for small problems (say, with $$n \leq 30$$). In general (and for n larger than, say, $$50$$) the problem is very difficult to solve.
+Suppose, we have a set of $$n$$ objects, which are needed to be split into two groups. Moreover, we have information about the preferences of all possible pairs of objects to be in the same group. This information could be presented in the matrix form: $$W \in \mathbb{R}^{n \times n}$$, where $$ \{w_{ij}\}$$ is the cost of having $$i$$-th and $$j$$-th object in the same partitions. It is easy to see, that the total number of partitions is finite and equals to $$2^n$$. So this problem can in principle be solved by simply checking the objective value of each feasible point. Since the number of feasible points grows exponentially, however, this is possible only for small problems (say, with $$n \leq 30$$). In general (and for n larger than, say, $$50$$) the problem is very difficult to solve.
 
 For example, bruteforce solution on MacBook Air with M1 processor without any explicit parallelization will take more, than a universe lifetime for $$n=62$$.
 
@@ -64,7 +64,7 @@ $$
 p^* \geq g(\nu) \geq −\mathbf{1}^\top \nu = n \lambda_{min}(W)
 $$
 
-**Question** Can you obtain the same lower bound without knowledge of duality, but using the iddea of eigenvalues?
+**Question** Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?
 
 # Code
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb)
