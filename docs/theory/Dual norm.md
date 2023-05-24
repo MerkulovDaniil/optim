@@ -13,7 +13,7 @@ $$
 \|x\|_* = \sup\limits_{\|y\| \leq 1} \langle y,x\rangle
 $$
 
-The intuition for the finite-dimension space is how the linear function (element of the dual space) $$f_y(\cdot)$$ could stretch the elements of the primal space with respect to their size, i.e. $$\|y\|_* = \sup\limits_{x \neq 0} \dfrac{\langle y,x\rangle}{\|x\|}$$
+The intuition for the finite-dimensional space is how the linear function (element of the dual space) $$f_y(\cdot)$$ could stretch the elements of the primal space with respect to their size, i.e. $$\|y\|_* = \sup\limits_{x \neq 0} \dfrac{\langle y,x\rangle}{\|x\|}$$
 
 # Properties
 * One can easily define the dual norm as:

@@ -43,7 +43,7 @@ As it mentioned in [Simulated annealing: a proof of convergence](https://ieeexpl
 
 ## Illustration
 
-A gif from [Wikipedia](https://en.wikipedia.org/wiki/Markdown):
+A gif from [Wikipedia](https://en.wikipedia.org/wiki/Simulated_annealing):
 
 ![](../sa_wiki.gif)
 

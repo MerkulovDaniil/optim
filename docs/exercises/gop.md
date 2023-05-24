@@ -167,3 +167,12 @@ satisfies $$0 \leq \alpha \leq n$$)? What if we change the equality to an inequa
     $$
     f(G) = \text{tr} \left(G \Omega G^\top \right) \to \min\limits_{GX = W}
     $$
+1.Consider the problem of projection some point $$y \in \mathbb{R}^n,  y \notin \Delta^n$$ onto the probability simplex $$\Delta^n$$. Find 2 ways to solve the problem numerically and compare them in terms of the total computational time, memory requirements and iteration number for $$n = 10, 100, 1000$$. 
+
+	$$
+	\begin{split}
+	& \|x - y \|_2^2 \to \min\limits_{x \in \mathbb{R}^n }\\
+	\text{s.t. } & 1^\top x = 1, \\
+	& x \succeq 0 
+	\end{split}
+	$$

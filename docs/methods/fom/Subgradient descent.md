@@ -48,7 +48,7 @@ $$
 $$
 \begin{align*}
 \| x_{k+1} - x^* \|^2 & = \|x_k - x^* - \alpha_k g_k\|^2 = \\
-                      & = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
+                      & = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 \end{align*}
 $$
 
@@ -64,8 +64,8 @@ $$
 
 $$
 \begin{align*}
-\sum\limits_{k = 0}^{T-1}2\alpha_k \langle g_k, x_k - x^* \rangle &=  \| x_0 - x^* \|^2 - \| x_{T} - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 g_k^2 \\
-&\leq \| x_0 - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 g_k^2 \\
+\sum\limits_{k = 0}^{T-1}2\alpha_k \langle g_k, x_k - x^* \rangle &=  \| x_0 - x^* \|^2 - \| x_{T} - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 \|g_k^2\| \\
+&\leq \| x_0 - x^* \|^2 + \sum\limits_{k=0}^{T-1}\alpha_k^2 \|g_k^2\| \\
 &\leq R^2 + G^2\sum\limits_{k=0}^{T-1}\alpha_k^2
 \end{align*}
 $$
@@ -92,7 +92,7 @@ $$
 
 $$
 \begin{align*}
-f(\overline{x}) - f^* &= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \right) - f^* \leq \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1} f(x_k) - f^* \right) \\
+f(\overline{x}) - f^* &= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \right) - f^* \leq \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1} (f(x_k) - f^* )\right) \\
 & \leq  \dfrac{1}{T} \left( \sum\limits_{k=0}^{T-1}\langle g_k, x_k - x^* \rangle\right) \\
 & \leq G R \dfrac{1}{ \sqrt{T}}
 \end{align*}
@@ -109,7 +109,7 @@ $$
 Попробуем выбирать на каждой итерации длину шага более оптимально. Тогда:
 
 $$
-\| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
+\| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 $$
 
 Минимизируя выпуклую правую часть по $$\alpha_k$$, получаем:
@@ -225,6 +225,20 @@ $$
 \min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \dfrac{1}{2}\|\omega\|_2^2 + C\sum\limits_{i=1}^m max[0, 1 - y_i(\omega^\top x_i + b)]
 $$
 
+# Bounds 
+
+| Conditions | $f(\bar{x}) - f(x^*)\leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
+| ---------- | ---------------------- | ------------------- | --------------------- |
+| Convex<br/>Lipschitz-continuous function($G$) | $\mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) \; \dfrac{GR}{\sqrt{k}}$ | Sublinear |                       |
+| Convex<br/>Lipschitz-continuous gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
+| $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
+
+* $$R = \| x_0 - x^*\| $$ - initial distance
+* \$$\overline{R} = \dfrac{2\mu}{M}$$
+* \$$\overline{x} = \dfrac{1}{k}\sum_{i=1}^k x_i$$
+* \$$\|g_k\| \leq G$$
+
 # Code
 * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb) - Wolfe's example and why we usually have oscillations in non-smooth optimization.
 * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb) - Linear least squares with $$l_1$$- regularization.
@@ -232,3 +246,4 @@ $$
 # References
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta
 * [Lecture](http://suvrit.de/teach/ee227a/lect12.pdf) on subgradient methods @ Berkley
+* [Illustration of l1 regularization](https://github.com/ievron/RegularizationAnimation/blob/main/Regularization.gif)
