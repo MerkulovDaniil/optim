@@ -44,12 +44,10 @@ function myFunction3(id) {
 }
 </script>
 
-<div id="@bibtex{{ bibtexcounter }}" style="display: none" markdown="1">
-
-```bibtex
+<div id="@bibtex{{ bibtexcounter }}" style="display: none">
+{% highlight bibtex %}
 {{include.bibtex}}
-```
-
+{% endhighlight %}
 </div>
 
 <div id="Files{{ filescounter }}" style="display: none">
