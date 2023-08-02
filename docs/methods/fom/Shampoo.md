@@ -13,8 +13,5 @@ bibtex: |
   }
 file: https://arxiv.org/pdf/1802.09568.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Summary
 The idea of maintaining second order statistics from accumulated stochastic gradients is the cornerstone of the stochastic first order optimization. Conceptually, guys threat parameter of each layer as a matrix and compute left and right preconditioner instead of one matrix preconditioner to the vectorized parameters, which allows to reduce the number of computations and the amount of memory, required to store.

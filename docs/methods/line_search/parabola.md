@@ -4,7 +4,6 @@ title: Successive parabolic interpolation
 parent: Line search
 grand_parent: Methods
 ---
-
 # Idea
 Sampling 3 points of a function determines unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points $$x_1 < x_2 < x_3$$ such that line segment $$[x_1, x_3]$$ contains minimum of a function $$f(x)$$. Then, we need to solve the following system of equations:
 

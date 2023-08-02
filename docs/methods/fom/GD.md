@@ -15,9 +15,6 @@ bibtex: |
   }
 file: /assets/files/GD.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Summary
 
 A classical problem of function minimization is considered. 

@@ -4,7 +4,6 @@ parent: Methods
 title: Automatic differentiation
 nav_order: 6
 ---
-
 # Idea
 ![](../differentiation_scheme.svg)
 Automatic differentiation is a scheme, that allows you to compute a value of gradient of function with a cost of computing function itself only twice.

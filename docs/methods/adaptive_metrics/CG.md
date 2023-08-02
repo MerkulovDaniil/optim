@@ -21,9 +21,6 @@ bibtex: |
   }
 file: /assets/files/CG.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Introduction
 
 ![](../cg_win.svg)

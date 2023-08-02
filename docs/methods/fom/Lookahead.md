@@ -13,9 +13,6 @@ bibtex: |
   }
 file: https://arxiv.org/pdf/1907.08610
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Summary
 
 The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family.

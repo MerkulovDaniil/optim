@@ -17,9 +17,6 @@ bibtex: |
   }
 file: /assets/files/NGD.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Intuition
 Let's consider illustrative example of a simple function of 2 variables:
 

@@ -4,7 +4,6 @@ parent: Methods
 title: LP and simplex algorithm
 nav_order: 5
 ---
-
 # What is LP
 
 Generally speaking, all problems with linear objective and linear equalities\inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.

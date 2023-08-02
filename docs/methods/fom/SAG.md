@@ -17,9 +17,6 @@ bibtex: |
   }
 file: assets/files/SAG.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 ## Summary
 A classical problem of minimizing finite sum of the smooth and convex functions was considered. 
 

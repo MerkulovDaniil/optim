@@ -4,7 +4,6 @@ has_children: true
 title: Methods
 nav_order: 3
 ---
-
 # General formulation
 
 $$

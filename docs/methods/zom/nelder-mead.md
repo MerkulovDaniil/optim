@@ -16,9 +16,6 @@ bibtex: |
   }
 file: assets/files/Nelder1965.pdf  
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Problem
 
 Sometimes the multidimensional function is so difficult to evaluate that even expressing the $$1^{\text{st}}$$ derivative for gradient-based methods of finding optimum becomes an impossible task.

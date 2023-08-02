@@ -15,9 +15,6 @@ bibtex: |
   }
 file: /assets/files/SGD.pdf
 ---
-
-{% include tabs.html bibtex = page.bibtex file = page.file %}
-
 # Summary
 Suppose, our target function is the sum of functions.
 
