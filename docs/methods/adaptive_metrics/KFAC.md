@@ -14,6 +14,9 @@ bibtex: |
   }
 file: https://arxiv.org/pdf/1503.05671.pdf
 ---
+
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Intuition
 # References
 * [Notes on the Limitations of the Empirical Fisher Approximation](https://www.inference.vc/on-empirical-fisher-information/)

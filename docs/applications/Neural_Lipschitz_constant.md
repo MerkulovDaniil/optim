@@ -19,4 +19,4 @@ $$
 In this notebook we will try to estimate Lipschitz constant of some convolutional layer of a Neural Network.
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Neural_Lipschitz.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Neural_Lipschitz.ipynb){: .btn }

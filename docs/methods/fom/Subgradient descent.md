@@ -43,7 +43,7 @@ $$
 
 ### Vanilla version
 
-Запишем как близко мы подошли к оптимуму $$x^* = \text{arg}\min_\limits{x \in \mathbb{R}^n} f(x) = \text{arg} f^*$$ на последней итерации:
+Запишем как близко мы подошли к оптимуму $x^* = \text{arg}\min\limits_{x \in \mathbb{R}^n} f(x) = \text{arg} f^*$ на последней итерации:
 
 $$
 \begin{align*}
@@ -240,8 +240,8 @@ $$
 * \$$\|g_k\| \leq G$$
 
 # Code
-* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb) - Wolfe's example and why we usually have oscillations in non-smooth optimization.
-* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb) - Linear least squares with $$l_1$$- regularization.
+* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb){: .btn } - Wolfe's example and why we usually have oscillations in non-smooth optimization.
+* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb){: .btn } - Linear least squares with $$l_1$$- regularization.
 
 # References
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta

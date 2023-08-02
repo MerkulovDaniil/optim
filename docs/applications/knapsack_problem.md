@@ -74,7 +74,7 @@ Probabilistic algorithm in case when number of items is fixed (150 items):
 
 # Code
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Knapsack_problem.ipynb) 
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Knapsack_problem.ipynb){: .btn } 
 
 # References
 

@@ -82,16 +82,15 @@ $$
 
 The term "dual feasible", to describe a pair $$(\lambda, \nu)$$ with $$\lambda \succeq 0$$ and $$g(\lambda, \nu) > −\infty$$, now makes sense. It means, as the name implies, that $$(\lambda, \nu)$$ is feasible for the dual problem. We refer to $$(\lambda^*, \nu^*)$$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
 
-
 ## Summary
 
 |  | Primal | Dual |
 |:-----------:|:---------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
 | Function | $$f_0(x)$$ | $$g(\lambda, \nu) = \min\limits_{x \in \textbf{dom} f_0} L(x, \lambda, \nu)$$ |
 | Variables | $$x \in \textbf{dom} f_0 \subseteq \mathbb{R^n}$$ | $$\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$$ |
-| Constraints | $$\begin{split} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{split}$$ | $$\lambda_i \geq 0, \forall i \in \overline{1,m}$$ |
-| Problem | $$\begin{split}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{split}$$ | $$\begin{split}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{split}$$ | 
-| Optimal | $$\begin{split} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{split}$$ | $$\begin{split} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{split}$$ |
+| Constraints | $$\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$$ | $$\lambda_i \geq 0, \forall i \in \overline{1,m}$$ |
+| Problem | $$\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$$ | $$\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$$ | 
+| Optimal | $$\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$$ | $$\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$$ |
 
 
 ## Weak duality

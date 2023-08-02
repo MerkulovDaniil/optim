@@ -44,12 +44,12 @@ function myFunction3(id) {
 }
 </script>
 
-<div id="@bibtex{{ bibtexcounter }}" style="display: none">
-  <div class="code-example" style="background-color: #f5f6fa">
-    <code style="border: none">
-{{include.bibtex | newline_to_br}}
-    </code>
-  </div>
+<div id="@bibtex{{ bibtexcounter }}" style="display: none" markdown="1">
+
+```bibtex
+{{include.bibtex}}
+```
+
 </div>
 
 <div id="Files{{ filescounter }}" style="display: none">

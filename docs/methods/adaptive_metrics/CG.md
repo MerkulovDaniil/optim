@@ -22,6 +22,8 @@ bibtex: |
 file: /assets/files/CG.pdf
 ---
 
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Introduction
 
 ![](../cg_win.svg)
@@ -184,4 +186,4 @@ Solution:
 * [Picture of best\worst initial guess in SD](http://fourier.eng.hmc.edu/e176/lectures/)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/CG.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/CG.ipynb){: .btn }

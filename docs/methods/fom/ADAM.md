@@ -13,6 +13,9 @@ bibtex: |
   }
 file: assets/files/ADAM.pdf
 ---
+
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 ## Summary
 
 Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second order moment of stochastic gradients.

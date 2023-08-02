@@ -1,6 +1,4 @@
-//
 // The basic two column layout
-//
 
 .side-bar {
   z-index: 0;
@@ -9,11 +7,10 @@
   background-color: $sidebar-color;
 
   @include mq(md) {
-    flex-wrap: nowrap;
+    flex-flow: column nowrap;
     position: fixed;
     width: $nav-width-md;
     height: 100%;
-    flex-direction: column;
     border-right: $border $border-color;
     align-items: flex-end;
   }
@@ -32,14 +29,19 @@
   }
 
   @include mq(lg) {
-    margin-left: calc(
-      (100% - #{$nav-width + $content-width}) / 2 + #{$nav-width}
+    // stylelint-disable function-name-case
+    // disable for Max(), we want to use the CSS max() function
+    margin-left: Max(
+      #{$nav-width},
+      calc((100% - #{$nav-width + $content-width}) / 2 + #{$nav-width})
     );
+    // stylelint-enable function-name-case
   }
 }
 
 .main-content-wrap {
   @include container;
+
   padding-top: $gutter-spacing-sm;
   padding-bottom: $gutter-spacing-sm;
 
@@ -111,6 +113,7 @@
 
 .site-title {
   @include container;
+
   flex-grow: 1;
   display: flex;
   height: 100%;
@@ -184,6 +187,7 @@ body {
 
 .site-footer {
   @include container;
+
   position: absolute;
   bottom: 0;
   left: 0;

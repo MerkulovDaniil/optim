@@ -16,6 +16,9 @@ bibtex: |
   }
 file: assets/files/Nelder1965.pdf  
 ---
+
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Problem
 
 Sometimes the multidimensional function is so difficult to evaluate that even expressing the $$1^{\text{st}}$$ derivative for gradient-based methods of finding optimum becomes an impossible task.
@@ -157,4 +160,4 @@ For instance, if we use different initial simplex or different set of parameters
 ![](../nm_RoundDomain.svg)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nelder%20Mead.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nelder%20Mead.ipynb){: .btn }

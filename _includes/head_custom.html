@@ -1,22 +1,6 @@
-<script>
- MathJax = {
-  tex: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    },
-    TeX: {
-    TagSide: "right"
-  }
-  };
-</script>
-<script
-  type="text/javascript"
-  charset="utf-8"
-  src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js'
->
-</script>
+{% assign math = page.math | default: layout.math | default: site.math %}
 
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+{% case math %}
+  {% when "katex" %}
+    {% include katex.html %}
+{% endcase %}

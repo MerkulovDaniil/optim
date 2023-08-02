@@ -33,7 +33,7 @@ Let $$f(x)$$ be unimodal function on $$[a, b]$$. Than if $$x_1 < x_2 \in [a, b]$
 ![](../unimodal_pro.gif)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb){: .btn }
 
 # References
 * [CMC seminars (ru)](http://www.machinelearning.ru/wiki/images/4/4d/MOMO16_min1d.pdf)

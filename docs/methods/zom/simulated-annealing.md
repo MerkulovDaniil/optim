@@ -71,4 +71,5 @@ Results of running the code for $$N$$ from $$4$$ to $$40$$ and measuring the tim
 
 ![](../sa-runs.svg)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Simulated%20annealing.ipynb)
+# Code
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Simulated%20annealing.ipynb){: .btn }

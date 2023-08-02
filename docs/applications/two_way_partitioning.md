@@ -50,8 +50,6 @@ g(\nu) &= \inf_{x \in\mathbb{R}^n} x^\top (W + diag(\nu))x − \mathbf{1}^\top \
 \end{split}
 $$
 
-sa
-
 This dual function provides lower bounds on the optimal value of the difficult problem. For example, we can take any specific value of the dual variable
 
 $$
@@ -67,7 +65,7 @@ $$
 **Question** Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb){: .btn }
 
 # References
 * [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/) book by Stephen Boyd and Lieven Vandenberghe. 

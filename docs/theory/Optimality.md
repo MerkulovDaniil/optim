@@ -333,6 +333,7 @@ $$
   year={1939}
 }' file='/assets/files/karush.pdf' inline = 'True'%}
 
+
 ## Necessary conditions
 Let $$x^*$$, $$(\lambda^*, \nu^*)$$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $$p^*$$ is equal to the optimal value for the dual problem $$d^*$$). Let also the functions $$ f_0, f_i, h_i $$ be differentiable.
 

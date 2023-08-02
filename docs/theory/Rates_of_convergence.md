@@ -80,6 +80,6 @@ $$
 * In all other cases (i.e., when $$ \lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}$$) we cannot claim anything concrete about the convergence rate $$\{r_k\}_{k=m}^\infty$$.
 
 # References
-* Code for convergence plots - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb)
+* Code for convergence plots - [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb){: .btn }
 * [CMC seminars (ru)](http://www.machinelearning.ru/wiki/images/9/9a/MOMO18_Extra1.pdf)
 * Numerical Optimization by J.Nocedal and S.J.Wright

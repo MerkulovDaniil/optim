@@ -15,6 +15,9 @@ bibtex: |
   }
 file: /assets/files/SGD.pdf
 ---
+
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Summary
 Suppose, our target function is the sum of functions.
 
@@ -151,7 +154,7 @@ where $R = \|x_0- x^*\| $
 | $ \mu$-Strongly convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{k} \right) $ | Sublinear |
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb){: .btn }
 
 # References
 * [Lecture](https://www.cs.ubc.ca/~schmidtm/Courses/540-W18/L10.pdf) by Mark Schmidt @ University of British Columbia

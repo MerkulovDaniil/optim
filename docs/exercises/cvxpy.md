@@ -28,8 +28,8 @@ nav_order: 14
 	
 	$$  
 	    \begin{array}{ll}
-	    \mbox{minimize}   & c^Tx \\
-	    \mbox{subject to} & Ax \leq b.
+	    \text{minimize}   & c^Tx \\
+	    \text{subject to} & Ax \leq b.
 	    \end{array}
 	$$
 	
@@ -39,8 +39,8 @@ nav_order: 14
 
 	$$
 	\begin{array}{ll} 
-	\mbox{minimize} & |x| - 2\sqrt{y}\\
-	\mbox{subject to} & 2 \geq e^x \\
+	\text{minimize} & |x| - 2\sqrt{y}\\
+	\text{subject to} & 2 \geq e^x \\
 	& x + y = 5,
 	\end{array}
 	$$

@@ -128,7 +128,7 @@ It is seen that in most cases $A^*$ finds faster. However, there are situations 
 
 # Code
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/A_star.ipynb) 
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/A_star.ipynb){: .btn }
 
 # References
 

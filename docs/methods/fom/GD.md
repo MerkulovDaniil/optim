@@ -16,6 +16,8 @@ bibtex: |
 file: /assets/files/GD.pdf
 ---
 
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Summary
 
 A classical problem of function minimization is considered. 
@@ -82,7 +84,7 @@ $$
 Let's consider the following ODE, which is referred as Gradient Flow equation.
 
 $$
-\label{GF}
+\tag{GF}
 \frac{dx}{dt} = -f'(x(t))
 $$
 

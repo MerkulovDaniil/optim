@@ -71,7 +71,7 @@ What about 1% of all pixels?
 ![](../tv_finish4.png)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Total%20variation%20inpainting.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Total%20variation%20inpainting.ipynb){: .btn }
 # References
 * [CVXPY documentation](https://www.cvxpy.org/examples/applications/tv_inpainting.html)
 * [Interactive demo](https://remi.flamary.com/demos/proxtv.html)

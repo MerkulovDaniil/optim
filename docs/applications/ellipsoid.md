@@ -29,7 +29,7 @@ $$
 ![](../ellipsoid2.svg)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)]( https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Ellipsoid.ipynb)
+[Open In Colab]( https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Ellipsoid.ipynb){: .btn }
 
 # References
 * [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa

@@ -17,6 +17,9 @@ bibtex: |
   }
 file: /assets/files/NGD.pdf
 ---
+
+{% include tabs.html bibtex = page.bibtex file = page.file %}
+
 # Intuition
 Let's consider illustrative example of a simple function of 2 variables:
 
@@ -62,4 +65,4 @@ Suppose, we have a probabilistic model represented by its likelihood $$p(x \vert
 * [Natural Gradient Descent](https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/)
 
 # Code
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg#button)](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NGD.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NGD.ipynb){: .btn }

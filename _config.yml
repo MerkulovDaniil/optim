@@ -16,18 +16,25 @@
 title: fmin.xyz
 description: Systematic review of modern optimization methods
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://fmin.xyz" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://fmin.xyz" # the base hostname & protocol, e.g. http://example.com
 
 permalink: pretty
-exclude: ["node_modules/", "*.gemspec", "*.gem", "Gemfile", "Gemfile.lock", "package.json", "package-lock.json",  "script/", "LICENSE.txt", "lib/", "bin/", "README.md", "Rakefile"
-, "docs/tests/"
-]
 
-# Regression tests
-# By default, the pages in /docs/tests are excluded when the ste is built.
-# To include them, comment-out the relevant line above.
-# Uncommenting the following line doesn't work - see https://github.com/jekyll/jekyll/issues/4791
-# include: ["docs/tests/"]
+exclude: 
+    - node_modules/
+    - "*.gemspec"
+    - "*.gem"
+    - Gemfile
+    - Gemfile.lock
+    - package.json
+    - package-lock.json
+    - script/
+    - LICENSE.txt
+    - lib/
+    - bin/
+    - README.md
+    - Rakefile
+    - docs/tests/
 
 # Set a path/url to a logo that will be displayed instead of the title
 logo: "/assets/images/logo.svg"
@@ -59,6 +66,9 @@ search:
   # Supports true or false (default)
   button: false
 
+# For copy button on code
+enable_copy_code_button: true
+
 # Enable or disable heading anchors
 heading_anchors: true
 
@@ -66,13 +76,18 @@ heading_anchors: true
 aux_links:
   "📽 Videos":
     - "//www.youtube.com/c/ДаняМеркулов"
-  
+
 # Makes Aux links open in a new tab. Default is false
 aux_links_new_tab: true
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
 nav_sort: case_sensitive # Capital letters sorted before lowercase
+
+# # External navigation links
+# nav_external_links:
+#   - title: Just the Docs on GitHub
+#     url: https://github.com/just-the-docs/just-the-docs
 
 # Footer content
 # appears at the bottom of every page's main content
@@ -81,19 +96,39 @@ nav_sort: case_sensitive # Capital letters sorted before lowercase
 back_to_top: true
 back_to_top_text: "Back to top"
 
-# footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an <a href=\"https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt\">MIT license.</a>"
+# Footer last edited timestamp
+last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
+last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html
+
 
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/MerkulovDaniil/optim" # the github URL for your repo
+gh_edit_repository: "https://github.com/MerkulovDaniil/optim" # the github URL 
 gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "edit" # "tree" or "edit" if you want the user to jump into the editor immediately
 
 # Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
 color_scheme: nil
+
+callouts_level: quiet # or loud
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
 
 # Google Analytics Tracking (optional)
 # e.g, UA-1234567-89
@@ -107,6 +142,8 @@ kramdown:
   syntax_highlighter_opts:
     block:
       line_numbers: false
+
+math: katex
 
 compress_html:
   clippings: all
