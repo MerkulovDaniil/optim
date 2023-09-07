@@ -430,7 +430,7 @@ Where:
 When using the linear approximation of the function not sufficient one can consider replacing the $f(x)$ with $f_{x_0}^{II}(x)$ near the point $x_0$. In general, Taylor approximations give us a way to locally approximate functions. The first order approximation is a plane tangent to the function at the point $x_0$, while the second order approximation includes the curvature and is represented by a parabola. These approximations are especially useful in optimization and numerical methods because they provide a tractable way to work with complex functions.
 
 {: .example}
->Calculate first and second order Taylor approximation of the function $f(x) = \dfrac{1}{2}\Vert Ax - b\Vert^2$
+>Calculate first and second order Taylor approximation of the function $f(x) = \dfrac{1}{2}x^T A x - b^T x + c$
 ><details><summary>Solution</summary>
 >	<br/><br/>
 > 	<br/><br/>
@@ -494,6 +494,35 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 > 	&= \dfrac{\langle Ax, dx\rangle + \langle x, Adx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle Ax, dx\rangle + \langle A^T x, dx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle (A + A^T) x, dx\rangle}{ \langle x, Ax\rangle} 
 > \end{split}$$
 ></details>
+
+{: .example}
+>Find $df, \nabla f(X)$, if $f(X) = \Vert AX - B\Vert_F$.
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
+
+{: .example}
+>Find $df, \nabla f(X)$, if $f(X) = \langle S, X\rangle - \log \det X$.
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
+
+
+{: .example}
+>Find the gradient $\nabla f(x)$ and hessian $\nabla^2f(x)$, if $f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)$
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
+
 
 
 # References
