@@ -16,7 +16,7 @@
 table {
   display: table;
   min-width: 100%;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
 th,
@@ -27,11 +27,8 @@ td {
   padding: $sp-2 $sp-3;
   background-color: $table-background-color;
   border-bottom: $border rgba($border-color, 0.5);
-  border-left: $border $border-color;
 
-  &:first-of-type {
-    border-left: 0;
-  }
+  // Removed the border-left property for both th and td elements
 }
 
 tbody {
@@ -44,6 +41,13 @@ tbody {
 
       td {
         padding-bottom: $sp-3;
+      }
+    }
+
+    &:hover {
+      th,
+      td {
+        background-color: lighten($code-background-color, 1); // Highlighting the row by lightening the background color
       }
     }
   }

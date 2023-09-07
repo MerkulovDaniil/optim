@@ -129,6 +129,15 @@ callouts:
   warning:
     title: Warning
     color: red
+  example:
+    title: 👨‍🏫 Example
+    color: purple
+  question:
+    title: 🤔 Question 
+    color: blue
+  theorem:
+    title: 🤓 Theorem 
+    color: green
 
 # Google Analytics Tracking (optional)
 # e.g, UA-1234567-89
