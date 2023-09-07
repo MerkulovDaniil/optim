@@ -191,6 +191,8 @@ Is there any connection between the Frobenious norm $\Vert \cdot \Vert_F$ and sc
 
 ## Eigenvalues, eigenvectors, and the singular-value decomposition
 
+### Eigenvalues
+
 A scalar value $\lambda$ is an eigenvalue of the $n \times n$ matrix $A$ if there is a nonzero vector $q$ such that
 
 $$ 
@@ -266,6 +268,8 @@ $$
 \sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0. 
 $$
 
+### Singular value decomposition
+
 This factorization is called the **singular value decomposition (SVD)** of $A$. The columns of $U$ are called left singular vectors of $A$, the columns of $V$ are right singular vectors, and the numbers $\sigma_i$ are the singular values. The singular value decomposition can be written as
 
 $$
@@ -285,7 +289,40 @@ where $u_i \in \mathbb{R}^m$ are the left singular vectors, and $v_i \in \mathbb
 >
 >where $\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0$ are the singular values of matrix $A$.
 
+### Skeleton decomposition
+
+Simple, yet very interesting decomposition is Skeleton decomposition, which can be written in two forms:
+
+$$
+A = U V^T \quad A = \hat{C}\hat{A}^{-1}\hat{R}
+$$
+
+The latter expression refers to the fun fact: you can randomly choose $r$ linearly independent columns of a matrix and any $r$ linearly independent rows of a matrix and store only them with an ability to reconstruct the whole matrix exactly.
+
+![](../skeleton.svg)
+
+{: .example}
+>Simplify the following expression:
+>
+>$$
+>\sum\limits_{i=1}^n \langle S^{-1} a_i, a_i \rangle,
+>$$
+>where $S = \sum\limits_{i=1}^n a_ia_i^T, a_i \in \mathbb{R}^n, \det(S) \neq 0$
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
+
 ## Canonical tensor decomposition
+
+One can consider the generalization of Skeleton decomposition to the higher order data structure, like tensors, which implies representing the tensor as sum of $r$ primitive tensors.
+
+![](../cp.svg)
+
+{: .example}
+Note, that there are many tensor decompositions: Canonical, Tucker, Tensor Train (TT), Tensor Ring (TR) and others. In tensor case we do not have the straightforward definition of *rank* for all type of decompositions. For example, for TT decomposition rank is not a scalar, but a vector.  
 
 ## Determinant and trace
 
@@ -363,6 +400,47 @@ $$
 | $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{m \times n}$ |      $\dfrac{\partial f}{\partial x_{ij}}$     |
 
 ## Taylor approximations
+
+Taylor approximations provide a way to approximate functions locally by polynomials. The idea is that for a smooth function, we can approximate it by its tangent (for first order) or by its parabola (for the second order) at a point. 
+
+### First order Taylor approximation
+The first order Taylor approximation, also known as the linear approximation, is centered around some point $x_0$. If $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is a differentiable function, then its first order Taylor approximation is given by:
+
+$$
+f_{x_0}^I(x) = f(x_0) + \nabla f(x_0)^T (x - x_0)
+$$
+
+Where:
+- $f(x_0)$ is the value of the function at the point $x_0$.
+- $\nabla f(x_0)$ is the gradient of the function at the point $x_0$.
+
+It is very usual to replace the $f(x)$ with $f_{x_0}^I(x)$ near the point $x_0$ for simple analysis of some approaches.
+
+### Second order Taylor approximation
+The second order Taylor approximation, also known as the quadratic approximation, includes the curvature of the function. For a twice-differentiable function $f: \mathbb{R}^n \rightarrow \mathbb{R}$, its second order Taylor approximation centered at some point $x_0$ is:
+
+$$
+f_{x_0}^{II}(x) = f(x_0) + \nabla f(x_0)^T (x - x_0) + \frac{1}{2} (x - x_0)^T \nabla^2 f(x_0) (x - x_0)
+$$
+
+Where:
+- $\nabla^2 f(x_0)$ is the Hessian matrix of $f$ at the point $x_0$.
+
+
+When using the linear approximation of the function not sufficient one can consider replacing the $f(x)$ with $f_{x_0}^{II}(x)$ near the point $x_0$. In general, Taylor approximations give us a way to locally approximate functions. The first order approximation is a plane tangent to the function at the point $x_0$, while the second order approximation includes the curvature and is represented by a parabola. These approximations are especially useful in optimization and numerical methods because they provide a tractable way to work with complex functions.
+
+{: .example}
+>Calculate first and second order Taylor approximation of the function $f(x) = \dfrac{1}{2}\Vert Ax - b\Vert^2$
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
+
+Note, that even the second order approximation could become inaccurate very quickly:
+
+<video autoplay loop muted playsinline src="../../methods/adaptive_metrics/approx_taylor.mp4"></video>
 
 # Derivatives
 ## Naive approach
