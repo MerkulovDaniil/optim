@@ -181,10 +181,27 @@ Is there any connection between the Frobenious norm $\Vert \cdot \Vert_F$ and sc
 >$$
 >where $S = \sum\limits_{i=1}^n a_ia_i^T, a_i \in \mathbb{R}^n, \det(S) \neq 0$
 ><details><summary>Solution</summary>
->	<br/><br/>
-> 	<br/><br/>
-> 	<br/><br/>
-> 	<br/><br/>
+>
+>1. Let $A$ be the matrix of columns vector $a_i$, therefore matrix $A^T$ contains rows $a_i^T$
+>
+>2. Note, that,  $S = A A^T$ - it is the skeleton decomposition from vectors $a_i$. Also note, that $A$ is not symmetric, while $S$, clearly, is.
+>
+>3. The target sum is $\sum\limits_{i=1}^n a_i^T S^{-1} a_i$.
+>4. The most important part of this exercise lies here: we'll present this sum as the trace of some matrix $M$ in order to use trace cyclic property.
+>
+>$$
+>\sum\limits_{i=1}^n a_i^T S^{-1} a_i = \sum\limits_{i=1}^n m_{ii},
+>$$
+>
+>where $m_{ii}$ - i-th diagonal element of some matrix $M$.
+>5. Note, that $M = A^T \left( S^{-1} A \right)$ is the product of 2 matrices, because $i$-th diagonal element of $M$ is the scalar product of $i$-th row of the first matrix $A^T$ and $i$-th column of the second matrix $S^{-1} A$. $i$-th row of matrix $A^T$, by definition, is $a_i^T$, while $i$-th column of the matrix $S^{-1} A$ is clearly  $S^>{-1} a_i$. 
+>
+>Indeed, $m_{ii} = a_i^T S^{-1} a_i$, then we can finish the exercise:
+>
+>$$
+>\sum\limits_{i=1}^n a_i^T S^{-1} a_i = \sum\limits_{i=1}^n m_{ii} = \text{tr} M = \text{tr} \left( A^T S^{-1} A\right) =  \text{tr} \left( AA^T S^{-1} \right) =  \text>{tr } \left( SS^{-1} \right) =  \text{tr} \left( I\right) = n
+>$$
+>
 > </details>
 
 
