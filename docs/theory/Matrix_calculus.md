@@ -218,6 +218,20 @@ $$
 Aq = \lambda q. 
 $$
 
+{: .example}
+>Consider a 2x2 matrix:
+>$$
+>A = \begin{bmatrix}
+>2 & 1 \\
+>1 & 3 \\
+>\end{bmatrix}
+>$$
+>The eigenvalues of this matrix can be found by solving the characteristic equation:
+>$$
+>\text{det}(A - \lambda I) = 0
+>$$
+>For this matrix, the eigenvalues are $\lambda_1 = 1$ and $\lambda_2 = 4$. These eigenvalues tell us about the scaling factors of the matrix along its principal axes.
+
 The vector $q$ is called an eigenvector of $A$. The matrix $A$ is nonsingular if none of its eigenvalues are zero. The eigenvalues of symmetric matrices are all real numbers, while nonsymmetric matrices may have imaginary eigenvalues. If the matrix is positive definite as well as symmetric, its eigenvalues are all positive real numbers.
 
 {: .theorem} 
@@ -225,7 +239,7 @@ The vector $q$ is called an eigenvector of $A$. The matrix $A$ is nonsingular if
 > 
 >$$ A \succ 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } > 0 $$
 >
-><details><summary>Solution</summary>
+><details><summary>Proof</summary>
 >
 >We will just prove the first point here. The second one can be proved analogously. <br/> 
 >1.$\rightarrow$ Suppose some eigenvalue $ \lambda $ is negative and let $ x $ denote its corresponding eigenvector. Then  
@@ -243,6 +257,9 @@ The vector $q$ is called an eigenvector of $A$. The matrix $A$ is nonsingular if
 ><br/>
 > here we have used the fact that $ v_i^T v_j = 0 $, for $ i \neq j $.
 > </details>
+
+{: .question}
+If a matrix has all positive eigenvalues, what can we infer about the matrix's definiteness?
 
 Suppose $ A \in S_n $, i.e., $ A $ is a real symmetric $ n \times n $ matrix. Then $A$ can be factorized as
 
@@ -297,7 +314,19 @@ $$
 
 where $u_i \in \mathbb{R}^m$ are the left singular vectors, and $v_i \in \mathbb{R}^n$ are the right singular vectors.
 
-
+{: .example}
+>Consider a 2x2 matrix:
+>$$
+>B = \begin{bmatrix}
+>4 & 0 \\
+>0 & 2 \\
+>\end{bmatrix}
+>$$
+>The singular value decomposition of this matrix can be represented as:
+>$$
+>B = U \Sigma V^T
+>$$
+>Where $U$ and $V$ are orthogonal matrices and $\Sigma$ is a diagonal matrix with the singular values on its diagonal. For this matrix, the singular values are 4 and 2, which are also the eigenvalues of the matrix.
 
 {: .example}
 >Let $A \in \mathbb{R}^{m \times n}$, and let $q := \min\{m, n\}$. Show that
@@ -316,6 +345,9 @@ where $u_i \in \mathbb{R}^m$ are the left singular vectors, and $v_i \in \mathbb
 {: .question}
 Suppose, matrix $A \in \mathbb{S}^n_{++}$. What can we say about the connection between its eigenvalues and singular values?
 
+{: .question}
+How do the singular values of a matrix relate to its eigenvalues, especially for a symmetric matrix?
+
 ### Skeleton decomposition
 
 Simple, yet very interesting decomposition is Skeleton decomposition, which can be written in two forms:
@@ -328,6 +360,13 @@ The latter expression refers to the fun fact: you can randomly choose $r$ linear
 
 ![](../skeleton.svg)
 
+{: .question}
+How does the choice of columns and rows in the Skeleton decomposition affect the accuracy of the matrix reconstruction?
+
+Use cases for Skeleton decomposition are: 
+* Model reduction, data compression, and speedup of computations in numerical analysis: given rank-$r$ matrix with $r \ll n, m$ one needs to store $\mathcal{O}((n + m)r) \ll nm$ elements.
+* Feature extraction in machine learning, where it is also known as matrix factorization
+* All applications where SVD applies, since Skeleton decomposition can be transformed into truncated SVD form.
 
 ## Canonical tensor decomposition
 
@@ -337,6 +376,10 @@ One can consider the generalization of Skeleton decomposition to the higher orde
 
 {: .example}
 Note, that there are many tensor decompositions: Canonical, Tucker, Tensor Train (TT), Tensor Ring (TR) and others. In tensor case we do not have the straightforward definition of *rank* for all type of decompositions. For example, for TT decomposition rank is not a scalar, but a vector.  
+
+{: .question}
+How does the choice of rank in the Canonical tensor decomposition affect the accuracy and interpretability of the decomposed tensor?
+
 
 ## Determinant and trace
 
@@ -357,6 +400,24 @@ $$
 \text{tr} (ABCD) = \text{tr} (DABC) = \text{tr} (CDAB) = \text{tr} (BCDA)
 $$
 
+{: .example}
+>For the matrix:
+>
+>$$
+>C = \begin{bmatrix}
+>2 & 1 \\
+>1 & 3 \\
+>\end{bmatrix}
+>$$
+>
+>The determinant is $\text{det}(C) = 6 - 1 = 5$, and the trace is $\text{tr}(C) = 2 + 3 = 5$. The determinant gives us a measure of the volume scaling factor of the matrix, while the trace provides the sum of the eigenvalues.
+
+{: .question}
+How does the determinant of a matrix relate to its invertibility?
+
+{: .question}
+What can you say about the determinant value of a positive definite matrix?
+
 # Optimization bingo
 
 ## Gradient
@@ -373,6 +434,21 @@ $$
 
 named gradient of  $$f(x)$$. This vector indicates the direction of steepest ascent. Thus, vector  $$−\nabla f(x)$$  means the direction of the steepest descent of the function in the point. Moreover, the gradient vector is always orthogonal to the contour line in the point.
 
+{: .example}
+>For the function $ f(x, y) = x^2 + y^2 $, the gradient is:
+>
+>$$
+>\nabla f(x, y) = \begin{bmatrix}
+>2x \\
+>2y \\
+>\end{bmatrix}
+>$$
+>
+>This gradient points in the direction of steepest ascent of the function.
+
+{: .question}
+How does the magnitude of the gradient relate to the steepness of the function?
+
 ## Hessian 
 Let  $$f(x):\mathbb{R}^n→\mathbb{R}$$, then matrix, containing all the second order partial derivatives:
 
@@ -387,17 +463,58 @@ $$
 
 In fact, Hessian could be a tensor in such a way: $$\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$$ is just 3d tensor, every slice is just hessian of corresponding scalar function $$\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)$$.
 
+{: .example}
+>For the function $ f(x, y) = x^2 + y^2 $, the Hessian is:
+>
+>$$
+>H_f(x, y) = \begin{bmatrix}
+>2 & 0 \\
+>0 & 2 \\
+>\end{bmatrix}
+>$$
+>
+>This matrix provides information about the curvature of the function in different directions.
+
+{: .question}
+>How can the Hessian matrix be used to determine the concavity or convexity of a function?
+
 ## Jacobian
 The extension of the gradient of multidimensional  $$f(x):\mathbb{R}^n→\mathbb{R}^m$$ is the following matrix:
 
 $$
-f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
-	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \dots  & \frac{\partial f_1}{\partial x_n} \\
-	\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_2}{\partial x_n} \\
+J_f = f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n} \\
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n} \\
 	\vdots & \vdots & \ddots & \vdots \\
-	\frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n}
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n}
 \end{pmatrix}
 $$
+
+{: .example}
+>For the function 
+>
+>$$ f(x, y) = \begin{bmatrix}
+>x + y \\
+>x - y \\
+>\end{bmatrix}, 
+>$$
+> 
+>the Jacobian is:
+>
+>$$
+>J_f(x, y) = \begin{bmatrix}
+>1 & 1 \\
+>1 & -1 \\
+>\end{bmatrix}
+>$$
+>
+>This matrix provides information about the rate of change of the function with respect to its inputs.
+
+{: .question}
+How does the Jacobian matrix relate to the gradient for scalar-valued functions?
+
+{: .question}
+Can we somehow connect those three definitions above (gradient, jacobian and hessian) using a single correct statement?
 
 ## Summary
 
@@ -411,7 +528,7 @@ $$
 |        $\mathbb{R}$       |  $\mathbb{R}$  |        $\mathbb{R}$       |              $f'(x)$ (derivative)             |
 |       $\mathbb{R}^n$      |  $\mathbb{R}$  |       $\mathbb{R^n}$      |  $\dfrac{\partial f}{\partial x_i}$ (gradient) |
 |       $\mathbb{R}^n$      | $\mathbb{R}^m$ | $\mathbb{R}^{m \times n}$ | $\dfrac{\partial f_i}{\partial x_j}$ (jacobian) |
-| $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{m \times n}$ |      $\dfrac{\partial f}{\partial x_{ij}}$     |
+| $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{n \times m}$ |      $\dfrac{\partial f}{\partial x_{ij}}$     |
 
 ## Taylor approximations
 
@@ -432,6 +549,17 @@ It is very usual to replace the $f(x)$ with $f_{x_0}^I(x)$ near the point $x_0$ 
 
 ![](../first_order_taylor.svg)
 
+{: .example}
+>For the function $ f(x) = e^x $ around the point $ x_0 = 0 $, the first order Taylor approximation is:
+>$$
+>f_{x_0}^I(x) = 1 + x
+>$$
+>And the second order Taylor approximation is:
+>$$
+>f_{x_0}^{II}(x) = 1 + x + \frac{x^2}{2}
+>$$
+>These approximations provide polynomial representations of the function near the point $ x_0 $.
+
 ### Second order Taylor approximation
 The second order Taylor approximation, also known as the quadratic approximation, includes the curvature of the function. For a twice-differentiable function $f: \mathbb{R}^n \rightarrow \mathbb{R}$, its second order Taylor approximation centered at some point $x_0$ is:
 
@@ -444,7 +572,6 @@ Where:
 
 ![](../second_order_taylor.svg)
 
-
 When using the linear approximation of the function not sufficient one can consider replacing the $f(x)$ with $f_{x_0}^{II}(x)$ near the point $x_0$. In general, Taylor approximations give us a way to locally approximate functions. The first order approximation is a plane tangent to the function at the point $x_0$, while the second order approximation includes the curvature and is represented by a parabola. These approximations are especially useful in optimization and numerical methods because they provide a tractable way to work with complex functions.
 
 {: .example}
@@ -455,6 +582,9 @@ When using the linear approximation of the function not sufficient one can consi
 > 	<br/><br/>
 > 	<br/><br/>
 > </details>
+
+{: .question}
+Why might one choose to use a Taylor approximation instead of the original function in certain applications?
 
 Note, that even the second order approximation could become inaccurate very quickly:
 
@@ -469,7 +599,16 @@ One of the most important practical tricks here is to separate indices of sum ($
 ## Differential approach
 The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convenient to use the differential notation here. [^matric_calculus]
 
-[^matric_calculus]: The most comprehensive and intuitive guide about the theory of taking matrix derivatives is presented in [these notes](http://www.machinelearning.ru/wiki/images/a/ab/MOMO18_Seminar1.pdf) by Dmitry Kropotov team
+[^matric_calculus]: The most comprehensive and intuitive guide about the theory of taking matrix derivatives is presented in [these notes](http://www.machinelearning.ru/wiki/images/a/ab/MOMO18_Seminar1.pdf) by Dmitry Kropotov team.
+
+{: .theorem}
+>Let $x \in S$ be an interior point of the set $S$, and let $D : U \rightarrow V$ be a linear operator. We say that the function $f$ is differentiable at the point $x$ with derivative $D$ if for all sufficiently small $h \in U$ the following decomposition holds:
+>
+>$$ 
+>f(x + h) = f(x) + D[h] + o(\|h\|)
+>$$
+>
+>If for any linear operator $D : U \rightarrow V$ the function $f$ is not differentiable at the point $x$ with derivative $D$, then we say that $f$ is not differentiable at the point $x$.
 
 ### Differentials
 After obtaining the differential notation of $$df$$ we can retrieve the gradient using following formula:
@@ -502,15 +641,31 @@ Let $$A$$ and $$B$$ be the constant matrices, while $$X$$ and $$Y$$ are the vari
 * \$$H = (J(\nabla f))^T$$
 * \$$ d(X^{-1})=-X^{-1}(dX)X^{-1}$$
 
+{: .example}
+>Find $\nabla^2 f(x)$, if $f(x) = \dfrac12 \langle Ax, x\rangle - \langle b, x\rangle + c$.
+><details><summary>Solution</summary>
+>	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> 	<br/><br/>
+> </details>
 
 {: .example}
 > Find $df, \nabla f(x)$, if $f(x) = \ln \langle x, Ax\rangle$.
 ><details><summary>Solution</summary>
->1. Let's find the differential first:
+>1. It is essential for $A$ to be positive definite, because it is a logarithm argument. So, $A \in \mathbb{S}^n_{++}$Let's find the differential first:
 >	$$\begin{split}
 >	df &= d \left( \ln \langle x, Ax\rangle \right) = \dfrac{d \left( \langle x, Ax\rangle \right)}{ \langle x, Ax\rangle} = \dfrac{\langle dx, Ax\rangle +  \langle x, d(Ax)\rangle}{ \langle x, Ax\rangle} = \\
 > 	&= \dfrac{\langle Ax, dx\rangle + \langle x, Adx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle Ax, dx\rangle + \langle A^T x, dx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle (A + A^T) x, dx\rangle}{ \langle x, Ax\rangle} 
 > \end{split}$$
+><br/>
+>2. Note, that our main goal is to derive the form $df = \langle \cdot, dx\rangle$
+>
+$$
+df = \left\langle  \dfrac{2 A x}{ \langle x, Ax\rangle} , dx\right\rangle
+$$
+>
+> Hence, the gradient is $\nabla f(x) =  \dfrac{2 A x}{ \langle x, Ax\rangle}$
 ></details>
 
 {: .example}
