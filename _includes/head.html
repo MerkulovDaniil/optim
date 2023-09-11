@@ -23,6 +23,40 @@
   {% endif %}
 
   <script src="{{ '/assets/js/just-the-docs.js' | relative_url }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggleButton = document.getElementById('toggleSpoilers');
+
+      toggleButton.addEventListener('click', function() {
+          var detailsElements = document.querySelectorAll('details');
+          var isAnyOpen = false;
+
+          var buttonTopBeforeToggle = toggleButton.getBoundingClientRect().top;
+
+          detailsElements.forEach(function(details) {
+              if (details.hasAttribute('open')) {
+                  details.removeAttribute('open');
+                  isAnyOpen = true;
+              } else {
+                  details.setAttribute('open', '');
+              }
+          });
+
+          var buttonTopAfterToggle = toggleButton.getBoundingClientRect().top;
+
+          if (buttonTopBeforeToggle !== buttonTopAfterToggle) {
+              window.scrollBy(0, buttonTopAfterToggle - buttonTopBeforeToggle);
+          }
+
+          if (isAnyOpen) {
+              this.textContent = '🔽';
+          } else {
+              this.textContent = '🔼';
+          }
+      });
+  });
+
+  </script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 

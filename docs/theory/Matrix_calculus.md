@@ -183,10 +183,11 @@ Is there any connection between the Frobenious norm $\Vert \cdot \Vert_F$ and sc
 ><details><summary>Solution</summary>
 >
 >1. Let $A$ be the matrix of columns vector $a_i$, therefore matrix $A^T$ contains rows $a_i^T$
->
+><br/>
 >2. Note, that,  $S = A A^T$ - it is the skeleton decomposition from vectors $a_i$. Also note, that $A$ is not symmetric, while $S$, clearly, is.
->
+><br/>
 >3. The target sum is $\sum\limits_{i=1}^n a_i^T S^{-1} a_i$.
+><br/>
 >4. The most important part of this exercise lies here: we'll present this sum as the trace of some matrix $M$ in order to use trace cyclic property.
 >
 >$$
@@ -194,8 +195,9 @@ Is there any connection between the Frobenious norm $\Vert \cdot \Vert_F$ and sc
 >$$
 >
 >where $m_{ii}$ - i-th diagonal element of some matrix $M$.
+><br/>
 >5. Note, that $M = A^T \left( S^{-1} A \right)$ is the product of 2 matrices, because $i$-th diagonal element of $M$ is the scalar product of $i$-th row of the first matrix $A^T$ and $i$-th column of the second matrix $S^{-1} A$. $i$-th row of matrix $A^T$, by definition, is $a_i^T$, while $i$-th column of the matrix $S^{-1} A$ is clearly  $S^>{-1} a_i$. 
->
+><br/>
 >Indeed, $m_{ii} = a_i^T S^{-1} a_i$, then we can finish the exercise:
 >
 >$$
@@ -227,19 +229,19 @@ The vector $q$ is called an eigenvector of $A$. The matrix $A$ is nonsingular if
 >
 >We will just prove the first point here. The second one can be proved analogously. <br/> 
 >1.$\rightarrow$ Suppose some eigenvalue $ \lambda $ is negative and let $ x $ denote its corresponding eigenvector. Then  
-><br/>
+>
 >$$
 >Ax = \lambda x \rightarrow x^T Ax = \lambda x^T x < 0 \rightarrow A \nsubseteq 0.
 >$$
 >	 
 >2. $\leftarrow$ For any symmetric matrix, we can pick a set of eigenvectors $v_1, \dots, v_n$ that form an orthogonal basis of $ \mathbb{R}^n $. Pick any $ x > in \mathbb{R}^n $.  
+>
 >$$
 >x^T A x = (\alpha_1 v_1 + \dots + \alpha_n v_n)^T A (\alpha_1 v_1 + \dots + \alpha_n v_n) 
 >$$
 > $ = \sum \alpha_i^2 v_i^T A v_i = \sum \alpha_i^2 \lambda_i v_i^T v_i \geq 0 $
 ><br/>
 > here we have used the fact that $ v_i^T v_j = 0 $, for $ i \neq j $.
->
 > </details>
 
 Suppose $ A \in S_n $, i.e., $ A $ is a real symmetric $ n \times n $ matrix. Then $A$ can be factorized as
@@ -301,10 +303,18 @@ where $u_i \in \mathbb{R}^m$ are the left singular vectors, and $v_i \in \mathbb
 >Let $A \in \mathbb{R}^{m \times n}$, and let $q := \min\{m, n\}$. Show that
 >
 >$$
->\sqrt{\|A\|_F} = \sum_{i=1}^{q} \sigma_i^2(A) ,
+>\|A\|_F^2 = \sum_{i=1}^{q} \sigma_i^2(A) ,
 >$$
 >
->where $\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0$ are the singular values of matrix $A$.
+>where $\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0$ are the singular values of matrix $A$. Hint: use the connection betwwen Frobenius norm and scalar product and SVD.
+><details><summary>Solution</summary>
+><br/>
+><br/>
+><br/>
+></details>
+
+{: .question}
+Suppose, matrix $A \in \mathbb{S}^n_{++}$. What can we say about the connection between its eigenvalues and singular values?
 
 ### Skeleton decomposition
 
@@ -318,19 +328,6 @@ The latter expression refers to the fun fact: you can randomly choose $r$ linear
 
 ![](../skeleton.svg)
 
-{: .example}
->Simplify the following expression:
->
->$$
->\sum\limits_{i=1}^n \langle S^{-1} a_i, a_i \rangle,
->$$
->where $S = \sum\limits_{i=1}^n a_ia_i^T, a_i \in \mathbb{R}^n, \det(S) \neq 0$
-><details><summary>Solution</summary>
->	<br/><br/>
-> 	<br/><br/>
-> 	<br/><br/>
-> 	<br/><br/>
-> </details>
 
 ## Canonical tensor decomposition
 
@@ -433,6 +430,8 @@ Where:
 
 It is very usual to replace the $f(x)$ with $f_{x_0}^I(x)$ near the point $x_0$ for simple analysis of some approaches.
 
+![](../first_order_taylor.svg)
+
 ### Second order Taylor approximation
 The second order Taylor approximation, also known as the quadratic approximation, includes the curvature of the function. For a twice-differentiable function $f: \mathbb{R}^n \rightarrow \mathbb{R}$, its second order Taylor approximation centered at some point $x_0$ is:
 
@@ -442,6 +441,8 @@ $$
 
 Where:
 - $\nabla^2 f(x_0)$ is the Hessian matrix of $f$ at the point $x_0$.
+
+![](../second_order_taylor.svg)
 
 
 When using the linear approximation of the function not sufficient one can consider replacing the $f(x)$ with $f_{x_0}^{II}(x)$ near the point $x_0$. In general, Taylor approximations give us a way to locally approximate functions. The first order approximation is a plane tangent to the function at the point $x_0$, while the second order approximation includes the curvature and is represented by a parabola. These approximations are especially useful in optimization and numerical methods because they provide a tractable way to work with complex functions.
