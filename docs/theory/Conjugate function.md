@@ -62,69 +62,101 @@ The scheme of recovering the convex conjugate is pretty algorithmic:
 1. Find those $$y$$, where $$ \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)$$ is finite. That's the domain of the dual function $$f^*(y)$$.
 1. Find $$x^*$$, which maximize $$g(x,y)$$ as a function on $$x$$. $$f^*(y) = g(x^*, y)$$.
 
-### 1 
-Find $$f^*(y)$$, if $$f(x) = ax + b,\;\; x\in \mathbb{R}$$.
+{: .example}
+>Find $$f^*(y)$$, if $$f(x) = ax + b$$.
+><details><summary>Solution</summary>
+>1. By definition: 
+>$$
+>f^*(y) = \sup\limits_{x \in \mathbb{R}} [ yx - f(x) ]=\sup\limits_{x \in \mathbb{R}} g(x,y) \quad \mathbf{dom} \; f^* = \{y \in \mathbb{R} : \sup\limits_{x \in \mathbb{R}} g(x,y) \text{ is finite}\}
+>$$
+>2. Consider the function whose supremum is the conjugate: 
+>$$
+>g(x,y) =  yx - f(x) = yx - ax - b = x(y - a) - b.
+>$$
+>3. Let's determine the domain of the function (i.e. those $y$ for which $\sup$ is finite). This is a single point, $y = a$. Otherwise one may choose such $x$
+><br/>
+>4. Thus, we have: $\mathbf{dom} \; f^* = \{a\}; f^*(a) = -b$
+></details>
 
-Solution:
-* $$f^*(y) = \sup\limits_{x \in \mathbb{R}} yx - f(x) = yx - ax - b = x(y - a) - b$$.
-* $$\mathbf{dom} \; f^* = \{a \in \mathbb{R} : \sup\limits_{x \in \mathbb{R}} x(y-a) - b < +\infty\}$$.
-* If $$y = a$$, $$x(y-a) - b = -b$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = -b < +\infty$$.
-* If $$y > a$$, $$\lim \limits_{x \to \infty} x(y-a) - b = +\infty$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = +\infty$$.
-* If $$y < a$$, $$\lim \limits_{x \to \-infty} x(y-a) - b = +\infty$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = +\infty$$.
-* So $$\mathbf{dom} \; f^* = \{y = a\}. f^*(a) = -b$$.
+{: .example}
+>Find $f^*(y)$, if $f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$.
+><details><summary>Solution</summary>
+>1. Consider the function whose supremum defines the conjugate:
+>$$
+>g(x,y) = \langle y,x\rangle - f(x) = yx + \log x.
+>$$
+>2. This function is unbounded above when $y \ge 0$. Therefore, the domain of $f^*$ is $\mathbf{dom} \; f^* = \{y < 0\}$.
+><br/>
+>3. This function is concave and its maximum is achieved at the point with zero gradient:
+>$$
+>\dfrac{\partial}{\partial x} (yx + \log x) = \dfrac{1}{x} + y = 0.
+>$$
+>Thus, we have $x = -\dfrac1y$ and the conjugate function is:
+>$$
+>f^*(y) = -\log(-y) - 1.
+>$$
+></details>
 
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx - ax - b$$.
-* Построим область определения (т.е. те $$y$$, для которых $$\sup$$ конечен). Это одна точка $$y = a$$.
-* Значит, $$f^*(a) = -b$$.
+{: .example}
+>Find $f^*(y)$, if $f(x) = e^x$.
+><details><summary>Solution</summary>
+>1. Consider the function whose supremum defines the conjugate:
+>$$
+>g(x,y) = \langle y,x\rangle - f(x) = yx - e^x.
+>$$
+>2. This function is unbounded above when $y < 0$. Thus, the domain of $f^*$ is $\mathbf{dom} \; f^* = \{y \ge 0\}$.
+><br/>
+>3. The maximum of this function is achieved when $x = \log y$. Hence:
+>$$
+>f^*(y) = y \log y - y,
+>$$
+>assuming $0 \log 0 = 0$.
+></details>
 
-### 2
-Find $$f^*(y)$$, if $$f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$$
+{: .example}
+>Find $f^*(y)$, if $f(x) = x \log x, x \neq 0,$ and $f(0) = 0, \;\;\; x \in \mathbb{R}_+$.
+><details><summary>Solution</summary>
+>1. Consider the function whose supremum defines the conjugate:
+>$$
+>g(x,y) = \langle y,x\rangle - f(x) = xy - x \log x.
+>$$
+>2. This function is upper bounded for all $y$. Therefore, $\mathbf{dom} \; f^* = \mathbb{R}$.
+><br/>
+>3. The maximum of this function is achieved when $x = e^{y-1}$. Hence:
+>$$
+>f^*(y) = e^{y-1}.
+>$$
+></details>
 
-Solution:
-* $$f^*(y) = \sup\limits_{x \in \mathbb{R}} yx + \log x$$.
-* $$\mathbf{dom} \; f^* = \{a \in \mathbb{R} : \sup\limits_{x \in \mathbb{R}_{++}} yx + \log x < +\infty\}$$.
-* $$\dfrac{d}{dx} (yx + \log x) = \dfrac{1}{x} + y$$
-* If $$y \geq 0$$, $$\dfrac{1}{x} + y > 0 \forall x \in \mathbb{R}_{++}$$ and $$\sup\limits_{x \in \mathbb{R}_{++}} yx + \log x = +\infty$$.
-* If $$y < 0$$, $$\dfrac{d}{dx} (yx + \log x) = 0$$ when $$y + \dfrac{1}{x} = 0 \Leftrightarrow x = -\dfrac{1}{y}$$. This point is a global maximum of $$f(x) = yx + \log x$$, therefore $$\sup\limits_{x \in \mathbb{R}} yx + \log x = -\dfrac{1}{y}$$.
-* So $$\mathbf{dom} \; f^* = \{y < 0\}. f^*(a) = -\dfrac{1}{y}$$.
+{: .example}
+>Find $f^*(y)$, if $f(x) =\frac{1}{2} x^T A x, \;\;\; A \in \mathbb{S}^n_{++}$.
+><details><summary>Solution</summary>
+>1. Consider the function whose supremum defines the conjugate:
+>$$
+>g(x,y) = \langle y,x\rangle - f(x) = y^T x - \frac{1}{2} x^T A x.
+>$$
+>2. This function is upper bounded for all $y$. Thus, $\mathbf{dom} \; f^* = \mathbb{R}$.
+><br/>
+>3. The maximum of this function is achieved when $x = A^{-1}y$. Hence:
+>$$
+>f^*(y) =  \frac{1}{2} y^T A^{-1} y.
+>$$
+></details>
 
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx + \log x$$.
-* Эта функция не ограничена сверху при $$y \ge 0$$. Значит, $$\mathbf{dom} \; f^* = \{y < 0\}$$.
-* Её максимум достигается при $$x = -1/y$$. Значит, $$f^*(y) = -\log(-y) - 1$$.
-
-### 3
-Find $$f^*(y)$$, if $$f(x) = e^x$$.
-
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx -e^x$$.
-* Эта функция не ограничена сверху при $$y < 0$$. Значит, $$\mathbf{dom} \; f^* = \{y \ge 0\}$$ (с нулем лучше поработать аккуратнее).
-* Её максимум достигается при $$x = \log y$$. Значит, $$f^*(y) = y \log y - y$$. Полагая, что $$0 \log 0 = 0$$.
-
-### 4
-Find $$f^*(y)$$, if $$f(x) = x \log x, x \neq 0, \;\;\; f(0) = 0, \;\;\; x \in \mathbb{R}_+$$
-
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =xy - x \log x$$.
-* Эта функция ограничена сверху при всех $$y$$. Значит, $$\mathbf{dom} \; f^* = \mathbb{R}$$ (с нулем лучше поработать аккуратнее).
-* Её максимум достигается при $$x = e^{y-1}$$. Значит, $$f^*(y) = e^{y-1}$$.
-
-### 5
-Find $$f^*(y)$$, if $$f(x) =\frac{1}{2} x^T A x, \;\;\; A \in \mathbb{S}^n_{++}$$
-
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =y^Tx - \frac{1}{2}x^TAx$$.
-* Эта функция ограничена сверху при всех $$y$$. Значит, $$\mathbf{dom} \; f^* = \mathbb{R}$$ (с нулем лучше поработать аккуратнее)
-* Её максимум достигается при $$x = A^{-1}y$$. Значит, $$f^*(y) =  \frac{1}{2}y^TA^{-1}y$$.
-
-### 6
-Find $$f^*(y)$$, if $$f(x) =\max\limits_{i} x_i, \;\;\; x \in \mathbb{R}^n$$
-
-Решение:
-* Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) =y^Tx - \max\limits_{i}x_i$$.
-* Заметим, что если вектор $$y$$ имеет хотя бы одну отрицательную компоненту, то эта функция не ограничена по $$x$$.
-* Пусть теперь $$y \succeq 0, \;\;\; 1^T y > 1$$. $$y \notin \mathbf{dom \; f^*(y)}$$.
-* Пусть теперь $$y \succeq 0, \;\;\; 1^T y < 1$$. $$y \notin \mathbf{dom \; f^*(y)}$$.
-* Остается только $$y \succeq 0, \;\;\; 1^T y = 1$$. Тогда $$x^Ty \le \max\limits_i x_i$$.
-* Значит, $$f^*(y) = 0$$.
+{: .example}
+>Find $f^*(y)$, if $f(x) = \max\limits_{i} x_i, \;\;\; x \in \mathbb{R}^n$.
+><details><summary>Solution</summary>
+>1. Consider the function whose supremum defines the conjugate:
+>$$
+>g(x,y) = \langle y,x\rangle - f(x) = y^T x - \max\limits_{i} x_i.
+>$$
+>2. Observe that if vector $y$ has at least one negative component, this function is not bounded by $x$.
+><br/>
+>3. If $y \succeq 0$ and $1^T y > 1$, then $y \notin \mathbf{dom} \; f^*(y)$.
+><br/>
+>4. If $y \succeq 0$ and $1^T y < 1$, then $y \notin \mathbf{dom} \; f^*(y)$.
+><br/>
+>5. Only left with $y \succeq 0$ and $1^T y = 1$. In this case, $x^T y \le \max\limits_i x_i$.
+><br/>
+>6. Hence, $f^*(y) = 0$.
+></details>
