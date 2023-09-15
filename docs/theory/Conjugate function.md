@@ -63,7 +63,15 @@ The scheme of recovering the convex conjugate is pretty algorithmic:
 1. Find $$x^*$$, which maximize $$g(x,y)$$ as a function on $$x$$. $$f^*(y) = g(x^*, y)$$.
 
 ### 1 
-Find $$f^*(y)$$, if $$f(x) = ax + b$$.
+Find $$f^*(y)$$, if $$f(x) = ax + b,\;\; x\in \mathbb{R}$$.
+
+Solution:
+* $$f^*(y) = \sup\limits_{x \in \mathbb{R}} yx - f(x) = yx - ax - b = x(y - a) - b$$.
+* $$\mathbf{dom} \; f^* = \{a \in \mathbb{R} : \sup\limits_{x \in \mathbb{R}} x(y-a) - b < +\infty\}$$.
+* If $$y = a$$, $$x(y-a) - b = -b$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = -b < +\infty$$.
+* If $$y > a$$, $$\lim \limits_{x \to \infty} x(y-a) - b = +\infty$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = +\infty$$.
+* If $$y < a$$, $$\lim \limits_{x \to \-infty} x(y-a) - b = +\infty$$ and $$\sup\limits_{x \in \mathbb{R}} x(y - a) - b = +\infty$$.
+* So $$\mathbf{dom} \; f^* = \{y = a\}. f^*(a) = -b$$.
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx - ax - b$$.
@@ -72,6 +80,14 @@ Find $$f^*(y)$$, if $$f(x) = ax + b$$.
 
 ### 2
 Find $$f^*(y)$$, if $$f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$$
+
+Solution:
+* $$f^*(y) = \sup\limits_{x \in \mathbb{R}} yx + \log x$$.
+* $$\mathbf{dom} \; f^* = \{a \in \mathbb{R} : \sup\limits_{x \in \mathbb{R}_{++}} yx + \log x < +\infty\}$$.
+* $$\dfrac{d}{dx} (yx + \log x) = \dfrac{1}{x} + y$$
+* If $$y \geq 0$$, $$\dfrac{1}{x} + y > 0 \forall x \in \mathbb{R}_{++}$$ and $$\sup\limits_{x \in \mathbb{R}_{++}} yx + \log x = +\infty$$.
+* If $$y < 0$$, $$\dfrac{d}{dx} (yx + \log x) = 0$$ when $$y + \dfrac{1}{x} = 0 \Leftrightarrow x = -\dfrac{1}{y}$$. This point is a global maximum of $$f(x) = yx + \log x$$, therefore $$\sup\limits_{x \in \mathbb{R}} yx + \log x = -\dfrac{1}{y}$$.
+* So $$\mathbf{dom} \; f^* = \{y < 0\}. f^*(a) = -\dfrac{1}{y}$$.
 
 Решение:
 * Рассмотрим функцию, супремумом которой является сопряженная: $$\langle y,x\rangle - f(x) = yx + \log x$$.
