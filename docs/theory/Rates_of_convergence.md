@@ -13,10 +13,15 @@ Let $$\{x_k\}$$ be a sequence in $$\mathbb{R}^n$$ that converges to some point $
 We can define the *linear* convergence in a two different forms:
 
 $$
-\| x_{k+1} - x^* \|_2 \leq Cq^k \quad\text{or} \quad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|_2,
+\| x_{k+1} - x^* \|_2 \leq Cq^k \quad\text{or} \quad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|_2, 
 $$
 
 for all sufficiently large $$k$$. Here $$q \in (0, 1)$$ and $$ 0 < C < \infty$$. This means that the distance to the solution $$x^*$$ decreases at each iteration by at least a constant factor bounded away from $$1$$. Note, that sometimes this type of convergence is also called *exponential* or *geometric*.
+
+Эти два определения неэквивалентны, так как, например, последовательность из 12 задачи ДЗ удовлетворяет первому определению, но не удовлетворяет второму:
+$$
+r_k =\begin{cases} \frac{1}{2^k}, & \mbox{если } k\mbox{ нечетно} \ \frac{1}{3^{2k}}, & \mbox{если } k\mbox{ четно} \end{cases}
+$$
 
 ## Superlinear convergence
 
