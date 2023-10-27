@@ -483,10 +483,10 @@ The extension of the gradient of multidimensional  $$f(x):\mathbb{R}^n→\mathbb
 
 $$
 J_f = f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
-	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n} \\
-	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n} \\
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} & \dots  & \frac{\partial f_1}{\partial x_n} \\
+	\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_2}{\partial x_n} \\
 	\vdots & \vdots & \ddots & \vdots \\
-	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n}
+	\frac{\partial f_m}{\partial x_1} & \frac{\partial f_m}{\partial x_2} & \dots  & \frac{\partial f_m}{\partial x_n}
 \end{pmatrix}
 $$
 
