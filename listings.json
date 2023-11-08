@@ -1,0 +1,188 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/docs/theory/convex sets/Affine_sets.html",
+      "/docs/theory/Matrix_calculus.html",
+      "/docs/theory/convex sets/Convex_set.html",
+      "/docs/theory/convex sets/Conic_sets.html",
+      "/docs/theory/Convex_function.html",
+      "/docs/theory/Conjugate_set.html",
+      "/docs/theory/Conjugate function.html",
+      "/docs/theory/convex sets/Projection.html",
+      "/docs/theory/Dual norm.html",
+      "/docs/theory/Subgradient.html",
+      "/docs/theory/Optimality.html",
+      "/docs/theory/Convex_optimization_problem.html",
+      "/docs/theory/Duality.html",
+      "/docs/theory/Rates_of_convergence.html",
+      "/docs/methods/fom/GD.html",
+      "/docs/methods/adaptive_metrics/Newton.html",
+      "/docs/methods/adaptive_metrics/Quasi_newton.html",
+      "/docs/methods/fom/Subgradient descent.html",
+      "/docs/methods/fom/Projected_subgradient_descent.html",
+      "/docs/methods/Simplex.html",
+      "/docs/methods/fom/Mirror_descent.html",
+      "/docs/methods/Autograd.html",
+      "/docs/methods/fom/SGD.html",
+      "/docs/methods/fom/SAG.html",
+      "/docs/methods/fom/ADAM.html",
+      "/docs/methods/fom/Lookahead.html",
+      "/docs/methods/zom/bee_algorithm.html",
+      "/docs/methods/line_search/binary_search.html",
+      "/docs/methods/adaptive_metrics/CG.html",
+      "/docs/methods/line_search/golden_search.html",
+      "/docs/methods/line_search/inexact.html",
+      "/docs/methods/adaptive_metrics/Natural_gradient.html",
+      "/docs/methods/zom/nelder-mead.html",
+      "/docs/methods/zom/simulated-annealing.html",
+      "/docs/methods/line_search/parabola.html",
+      "/docs/exercises/matrix_calculus.html",
+      "/docs/exercises/convex_sets.html",
+      "/docs/exercises/projection.html",
+      "/docs/exercises/separation.html",
+      "/docs/exercises/conjugate_sets.html",
+      "/docs/exercises/convex_functions.html",
+      "/docs/exercises/subgradient.html",
+      "/docs/exercises/conjugate_functions.html",
+      "/docs/exercises/gop.html",
+      "/docs/exercises/duality.html",
+      "/docs/exercises/convergence.html",
+      "/docs/exercises/line_search.html",
+      "/docs/exercises/cvxpy.html",
+      "/docs/exercises/automatic_differentiation.html",
+      "/docs/exercises/zom.html",
+      "/docs/exercises/fom.html",
+      "/docs/exercises/uncategorized.html",
+      "/docs/applications/A-Star.html",
+      "/docs/applications/deep_learning.html",
+      "/docs/applications/knapsack_problem.html",
+      "/docs/applications/least_squares.html",
+      "/docs/applications/MLE.html",
+      "/docs/applications/ellipsoid.html",
+      "/docs/applications/NN_Loss_Surface.html",
+      "/docs/applications/Neural_Lipschitz_constant.html",
+      "/docs/applications/pca.html",
+      "/docs/applications/rendezvous.html",
+      "/docs/applications/total_variation_inpainting.html",
+      "/docs/applications/salesman_problem.html",
+      "/docs/applications/two_way_partitioning.html",
+      "/docs/applications/Eigenfaces.html",
+      "/docs/benchmarks/CNN_on_Fashion_MNIST.html",
+      "/docs/benchmarks/linear_least_squares.html"
+    ]
+  },
+  {
+    "listing": "/docs/theory/convex sets/index.html",
+    "items": [
+      "/docs/theory/convex sets/Affine_sets.html",
+      "/docs/theory/convex sets/Convex_set.html",
+      "/docs/theory/convex sets/Conic_sets.html",
+      "/docs/theory/convex sets/Projection.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/index.html",
+    "items": [
+      "/docs/methods/fom/GD.html",
+      "/docs/methods/adaptive_metrics/Newton.html",
+      "/docs/methods/adaptive_metrics/Quasi_newton.html",
+      "/docs/methods/fom/Subgradient descent.html",
+      "/docs/methods/fom/Projected_subgradient_descent.html",
+      "/docs/methods/Simplex.html",
+      "/docs/methods/fom/Mirror_descent.html",
+      "/docs/methods/Autograd.html",
+      "/docs/methods/fom/SGD.html",
+      "/docs/methods/fom/SAG.html",
+      "/docs/methods/fom/ADAM.html",
+      "/docs/methods/fom/Lookahead.html",
+      "/docs/methods/zom/bee_algorithm.html",
+      "/docs/methods/line_search/binary_search.html",
+      "/docs/methods/adaptive_metrics/CG.html",
+      "/docs/methods/line_search/golden_search.html",
+      "/docs/methods/line_search/inexact.html",
+      "/docs/methods/adaptive_metrics/Natural_gradient.html",
+      "/docs/methods/zom/nelder-mead.html",
+      "/docs/methods/zom/simulated-annealing.html",
+      "/docs/methods/line_search/parabola.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/adaptive_metrics/index.html",
+    "items": [
+      "/docs/methods/adaptive_metrics/Newton.html",
+      "/docs/methods/adaptive_metrics/Quasi_newton.html",
+      "/docs/methods/adaptive_metrics/CG.html",
+      "/docs/methods/adaptive_metrics/Natural_gradient.html"
+    ]
+  },
+  {
+    "listing": "/docs/applications/index.html",
+    "items": [
+      "/docs/applications/A-Star.html",
+      "/docs/applications/deep_learning.html",
+      "/docs/applications/knapsack_problem.html",
+      "/docs/applications/least_squares.html",
+      "/docs/applications/MLE.html",
+      "/docs/applications/ellipsoid.html",
+      "/docs/applications/NN_Loss_Surface.html",
+      "/docs/applications/Neural_Lipschitz_constant.html",
+      "/docs/applications/pca.html",
+      "/docs/applications/rendezvous.html",
+      "/docs/applications/total_variation_inpainting.html",
+      "/docs/applications/salesman_problem.html",
+      "/docs/applications/two_way_partitioning.html",
+      "/docs/applications/Eigenfaces.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/fom/index.html",
+    "items": [
+      "/docs/methods/fom/GD.html",
+      "/docs/methods/fom/Subgradient descent.html",
+      "/docs/methods/fom/Projected_subgradient_descent.html",
+      "/docs/methods/fom/Mirror_descent.html",
+      "/docs/methods/fom/SGD.html",
+      "/docs/methods/fom/SAG.html",
+      "/docs/methods/fom/ADAM.html",
+      "/docs/methods/fom/Lookahead.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/line_search/index.html",
+    "items": [
+      "/docs/methods/line_search/binary_search.html",
+      "/docs/methods/line_search/golden_search.html",
+      "/docs/methods/line_search/inexact.html",
+      "/docs/methods/line_search/parabola.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/zom/index.html",
+    "items": [
+      "/docs/methods/zom/bee_algorithm.html",
+      "/docs/methods/zom/nelder-mead.html",
+      "/docs/methods/zom/simulated-annealing.html"
+    ]
+  },
+  {
+    "listing": "/docs/theory/index.html",
+    "items": [
+      "/docs/theory/convex sets/Affine_sets.html",
+      "/docs/theory/Matrix_calculus.html",
+      "/docs/theory/convex sets/Convex_set.html",
+      "/docs/theory/convex sets/index.html",
+      "/docs/theory/convex sets/Conic_sets.html",
+      "/docs/theory/Convex_function.html",
+      "/docs/theory/Conjugate_set.html",
+      "/docs/theory/Conjugate function.html",
+      "/docs/theory/convex sets/Projection.html",
+      "/docs/theory/Dual norm.html",
+      "/docs/theory/Subgradient.html",
+      "/docs/theory/Optimality.html",
+      "/docs/theory/Convex_optimization_problem.html",
+      "/docs/theory/Duality.html",
+      "/docs/theory/Rates_of_convergence.html"
+    ]
+  }
+]

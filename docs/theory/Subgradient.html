@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.467">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Subgradient and subdifferential</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    null
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script defer="" type="text/javascript" src="../../assets/toggle_button.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<meta property="og:title" content="Subgradient and subdifferential">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="Subgradient and subdifferential">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../logo.svg" alt="fmin.xyz" class="navbar-logo">
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/MerkulovDaniil/optim" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.youtube.com/@fmin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <a href="https://t.me/fminxyz" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-telegram"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Subgradient.html">Subgradient and subdifferential</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex sets</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Affine set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/convex sets/Convex_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/convex sets/Conic_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conic set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/convex sets/Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Convex_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Conjugate_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Conjugate function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Dual norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dual norm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Subgradient.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Subgradient and subdifferential</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Optimality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimality conditions. KKT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Convex_optimization_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex optimization problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Duality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/theory/Rates_of_convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rates of convergence</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line search</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binary search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/line_search/golden_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Golden search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/line_search/inexact.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inexact line search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/line_search/parabola.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Successive parabolic interpolation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero order methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bee algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/zom/nelder-mead.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nelder–Mead</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/zom/simulated-annealing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulated annealing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First order methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/Subgradient descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subgradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/Projected_subgradient_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projected subgradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/Mirror_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mirror descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/SGD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stochastic gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/SAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stochastic average gradient</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/ADAM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ADAM: A Method for Stochastic Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/Lookahead.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptive metric methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Newton method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/adaptive_metrics/Quasi_newton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quasi Newton methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/adaptive_metrics/CG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate gradients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/adaptive_metrics/Natural_gradient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural gradient descent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/Simplex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LP and simplex algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/Autograd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatic differentiation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/convex_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projection</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/separation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Separation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/convex_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/subgradient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subgradient and subdifferential</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/conjugate_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/gop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">General optimization problems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/duality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rates of convergence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/line_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/cvxpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CVXPY library</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/automatic_differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatic differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/zom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero order methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/fom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First order methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/exercises/uncategorized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Uncategorized</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">A^*</span> algorithm for path finding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/deep_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deep learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Eigenfaces</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Minimum volume ellipsoid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/knapsack_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Knapsack problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear least squares</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/MLE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maximum likelihood estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/Neural_Lipschitz_constant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural network Lipschitz constant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/NN_Loss_Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Network Loss Surface Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/pca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Principal component analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/rendezvous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rendezvous problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/salesman_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Travelling salesman problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/total_variation_inpainting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Total variation in-painting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/applications/two_way_partitioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two way partitioning problem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CNN on FashionMNIST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/benchmarks/linear_least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Least Squares</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Materials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quick start to the Colab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">1</span> Definition</a>
+  <ul class="collapse">
+  <li><a href="#subgradient" id="toc-subgradient" class="nav-link" data-scroll-target="#subgradient"><span class="header-section-number">1.1</span> Subgradient</a></li>
+  <li><a href="#subdifferential" id="toc-subdifferential" class="nav-link" data-scroll-target="#subdifferential"><span class="header-section-number">1.2</span> Subdifferential</a></li>
+  </ul></li>
+  <li><a href="#subdifferentiability-and-convexity" id="toc-subdifferentiability-and-convexity" class="nav-link" data-scroll-target="#subdifferentiability-and-convexity"><span class="header-section-number">2</span> Subdifferentiability and convexity</a></li>
+  <li><a href="#subdifferential-calculus" id="toc-subdifferential-calculus" class="nav-link" data-scroll-target="#subdifferential-calculus"><span class="header-section-number">3</span> Subdifferential calculus</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">4</span> Examples</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Subgradient.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div class="quarto-margin-footer"><div class="margin-footer-item">
+<button type="button" name="button" class="btn" id="toggleSpoilers">
+🔽
+</button>
+</div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header">
+</header>
+
+
+<section id="definition" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Definition</h1>
+<p>An important property of a continuous convex function <span class="math inline">f(x)</span> is that at any chosen point <span class="math inline">x_0</span> for all <span class="math inline">x \in \text{dom } f</span> the inequality holds:</p>
+<p><span class="math display">
+f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
+</span></p>
+<p>for some vector <span class="math inline">g</span>, i.e., the tangent to the graph of the function is the <em>global</em> estimate from below for the function.</p>
+<div id="fig-conv_support" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-conv_support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="conv_support.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-conv_support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Taylor linear approximation serves as a global lower bound for a convex function
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>If <span class="math inline">f(x)</span> is differentiable, then <span class="math inline">g = \nabla f(x_0)</span></li>
+<li>Not all continuous convex functions are differentiable 🐱</li>
+</ul>
+<p>We wouldn’t want to lose such a nice property.</p>
+<section id="subgradient" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="subgradient"><span class="header-section-number">1.1</span> Subgradient</h2>
+<p>A vector <span class="math inline">g</span> is called the <strong>subgradient</strong> of a function <span class="math inline">f(x): S \to \mathbb{R}</span> at a point <span class="math inline">x_0</span> if <span class="math inline">\forall x \in S</span>:</p>
+<p><span class="math display">
+f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
+</span></p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = |x|</span></p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>The problem can be solved either geometrically (at each point of the numerical line indicate the angular coefficients of the lines globally supporting the function from the bottom), or by the Moreau-Rockafellar theorem, considering <span class="math inline">f(x)</span> as a point-wise maximum of convex functions:</p>
+<p><span class="math display">
+f(x) = \max\{-x, x\}
+</span></p>
+<div id="fig-subgrad_abs" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-subgrad_abs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="subgradmod.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-subgrad_abs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Subgradient of <span class="math inline">\vert x \vert</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="subdifferential" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="subdifferential"><span class="header-section-number">1.2</span> Subdifferential</h2>
+<p>The set of all subgradients of a function <span class="math inline">f(x)</span> at a point <span class="math inline">x_0</span> is called the <strong>subdifferential</strong> of <span class="math inline">f</span> at <span class="math inline">x_0</span> and is denoted by <span class="math inline">\partial f(x_0)</span>.</p>
+<div id="fig-subgradient_calculus" class="quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-subgradient_calculus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="subgrad_calc.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="figure quarto-float-caption quarto-float-fig" id="fig-subgradient_calculus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Subgradient calculus
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>If <span class="math inline">x_0 \in \mathbf{ri } S</span>, then <span class="math inline">\partial f(x_0)</span> is a convex compact set.</li>
+<li>The convex function <span class="math inline">f(x)</span> is differentiable at the point <span class="math inline">x_0\Rightarrow \partial f(x_0) = \{\nabla f(x_0)\}</span>$</li>
+<li>If <span class="math inline">\partial f(x_0) \neq \emptyset \quad \forall x_0 \in S</span>, then <span class="math inline">f(x)</span> is convex on <span class="math inline">S</span>.</li>
+</ul>
+</section>
+</section>
+<section id="subdifferentiability-and-convexity" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Subdifferentiability and convexity</h1>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>Is it correct, that if the function has a subdifferential at some point, the function is convex?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \sin x, x \in [\pi/2; 2\pi]</span> <img src="sin.svg" class="img-fluid"></p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p><span class="math display">
+\partial_S f(x) =
+\begin{cases}
+(-\infty ; \cos x_0], &amp;x = \frac\pi2 \\
+\emptyset, &amp;x \in \left(\frac\pi2; x_0\right) \\
+\cos x, &amp;x \in [x_0; 2\pi) \\
+[1; \infty), &amp;x = 2\pi
+\end{cases}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p><strong>Subdifferential of a differentiable function</strong> Let <span class="math inline">f : S \to \mathbb{R}</span> be a function defined on the set <span class="math inline">S</span> in a Euclidean space <span class="math inline">\mathbb{R}^n</span>. If <span class="math inline">x_0 \in \mathbf{ri }(S)</span> and <span class="math inline">f</span> is differentiable at <span class="math inline">x_0</span>, then either <span class="math inline">\partial f(x_0) = \emptyset</span> or <span class="math inline">\partial f(x_0) = \{\nabla f(x_0)\}</span>. Moreover, if the function <span class="math inline">f</span> is convex, the first scenario is impossible.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<ol type="1">
+<li>Assume, that <span class="math inline">s \in \partial f(x_0)</span> for some <span class="math inline">s \in \mathbb{R}^n</span> distinct from <span class="math inline">\nabla f(x_0)</span>. Let <span class="math inline">v \in \mathbb{R}^n</span> be a unit vector. Because <span class="math inline">x_0</span> is an interior point of <span class="math inline">S</span>, there exists <span class="math inline">\delta &gt; 0</span> such that <span class="math inline">x_0 + tv \in S</span> for all <span class="math inline">0 &lt; t &lt; \delta</span>. By the definition of the subgradient, we have <span class="math display">
+f(x_0 + tv) \geq f(x_0) + t \langle s, v \rangle
+</span> which implies: <span class="math display">
+\frac{f(x_0 + tv) - f(x_0)}{t} \geq \langle s, v \rangle
+</span> for all <span class="math inline">0 &lt; t &lt; \delta</span>. Taking the limit as <span class="math inline">t</span> approaches 0 and using the definition of the gradient, we get: <span class="math display">
+\langle \nabla f(x_0), v \rangle = \lim_{{t \to 0; 0 &lt; t &lt; \delta}} \frac{f(x_0 + tv) - f(x_0)}{t} \geq \langle s, v \rangle
+</span></li>
+<li>From this, <span class="math inline">\langle s - \nabla f(x_0), v \rangle \geq 0</span>. Due to the arbitrariness of <span class="math inline">v</span>, one can set <span class="math display">
+v = -\frac{s - \nabla f(x_0)}{\| s - \nabla f(x_0) \|},
+</span> leading to <span class="math inline">s = \nabla f(x_0)</span>.</li>
+<li>Furthermore, if the function <span class="math inline">f</span> is convex, then according to the differential condition of convexity <span class="math inline">f(x) \geq f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle</span> for all <span class="math inline">x \in S</span>. But by definition, this means <span class="math inline">\nabla f(x_0) \in \partial f(x_0)</span>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>It is interesting to mention, that the statement for the convex function could be strengthened. Let <span class="math inline">f : S \to \mathbb{R}</span> be a convex function defined on the set <span class="math inline">S</span> in a finite-dimensional Euclidean space <span class="math inline">\mathbb{R}^n</span>, and let <span class="math inline">x_0 \in \mathbf{ri }(S)</span>. Then, <span class="math inline">f</span> is differentiable at <span class="math inline">x_0</span> if and only if the subdifferential <span class="math inline">\partial f(x_0)</span> contains exactly one element. In this case, <span class="math inline">\partial f(x_0) = \{\nabla f(x_0)\}</span>.</p>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>Let <span class="math inline">f : S \to \mathbb{R}</span> be a function defined on the set <span class="math inline">S</span> in a Euclidean space, and let <span class="math inline">x_0 \in S</span>. Show that the point <span class="math inline">x_0</span> is a minimum of the function <span class="math inline">f</span> if and only if <span class="math inline">0 \in \partial f(x_0)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>Is it correct, that if the function is convex, it has a subgradient at any point?</p>
+</div>
+</div>
+</div>
+</div>
+<p>Convexity follows from subdifferentiability at any point. A natural question to ask is whether the converse is true: is every convex function subdifferentiable? It turns out that, generally speaking, the answer to this question is negative.</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Let <span class="math inline">f : [0,\infty) \to \mathbb{R}</span> be the function defined by <span class="math inline">f(x) := -\sqrt{x}</span>. Then, <span class="math inline">\partial f(0) = \emptyset</span>.</p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>Assume, that <span class="math inline">s \in \partial f(0)</span> for some <span class="math inline">s \in \mathbb{R}</span>. Then, by definition, we must have <span class="math inline">sx \leq -\sqrt{x}</span> for all <span class="math inline">x \geq 0</span>. From this, we can deduce <span class="math inline">s \leq -\sqrt{1}</span> for all <span class="math inline">x &gt; 0</span>. Taking the limit as <span class="math inline">x</span> approaches <span class="math inline">0</span> from the right, we get <span class="math inline">s \leq -\infty</span>, which is impossible.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="subdifferential-calculus" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Subdifferential calculus</h1>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p><strong>Moreau - Rockafellar theorem</strong> (subdifferential of a linear combination). Пусть <span class="math inline">f_i(x)</span> - выпуклые функции на выпуклых множествах <span class="math inline">S_i, \; i = \overline{1,n}</span>.<br>
+Тогда, если <span class="math inline">\bigcap\limits_{i=1}^n \mathbf{ri } S_i \neq \emptyset</span> то функция <span class="math inline">f(x) = \sum\limits_{i=1}^n a_i f_i(x), \; a_i &gt; 0</span> имеет субдифференциал <span class="math inline">\partial_S f(x)</span> на множестве <span class="math inline">S = \bigcap\limits_{i=1}^n S_i</span> и</p>
+<p><span class="math display">
+\partial_S f(x) = \sum\limits_{i=1}^n a_i \partial_{S_i} f_i(x)
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p><strong>Dubovitsky - Milutin theorem</strong> (subdifferential of a point-wise maximum). Пусть <span class="math inline">f_i(x)</span> - выпуклые функции на открытом выпуклом множестве <span class="math inline">S \subseteq \mathbb{R}^n, \; x_0 \in S</span>, а поточечный максимум определяется как <span class="math inline">f(x) = \underset{i}{\operatorname{max}} f_i(x)</span>. Тогда:</p>
+<p><span class="math display">
+\partial_S f(x_0) = \mathbf{conv}\left\{  \bigcup\limits_{i \in I(x_0)} \partial_S f_i(x_0) \right\},
+</span></p>
+<p>где <span class="math inline">I(x) = \{ i \in [1:m]: f_i(x) = f(x)\}</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Chain rule for subdifferentials</strong> Пусть <span class="math inline">g_1, \ldots, g_m</span> - выпуклые функции на открытом выпуклом множестве <span class="math inline">S \subseteq \mathbb{R}^n</span>, <span class="math inline">g = (g_1, \ldots, g_m)</span> - образованная из них вектор - функция, <span class="math inline">\varphi</span> - монотонно неубывающая выпуклая функция на открытом выпуклом множестве <span class="math inline">U \subseteq \mathbb{R}^m</span>, причем <span class="math inline">g(S) \subseteq U</span>. Тогда субдифференциал функции <span class="math inline">f(x) = \varphi \left( g(x)\right)</span>$ имеет вид:</p>
+<p><span class="math display">
+\partial f(x) = \bigcup\limits_{p \in \partial \varphi(u)} \left( \sum\limits_{i=1}^{m}p_i \partial g_i(x) \right),
+</span></p>
+<p>где <span class="math inline">u = g(x)</span></p>
+<p>В частности, если функция <span class="math inline">\varphi</span> дифференцируема в точке <span class="math inline">u = g(x)</span>, то формула запишется так:</p>
+<p><span class="math display">
+\partial f(x) = \sum\limits_{i=1}^{m}\dfrac{\partial \varphi}{\partial u_i}(u) \partial g_i(x)
+</span></p>
+<ul>
+<li><span class="math inline">\partial (\alpha f)(x) = \alpha \partial f(x)</span>, for <span class="math inline">\alpha \geq 0</span></li>
+<li><span class="math inline">\partial (\sum f_i)(x) = \sum \partial f_i (x)</span>, <span class="math inline">f_i</span> - выпуклые функции</li>
+<li><span class="math inline">\partial (f(Ax + b))(x) = A^T\partial f(Ax + b)</span>, <span class="math inline">f</span> - выпуклая функция</li>
+<li><span class="math inline">z \in \partial f(x)</span> if and only if <span class="math inline">x \in \partial f^*(z)</span>.</li>
+</ul>
+</section>
+<section id="examples" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Examples</h1>
+<p>Концептуально, различают три способа решения задач на поиск субградиента:</p>
+<ul>
+<li>Теоремы Моро - Рокафеллара, композиции, максимума</li>
+<li>Геометрически</li>
+<li>По определению</li>
+</ul>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = |x - 1| + |x + 1|</span></p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>Совершенно аналогично применяем теорему Моро - Рокафеллара, учитывая следующее:</p>
+<p><span class="math display">
+\partial f_1(x) = \begin{cases} -1,  &amp;x &lt; 1\\ [-1;1], \quad &amp;x = 1 \\ 1,  &amp;x &gt; 1 \end{cases} \qquad \partial f_2(x) = \begin{cases} -1,  &amp;x &lt; -1\\ [-1;1], &amp;x = -1 \\ 1,  &amp;x &gt; -1  \end{cases}
+</span></p>
+<p>Таким образом:</p>
+<p><span class="math display">
+\partial f(x) = \begin{cases} -2, &amp;x &lt; -1\\ [-2;0], &amp;x = -1 \\ 0,  &amp;-1 &lt; x &lt; 1 \\ [0;2], &amp;x = 1 \\ 2, &amp;x &gt; 1 \\ \end{cases}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = |c_1^\top x| + |c_2^\top x|</span></p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>Пусть <span class="math inline">f_1(x) = |c_1^\top x|</span>, а <span class="math inline">f_2(x) = |c_2^\top x|</span>. Так как эти функции выпуклы, субдифференциал их суммы равен сумме субдифференциалов. Найдем каждый из них:</p>
+<p><span class="math inline">\partial f_1(x) = \partial \left( \max \{c_1^\top x, -c_1^\top x\} \right) = \begin{cases} -c_1, &amp;c_1^\top x &lt; 0\\ \mathbf{conv}(-c_1;c_1), &amp;c_1^\top x = 0 \\ c_1, &amp;c_1^\top x &gt; 0 \end{cases}</span> <span class="math inline">\partial f_2(x) = \partial \left( \max \{c_2^\top x, -c_2^\top x\} \right) = \begin{cases} -c_2, &amp;c_2^\top x &lt; 0\\ \mathbf{conv}(-c_2;c_2), &amp;c_2^\top x = 0 \\ c_2, &amp;c_2^\top x &gt; 0 \end{cases}</span></p>
+<p>Далее интересными представляются лишь различные взаимные расположения векторов <span class="math inline">c_1</span> и <span class="math inline">c_2</span>, рассмотрение которых предлагается читателю.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = \left[ \max(0, f_0(x))\right]^q</span>. Здесь <span class="math inline">f_0(x)</span> - выпуклая функция на открытом выпуклом множестве <span class="math inline">S</span>, <span class="math inline">q \geq 1</span>.</p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>Согласно теореме о композиции (функция <span class="math inline">\varphi (x) = x^q</span> - дифференцируема), а <span class="math inline">g(x) = \max(0, f_0(x))</span> имеем: <span class="math inline">\partial f(x) = q(g(x))^{q-1} \partial g(x)</span></p>
+<p>По теореме о поточечном максимуме:</p>
+<p><span class="math display">
+\partial g(x) = \begin{cases} \partial f_0(x), \quad f_0(x) &gt; 0,\\ \{0\}, \quad f_0(x) &lt; 0 \\ \{a \mid a = \lambda a', \; 0 \le \lambda \le 1, \; a' \in \partial f_0(x)\}, \;\; f_0(x) = 0 \end{cases}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = \| x\|_1</span></p>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-solution" data-collapse="true">
+<p>По определению</p>
+<p><span class="math display">
+\|x\|_1 = |x_1| + |x_2| + \ldots + |x_n| = s_1 x_1 + s_2 x_2 + \ldots + s_n x_n
+</span></p>
+<p>Рассмотрим эту сумму как поточечный максимум линейных функций по <span class="math inline">x</span>: <span class="math inline">g(x) = s^\top x</span>, где <span class="math inline">s_i = \{ -1, 1\}</span>. Каждая такая функция однозначно определяется набором коэффициентов <span class="math inline">\{s_i\}_{i=1}^n</span>.</p>
+<p>Тогда по теореме Дубовицкого - Милютина, в каждой точке <span class="math inline">\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x)} \partial g_i(x)\right)</span></p>
+<p>Заметим, что <span class="math inline">\partial g(x) = \partial \left( \max \{s^\top x, -s^\top x\} \right) = \begin{cases} -s, &amp;s^\top x &lt; 0\\ \mathbf{conv}(-s;s), &amp;s^\top x = 0 \\ s, &amp;s^\top x &gt; 0 \end{cases}</span>.</p>
+<p>Причем, правило выбора “активной” функции поточечного максимума в каждой точке следующее: * Если j-ая координата точки отрицательна, <span class="math inline">s_i^j = -1</span> * Если j-ая координата точки положительна, <span class="math inline">s_i^j = 1</span> * Если j-ая координата точки равна нулю, то подходят оба варианта коэффициентов и соответствующих им функций, а значит, необходимо включать субградиенты этих функций в объединение в теореме Дубовицкого - Милютина.</p>
+<p>В итоге получаем ответ:</p>
+<p><span class="math display">
+\partial f(x) = \left\{ g \; : \; \|g\|_\infty \leq 1, \quad g^\top x = \|x\|_1 \right\}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p><strong>Subdifferential of the Norm.</strong> Let <span class="math inline">V</span> be a finite-dimensional Euclidean space, and <span class="math inline">x_0 \in V</span>. Let <span class="math inline">\lVert \cdot \rVert</span> be an arbitrary norm in <span class="math inline">V</span> (not necessarily induced by the scalar product), and let <span class="math inline">\lVert \cdot \rVert_*</span> be the corresponding conjugate norm. Then,</p>
+<p><span class="math display">
+\partial \lVert \cdot \rVert (x_0) =
+\begin{cases}
+B_{\lVert \cdot \rVert_*}(0, 1), &amp; \text{if } x_0 = 0, \\
+\{s \in V : \lVert s \rVert_* \leq 1; \langle s, x_0 \rangle = \lVert x_0 \rVert \} = \{s \in V : \lVert s \rVert_* = 1; \langle s, x_0 \rangle = \lVert x_0 \rVert \}, &amp; \text{otherwise.}
+\end{cases}
+</span></p>
+<p>Where <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span> is the closed unit ball centered at zero with respect to the conjugate norm. In other words, a vector <span class="math inline">s \in V</span> with <span class="math inline">\lVert s \rVert_* = 1</span> is a subgradient of the norm <span class="math inline">\lVert \cdot \rVert</span> at point <span class="math inline">x_0 \neq 0</span> if and only if the Hölder’s inequality <span class="math inline">\langle s, x_0 \rangle \leq \lVert x_0 \rVert</span> becomes an equality.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<p>Let <span class="math inline">s \in V</span>. By definition, <span class="math inline">s \in \partial \lVert \cdot \rVert (x_0)</span> if and only if</p>
+<p><span class="math display">
+\langle s, x \rangle - \lVert x \rVert \leq \langle s, x_0 \rangle - \lVert x_0 \rVert, \text{ for all } x \in V,
+</span></p>
+<p>or equivalently,</p>
+<p><span class="math display">
+\sup_{x \in V} \{\langle s, x \rangle - \lVert x \rVert\} \leq \langle s, x_0 \rangle - \lVert x_0 \rVert.
+</span></p>
+<p>By the definition of the supremum, the latter is equivalent to</p>
+<p><span class="math display">
+\sup_{x \in V} \{\langle s, x \rangle - \lVert x \rVert\} = \langle s, x_0 \rangle - \lVert x_0 \rVert.
+</span></p>
+<p>It is important to note that the expression on the left side is the supremum from the definition of the Fenchel conjugate function for the norm, which is known to be</p>
+<p><span class="math display">
+\sup_{x \in V} \{\langle s, x \rangle - \lVert x \rVert\} =
+\begin{cases}
+0, &amp; \text{if } \lVert s \rVert_* \leq 1, \\
++\infty, &amp; \text{otherwise.}
+\end{cases}
+</span></p>
+<p>Thus, equation is equivalent to <span class="math inline">\lVert s \rVert_* \leq 1</span> and <span class="math inline">\langle s, x_0 \rangle = \lVert x_0 \rVert</span>.</p>
+<p>Consequently, it remains to note that for <span class="math inline">x_0 \neq 0</span>, the inequality <span class="math inline">\lVert s \rVert_* \leq 1</span> must become an equality since, when <span class="math inline">\lVert s \rVert_* &lt; 1</span>, Hölder’s inequality implies <span class="math inline">\langle s, x_0 \rangle \leq \lVert s \rVert_* \lVert x_0 \rVert &lt; \lVert x_0 \rVert</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>The conjugate norm in Example above does not appear by chance. It turns out that, in a completely similar manner for an arbitrary function <span class="math inline">f</span> (not just for the norm), its subdifferential can be described in terms of the dual object — the Fenchel conjugate function.</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p><strong>Characterization of the subdifferential through the conjugate function.</strong> Let <span class="math inline">f: E \to \mathbb{R}</span> be a function defined on the set <span class="math inline">E</span> in a Euclidean space. Let <span class="math inline">x_0 \in E</span> and let <span class="math inline">f^*: E^* \to \mathbb{R}</span> be the conjugate function. Show that</p>
+<p><span class="math display">
+\partial f(x_0) = \{s \in E^* : \langle s, x_0 \rangle = f^*(s) + f(x_0)\},
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>In other words, a vector <span class="math inline">s \in E^*</span> is a subgradient of the function <span class="math inline">f</span> at point <span class="math inline">x_0</span> if and only if the Fenchel-Young inequality <span class="math inline">\langle s, x_0 \rangle \leq f^*(s) + f(x_0)</span> becomes an equality.</p>
+<p>In the case <span class="math inline">f = \lVert \cdot \rVert</span>, we have <span class="math inline">f^* = \delta_{B_{\lVert \cdot \rVert_*}(0,1)}</span>, i.e., the conjugate function is equal to the indicator function of the ball <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span>, and equation becomes.</p>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p><strong>Criteria for equality in the Fenchel-Young inequality.</strong> Let <span class="math inline">f: E \to \mathbb{R}</span> be a convex closed function, <span class="math inline">f^*: E^* \to \mathbb{R}</span> the conjugate function, and let <span class="math inline">x \in E, s \in E^*</span>. The following statements are equivalent:</p>
+<ol type="a">
+<li><p><span class="math inline">\langle s, x \rangle = f^*(s) + f(x)</span>.</p></li>
+<li><p><span class="math inline">s \in \partial f(x)</span>.</p></li>
+<li><p><span class="math inline">x \in \partial f^*(s)</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<p>According to Exercise above, the condition <span class="math inline">\langle s, x \rangle = f^*(s) + f(x)</span> is equivalent to <span class="math inline">s \in \partial f(x)</span>. On the other hand, since <span class="math inline">f</span> is convex and closed, by the Fenchel-Moreau theorem, we have <span class="math inline">f^{**} = f</span>. Applying previous results to the function <span class="math inline">f^*</span>, it follows that the equality <span class="math inline">\langle s, x \rangle = f^*(s) + f(x)</span> is equivalent to <span class="math inline">x \in \partial f^*(s)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<ul>
+<li><a href="https://people.orie.cornell.edu/dsd95/teaching/orie6300/ORIE6300Fall2019notes.pdf">Lecture Notes for ORIE 6300: Mathematical Programming I by Damek Davis</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
