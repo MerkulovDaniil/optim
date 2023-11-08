@@ -14,3 +14,7 @@ assets/Notebooks/.ipynb_checkpoints
 *.DS_Store
 *.bkp
 *.dtmp
+
+/.quarto/
+
+/.luarc.json
