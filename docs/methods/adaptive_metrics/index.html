@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.467">
+<meta name="generator" content="quarto-1.4.489">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -762,7 +762,7 @@ f(x_0 + \delta x) \approx f(x_0) + \nabla f(x_0)^\top \delta x
 <p>Indeed, if the space is isotropic and <span class="math inline">A = I</span>, we immediately have gradient descent formula, while Newton method uses local Hessian as a metric matrix.</p>
 <div id="listing-amm" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1699481336291" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1699484606913" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
 <a href="../../../docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -777,7 +777,7 @@ Consider the function <span class="math inline">\varphi(x): \mathbb{R} \to \math
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1699481336292" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1699484606913" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
 <a href="../../../docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -792,7 +792,7 @@ For the classic task of unconditional optimization <span class="math inline">f(x
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1699481336291" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1699484606913" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <a href="../../../docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -807,7 +807,7 @@ Originally, the conjugate gradients method was created to solve a system of line
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1699481336291" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1699484606913" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
 <a href="../../../docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -911,6 +911,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1220,24 +1238,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/fmin\.xyz");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
 });
 </script>
 </div> <!-- /content -->
