@@ -1,5 +1,4 @@
 ---
-layout: default
 title: CVXPY library
 parent: Exercises
 bibtex: |
@@ -12,10 +11,11 @@ bibtex: |
   number  = {1},
   pages   = {42--60},
   }
-nav_order: 14
+order: 14
 ---
 
-# CVXPY library
+# CVXPY library{.unnumbered}
+
 1. **Constrained linear least squares**
 	Solve the following problem with cvxpy library.
 	
@@ -76,6 +76,7 @@ nav_order: 14
 	* **a)** Explain how to solve the risk budget allocation problem using convex optimization. 
 		*Hint.* Minimize $(1/2)x^T\Sigma x - \sum_{i=1}^n \rho_i^\mathrm{des} \log x_i$.
 	* **b)** Find the investment mix that achieves risk parity for the return covariance matrix $\Sigma$ below.
+		
 		```python
 		import numpy as np
 		import cvxpy as cp
@@ -86,8 +87,7 @@ nav_order: 14
 		rho = np.ones(4)/4
 		```
 
-
-
 # Materials
+
 * [CVXPY exercises](https://github.com/cvxgrp/cvx_short_course/tree/master/exercises)
 * [Additional Exercises for Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook_extra_exercises.pdf)

@@ -1,16 +1,14 @@
 ---
-layout: default
 title: Maximum likelihood estimation
-parent: Applications
 ---
 
 # Problem
-We need to estimate probability density $$p(x)$$ of a random variable from observed values.
+We need to estimate probability density $p(x)$ of a random variable from observed values.
 
-![](../mle.svg)
+![Illustration](mle.svg)
 
 # Approach
-We will use idea of parametric distribution estimation, which involves choosing *the best* parameters, of a chosen family of densities $$p_\theta(x)$$, indexed by a parameter $$\theta$$. The idea is very natural: we choose such parameters, which maximizes the probability (or logarithm of probability) of observed values.
+We will use idea of parametric distribution estimation, which involves choosing *the best* parameters, of a chosen family of densities $p_\theta(x)$, indexed by a parameter $\theta$. The idea is very natural: we choose such parameters, which maximizes the probability (or logarithm of probability) of observed values.
 
 $$
 \arg \max\limits_{\theta} \log p_\theta(x) = \theta^* 
@@ -25,9 +23,10 @@ x_i = \theta^\top a_i + \xi_i, \quad i = [1,m],
 $$
 
 where
-* $$\theta \in \mathbb{R}^n$$ - unknown vector of parameters
-* $$\xi_i$$ are IID noise random variables with density $$p(z)$$
-* $$x_i$$ - measurements, $$x \in \mathbb{R}^m$$
+
+* $\theta \in \mathbb{R}^n$ - unknown vector of parameters
+* $\xi_i$ are IID noise random variables with density $p(z)$
+* $x_i$ - measurements, $x \in \mathbb{R}^m$
 
 Which implies the following optimization problem:
 
@@ -35,7 +34,7 @@ $$
 \max\limits_{\theta} \log p(x) = \max_\theta \sum\limits_{i=1}^m \log p (x_i - \theta^\top a_i) = \max_\theta L(\theta)
 $$
 
-Where the sum goes from the fact, that all observation are independent, which leads to the fact, that $$p(\xi) = \prod\limits_{i=1}^m p(\xi_i)$$. The target function is called log-likelihood function $$L(\theta)$$.
+Where the sum goes from the fact, that all observation are independent, which leads to the fact, that $p(\xi) = \prod\limits_{i=1}^m p(\xi_i)$. The target function is called log-likelihood function $L(\theta)$.
 
 ### Gaussian noise
 
@@ -73,7 +72,7 @@ L(\theta) &= \sum\limits_{i=1}^m \left[ - \log (2a) - -\dfrac{|(x_i - \theta^\to
 \end{split}
 $$
 
-Which means, the maximum likelihood estimation in case of Laplacian noise is a $$l_1$$-norm solution.
+Which means, the maximum likelihood estimation in case of Laplacian noise is a $l_1$-norm solution.
 
 ### Uniform noise
 
@@ -99,13 +98,13 @@ L(\theta) = \begin{cases}
   \end{cases}
 $$
 
-Which means, the maximum likelihood estimation in case of uniform noise is any vector $$\theta$$, which satisfies $$\vert x_i - \theta^\top a_i \vert \leq a$$.
+Which means, the maximum likelihood estimation in case of uniform noise is any vector $\theta$, which satisfies $\vert x_i - \theta^\top a_i \vert \leq a$.
 
 ## Binary logistic regression
 
-Suppose, we are given a set of binary random variables $$y_i \in \{0,1\}$$. Let us parametrize the distribution function as a sigmoid, using linear transformation of the input as an argument of a sigmoid.
+Suppose, we are given a set of binary random variables $y_i \in \{0,1\}$. Let us parametrize the distribution function as a sigmoid, using linear transformation of the input as an argument of a sigmoid.
 
-![Picture from Wikipedia](../sigmoid.svg)
+![Picture from Wikipedia](./sigmoid.svg)
 
 $$
 \begin{split}
@@ -114,12 +113,13 @@ p(y_i = 0) &= \dfrac{1}{1 + \text{exp}(\theta_0^\top x_i + \theta_1)}
 \end{split}
 $$
 
-Let's assume, that first $$k$$ observations are ones: $$y_1, \ldots, y_k =1$$, $$y_{k+1}, \ldots, y_m = 0$$. Then, log-likelihood function will be written as follows:
+Let's assume, that first $k$ observations are ones: $y_1, \ldots, y_k =1$, $y_{k+1}, \ldots, y_m = 0$. Then, log-likelihood function will be written as follows:
 
 $$
 L(\theta_0, \theta_1) = \sum\limits_{i=1}^k (\theta_0^\top x_i + \theta_1) - \sum\limits_{i=1}^m \log(1 + \text{exp}(\theta_0^\top x_i + \theta_1))
 $$
 
 # References
+
 * [Convex Optimization @ UCLA](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) by Prof. L. Vandenberghe
 * [Numerical explanation](https://cvxopt.org/examples/book/logreg.html)

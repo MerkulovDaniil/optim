@@ -1,0 +1,47 @@
+project:
+  type: website
+  render:
+    - /docs/**/*.md
+    - index.md
+  output-dir: _site
+  resources: 
+    - "docs/**/*.mp4"
+    - "assets/files/*.pdf"
+
+format: fminxyz-html
+
+execute:
+  freeze: auto
+
+filters:
+  - fminxyz
+
+website:
+  navbar:
+    title: false
+    logo: logo.svg
+    logo-alt: fmin.xyz
+    tools:
+      - icon: github
+        href: https://github.com/MerkulovDaniil/optim
+      - icon: youtube
+        href: https://www.youtube.com/@fmin
+      - icon: telegram
+        href: https://t.me/fminxyz
+  sidebar: 
+    style: "docked"
+    collapse-level: 1
+    contents: docs/**/*.md
+  repo-url: https://github.com/MerkulovDaniil/optim
+  repo-branch: master
+  repo-actions: [edit]
+  search: 
+    location: navbar
+    type: textbox
+  twitter-card: true
+  open-graph: true
+  favicon: favicon.svg
+  # reader-mode: true
+  # back-to-top-navigation: true
+  margin-footer: |
+      <button type="button" name="button" class="btn" id="toggleSpoilers">🔽</button>

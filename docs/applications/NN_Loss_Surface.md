@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Neural Network Loss Surface Visualization
 parent: Applications
 ---
@@ -28,9 +27,9 @@ Here, $\alpha$ plays the role of a coordinate along the $w_1$ direction, and $b$
 
 It is important to note that the characteristics of the resulting graph heavily rely on the chosen projection direction. It's not feasible to maintain the entirety of the informationWhen transforming a space with 100,000 dimensions into a one-dimensional line through projection. However, certain properties can still be established. For instance, if $\mathcal{L} (\alpha) \mid_{\alpha=0}$ is decreasing, this indicates that the point lies on a slope. Additionally, if the projection is non-convex, it implies that the original surface was not convex.
 
-![](nn_vis_CNN_line_no_drop.svg)
+![Illustration](nn_vis_CNN_line_no_drop.svg)
 
-![](nn_vis_CNN_line_drop.svg)
+![Illustration](nn_vis_CNN_line_drop.svg)
 
 # Two dimensional projection
 We can explore this idea further and draw the projection of the loss surface to the plane, which is defined by 2 random vectors. Note, that with 2 random gaussian vectors in the huge dimensional space are almost certainly orthogonal.
@@ -43,10 +42,13 @@ $$
 
 which immediately leads us to the following nice pictures:
 
-{% include_relative nn_vis_CNN_plane_no_drop.html %}
+:::{.plotly}
+nn_vis_CNN_plane_no_drop.html
+:::
 
-{% include_relative nn_vis_CNN_plane_drop.html %}
-
+:::{.plotly}
+nn_vis_CNN_plane_drop.html
+:::
 
 # Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NN_Surface_Visualization.ipynb){: .btn }

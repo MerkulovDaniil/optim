@@ -1,11 +1,16 @@
 ---
-layout: default
 title: Gradient descent
-parent: First order methods
-grand_parent: Methods
-nav_order: 1
-bibtex: |
-  @article{cauchy1847methode,
+order: 1
+---
+
+::: {.panel-tabset}
+
+## 📝 File 
+[Original Cauchy paper](/assets/files/GD.pdf)
+
+## 📚 bibtex
+```bibtex
+@article{cauchy1847methode,
   title={M{\'e}thode g{\'e}n{\'e}rale pour la r{\'e}solution des systemes d’{\'e}quations simultan{\'e}es}, author={Cauchy, Augustin},
   journal={Comp. Rend. Sci. Paris},
   volume={25},
@@ -13,8 +18,9 @@ bibtex: |
   pages={536--538},
   year={1847}
   }
-file: /assets/files/GD.pdf
----
+```
+:::
+
 # Summary
 
 A classical problem of function minimization is considered. 
@@ -25,22 +31,24 @@ x_{k+1} = x_k - \eta_k\nabla f(x_k)
 $$
 
 * The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method's behavior. 
-* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $$\eta_k = \dfrac{1}{L}$$.
-* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $$\mathcal{O}(p)$$).
+* One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant $\eta_k = \dfrac{1}{L}$.
+* In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least $\mathcal{O}(p)$).
 * If function has Lipschitz-continious gradient, then method could be rewritten as follows:
 
-$$ \begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
-&= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}$$
+$$
+\begin{align*}x_{k+1} &= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
+&= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}
+$$
 
 # Intuition
 ## Direction of local steepest descent
-Let's consider a linear approximation of the differentiable function $$f$$ along some direction $$h, \|h\|_2 = 1$$:
+Let's consider a linear approximation of the differentiable function $f$ along some direction $h, \|h\|_2 = 1$:
 
 $$
 f(x + \eta h) = f(x) + \eta \langle f'(x), h \rangle + o(\eta)
 $$
 
-We want $$h$$ to be a decreasing direction:
+We want $h$ to be a decreasing direction:
 
 $$
 f(x + \eta h) < f(x)
@@ -50,7 +58,7 @@ $$
 f(x) + \eta \langle f'(x), h \rangle + o(\eta) < f(x)
 $$
 
-and going to the limit at $$\eta \rightarrow 0$$:
+and going to the limit at $\eta \rightarrow 0$:
 
 $$
 \langle f'(x), h \rangle \leq 0
@@ -68,7 +76,7 @@ $$
 h = -\dfrac{f'(x)}{\|f'(x)\|_2}
 $$
 
-gives the direction of the **steepest local** decreasing of the function $$f$$.
+gives the direction of the **steepest local** decreasing of the function $f$.
 
 The result of this method is
 
@@ -85,15 +93,15 @@ $$
 \frac{dx}{dt} = -f'(x(t))
 $$
 
-and discretize it on a uniform grid with $$\eta$$ step:
+and discretize it on a uniform grid with $\eta$ step:
 
 $$
 \frac{x_{k+1} - x_k}{\eta} = -f'(x_k),
 $$
 
-where $$x_k \equiv x(t_k)$$ and $$\eta = t_{k+1} - t_k$$ - is the grid step.
+where $x_k \equiv x(t_k)$ and $\eta = t_{k+1} - t_k$ - is the grid step.
 
-From here we get the expression for $$x_{k+1}$$
+From here we get the expression for $x_{k+1}$
 
 $$
 x_{k+1} = x_k - \eta f'(x_k),
@@ -116,13 +124,13 @@ This is, surely, not a proof at all, but some kind of intuitive explanation.
 
 ## Minimizer of Lipschitz parabola
 
-Some general highlights about Lipschitz properties are needed for explanation. If a function $$f: \mathbb{R}^n \to \mathbb{R}$$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $$L$$, then $$\forall x,y \in \mathbb{R}^n$$:
+Some general highlights about Lipschitz properties are needed for explanation. If a function $f: \mathbb{R}^n \to \mathbb{R}$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $L$, then $\forall x,y \in \mathbb{R}^n$:
 
 $$
 |f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,
 $$
 
-which geometrically means, that if we'll fix some point $$x_0 \in \mathbb{R}^n$$ and define two parabolas:
+which geometrically means, that if we'll fix some point $x_0 \in \mathbb{R}^n$ and define two parabolas:
 
 $$
 \phi_1(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle - \frac{L}{2} \|x-x_0\|^2,
@@ -149,11 +157,11 @@ $$
 \end{align*}
 $$
 
-![](../lipschitz_parabola.svg)
+![Illustration](lipschitz_parabola.svg)
 
-This way leads to the $$\frac{1}{L}$$ stepsize choosing. However, often the $$L$$ constant is not known.
+This way leads to the $\frac{1}{L}$ stepsize choosing. However, often the $L$ constant is not known.
 
-But if the function is twice continuously differentiable and its gradient has Lipschitz constant $$L$$, we can derive a way to estimate this constant $$\forall x \in \mathbb{R}^n$$:
+But if the function is twice continuously differentiable and its gradient has Lipschitz constant $L$, we can derive a way to estimate this constant $\forall x \in \mathbb{R}^n$:
 
 $$
 \|\nabla^2 f(x) \| \leq L
@@ -167,10 +175,11 @@ $$
 
 # Stepsize choosing strategies
 
-Stepsize choosing strategy $$\eta_k$$ significantly affects convergence. General {%include link.html title='Line search'%} algorithms might help in choosing scalar parameter. 
+Stepsize choosing strategy $\eta_k$ significantly affects convergence. General line search algorithms might help in choosing scalar parameter. 
+
 ## Constant stepsize
 
-For $$f \in C_L^{1,1}$$:
+For $f \in C_L^{1,1}$:
 
 $$
 \eta_k = \eta
@@ -180,7 +189,7 @@ $$
 f(x_k) - f(x_{k+1}) \geq \eta \left(1 - \frac{1}{2}L\eta \right) \|\nabla f(x_k)\|^2
 $$
 
-With choosing $$\eta = \frac{1}{L}$$, we have:
+With choosing $\eta = \frac{1}{L}$, we have:
 
 $$
 f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
@@ -217,17 +226,18 @@ $$
 ## Goldstein-Armijo
 
 # Convergence analysis
+
 ## Convex case
 
 ### Lipischitz continuity of the gradient
-Assume that  $$f: \mathbb{R}^n \to \mathbb{R}$$ is convex and differentiable, and additionally
+Assume that  $f: \mathbb{R}^n \to \mathbb{R}$ is convex and differentiable, and additionally
 $$
 \|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
 $$
 
-i.e. , $$\nabla f$$ is Lipschitz continuous with constant $$L > 0$$.
+i.e. , $\nabla f$ is Lipschitz continuous with constant $L > 0$.
 
-Since $$\nabla f$$ Lipschitz with constant $$L$$, which means $$\nabla^2 f \preceq LI$$, we have $$\forall x, y, z$$:
+Since $\nabla f$ Lipschitz with constant $L$, which means $\nabla^2 f \preceq LI$, we have $\forall x, y, z$:
 
 $$
 (x − y)^\top(\nabla^2 f(z) − LI)(x − y) \leq 0
@@ -237,7 +247,7 @@ $$
 (x − y)^\top\nabla^2 f(z)(x − y) \leq L \|x-y\|^2
 $$
 
-Now we'll consider second order Taylor approximation of $$f(y)$$ and Taylor’s Remainder Theorem (we assum, that the function $$f$$ is continuously differentiable), we have $$\forall x, y, \exists z ∈ [x, y]:$$
+Now we'll consider second order Taylor approximation of $f(y)$ and Taylor’s Remainder Theorem (we assume, that the function $f$ is continuously differentiable), we have $\forall x, y, \exists z ∈ [x, y]:$
 
 $$
 \begin{align*}
@@ -246,7 +256,7 @@ f(y) &= f(x) + \nabla f(x)^\top(y − x) + \frac{1}{2}(x − y)^\top \nabla^2 f(
 \end{align*}
 $$
 
-For the gradient descent we have $$x = x_k, y = x_{k+1}, x_{k+1} = x_k - \eta_k\nabla f(x_k) $$:
+For the gradient descent we have $x = x_k, y = x_{k+1}, x_{k+1} = x_k - \eta_k\nabla f(x_k)$:
 
 $$
 \begin{align*}
@@ -256,7 +266,7 @@ f(x_{k+1}) &\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2
 $$
 
 ### Optimal constant stepsize
-Now, if we'll consider constant stepsize strategy and will maximize $$\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}$$, we'll get $$\eta = \dfrac{1}{L}$$.
+Now, if we'll consider constant stepsize strategy and will maximize $\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}$, we'll get $\eta = \dfrac{1}{L}$.
 
 $$
 f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
@@ -286,7 +296,7 @@ $$
 \end{align*}
 $$
 
-where $$R = \|x_0 - x^*\|$$. And due to function monotonicity:
+where $R = \|x_0 - x^*\|$. And due to function monotonicity:
 
 $$
 f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k} 
@@ -314,8 +324,8 @@ $$
 | $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
 | $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
 
-* $$R = \| x_0 - x^*\| $$ - initial distance
-* \$$\overline{R} = \dfrac{2\mu}{M}$$
+* $R = \| x_0 - x^*\|$ - initial distance
+* $\overline{R} = \dfrac{2\mu}{M}$
 
 # Materials
 

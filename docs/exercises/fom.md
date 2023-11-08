@@ -1,9 +1,9 @@
 ---
-layout: default
 title: First order methods
-parent: Exercises
-nav_order: 16
+order: 16
 ---
+
+# First order methods{.unnumbered}
 
 1. A function is said to belong to the class $f \in C^{k,p}_L (Q)$ if it $k$ times is continuously differentiable on $Q$ and the $p$th derivative has a Lipschitz constant $L$. 
 
@@ -172,6 +172,6 @@ nav_order: 16
     plot_3d_function(x1, x2, f_6, title, k, minima=[0,0], iterations = iterations)
     ```
 
-1. Solve the Hobbit Village problem. [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Hobbit_village.ipynb){: .btn }
+1. Solve the Hobbit Village problem. [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Hobbit_village.ipynb)
 
-1. Solve the problem of constrained optimization using projected gradient descent [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Projected_gradient_descent_affine.ipynb){: .btn }
+1. Solve the problem of constrained optimization using projected gradient descent [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Projected_gradient_descent_affine.ipynb)

@@ -1,8 +1,7 @@
 ---
-layout: default
 parent: Methods
 title: LP and simplex algorithm
-nav_order: 5
+order: 4
 ---
 # What is LP
 
@@ -16,12 +15,12 @@ $$
 \end{align*}
 $$
 
-![](../LP.svg)
+![Illustration](LP.svg)
 
-for some vectors $$c \in \mathbb{R}^n$$, $$b \in \mathbb{R}^m$$ and matrix $$A \in \mathbb{R}^{m \times n}$$. Where the inequalities are interpreted component-wise.
+for some vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$. Where the inequalities are interpreted component-wise.
 
 ## Standard form
-This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $$c \in \mathbb{R}^n$$, $$b \in \mathbb{R}^m$$ and matrix $$A \in \mathbb{R}^{m \times n}$$.
+This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$.
 
 $$
 \tag{LP.Standard}
@@ -46,7 +45,7 @@ $$
 ## Real world problems
 
 ### Diet problem
-Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix $$W$$. Let also assume, that we have the vector of requirements for each of nutrients $$r \in \mathbb{R}^n$$. We need to find the cheapest configuration of the diet, which meets all the requirements:
+Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix $W$. Let also assume, that we have the vector of requirements for each of nutrients $r \in \mathbb{R}^n$. We need to find the cheapest configuration of the diet, which meets all the requirements:
 
 $$
 \begin{align*}
@@ -56,11 +55,12 @@ $$
 \end{align*}
 $$
 
-![](../diet_LP.svg)
+![Illustration](diet_LP.svg)
 
 # How to retrieve LP
+
 ## Basic transformations
-Inequality to equality by increasing the dimension of the problem by $$m$$.
+Inequality to equality by increasing the dimension of the problem by $m$.
 
 $$
 Ax \leq b \leftrightarrow 
@@ -83,7 +83,6 @@ $$
 
 ## Chebyshev approximation problem
 
-
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
 $$
@@ -96,8 +95,7 @@ $$
 \end{align*}
 $$
 
-## $$l_1$$ approximation problem
-
+## $l_1$ approximation problem
 
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
@@ -113,8 +111,8 @@ $$
 
 # Idea of simplex algorithm
 
-* The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases $$c^\top x$$ most
-* This either terminates at a corner, or leads to an unconstrained edge ($$-\infty$$ optimum)
+* The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases $c^\top x$ most
+* This either terminates at a corner, or leads to an unconstrained edge ($-\infty$ optimum)
 
 We will illustrate simplex algorithm for the simple inequality form of LP:
 
@@ -126,15 +124,15 @@ $$
 \end{align*}
 $$
 
-Definition: a **basis** $$B$$ is a subset of $$n$$ (integer) numbers between $$1$$ and $$m$$, so that $$\text{rank} A_B = n$$. Note, that we can associate submatrix $$A_B$$ and corresponding right-hand side $$b_B$$ with the basis $$B$$. Also, we can derive a point of intersection of all these hyperplanes from basis: $$x_B = A^{-1}_B b_B$$. 
+Definition: a **basis** $B$ is a subset of $n$ (integer) numbers between $1$ and $m$, so that $\text{rank} A_B = n$. Note, that we can associate submatrix $A_B$ and corresponding right-hand side $b_B$ with the basis $B$. Also, we can derive a point of intersection of all these hyperplanes from basis: $x_B = A^{-1}_B b_B$. 
 
-If $$A x_B \leq b$$, then basis $$B$$ is **feasible**. 
+If $A x_B \leq b$, then basis $B$ is **feasible**. 
 
-A basis $$B$$ is optimal if $$x_B$$ is an optimum of the $$\text{LP.Inequality}$$.
+A basis $B$ is optimal if $x_B$ is an optimum of the $\text{LP.Inequality}$.
 
-![](../LP_1.svg)
+![Illustration](LP_1.svg)
 
-Since we have a basis, we can decompose our objective vector $$c$$ in this basis and find the scalar coefficients $$\lambda_B$$:
+Since we have a basis, we can decompose our objective vector $c$ in this basis and find the scalar coefficients $\lambda_B$:
 
 $$
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
@@ -142,7 +140,7 @@ $$
 
 ## Main lemma
 
-If all components of $$\lambda_B$$ are non-positive and $$B$$ is feasible, then $$B$$ is optimal.
+If all components of $\lambda_B$ are non-positive and $B$ is feasible, then $B$ is optimal.
 
 **Proof:**
 
@@ -158,9 +156,9 @@ $$
 
 ## Changing basis
 
-Suppose, some of the coefficients of $$\lambda_B$$ are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)
+Suppose, some of the coefficients of $\lambda_B$ are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)
 
-![](../LP_2.svg)
+![Illustration](LP_2.svg)
 
 $$
 x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
@@ -168,7 +166,7 @@ $$
 
 ## Finding an initial basic feasible solution
 
-Let us consider $$\text{LP.Canonical}$$.
+Let us consider $\text{LP.Canonical}$.
 
 $$
 \begin{align*}
@@ -178,7 +176,7 @@ $$
 \end{align*}
 $$
 
-The proposed algorithm requires an initial basic feasible solution and corresponding basis. To compute this solution and basis, we start by multiplying by $$−1$$ any row $$i$$ of $$Ax = b$$ such that $$b_i < 0$$. This ensures that $$b \geq 0$$. We then introduce artificial variables $$z \in \mathbb{R}^m$$ and consider the following LP:
+The proposed algorithm requires an initial basic feasible solution and corresponding basis. To compute this solution and basis, we start by multiplying by $−1$ any row $i$ of $Ax = b$ such that $b_i < 0$. This ensures that $b \geq 0$. We then introduce artificial variables $z \in \mathbb{R}^m$ and consider the following LP:
 
 $$
 \tag{LP.Phase 1}
@@ -189,21 +187,22 @@ $$
 \end{align*}
 $$
 
-which can be written in canonical form $$\min\{\tilde{c}^\top \tilde{x} \mid \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}$$ by setting
+which can be written in canonical form $\min\{\tilde{c}^\top \tilde{x} \mid \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}$ by setting
 
 $$
 \tilde{x} = \begin{bmatrix}x\\z\end{bmatrix}, \quad \tilde{A} = [A \; I], \quad \tilde{b} = b, \quad \tilde{c} = \begin{bmatrix}0_n\\1_m\end{bmatrix}
 $$
 
-An initial basis for $$\text{LP.Phase 1}$$ is $$\tilde{A}_B = I, \tilde{A}_N = A$$ with corresponding basic feasible solution $$\tilde{x}_N = 0, \tilde{x}_B = \tilde{A}^{-1}_B \tilde{b} = \tilde{b} \geq 0$$. We can therefore run the simplex method on $$\text{LP.Phase 1}$$, which will converge to an optimum $$\tilde{x}^*$$. $$\tilde{x} = (\tilde{x}_N \; \tilde{x}_B)$$. There are several possible outcomes:
+An initial basis for $\text{LP.Phase 1}$ is $\tilde{A}_B = I, \tilde{A}_N = A$ with corresponding basic feasible solution $\tilde{x}_N = 0, \tilde{x}_B = \tilde{A}^{-1}_B \tilde{b} = \tilde{b} \geq 0$. We can therefore run the simplex method on $\text{LP.Phase 1}$, which will converge to an optimum $\tilde{x}^*$. $\tilde{x} = (\tilde{x}_N \; \tilde{x}_B)$. There are several possible outcomes:
 
 * $\tilde{c}^\top \tilde{x} > 0$. Original primal is infeasible.
 * $\tilde{c}^\top \tilde{x} = 0 \to 1^\top z^* = 0$. The obtained solution is a start point for the original problem (probably with slight modification).
 
 # Convergence
+
 ## [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
 
-In the following problem simplex algorithm needs to check $$2^n - 1$$ vertexes with $$x_0 = 0$$. 
+In the following problem simplex algorithm needs to check $2^n - 1$ vertexes with $x_0 = 0$. 
 
 $$
 \begin{align*} & \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
@@ -215,17 +214,19 @@ $$
 \end{align*}
 $$
 
-![](../LP_KM.svg)
+![Illustration](LP_KM.svg)
 
 ## Strong duality
 
 There are four possibilities:
+
 * Both the primal and the dual are infeasible.
 * The primal is infeasible and the dual is unbounded.
 * The primal is unbounded and the dual is infeasible.
 * Both the primal and the dual are feasible and their optimal values are equal.
 
 # Summary
+
 * A wide variety of applications could be formulated as the linear programming.
 * Simplex algorithm is simple, but could work exponentially long.
 * Khachiyan’s ellipsoid method is the first to be proved running at polynomial complexity for LPs. However, it is usually slower than simplex in real problems.
@@ -233,7 +234,7 @@ There are four possibilities:
 
 # Code
 
-[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb){: .btn }
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb)
 
 # Materials
 

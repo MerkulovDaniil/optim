@@ -1,17 +1,15 @@
 ---
-layout: default
 title: Deep learning
-parent: Applications
 ---
 
 # Problem
 
-![](../dl.png)
+![Illustration](dl.png)
 
 A lot of practical tasks nowadays are being solved using the deep learning approach, which is usually implies finding local minimum of a non-convex function, that generalizes well (enough 😉). The goal of this short text is to show you the importance of the optimization behind neural network training.
 
 ## Cross entropy
-One of the most commonly used loss functions in classification tasks is the normalized categorical cross-entropy in $$K$$ class problem:
+One of the most commonly used loss functions in classification tasks is the normalized categorical cross-entropy in $K$ class problem:
 
 $$
 L(\theta) = - \dfrac{1}{n}\sum_{i=1}^n (y_i^\top\log(h_\theta(x_i)) + (1 - y_i)^\top\log(1 - h_\theta(x_i))), \qquad h_\theta^k(x_i) = \dfrac{e^{\theta_k^\top x_i}}{\sum_{j = 1}^K e^{\theta_j^\top x_i}}
@@ -31,9 +29,9 @@ $$
 g(\theta) = \dfrac{1}{b} \sum\limits_{i=1}^b \left( h_\theta(x_i) - y_i \right) x_i^\top\approx \nabla_\theta L(\theta)
 $$
 
-where we initially sample randomly only $$b \ll n$$ points and calculate sample average. It can be also considered as a noisy version of the full gradient approach.
+where we initially sample randomly only $b \ll n$ points and calculate sample average. It can be also considered as a noisy version of the full gradient approach.
 
-![](../MLP_optims.svg)
+![Illustration](MLP_optims.svg)
 
 
 # Code

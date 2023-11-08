@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How eigenvalues of the hessian affects the critical point</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div id="plotlyDiv"></div>
+        <label>l1: <input id="l1Slider" type="range" min="-0.5" max="0.5" value="0" step="0.02" oninput="updatePlot()"><span id="l1Value">0</span></label>
+        <label>l2: <input id="l2Slider" type="range" min="-0.5" max="0.5" value="0" step="0.02" oninput="updatePlot()"><span id="l2Value">0</span></label>
+        
+    </div>
+
+    <script>
+        // Initialize the plot
+        var layout = {
+            title: 'How eigenvalues of the hessian affects the critical point',
+            scene: {
+                xaxis_title: 'X',
+                yaxis_title: 'Y',
+                zaxis_title: 'Z',
+            },
+        };
+
+        var x = Array.from({ length: 50 }, (_, i) => -5 + i * 0.2);
+        var y = Array.from({ length: 50 }, (_, i) => -5 + i * 0.2);
+
+        var data = [{
+            type: 'surface',
+            z: generateZ(0, 0),
+            x: x,
+            y: y,
+            colorscale: 'sunset' // Set the colorscale to sunset
+        }];
+
+        Plotly.newPlot('plotlyDiv', data, layout);
+
+        function f(x, y, l1, l2) {
+            return l1 * x * x + l2 * y * y;
+        }
+
+        function generateZ(l1, l2) {
+            return x.map(xVal => y.map(yVal => f(xVal, yVal, l1, l2)));
+        }
+
+        function updatePlot() {
+            var l1 = parseFloat(document.getElementById('l1Slider').value);
+            var l2 = parseFloat(document.getElementById('l2Slider').value);
+            
+            // Update displayed values
+            document.getElementById('l1Value').textContent = l1.toFixed(2);
+            document.getElementById('l2Value').textContent = l2.toFixed(2);
+
+            var updatedZ = generateZ(l1, l2);
+
+            Plotly.update('plotlyDiv', { z: [updatedZ], colorscale: 'sunset' });
+        }
+
+
+    </script>
+
+</body>
+
+</html>

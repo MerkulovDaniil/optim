@@ -1,32 +1,34 @@
 ---
-layout: default
-parent: Theory
 title: Convex optimization problem
-nav_order: 9
+order: 9
 ---
 
 # Convex optimization problem
+
+![The idea behind the definition of a convex optimization problem](cop.svg)
+
 Note, that there is an agreement in notation of mathematical programming. The problems of the following type are called **Convex optimization problem**:
 
 $$
 \begin{split}
-& f(x) \to \min\limits_{x \in \mathbb{R}^n}\\
-\text{s.t. } & g_i(x) \leq 0, \; i = 1,\ldots,m\\
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\
 & Ax = b,
 \end{split}
 \tag{COP}
 $$
 
-where all the functions $$f(x), g_1(x), \ldots, g_m(x)$$ are convex and all the equality constraints are affine. It sounds a bit strange, but not all convex problems are convex optimization problems. 
+where all the functions $f_0(x), f_1(x), \ldots, f_m(x)$ are convex and all the equality constraints are affine. It sounds a bit strange, but not all convex problems are convex optimization problems. 
 
 $$
 \tag{CP}
-f(x) \to \min\limits_{x \in S},
+f_0(x) \to \min\limits_{x \in S},
 $$
 
-where $$f(x)$$ is a convex function, defined on the convex set $$S$$. The necessity of affine equality constraint is essential (see Slater's condition in {% include link.html title = 'Duality' %}). 
+where $f_0(x)$ is a convex function, defined on the convex set $S$. The necessity of affine equality constraint is essential.
 
-For example, this problem is not a convex optimization problem (but implies minimizing the convex function over the convex set):
+:::{.callout-example}
+This problem is not a convex optimization problem (but implies minimizing the convex function over the convex set):
 
 $$
 \begin{split}
@@ -47,8 +49,9 @@ $$
 \end{split}
 \tag{COP}
 $$
+:::
 
-Such confusion in notation is sometimes being avoided by naming problems of type $$\text{(CP)}$$ as *abstract form convex optimization problem*.
+Such confusion in notation is sometimes being avoided by naming problems of type $\text{(CP)}$ as *abstract form convex optimization problem*.
 
 # Materials
 

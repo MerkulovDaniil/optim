@@ -1,5 +1,4 @@
 ---
-layout: default
 title: $A^*$ algorithm for path finding
 parent: Applications
 ---
@@ -26,7 +25,7 @@ This is the simplest algorithm for graph traversing. It starts at the tree root 
 |![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/250px-MapGermanyGraph.svg.png)|![](https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/250px-GermanyBFS.svg.png)|![](https://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif)
 |
 
-Obviously this algorithm has low performance: $$O(\vert V \vert + \vert E\vert) = O(b^d)$$, where **b** is *branch factor* (average quantity of children nodes in tree, e.g. for binary tree $$b=2$$) and **d** is depth/distance from root.
+Obviously this algorithm has low performance: $O(\vert V \vert + \vert E\vert) = O(b^d)$, where **b** is *branch factor* (average quantity of children nodes in tree, e.g. for binary tree $b=2$) and **d** is depth/distance from root.
 
 
 ## Dijkstra's algorithm
@@ -37,7 +36,7 @@ Obviously this algorithm has low performance: $$O(\vert V \vert + \vert E\vert) 
 
 ## Greedy Best-First-Search
 With Breadth First Search and Dijkstra’s Algorithm, the frontier expands in all directions. This is a reasonable choice if you’re trying to find a path to all locations or to many locations. However, a common case is to find a path to only one location. 
-Let’s make the frontier expand towards the goal more than it expands in other directions. First, we’ll define a **heuristic function** that tells us how close we are to the goal. E.g. on flat map we can use function like $$H(A, B) = |A.x - B.x| + |A.y - B.y|$$ , where **A** and **B**  are nodes with coordinates **{x, y}**.
+Let’s make the frontier expand towards the goal more than it expands in other directions. First, we’ll define a **heuristic function** that tells us how close we are to the goal. E.g. on flat map we can use function like $H(A, B) = |A.x - B.x| + |A.y - B.y|$ , where **A** and **B**  are nodes with coordinates **{x, y}**.
 Let's consider not only shortest edges, but also use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.
 
 | Result of Heuristic function | Animation |
@@ -81,6 +80,7 @@ def heuristic(a, b):
 	return ((x1 - x2)**2 + (y1 - y2)**2)**.5
 ```
 Now we can implement our A-Star algorithm. First of all we need to init our algorithm: **frontier** stores points according to priority. We will store information in dictionaries:
+
 - **came_from** like pair <TO point \: FROM point>
 - **cost_so_far** like pair <Point \: Distance from start>
 
@@ -122,7 +122,7 @@ Now let's try to compare Dijkstra's algorithm with A-Star. For this task we will
 |![Example](https://lh3.googleusercontent.com/LXZ8lb6CbuhHM2BeGlTKP3tN7RnBlAW3URpVD1DFnMDZke4xbRk-oHOIUebZtnu0-lllgPzgLoI)|![Example](https://lh3.googleusercontent.com/nMB_FmMktLemUT1gEz-BjROu1m1CWqAkeE5x3_tHCGA3QFL6Nyy_hH-2mjTBCX9kCubjged1qB0)|
 |Due to the fact that the algorithm does not know the final position, it considers all possible directions, including dead ends, which affects the number of iterations|Due to the fact that the algorithm knows the final position, it first considers those points that are closest to the target, so in some cases it does not go into false dead ends|
 
-![Comparison](../a_star_dijkstra.svg)
+![Comparison](./a_star_dijkstra.svg)
 
 It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra's.
 

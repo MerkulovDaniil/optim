@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Bee algorithm
 parent: Zero order methods
 grand_parent: Methods
@@ -54,9 +53,9 @@ A random point is selected from the definition area to initialize the algorithm.
 
 The Schwefel function is complex, with many local minima. The plot shows the two-dimensional form of the function.
 
-![schwef](../Schwefel_function_plot.svg)
+![schwef](Schwefel_function_plot.svg)
 
-The function is usually evaluated on the hypercube $$ x_i \in [-500, 500] $$  for all $$ i = 1, ..., d $$.
+The function is usually evaluated on the hypercube $x_i \in [-500, 500]$ for all $i = 1, ..., d$.
 
 $$
 f(x_1 \cdots x_d) = 418.9829 \cdot d -\sum_{i=1}^d (x_i sin(\sqrt{|x_i|}))
@@ -70,18 +69,18 @@ $$
 
 The plot below shows drop of the objective function averaged over 100 runs of the algorithm can be observed in the following graph.
 
-![Schwefel function](../Schwefel_average.svg)
+![Schwefel function](Schwefel_average.svg)
 
 
 ### ROSENBROCK FUNCTION
 
 The Rosenbrock function, also referred to as the Valley or Banana function, is a popular test problem for gradient-based optimization algorithms. It is shown in the plot below in its two-dimensional form.
 
-![rosen](../Rosenbrock_function_plot.svg)
+![rosen](Rosenbrock_function_plot.svg)
 
 The function is unimodal, and the global minimum lies in a narrow, parabolic valley. However, even though this valley is easy to find, convergence to the minimum is difficult.
 
-The function is usually evaluated on the hypercube $$ x_i \in [-5, 10] $$  for all $$ i = 1, ..., d $$, although it may be restricted to the hypercube $$ x_i \in [-2.048, 2.048] $$  for all $$ i = 1, ..., d $$.
+The function is usually evaluated on the hypercube $x_i \in [-5, 10]$  for all $i = 1, ..., d$, although it may be restricted to the hypercube $x_i \in [-2.048, 2.048]$  for all $i = 1, ..., d$.
 
 $$
 f(x_1 \cdots x_d) = \sum_{i=1}^{d-1} (100(x_i^2 - x_{i+1})^2 + (1-x_i)^2) \\-2.048 \leq x_i \leq 2.048
@@ -95,11 +94,11 @@ $$
 
 To test the algorithm the four-dimensional Rosenbrock function was chosen. The fall of the objective function averaged over 100 runs of the algorithm can be observed in the following graph.
 
-![Rosenbrock function](../Rosenbrock_average.svg)
+![Rosenbrock function](Rosenbrock_average.svg)
 
 Moreover, the number of iterations required to find the point at which the value of the target function differs from the optimal one by no more than 0.2%(new stopping criteria) has also been tested for some dimensions of the Rosenbrock function. One can see the results at the chart below.
 
-![Rosenbrock_dimension](../Rosenbrock_dimension.svg)
+![Rosenbrock_dimension](Rosenbrock_dimension.svg)
 
 # References
 

@@ -1,9 +1,8 @@
 ---
-layout: default
 title: Stochastic gradient descent
 parent: First order methods
 grand_parent: Methods
-nav_order: 5
+order: 5
 bibtex: |
   @article{robbins1951stochastic,
   title={A stochastic approximation method},
@@ -133,25 +132,19 @@ $$
 \mathbb{E}[\|x_{k} - x^*\|^2] \leq (1 - 2\alpha_k \mu)^{k} R^2 + \frac{\alpha B^2}{2\mu},
 $$
 
-where $R = \|x_0- x^*\| $
-
-<!-- % <![CDATA[
-\begin{align*}
-\| x_{k+1} - x^* \|^2 & = \|x_k - x^* - \alpha_k g_k\|^2 = \\
-                      & = \| x_k - x^* \|^2 + \alpha_k^2 g_k^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
-\end{align*} %]]> -->
+where $R = \|x_0- x^*\|$
 
 # Bounds
 
 | Conditions | $\Vert \mathbb{E} [f(x_k)] - f(x^*)\Vert \leq$ | Type of convergence |
 | ---------- | ---------------------- | ------------------- | 
-| Convex, Lipschitz-continuous gradient (L) | $ \mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) $ | Sublinear |
-| $ \mu$-Strongly convex, Lipschitz-continuous gradient (L) | $\mathcal{O}\left(\dfrac{1}{k} \right) $ | Sublinear |
-| Convex, non-smooth | $ \mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right) $ | Sublinear |
-| $ \mu$-Strongly convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{k} \right) $ | Sublinear |
+| Convex, Lipschitz-continuous gradient (L) | $\mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right)$ | Sublinear |
+| $\mu$-Strongly convex, Lipschitz-continuous gradient (L) | $\mathcal{O}\left(\dfrac{1}{k} \right)$ | Sublinear |
+| Convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right)$ | Sublinear |
+| $\mu$-Strongly convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{k} \right)$ | Sublinear |
 
 # Code
-[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb){: .btn }
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb)
 
 # References
 * [Lecture](https://www.cs.ubc.ca/~schmidtm/Courses/540-W18/L10.pdf) by Mark Schmidt @ University of British Columbia

@@ -1,245 +1,261 @@
 ---
-layout: default
-parent: Theory
 title: Conjugate set
-nav_order: 4
+order: 4
 ---
 
-# Conjugate (dual) set
+# Conjugate (Fenchel conjugate, dual, Fenchel dual) set
 
-Пусть $$S \subseteq \mathbb{R}^n$$ - произвольное непустое множество. Тогда cопряженное к нему множество определяется, как:
+## Definitions
 
-$$
-S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\}
-$$
-
-
-![](../normal.png)
-
-## Double conjugate set
-Множество $$S^{**}$$ называется вторым сопряженным к множеству $$S$$, если:
+Let $S \subseteq \mathbb{R}^n$ be an arbitrary non-empty set. Then its conjugate set is defined as:
 
 $$
-S^{**} = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S^*\}
+S^* = \{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\}
 $$
 
-## Inter-conjugate and self-conjugate sets
-* Множества $$S_1$$ и $$S_2$$ называются **взаимосопряженными**, если $$S_1^* = S_2, S_2^* = S_1$$.
-* Множество $$S$$ называется **самосопряженным**, если $$S^{*} = S$$.
+![Convex sets may be described in a dual way - through the elements of the set and through the set of hyperplanes supporting it](conjugate_set.svg){#fig-conjugate_set}
+
+A set $S^{**}$ is called double conjugate to a set $S$ if:
+
+$$
+S^{**} = \{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S^*\}
+$$
+
+* The sets $S_1$ and $S_2$ are called **inter-conjugate** if $S_1^* = S_2, S_2^* = S_1$.
+* A set $S$ is called **self-conjugate** if $S^{*} = S$.
 
 ## Properties
-* Сопряженное множество всегда замкнуто, выпукло и содержит нуль.
-* Для произвольного множества $$S \subseteq \mathbb{R}^n$$: 
 
-	$$
-	 S^{**} = \overline{ \mathbf{conv} (S \cup  \{0\}) }
-	$$
+* A conjugate set is always closed, convex, and contains zero.
+* For an arbitrary set $S \subseteq \mathbb{R}^n$: 
 
-* Если $$S_1 \subseteq S_2$$, то $$S_2^* \subseteq S_1^*$$.
-* $$\left( \bigcup\limits_{i=1}^m S_i \right)^* = \bigcap\limits_{i=1}^m S_i^*$$
-* Если $$S$$ - замкнуто, выпукло, включает $$0$$, то $$S^{**} = S$$.
-* $$S^* = \left(\overline{S}\right)^*$$
+    $$
+     S^{**} = \overline{ \mathbf{conv} (S \cup \{0\}) }
+    $$
+
+* If $S_1 \subseteq S_2$, then $S_2^* \subseteq S_1^*$.
+* $\left( \bigcup\limits_{i=1}^m S_i \right)^* = \bigcap\limits_{i=1}^m S_i^*$.
+* If $S$ is closed, convex, and includes $0$, then $S^{**} = S$.
+* $S^* = \left(\overline{S}\right)^*$.
 
 ## Examples
 
-### 1
-Доказать, что $$S^* = \left(\overline{S}\right)^*$$.
+::: {.callout-example}
+Prove that $S^* = \left(\overline{S}\right)^*$.
 
-Решение:
+::: {.callout-solution collapse="true"}
 
-* $$S \subset \overline{S} \rightarrow \left(\overline{S}\right)^* \subset S^*$$
-* Пусть $$p \in S^*$$ и $$x_0 \in \overline{S}, x_0 = \underset{k \to \infty}{\operatorname{lim}} x_k$$. Тогда в силу непрерывности функции $$f(x) = p^Tx$$, имеем: $$p^T x_k \ge -1 \to p^Tx_0 \ge -1$$. Значит, $$p \in  \left(\overline{S}\right)^*$$, отсюда $$S^* \subset \left(\overline{S}\right)^*$$
+* $S \subset \overline{S}\rightarrow \left(\overline{S}\right)^* \subset S^*$.
+* Let $p \in S^*$ and $x_0 \in \overline{S}, x_0 = \underset{k \to \infty}{\operatorname{lim}} x_k$. Then by virtue of the continuity of the function $f(x) = p^Tx$, we have: $p^T x_k \ge -1 \to p^Tx_0 \ge -1$. So $p \in \left(\overline{S}\right)^*$, hence $S^* \subset \left(\overline{S}\right)^*$.
+:::
+:::
 
-### 2
-Доказать, что $$\left( \mathbf{conv}(S) \right)^* = S^*$$.
+::: {.callout-example}
+Prove that $\left( \mathbf{conv}(S) \right)^* = S^*$.
 
-Решение:
+::: {.callout-solution collapse="true"}
 
-* $$S \subset \mathbf{conv}(S) \to \left( \mathbf{conv}(S) \right)^* \subset S^*$$
-* Пусть $$p \in S^*$$, $$x_0 \in \mathbf{conv}(S)$$, т.е. $$x_0 = \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0$$.
+* $S \subset \mathbf{conv}(S) \to \left( \mathbf{conv}(S) \right)^* \subset S^*$.
+* Let $p \in S^*$, $x_0 \in \mathbf{conv}(S)$, i.e., $x_0 = \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0$.
 
-    Значит, $$p^T x_0 = \sum\limits_{i=1}^k\theta_i p^Tx_i \ge \sum\limits_{i=1}^k\theta_i (-1) = 1 \cdot (-1) = -1$$. Значит, $$p \in  \left( \mathbf{conv}(S) \right)^*$$, отсюда $$S^* \subset \left( \mathbf{conv}(S) \right)^*$$
+    So $p^T x_0 = \sum\limits_{i=1}^k\theta_i p^Tx_i \ge \sum\limits_{i=1}^k\theta_i (-1) = 1 \cdot (-1) = -1$. So $p \in \left( \mathbf{conv}(S) \right)^*$, hence $S^* \subset \left( \mathbf{conv}(S) \right)^*$.
 
-### 3
-Доказать, что если $$B(0,r)$$ - шар радиуса $$r$$ по некоторой норме с центром в нуле, то $$\left( B(0,r) \right)^* = B(0,1/r)$$.
+:::
+:::
 
-Решение:
+::: {.callout-example}
+Prove that if $B(0,r)$ is a ball of radius $r$ by some norm centered at zero, then $\left( B(0,r) \right)^* = B(0,1/r)$.
 
-* Пусть $$B(0,r) = X, B(0,1/r) = Y$$. Возьмем вектор нормали $$p \in X^*$$, тогда для любого $$x \in X: p^Tx \ge -1$$.
-* Из всех точек шара $$X$$ возьмем такую $$x \in X$$, что скалярное произведение её на $$p$$: $$p^Tx$$ было бы минимально, тогда это точка $$x = -\frac{p}{\|p\|}r$$
+::: {.callout-solution collapse="true"}
 
-	$$
-	p^T x = p^T \left(-\frac{p}{\|p\|}r \right) = -\|p\|r \ge -1
-	$$
+* Let $B(0,r) = X, B(0,1/r) = Y$. Take the normal vector $p \in X^*$, then for any $x \in X: p^Tx \ge -1$.
+* From all points of the ball $X$, take such a point $x \in X$ that its scalar product of $p$: $p^Tx$ is minimal, then this is the point $x = -\frac{p}{\|p\|}r$.
 
-	$$
-	\|p\| \le \frac{1}{r} \in Y
-	$$
+    $$
+    p^T x = p^T \left(-\frac{p}{\|p\||}r \right) = -\|p\|r \ge -1
+    $$
 
-	Значит, $$X^* \subset Y$$.
-* Теперь пусть $$p \in Y$$. Нам надо показать, что $$p \in X^*$$, т.е. $$\langle p, x\rangle \geq -1$$. Достаточно применить неравенство Коши - Буняковского:
+    $$
+    \|p\| \le \frac{1}{r} \in Y
+    $$
 
-	$$
-	\|\langle p, x\rangle\| \leq \|p\| \|x\| \leq \dfrac{1}{r} \cdot r = 1
-	$$
+    So $X^* \subset Y$.
+* Now let $p \in Y$. We need to show that $p \in X^*$, i.e., $\langle p, x\rangle \geq -1$. It's enough to apply the Cauchy-Bunyakovsky inequality:
 
-    Последнее исходит из того, что $$p \in B(0,1/r)$$, а $$x \in B(0,r)$$.
+    $$
+    \|\langle p, x\rangle\| \leq \|p\| \|x\| \leq \dfrac{1}{r} \cdot r = 1
+    $$
+
+    The latter comes from the fact that $p \in B(0,1/r)$ and $x \in B(0,r)$.
   
-    Значит, $$Y \subset X^*$$.
+    So $Y \subset X^*$.
 
-# Dual cones
-Сопряженным конусом к конусу $$K$$ называется такое множество $$K^*$$, что: 
+:::
+:::
 
-$$
-K^* = \left\{ y \mid \langle x, y\rangle \ge 0 \;\;\;\; \forall x \in K\right\}
-$$
-
-Чтобы показать, что это определение непосредственно следует из теории выше, вспомним, что такое сопряженное множество и что такое конус $$\forall \lambda > 0$$
+## Dual cones
+A conjugate cone to a cone $K$ is a set $K^*$ such that: 
 
 $$
-\{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\} \to \{\lambda y \ \in \mathbb{R}^n \mid \langle y, x\rangle \ge -\dfrac{1}{\lambda} \;\; \forall x \in S\}
+K^* = \left\{ y \mid \langle x, y\rangle \ge 0 \quad \forall x \in K\right\}
 $$
 
-![](../dual_cone.gif)
+To show that this definition follows directly from the theorem above, recall what a conjugate set is and what a cone $\forall \lambda > 0$ is.
+
+$$
+\{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\} \to \to \{\lambda y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -\dfrac{1}{\lambda} \;\; \forall x\in S\}
+$$
+
+![Illustration of dual cone](conjugate_cone.svg){#fig-conjugate_cone}
 
 ## Dual cones properties
-* Пусть $$K$$ - замкнутый выпуклый конус. Тогда $$K^{**} = K$$.
-* Для произвольного множества $$S \subseteq \mathbb{R}^n$$ и конуса $$K \subseteq \mathbb{R}^n$$: 
+* Let $K$ be a closed convex cone. Then $K^{**} = K$.
+* For an arbitrary set $S \subseteq \mathbb{R}^n$ and a cone $K \subseteq \mathbb{R}^n$: 
 
-	$$
-	\left( S + K \right)^* = S^* \cap K^*
-	$$
+    $$
+    \left( S + K \right)^* = S^* \cap K^*
+    $$
 
-* Пусть $$K_1, \ldots, K_m$$ - конусы в $$\mathbb{R}^n$$, тогда:
+* Let $K_1, \ldots, K_m$ be cones in $\mathbb{R}^n$, then:
 
-	$$
-	\left( \sum\limits_{i=1}^m K_i \right)^* = \bigcap\limits_{i=1}^m K_i^*
-	$$
+    $$
+    \left( \sum\limits_{i=1}^m K_i \right)^* = \bigcap\limits_{i=1}^m K_i^*
+    $$
 
-* Пусть $$K_1, \ldots, K_m$$ - конусы в $$\mathbb{R}^n$$. Пусть также их пересечение имеет внутреннюю точку, тогда:
+* Let $K_1, \ldots, K_m$ be cones in $\mathbb{R}^n$. Let also their intersection have an interior point, then:
 
-	$$
-	\left( \bigcap\limits_{i=1}^m K_i \right)^* = \sum\limits_{i=1}^m K_i^*
-	$$
+    $$
+    \left( \bigcap\limits_{i=1}^m K_i \right)^* = \sum\limits_{i=1}^m K_i^*
+    $$
+
 
 ## Examples
 
-Найти сопряженнй конус для монотонного неотрицательного конуса: 
+::: {.callout-example}
+Find the conjugate cone for a monotone nonnegative cone: 
 
 $$
- K = \left\{ x \in \mathbb{R}^n \mid x_1 \ge x_2 \ge \ldots \ge x_n \ge 0\right\}
+K = \left\{ x \in \mathbb{R}^n \mid x_1 \ge x_2 \ge \ldots \ge x_n \ge 0\right\}
 $$
 
-Решение:
+::: {.callout-solution collapse="true"}
 
-Заметим, что: 
+Note that: 
 
 $$
 \sum\limits_{i=1}^nx_iy_i = y_1 (x_1-x_2) + (y_1 + y_2)(x_2 - x_3) + \ldots + (y_1 + y_2 + \ldots + y_{n-1})(x_{n-1} - x_n) + (y_1 + \ldots + y_n)x_n
 $$
 
-Так как в представленной сумме в каждом слагаемом второй множитель неотрицательный, то:
+Since in the presented sum in each summand, the second multiplier in each summand is non-negative, then:
 
 $$
-y_1 \ge 0, \;\; y_1 + y_2 \ge 0, \;\;\ldots, \;\;y_1 + \ldots + y_n \ge 0
+y_1 \ge 0, \;\; y_1 + y_2 \ge 0, \;\;\ldots, \;\;\;y_1 + \ldots + y_n \ge 0
 $$
 
-Значит, $$K^* = \left\{ y \mid \sum\limits_{i=1}^k y_i \ge 0, k = \overline{1,n}\right\}$$
+So $K^* = \left\{ y \mid \sum\limits_{i=1}^k y_i \ge 0, k = \overline{1,n}\right\}$.
+
+:::
+:::
 
 ## Polyhedra
-Множество решений системы линейных неравенств и равенств представляет собой многогранник:
+The set of solutions to a system of linear inequalities and equalities is a polyhedron:
 
 $$
 Ax \preceq b, \;\;\; Cx = d
 $$
 
-Здесь $$A \in \mathbb{R}^{m\times n}, C \in \mathbb{R}^{p \times n} $$, а неравенство - поэлементное.
+Here $A \in \mathbb{R}^{m\times n}, C \in \mathbb{R}^{p \times n}$, and the inequality is a piecewise inequality.
 
-![](../polyhedra.svg)
+![Polyhedra](polyhedra.svg){#fig-polyhedra}
 
-#### Теорема:
-Пусть $$x_1, \ldots, x_m \in \mathbb{R}^n$$. Сопряженным к многогранному множеству:
-
-$$
- S = \mathbf{conv}(x_1, \ldots, x_k) + \mathbf{cone}(x_{k+1}, \ldots, x_m) 
-$$
-
-является полиэдр (многогранник):
+::: {.callout-theorem}
+Let $x_1, \ldots, x_m \in \mathbb{R}^n$. Conjugate to a polyhedral set:
 
 $$
- S^* = \left\{ p \in \mathbb{R}^n \mid \langle p, x_i\rangle \ge -1, i = \overline{1,k} ; \langle p, x_i\rangle \ge 0, i = \overline{k+1,m} \right\}
+S = \mathbf{conv}(x_1, \ldots, x_k) + \mathbf{cone}(x_{k+1}, \ldots, x_m) 
 $$
 
-#### Доказательство:
+is a polyhedron (polyhedron):
 
-* Пусть $$S = X, S^* = Y$$. Возьмем некоторый $$p \in X^*$$, тогда $$\langle p, x_i\rangle \ge -1,  i = \overline{1,k}$$. В то же время для любых $$\theta > 0, i = \overline{k+1,m}$$: 
+$$
+S^* = \left\{ p \in \mathbb{R}^n \mid \langle p, x_i\rangle \ge -1, i = \overline{1,k} ; \langle p, x_i\rangle \ge 0, i = \overline{k+1,m} \right\}
+$$
+
+::: {.callout-proof collapse="true"}
+
+* Let $S = X, S^* = Y$. Take some $p \in X^*$, then $\langle p, x_i\rangle \ge -1, i = \overline{1,k}$. At the same time, for any $\theta > 0, i = \overline{k+1,m}$: 
   
-	$$
-	\langle p, x_i\rangle \ge -1 \to \langle p, \theta x_i\rangle \ge -1
-	$$
+    $$
+    \langle p, x_i\rangle \ge -1 \to \langle p, \theta x_i\rangle \ge -1
+    $$
 
-	$$
-	\langle p, x_i\rangle \ge -\frac{1}{\theta} \to \langle p, x_i\rangle \ge 0 
-	$$
+    $$
+    \langle p, x_i\rangle \ge -\frac{1}{\theta} \to \langle p, x_i\rangle 0. 
+    $$
 
-	Значит, $$p \in Y \to X^* \subset Y$$.
+    So $p \in Y \to X^* \subset Y$.
 
-* Пусть, напротив, $$p \in Y$$. Для любой точки $$x \in X$$:
+* Suppose, on the other hand, that $p \in Y$. For any point $x \in X$:
 
-	$$
-	 x = \sum\limits_{i=1}^m\theta_i x_i \;\;\;\;\;\; \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0
-	$$
+    $$
+     x = \sum\limits_{i=1}^m\theta_i x_i \;\;\;\;\;\;\; \sum\limits_{i=1}^k\theta_i = 1, \theta_i \ge 0
+    $$
   
-	Значит:
+    So:
 
-	$$
-	\langle p, x\rangle = \sum\limits_{i=1}^m\theta_i \langle p, x_i\rangle  = \sum\limits_{i=1}^k\theta_i \langle p, x_i\rangle + \sum\limits_{i=k+1}^m\theta_i \langle p, x_i\rangle \ge \sum\limits_{i=1}^k\theta_i (-1) + \sum\limits_{i=1}^k\theta_i \cdot 0 = -1
-	$$
+    $$
+    \langle p, x\rangle = \sum\limits_{i=1}^m\theta_i \langle p, x_i\rangle = \sum\limits_{i=1}^k\theta_i \langle p, x_i\rangle + \sum\limits_{i=k+1}^m\theta_i \langle p, x_i\rangle \ge \sum\limits_{i=1}^k\theta_i (-1) + \sum\limits_{i=1}^k\theta_i \cdot 0 = -1.
+    $$
 
-	Значит, $$p \in X^* \to Y \subset X^*$$.
+    So $p \in X^* \to Y \subset X^*$.
+:::
+:::
 
-### 5
+::: {.callout-example}
 
-Найти и изобразить на плоскости множество, сопряженное к многогранному конусу:
-
-$$
- S = \mathbf{cone} \left\{ (-3,1), (2,3), (4,5)\right\} 
-$$
-
-Решение:
-
-Используя теорему выше: 
+Find and represent the set conjugate to a polyhedral cone in the plane:
 
 $$
- S^* = \left\{ -3p_1 + p_2 \ge 0, 2p_1 + 3p_2 \ge 0, 4p_1+5p_2 \ge 0 \right\} 
+S = \mathbf{cone} \left\{ (-3,1), (2,3), (4,5)\right\}
 $$
 
-### Лемма (теорема) Фаркаша (Фаркаша - Минковского)
-Пусть $$A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$$. Тогда имеет решение одна и только одна из следующих двух систем: 
+::: {.callout-solution collapse="true"}
+
+Using the theorem above: 
 
 $$
-1) \; Ax = b, x \ge 0\;\;\;\;\;\;
+S^* = \left\{ -3p_1 + p_2 \ge 0, 2p_1 + 3p_2 \ge 0, 4p_1+5p_2 \ge 0 \right\} 
+$$
+
+:::
+:::
+
+### Farkas' Lemma 
+Let $A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$. Then one and only one of the following two systems has a solution: 
+
+$$
+1) \; Ax = b, x \ge 0
 $$
 
 
 $$
-2) \; p^\top A \ge 0, \langle p,b\rangle < 0
+2) \; p^\top A \ge 0, \langle p,b\rangle < 0.
 $$
 
 
-$$Ax = b$$ при $$x \geq 0$$ означает, что $$b$$ лежит в конусе, натянутым на столбцы матрицы $$A$$.
+$Ax = b$ when $x \geq 0$ means that $b$ lies in a cone stretched over the columns of the matrix $A$.
 
-$$pA \geq 0, \; \langle p, b \rangle < 0$$ означает, что существует разделяющая гиперплоскость между вектором $$b$$ и конусом из столбцов матрицы $$A$$.
+$pA \geq 0, \; \langle p, b \rangle < 0$ means that there exists a separating hyperplane between the vector $b$ and the cone of columns of the matrix $A$.
 
-#### Следствие: 
-Пусть $$A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$$. Тогда имеет решение одна и только одна из следующих двух систем: 
-
-$$
-1) \; Ax \le b \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;
-$$
+#### Corollary: 
+Let $A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$. Then one and only one of the following two systems has a solution: 
 
 $$
-2) \; p^\top A = 0, \langle p,b\rangle < 0, p \ge 0
+1) Ax \leq b
 $$
 
-Если в задаче линейного программирования на минимум допустимое множество непусто и целевая функция ограничена на нём снизу, то задача имеет решение.
+$$
+2) p^\top A = 0, \langle p,b\rangle < 0, p \ge 0.
+$$
+
+If in the minimization linear programming problem, the budget set is non-empty and the target function is bounded on it from below, then the problem has a solution.

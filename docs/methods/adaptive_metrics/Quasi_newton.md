@@ -1,20 +1,19 @@
 ---
-layout: default
 title: Quasi Newton methods
 parent: Adaptive metric methods
 grand_parent: Methods
-nav_order: 2
+order: 2
 ---
 
 # Intuition
 
-For the classic task of unconditional optimization $$f(x) \to \min\limits_{x \in \mathbb{R}^n}$$ the general scheme of iteration method is written as: 
+For the classic task of unconditional optimization $f(x) \to \min\limits_{x \in \mathbb{R}^n}$ the general scheme of iteration method is written as: 
 
 $$
 x_{k+1} = x_k + \alpha_k s_k
 $$
 
-In the Newton method, the $$s_k$$ direction (Newton's direction) is set by the linear system solution at each step:
+In the Newton method, the $s_k$ direction (Newton's direction) is set by the linear system solution at each step:
 
 $$
 s_k = - B_k\nabla f(x_k), \;\;\; B_k = f_{xx}^{-1}(x_k)
@@ -22,9 +21,9 @@ $$
 
 i.e. at each iteration it is necessary to **compensate** hessian and gradient and **resolve** linear system.
 
-Note here that if we take a single matrix of $$B_k = I_n$$ as $$B_k$$ at each step, we will exactly get the gradient descent method.
+Note here that if we take a single matrix of $B_k = I_n$ as $B_k$ at each step, we will exactly get the gradient descent method.
 
-The general scheme of quasi-Newton methods is based on the selection of the $$B_k$$ matrix so that it tends in some sense at $$k \to \infty$$ to the true value of inverted Hessian in the local optimum $$f_{xx}^{-1}(x_*)$$. 
+The general scheme of quasi-Newton methods is based on the selection of the $B_k$ matrix so that it tends in some sense at $k \to \infty$ to the true value of inverted Hessian in the local optimum $f_{xx}^{-1}(x_*)$. 
 Let's consider several schemes using iterative updating of $B_k$ matrix in the following way:
 
 $$
@@ -100,5 +99,6 @@ $$
 $$
 
 # Code
+
 * [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Quasi_Newton.ipynb)
 * [Comparison of quasi Newton methods](https://nbviewer.jupyter.org/github/fabianp/pytron/blob/master/doc/benchmark_logistic.ipynb)

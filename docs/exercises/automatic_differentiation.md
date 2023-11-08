@@ -1,13 +1,13 @@
 ---
-layout: default
 title: Automatic differentiation
 parent: Exercises
-nav_order: 15
+order: 15
 ---
 
-# Automatic differentiation
+# Automatic differentiation{.unnumbered}
 
 1. Calculate the gradient of a Taylor series of a $\cos (x)$ using `autograd` library:
+
 	```python
 	import autograd.numpy as np # Thinly-wrapped version of Numpy 
 	from autograd import grad 
@@ -19,9 +19,9 @@ nav_order: 15
 
 1. In the following code for the gradient descent for linear regression change the manual gradient computation to the PyTorch/jax autograd way. Compare those two approaches in time.
 
-	In order to do this, set the tolerance rate for the function value $$\varepsilon = 10^{-9}$$. Compare the total time required to achieve the specified value of the function for analytical and automatic differentiation. Perform measurements for different values of $$n$$ from `np.logspace(1,4)`. 
+	In order to do this, set the tolerance rate for the function value $\varepsilon = 10^{-9}$. Compare the total time required to achieve the specified value of the function for analytical and automatic differentiation. Perform measurements for different values of $n$ from `np.logspace(1,4)`. 
 
-	For each $$n$$ value carry out at least 3 runs.
+	For each $n$ value carry out at least 3 runs.
 	
 	```python
 	import numpy as np 
@@ -114,29 +114,22 @@ nav_order: 15
 	f(X) = - \log \det X
 	$$
 
-1. Suppose, we have the following function $$f(x) = \frac{1}{2}\|x\|^2$$, select a random point $$x_0 \in \mathbb{B}^{1000} = \{0 \leq x_i \leq 1 \mid \forall i\}$$. Consider $$10$$ steps of the gradient descent starting from the point $$x_0$$:
+1. Suppose, we have the following function $f(x) = \frac{1}{2}\|x\|^2$, select a random point $x_0 \in \mathbb{B}^{1000} = \{0 \leq x_i \leq 1 \mid \forall i\}$. Consider $10$ steps of the gradient descent starting from the point $x_0$:
 
 	$$
 	x_{k+1} = x_k - \alpha_k \nabla f(x_k)
 	$$
 
-	Your goal in this problem is to write the function, that takes $$10$$ scalar values $$\alpha_i$$ and return the result of the gradient descent on function $$L = f(x_{10})$$. And optimize this function using gradient descent on $$\alpha \in \mathbb{R}^{10}$$. Suppose, $$\alpha_0 = \mathbb{1}^{10}$$.
+	Your goal in this problem is to write the function, that takes $10$ scalar values $\alpha_i$ and return the result of the gradient descent on function $L = f(x_{10})$. And optimize this function using gradient descent on $\alpha \in \mathbb{R}^{10}$. Suppose, $\alpha_0 = \mathbb{1}^{10}$.
 
 	$$
 	\alpha_{k+1} = \alpha_k - \beta \frac{\partial L}{\partial \alpha}
 	$$
 
-	$$\frac{\partial L}{\partial \alpha}$$ should be computed at each step using automatic differentiation. Choose any $$\beta$$ and the number of steps your need. Describe obtained results. 
+	$\frac{\partial L}{\partial \alpha}$ should be computed at each step using automatic differentiation. Choose any $\beta$ and the number of steps your need. Describe obtained results. 
 
 1. Compare analytic and autograd (with any framework) approach for the gradient and hessian of:		
 	
 	$$
 	f(x) = x^\top x x^\top x
 	$$
-
-
-# Materials
-* [HIPS autograd](https://github.com/HIPS/autograd/blob/master/docs/tutorial.md)
-* [PyTorch autograd](https://www.python-engineer.com/courses/pytorchbeginner/05-gradient-descent/)
-* [Jax Autodiff cookbook](https://colab.research.google.com/github/google/jax/blob/master/docs/notebooks/autodiff_cookbook.ipynb#scrollTo=RsQSyT5p7OJW)
-* [Step-by-step](https://github.com/vopani/jaxton#exercises-) jax excersises.

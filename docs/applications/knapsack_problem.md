@@ -1,7 +1,5 @@
 ---
-layout: default
 title: Knapsack problem
-parent: Applications
 ---
 
 # Introduction
@@ -19,7 +17,6 @@ $$
 \text{s.t. } & \sum_{i=1}^n w_ix_i\le W,\;x_i \in {0,1}\\
 \end{split}
 $$
-
 
 The decision problem form of the knapsack problem (Can a value of at least V be achieved without exceeding the weight W?) is NP-complete, thus there is no known algorithm both correct and fast (polynomial-time) in all cases.
 
@@ -62,15 +59,13 @@ The above algorithms were implemented in the python programming language, their 
 
 Dynamic programming algorithm vs probabilistic algorithm: 
 
-![knapsack_problem_1](../knapsack_problem_1.svg)
+![knapsack_problem_1](./knapsack_problem_1.svg)
 
-![knapsack_problem_2](../knapsack_problem_2.svg)
-
-
+![knapsack_problem_2](./knapsack_problem_2.svg)
 
 Probabilistic algorithm in case when number of items is fixed (150 items):
 
-![knapsack_problem_3](../knapsack_problem_3.svg)
+![knapsack_problem_3](./knapsack_problem_3.svg)
 
 # Code
 

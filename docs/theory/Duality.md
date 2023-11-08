@@ -1,11 +1,10 @@
 ---
-layout: default
 parent: Theory
 title: Duality
-nav_order: 10
+order: 10
 ---
 
-# Duality
+# Motivation
 
 Duality lets us associate to any constrained optimization problem a concave maximization problem, whose solutions lower bound the optimal value of the original problem. What is interesting is that there are cases, when one can solve the primal problem by first solving the dual one. Now, consider a general constrained optimization problem:
 
@@ -42,31 +41,29 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 $$
 
 
-We define the Lagrange dual function (or just dual function) $$g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}$$ as the minimum value of the Lagrangian over $$x$$: for $$\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p$$
+We assume $S = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i$ is nonempty. We define the Lagrange dual function (or just dual function) $g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}$ as the minimum value of the Lagrangian over $x$: for $\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p$
 
 $$
-g(\lambda, \nu) = \inf_{x\in \textbf{dom} f_0} L(x, \lambda, \nu) = \inf_{x\in \textbf{dom} f_0} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
+g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) = \inf_{x \in S} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
 $$
 
-When the Lagrangian is unbounded below in $$x$$, the dual function takes on the value $$−\infty$$. Since the dual function is the pointwise infimum of a family of affine functions of $$(\lambda, \nu)$$, it is concave, even when the original problem is not convex.
+When the Lagrangian is unbounded below in $x$, the dual function takes on the value $−\infty$. Since the dual function is the pointwise infimum of a family of affine functions of $(\lambda, \nu)$, it is concave, even when the original problem is not convex.
 
 
-The dual function yields lower bounds on the optimal value $$p^*$$ of the original problem. For any $$\lambda \succeq 0, \nu$$:
-
-$$
-g(\lambda, \nu) \leq p^*
-$$
-
-Suppose some $$\hat{x}$$ is a feasible point ($$\hat{x} \in S$$) for the original problem, i.e., $$f_i(\hat{x}) \leq 0$$ and $$h_i(\hat{x}) = 0, \; λ \succeq 0$$. Then we have:
+Let us show, that the dual function yields lower bounds on the optimal value $p^*$ of the original problem for any $\lambda \succeq 0, \nu$. Suppose some $\hat{x}$ is a feasible point ($\hat{x} \in S$) for the original problem, i.e., $f_i(\hat{x}) \leq 0$ and $h_i(\hat{x}) = 0, \; λ \succeq 0$. Then we have:
 
 $$
-L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \lambda^\top f(\hat{x}) + \nu^\top h(\hat{x}) \leq f_0(\hat{x})
+L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \underbrace{\lambda^\top f(\hat{x})}_{\leq 0} + \underbrace{\nu^\top h(\hat{x})}_{= 0} \leq f_0(\hat{x})
 $$
 
 Hence
 
 $$
-g(\lambda, \nu) = \inf_{x\in \textbf{dom} f_0} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
+g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
+$$
+
+$$
+g(\lambda, \nu) \leq p^*
 $$
 
 A natural question is: what is the *best* lower bound that can be obtained from the Lagrange dual function? 
@@ -80,21 +77,110 @@ $$
 $$
 
 
-The term "dual feasible", to describe a pair $$(\lambda, \nu)$$ with $$\lambda \succeq 0$$ and $$g(\lambda, \nu) > −\infty$$, now makes sense. It means, as the name implies, that $$(\lambda, \nu)$$ is feasible for the dual problem. We refer to $$(\lambda^*, \nu^*)$$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
+The term "dual feasible", to describe a pair $(\lambda, \nu)$ with $\lambda \succeq 0$ and $g(\lambda, \nu) > −\infty$, now makes sense. It means, as the name implies, that $(\lambda, \nu)$ is feasible for the dual problem. We refer to $(\lambda^*, \nu^*)$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
 
 ## Summary
 
 |  | Primal | Dual |
 |:-----------:|:---------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-| Function | $$f_0(x)$$ | $$g(\lambda, \nu) = \min\limits_{x \in \textbf{dom} f_0} L(x, \lambda, \nu)$$ |
-| Variables | $$x \in \textbf{dom} f_0 \subseteq \mathbb{R^n}$$ | $$\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$$ |
-| Constraints | $$\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$$ | $$\lambda_i \geq 0, \forall i \in \overline{1,m}$$ |
-| Problem | $$\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$$ | $$\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$$ | 
-| Optimal | $$\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$$ | $$\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$$ |
+| Function | $f_0(x)$ | $g(\lambda, \nu) = \min\limits_{x \in S} L(x, \lambda, \nu)$ |
+| Variables | $x \in S \subseteq \mathbb{R^n}$ | $\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$ |
+| Constraints | $\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\lambda_i \geq 0, \forall i \in \overline{1,m}$ |
+| Problem | $\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$ | 
+| Optimal | $\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$ | $\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$ |
 
+:::{.callout-example}
+### Least-squares solution of linear equations {#sec-LLS}
 
-## Weak duality
-It is common to name this relation between optimals of primal and dual problems as weak duality. For problem, we have: 
+We are addressing a problem within a non-empty budget set, defined as follows:
+$$
+\begin{aligned}
+    & \text{min} \quad x^T x \\
+    & \text{s.t.} \quad Ax = b,
+\end{aligned}
+$$
+with the matrix $A \in \mathbb{R}^{m \times n}$. 
+
+:::{.callout-solution collapse="true"}
+This problem is devoid of inequality constraints, presenting $m$ linear equality constraints instead. The Lagrangian is expressed as $L(x, \nu) = x^T x + \nu^T (Ax - b)$, spanning the domain $\mathbb{R}^n \times \mathbb{R}^m$. The dual function is denoted by $g(\nu) = \inf_x L(x, \nu)$. Given that $L(x, \nu)$ manifests as a convex quadratic function in terms of $x$, the minimizing $x$ can be derived from the optimality condition
+$$
+\nabla_x L(x, \nu) = 2x + A^T \nu = 0,
+$$
+leading to $x = -(1/2)A^T \nu$. As a result, the dual function is articulated as
+$$
+    g(\nu) = L(-(1/2)A^T \nu, \nu) = -(1/4)\nu^T A A^T \nu - b^T \nu,
+$$
+emerging as a concave quadratic function within the domain $\mathbb{R}^p$. According to the lower bound property (5.2), for any $\nu \in \mathbb{R}^p$, the following holds true:
+$$
+    -(1/4)\nu^T A A^T \nu - b^T \nu \leq \inf\{x^T x \,|\, Ax = b\}.
+$$
+Which is a simple non-trivial lower bound without any problem solving.
+:::
+:::
+
+:::{.callout-example}
+
+### Two-way partitioning problem
+
+![](partition.svg)
+
+We are examining a (nonconvex) problem:
+$$
+\begin{aligned}
+    & \text{minimize} \quad x^T W x \\
+    & \text{subject to} \quad x_i^2 =1, \quad i=1,\ldots,n,
+\end{aligned}
+$$
+
+:::{.callout-solution collapse="true"}
+
+The matrix $W$ belongs to $S_n$. The constraints stipulate that the values of $x_i$ can only be 1 or $-1$, rendering this problem analogous to finding a vector, with components $\pm1$, that minimizes $x^T W x$. The set of feasible solutions is finite, encompassing $2^n$ points, thereby allowing, in theory, for the resolution of this problem by evaluating the objective value at each feasible point. However, as the count of feasible points escalates exponentially, this approach is viable only for modest-sized problems (for instance, when $n \leq 30$). Generally, and especially when $n$ exceeds 50, the problem poses a formidable challenge to solve.
+
+This problem can be construed as a two-way partitioning problem over a set of $n$ elements, denoted as $\{1, \ldots , n\}$: A viable $x$ corresponds to the partition
+$$
+\{1,\ldots,n\} = \{i|x_i =-1\} \cup \{i|x_i =1\}.
+$$
+The coefficient $W_{ij}$ in the matrix represents the expense associated with placing elements $i$ and $j$ in the same partition, while $-W_{ij}$ signifies the cost of segregating them. The objective encapsulates the aggregate cost across all pairs of elements, and the challenge posed by problem is to find the partition that minimizes the total cost.
+
+We now derive the dual function for this problem. The Lagrangian is expressed as
+$$
+L(x,\nu) = x^T W x + \sum_{i=1}^n \nu_i (x_i^2 -1) = x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu.
+$$
+By minimizing over $x$, we procure the Lagrange dual function: 
+$$
+g(\nu) = \inf_x x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu
+= \begin{cases}\begin{array}{ll}
+    -\mathbf{1}^T\nu & \text{if } W+\text{diag}(\nu) \succeq 0 \\
+    -\infty & \text{otherwise},
+\end{array} \end{cases}
+$$
+
+exploiting the realization that the infimum of a quadratic form is either zero (when the form is positive semidefinite) or $-\infty$ (when it's not).
+
+This dual function furnishes lower bounds on the optimal value of the problem. For instance, we can adopt the particular value of the dual variable
+
+$$
+\nu = -\lambda_{\text{min}}(W) \mathbf{1}
+$$
+
+which is dual feasible, since
+
+$$
+W +\text{diag}(\nu)=W -\lambda_{\text{min}}(W) I \succeq 0.
+$$
+
+This renders a simple bound on the optimal value $p^*$
+
+$$
+p^* \geq -\mathbf{1}^T\nu = n \lambda_{\text{min}}(W).
+$$
+
+The code for the problem is available here [🧑‍💻](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb)
+:::
+:::
+
+# Strong duality
+It is common to name this relation between optimals of primal and dual problems as **weak duality**. For problem, we have: 
 
 $$
 p^* \geq d^*
@@ -106,41 +192,45 @@ $$
 p^* - d^* \geq 0
 $$
 
-Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we have managed to solve the dual problem (which is always convex, no matter whether the initial problem was or not), then we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
+Note, that we always have weak duality, if we've formulated primal and dual problem. It means, that if we have managed to solve the dual problem (which is always concave, no matter whether the initial problem was or not), then we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.
 
-## Strong duality
-Strong duality happens if duality gap is zero: 
+**Strong duality** happens if duality gap is zero: 
 
 $$
 p^∗ = d^*
 $$
 
-Notice: both $$p^*$$ and $$d^*$$ may be $$+ \infty$$. 
+Notice: both $p^*$ and $d^*$ may be $+ \infty$. 
+
 * Several sufficient conditions known!
 * “Easy” necessary and sufficient conditions: unknown.
 
-## Useful features
+:::{.callout-question}
+In the Least-squares solution of linear equations example above calculate the primal optimum $p^*$ and the dual optimum $d^*$ and check whether this problem has strong duality or not.
+:::
+
+# Useful features
 * **Construction of lower bound on solution of the direct problem.**
 
 	It could be very complicated to solve the initial problem. But if we have the dual problem, we can take an arbitrary $y \in \Omega$ and substitute it in $g(y)$ - we'll immediately obtain some lower bound.
 * **Checking for the problem's solvability and attainability of the solution.** 
 
-	From the inequality $\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f_0(x) $ follows: if $\min\limits_{x \in S} f_0(x) = -\infty$, then $\Omega = \varnothing$ and vice versa.
+	From the inequality $\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f_0(x)$ follows: if $\min\limits_{x \in S} f_0(x) = -\infty$, then $\Omega = \varnothing$ and vice versa.
 * **Sometimes it is easier to solve a dual problem than a primal one.** 
 
 	In this case, if the strong duality holds: $g(y^∗) = f_0(x^∗)$ we lose nothing.
 * **Obtaining a lower bound on the function's residual.** 
 
-	$f_0(x) - f_0^∗ \leq f_0(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $$p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$$
+	$f_0(x) - f_0^∗ \leq f_0(x) - g(y)$ for an arbitrary $y \in \Omega$ (suboptimality certificate). Moreover, $p^* \in [g(y), f_0(x)], d^* \in [g(y), f_0(x)]$
 * **Dual function is always concave**
 
 	As a pointwise minimum of affine functions.
 
-# Examples
+:::{.callout-example}
 
-## Simple projection onto simplex with duality
+### Projection onto probability simplex
 
-To find the Euclidean projection of $$x \in \mathbb{R}^n$$ onto probability simplex $$\mathcal{P} = \{z \in \mathbb{R}^n \mid z \succeq 0, \mathbf{1}^\top z = 1\}$$, we solve the following problem:
+To find the Euclidean projection of $x \in \mathbb{R}^n$ onto probability simplex $\mathcal{P} = \{z \in \mathbb{R}^n \mid z \succeq 0, \mathbf{1}^\top z = 1\}$, we solve the following problem:
 
 $$
 \begin{split}
@@ -149,82 +239,50 @@ $$
 \end{split}
 $$
 
-*Hint:* Consider the problem of minimizing $$\dfrac{1}{2}\|y - x\|_2^2 $$ subject to subject to $$y \succeq 0, \mathbf{1}^\top y = 1$$. Form the partial Lagrangian
+
+*Hint:* Consider the problem of minimizing $\frac{1}{2}\|y - x\|_2^2 $ subject to subject to $y \succeq 0, \mathbf{1}^\top y = 1$. Form the partial Lagrangian
 
 $$
 L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 $$
 
-leaving the constraint $$y \succeq 0$$ implicit. Show that $$y = (x − \nu \mathbf{1})_+$$ minimizes $$L(y, \nu)$$ over $$y \succeq 0$$.
+leaving the constraint $y \succeq 0$ implicit. Show that $y = (x − \nu \mathbf{1})_+$ minimizes $L(y, \nu)$ over $y \succeq 0$.
 
-## Underdetermined Linear least squares
+:::
 
-### Problem
-
+:::{.callout-question}
+### Projection on the Euclidian Ball
+Find the projection of a point $x$ on the Euclidian ball
 $$
 \begin{split}
-& x^\top x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-\text{s.t. } & Ax = b
+& \dfrac{1}{2}\|y - x\|_2^2 \to \min\limits_{y \in \mathbb{R}^{n}}\\
+\text{s.t. } & \|y\|_2^2 \leq 1
 \end{split}
 $$
+:::
 
-### Lagrangian
+# Slater's condition 
 
-$$
-L(x,\nu) = x^\top x + \nu^\top (Ax - b)
-$$
+:::{.callout-theorem}
+If for a convex optimization problem (i.e., assuming minimization, $f_0,f_{i}$ are convex and $h_{i}$ are affine), there exists a point $x$ such that $h(x)=0$ and $f_{i}(x)<0$ (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.
+:::
 
-
-### Dual function
-
-$$
-g(\nu) = \min\limits_{x \in \mathbb{R}^n} L(x, \nu) 
-$$
-
-Setting gradient to zero to find minimum 🤔:
+:::{.callout-example}
+### An example of convex problem, when Slater's condition does not hold
 
 $$
-\nabla_x L (x, \nu) = 2x + \nu^\top A = 2x + A^\top \nu = 0 \; \to \; x = -\frac{1}{2}A^\top \nu
+\min \{ f_0(x) = x \mid f_1(x) = \frac{x^2}{2} \leq 0 \}, 
 $$
 
+The only point in the budget set is: $x^* = 0$. However, it is impossible to find a non-negative $\lambda^* \geq 0$, such that 
 $$
-g(\nu) = \frac{1}{4} \nu^\top A A^\top \nu + \nu^\top (-\frac{1}{2} A A^\top \nu - b) = -\frac{1}{4} \nu^\top A A^\top \nu - b^\top \nu
-$$
-
-Here we see lower bound property:
-
-$$
-p^* \geq -\frac{1}{4} \nu^\top A A^\top \nu - b^\top \nu, \quad \forall \nu
+\nabla f_0(0) + \lambda^* \nabla f_1(0) = 1 + \lambda^* x = 0.
 $$
 
-Let's solve the dual problem:
+:::
 
-$$
-d^* = b^\top \left( A A^\top \right)^{-1}b
-$$
-
-Calculate the primal optimal and check whether this problem has strong duality or not.
-
-## LP duality. Standard form
-
-$$
-\begin{split}
-& c^\top x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-\text{s.t. } & Ax = b \\
-& x \succeq 0 \\
-\end{split}
-$$
-
-## LP duality. Inequality form
-
-$$
-\begin{split}
-& c^\top x \to \min\limits_{x \in \mathbb{R}^{n} }\\
-\text{s.t. } & Ax \preceq b 
-\end{split}
-$$
-
-## A nonconvex quadratic problem with strong duality
+:::{.callout-example}
+### A nonconvex quadratic problem with strong duality
 
 On rare occasions strong duality obtains for a nonconvex problem. As an important example, we consider the problem of minimizing a nonconvex quadratic function over the unit ball
 
@@ -236,9 +294,11 @@ $$
 $$
 
 
-where $$A \in \mathbb{S}^n, A \nsucceq 0$$ and $$b \in \mathbb{R}^n$$. Since $$A \nsucceq 0$$, this is not a convex problem. This problem is sometimes called the trust region problem, and arises in minimizing a second-order approximation of a function over the unit ball, which is the region in which the approximation is assumed to be approximately valid.
+where $A \in \mathbb{S}^n, A \nsucceq 0$ and $b \in \mathbb{R}^n$. Since $A \nsucceq 0$, this is not a convex problem. This problem is sometimes called the trust region problem, and arises in minimizing a second-order approximation of a function over the unit ball, which is the region in which the approximation is assumed to be approximately valid.
 
-### Lagrangian and dual function
+:::{.callout-solution collapse="true"}
+
+Lagrangian and dual function
 
 $$
 L(x, \lambda) = x^\top A x + 2 b^\top x + \lambda (x^\top x - 1) = x^\top( A + \lambda I)x + 2 b^\top x - \lambda
@@ -248,7 +308,7 @@ $$
 g(\lambda) = \begin{cases} -b^\top(A + \lambda I)^{\dagger}b - \lambda &\text{ if } A + \lambda I \succeq 0 \\ -\infty, &\text{ otherwise}  \end{cases}
 $$
 
-### Dual problem
+Dual problem:
 
 $$
 \begin{split}
@@ -263,11 +323,71 @@ $$
 \text{s.t. } & \lambda \geq - \lambda_{min}(A)
 \end{split}
 $$
+:::
+:::
 
+## Reminder of KKT statements:
 
+Suppose we have a general optimization problem (from the [chapter](Optimality.md))
 
-## Connection of Fenchel and Lagrange duality
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\
+& h_i(x) = 0, \; i = 1,\ldots, p
+\end{split}
+$${#eq-gop}
 
+and convex optimization problem (see corresponding [chapter](Convex_optimization_problem.md)), where all equality constraints are affine: $h_i(x) = a_i^Tx - b_i, i \in 1, \ldots p$
+
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\
+& Ax = b,
+\end{split}
+$${#eq-cop}
+
+The Lagrangian is
+
+$$
+L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
+$$
+
+The KKT system is:
+
+$$
+\begin{split}
+& \nabla_x L(x^*, \lambda^*, \nu^*) = 0 \\
+& \nabla_\nu L(x^*, \lambda^*, \nu^*) = 0 \\
+& \lambda^*_i \geq 0, i = 1,\ldots,m \\
+& \lambda^*_i f_i(x^*) = 0, i = 1,\ldots,m \\
+& f_i(x^*) \leq 0, i = 1,\ldots,m \\
+\end{split}
+$${#eq-kkt}
+
+:::{.callout-theorem}
+### KKT becomes necessary
+
+If $x^*$ is a solution of the original problem @eq-gop, then if any of the following regularity conditions is satisfied:
+
+* **Strong duality** If $f_1, \ldots f_m, h_1, \ldots h_p$ are differentiable functions and we have a problem @eq-gop with zero duality gap, then @eq-kkt are necessary (i.e. any optimal set $x^*, \lambda^*, \nu^*$ should satisfy @eq-kkt)
+* **LCQ** (Linearity constraint qualification). If $f_1, \ldots f_m, h_1, \ldots h_p$ are affine functions, then no other condition is needed.
+* **LICQ** (Linear independence constraint qualification). The gradients of the active inequality constraints and the gradients of the equality constraints are linearly independent at $x^*$ 
+* **SC** (Slater's condition) For a convex optimization problem @eq-cop (i.e., assuming minimization, $f_i$ are convex and $h_j$ is affine), there exists a point $x$ such that $h_j(x)=0$ and $ g_i(x) < 0$. 
+
+Than it should satisfy @eq-kkt
+:::
+
+:::{.callout-theorem}
+### KKT in convex case
+
+If a convex optimization problem @eq-cop with differentiable objective and constraint functions satisfies Slater’s condition, then the KKT conditions provide necessary and sufficient conditions for optimality: Slater’s condition implies that the optimal duality gap is zero and the dual optimum is attained, so $x^*$ is optimal if and only if there are $(\lambda^*,\nu^*)$ that, together with $x^*$, satisfy the KKT conditions.
+:::
+
+# Connection between Fenchel duality and Lagrange duality
+
+:::{.callout-example}
 $$
 \begin{split}
 & f_0(x) = \sum_{i=1}^n f_i(x_i)\to \min\limits_{x \in \mathbb{R}^{n} }\\
@@ -280,22 +400,21 @@ The dual problem is thus
 $$
 \begin{split}
 & -b \nu - \sum_{i=1}^n f_i^*(-\nu a_i)  \to \max\limits_{\nu \in \mathbb{R}}\\
-\text{s.t. } & \lambda \geq - \lambda_{min}(A)
+\text{s.t. } & \nu \geq - \lambda_{\text{min}}(A)
 \end{split}
 $$
 
-with (scalar) variable $$\nu \in \mathbb{R}$$. Now suppose we have found an optimal dual variable $$\nu^*$$ (There are several simple methods for solving a convex problem with one scalar variable, such as the bisection method.). It is very easy to recover the optimal value for the primal problem.
+with (scalar) variable $\nu \in \mathbb{R}$. Now suppose we have found an optimal dual variable $\nu^*$ (There are several simple methods for solving a convex problem with one scalar variable, such as the bisection method.). It is very easy to recover the optimal value for the primal problem.
+:::
 
-## Fenchel - Rockafellar problem
-### Problem
-Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. We call Fenchel - Rockafellar problem the following minimization task: 
+Let $f: E \to \mathbb{R}$ and $g: G \to \mathbb{R}$ — function, defined on the sets $E$ and $G$ in Euclidian Spaces $V$ and $W$ respectively. Let $f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$ be the conjugate functions to the $f$ and $g$ respectively. Let $A: V \to W$ — linear mapping. We call Fenchel - Rockafellar problem the following minimization task: 
 
 $$
 f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
 $$
 
-where $$A^{-1}(G) := \{x \in V : Ax \in G\}$$ — preimage of $$G$$.
-We'll build the dual problem using variable separation. Let's introduce new variable $$y = Ax$$. The problem could be rewritten:
+where $A^{-1}(G) := \{x \in V : Ax \in G\}$ — preimage of $G$.
+We'll build the dual problem using variable separation. Let's introduce new variable $y = Ax$. The problem could be rewritten:
 
 $$
 \begin{split}
@@ -304,13 +423,13 @@ $$
 \end{split}
 $$
 
-### Lagrangian
+Lagrangian
 
 $$
 L(x,y, \lambda) =  f(x) + g(y) + \lambda^\top (Ax - y)
 $$
 
-### Dual function
+Dual function
 
 $$
 \begin{split}
@@ -320,7 +439,7 @@ g_d(\lambda) &= \min\limits_{x \in E, \; y \in G} L(x,y, \lambda) \\
 \end{split}
 $$
 
-Now, we need to remember the definition of the {% include link.html title='Conjugate function'%}:
+Now, we need to remember the definition of the conjugate function:
 
 $$
 \sup_{y \in G}\left[\lambda^\top y - g(y)\right] = \begin{cases} g^*(\lambda), &\text{ if } \lambda \in G_*\\ +\infty, &\text{ otherwise} \end{cases}
@@ -341,7 +460,9 @@ $$
 
 which allows us to formulate one of the most important theorems, that connects dual problems and conjugate functions:
 
-**Fenchel - Rockafellar theorem** Let $$f: E \to \mathbb{R}$$ and $$g: G \to \mathbb{R}$$ — function, defined on the sets $$E$$ and $$G$$ in Euclidian Spaces $$V$$ and $$W$$ respectively. Let $$f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$$ be the conjugate functions to the $$f$$ and $$g$$ respectively. Let $$A: V \to W$$ — linear mapping. Let $$p^*, d^* \in [- \infty, + \infty]$$ - optimal values of primal and dual problems:
+:::{.callout-theorem}
+### Fenchel - Rockafellar theorem 
+Let $f: E \to \mathbb{R}$ and $g: G \to \mathbb{R}$ — function, defined on the sets $E$ and $G$ in Euclidian Spaces $V$ and $W$ respectively. Let $f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$ be the conjugate functions to the $f$ and $g$ respectively. Let $A: V \to W$ — linear mapping. Let $p^*, d^* \in [- \infty, + \infty]$ - optimal values of primal and dual problems:
 
 $$
 p^* = f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
@@ -351,7 +472,7 @@ $$
 d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},
 $$
 
-Then we have weak duality: $$p^* \geq d^*$$. Furthermore, if the functions $$f$$ and $$g$$ are convex and $$A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing $$, then we have strong duality: $$p^* = d^*$$. While points $$x^* \in E \cap A^{-1}(G)$$ and $$\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$$ are optimal values for primal and dual problem if and only if:
+Then we have weak duality: $p^* \geq d^*$. Furthermore, if the functions $f$ and $g$ are convex and $A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing $, then we have strong duality: $p^* = d^*$. While points $x^* \in E \cap A^{-1}(G)$ and $\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$ are optimal values for primal and dual problem if and only if:
 
 $$
 \begin{split}
@@ -359,19 +480,16 @@ $$
 \lambda^* &\in \partial g(Ax^*)
 \end{split}
 $$
+:::
 
-Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $$(f, g, A)$$, than the dual problem has the form $$(f^*, g^*, -A^*)$$.
-
-
-
-
+Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $(f, g, A)$, than the dual problem has the form $(f^*, g^*, -A^*)$.
 
 # References
 
 * [Convex Optimization — Boyd & Vandenberghe @ Stanford](http://web.stanford.edu/class/ee364a/lectures/duality.pdf)
 * [Course Notes for EE227C. Lecture 13](https://ee227c.github.io/notes/ee227c-lecture13.pdf)
 * [Course Notes for EE227C. Lecture 14](https://ee227c.github.io/notes/ee227c-lecture14.pdf)
-* {% include link.html title='Optimality conditions. KKT' %}
+* [Optimality conditions](Optimality.md)
 * [Seminar 7 @ CMC MSU](http://www.machinelearning.ru/wiki/images/7/7f/MOMO18_Seminar7.pdf)
 * [Seminar 8 @ CMC MSU](http://www.machinelearning.ru/wiki/images/1/15/MOMO18_Seminar8.pdf)
 * [Convex Optimization @ Berkeley - 10th lecture](http://optml.mit.edu/teach/ee227a/lect10.pdf)

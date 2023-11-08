@@ -18,3 +18,7 @@ assets/Notebooks/.ipynb_checkpoints
 /.quarto/
 
 /.luarc.json
+/assets/Notebooks/*.html
+/assets/Notebooks/*.svg
+/assets/Notebooks/*.png
+/assets/Notebooks/*.mp4

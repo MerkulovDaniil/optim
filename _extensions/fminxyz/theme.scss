@@ -1,0 +1,204 @@
+/*-- scss:defaults --*/
+
+$example-border-callout: #381885;
+$example-background-callout: rgba(114,83,237,0.2);
+$question-border-callout: #183385;
+$question-background-callout: rgba(44,132,250,0.2);
+$theorem-border-callout: #026e57;
+$theorem-background-callout: rgba(65,214,147,0.2);
+
+/* For preventing top cropping for high formulas */
+.katex-display { 
+  overflow: auto hidden ;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}  
+
+/* For preventing tags to be hide/collapsed on small screens */
+.katex-display {
+  > .katex > .katex-html > .tag {
+    padding-left: 10px !important;
+    margin-left: 10px !important;
+    right: 0 !important;
+
+    @media (min-width: 613px) {
+      position: absolute !important;
+    }
+
+    @media (max-width: 612px) {
+      position: static !important;
+    }
+  }
+}
+
+  
+/*-- scss:rules --*/
+
+// figure display
+.figure {
+  text-align: center;
+  text-indent: 0;
+}
+
+// Example callout styling
+div.callout-example.callout {
+  border-left-color: $example-border-callout;
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+div.callout-example.callout-style-default > .callout-header {
+  background-color: $example-background-callout;
+}
+
+.callout-example > .callout-header::before {
+  content: "👨‍🏫";
+  margin-right: 10px;
+}
+
+// Theorem callout styling
+div.callout-theorem.callout {
+  border-left-color: $theorem-border-callout;
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+div.callout-theorem.callout-style-default > .callout-header {
+  background-color: $theorem-background-callout;
+}
+
+.callout-theorem > .callout-header::before {
+  content: "🤓";
+  margin-right: 10px;
+}
+
+// Question callout styling
+div.callout-question.callout {
+  border-left-color: $question-border-callout;
+  p{
+    margin-bottom: 0px;
+  }
+}
+
+div.callout-question.callout-style-default > .callout-header {
+  background-color: $question-background-callout;
+}
+
+.callout-question > .callout-header::before {
+  content: "🤔";
+  margin-right: 10px;
+}
+
+// Answer callout styling
+.callout-answer > .callout-header::before {
+  content: "🔽";
+  margin-right: 10px;
+}
+
+div.callout-answer.callout {
+  border-left-color: #28828A;
+  border: 0;
+}
+
+div.callout-answer.callout-style-default > .callout-header {
+  background-color: transparent;
+}
+
+// Solution callout styling
+.callout-solution > .callout-header::before {
+  content: "🔽";
+  margin-right: 10px;
+}
+
+div.callout-solution.callout {
+  border-left-color: #28828A;
+  border: 0;
+}
+
+div.callout-solution.callout-style-default > .callout-header {
+  background-color: transparent;
+}
+
+// Hint callout styling
+.callout-hint > .callout-header::before {
+  content: "🔽";
+  margin-right: 10px;
+}
+
+div.callout-hint.callout {
+  border-left-color: #6c757d;
+  border: 0;
+}
+
+div.callout-hint.callout-style-default > .callout-header {
+  background-color: transparent;
+}
+
+// Proof callout styling
+.callout-proof > .callout-header::before {
+  content: "🔽";
+  margin-right: 10px;
+}
+
+div.callout-proof.callout {
+  border-left-color: #6c757d;
+  border: 0;
+}
+
+div.callout-proof.callout-style-default > .callout-header {
+  background-color: transparent;
+}
+
+.quarto-margin-footer {
+  .margin-footer-item {
+    #toggleSpoilers {
+      font-size: 0.75rem;
+      padding-left: 2px;
+    }
+  }
+}
+
+// For correct print 2 pdf (without sidebar and toc)
+@media print {
+  #quarto-sidebar, #quarto-margin-sidebar {
+      display: none;
+  }
+  #quarto-document-content, #quarto-content {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      flex: none !important;
+  }
+  body, html {
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+  .page-columns .content {
+      grid-column: 1 / -1 !important; /* Takes up the full width of the grid */
+      grid-row: 1 / -1 !important;   /* Takes up the full height of the grid */
+      align-content: flex-start;
+  }
+}
+
+// For custom responsive video
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio */
+  padding-top: 25px;
+  height: 0;
+  
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#quarto-content>*{
+  padding-top: 0px;
+  margin-top: 0px;
+}

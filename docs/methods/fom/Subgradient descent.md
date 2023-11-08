@@ -1,9 +1,8 @@
 ---
-layout: default
 title: Subgradient descent
 parent: First order methods
 grand_parent: Methods
-nav_order: 2
+order: 2
 ---
 
 # Introduction
@@ -14,21 +13,21 @@ $$
 \min_{x \in S} f(x),
 $$
 
-Подразумевается, что $$f(x)$$ - выпуклая функция на выпуклом множестве $$S$$. Для начала будем рассматривать задачу безусловной минимизации (БМ), $$S = \mathbb{R}^n$$
+Подразумевается, что $f(x)$ - выпуклая функция на выпуклом множестве $S$. Для начала будем рассматривать задачу безусловной минимизации (БМ), $S = \mathbb{R}^n$
 
-Вектор $$g$$ называется **субградиентом** функции $$f(x): S \to \mathbb{R}$$ в точке $$x_0$$,  если $$\forall x \in S$$:
+Вектор $g$ называется **субградиентом** функции $f(x): S \to \mathbb{R}$ в точке $x_0$,  если $\forall x \in S$:
 
 $$
 f(x)  \geq f(x_0) +  \langle g, x - x_0 \rangle
 $$
 
-Градиентный спуск предполагает, что функция $$f(x)$$ является дифференцируемой в каждой точке задачи. Теперь же, мы будем предполагать лишь выпуклость. 
+Градиентный спуск предполагает, что функция $f(x)$ является дифференцируемой в каждой точке задачи. Теперь же, мы будем предполагать лишь выпуклость. 
 
 Итак, мы имеем оракул первого порядка:
 
-**Вход:** $$x \in \mathbb R^n$$
+**Вход:** $x \in \mathbb R^n$
 
-**Выход:** $$\partial f(x)$$ и $$f(x)$$
+**Выход:** $\partial f(x)$ и $f(x)$
 
 # Algorithm
 
@@ -37,7 +36,7 @@ $$
 x_{k+1} = x_k - \alpha_k g_k,
 $$
 
-где $$g_k$$ - произвольный субградиент функции $$f(x)$$ в т. $$x_k$$, $$g_k \in \partial f (x_k)$$
+где $g_k$ - произвольный субградиент функции $f(x)$ в т. $x_k$, $g_k \in \partial f (x_k)$
 
 ## Bounds
 
@@ -52,7 +51,7 @@ $$
 \end{align*}
 $$
 
-Для субградиента: $$\langle g_k, x_k - x^* \rangle \leq f(x_k) - f(x^*) = f(x_k) - f^*$$. Из написанного выше:
+Для субградиента: $\langle g_k, x_k - x^* \rangle \leq f(x_k) - f(x^*) = f(x_k) - f^*$. Из написанного выше:
 
 $$
 \begin{align*}
@@ -60,7 +59,7 @@ $$
 \end{align*}
 $$
 
-Просуммируем полученное неравенство для $$k = 0, \ldots, T-1$$
+Просуммируем полученное неравенство для $k = 0, \ldots, T-1$
 
 $$
 \begin{align*}
@@ -70,8 +69,8 @@ $$
 \end{align*}
 $$
 
-Здесь мы предположили $$R^2 = \|x_0 - x^*\|^2, \qquad \|g_k\| \leq G$$.
-Предполагая $$\alpha_k = \alpha$$ (постоянный шаг), имеем:
+Здесь мы предположили $R^2 = \|x_0 - x^*\|^2, \qquad \|g_k\| \leq G$.
+Предполагая $\alpha_k = \alpha$ (постоянный шаг), имеем:
 
 $$
 \begin{align*}
@@ -79,7 +78,7 @@ $$
 \end{align*}
 $$
 
-Минимизация правой части по $$\alpha$$ дает $$\alpha^* = \dfrac{R}{G}\sqrt{\dfrac{1}{T}}$$
+Минимизация правой части по $\alpha$ дает $\alpha^* = \dfrac{R}{G}\sqrt{\dfrac{1}{T}}$
 
 $$
 \begin{align*}
@@ -88,7 +87,7 @@ $$
 \end{align*}
 $$
 
-Тогда (используя неравенство Йенсена и свойство субградиента $$f(x^*) \geq f(x_k) + \langle g_k, x^* - x_k \rangle$$) запишем оценку на т.н. `Regret`, а именно:
+Тогда (используя неравенство Йенсена и свойство субградиента $f(x^*) \geq f(x_k) + \langle g_k, x^* - x_k \rangle$) запишем оценку на т.н. `Regret`, а именно:
 
 $$
 \begin{align*}
@@ -101,8 +100,8 @@ $$
 
 Важные моменты:
 
-* Получение оценок не для $$x_T$$, а для среднего арифметического по итерациям $$\overline{x}$$ - типичный трюк при получении оценок для методов, где есть выпуклость, но нет удобного убывания на каждой итерации. Нет гарантий успеха на каждой итерации, но есть гарантия успеха в среднем
-* Для выбора оптимального шага необходимо знать (предположить) число итераций заранее. Возможный выход: инициализировать $$T$$ небольшим значением, после достижения этого количества итераций удваивать $$T$$ и рестартовать алгоритм. Более интеллектуальный способ: адаптивный выбор длины шага.
+* Получение оценок не для $x_T$, а для среднего арифметического по итерациям $\overline{x}$ - типичный трюк при получении оценок для методов, где есть выпуклость, но нет удобного убывания на каждой итерации. Нет гарантий успеха на каждой итерации, но есть гарантия успеха в среднем
+* Для выбора оптимального шага необходимо знать (предположить) число итераций заранее. Возможный выход: инициализировать $T$ небольшим значением, после достижения этого количества итераций удваивать $T$ и рестартовать алгоритм. Более интеллектуальный способ: адаптивный выбор длины шага.
 
 ### Steepest subgradient descent
 
@@ -112,7 +111,7 @@ $$
 \| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
 $$
 
-Минимизируя выпуклую правую часть по $$\alpha_k$$, получаем:
+Минимизируя выпуклую правую часть по $\alpha_k$, получаем:
 
 $$
 \alpha_k = \dfrac{\langle g_k, x_k - x^*\rangle}{\| g_k\|^2}
@@ -150,13 +149,14 @@ $$
 \sum\limits_{k=0}^{T-1}\langle g_k, x_k - x^*\rangle  \leq GR \sqrt{T}
 $$
 
-Что приводит к абсолютно такой же оценке $$\mathcal{O}\left(\dfrac{1}{\sqrt{T}}\right)$$ на невязку по значению функции. На самом деле, для такого класса функций нельзя получить результат лучше, чем $$\dfrac{1}{\sqrt{T}}$$ или $$\dfrac{1}{\varepsilon^2}$$ по итерациям
+Что приводит к абсолютно такой же оценке $\mathcal{O}\left(\dfrac{1}{\sqrt{T}}\right)$ на невязку по значению функции. На самом деле, для такого класса функций нельзя получить результат лучше, чем $\dfrac{1}{\sqrt{T}}$ или $\dfrac{1}{\varepsilon^2}$ по итерациям
 
 ### Online learning
 
-Рассматривается следующая игра: есть игрок и природа. На каждом из $$k = 0, \ldots, T-1$$ шагов:
-* *Игрок* выбирает действие $$x_k$$
-* *Природа* (возможно, враждебно) выбирает выпуклую функцию $$f_k$$, сообщает игроку значение $$f(x_k), g_k \in \partial f(x_k)$$
+Рассматривается следующая игра: есть игрок и природа. На каждом из $k = 0, \ldots, T-1$ шагов:
+
+* *Игрок* выбирает действие $x_k$
+* *Природа* (возможно, враждебно) выбирает выпуклую функцию $f_k$, сообщает игроку значение $f(x_k), g_k \in \partial f(x_k)$
 * Игрок вычисляет следующее действие, чтобы минимизировать регрет:
 
 $$
@@ -166,7 +166,7 @@ $$
 
 В такой постановке цель игрока состоит в том, чтобы выбрать стратегию, которая минимизирует разницу его действия с наилучшим выбором на каждом шаге.
 
-Несмотря на весьма сложную (на первый взгляд) постановку задачи, существует стратегия, при которой регрет растет как $$\sqrt{T}$$, что означает, что усредненный регрет $$\dfrac{1}{T} R_{T-1}$$ падает, как $$\dfrac{1}{\sqrt{T}}$$
+Несмотря на весьма сложную (на первый взгляд) постановку задачи, существует стратегия, при которой регрет растет как $\sqrt{T}$, что означает, что усредненный регрет $\dfrac{1}{T} R_{T-1}$ падает, как $\dfrac{1}{\sqrt{T}}$
 
 Если мы возьмем оценку (Subgradient Bound) для субградиентного метода, полученную выше, мы имеем:
 
@@ -176,13 +176,13 @@ $$
 \end{align*}
 $$
 
-Однако, в её выводе мы нигде не использовали тот факт, что $$x^* = \text{arg}\min\limits_{x \in S} f(x)$$. Более того, мы вообще не использовали никакой специфичности точки $$x^*$$. Тогда можно записать это для произвольной точки $$y$$:
+Однако, в её выводе мы нигде не использовали тот факт, что $x^* = \text{arg}\min\limits_{x \in S} f(x)$. Более того, мы вообще не использовали никакой специфичности точки $x^*$. Тогда можно записать это для произвольной точки $y$:
 
 $$
 \sum\limits_{k = 0}^{T-1} \langle g_k, x_k - y \rangle \leq G \|x_0 - y\| \sqrt{T}
 $$
 
-Запишем тогда оценки для регрета, взяв $$y = \text{arg}\min\limits_{x \in S}\sum\limits_{k = 0}^{T-1} f_k(x)$$:
+Запишем тогда оценки для регрета, взяв $y = \text{arg}\min\limits_{x \in S}\sum\limits_{k = 0}^{T-1} f_k(x)$:
 
 $$
 \begin{align*}
@@ -199,7 +199,7 @@ $$
 $$
 
 # Examples
-## Least squares with $$l_1$$ regularization
+## Least squares with $l_1$ regularization
 
 $$
 \min_{x \in \mathbb{R}^n} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
@@ -213,13 +213,13 @@ $$
 
 where signum function is taken element-wise.
 
-![](../SD.svg)
+![Illustration](SD.svg)
 
 ## Support vector machines
 
-Let $$D = \{ (x_i, y_i) \mid x_i \in \mathbb{R}^n, y_i \in \{\pm 1\}\}$$
+Let $D = \{ (x_i, y_i) \mid x_i \in \mathbb{R}^n, y_i \in \{\pm 1\}\}$
 
-We need to find $$\omega \in \mathbb{R}^n$$ and $$b \in \mathbb{R}$$ such that
+We need to find $\omega \in \mathbb{R}^n$ and $b \in \mathbb{R}$ such that
 
 $$
 \min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \dfrac{1}{2}\|\omega\|_2^2 + C\sum\limits_{i=1}^m max[0, 1 - y_i(\omega^\top x_i + b)]
@@ -234,16 +234,18 @@ $$
 | $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
 | $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
 
-* $$R = \| x_0 - x^*\| $$ - initial distance
-* \$$\overline{R} = \dfrac{2\mu}{M}$$
-* \$$\overline{x} = \dfrac{1}{k}\sum_{i=1}^k x_i$$
-* \$$\|g_k\| \leq G$$
+* $R = \| x_0 - x^*\|$ - initial distance
+* $\overline{R} = \dfrac{2\mu}{M}$
+* $\overline{x} = \dfrac{1}{k}\sum_{i=1}^k x_i$
+* $\|g_k\| \leq G$
 
 # Code
-* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb){: .btn } - Wolfe's example and why we usually have oscillations in non-smooth optimization.
-* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb){: .btn } - Linear least squares with $$l_1$$- regularization.
+
+* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb) - Wolfe's example and why we usually have oscillations in non-smooth optimization.
+* [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb) - Linear least squares with $l_1$- regularization.
 
 # References
+
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta
 * [Lecture](http://suvrit.de/teach/ee227a/lect12.pdf) on subgradient methods @ Berkley
 * [Illustration of l1 regularization](https://github.com/ievron/RegularizationAnimation/blob/main/Regularization.gif)
