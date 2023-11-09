@@ -202,3 +202,13 @@ div.callout-proof.callout-style-default > .callout-header {
   padding-top: 0px;
   margin-top: 0px;
 }
+
+.table {
+  display: block; // Change the table's display property
+  max-width: 100%; // Limit the maximum width
+  overflow-x: auto; // Add horizontal scrolling
+}
+
+.navbar #quarto-search{
+  margin-left: unset;
+}
