@@ -154,8 +154,11 @@ For instance, if we use different initial simplex or different set of parameters
 ## Examples with all sets of simplexes
 
 ![Illustration](nm_SquareDomain1.svg)
+
 ![Illustration](nm_SquareDomain2.svg)
+
 ![Illustration](nm_SquareDomain3.svg)
+
 ![Illustration](nm_RoundDomain.svg)
 
 # Code
