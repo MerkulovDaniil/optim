@@ -384,7 +384,9 @@ Than it should satisfy @eq-kkt
 If a convex optimization problem @eq-cop with differentiable objective and constraint functions satisfies Slater’s condition, then the KKT conditions provide necessary and sufficient conditions for optimality: Slater’s condition implies that the optimal duality gap is zero and the dual optimum is attained, so $x^*$ is optimal if and only if there are $(\lambda^*,\nu^*)$ that, together with $x^*$, satisfy the KKT conditions.
 :::
 
-# Connection between Fenchel duality and Lagrange duality
+# Applications
+
+## Connection between Fenchel duality and Lagrange duality
 
 :::{.callout-example}
 $$
@@ -483,7 +485,7 @@ $$
 
 Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $(f, g, A)$, than the dual problem has the form $(f^*, g^*, -A^*)$.
 
-# Sensitivity analysis
+## Sensitivity analysis
 
 Let us switch from the original optimization problem
 
@@ -540,7 +542,7 @@ And taking the optimal $x$ for the perturbed problem, we have:
 
 $$
 p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v 
-$$
+$$ {#eq-sensitivity}
 
 In scenarios where strong duality holds, we can draw several insights about the sensitivity of optimal solutions in relation to the Lagrange multipliers. These insights are derived from the inequality expressed in equation above:
 
@@ -562,11 +564,102 @@ In scenarios where strong duality holds, we can draw several insights about the 
 
 These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.
 
-Suppose now that $p^*(u, v)$ is differentiable at $u = 0, v = 0$.
+## Local sensitivity 
+
+Suppose now that $p^*(u, v)$ is differentiable at $u = 0, v = 0$. 
 
 $$
-\lambda_i^* = -\dfrac{\partial p^*(0,0))}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0))}{\partial v_i}
+\lambda_i^* = -\dfrac{\partial p^*(0,0)}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0)}{\partial v_i}
+$$ {#eq-local-sensitivity}
+
+To show this result we consider the directional derivative of $p^*(u,v)$ along the direction of some $i$-th basis vector $e_i$:
+
 $$
+\lim_{t \to 0} \dfrac{p^*(t e_i,0) - p^*(0,0)}{t} = \dfrac{\partial p^*(0,0)}{\partial u_i}
+$$
+
+From the inequality @eq-sensitivity and taking the limit $t \to0$ with $t>0$ we have
+
+$$
+\dfrac{p^*(t e_i,0) - p^*}{t} \geq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \geq -\lambda_i^*
+$$
+
+For the negative $t < 0$ we have:
+
+$$
+\dfrac{p^*(t e_i,0) - p^*}{t} \leq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \leq -\lambda_i^*
+$$
+
+The same idea can be used to establish the fact about $v_i$. 
+
+The local sensitivity result @eq-local-sensitivity provides a way to understand the impact of constraints on the optimal solution $x^*$ of an optimization problem. If a constraint $f_i(x^*)$ is negative at $x^*$, it's not affecting the optimal solution, meaning small changes to this constraint won't alter the optimal value. In this case, the corresponding optimal Lagrange multiplier will be zero, as per the principle of complementary slackness. 
+
+However, if $f_i(x^*) = 0$, meaning the constraint is precisely met at the optimum, then the situation is different. The value of the $i$-th optimal Lagrange multiplier, $\lambda^*_i$, gives us insight into how 'sensitive' or 'active' this constraint is. A small $\lambda^*_i$ indicates that slight adjustments to the constraint won't significantly affect the optimal value. Conversely, a large $\lambda^*_i$ implies that even minor changes to the constraint can have a significant impact on the optimal solution.
+
+## Shadow prices or tax interpretation
+
+Consider an enterprise where $x$ represents its operational strategy and $f_0(x)$ is the operating cost. Therefore, $-f_0(x)$ denotes the profit in dollars. Each constraint $f_i(x) \leq 0$ signifies a resource or regulatory limit. The goal is to maximize profit while adhering to these limits, which is equivalent to solving:
+
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m
+\end{split}
+$$
+
+The optimal profit here is $-p^*$.
+
+Now, imagine a scenario where exceeding limits is allowed, but at a cost. This cost is linear to the extent of violation, quantified by $f_i$. The charge for breaching the $i^{th}$ constraint is $\lambda_i f_i(x)$. If $f_i(x) < 0$, meaning the constraint is not fully utilized, $\lambda_i f_i(x)$ represents income for the firm. Here, $\lambda_i$ is the cost (in dollars) per unit of violation for $f_i(x)$.
+
+For instance, if $f_1(x) \leq 0$ limits warehouse space, the firm can rent out extra space at $\lambda_1$ dollars per square meter or rent out unused space for the same rate.
+
+The firm's total cost, considering operational and constraint costs, is $L(x, \lambda) = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x)$. The firm aims to minimize $L(x, \lambda)$, resulting in an optimal cost $g(\lambda)$. The dual function $g(\lambda)$ represents the best possible cost for the firm based on the prices of constraints $\lambda$, and the optimal dual value $d^*$ is this cost under the most unfavorable price conditions.
+
+Weak duality implies that the cost in this flexible scenario (where the firm can trade constraint violations) is always less than or equal to the cost in the strict original scenario. This is because any optimal operation $x^*$ from the original scenario will cost less in the flexible scenario, as the firm can earn from underused constraints.
+
+If strong duality holds and the dual optimum is reached, the optimal $\lambda^*$ represents prices where the firm gains no extra advantage from trading constraint violations. These optimal $\lambda^*$ values are often termed 'shadow prices' for the original problem, indicating the hypothetical cost of constraint flexibility.
+
+## Mixed strategies for matrix games
+
+In zero-sum matrix games, players 1 and 2 choose actions from sets $\{1,...,n\}$ and $\{1,...,m\}$, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix $P \in \mathbb{R}^{n \times m}$. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities $u_i$ for each action $i$, and player 2 uses $v_i$.
+
+The expected payoff from player 1 to player 2 is given by $ \sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v $. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.
+
+### Player 1's Perspective
+
+Assuming player 2 knows player 1's strategy $u$, player 2 will choose $v$ to maximize $u^T P v$. The worst-case expected payoff is thus:
+
+$$
+\max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i
+$$
+
+Player 1's optimal strategy minimizes this worst-case payoff, leading to the optimization problem:
+
+$$
+\minimize \max_{i=1,...,m} (P^T u)_i \quad \subjectto \quad u \geq 0, 1^T u = 1
+$$
+
+This forms a convex optimization problem with the optimal value denoted as $p^*_1$.
+
+### Player 2's Perspective
+
+Conversely, if player 1 knows player 2's strategy $v$, the goal is to minimize $u^T P v$. This leads to:
+
+$$
+\min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i
+$$
+
+Player 2 then maximizes this to get the largest guaranteed payoff, solving the optimization problem:
+
+$$
+\maximize \min_{i=1,...,n} (P v)_i \quad \subjectto \quad v \geq 0, 1^T v = 1
+$$
+
+The optimal value here is $p^*_2$.
+
+### Duality and Equivalence
+
+It's generally advantageous to know the opponent's strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1's problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2's problem. Due to strong duality in feasible linear programs, $p^*_1 = p^*_2$, showing no advantage in knowing the opponent’s strategy.
 
 # References
 
