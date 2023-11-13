@@ -41,16 +41,16 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 $$
 
 
-We assume $S = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i$ is nonempty. We define the Lagrange dual function (or just dual function) $g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}$ as the minimum value of the Lagrangian over $x$: for $\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p$
+We assume $\mathcal{D} = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i$ is nonempty. We define the Lagrange dual function (or just dual function) $g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}$ as the minimum value of the Lagrangian over $x$: for $\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p$
 
 $$
-g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) = \inf_{x \in S} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
+g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) = \inf_{x \in \mathcal{D}} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
 $$
 
 When the Lagrangian is unbounded below in $x$, the dual function takes on the value $−\infty$. Since the dual function is the pointwise infimum of a family of affine functions of $(\lambda, \nu)$, it is concave, even when the original problem is not convex.
 
 
-Let us show, that the dual function yields lower bounds on the optimal value $p^*$ of the original problem for any $\lambda \succeq 0, \nu$. Suppose some $\hat{x}$ is a feasible point ($\hat{x} \in S$) for the original problem, i.e., $f_i(\hat{x}) \leq 0$ and $h_i(\hat{x}) = 0, \; λ \succeq 0$. Then we have:
+Let us show, that the dual function yields lower bounds on the optimal value $p^*$ of the original problem for any $\lambda \succeq 0, \nu$. Suppose some $\hat{x}$ is a feasible point for the original problem, i.e., $f_i(\hat{x}) \leq 0$ and $h_i(\hat{x}) = 0, \; λ \succeq 0$. Then we have:
 
 $$
 L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \underbrace{\lambda^\top f(\hat{x})}_{\leq 0} + \underbrace{\nu^\top h(\hat{x})}_{= 0} \leq f_0(\hat{x})
@@ -59,7 +59,7 @@ $$
 Hence
 
 $$
-g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
+g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
 $$
 
 $$
@@ -83,7 +83,7 @@ The term "dual feasible", to describe a pair $(\lambda, \nu)$ with $\lambda \suc
 
 |  | Primal | Dual |
 |:-----------:|:---------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-| Function | $f_0(x)$ | $g(\lambda, \nu) = \min\limits_{x \in S} L(x, \lambda, \nu)$ |
+| Function | $f_0(x)$ | $g(\lambda, \nu) = \min\limits_{x \in \mathcal{D}} L(x, \lambda, \nu)$ |
 | Variables | $x \in S \subseteq \mathbb{R^n}$ | $\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$ |
 | Constraints | $\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\lambda_i \geq 0, \forall i \in \overline{1,m}$ |
 | Problem | $\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$ | 
@@ -239,8 +239,7 @@ $$
 \end{split}
 $$
 
-
-*Hint:* Consider the problem of minimizing $\frac{1}{2}\|y - x\|_2^2 $ subject to subject to $y \succeq 0, \mathbf{1}^\top y = 1$. Form the partial Lagrangian
+*Hint:* Consider the problem of minimizing $\frac{1}{2}\|y - x\|_2^2$ subject to subject to $y \succeq 0, \mathbf{1}^\top y = 1$. Form the partial Lagrangian
 
 $$
 L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
@@ -374,7 +373,7 @@ If $x^*$ is a solution of the original problem @eq-gop, then if any of the follo
 * **Strong duality** If $f_1, \ldots f_m, h_1, \ldots h_p$ are differentiable functions and we have a problem @eq-gop with zero duality gap, then @eq-kkt are necessary (i.e. any optimal set $x^*, \lambda^*, \nu^*$ should satisfy @eq-kkt)
 * **LCQ** (Linearity constraint qualification). If $f_1, \ldots f_m, h_1, \ldots h_p$ are affine functions, then no other condition is needed.
 * **LICQ** (Linear independence constraint qualification). The gradients of the active inequality constraints and the gradients of the equality constraints are linearly independent at $x^*$ 
-* **SC** (Slater's condition) For a convex optimization problem @eq-cop (i.e., assuming minimization, $f_i$ are convex and $h_j$ is affine), there exists a point $x$ such that $h_j(x)=0$ and $ g_i(x) < 0$. 
+* **SC** (Slater's condition) For a convex optimization problem @eq-cop (i.e., assuming minimization, $f_i$ are convex and $h_j$ is affine), there exists a point $x$ such that $h_j(x)=0$ and $g_i(x) < 0$. 
 
 Than it should satisfy @eq-kkt
 :::
@@ -472,7 +471,7 @@ $$
 d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},
 $$
 
-Then we have weak duality: $p^* \geq d^*$. Furthermore, if the functions $f$ and $g$ are convex and $A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing $, then we have strong duality: $p^* = d^*$. While points $x^* \in E \cap A^{-1}(G)$ and $\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$ are optimal values for primal and dual problem if and only if:
+Then we have weak duality: $p^* \geq d^*$. Furthermore, if the functions $f$ and $g$ are convex and $A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing$, then we have strong duality: $p^* = d^*$. While points $x^* \in E \cap A^{-1}(G)$ and $\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)$ are optimal values for primal and dual problem if and only if:
 
 $$
 \begin{split}
@@ -483,6 +482,91 @@ $$
 :::
 
 Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $(f, g, A)$, than the dual problem has the form $(f^*, g^*, -A^*)$.
+
+# Sensitivity analysis
+
+Let us switch from the original optimization problem
+
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\
+& h_i(x) = 0, \; i = 1,\ldots, p
+\end{split}
+\tag{P}
+$$
+
+To the perturbed version of it:
+
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } & f_i(x) \leq u_i, \; i = 1,\ldots,m\\
+& h_i(x) = v_i, \; i = 1,\ldots, p
+\end{split}
+\tag{Per}
+$$
+
+Note, that we still have the only variable $x \in \mathbb{R}^n$, while treating $u \in \mathbb{R}^m, v \in \mathbb{R}^p$ as parameters. It is obvious, that $\text{Per}(u,v) \to \text{P}$ if $u = 0, v = 0$. We will denote the optimal value of $\text{Per}$ as $p^*(u, v)$, while the optimal value of the original problem $\text{P}$ is just $p^*$. One can immediately say, that $p^*(u, v) = p^*$.
+
+Speaking of the value of some $i$-th constraint we can say, that
+
+* $u_i = 0$ leaves the original problem
+* $u_i > 0$ means that we have relaxed the inequality
+* $u_i < 0$ means that we have tightened the constraint
+
+One can even show, that when $\text{P}$ is convex optimization problem, $p^*(u,v)$ is a convex function.
+
+Suppose, that strong duality holds for the orriginal problem and suppose, that $x$ is any feasible point for the perturbed problem:
+
+$$
+\begin{split}
+p^*(0,0) &= p^* = d^* = g(\lambda^*, \nu^*) \leq \\
+& \leq L(x, \lambda^*, \nu^*) = \\
+& = f_0(x) + \sum\limits_{i=1}^m \lambda_i^* f_i(x) + \sum\limits_{i=1}^p\nu_i^* h_i(x) \leq \\
+& \leq f_0(x) + \sum\limits_{i=1}^m \lambda_i^* u_i + \sum\limits_{i=1}^p\nu_i^* v_i 
+\end{split}
+$$
+
+Which means
+
+$$
+\begin{split}
+f_0(x) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v 
+\end{split}
+$$
+
+And taking the optimal $x$ for the perturbed problem, we have:
+
+$$
+p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v 
+$$
+
+In scenarios where strong duality holds, we can draw several insights about the sensitivity of optimal solutions in relation to the Lagrange multipliers. These insights are derived from the inequality expressed in equation above:
+
+1. **Impact of Tightening a Constraint (Large $\lambda_i^\star$)**:  
+   When the $i$th constraint's Lagrange multiplier, $\lambda_i^\star$, holds a substantial value, and if this constraint is tightened (choosing $u_i < 0$), there is a guarantee that the optimal value, denoted by $p^\star(u, v)$, will significantly increase.
+
+2. **Effect of Adjusting Constraints with Large Positive or Negative $\nu_i^\star$**:  
+   - If $\nu_i^\star$ is large and positive and $v_i < 0$ is chosen, or  
+   - If $\nu_i^\star$ is large and negative and $v_i > 0$ is selected,  
+   then in either scenario, the optimal value $p^\star(u, v)$ is expected to increase greatly.
+
+3. **Consequences of Loosening a Constraint (Small $\lambda_i^\star$)**:  
+   If the Lagrange multiplier $\lambda_i^\star$ for the $i$th constraint is relatively small, and the constraint is loosened (choosing $u_i > 0$), it is anticipated that the optimal value $p^\star(u, v)$ will not significantly decrease.
+
+4. **Outcomes of Tiny Adjustments in Constraints with Small $\nu_i^\star$**:  
+   - When $\nu_i^\star$ is small and positive, and $v_i > 0$ is chosen, or  
+   - When $\nu_i^\star$ is small and negative, and $v_i < 0$ is opted for,  
+   in both cases, the optimal value $p^\star(u, v)$ will not significantly decrease.
+
+These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.
+
+Suppose now that $p^*(u, v)$ is differentiable at $u = 0, v = 0$.
+
+$$
+\lambda_i^* = -\dfrac{\partial p^*(0,0))}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0))}{\partial v_i}
+$$
 
 # References
 
