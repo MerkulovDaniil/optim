@@ -621,9 +621,11 @@ If strong duality holds and the dual optimum is reached, the optimal $\lambda^*$
 
 ## Mixed strategies for matrix games
 
-In zero-sum matrix games, players 1 and 2 choose actions from sets $\{1,...,n\}$ and $\{1,...,m\}$, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix $P \in \mathbb{R}^{n \times m}$. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities $u_i$ for each action $i$, and player 2 uses $v_i$.
+![The scheme of a mixed strategy matrix game](msmg.svg)
 
-The expected payoff from player 1 to player 2 is given by $ \sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v $. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.
+In zero-sum matrix games, players 1 and 2 choose actions from sets $\{1,...,n\}$ and $\{1,...,m\}$, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix $P \in \mathbb{R}^{n \times m}$. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities $u_k$ for each action $i$, and player 2 uses $v_l$.
+
+The expected payoff from player 1 to player 2 is given by $\sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v$. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.
 
 ### Player 1's Perspective
 
@@ -636,8 +638,12 @@ $$
 Player 1's optimal strategy minimizes this worst-case payoff, leading to the optimization problem:
 
 $$
-\minimize \max_{i=1,...,m} (P^T u)_i \quad \subjectto \quad u \geq 0, 1^T u = 1
-$$
+\begin{split}
+& \min \max_{i=1,...,m} (P^T u)_i\\
+& \text{s.t. } u \geq 0 \\
+& 1^T u = 1
+\end{split}
+$$ {#eq-player1-problem}
 
 This forms a convex optimization problem with the optimal value denoted as $p^*_1$.
 
@@ -652,14 +658,73 @@ $$
 Player 2 then maximizes this to get the largest guaranteed payoff, solving the optimization problem:
 
 $$
-\maximize \min_{i=1,...,n} (P v)_i \quad \subjectto \quad v \geq 0, 1^T v = 1
-$$
+\begin{split}
+& \max \min_{i=1,...,n} (P v)_i \\
+& \text{s.t. }  v \geq 0 \\
+& 1^T v = 1
+\end{split}
+$$ {#eq-player2-problem}
 
 The optimal value here is $p^*_2$.
 
 ### Duality and Equivalence
 
 It's generally advantageous to know the opponent's strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1's problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2's problem. Due to strong duality in feasible linear programs, $p^*_1 = p^*_2$, showing no advantage in knowing the opponent’s strategy.
+
+### Formulating and Solving the Lagrange Dual
+
+We approach problem @eq-player1-problem by setting it up as a linear programming (LP) problem. The goal is to minimize a variable $t$, subject to certain constraints:
+
+1. $u \geq 0$,
+2. The sum of elements in $u$ equals 1 ($1^T u = 1$),
+3. $P^T u$ is less than or equal to $t$ times a vector of ones ($P^T u \leq t \mathbf{1}$).
+
+Here, $t$ is an additional variable in the real numbers ($t \in \mathbb{R}$).
+
+### Constructing the Lagrangian
+
+We introduce multipliers for the constraints: $\lambda$ for $P^T u \leq t \mathbf{1}$, $\mu$ for $u \geq 0$, and $\nu$ for $1^T u = 1$. The Lagrangian is then formed as:
+
+$$
+L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u
+$$
+
+### Defining the Dual Function
+
+The dual function $g(\lambda, \mu, \nu)$ is defined as:
+
+$$
+g(\lambda, \mu, \nu) = 
+\begin{cases} 
+\nu & \text{if } 1^T\lambda=1 \text{ and } P\lambda - \nu \mathbf{1} = \mu \\
+-\infty & \text{otherwise} 
+\end{cases}
+$$
+
+### Solving the Dual Problem
+
+The dual problem seeks to maximize $\nu$ under the following conditions:
+
+1. $\lambda \geq 0$,
+2. The sum of elements in $\lambda$ equals 1 ($1^T \lambda = 1$),
+3. $\mu \geq 0$,
+4. $P\lambda - \nu \mathbf{1} = \mu$.
+
+Upon eliminating $\mu$, we obtain the Lagrange dual of @eq-player1-problem:
+
+
+$$
+\begin{split}
+& \max \nu \\
+& \text{s.t. }   \lambda \geq 0 \\
+&  \lambda \geq 0 \\
+& P\lambda \geq \nu \mathbf{1}
+\end{split}
+$$ 
+
+### Conclusion
+
+This formulation shows that the Lagrange dual problem is equivalent to problem @eq-player2-problem. Given the feasibility of these linear programs, strong duality holds, meaning the optimal values of @eq-player1-problem and @eq-player2-problem are equal.
 
 # References
 
