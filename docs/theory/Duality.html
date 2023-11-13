@@ -692,9 +692,20 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#reminder-of-kkt-statements" id="toc-reminder-of-kkt-statements" class="nav-link" data-scroll-target="#reminder-of-kkt-statements"><span class="header-section-number">4.1</span> Reminder of KKT statements:</a></li>
   </ul></li>
-  <li><a href="#connection-between-fenchel-duality-and-lagrange-duality" id="toc-connection-between-fenchel-duality-and-lagrange-duality" class="nav-link" data-scroll-target="#connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5</span> Connection between Fenchel duality and Lagrange duality</a></li>
-  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis"><span class="header-section-number">6</span> Sensitivity analysis</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications"><span class="header-section-number">5</span> Applications</a>
+  <ul class="collapse">
+  <li><a href="#connection-between-fenchel-duality-and-lagrange-duality" id="toc-connection-between-fenchel-duality-and-lagrange-duality" class="nav-link" data-scroll-target="#connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5.1</span> Connection between Fenchel duality and Lagrange duality</a></li>
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</a></li>
+  <li><a href="#local-sensitivity" id="toc-local-sensitivity" class="nav-link" data-scroll-target="#local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</a></li>
+  <li><a href="#shadow-prices-or-tax-interpretation" id="toc-shadow-prices-or-tax-interpretation" class="nav-link" data-scroll-target="#shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</a></li>
+  <li><a href="#mixed-strategies-for-matrix-games" id="toc-mixed-strategies-for-matrix-games" class="nav-link" data-scroll-target="#mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</a>
+  <ul class="collapse">
+  <li><a href="#player-1s-perspective" id="toc-player-1s-perspective" class="nav-link" data-scroll-target="#player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</a></li>
+  <li><a href="#player-2s-perspective" id="toc-player-2s-perspective" class="nav-link" data-scroll-target="#player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</a></li>
+  <li><a href="#duality-and-equivalence" id="toc-duality-and-equivalence" class="nav-link" data-scroll-target="#duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Duality.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -1203,8 +1214,10 @@ KKT in convex case
 </div>
 </section>
 </section>
-<section id="connection-between-fenchel-duality-and-lagrange-duality" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Connection between Fenchel duality and Lagrange duality</h1>
+<section id="applications" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Applications</h1>
+<section id="connection-between-fenchel-duality-and-lagrange-duality" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5.1</span> Connection between Fenchel duality and Lagrange duality</h2>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1305,8 +1318,8 @@ d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^
 </div>
 <p>Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters <span class="math inline">(f, g, A)</span>, than the dual problem has the form <span class="math inline">(f^*, g^*, -A^*)</span>.</p>
 </section>
-<section id="sensitivity-analysis" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Sensitivity analysis</h1>
+<section id="sensitivity-analysis" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</h2>
 <p>Let us switch from the original optimization problem</p>
 <p><span class="math display">
 \begin{split}
@@ -1349,9 +1362,9 @@ f_0(x) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
 \end{split}
 </span></p>
 <p>And taking the optimal <span class="math inline">x</span> for the perturbed problem, we have:</p>
-<p><span class="math display">
+<p><span id="eq-sensitivity"><span class="math display">
 p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
-</span></p>
+\tag{4}</span></span></p>
 <p>In scenarios where strong duality holds, we can draw several insights about the sensitivity of optimal solutions in relation to the Lagrange multipliers. These insights are derived from the inequality expressed in equation above:</p>
 <ol type="1">
 <li><p><strong>Impact of Tightening a Constraint (Large <span class="math inline">\lambda_i^\star</span>)</strong>:<br>
@@ -1374,13 +1387,81 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 </ul></li>
 </ol>
 <p>These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.</p>
-<p>Suppose now that <span class="math inline">p^*(u, v)</span> is differentiable at <span class="math inline">u = 0, v = 0</span>.</p>
-<p><span class="math display">
-\lambda_i^* = -\dfrac{\partial p^*(0,0))}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0))}{\partial v_i}
-</span></p>
 </section>
-<section id="references" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> References</h1>
+<section id="local-sensitivity" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</h2>
+<p>Suppose now that <span class="math inline">p^*(u, v)</span> is differentiable at <span class="math inline">u = 0, v = 0</span>.</p>
+<p><span id="eq-local-sensitivity"><span class="math display">
+\lambda_i^* = -\dfrac{\partial p^*(0,0)}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0)}{\partial v_i}
+\tag{5}</span></span></p>
+<p>To show this result we consider the directional derivative of <span class="math inline">p^*(u,v)</span> along the direction of some <span class="math inline">i</span>-th basis vector <span class="math inline">e_i</span>:</p>
+<p><span class="math display">
+\lim_{t \to 0} \dfrac{p^*(t e_i,0) - p^*(0,0)}{t} = \dfrac{\partial p^*(0,0)}{\partial u_i}
+</span></p>
+<p>From the inequality <a href="#eq-sensitivity" class="quarto-xref">Equation&nbsp;4</a> and taking the limit <span class="math inline">t \to0</span> with <span class="math inline">t&gt;0</span> we have</p>
+<p><span class="math display">
+\dfrac{p^*(t e_i,0) - p^*}{t} \geq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \geq -\lambda_i^*
+</span></p>
+<p>For the negative <span class="math inline">t &lt; 0</span> we have:</p>
+<p><span class="math display">
+\dfrac{p^*(t e_i,0) - p^*}{t} \leq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \leq -\lambda_i^*
+</span></p>
+<p>The same idea can be used to establish the fact about <span class="math inline">v_i</span>.</p>
+<p>The local sensitivity result <a href="#eq-local-sensitivity" class="quarto-xref">Equation&nbsp;5</a> provides a way to understand the impact of constraints on the optimal solution <span class="math inline">x^*</span> of an optimization problem. If a constraint <span class="math inline">f_i(x^*)</span> is negative at <span class="math inline">x^*</span>, it’s not affecting the optimal solution, meaning small changes to this constraint won’t alter the optimal value. In this case, the corresponding optimal Lagrange multiplier will be zero, as per the principle of complementary slackness.</p>
+<p>However, if <span class="math inline">f_i(x^*) = 0</span>, meaning the constraint is precisely met at the optimum, then the situation is different. The value of the <span class="math inline">i</span>-th optimal Lagrange multiplier, <span class="math inline">\lambda^*_i</span>, gives us insight into how ‘sensitive’ or ‘active’ this constraint is. A small <span class="math inline">\lambda^*_i</span> indicates that slight adjustments to the constraint won’t significantly affect the optimal value. Conversely, a large <span class="math inline">\lambda^*_i</span> implies that even minor changes to the constraint can have a significant impact on the optimal solution.</p>
+</section>
+<section id="shadow-prices-or-tax-interpretation" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</h2>
+<p>Consider an enterprise where <span class="math inline">x</span> represents its operational strategy and <span class="math inline">f_0(x)</span> is the operating cost. Therefore, <span class="math inline">-f_0(x)</span> denotes the profit in dollars. Each constraint <span class="math inline">f_i(x) \leq 0</span> signifies a resource or regulatory limit. The goal is to maximize profit while adhering to these limits, which is equivalent to solving:</p>
+<p><span class="math display">
+\begin{split}
+&amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m
+\end{split}
+</span></p>
+<p>The optimal profit here is <span class="math inline">-p^*</span>.</p>
+<p>Now, imagine a scenario where exceeding limits is allowed, but at a cost. This cost is linear to the extent of violation, quantified by <span class="math inline">f_i</span>. The charge for breaching the <span class="math inline">i^{th}</span> constraint is <span class="math inline">\lambda_i f_i(x)</span>. If <span class="math inline">f_i(x) &lt; 0</span>, meaning the constraint is not fully utilized, <span class="math inline">\lambda_i f_i(x)</span> represents income for the firm. Here, <span class="math inline">\lambda_i</span> is the cost (in dollars) per unit of violation for <span class="math inline">f_i(x)</span>.</p>
+<p>For instance, if <span class="math inline">f_1(x) \leq 0</span> limits warehouse space, the firm can rent out extra space at <span class="math inline">\lambda_1</span> dollars per square meter or rent out unused space for the same rate.</p>
+<p>The firm’s total cost, considering operational and constraint costs, is <span class="math inline">L(x, \lambda) = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x)</span>. The firm aims to minimize <span class="math inline">L(x, \lambda)</span>, resulting in an optimal cost <span class="math inline">g(\lambda)</span>. The dual function <span class="math inline">g(\lambda)</span> represents the best possible cost for the firm based on the prices of constraints <span class="math inline">\lambda</span>, and the optimal dual value <span class="math inline">d^*</span> is this cost under the most unfavorable price conditions.</p>
+<p>Weak duality implies that the cost in this flexible scenario (where the firm can trade constraint violations) is always less than or equal to the cost in the strict original scenario. This is because any optimal operation <span class="math inline">x^*</span> from the original scenario will cost less in the flexible scenario, as the firm can earn from underused constraints.</p>
+<p>If strong duality holds and the dual optimum is reached, the optimal <span class="math inline">\lambda^*</span> represents prices where the firm gains no extra advantage from trading constraint violations. These optimal <span class="math inline">\lambda^*</span> values are often termed ‘shadow prices’ for the original problem, indicating the hypothetical cost of constraint flexibility.</p>
+</section>
+<section id="mixed-strategies-for-matrix-games" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</h2>
+<p>In zero-sum matrix games, players 1 and 2 choose actions from sets <span class="math inline">\{1,...,n\}</span> and <span class="math inline">\{1,...,m\}</span>, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix <span class="math inline">P \in \mathbb{R}^{n \times m}</span>. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities <span class="math inline">u_i</span> for each action <span class="math inline">i</span>, and player 2 uses <span class="math inline">v_i</span>.</p>
+<p>The expected payoff from player 1 to player 2 is given by $ <em>{k=1}^{n} </em>{l=1}^{m} u_k v_l P_{kl} = u^T P v $. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.</p>
+<section id="player-1s-perspective" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</h3>
+<p>Assuming player 2 knows player 1’s strategy <span class="math inline">u</span>, player 2 will choose <span class="math inline">v</span> to maximize <span class="math inline">u^T P v</span>. The worst-case expected payoff is thus:</p>
+<p><span class="math display">
+\max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i
+</span></p>
+<p>Player 1’s optimal strategy minimizes this worst-case payoff, leading to the optimization problem:</p>
+<p><span class="math display">
+\minimize \max_{i=1,...,m} (P^T u)_i \quad \subjectto \quad u \geq 0, 1^T u = 1
+</span></p>
+<p>This forms a convex optimization problem with the optimal value denoted as <span class="math inline">p^*_1</span>.</p>
+</section>
+<section id="player-2s-perspective" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</h3>
+<p>Conversely, if player 1 knows player 2’s strategy <span class="math inline">v</span>, the goal is to minimize <span class="math inline">u^T P v</span>. This leads to:</p>
+<p><span class="math display">
+\min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i
+</span></p>
+<p>Player 2 then maximizes this to get the largest guaranteed payoff, solving the optimization problem:</p>
+<p><span class="math display">
+\maximize \min_{i=1,...,n} (P v)_i \quad \subjectto \quad v \geq 0, 1^T v = 1
+</span></p>
+<p>The optimal value here is <span class="math inline">p^*_2</span>.</p>
+</section>
+<section id="duality-and-equivalence" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</h3>
+<p>It’s generally advantageous to know the opponent’s strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1’s problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2’s problem. Due to strong duality in feasible linear programs, <span class="math inline">p^*_1 = p^*_2</span>, showing no advantage in knowing the opponent’s strategy.</p>
+</section>
+</section>
+</section>
+<section id="references" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
 <ul>
 <li><a href="http://web.stanford.edu/class/ee364a/lectures/duality.pdf">Convex Optimization — Boyd &amp; Vandenberghe @ Stanford</a></li>
 <li><a href="https://ee227c.github.io/notes/ee227c-lecture13.pdf">Course Notes for EE227C. Lecture 13</a></li>
