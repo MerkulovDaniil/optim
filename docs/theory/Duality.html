@@ -693,7 +693,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reminder-of-kkt-statements" id="toc-reminder-of-kkt-statements" class="nav-link" data-scroll-target="#reminder-of-kkt-statements"><span class="header-section-number">4.1</span> Reminder of KKT statements:</a></li>
   </ul></li>
   <li><a href="#connection-between-fenchel-duality-and-lagrange-duality" id="toc-connection-between-fenchel-duality-and-lagrange-duality" class="nav-link" data-scroll-target="#connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5</span> Connection between Fenchel duality and Lagrange duality</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis"><span class="header-section-number">6</span> Sensitivity analysis</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Duality.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -734,18 +735,18 @@ g(y) \leq f(x) \qquad \forall x \in S, \forall y \in \Omega
 <p><span class="math display">
 L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f_0(x) + \lambda^\top f(x) + \nu^\top h(x)
 </span></p>
-<p>We assume <span class="math inline">S = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i</span> is nonempty. We define the Lagrange dual function (or just dual function) <span class="math inline">g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}</span> as the minimum value of the Lagrangian over <span class="math inline">x</span>: for <span class="math inline">\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p</span></p>
+<p>We assume <span class="math inline">\mathcal{D} = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i</span> is nonempty. We define the Lagrange dual function (or just dual function) <span class="math inline">g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}</span> as the minimum value of the Lagrangian over <span class="math inline">x</span>: for <span class="math inline">\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p</span></p>
 <p><span class="math display">
-g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) = \inf_{x \in S} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
+g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) = \inf_{x \in \mathcal{D}} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
 </span></p>
 <p>When the Lagrangian is unbounded below in <span class="math inline">x</span>, the dual function takes on the value <span class="math inline">−\infty</span>. Since the dual function is the pointwise infimum of a family of affine functions of <span class="math inline">(\lambda, \nu)</span>, it is concave, even when the original problem is not convex.</p>
-<p>Let us show, that the dual function yields lower bounds on the optimal value <span class="math inline">p^*</span> of the original problem for any <span class="math inline">\lambda \succeq 0, \nu</span>. Suppose some <span class="math inline">\hat{x}</span> is a feasible point (<span class="math inline">\hat{x} \in S</span>) for the original problem, i.e., <span class="math inline">f_i(\hat{x}) \leq 0</span> and <span class="math inline">h_i(\hat{x}) = 0, \; λ \succeq 0</span>. Then we have:</p>
+<p>Let us show, that the dual function yields lower bounds on the optimal value <span class="math inline">p^*</span> of the original problem for any <span class="math inline">\lambda \succeq 0, \nu</span>. Suppose some <span class="math inline">\hat{x}</span> is a feasible point for the original problem, i.e., <span class="math inline">f_i(\hat{x}) \leq 0</span> and <span class="math inline">h_i(\hat{x}) = 0, \; λ \succeq 0</span>. Then we have:</p>
 <p><span class="math display">
 L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \underbrace{\lambda^\top f(\hat{x})}_{\leq 0} + \underbrace{\nu^\top h(\hat{x})}_{= 0} \leq f_0(\hat{x})
 </span></p>
 <p>Hence</p>
 <p><span class="math display">
-g(\lambda, \nu) = \inf_{x \in S} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
+g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
 </span></p>
 <p><span class="math display">
 g(\lambda, \nu) \leq p^*
@@ -777,7 +778,7 @@ g(\lambda, \nu) \leq p^*
 <tr class="odd">
 <td style="text-align: center;">Function</td>
 <td style="text-align: center;"><span class="math inline">f_0(x)</span></td>
-<td style="text-align: center;"><span class="math inline">g(\lambda, \nu) = \min\limits_{x \in S} L(x, \lambda, \nu)</span></td>
+<td style="text-align: center;"><span class="math inline">g(\lambda, \nu) = \min\limits_{x \in \mathcal{D}} L(x, \lambda, \nu)</span></td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Variables</td>
@@ -991,7 +992,7 @@ Projection onto probability simplex
 \text{s.t. } &amp; \mathbf{1}^\top y = 1
 \end{split}
 </span></p>
-<p><em>Hint:</em> Consider the problem of minimizing $|y - x|_2^2 $ subject to subject to <span class="math inline">y \succeq 0, \mathbf{1}^\top y = 1</span>. Form the partial Lagrangian</p>
+<p><em>Hint:</em> Consider the problem of minimizing <span class="math inline">\frac{1}{2}\|y - x\|_2^2</span> subject to subject to <span class="math inline">y \succeq 0, \mathbf{1}^\top y = 1</span>. Form the partial Lagrangian</p>
 <p><span class="math display">
 L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 </span></p>
@@ -1176,7 +1177,7 @@ KKT becomes necessary
 <li><strong>Strong duality</strong> If <span class="math inline">f_1, \ldots f_m, h_1, \ldots h_p</span> are differentiable functions and we have a problem <a href="#eq-gop" class="quarto-xref">Equation&nbsp;1</a> with zero duality gap, then <a href="#eq-kkt" class="quarto-xref">Equation&nbsp;3</a> are necessary (i.e.&nbsp;any optimal set <span class="math inline">x^*, \lambda^*, \nu^*</span> should satisfy <a href="#eq-kkt" class="quarto-xref">Equation&nbsp;3</a>)</li>
 <li><strong>LCQ</strong> (Linearity constraint qualification). If <span class="math inline">f_1, \ldots f_m, h_1, \ldots h_p</span> are affine functions, then no other condition is needed.</li>
 <li><strong>LICQ</strong> (Linear independence constraint qualification). The gradients of the active inequality constraints and the gradients of the equality constraints are linearly independent at <span class="math inline">x^*</span></li>
-<li><strong>SC</strong> (Slater’s condition) For a convex optimization problem <a href="#eq-cop" class="quarto-xref">Equation&nbsp;2</a> (i.e., assuming minimization, <span class="math inline">f_i</span> are convex and <span class="math inline">h_j</span> is affine), there exists a point <span class="math inline">x</span> such that <span class="math inline">h_j(x)=0</span> and $ g_i(x) &lt; 0$.</li>
+<li><strong>SC</strong> (Slater’s condition) For a convex optimization problem <a href="#eq-cop" class="quarto-xref">Equation&nbsp;2</a> (i.e., assuming minimization, <span class="math inline">f_i</span> are convex and <span class="math inline">h_j</span> is affine), there exists a point <span class="math inline">x</span> such that <span class="math inline">h_j(x)=0</span> and <span class="math inline">g_i(x) &lt; 0</span>.</li>
 </ul>
 <p>Than it should satisfy <a href="#eq-kkt" class="quarto-xref">Equation&nbsp;3</a></p>
 </div>
@@ -1291,7 +1292,7 @@ p^* = f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
 <p><span class="math display">
 d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},
 </span></p>
-<p>Then we have weak duality: <span class="math inline">p^* \geq d^*</span>. Furthermore, if the functions <span class="math inline">f</span> and <span class="math inline">g</span> are convex and $A((E)) (G) $, then we have strong duality: <span class="math inline">p^* = d^*</span>. While points <span class="math inline">x^* \in E \cap A^{-1}(G)</span> and <span class="math inline">\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)</span> are optimal values for primal and dual problem if and only if:</p>
+<p>Then we have weak duality: <span class="math inline">p^* \geq d^*</span>. Furthermore, if the functions <span class="math inline">f</span> and <span class="math inline">g</span> are convex and <span class="math inline">A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing</span>, then we have strong duality: <span class="math inline">p^* = d^*</span>. While points <span class="math inline">x^* \in E \cap A^{-1}(G)</span> and <span class="math inline">\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)</span> are optimal values for primal and dual problem if and only if:</p>
 <p><span class="math display">
 \begin{split}
 -A^*\lambda^* &amp;\in \partial f(x^*) \\
@@ -1304,8 +1305,82 @@ d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^
 </div>
 <p>Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters <span class="math inline">(f, g, A)</span>, than the dual problem has the form <span class="math inline">(f^*, g^*, -A^*)</span>.</p>
 </section>
-<section id="references" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<section id="sensitivity-analysis" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Sensitivity analysis</h1>
+<p>Let us switch from the original optimization problem</p>
+<p><span class="math display">
+\begin{split}
+&amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\
+&amp; h_i(x) = 0, \; i = 1,\ldots, p
+\end{split}
+\tag{P}
+</span></p>
+<p>To the perturbed version of it:</p>
+<p><span class="math display">
+\begin{split}
+&amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
+\text{s.t. } &amp; f_i(x) \leq u_i, \; i = 1,\ldots,m\\
+&amp; h_i(x) = v_i, \; i = 1,\ldots, p
+\end{split}
+\tag{Per}
+</span></p>
+<p>Note, that we still have the only variable <span class="math inline">x \in \mathbb{R}^n</span>, while treating <span class="math inline">u \in \mathbb{R}^m, v \in \mathbb{R}^p</span> as parameters. It is obvious, that <span class="math inline">\text{Per}(u,v) \to \text{P}</span> if <span class="math inline">u = 0, v = 0</span>. We will denote the optimal value of <span class="math inline">\text{Per}</span> as <span class="math inline">p^*(u, v)</span>, while the optimal value of the original problem <span class="math inline">\text{P}</span> is just <span class="math inline">p^*</span>. One can immediately say, that <span class="math inline">p^*(u, v) = p^*</span>.</p>
+<p>Speaking of the value of some <span class="math inline">i</span>-th constraint we can say, that</p>
+<ul>
+<li><span class="math inline">u_i = 0</span> leaves the original problem</li>
+<li><span class="math inline">u_i &gt; 0</span> means that we have relaxed the inequality</li>
+<li><span class="math inline">u_i &lt; 0</span> means that we have tightened the constraint</li>
+</ul>
+<p>One can even show, that when <span class="math inline">\text{P}</span> is convex optimization problem, <span class="math inline">p^*(u,v)</span> is a convex function.</p>
+<p>Suppose, that strong duality holds for the orriginal problem and suppose, that <span class="math inline">x</span> is any feasible point for the perturbed problem:</p>
+<p><span class="math display">
+\begin{split}
+p^*(0,0) &amp;= p^* = d^* = g(\lambda^*, \nu^*) \leq \\
+&amp; \leq L(x, \lambda^*, \nu^*) = \\
+&amp; = f_0(x) + \sum\limits_{i=1}^m \lambda_i^* f_i(x) + \sum\limits_{i=1}^p\nu_i^* h_i(x) \leq \\
+&amp; \leq f_0(x) + \sum\limits_{i=1}^m \lambda_i^* u_i + \sum\limits_{i=1}^p\nu_i^* v_i
+\end{split}
+</span></p>
+<p>Which means</p>
+<p><span class="math display">
+\begin{split}
+f_0(x) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
+\end{split}
+</span></p>
+<p>And taking the optimal <span class="math inline">x</span> for the perturbed problem, we have:</p>
+<p><span class="math display">
+p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
+</span></p>
+<p>In scenarios where strong duality holds, we can draw several insights about the sensitivity of optimal solutions in relation to the Lagrange multipliers. These insights are derived from the inequality expressed in equation above:</p>
+<ol type="1">
+<li><p><strong>Impact of Tightening a Constraint (Large <span class="math inline">\lambda_i^\star</span>)</strong>:<br>
+When the <span class="math inline">i</span>th constraint’s Lagrange multiplier, <span class="math inline">\lambda_i^\star</span>, holds a substantial value, and if this constraint is tightened (choosing <span class="math inline">u_i &lt; 0</span>), there is a guarantee that the optimal value, denoted by <span class="math inline">p^\star(u, v)</span>, will significantly increase.</p></li>
+<li><p><strong>Effect of Adjusting Constraints with Large Positive or Negative <span class="math inline">\nu_i^\star</span></strong>:</p>
+<ul>
+<li>If <span class="math inline">\nu_i^\star</span> is large and positive and <span class="math inline">v_i &lt; 0</span> is chosen, or<br>
+</li>
+<li>If <span class="math inline">\nu_i^\star</span> is large and negative and <span class="math inline">v_i &gt; 0</span> is selected,<br>
+then in either scenario, the optimal value <span class="math inline">p^\star(u, v)</span> is expected to increase greatly.</li>
+</ul></li>
+<li><p><strong>Consequences of Loosening a Constraint (Small <span class="math inline">\lambda_i^\star</span>)</strong>:<br>
+If the Lagrange multiplier <span class="math inline">\lambda_i^\star</span> for the <span class="math inline">i</span>th constraint is relatively small, and the constraint is loosened (choosing <span class="math inline">u_i &gt; 0</span>), it is anticipated that the optimal value <span class="math inline">p^\star(u, v)</span> will not significantly decrease.</p></li>
+<li><p><strong>Outcomes of Tiny Adjustments in Constraints with Small <span class="math inline">\nu_i^\star</span></strong>:</p>
+<ul>
+<li>When <span class="math inline">\nu_i^\star</span> is small and positive, and <span class="math inline">v_i &gt; 0</span> is chosen, or<br>
+</li>
+<li>When <span class="math inline">\nu_i^\star</span> is small and negative, and <span class="math inline">v_i &lt; 0</span> is opted for,<br>
+in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> will not significantly decrease.</li>
+</ul></li>
+</ol>
+<p>These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.</p>
+<p>Suppose now that <span class="math inline">p^*(u, v)</span> is differentiable at <span class="math inline">u = 0, v = 0</span>.</p>
+<p><span class="math display">
+\lambda_i^* = -\dfrac{\partial p^*(0,0))}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0))}{\partial v_i}
+</span></p>
+</section>
+<section id="references" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> References</h1>
 <ul>
 <li><a href="http://web.stanford.edu/class/ee364a/lectures/duality.pdf">Convex Optimization — Boyd &amp; Vandenberghe @ Stanford</a></li>
 <li><a href="https://ee227c.github.io/notes/ee227c-lecture13.pdf">Course Notes for EE227C. Lecture 13</a></li>
