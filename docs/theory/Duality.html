@@ -703,6 +703,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#player-1s-perspective" id="toc-player-1s-perspective" class="nav-link" data-scroll-target="#player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</a></li>
   <li><a href="#player-2s-perspective" id="toc-player-2s-perspective" class="nav-link" data-scroll-target="#player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</a></li>
   <li><a href="#duality-and-equivalence" id="toc-duality-and-equivalence" class="nav-link" data-scroll-target="#duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</a></li>
+  <li><a href="#formulating-and-solving-the-lagrange-dual" id="toc-formulating-and-solving-the-lagrange-dual" class="nav-link" data-scroll-target="#formulating-and-solving-the-lagrange-dual"><span class="header-section-number">5.5.4</span> Formulating and Solving the Lagrange Dual</a></li>
+  <li><a href="#constructing-the-lagrangian" id="toc-constructing-the-lagrangian" class="nav-link" data-scroll-target="#constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</a></li>
+  <li><a href="#defining-the-dual-function" id="toc-defining-the-dual-function" class="nav-link" data-scroll-target="#defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</a></li>
+  <li><a href="#solving-the-dual-problem" id="toc-solving-the-dual-problem" class="nav-link" data-scroll-target="#solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5.5.8</span> Conclusion</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
@@ -1428,8 +1433,14 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 </section>
 <section id="mixed-strategies-for-matrix-games" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</h2>
-<p>In zero-sum matrix games, players 1 and 2 choose actions from sets <span class="math inline">\{1,...,n\}</span> and <span class="math inline">\{1,...,m\}</span>, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix <span class="math inline">P \in \mathbb{R}^{n \times m}</span>. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities <span class="math inline">u_i</span> for each action <span class="math inline">i</span>, and player 2 uses <span class="math inline">v_i</span>.</p>
-<p>The expected payoff from player 1 to player 2 is given by $ <em>{k=1}^{n} </em>{l=1}^{m} u_k v_l P_{kl} = u^T P v $. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="msmg.svg" class="img-fluid figure-img"></p>
+<figcaption>The scheme of a mixed strategy matrix game</figcaption>
+</figure>
+</div>
+<p>In zero-sum matrix games, players 1 and 2 choose actions from sets <span class="math inline">\{1,...,n\}</span> and <span class="math inline">\{1,...,m\}</span>, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix <span class="math inline">P \in \mathbb{R}^{n \times m}</span>. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities <span class="math inline">u_k</span> for each action <span class="math inline">i</span>, and player 2 uses <span class="math inline">v_l</span>.</p>
+<p>The expected payoff from player 1 to player 2 is given by <span class="math inline">\sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v</span>. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.</p>
 <section id="player-1s-perspective" class="level3" data-number="5.5.1">
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</h3>
 <p>Assuming player 2 knows player 1’s strategy <span class="math inline">u</span>, player 2 will choose <span class="math inline">v</span> to maximize <span class="math inline">u^T P v</span>. The worst-case expected payoff is thus:</p>
@@ -1437,9 +1448,13 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 \max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i
 </span></p>
 <p>Player 1’s optimal strategy minimizes this worst-case payoff, leading to the optimization problem:</p>
-<p><span class="math display">
-\minimize \max_{i=1,...,m} (P^T u)_i \quad \subjectto \quad u \geq 0, 1^T u = 1
-</span></p>
+<p><span id="eq-player1-problem"><span class="math display">
+\begin{split}
+&amp; \min \max_{i=1,...,m} (P^T u)_i\\
+&amp; \text{s.t. } u \geq 0 \\
+&amp; 1^T u = 1
+\end{split}
+\tag{6}</span></span></p>
 <p>This forms a convex optimization problem with the optimal value denoted as <span class="math inline">p^*_1</span>.</p>
 </section>
 <section id="player-2s-perspective" class="level3" data-number="5.5.2">
@@ -1449,14 +1464,69 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 \min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i
 </span></p>
 <p>Player 2 then maximizes this to get the largest guaranteed payoff, solving the optimization problem:</p>
-<p><span class="math display">
-\maximize \min_{i=1,...,n} (P v)_i \quad \subjectto \quad v \geq 0, 1^T v = 1
-</span></p>
+<p><span id="eq-player2-problem"><span class="math display">
+\begin{split}
+&amp; \max \min_{i=1,...,n} (P v)_i \\
+&amp; \text{s.t. }  v \geq 0 \\
+&amp; 1^T v = 1
+\end{split}
+\tag{7}</span></span></p>
 <p>The optimal value here is <span class="math inline">p^*_2</span>.</p>
 </section>
 <section id="duality-and-equivalence" class="level3" data-number="5.5.3">
 <h3 data-number="5.5.3" class="anchored" data-anchor-id="duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</h3>
 <p>It’s generally advantageous to know the opponent’s strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1’s problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2’s problem. Due to strong duality in feasible linear programs, <span class="math inline">p^*_1 = p^*_2</span>, showing no advantage in knowing the opponent’s strategy.</p>
+</section>
+<section id="formulating-and-solving-the-lagrange-dual" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="formulating-and-solving-the-lagrange-dual"><span class="header-section-number">5.5.4</span> Formulating and Solving the Lagrange Dual</h3>
+<p>We approach problem <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a> by setting it up as a linear programming (LP) problem. The goal is to minimize a variable <span class="math inline">t</span>, subject to certain constraints:</p>
+<ol type="1">
+<li><span class="math inline">u \geq 0</span>,</li>
+<li>The sum of elements in <span class="math inline">u</span> equals 1 (<span class="math inline">1^T u = 1</span>),</li>
+<li><span class="math inline">P^T u</span> is less than or equal to <span class="math inline">t</span> times a vector of ones (<span class="math inline">P^T u \leq t \mathbf{1}</span>).</li>
+</ol>
+<p>Here, <span class="math inline">t</span> is an additional variable in the real numbers (<span class="math inline">t \in \mathbb{R}</span>).</p>
+</section>
+<section id="constructing-the-lagrangian" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</h3>
+<p>We introduce multipliers for the constraints: <span class="math inline">\lambda</span> for <span class="math inline">P^T u \leq t \mathbf{1}</span>, <span class="math inline">\mu</span> for <span class="math inline">u \geq 0</span>, and <span class="math inline">\nu</span> for <span class="math inline">1^T u = 1</span>. The Lagrangian is then formed as:</p>
+<p><span class="math display">
+L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u
+</span></p>
+</section>
+<section id="defining-the-dual-function" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</h3>
+<p>The dual function <span class="math inline">g(\lambda, \mu, \nu)</span> is defined as:</p>
+<p><span class="math display">
+g(\lambda, \mu, \nu) =
+\begin{cases}
+\nu &amp; \text{if } 1^T\lambda=1 \text{ and } P\lambda - \nu \mathbf{1} = \mu \\
+-\infty &amp; \text{otherwise}
+\end{cases}
+</span></p>
+</section>
+<section id="solving-the-dual-problem" class="level3" data-number="5.5.7">
+<h3 data-number="5.5.7" class="anchored" data-anchor-id="solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</h3>
+<p>The dual problem seeks to maximize <span class="math inline">\nu</span> under the following conditions:</p>
+<ol type="1">
+<li><span class="math inline">\lambda \geq 0</span>,</li>
+<li>The sum of elements in <span class="math inline">\lambda</span> equals 1 (<span class="math inline">1^T \lambda = 1</span>),</li>
+<li><span class="math inline">\mu \geq 0</span>,</li>
+<li><span class="math inline">P\lambda - \nu \mathbf{1} = \mu</span>.</li>
+</ol>
+<p>Upon eliminating <span class="math inline">\mu</span>, we obtain the Lagrange dual of <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a>:</p>
+<p><span class="math display">
+\begin{split}
+&amp; \max \nu \\
+&amp; \text{s.t. }   \lambda \geq 0 \\
+&amp;  \lambda \geq 0 \\
+&amp; P\lambda \geq \nu \mathbf{1}
+\end{split}
+</span></p>
+</section>
+<section id="conclusion" class="level3" data-number="5.5.8">
+<h3 data-number="5.5.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.5.8</span> Conclusion</h3>
+<p>This formulation shows that the Lagrange dual problem is equivalent to problem <a href="#eq-player2-problem" class="quarto-xref">Equation&nbsp;7</a>. Given the feasibility of these linear programs, strong duality holds, meaning the optimal values of <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a> and <a href="#eq-player2-problem" class="quarto-xref">Equation&nbsp;7</a> are equal.</p>
 </section>
 </section>
 </section>
