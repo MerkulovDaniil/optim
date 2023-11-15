@@ -2,13 +2,13 @@
 title: Deep learning
 ---
 
-# Problem
+## Problem
 
 ![Illustration](dl.png)
 
 A lot of practical tasks nowadays are being solved using the deep learning approach, which is usually implies finding local minimum of a non-convex function, that generalizes well (enough 😉). The goal of this short text is to show you the importance of the optimization behind neural network training.
 
-## Cross entropy
+### Cross entropy
 One of the most commonly used loss functions in classification tasks is the normalized categorical cross-entropy in $K$ class problem:
 
 $$
@@ -34,9 +34,9 @@ where we initially sample randomly only $b \ll n$ points and calculate sample av
 ![Illustration](MLP_optims.svg)
 
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Deep%20learning.ipynb){: .btn }
 
-# References
+## References
 * [Optimization for Deep Learning Highlights in 2017](http://ruder.io/deep-learning-optimization-2017/)
 * [An overview of gradient descent optimization algorithms](http://ruder.io/optimizing-gradient-descent/)

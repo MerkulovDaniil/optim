@@ -3,8 +3,8 @@ title: Projection
 order: 5
 ---
 
-# Definitions
-## Distance between point and set
+## Definitions
+### Distance between point and set
 The distance $d$ from point $\mathbf{y} \in \mathbb{R}^n$ to closed set $S \subset \mathbb{R}^n$:
 
 $$
@@ -12,7 +12,7 @@ d(\mathbf{y}, S, \| \cdot \|) = \inf\{\|x - y\| \mid x \in S \}
 $$
 
 
-## Projection of a point on set
+### Projection of a point on set
 Projection of a point $\mathbf{y} \in \mathbb{R}^n$ on set $S \subseteq \mathbb{R}^n$ is a point $\pi_S(\mathbf{y}) \in S$: 
 
 $$

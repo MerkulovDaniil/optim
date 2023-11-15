@@ -3,7 +3,7 @@ title: Convex optimization problem
 order: 9
 ---
 
-# Convex optimization problem
+## Convex optimization problem
 
 ![The idea behind the definition of a convex optimization problem](cop.svg)
 
@@ -53,6 +53,6 @@ $$
 
 Such confusion in notation is sometimes being avoided by naming problems of type $\text{(CP)}$ as *abstract form convex optimization problem*.
 
-# Materials
+## Materials
 
 * [Convex Optimization — Boyd & Vandenberghe @ Stanford](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf)

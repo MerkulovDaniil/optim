@@ -3,7 +3,7 @@ title: Rates of convergence
 order: 12
 ---
 
-# Rates of convergence{.unnumbered}
+## Rates of convergence{.unnumbered}
 
 1. Show with the definition that the sequence $\left\{ \dfrac{1}{k} \right\}_{k=1}^\infty$ does not have a linear convergence rate (but it converges to zero).
 1. Show with the definition that the sequence $\left\{ \dfrac{1}{k^k} \right\}_{k=1}^\infty$ does not have a quadratic convergence rate (but it converges to zero).

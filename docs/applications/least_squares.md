@@ -2,7 +2,7 @@
 title: Linear least squares
 ---
 
-# Problem
+## Problem
 
 ![Illustration](lls_idea.svg)
 
@@ -27,9 +27,9 @@ Let $\theta^*$ denote the optimal $ \theta $. The quantity $ r=X \theta^* - y $ 
 Note, that the function needn't be linear in the argument $x$ but only in the parameters $\theta$ that are to be determined in the best fit.
 ![Illustration](non_linear_fit.svg)
 
-# Approaches
+## Approaches
 
-## Moore–Penrose inverse
+### Moore–Penrose inverse
 If the matrix $X$ is relatively small, we can write down and calculate exact solution:
 
 $$
@@ -38,7 +38,7 @@ $$
 
 where $X^\dagger$ is called [pseudo-inverse](https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse) matrix. However, this approach squares the condition number of the problem, which could be an obstacle in case of ill-conditioned huge scale problem. 
 
-## QR decomposition
+### QR decomposition
 For any matrix $X \in \mathbb{R}^{m \times n}$ there is exists QR decomposition:
 
 $$
@@ -56,7 +56,7 @@ Now, process of finding theta consists of two steps:
 1. Find the QR decomposition of $X$.
 1. Solve triangular system $R \theta = Q^\top y$, which is triangular and, therefore, easy to solve.
 
-## Cholesky decomposition
+### Cholesky decomposition
 For any positive definite matrix $A \in \mathbb{R}^{n \times n}$ there is exists Cholesky decomposition:
 
 $$
@@ -79,9 +79,9 @@ Note, that in this case the error stil proportional to the squared condition num
 
 ![Illustration](lls_times.svg)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Least_squares.ipynb){: .btn }
-# References
+## References
 * [CVXPY documentation](https://www.cvxpy.org/examples/basic/least_squares.html)
 * [Interactive example](http://setosa.io/ev/ordinary-least-squares-regression/)
 * [Jupyter notebook by A. Katrutsa](https://nbviewer.jupyter.org/github/amkatrutsa/MIPT-Opt/blob/master/16-LSQ/Seminar16en.ipynb)

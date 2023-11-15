@@ -14,7 +14,7 @@ bibtex: |
 order: 14
 ---
 
-# CVXPY library{.unnumbered}
+## CVXPY library{.unnumbered}
 
 1. **Constrained linear least squares**
 	Solve the following problem with cvxpy library.
@@ -87,7 +87,7 @@ order: 14
 		rho = np.ones(4)/4
 		```
 
-# Materials
+## Materials
 
 * [CVXPY exercises](https://github.com/cvxgrp/cvx_short_course/tree/master/exercises)
 * [Additional Exercises for Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook_extra_exercises.pdf)

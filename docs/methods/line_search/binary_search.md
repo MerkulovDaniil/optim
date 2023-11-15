@@ -3,10 +3,10 @@ title: Binary search
 parent: Line search
 grand_parent: Methods
 ---
-# Idea
+## Idea
 We divide a segment into two equal parts and choose the one that contains the solution of the problem using the values of functions. 
 
-# Algorithm
+## Algorithm
 
 ```python
 def binary_search(f, a, b, epsilon):
@@ -29,7 +29,7 @@ def binary_search(f, a, b, epsilon):
 
 ![Illustration](./binary_search.gif)
 
-# Bounds
+## Bounds
 The length of the line segment on $k+1$-th iteration:
 
 $$

@@ -20,7 +20,7 @@ bibtex: |
   }
 file: /assets/files/CG.pdf
 ---
-# Introduction
+## Introduction
 
 ![Illustration](cg_win.svg)
 
@@ -39,7 +39,7 @@ $$
 
 Here $x \in \mathbb{R}^n, A \in \mathbb{R}^{n \times n}$, $b \in \mathbb{R}^n, c \in \mathbb{R}$.
 
-# Method of conjugate gradients for the quadratic function
+## Method of conjugate gradients for the quadratic function
 
 We will consider symmetric matrices $A \in \mathbb{S}^n$ (otherwise, replacing $A' = \frac{A + A^\top}{2}$ leads to the same optimization problem). Then:
 
@@ -131,7 +131,7 @@ Thus, we formulate an algorithm:
 
 5. Repeat steps 2-4 until $n$ directions are built, where $n$ is the dimension of space (dimension of $x$).
 
-# Method of conjugate gradients for non-quadratic function:
+## Method of conjugate gradients for non-quadratic function:
 
 In case we do not have an analytic expression for a function or its gradient, we will most likely not be able to solve the one-dimensional minimization problem analytically. Therefore, step 2 of the algorithm is replaced by the usual line search procedure. But there is the following mathematical trick for the fourth point:
 
@@ -155,9 +155,9 @@ $$
 
 This method is called the Polack - Ribier method.
 
-# Examples
+## Examples
 
-## Example 1
+### Example 1
 
 Prove that if a set of vectors $d_1, \ldots, d_k$ - are $A$-conjugate (each pair of vectors is $A$-conjugate), these vectors are linearly independent. $A \in \mathbb{S}^n_{++}$.
 
@@ -176,11 +176,11 @@ Solution:
 
   Thus, $\alpha_j = 0$, for all other indices one have perform the same process
 
-# References
+## References
 
 * [An Introduction](https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf)  to the Conjugate Gradient Method Without the Agonizing Pain
 * [The Concept of Conjugate Gradient Descent in Python](https://ikuz.eu/machine-learning-and-computer-science/the-concept-of-conjugate-gradient-descent-in-python/) by Ilya Kuzovkin
 * [Picture of best\worst initial guess in SD](http://fourier.eng.hmc.edu/e176/lectures/)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/CG.ipynb)

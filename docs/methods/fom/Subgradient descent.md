@@ -5,7 +5,7 @@ grand_parent: Methods
 order: 2
 ---
 
-# Introduction
+## Introduction
 
 Рассматривается классическая задача выпуклой оптимизации:
 
@@ -29,7 +29,7 @@ $$
 
 **Выход:** $\partial f(x)$ и $f(x)$
 
-# Algorithm
+## Algorithm
 
 $$
 \tag{SD}
@@ -38,9 +38,9 @@ $$
 
 где $g_k$ - произвольный субградиент функции $f(x)$ в т. $x_k$, $g_k \in \partial f (x_k)$
 
-## Bounds
+### Bounds
 
-### Vanilla version
+#### Vanilla version
 
 Запишем как близко мы подошли к оптимуму $x^* = \text{arg}\min\limits_{x \in \mathbb{R}^n} f(x) = \text{arg} f^*$ на последней итерации:
 
@@ -103,7 +103,7 @@ $$
 * Получение оценок не для $x_T$, а для среднего арифметического по итерациям $\overline{x}$ - типичный трюк при получении оценок для методов, где есть выпуклость, но нет удобного убывания на каждой итерации. Нет гарантий успеха на каждой итерации, но есть гарантия успеха в среднем
 * Для выбора оптимального шага необходимо знать (предположить) число итераций заранее. Возможный выход: инициализировать $T$ небольшим значением, после достижения этого количества итераций удваивать $T$ и рестартовать алгоритм. Более интеллектуальный способ: адаптивный выбор длины шага.
 
-### Steepest subgradient descent
+#### Steepest subgradient descent
 
 Попробуем выбирать на каждой итерации длину шага более оптимально. Тогда:
 
@@ -151,7 +151,7 @@ $$
 
 Что приводит к абсолютно такой же оценке $\mathcal{O}\left(\dfrac{1}{\sqrt{T}}\right)$ на невязку по значению функции. На самом деле, для такого класса функций нельзя получить результат лучше, чем $\dfrac{1}{\sqrt{T}}$ или $\dfrac{1}{\varepsilon^2}$ по итерациям
 
-### Online learning
+#### Online learning
 
 Рассматривается следующая игра: есть игрок и природа. На каждом из $k = 0, \ldots, T-1$ шагов:
 
@@ -198,8 +198,8 @@ $$
 \overline{R_{T-1}} = \dfrac{1}{T}R_{T-1} \leq G \| x_0 - x^* \| \dfrac{1}{\sqrt{T}}, \qquad \alpha_k = \alpha = \dfrac{\|x_0 - x^*\|}{G}\sqrt{\dfrac{1}{T}}
 $$
 
-# Examples
-## Least squares with $l_1$ regularization
+## Examples
+### Least squares with $l_1$ regularization
 
 $$
 \min_{x \in \mathbb{R}^n} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
@@ -215,7 +215,7 @@ where signum function is taken element-wise.
 
 ![Illustration](SD.svg)
 
-## Support vector machines
+### Support vector machines
 
 Let $D = \{ (x_i, y_i) \mid x_i \in \mathbb{R}^n, y_i \in \{\pm 1\}\}$
 
@@ -225,7 +225,7 @@ $$
 \min_{\omega \in \mathbb{R}^n, b \in \mathbb{R}} \dfrac{1}{2}\|\omega\|_2^2 + C\sum\limits_{i=1}^m max[0, 1 - y_i(\omega^\top x_i + b)]
 $$
 
-# Bounds 
+## Bounds 
 
 | Conditions | $f(\bar{x}) - f(x^*)\leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
 | ---------- | ---------------------- | ------------------- | --------------------- |
@@ -239,12 +239,12 @@ $$
 * $\overline{x} = \dfrac{1}{k}\sum_{i=1}^k x_i$
 * $\|g_k\| \leq G$
 
-# Code
+## Code
 
 * [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb) - Wolfe's example and why we usually have oscillations in non-smooth optimization.
 * [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb) - Linear least squares with $l_1$- regularization.
 
-# References
+## References
 
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta
 * [Lecture](http://suvrit.de/teach/ee227a/lect12.pdf) on subgradient methods @ Berkley

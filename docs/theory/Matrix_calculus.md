@@ -3,8 +3,8 @@ title: Matrix calculus
 order: 1
 ---
 
-# Basic linear algebra background
-## Vectors and matrices
+## Basic linear algebra background
+### Vectors and matrices
 
 We will treat all vectors as column vectors by default. The space of real vectors of length $n$ is denoted by $\mathbb{R}^n$, while the space of real-valued $m \times n$ matrices is denoted by $\mathbb{R}^{m \times n}$. That's it: [^1]
 
@@ -48,7 +48,7 @@ A matrix $A \in \mathbb{S}^n$ is called **positive (negative) semidefinite** if 
 Is it correct, that a positive definite matrix has all positive entries?
 :::
 
-## Matrix and vector product
+### Matrix and vector product
 
 Let $A$ be a matrix of size $m \times n$, and $B$ be a matrix of size $n \times p$, and let the product $AB$ be:
 $$
@@ -82,7 +82,7 @@ Remember, that:
 * $e^{A+B} \neq e^{A} e^{B}$ (but if $A$ and $B$ are commuting matrices, which means that $AB = BA$, $e^{A+B} = e^{A} e^{B}$)
 * $\langle x, Ay\rangle = \langle A^T x, y\rangle$
 
-## Norms and scalar products
+### Norms and scalar products
 
 Norm is a **qualitative measure of the smallness of a vector** and is typically denoted as $\Vert x \Vert$.
 
@@ -196,9 +196,9 @@ where $m_{ii}$ - i-th diagonal element of some matrix $M$.
 :::
 :::
 
-## Eigenvalues, eigenvectors, and the singular-value decomposition
+### Eigenvalues, eigenvectors, and the singular-value decomposition
 
-### Eigenvalues
+#### Eigenvalues
 
 A scalar value $\lambda$ is an eigenvalue of the $n \times n$ matrix $A$ if there is a nonzero vector $q$ such that
 $$ 
@@ -283,7 +283,7 @@ $$
 \kappa(A) = \|A\|\|A^{-1}\|
 $$
 
-### Singular value decomposition
+#### Singular value decomposition
 
 Suppose $A \in \mathbb{R}^{m \times n}$ with rank $A = r$. Then $A$ can be factored as
 
@@ -342,7 +342,7 @@ Suppose, matrix $A \in \mathbb{S}^n_{++}$. What can we say about the connection 
 How do the singular values of a matrix relate to its eigenvalues, especially for a symmetric matrix?
 :::
 
-### Skeleton decomposition
+#### Skeleton decomposition
 
 Simple, yet very interesting decomposition is Skeleton decomposition, which can be written in two forms:
 
@@ -364,7 +364,7 @@ Use cases for Skeleton decomposition are:
 * Feature extraction in machine learning, where it is also known as matrix factorization 
 * All applications where SVD applies, since Skeleton decomposition can be transformed into truncated SVD form.
 
-## Canonical tensor decomposition
+### Canonical tensor decomposition
 
 One can consider the generalization of Skeleton decomposition to the higher order data structure, like tensors, which implies representing the tensor as a sum of $r$ primitive tensors.
 
@@ -378,7 +378,7 @@ Note, that there are many tensor decompositions: Canonical, Tucker, Tensor Train
 How does the choice of rank in the Canonical tensor decomposition affect the accuracy and interpretability of the decomposed tensor?
 :::
 
-## Determinant and trace
+### Determinant and trace
 
 The determinant and trace can be expressed in terms of the eigenvalues
 
@@ -417,9 +417,9 @@ How does the determinant of a matrix relate to its invertibility?
 What can you say about the determinant value of a positive definite matrix?
 :::
 
-# Optimization bingo
+## Optimization bingo
 
-## Gradient
+### Gradient
 
 Let $f(x):\mathbb{R}^n→\mathbb{R}$, then vector, which contains all first-order partial derivatives:
 
@@ -450,7 +450,7 @@ This gradient points in the direction of the steepest ascent of the function.
 How does the magnitude of the gradient relate to the steepness of the function?
 :::
 
-## Hessian
+### Hessian
 
 Let $f(x):\mathbb{R}^n→\mathbb{R}$, then matrix, containing all the second order partial derivatives:
 
@@ -465,7 +465,7 @@ $$
 
 :::{.callout-theorem}
 
-## Schwartz theorem
+### Schwartz theorem
 
 Let $f: \mathbb{R}^n \rightarrow \mathbb{R}$ be a function. If the mixed partial derivatives $\frac{\partial^2 f}{\partial x_i \partial x_j}$ and $\frac{\partial^2 f}{\partial x_j \partial x_i}$ are both continuous on an open set containing a point $a$, then they are equal at the point $a$. That is,
 $$
@@ -483,7 +483,7 @@ This symmetry simplifies computations and analysis involving the Hessian matrix 
 
 ::: {.callout-example}
 
-## Schwartz counterexample
+### Schwartz counterexample
 $$
 f(x,y) = 
 \begin{cases}
@@ -498,7 +498,7 @@ schwartz_counterexample.html
 One can verify, that $\frac{\partial^2 f}{ \partial x \partial y} (0, 0) \neq \frac{\partial^2 f}{ \partial y \partial x} (0, 0)$, although the mixed partial derivatives do exist, and at every other point the symmetry does hold.
 :::
 
-In fact, Hessian could be a tensor in such a way: $\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$ is just 3d tensor, every slice is just hessian of corresponding scalar function $\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)$.
+In fact, Hessian could be a tensor in such a way: $\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)$ is just 3d tensor, every slice is just hessian of corresponding scalar function $\left( \nabla^2f_1(x), \ldots, \nabla^2f_m(x)\right)$.
 
 ::: {.callout-example} 
 For the function $f(x, y) = x^2 + y^2$, the Hessian is:
@@ -516,7 +516,7 @@ This matrix provides information about the curvature of the function in differen
 How can the Hessian matrix be used to determine the concavity or convexity of a function?
 :::
 
-## Jacobian
+### Jacobian
 
 The extension of the gradient of multidimensional $f(x):\mathbb{R}^n\to\mathbb{R}^m$ is the following matrix:
 
@@ -555,7 +555,7 @@ How does the Jacobian matrix relate to the gradient for scalar-valued functions?
 Can we somehow connect those three definitions above (gradient, jacobian, and hessian) using a single correct statement?
 :::
 
-## Summary
+### Summary
 
 $$
 f(x) : X \to Y; \qquad \frac{\partial f(x)}{\partial x} \in G
@@ -568,11 +568,11 @@ $$
 |      $\mathbb{R}^n$       | $\mathbb{R}^m$ | $\mathbb{R}^{n \times m}$ | $\dfrac{\partial f_i}{\partial x_j}$ (jacobian) |
 | $\mathbb{R}^{m \times n}$ |  $\mathbb{R}$  | $\mathbb{R}^{m \times n}$ |      $\dfrac{\partial f}{\partial x_{ij}}$      |
 
-## Taylor approximations
+### Taylor approximations
 
 Taylor approximations provide a way to approximate functions locally by polynomials. The idea is that for a smooth function, we can approximate it by its tangent (for the first order) or by its parabola (for the second order) at a point.
 
-### First-order Taylor approximation
+#### First-order Taylor approximation
 
 The first-order Taylor approximation, also known as the linear approximation, is centered around some point $x_0$. If $f: \mathbb{R}^n \rightarrow \mathbb{R}$ is a differentiable function, then its first-order Taylor approximation is given by:
 
@@ -601,7 +601,7 @@ $$
 These approximations provide polynomial representations of the function near the point $x_0$.
 :::
 
-### Second-order Taylor approximation
+#### Second-order Taylor approximation
 
 The second-order Taylor approximation, also known as the quadratic approximation, includes the curvature of the function. For a twice-differentiable function $f: \mathbb{R}^n \rightarrow \mathbb{R}$, its second-order Taylor approximation centered at some point $x_0$ is:
 
@@ -635,15 +635,15 @@ Note, that even the second-order approximation could become inaccurate very quic
 inaccurate_taylor.mp4
 :::
 
-# Derivatives
+## Derivatives
 
-## Naive approach
+### Naive approach
 
 The basic idea of the naive approach is to reduce matrix/vector derivatives to the well-known scalar derivatives. 
 ![Naive approach of taking derivatives](./matrix_calculus.svg){#fig-naive_derivative}
 One of the most important practical tricks here is to separate indices of sum ($i$) and partial derivatives ($k$). Ignoring this simple rule tends to produce mistakes.
 
-## Differential approach
+### Differential approach
 
 The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convenient to use the differential notation here. [^3]
 
@@ -657,7 +657,7 @@ $$
 If for any linear operator $D : U \rightarrow V$ the function $f$ is not differentiable at the point $x$ with derivative $D$, then we say that $f$ is not differentiable at the point $x$.
 :::
 
-### Differentials
+#### Differentials
 
 After obtaining the differential notation of $df$ we can retrieve the gradient using the following formula:
 
@@ -671,7 +671,7 @@ $$
 d^2f(x) = \langle \nabla^2 f(x) dx_1, dx\rangle = \langle H_f(x) dx_1, dx\rangle
 $$
 
-### Properties
+#### Properties
 
 Let $A$ and $B$ be the constant matrices, while $X$ and $Y$ are the variables (or matrix functions).
 
@@ -740,7 +740,7 @@ Find the gradient $\nabla f(x)$ and hessian $\nabla^2f(x)$, if $f(x) = \ln \left
 :::
 :::
 
-# References
+## References
 
 -   [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/) book by S. Boyd and L. Vandenberghe - Appendix A. Mathematical background.
 -   [Numerical Optimization](assets/files/NumericalOptimization.pdf) by J. Nocedal and S. J. Wright. - Background Material.

@@ -3,7 +3,7 @@ title: Duality
 order: 11
 ---
 
-# Duality{.unnumbered}
+## Duality{.unnumbered}
 
 1. **Toy example**
 

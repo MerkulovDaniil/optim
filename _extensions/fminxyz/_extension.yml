@@ -4,14 +4,13 @@ version: 2.0.0
 contributes:
   formats:
     html:
-      template-partials:
-        - title-block.html # Empty title block
       number-sections: true
       link-external-newwindow: true
       theme: [cosmo, theme.scss]
       toc: true
       code-link: true
       code-copy: true
+      anchor-sections: true
       html-math-method: katex
       # reference-location: margin
       include-in-header:

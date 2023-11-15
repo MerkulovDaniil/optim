@@ -12,7 +12,7 @@ bibtex: |
   }
 file: https://arxiv.org/pdf/1907.08610
 ---
-# Summary
+## Summary
 
 The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family.
 The main idea is quite simple: 
@@ -36,14 +36,14 @@ It is worth to say, that author claims significant improvement in practical huge
 ![Illustration](fast_vs_slow.png)
 ![Illustration](imagenet_train_loss.png)
 
-# Pros
+## Pros
 
 * Interesting idea, costs almost nothing, why not to try?
 * Works with any SGD-like optimizer (SGD, Adam, RmsProp)
 * Analytical approach to quadratic case.
 * Wide set of empirical tests (Image classification, Neural Translation, LSTM training)
 
-# Cons
+## Cons
 
 * Lack of test loss pictures, the majority of them obtained for the train loss/accuracy
 * Lack of pictures with different batch sizes

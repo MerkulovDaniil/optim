@@ -2,7 +2,7 @@
 title: Minimum volume ellipsoid
 ---
 
-# Problem
+## Problem
 ![Illustration](ellipsoid.svg)
 
 Let $x_1, \ldots, x_n$ be the points in $\mathbb{R}^2$. Given these points we need to find an ellipsoid, that contains all points with the minimum volume (in 2d case volume of an ellipsoid is just the square).
@@ -26,10 +26,10 @@ $$
 
 ![Illustration](ellipsoid2.svg)
 
-# Code
+## Code
 [Open In Colab]( https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Ellipsoid.ipynb){: .btn }
 
-# References
+## References
 
 * [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa
 * [https://cvxopt.org/examples/book/ellipsoids.html](CVXOPT documentation)

@@ -3,12 +3,12 @@ title: Golden search
 parent: Line search
 grand_parent: Methods
 ---
-# Idea
+## Idea
 The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration one of the points will remain the golden point.
 
 ![Illustration](golden_search.svg)
 
-# Algorithm
+## Algorithm
 
 ```python
 def golden_search(f, a, b, epsilon):
@@ -27,7 +27,7 @@ def golden_search(f, a, b, epsilon):
     return (a + b) / 2
 ```
 
-# Bounds
+## Bounds
 
 $$
 |x_{k+1} - x_*| \leq b_{k+1} - a_{k+1} = \left( \frac{1}{\tau} \right)^{N-1} (b - a) \approx 0.618^k(b-a),

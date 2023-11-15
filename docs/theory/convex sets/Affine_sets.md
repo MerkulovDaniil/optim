@@ -3,7 +3,7 @@ title: Affine set
 order: 1
 ---
 
-# Line
+## Line
 Suppose $x_1, x_2$ are two points in $\mathbb{R^n}$. Then the line passing through them is defined as follows:
 
 $$
@@ -12,7 +12,7 @@ $$
 
 ![Illustration of a line between two vectors $x_1$ and $x_2$](line.svg){#fig-line}
 
-# Affine set
+## Affine set
 The set $A$ is called **affine** if for any $x_1, x_2$ from $A$ the line passing through them also lies in $A$, i.e. 
 
 $$
@@ -24,11 +24,11 @@ $$
 * The set of solutions $\left\{x \mid \mathbf{A}x =  \mathbf{b} \right\}$ is also an affine set.
 :::
 
-# Related definitions
-## Affine combination
+## Related definitions
+### Affine combination
 Let we have $x_1, x_2, \ldots, x_k \in S$, then the point $\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$ is called affine combination of $x_1, x_2, \ldots, x_k$ if $\sum\limits_{i=1}^k\theta_i = 1$.
 
-## Affine hull
+### Affine hull
 The set of all affine combinations of points in set $S$ is called the affine hull of $S$:
 
 $$
@@ -39,7 +39,7 @@ $$
 The set $\mathbf{aff}(S)$ is the smallest affine set containing $S$.
 :::
 
-## Interior
+### Interior
 The interior of the set $S$ is defined as the following set:
 
 $$
@@ -48,7 +48,7 @@ $$
 
 where $B(\mathbf{x}, \varepsilon) = \mathbf{x} + \varepsilon B$ is the ball centered at point $\mathbf{x}$ with radius $\varepsilon$.
 
-## Relative Interior
+### Relative Interior
 The relative interior of the set $S$ is defined as the following set:
 
 $$

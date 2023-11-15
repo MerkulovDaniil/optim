@@ -4,7 +4,7 @@ parent: Exercises
 order: 3
 ---
 
-# Separation{.unnumbered}
+## Separation{.unnumbered}
 
 1. Let $S_1, S_2$ be closed convex sets such that: $S_1 \cap S_2 = \varnothing$. Is it true that $\exists p: (p,x) < (p,y) \;\; \forall x \in S_1, \forall y \in S_2$
 1. Find a separating hyperplane between $S_1$ and $S_2$:

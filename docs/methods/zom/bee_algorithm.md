@@ -3,12 +3,12 @@ title: Bee algorithm
 parent: Zero order methods
 grand_parent: Methods
 ---
-# Algorithm
+## Algorithm
 
 
 The Bee Algorithm was mathematically first described relatively recently. It is one of the representatives of a large family of algorithms that allow modeling swarm intelligence. This article will provide an example of the application of the Bee Algorithm to search for the global extremum of the function. The two-dimensional Schwefel function, having a large number of local minima, and the Rosenbrock function, whose global minimum lies in a narrow, parabolic valley, were chosen as the target functions.
 
-## Intuition
+### Intuition
 
 A colony of honey bees can spread over long distances (more than 10 km) and in several directions, while using a huge number of food sources. A colony can only be successful by deploying its foragers to good fields. The main idea is that flower fields that provide large amounts of nectar or pollen that are easy to collect with less energy consumption should be visited by more bees, whereas areas with less nectar or pollen should receive fewer bees.
 
@@ -18,7 +18,7 @@ When the bees return to the hive, those who found a source which is above a cert
 
 The nectar search process is described in more detail [here](https://www.researchgate.net/publication/260985621_The_Bees_Algorithm_Technical_Note).
 
-## Mathematical interpretation
+### Mathematical interpretation
 
 And now imagine that the location of the global extremum is the site where the most nectar, and this site is the only one, that is, in other places there is nectar, but less. And bees do not live on a plane, where it is enough to know two coordinates to determine the location of sites, but in a multidimensional space, where each coordinate represents one parameter of a function that needs to be optimized. The amount of nectar found is the value of the target function at this point.
 
@@ -34,7 +34,7 @@ The list below shows the pseudocode for a simple Bee Algorithm.
    5. Assign remaining bees (**n-m-e**) to search randomly and evaluate their fitness.
 4. End While
 
-## Examples
+### Examples
 
 Two standard functions problems were selected to test the bee algorithm. Code implementation of The Bee Algorithm in Python is described [here](https://jenyay.net/Programming/Bees)
 
@@ -49,7 +49,7 @@ The following parameters were set for this test:
 
 A random point is selected from the definition area to initialize the algorithm.
 
-###  SCHWEFEL FUNCTION
+####  SCHWEFEL FUNCTION
 
 The Schwefel function is complex, with many local minima. The plot shows the two-dimensional form of the function.
 
@@ -72,7 +72,7 @@ The plot below shows drop of the objective function averaged over 100 runs of th
 ![Schwefel function](Schwefel_average.svg)
 
 
-### ROSENBROCK FUNCTION
+#### ROSENBROCK FUNCTION
 
 The Rosenbrock function, also referred to as the Valley or Banana function, is a popular test problem for gradient-based optimization algorithms. It is shown in the plot below in its two-dimensional form.
 
@@ -100,7 +100,7 @@ Moreover, the number of iterations required to find the point at which the value
 
 ![Rosenbrock_dimension](Rosenbrock_dimension.svg)
 
-# References
+## References
 
 * [METAHEURISTICS FROM DESIGN TO IMPLEMENTATION](http://ie.sharif.edu/~so/Metaheuristics.pdf)
 * [Yang X.S. Nature-inspired Metaheuristic Algorithms](https://pdfs.semanticscholar.org/a965/845f1dce0d0755f8c04d8ef8b7b1a3280503.pdf)

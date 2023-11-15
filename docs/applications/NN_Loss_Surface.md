@@ -3,7 +3,7 @@ title: Neural Network Loss Surface Visualization
 parent: Applications
 ---
 
-# Scalar Projection
+## Scalar Projection
 
 Let's consider the training of our neural network by solving the following optimization problem:
 
@@ -31,7 +31,7 @@ It is important to note that the characteristics of the resulting graph heavily 
 
 ![Illustration](nn_vis_CNN_line_drop.svg)
 
-# Two dimensional projection
+## Two dimensional projection
 We can explore this idea further and draw the projection of the loss surface to the plane, which is defined by 2 random vectors. Note, that with 2 random gaussian vectors in the huge dimensional space are almost certainly orthogonal.
 
 So, as previously, we generate random normalized gaussian vectors $w_1, w_2 \in \mathbb{R}^p$ and evaluate the loss function
@@ -50,5 +50,5 @@ nn_vis_CNN_plane_no_drop.html
 nn_vis_CNN_plane_drop.html
 :::
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NN_Surface_Visualization.ipynb){: .btn }

@@ -3,7 +3,7 @@ title: Optimality conditions. KKT
 order: 8
 ---
 
-# Background
+## Background
 
 $$
 f(x) \to \min\limits_{x \in S}
@@ -22,7 +22,7 @@ We say that the problem has a solution if the budget set **is not empty**: $x^* 
 
 :::{.callout-theorem}
 
-## Extreme value (Weierstrass) theorem
+### Extreme value (Weierstrass) theorem
 
 Let $S \subset \mathbb{R}^n$ be a compact set and $f(x)$ a continuous function on $S$. 
 So that, the point of the global minimum of the function $f (x)$ on $S$ exists.
@@ -32,7 +32,7 @@ So that, the point of the global minimum of the function $f (x)$ on $S$ exists.
 
 :::{.callout-theorem}
 
-## Taylor’s Theorem
+### Taylor’s Theorem
 Suppose that $f : \mathbb{R}^n \to \mathbb{R}$ is continuously differentiable and that $p \in \mathbb{R}^n$. Then we have:
 $$
 f(x + p) = f(x) + \nabla f(x + tp)^T p \quad \text{ for some } t \in (0, 1)
@@ -49,7 +49,7 @@ f(x + p) = f(x) + \nabla f(x)^T p + \frac{1}{2} p^T \nabla^2 f(x + tp) p  \quad 
 $$
 :::
 
-## Lagrange multipliers
+### Lagrange multipliers
 Consider simple yet practical case of equality constraints:
 
 $$
@@ -65,11 +65,11 @@ $$
 L(x, \nu) = f(x) + \sum\limits_{i=1}^p \nu_i h_i(x) \to \min\limits_{x \in \mathbb{R}^n, \nu \in \mathbb{R}^p} \\
 $$
 
-# Unconstrained optimization
+## Unconstrained optimization
 
 :::{.callout-theorem}
 
-## First-Order Necessary Conditions
+### First-Order Necessary Conditions
 
 If $x^*$ is a local minimizer and $f$ is continuously differentiable in an open neighborhood, then 
 
@@ -102,7 +102,7 @@ Therefore, $f(x^* + \bar{t}p) < f(x^*)$ for all $\bar{t} \in (0, T]$. We have fo
 
 :::{.callout-theorem}
 
-## Second-Order Sufficient Conditions
+### Second-Order Sufficient Conditions
 
 Suppose that $\nabla^2 f$ is continuous in an open neighborhood of $x^*$ and that
 
@@ -130,7 +130,7 @@ where $z = x^* + tp$ for some $t \in (0,1)$. Since $z \in B$, we have $p^T \nabl
 
 :::{.callout-example}
 
-## Peano surface
+### Peano surface
 
 Note, that if $\nabla f(x^*) = 0, \nabla^2 f(x^*) \succeq 0$, i.e. the hessian is positive *semidefinite*, we cannot be sure if $x^*$ is a local minimum.
 
@@ -163,7 +163,7 @@ But how to determine optimality if the function is non-smooth?
 
 :::{.callout-theorem}
 
-## Fermat's rule
+### Fermat's rule
 
 Suppose $f : \mathbb{R}^n \to\mathbb{R} \cup \{\infty\}$, then $x^*$ is a global minimizer of $f$ if and only if 
 $$
@@ -173,7 +173,7 @@ $$
 :::
 
 
-## Convex case
+### Convex case
 It should be mentioned, that in the **convex** case (i.e., $f(x)$ is convex) necessary condition becomes sufficient. 
 
 One more important result for convex unconstrained case sounds as follows. If $f(x): S \to \mathbb{R}$ - convex function defined on the convex set $S$, then:
@@ -182,9 +182,9 @@ One more important result for convex unconstrained case sounds as follows. If $f
 * The set of the local minimizers $S^*$ is convex.
 * If $f(x)$ - strictly or strongly (different cases 😀) convex function, then $S^*$ contains only one single point $S^* = \{x^*\}$.
 
-# Constrained problem 
-## Optimization with equality conditions
-### Intuition
+## Constrained problem 
+### Optimization with equality conditions
+#### Intuition
 Things are pretty simple and intuitive in unconstrained problem. In this section we will add one equality constraint, i.e.
 
 $$
@@ -258,7 +258,7 @@ $$
 
 We should notice that $L(x^*, \nu^*) = f(x^*)$.
 
-### General formulation
+#### General formulation
 
 $$
 \tag{ECP}
@@ -301,8 +301,8 @@ Pose the optimization problem and solve them for linear system $Ax = b, A \in \m
 * $m > n$
 :::
 
-## Optimization with inequality conditions
-### Example
+### Optimization with inequality conditions
+#### Example
 
 $$
 f(x) = x_1^2 + x_2^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
@@ -401,7 +401,7 @@ $$
 
 It's noticeable, that $L(x^*, \lambda^*) = f(x^*)$. Conditions $\lambda^* = 0 , (1), (4)$ are the first scenario realization, and conditions $\lambda^* > 0 , (1), (3)$ - the second one. 
 
-### General formulation
+#### General formulation
 
 $$
 \begin{split}
@@ -419,10 +419,10 @@ $$
 L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
 $$
 
-# Karush-Kuhn-Tucker conditions {#sec-KKT}
+## Karush-Kuhn-Tucker conditions {#sec-KKT}
 
 ::: {.panel-tabset}
-## @bibtex
+### @bibtex
 ```bibtex
 @misc{kuhn1951nonlinear,
   title={Nonlinear programming, in (J. Neyman, ed.) Proceedings of the Second Berkeley Symposium on Mathematical Statistics and Probability},
@@ -432,12 +432,12 @@ $$
 }
 ```
 
-## file
+### file
 [📜 File](/assets/files/kuhntucker.pdf)
 :::
 
 ::: {.panel-tabset}
-## @bibtex
+### @bibtex
 ```bibtex
 @article{karush1939minima,
   title={Minima of functions of several variables with inequalities as side constraints},
@@ -447,11 +447,11 @@ $$
 }
 ```
 
-## file
+### file
 [📜 File](/assets/files/karush.pdf)
 :::
 
-## Necessary conditions
+### Necessary conditions
 Let $x^*$, $(\lambda^*, \nu^*)$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $p^*$ is equal to the optimal value for the dual problem $d^*$). Let also the functions $f_0, f_i, h_i$ be differentiable.
 
 * $\nabla_x L(x^*, \lambda^*, \nu^*) = 0$
@@ -460,14 +460,14 @@ Let $x^*$, $(\lambda^*, \nu^*)$ be a solution to a mathematical programming prob
 * $\lambda^*_i f_i(x^*) = 0, i = 1,\ldots,m$
 * $f_i(x^*) \leq 0, i = 1,\ldots,m$
 
-## Some regularity conditions
+### Some regularity conditions
 These conditions are needed in order to make KKT solutions the necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$ with *semi-definite* hessian of Lagrangian.
 
 * **Slater's condition**. If for a convex problem (i.e., assuming minimization, $f_0,f_{i}$ are convex and $h_{i}$ are affine), there exists a point $x$ such that $h(x)=0$ and $f_{i}(x)<0$ (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.
 * **Linearity constraint qualification** If $f_{i}$ and $h_{i}$ are affine functions, then no other condition is needed.
 * For other examples, see [wiki](https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions#Regularity_conditions_(or_constraint_qualifications)).
 
-## Sufficient conditions
+### Sufficient conditions
 For smooth, non-linear optimization problems, a second order sufficient condition is given as follows. The solution $x^{*},\lambda ^{*},\nu ^{*}$, which satisfies the KKT conditions (above) is a constrained local minimum if for the Lagrangian,
 
 $$
@@ -484,7 +484,7 @@ $$
 \end{split}
 $$
 
-# References
+## References
 * [Lecture](http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf) on KKT conditions (very intuitive explanation) in course "Elements of Statistical Learning" @ KTH.
 * [One-line proof of KKT](https://link.springer.com/content/pdf/10.1007%2Fs11590-008-0096-3.pdf)
 * [On the Second Order Optimality Conditions for

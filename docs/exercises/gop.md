@@ -3,7 +3,7 @@ title: General optimization problems
 order: 10
 ---
 
-# General optimization problems{.unnumbered}
+## General optimization problems{.unnumbered}
 
 1. **Linear Least squares** Write down exact solution of the linear least squares problem:
 

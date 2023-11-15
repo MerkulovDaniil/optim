@@ -3,7 +3,7 @@ parent: Methods
 title: LP and simplex algorithm
 order: 4
 ---
-# What is LP
+## What is LP
 
 Generally speaking, all problems with linear objective and linear equalities\inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.
 
@@ -19,7 +19,7 @@ $$
 
 for some vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$. Where the inequalities are interpreted component-wise.
 
-## Standard form
+### Standard form
 This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$.
 
 $$
@@ -31,7 +31,7 @@ $$
 \end{align*}
 $$
 
-## Canonical form
+### Canonical form
 
 $$
 \tag{LP.Canonical}
@@ -42,9 +42,9 @@ $$
 \end{align*}
 $$
 
-## Real world problems
+### Real world problems
 
-### Diet problem
+#### Diet problem
 Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix $W$. Let also assume, that we have the vector of requirements for each of nutrients $r \in \mathbb{R}^n$. We need to find the cheapest configuration of the diet, which meets all the requirements:
 
 $$
@@ -57,9 +57,9 @@ $$
 
 ![Illustration](diet_LP.svg)
 
-# How to retrieve LP
+## How to retrieve LP
 
-## Basic transformations
+### Basic transformations
 Inequality to equality by increasing the dimension of the problem by $m$.
 
 $$
@@ -81,7 +81,7 @@ x_- \geq 0
 \end{cases}
 $$
 
-## Chebyshev approximation problem
+### Chebyshev approximation problem
 
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
@@ -95,7 +95,7 @@ $$
 \end{align*}
 $$
 
-## $l_1$ approximation problem
+### $l_1$ approximation problem
 
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
@@ -109,7 +109,7 @@ $$
 \end{align*}
 $$
 
-# Idea of simplex algorithm
+## Idea of simplex algorithm
 
 * The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases $c^\top x$ most
 * This either terminates at a corner, or leads to an unconstrained edge ($-\infty$ optimum)
@@ -138,7 +138,7 @@ $$
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
 $$
 
-## Main lemma
+### Main lemma
 
 If all components of $\lambda_B$ are non-positive and $B$ is feasible, then $B$ is optimal.
 
@@ -154,7 +154,7 @@ c^\top x^* & \geq c^\top  x_B \\
 \end{align*}
 $$
 
-## Changing basis
+### Changing basis
 
 Suppose, some of the coefficients of $\lambda_B$ are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)
 
@@ -164,7 +164,7 @@ $$
 x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 $$
 
-## Finding an initial basic feasible solution
+### Finding an initial basic feasible solution
 
 Let us consider $\text{LP.Canonical}$.
 
@@ -198,9 +198,9 @@ An initial basis for $\text{LP.Phase 1}$ is $\tilde{A}_B = I, \tilde{A}_N = A$ w
 * $\tilde{c}^\top \tilde{x} > 0$. Original primal is infeasible.
 * $\tilde{c}^\top \tilde{x} = 0 \to 1^\top z^* = 0$. The obtained solution is a start point for the original problem (probably with slight modification).
 
-# Convergence
+## Convergence
 
-## [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
+### [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
 
 In the following problem simplex algorithm needs to check $2^n - 1$ vertexes with $x_0 = 0$. 
 
@@ -216,7 +216,7 @@ $$
 
 ![Illustration](LP_KM.svg)
 
-## Strong duality
+### Strong duality
 
 There are four possibilities:
 
@@ -225,18 +225,18 @@ There are four possibilities:
 * The primal is unbounded and the dual is infeasible.
 * Both the primal and the dual are feasible and their optimal values are equal.
 
-# Summary
+## Summary
 
 * A wide variety of applications could be formulated as the linear programming.
 * Simplex algorithm is simple, but could work exponentially long.
 * Khachiyan’s ellipsoid method is the first to be proved running at polynomial complexity for LPs. However, it is usually slower than simplex in real problems.
 * Interior point methods are the last word in this area. However, good implementations of simplex-based methods and interior point methods are similar for routine applications of linear programming.
 
-# Code
+## Code
 
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb)
 
-# Materials
+## Materials
 
 * [Linear Programming.](https://yadi.sk/i/uhmarI88kCRfw) in V. Lempitsky optimization course.
 * [Simplex method.](https://yadi.sk/i/lzCxOVbnkFfZc) in V. Lempitsky optimization course.

@@ -14,7 +14,7 @@ bibtex: |
   }
 file: /assets/files/SGD.pdf
 ---
-# Summary
+## Summary
 Suppose, our target function is the sum of functions.
 
 $$
@@ -37,9 +37,9 @@ $$
 
 Iterations could be $n$ times cheaper! But convergence requires $\alpha_k \to 0$.
 
-# Convergence
+## Convergence
 
-## General setup
+### General setup
 
 We consider classic finite-sample average minimization:
 
@@ -84,7 +84,7 @@ $$
 \mathbb{E}[f(x_{k+1})] \leq f(x_k) - \alpha_k \|\nabla f(x_k)\|^2 + \alpha_k^2\frac{L}{2} \mathbb{E}[\|\nabla f_{i_k}(x_k)\|^2]
 $$
 
-## Polyak-Lojasiewicz conditions
+### Polyak-Lojasiewicz conditions
 
 $$
 \tag{PL}
@@ -99,7 +99,7 @@ $$
 
 This bound already indicates, that we have something like linear convergence if far from solution and gradients are similar, but no progress if close to solution or have high variance in gradients at the same time.
 
-## Stochastic subgradient descent
+### Stochastic subgradient descent
 
 $$
 \tag{SSD}
@@ -134,7 +134,7 @@ $$
 
 where $R = \|x_0- x^*\|$
 
-# Bounds
+## Bounds
 
 | Conditions | $\Vert \mathbb{E} [f(x_k)] - f(x^*)\Vert \leq$ | Type of convergence |
 | ---------- | ---------------------- | ------------------- | 
@@ -143,9 +143,9 @@ where $R = \|x_0- x^*\|$
 | Convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{\sqrt{k}} \right)$ | Sublinear |
 | $\mu$-Strongly convex, non-smooth | $\mathcal{O}\left(\dfrac{1}{k} \right)$ | Sublinear |
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb)
 
-# References
+## References
 * [Lecture](https://www.cs.ubc.ca/~schmidtm/Courses/540-W18/L10.pdf) by Mark Schmidt @ University of British Columbia
 * [Convergence theorems](https://perso.telecom-paristech.fr/rgower/pdf/M2_statistique_optimisation/grad_conv.pdf) on major cases of GD, SGD (projected version included)

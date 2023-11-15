@@ -3,7 +3,7 @@ title: Conjugate sets
 order: 4
 ---
 
-# Conjugate sets{.unnumbered}
+## Conjugate sets{.unnumbered}
 
 1. Prove that $S^* = \left(\overline{S}\right)^*$
 1. Prove that $\left( \mathbf{conv}(S) \right)^* = S^*$

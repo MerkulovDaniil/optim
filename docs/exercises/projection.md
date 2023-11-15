@@ -3,7 +3,7 @@ title: Projection
 order: 2
 ---
 
-# Projection{.unnumbered}
+## Projection{.unnumbered}
 
 1. Let us have two different points $a, b \in \mathbb{R}^n$. Prove that the set of points which in the Euclidean norm are closer to the point $a$ than to $b$ make up a half-space. Is this true for another norm?
 1. Find $\pi_S (y) = \pi$ if $S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}$, $y \notin S$

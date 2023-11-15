@@ -15,7 +15,7 @@ bibtex: |
   }
 file: assets/files/Nelder1965.pdf  
 ---
-# Problem
+## Problem
 
 Sometimes the multidimensional function is so difficult to evaluate that even expressing the $1^{\text{st}}$ derivative for gradient-based methods of finding optimum becomes an impossible task.
 In this case, we can only rely on the values of the function at each point. Or, in other words, on the $0$ order oracle calls.
@@ -32,9 +32,9 @@ This function is usually subjected to the domain $(x+5)^2 + (y+5)^2 < 25$, but f
 
 ![Illustration](nm_domains.svg)
 
-# Algorithm
+## Algorithm
 
-## Related definitions:
+### Related definitions:
 
 * $\textbf{Simplex}$ -- polytope with the least possible number of vertices in $n$-dimensional space. (So, it's $(n+1)$-polytope.) In our $2D$ case it will be triangle.
 * $\textbf{Best point }x_1$ -- vertex of the simplex, function value in which is the smallest among all vertices.
@@ -44,14 +44,14 @@ This implies that $\{ x_1, x_2, \ldots, x_n \}$ are best points in relation to $
 * $\textbf{Centroid }x_o$ -- center of mass in the polytope. In Nelder-Mead the centroid is calculated for the polytope, constituted by best vertices.
 In our $2D$ case it will be the center of the triangle side, which contains $2$ best points $x_o = \dfrac{x_1 + x_2}{2}$.
 
-## Main idea
+### Main idea
 
 The algorithm maintains the set of test points in the form of simplex. For each point the function value is calculated and points are ordered accordingly.
 Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value in the domain.
 
 The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it takes into account cases when simplex becomes degenerate (three or more vertices on one axis).
 
-## Steps of the algorithm
+### Steps of the algorithm
 
 **1. Ordering**
 
@@ -130,28 +130,28 @@ if $\sigma \leqslant 0$, shrinked point $x_i$ becomes extended)
 
 Go to step $1$.
 
-# Examples
+## Examples
 
 This algorithm, as any method in global optimization, is highly dependable on the initial conditions. 
 For instance, if we use different initial simplex or different set of parameters $\{ \alpha, \beta, \gamma, \sigma \}$ the resulting optimal point will differ.
 
-## Some random initial simplex and default set of parameters
+### Some random initial simplex and default set of parameters
 
 ![Illustration](nm_SquareDomain1.gif)
 
-## Different initial simplex and same set of parameters
+### Different initial simplex and same set of parameters
 
 ![Illustration](nm_SquareDomain2.gif)
 
-## Same initial simplex and different set of parameters
+### Same initial simplex and different set of parameters
 
 ![Illustration](nm_SquareDomain3.gif)
 
-## Round domain
+### Round domain
 
 ![Illustration](nm_RoundDomain.gif)
 
-## Examples with all sets of simplexes
+### Examples with all sets of simplexes
 
 ![Illustration](nm_SquareDomain1.svg)
 
@@ -161,5 +161,5 @@ For instance, if we use different initial simplex or different set of parameters
 
 ![Illustration](nm_RoundDomain.svg)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nelder%20Mead.ipynb)

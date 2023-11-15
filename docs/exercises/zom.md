@@ -4,7 +4,7 @@ parent: Exercises
 order: 15
 ---
 
-# Zero order methods{.unnumbered}
+## Zero order methods{.unnumbered}
 
 1. Implement Rastrigin function $f: \mathbb{R}^d \to \mathbb{R}$ for d = 10. [link](https://www.sfu.ca/~ssurjano/rastr.html)
 

@@ -12,7 +12,7 @@ listing:
     fields: [title, image, description]
 order: 0
 ---
-# Problem
+## Problem
 
 Suppose, we have a problem of minimization of a function $f(x): \mathbb{R} \to \mathbb{R}$ of scalar variable:
 
@@ -32,7 +32,7 @@ Function $f(x)$ is called **unimodal** on $[a, b]$, if there is $x_* \in [a, b]$
 
 ![Illustration](unimodal.png)
 
-# Key property of unimodal functions
+## Key property of unimodal functions
 
 Let $f(x)$ be unimodal function on $[a, b]$. Than if $x_1 < x_2 \in [a, b]$, then:
 
@@ -40,12 +40,12 @@ Let $f(x)$ be unimodal function on $[a, b]$. Than if $x_1 < x_2 \in [a, b]$, the
 * if $f(x_1) \geq f(x_2) \to x_* \in [x_1, b]$
 ![Illustration](unimodal_pro.gif)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb)
 
 :::{#ls}
 :::
 
-# References
+## References
 
 * [CMC seminars (ru)](http://www.machinelearning.ru/wiki/images/4/4d/MOMO16_min1d.pdf)

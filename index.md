@@ -1,6 +1,6 @@
 ---
 number-sections: false
-title: fmin.xyz
+title: Welcome to 💎fmin.xyz!
 toc: false
 heading: false
 listing: 
@@ -51,7 +51,6 @@ listing:
     exclude:
         skip_listing: "SKIP"
 ---
-# Welcome to 💎fmin.xyz!
 
 ## Introduction
 
@@ -62,27 +61,27 @@ Dive into the wealth of resources available:
 
 ::: {.panel-tabset}
 
-## Theory
+### Theory
 
 :::{#theory}
 :::
 
-## Methods
+### Methods
 
 :::{#methods}
 :::
 
-## Exercises
+### Exercises
 
 :::{#exercises}
 :::
 
-## Applications
+### Applications
 
 :::{#applications}
 :::
 
-## Benchmarks
+### Benchmarks
 
 :::{#benchmarks}
 :::

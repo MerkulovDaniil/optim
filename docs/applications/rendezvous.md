@@ -3,7 +3,7 @@ title: Rendezvous problem
 parent: Applications
 ---
 
-# Problem
+## Problem
 
 ![Illustration](rendezvous.svg)
 
@@ -29,9 +29,9 @@ $$
 
 Problem of this type arise in space engineering - just imagine, that the first body is the spaceship, while the second, say, Mars.
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Rendezvous.ipynb){: .btn }
 
-# References
+## References
 
 * [Jupyter notebook](https://colab.research.google.com/github/amkatrutsa/MIPT-Opt/blob/master/01-Intro/demos.ipynb#scrollTo=W264L1t1p3mF) by A. Katrutsa

@@ -13,39 +13,39 @@ This tool perfectly fits 90% of your tasks.
 
 
 
-# Github features
-## Running any jupyter notebook from github
+## Github features
+### Running any jupyter notebook from github
 If you want to open any notebook, that is already stored in any public github repository, it is enough to paste user/repo name in the field below and just open it. Modified notebook could be downloaded locally or saved to your google drive storage. 
 ![](./colab_github.gif)
 
-## Commiting to github from colab
+### Commiting to github from colab
 However, you can save any changes directly to the github through the commits. In order to do this, you'll need to authorize colab to work with your github account. It's up to you to provide this access or not. All these things work even with private repos.
 
-# Using different accelerators (CPU/GPU/TPU)
+## Using different accelerators (CPU/GPU/TPU)
 
 `Runtime -> Change runtime type -> `
 
 ![](./colab_runtime.gif)
 
-# Customization
+## Customization
 
-## Dark theme
+### Dark theme
 
 `Tools -> Settings -> Site -> Theme -> Dark`
 
 ![](./colab_theme.png)
 
-## Monokai 
+### Monokai 
 
 `Tools -> Settings -> Site -> Editor -> Editor colorization`
 
 ![](./colab_font.png)
 
-## Bonus
+### Bonus
 
 `Tools -> Settings -> Miscellaneous -> Kitty mode`
 
 ![](./colab_cat.gif)
 
-# References
+## References
 * [Official guide](https://colab.research.google.com/notebooks/intro.ipynb#scrollTo=GJBs_flRovLc)

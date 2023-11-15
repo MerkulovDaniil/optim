@@ -3,7 +3,7 @@ title: Conic set
 order: 3
 ---
 
-# Cone
+## Cone
 A  non-empty set $S$ is called a cone, if:
 
 $$
@@ -12,7 +12,7 @@ $$
 
 ![Illustration of a cone](cone.svg){#fig-cone}
 
-# Convex cone
+## Convex cone
 The set $S$ is called a convex cone, if:
 
 $$
@@ -29,11 +29,11 @@ $$
 * $\mathbf{S}^n_+$ - the set of symmetric positive semi-definite matrices
 :::
 
-# Related definitions
-## Conic combination
+## Related definitions
+### Conic combination
 Let we have $x_1, x_2, \ldots, x_k \in S$, then the point $\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$ is called conic combination of $x_1, x_2, \ldots, x_k$ if $\theta_i \ge 0$.
 
-## Conic hull
+### Conic hull
 The set of all conic combinations of points in set $S$ is called the conic hull of $S$:
 
 $$

@@ -3,7 +3,7 @@ title: Convex functions
 order: 5
 ---
 
-# Convex functions{.unnumbered}
+## Convex functions{.unnumbered}
 
 1. Show, that $f(x) = \|x\|$ is convex on $\mathbb{R}^n$.
 1. Show, that $f(x) = c^\top x + b$ is convex and concave. 

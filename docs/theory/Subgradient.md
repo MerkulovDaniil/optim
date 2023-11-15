@@ -3,7 +3,7 @@ title: Subgradient and subdifferential
 order: 7
 ---
 
-# Definition 
+## Definition 
 An important property of a continuous convex function $f(x)$ is that at any chosen point $x_0$ for all $x \in \text{dom } f$ the inequality holds:
 
 $$
@@ -19,7 +19,7 @@ for some vector $g$, i.e., the tangent to the graph of the function is the *glob
 
 We wouldn't want to lose such a nice property.
 
-## Subgradient
+### Subgradient
 A vector $g$ is called the **subgradient** of a function $f(x): S \to \mathbb{R}$ at a point $x_0$ if $\forall x \in S$:
 
 $$
@@ -41,7 +41,7 @@ $$
 :::
 :::
 
-## Subdifferential
+### Subdifferential
 The set of all subgradients of a function $f(x)$ at a point $x_0$ is called the **subdifferential** of $f$ at $x_0$ and is denoted by $\partial f(x_0)$.
 
 ![Subgradient calculus](subgrad_calc.svg){#fig-subgradient_calculus}
@@ -50,7 +50,7 @@ The set of all subgradients of a function $f(x)$ at a point $x_0$ is called the 
 * The convex function $f(x)$ is differentiable at the point $x_0\Rightarrow \partial f(x_0) = \{\nabla f(x_0)\}$$ 
 * If $\partial f(x_0) \neq \emptyset \quad \forall x_0 \in S$, then $f(x)$ is convex on $S$.
 
-# Subdifferentiability and convexity
+## Subdifferentiability and convexity
 
 :::{.callout-question}
 Is it correct, that if the function has a subdifferential at some point, the function is convex?
@@ -119,7 +119,7 @@ Assume, that $s \in \partial f(0)$ for some $s \in \mathbb{R}$. Then, by definit
 :::
 :::
 
-# Subdifferential calculus
+## Subdifferential calculus
 
 :::{.callout-theorem}
 **Moreau - Rockafellar theorem** (subdifferential of a linear combination). Пусть $f_i(x)$ - выпуклые функции на выпуклых множествах $S_i, \; i = \overline{1,n}$.  
@@ -160,7 +160,7 @@ $$
 * $\partial (f(Ax + b))(x) = A^T\partial f(Ax + b)$, $f$ - выпуклая функция
 * $z \in \partial f(x)$ if and only if $x \in \partial f^*(z)$.
 
-# Examples
+## Examples
 Концептуально, различают три способа решения задач на поиск субградиента:
 
 * Теоремы Моро - Рокафеллара, композиции, максимума
@@ -325,5 +325,5 @@ According to Exercise above, the condition $\langle s, x \rangle = f^*(s) + f(x)
 :::
 :::
 
-# References
+## References
 * [Lecture Notes for ORIE 6300: Mathematical Programming I by Damek Davis](https://people.orie.cornell.edu/dsd95/teaching/orie6300/ORIE6300Fall2019notes.pdf)

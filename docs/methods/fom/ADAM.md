@@ -12,7 +12,7 @@ bibtex: |
   }
 file: assets/files/ADAM.pdf
 ---
-## Summary
+### Summary
 
 Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second order moment of stochastic gradients.
 
@@ -35,7 +35,7 @@ All vector operations are element-wise. $\alpha = 0.001, \beta_1 = 0.9, \beta_2 
 * There are some [issues](https://www.fast.ai/2018/07/02/adam-weight-decay/) with Adam effectiveness and some [works](https://arxiv.org/pdf/1705.08292.pdf), stated, that adaptive metrics methods could lead to worse generalization.
 * The name came from "**Ada**ptive **M**oment estimation".
 
-## Bounds
+### Bounds
 
 | Conditions | $\Vert \mathbb{E} [f(x_k)] - f(x^*)\Vert \leq$ | Type of convergence | $\Vert \mathbb{E}[x_k] - x^* \Vert \leq$ |
 | ---------- | ---------------------- | ------------------- | --------------------- |

@@ -5,7 +5,7 @@ grand_parent: Methods
 order: 2
 ---
 
-# Intuition
+## Intuition
 
 For the classic task of unconditional optimization $f(x) \to \min\limits_{x \in \mathbb{R}^n}$ the general scheme of iteration method is written as: 
 
@@ -48,7 +48,7 @@ $$
 \Delta B_k \Delta y_k = \Delta x_k - B_k \Delta y_k
 $$
 
-# Broyden method
+## Broyden method
 The simplest option is when the amendment $\Delta B_k$ has a rank equal to one. Then you can look for an amendment in the form
 
 $$
@@ -79,7 +79,7 @@ $$
 \Delta B_k = \dfrac{(\Delta x_k - B_k \Delta y_k)(\Delta x_k - B_k \Delta y_k)^\top}{\langle \Delta x_k - B_k \Delta y_k , \Delta y_k\rangle}.
 $$
 
-# Davidon–Fletcher–Powell method 
+## Davidon–Fletcher–Powell method 
 $$
 \Delta B_k = \mu_1 \Delta x_k (\Delta x_k)^\top + \mu_2 B_k \Delta y_k (B_k \Delta y_k)^\top.
 $$
@@ -88,7 +88,7 @@ $$
 \Delta B_k = \dfrac{(\Delta x_k)(\Delta x_k )^\top}{\langle \Delta x_k , \Delta y_k\rangle} - \dfrac{(B_k \Delta y_k)( B_k \Delta y_k)^\top}{\langle B_k \Delta y_k , \Delta y_k\rangle}.
 $$
 
-# Broyden–Fletcher–Goldfarb–Shanno method
+## Broyden–Fletcher–Goldfarb–Shanno method
 
 $$
 \Delta B_k = Q U Q^\top, \quad Q = [q_1, q_2], \quad q_1, q_2 \in \mathbb{R}^n, \quad U = \begin{pmatrix} a & c\\ c & b \end{pmatrix}.
@@ -98,7 +98,7 @@ $$
 \Delta B_k = \dfrac{(\Delta x_k)(\Delta x_k )^\top}{\langle \Delta x_k , \Delta y_k\rangle} - \dfrac{(B_k \Delta y_k)( B_k \Delta y_k)^\top}{\langle B_k \Delta y_k , \Delta y_k\rangle} + p_k p_k^\top. 
 $$
 
-# Code
+## Code
 
 * [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Quasi_Newton.ipynb)
 * [Comparison of quasi Newton methods](https://nbviewer.jupyter.org/github/fabianp/pytron/blob/master/doc/benchmark_logistic.ipynb)

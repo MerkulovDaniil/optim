@@ -3,7 +3,7 @@ title: First order methods
 order: 16
 ---
 
-# First order methods{.unnumbered}
+## First order methods{.unnumbered}
 
 1. A function is said to belong to the class $f \in C^{k,p}_L (Q)$ if it $k$ times is continuously differentiable on $Q$ and the $p$th derivative has a Lipschitz constant $L$. 
 

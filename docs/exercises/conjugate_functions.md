@@ -3,7 +3,7 @@ title: Conjugate functions
 order: 7
 ---
 
-# Conjugate functions{.unnumbered}
+## Conjugate functions{.unnumbered}
 
 1. Find $f^*(y)$, if $f(x) = ax + b$
 1. Find $f^*(y)$, if $f(x) = -\log x, \;\; x\in \mathbb{R}_{++}$

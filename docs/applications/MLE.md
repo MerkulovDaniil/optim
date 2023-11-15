@@ -2,19 +2,19 @@
 title: Maximum likelihood estimation
 ---
 
-# Problem
+## Problem
 We need to estimate probability density $p(x)$ of a random variable from observed values.
 
 ![Illustration](mle.svg)
 
-# Approach
+## Approach
 We will use idea of parametric distribution estimation, which involves choosing *the best* parameters, of a chosen family of densities $p_\theta(x)$, indexed by a parameter $\theta$. The idea is very natural: we choose such parameters, which maximizes the probability (or logarithm of probability) of observed values.
 
 $$
 \arg \max\limits_{\theta} \log p_\theta(x) = \theta^* 
 $$
 
-## Linear measurements with i.i.d. noise
+### Linear measurements with i.i.d. noise
 
 Suppose, we are given the set of observations:
 
@@ -36,7 +36,7 @@ $$
 
 Where the sum goes from the fact, that all observation are independent, which leads to the fact, that $p(\xi) = \prod\limits_{i=1}^m p(\xi_i)$. The target function is called log-likelihood function $L(\theta)$.
 
-### Gaussian noise
+#### Gaussian noise
 
 $$
 p(z) = \dfrac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{z^2}{2 \sigma^2}}
@@ -55,7 +55,7 @@ $$
 
 Which means, the maximum likelihood estimation in case of gaussian noise is a least squares solution.
 
-### Laplacian noise
+#### Laplacian noise
 
 $$
 p(z) = \dfrac{1}{2a} e^{-\frac{|z|}{a}}
@@ -74,7 +74,7 @@ $$
 
 Which means, the maximum likelihood estimation in case of Laplacian noise is a $l_1$-norm solution.
 
-### Uniform noise
+#### Uniform noise
 
 $$
 p(z) = \begin{cases}
@@ -100,7 +100,7 @@ $$
 
 Which means, the maximum likelihood estimation in case of uniform noise is any vector $\theta$, which satisfies $\vert x_i - \theta^\top a_i \vert \leq a$.
 
-## Binary logistic regression
+### Binary logistic regression
 
 Suppose, we are given a set of binary random variables $y_i \in \{0,1\}$. Let us parametrize the distribution function as a sigmoid, using linear transformation of the input as an argument of a sigmoid.
 
@@ -119,7 +119,7 @@ $$
 L(\theta_0, \theta_1) = \sum\limits_{i=1}^k (\theta_0^\top x_i + \theta_1) - \sum\limits_{i=1}^m \log(1 + \text{exp}(\theta_0^\top x_i + \theta_1))
 $$
 
-# References
+## References
 
 * [Convex Optimization @ UCLA](http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html) by Prof. L. Vandenberghe
 * [Numerical explanation](https://cvxopt.org/examples/book/logreg.html)

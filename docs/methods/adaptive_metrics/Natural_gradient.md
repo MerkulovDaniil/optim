@@ -16,7 +16,7 @@ bibtex: |
   }
 file: /assets/files/NGD.pdf
 ---
-# Intuition
+## Intuition
 Let's consider illustrative example of a simple function of 2 variables:
 
 $$
@@ -50,16 +50,16 @@ B (A_x^{-1} \nabla_x f)
 \end{split}
 $$
 
-# Steepest descent in distribution space
+## Steepest descent in distribution space
 
 Suppose, we have a probabilistic model represented by its likelihood $p(x \vert \theta) $. We want to maximize this likelihood function to find the most likely parameter $\theta$ with given observations. Equivalent formulation would be to minimize the loss function $\mathcal{L}(\theta)$, which is the negative logarithm of likelihood function.
 
-# Example
+## Example
 
-# References
+## References
 
 * [Some notes on gradient descent](https://ipvs.informatik.uni-stuttgart.de/mlr/marc/notes/gradientDescent.pdf)
 * [Natural Gradient Descent](https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NGD.ipynb){: .btn }

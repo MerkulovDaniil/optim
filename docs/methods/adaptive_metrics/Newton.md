@@ -5,8 +5,8 @@ grand_parent: Methods
 order: 1
 ---
 
-# Intuition
-## Newton's method to find the equation' roots
+## Intuition
+### Newton's method to find the equation' roots
 
 Consider the function $\varphi(x): \mathbb{R} \to \mathbb{R}$. Let there be equation $\varphi(x^*) = 0$. Consider a linear approximation of the function $\varphi(x)$ near the solution ($x^* - x = \Delta x$):
 
@@ -45,7 +45,7 @@ $$
 
 With the only clarification that in the multidimensional case: $x \in \mathbb{R}^n, \; f'(x) = \nabla f(x) \in \mathbb{R}^n, \; f''(x) = \nabla^2 f(x) \in \mathbb{R}^{n \times n}$.
 
-## Second order Taylor approximation of the function
+### Second order Taylor approximation of the function
 Let us now give us the function $f(x)$ and a certain point $x_k$. Let us consider the square approximation of this function near $x_k$:
 
 $$
@@ -73,7 +73,7 @@ Let us immediately note the limitations related to the necessity of the Hessian'
 
 Quadratic approximation and Newton step (in green) for varying starting points (in red). Note that when the starting point is far from the global minimizer (in 0), the Newton step totally overshoots the global minimizer. Picture was taken from the [post](https://francisbach.com/self-concordant-analysis-newton/).
 
-# Convergence
+## Convergence
 
 :::{.video}
 newton_field.mp4
@@ -140,13 +140,13 @@ The convergence condition $r_{k+1} < r_k$ imposes additional conditions on $r_k:
 Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($\| x_0 - x^* \| < \frac{2 \mu}{3M}$) to the solution. 
 
 
-## Theorem
+### Theorem
 
 Let $f(x)$ be a strongly convex twice continuously differentiated function at $\mathbb{R}^n$, for the second derivative of which inequalities are executed: $\mu I_n\preceq f''(x) \preceq L I_n$. Then Newton's method with a constant step locally converges to solving the problem with superlinear speed. If, in addition, Hessian is Lipschitz continuous, then this method converges locally to $x^*$ at a quadratic rate.
 
 
 
-# Summary
+## Summary
 It's nice:
 
 * quadratic convergence near the solution $x^*$
@@ -160,7 +160,7 @@ It's not nice:
 * the Hessian can be degenerate at $x^*$
 * the hessian may not be positively determined $\to$ direction $-(f''(x))^{-1}f'(x)$ may not be a descending direction
 
-## Possible directions 
+### Possible directions 
 
 * Newton's damped method (adaptive stepsize)
 * Quasi-Newton methods (we don't calculate the Hessian, we build its estimate - BFGS)
@@ -168,12 +168,12 @@ It's not nice:
 * The combination of the Newton method and the gradient descent (interesting direction)
 * Higher order methods (most likely useless)
 
-# Materials
+## Materials
 
 * [Going beyond least-squares – I : self-concordant analysis of Newton method](https://francisbach.com/self-concordant-analysis-newton/)
 * [Going beyond least-squares – II : Self-concordant analysis for logistic regression](https://francisbach.com/self-concordant-analysis-for-logistic-regression/)
 * Picture with gradient and Newton field was taken from [this tweet](https://twitter.com/keenanisalive/status/1421783338143129603) by Keenan Crane. 
 * About global damped Newton convergence issue. [Open In Colab](https://colab.research.google.com/drive/1-LmO57VfJ1-AYMopMPYbkFvKBF7YNhW2?usp=sharing)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Newton.ipynb)

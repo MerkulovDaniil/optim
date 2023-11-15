@@ -16,7 +16,7 @@ bibtex: |
   }
 file: assets/files/SAG.pdf
 ---
-## Summary
+### Summary
 A classical problem of minimizing finite sum of the smooth and convex functions was considered. 
 
 $$
@@ -45,7 +45,7 @@ $$
 * Batch and non-uniform versions are also presented in the paper.
 * The first known paper, that contains proof of linear convergence for the convex case.
 
-## Bounds
+### Bounds
 For a constant step size $\alpha = \dfrac{1}{16 L}$, where $L$ stands for the Lipschitz constant of a gradient of each function $f_i(x)$ (in practice, it means that $L = \max\limits_{i=1, \ldots, n} L_i$).
 
 $$

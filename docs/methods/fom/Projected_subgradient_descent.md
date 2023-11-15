@@ -4,8 +4,8 @@ parent: First order methods
 grand_parent: Methods
 order: 3
 ---
-# Intuition
-## Recap
+## Intuition
+### Recap
 Suppose, we are to solve the following problem:
 
 $$
@@ -22,8 +22,8 @@ $$
 
 For this method we have the following bounds:
 
-# Bounds derivation
-## Introduction
+## Bounds derivation
+### Introduction
 
 В этом разделе мы будем рассматривать работу в рамках какого-то выпуклого множества $S \in \mathbb{R}^n$, так, чтобы $x_k \in S$. Запишем для начала соотношение для итераций:
 
@@ -154,7 +154,7 @@ $$
 
 Полученное неравенство в точности совпадает с неравенством (Forward Target), которое нам как раз таки и следовало доказать. Таким образом, мы получаем
 
-## Algorithm
+### Algorithm
 
 $$
 x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle + \dfrac{1}{2} \| x - x_k\|^2 \right)
@@ -165,7 +165,7 @@ $$
 * Такая же скорость сходимости, как и для безусловного алгоритма. (Однако, стоимость каждой итерации может быть существенно больше из за необходимости решать задачу оптимизации на каждом шаге)
 * В частном случае $S = \mathbb{R}^n$ в точности совпадает с безусловным алгоритмом (убедитесь)
 
-### Adaptive stepsize (without $T$)
+#### Adaptive stepsize (without $T$)
 
 Разберем теперь одну из стратегий того, как избежать знания количества шагов $T$ заранее для подбора длины шага $\alpha_k$. Для этого зададим "диаметр" нашего множества $D$:
 
@@ -209,7 +209,7 @@ $$
 
 Таким образом, мы получили, что в случае, когда количество шагов $T$ неизвестно заранее (весьма важное свойство), оценка ухудшается в $\sqrt{2}$ раз. Такие оценки называют anytime bounds.
 
-### Online learning:
+#### Online learning:
 
 PSD - Projected Subgradient Descent
 
@@ -222,23 +222,23 @@ R_{T-1} &= \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x \in S} \sum\limits_{k = 
 \end{align*}
 $$
 
-# Examples
+## Examples
 
-## Least squares with $l_1$ regularization
+### Least squares with $l_1$ regularization
 
 
 $$
 \min_{x \in \mathbb{R^n}} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
 $$
 
-### Nonnegativity
+#### Nonnegativity
 
 $$
 S = \{x \in \mathbb{R}^n \mid x \geq 0 \}
 $$
 
 
-### $l_2$ - ball
+#### $l_2$ - ball
 
 $$
 S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}
@@ -248,13 +248,13 @@ $$
 x_{k+1} = x_k - \alpha_k \left( A^\top(Ax_k - b) + \lambda \text{sign}(x_k)\right)
 $$
 
-### Linear equality constraints 
+#### Linear equality constraints 
 
 $$
 S = \{x \in \mathbb{R}^n \mid Ax = b \}
 $$
 
-# Bounds
+## Bounds
 
 | Conditions | Convergence rate | Iteration complexity |Type of convergence |
 | ---------- | ---------------------- | ------------------- | --------------------- |
@@ -262,7 +262,7 @@ $$
 | Strongly convex<br/>Lipschitz-continious function($G$) | $\mathcal{O}\left(\dfrac{1}{k} \right)$ |$\mathcal{O}\left(\dfrac{1}{\varepsilon} \right)$ | Sublinear |
 
 
-# References
+## References
 
 * Comprehensive [presentation](https://www.princeton.edu/~yc5/ele522_optimization/lectures/subgradient_methods.pdf) on projected subgradient method.
 * [Great cheatsheet](http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html) by Sebastian Pokutta

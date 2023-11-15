@@ -3,7 +3,7 @@ title: Matrix calculus
 order: 0
 ---
 
-# Matrix calculus{.unnumbered}
+## Matrix calculus{.unnumbered}
 
 1. Find the derivatives of $f(x) = Ax, \quad \nabla_x f(x) = ?, \nabla_A f(x) = ?$
 1. Find $\nabla f(x)$, if $f(x) = c^Tx$.

@@ -15,7 +15,7 @@ listing:
     image-placeholder: /favicon.svg
 ---
 
-# General formulation
+## General formulation
 
 $$
 \begin{split}
@@ -29,7 +29,7 @@ Some necessary or/and sufficient conditions are known (See {% include link.html 
 * In fact, there might be very challenging to recognize the convenient form of optimization problem.
 * Analytical solution of KKT could be inviable.
 
-## Iterative methods
+### Iterative methods
 Typically, the methods generate an infinite sequence of approximate solutions
 
 $$
@@ -48,15 +48,15 @@ def GeneralScheme(x, epsilon):
     return x
 ```
 
-## Oracle conception
+### Oracle conception
 
 ![](./oracle.svg)
 
-## Complexity
+### Complexity
 
-# Challenges
+## Challenges
 
-## Unsolvability
+### Unsolvability
 In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
 Consider the following simple optimization problem of a function over unit cube:
@@ -94,7 +94,7 @@ $$
 
 Our goal is to find the $p$ for some $\varepsilon$. So, we need to sample $ \left(\frac{L}{2 \varepsilon}\right)^n$ points, since we need to measure function in $p^n$ points. Doesn't look scary, but if we'll take $L = 2, n = 11, \varepsilon = 0.01$, computations on the modern personal computers will take 31,250,000 years.
 
-## Stopping rules
+### Stopping rules
 * Argument closeness: 
 
     $$
@@ -124,11 +124,11 @@ $$
 **Note**: it's better to use relative changing of these values, i.e. $\dfrac{\|x_{k+1} - x_k \|_2}{\| x_k \|_2}$.
 
 
-## Local nature of the methods
+### Local nature of the methods
 
 ![](./globallocal.png)
 
-# Contents of the chapter
+## Contents of the chapter
 
 :::{#methods}
 :::

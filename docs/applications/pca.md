@@ -3,7 +3,7 @@ title: Principal component analysis
 parent: Applications
 ---
 
-# Intuition
+## Intuition
 Imagine, that you have a dataset of points. Your goal is to choose orthogonal axes, that describe your data the most informative way. To be precise, we choose first axis in such a way, that maximize the variance (expressiveness) of the projected data. All the following axes have to be orthogonal to the previously chosen ones, while satisfy largest possible variance of the projections. 
 
 Let's take a look at the simple 2d data. We have a set of blue points on the plane. We can easily see that the projections on the first axis (red dots) have maximum variance at the final position of the animation. The second (and the last) axis should  be orthogonal to the previous one.
@@ -15,7 +15,7 @@ This idea could be used in a variety of ways. For example, it might happen, that
 ![Illustration](https://nla.skoltech.ru/files/pca_example.png)
 [source](https://privefl.github.io/bigsnpr/articles/how-to-PCA.html)
 
-# Problem
+## Problem
 The first component should be defined in order to maximize variance. Suppose, we've already normalized the data, i.e. $\sum\limits_i a_i = 0$, then sample variance will become the sum of all squared projections of data points to our vector ${\mathbf{w}}_{(1)}$, which implies the following optimization problem:
 
 $$
@@ -93,8 +93,8 @@ $$
 \Pi_r = U_r \Sigma_r
 $$
 
-# Examples
-## 🌼 Iris dataset
+## Examples
+### 🌼 Iris dataset
 Consider the classical Iris dataset
 
 ![Illustration](https://sebastianraschka.com/images/blog/2015/principal_component_analysis_files/iris.png)
@@ -107,10 +107,10 @@ We have the dataset matrix $A \in \mathbb{R}^{150 \times 4}$
 
 ![Illustration](pca_pr_iris.svg)
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PCA.ipynb){: .btn }
 
-# Related materials
+## Related materials
 
 * [Wikipedia](https://en.wikipedia.org/wiki/Principal_component_analysis)
 * [Blog post](https://ethen8181.github.io/machine-learning/dim_reduct/svd.html)

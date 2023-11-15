@@ -3,7 +3,7 @@ title: Two way partitioning problem
 parent: Applications
 ---
 
-# Intuition
+## Intuition
 
 ![Illustration](partition.svg)
 
@@ -15,7 +15,7 @@ For example, bruteforce solution on MacBook Air with M1 processor without any ex
 
 Despite the hardness of the problems, there are several ways to approach it.
 
-# Problem
+## Problem
 
 We consider the (nonconvex) problem
 
@@ -30,7 +30,7 @@ where $W \in \mathbb{R}^n$ is the symetric matrix. The constraints restrict the 
 
 The objective is the total cost, over all pairs of elements, and the problem is to find the partition with least total cost.
 
-## Simple lower bound with duality
+### Simple lower bound with duality
 
 We now derive the dual function for this problem. The Lagrangian is
 
@@ -63,9 +63,9 @@ $$
 
 **Question** Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb){: .btn }
 
-# References
+## References
 
 * [Convex Optimization](https://web.stanford.edu/~boyd/cvxbook/) book by Stephen Boyd and Lieven Vandenberghe. 

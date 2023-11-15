@@ -5,10 +5,10 @@ order: 1
 
 ::: {.panel-tabset}
 
-## 📝 File 
+### 📝 File 
 [Original Cauchy paper](/assets/files/GD.pdf)
 
-## 📚 bibtex
+### 📚 bibtex
 ```bibtex
 @article{cauchy1847methode,
   title={M{\'e}thode g{\'e}n{\'e}rale pour la r{\'e}solution des systemes d’{\'e}quations simultan{\'e}es}, author={Cauchy, Augustin},
@@ -21,7 +21,7 @@ order: 1
 ```
 :::
 
-# Summary
+## Summary
 
 A classical problem of function minimization is considered. 
 
@@ -40,8 +40,8 @@ $$
 &= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}
 $$
 
-# Intuition
-## Direction of local steepest descent
+## Intuition
+### Direction of local steepest descent
 Let's consider a linear approximation of the differentiable function $f$ along some direction $h, \|h\|_2 = 1$:
 
 $$
@@ -84,7 +84,7 @@ $$
 x_{k+1} = x_k - \eta f'(x_k)
 $$
 
-## Gradient flow ODE
+### Gradient flow ODE
 
 Let's consider the following ODE, which is referred as Gradient Flow equation.
 
@@ -109,7 +109,7 @@ $$
 
 which is exactly gradient descent.
 
-## Necessary local minimum condition
+### Necessary local minimum condition
 
 $$
 \begin{align*}
@@ -122,7 +122,7 @@ $$
 
 This is, surely, not a proof at all, but some kind of intuitive explanation.
 
-## Minimizer of Lipschitz parabola
+### Minimizer of Lipschitz parabola
 
 Some general highlights about Lipschitz properties are needed for explanation. If a function $f: \mathbb{R}^n \to \mathbb{R}$ is  continuously differentiable and its gradient satisfies Lipschitz conditions with constant $L$, then $\forall x,y \in \mathbb{R}^n$:
 
@@ -173,11 +173,11 @@ $$
 -L I_n \preceq \nabla^2 f(x) \preceq L I_n
 $$
 
-# Stepsize choosing strategies
+## Stepsize choosing strategies
 
 Stepsize choosing strategy $\eta_k$ significantly affects convergence. General line search algorithms might help in choosing scalar parameter. 
 
-## Constant stepsize
+### Constant stepsize
 
 For $f \in C_L^{1,1}$:
 
@@ -195,7 +195,7 @@ $$
 f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 $$
 
-## Fixed sequence
+### Fixed sequence
 
 $$
 \eta_k = \dfrac{1}{\sqrt{k+1}}
@@ -203,7 +203,7 @@ $$
 
 The latter 2 strategies are the simplest in terms of implementation and analytical analysis. It is clear that this approach does not often work very well in practice (the function geometry is not known in advance).
 
-## Exact line search aka steepest descent
+### Exact line search aka steepest descent
 
 $$
 \eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_{k+1}) = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))
@@ -223,13 +223,13 @@ $$
 \nabla f(x_{k+1})^\top \nabla f(x_k) = 0
 $$
 
-## Goldstein-Armijo
+### Goldstein-Armijo
 
-# Convergence analysis
+## Convergence analysis
 
-## Convex case
+### Convex case
 
-### Lipischitz continuity of the gradient
+#### Lipischitz continuity of the gradient
 Assume that  $f: \mathbb{R}^n \to \mathbb{R}$ is convex and differentiable, and additionally
 $$
 \|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
@@ -265,14 +265,14 @@ f(x_{k+1}) &\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2
 \end{align*}
 $$
 
-### Optimal constant stepsize
+#### Optimal constant stepsize
 Now, if we'll consider constant stepsize strategy and will maximize $\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}$, we'll get $\eta = \dfrac{1}{L}$.
 
 $$
 f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 $$
 
-### Convexity
+#### Convexity
 $$
 f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*) 
 $$
@@ -302,7 +302,7 @@ $$
 f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k} 
 $$
 
-## Strongly convex case
+### Strongly convex case
 
 If the function is strongly convex:
 
@@ -315,7 +315,7 @@ $$
 $$
 \|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
 $$
-# Bounds
+## Bounds
 
 | Conditions | $\Vert f(x_k) - f(x^*)\Vert \leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
 | ---------- | ---------------------- | ------------------- | --------------------- |
@@ -327,7 +327,7 @@ $$
 * $R = \| x_0 - x^*\|$ - initial distance
 * $\overline{R} = \dfrac{2\mu}{M}$
 
-# Materials
+## Materials
 
 * [The zen of gradient descent. Moritz Hardt](http://blog.mrtz.org/2013/09/07/the-zen-of-gradient-descent.html)
 * [Great visualization](http://fa.bianp.net/teaching/2018/eecs227at/gradient_descent.html)

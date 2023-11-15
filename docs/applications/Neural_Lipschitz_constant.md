@@ -3,7 +3,7 @@ title: Neural network Lipschitz constant
 parent: Applications
 ---
 
-# Lipschitz constant of a convolutional layer in neural network
+## Lipschitz constant of a convolutional layer in neural network
 
 It was observed, that small perturbation in Neural Network input could lead to significant errors, i.e. misclassifications.
 
@@ -17,5 +17,5 @@ $$
 
 In this notebook we will try to estimate Lipschitz constant of some convolutional layer of a Neural Network.
 
-# Code
+## Code
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Neural_Lipschitz.ipynb){: .btn }

@@ -3,7 +3,7 @@ title: Dual norm
 order: 6
 ---
 
-# Dual norm
+## Dual norm
 
 ![p-norm and q-norm are dual if this holds](dual_pq.svg)
 
@@ -15,7 +15,7 @@ $$
 
 The intuition for the finite-dimensional space is how the linear function (element of the dual space) $f_y(\cdot)$ could stretch the elements of the primal space with respect to their size, i.e. $\Vert y\Vert _* = \sup\limits_{x \neq 0} \dfrac{\langle y,x\rangle}{\Vert x\Vert }$.
 
-# Properties
+## Properties
 * One can easily define the dual norm as:
 	
 	$$
@@ -34,7 +34,7 @@ The Euclidian norm is self dual $\left(\Vert x\Vert_2\right)_\star = \Vert x\Ver
 dual_balls.html
 :::
 
-# Examples
+## Examples
 
 ::: {.callout-example}
 Let $f(x) = \Vert x\Vert$. Prove that $f^\star(y) = \mathbb{O}_{\Vert y\Vert _\star \leq 1}$

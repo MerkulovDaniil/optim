@@ -4,7 +4,7 @@ parent: Exercises
 order: 666
 ---
 
-# Uncategorized{.unnumbered}
+## Uncategorized{.unnumbered}
 
 1. Show, that these conditions are equivalent:
     

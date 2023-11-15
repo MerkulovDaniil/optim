@@ -4,7 +4,7 @@ title: Conjugate function
 order: 5
 ---
 
-# Conjugate (dual) function
+## Conjugate (dual) function
 
 Let $f: \mathbb{R}^n \to \mathbb{R}$. 
 The function $f^*: \mathbb{R}^n \to \mathbb{R}$ is called convex conjugate (Fenchel's conjugate, dual, Legendre transform) $f(x)$ and is defined as follows:
@@ -17,7 +17,7 @@ Let's notice, that the domain of the function $f^*$  is the set of those $y$, wh
 
 ![Illustration of conjugate function](conj.svg){#fig-conjugate_function}
 
-## Properties
+### Properties
 
 ![Nice intuition behind the conjugate function. On the left, we have a slow parabola (say, $f(x) = \frac{x^2}{10}$, which implies a small magnitude of the slope with a large magnitude of $x_0$. On the right, we have the conjugate function $f^*(y) = 2.5 y^2$, which has a large slope with the small value of $y_0$.)](conj_intuition_1.svg){#fig-conjugate_slope}
 
@@ -70,7 +70,7 @@ Using the geometric intuition above, draw the conjugate function to the function
 	f^\star(y) \ge g^\star(y) \;\;\;\;\;\; f^{\star\star}(x) \le g^{\star\star}(x)
 	$$
 
-## Examples
+### Examples
 
 The scheme of recovering the convex conjugate is pretty algorithmic:
 1. Write down the definition $f^\star(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)$.
@@ -203,5 +203,5 @@ $$
 Thus the maximum profit (as a function of resource prices) is closely related to the conjugate of gross sales (as a function of resources consumed).
 :::
 
-# References
+## References
 * Great [intuition](https://www.ise.ncsu.edu/fuzzy-neural/wp-content/uploads/sites/9/2019/01/or706-LF-transform-1.pdf) behind the Legendre-Fenchel transform.

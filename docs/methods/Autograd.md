@@ -4,7 +4,7 @@ order: 5
 tbl-colwidths: [1,20,30,30]
 ---
 
-# Problem
+## Problem
 
 Suppose we need to solve the following problem:
 
@@ -14,7 +14,7 @@ $$
 
 Such problems typically arise in machine learning, when you need to find optimal hyperparameters $w$ of an ML model (i.e. train a neural network). You may use a lot of algorithms to approach this problem, but given the modern size of the problem, where $d$ could be dozens of billions it is very challenging to solve this problem without information about the gradients using zero-order optimization algorithms. That is why it would be beneficial to be able to calculate the gradient vector $\nabla_w L = \left( \frac{\partial L}{\partial w_1}, \ldots, \frac{\partial L}{\partial w_d}\right)^T$. Typically, first-order methods perform much better in huge-scale optimization, while second-order methods require too much memory.
 
-# Finite differences
+## Finite differences
 
 The naive approach to get approximate values of gradients is **Finite differences** approach. For each coordinate, one can calculate the partial derivative approximation:
 
@@ -36,7 +36,7 @@ There is an algorithm to compute $\nabla_w L$ in $\mathcal{O}(T)$ operations. [^
 
 [^1]: Linnainmaa S. The representation of the cumulative rounding error of an algorithm as a Taylor expansion of the local rounding errors.  Master’s Thesis (in Finnish), Univ. Helsinki, 1970.
 
-# Forward mode automatic differentiation
+## Forward mode automatic differentiation
 
 To dive deep into the idea of automatic differentiation we will consider a simple function for calculating derivatives: 
 
@@ -76,7 +76,7 @@ Make the same computations for $\dfrac{\partial L}{\partial w_2}$
 
 :::{.callout-theorem}
 
-## Forward mode automatic differentiation algorithm
+### Forward mode automatic differentiation algorithm
 
 Suppose, we have a computational graph $v_i, i \in [1; N]$. Our goal is to calculate the derivative of the output of this graph with respect to some input variable $w_k$, i.e. $\dfrac{\partial v_N}{\partial w_k}$. This idea implies propagation of the gradient with respect to the input variable from start to end, that is why we can introduce the notation: 
 
@@ -99,7 +99,7 @@ $$
 
 Note, that this approach does not require storing all intermediate computations, but one can see, that for calculating the derivative $\dfrac{\partial L}{\partial w_k}$ we need $\mathcal{O}(T)$ operations. This means, that for the whole gradient, we need $d\mathcal{O}(T)$ operations, which is the same as for finite differences, but we do not have stability issues, or inaccuracies now (the formulas above are exact).
 
-# Backward mode automatic differentiation
+## Backward mode automatic differentiation
 
 We will consider the same function
 
@@ -131,7 +131,7 @@ Note, that for using the reverse mode AD you need to store all intermediate comp
 
 :::{.callout-theorem}
 
-## Reverse mode automatic differentiation algorithm
+### Reverse mode automatic differentiation algorithm
 
 Suppose, we have a computational graph $v_i, i \in [1; N]$. Our goal is to calculate the derivative of the output of this graph with respect to all inputs variable $w$, i.e. $\nabla_w v_N =  \left( \frac{\partial v_N}{\partial w_1}, \ldots, \frac{\partial v_N}{\partial w_d}\right)^T$. This idea implies propagation of the gradient of the function with respect to the intermediate variables from the end to the origin, that is why we can introduce the notation: 
 
@@ -180,7 +180,7 @@ It is generally impossible to say it without some knowledge about the specific s
 
 :::{.callout-example}
 
-## Feedforward Architecture
+### Feedforward Architecture
 
 ![Feedforward neural network architecture](feedforward.svg)
 
@@ -204,7 +204,7 @@ It is generally impossible to say it without some knowledge about the specific s
 
 :::{.callout-example}
 
-## Gradient propagation through the linear least squares
+### Gradient propagation through the linear least squares
 
 ![$x$ could be found as a solution of linear system](linear_least_squares_layer.svg)
 
@@ -247,7 +247,7 @@ It is interesting, that the most computationally intensive part here is the matr
 
 :::{.callout-example}
 
-## Gradient propagation through the SVD
+### Gradient propagation through the SVD
 
 Suppose, we have the rectangular matrix $W \in \mathbb{R}^{m \times n}$, which has a singular value decomposition:
 
@@ -320,7 +320,7 @@ $$
     This nice result allows us to connect the gradients $\dfrac{\partial L}{\partial W}$ and $\dfrac{\partial L}{\partial \Sigma}$.
 :::
 
-## What automatic differentiation (AD) is NOT:
+### What automatic differentiation (AD) is NOT:
 
 * AD is not a finite differences
 * AD is not a symbolic derivative
@@ -332,17 +332,17 @@ $$
 
 ![Different approaches for taking derivatives](differentiation_scheme.svg)
 
-# Important stories from matrix calculus
+## Important stories from matrix calculus
 We will illustrate some important matrix calculus facts for specific cases
 
-## Univariate chain rule
+### Univariate chain rule
 Suppose, we have the following functions $R: \mathbb{R} \to \mathbb{R} , L: \mathbb{R} \to \mathbb{R}$ and $W \in \mathbb{R}$. Then
 
 $$
 \dfrac{\partial R}{\partial W} = \dfrac{\partial R}{\partial L} \dfrac{\partial L}{\partial W}
 $$
 
-## Multivariate chain rule
+### Multivariate chain rule
 
 The simplest example:
 
@@ -368,7 +368,7 @@ $$
 \dfrac{\partial f}{\partial t} = J \dfrac{\partial x}{\partial t}\quad \iff \quad \left(\dfrac{\partial f}{\partial t}\right)^\top =  \left( \dfrac{\partial x}{\partial t}\right)^\top J^\top
 $$
 
-## Backpropagation
+### Backpropagation
 Backpropagation is a specific application of reverse-mode automatic differentiation within neural networks. It is the standard algorithm for computing gradients in neural networks, especially for training with stochastic gradient descent. Here’s how it works:
 
 * Perform a forward pass through the network to compute activations and outputs.
@@ -377,12 +377,12 @@ Backpropagation is a specific application of reverse-mode automatic differentiat
 * Propagate these gradients back through the network, layer by layer, using the chain rule to calculate the gradients of the loss with respect to each weight and bias.
 * The critical point of backpropagation is that it efficiently calculates the gradient of a complex, multilayered function by decomposing it into simpler derivative calculations. This aspect makes the update of a large number of parameters in deep networks computationally feasible. 
 
-## Jacobian vector product
+### Jacobian vector product
 The power of automatic differentiation is encapsulated in the computation of the Jacobian-vector product. Instead of calculating the entire Jacobian matrix, which is computationally expensive and often unnecessary, AD computes the product of the Jacobian and a vector directly. This is crucial for gradients in neural networks where the Jacobian may be very large, but the end goal is the product of this Jacobian with the gradient of the loss with respect to the outputs (vector). The reason why it works so fast in practice is that the Jacobian of the operations is already developed effectively in automatic differentiation frameworks. Typically, we even do not construct or store the full Jacobian, doing matvec directly instead. Note, for some functions (for example, any element-wise function of the input vector) matvec costs linear time, instead of quadratic and requires no additional memory to store a Jacobian.
 
 :::{.callout-example}
 
-## Example: element-wise exponent
+### Example: element-wise exponent
 $$
 y = \exp{(z)} \qquad J = \text{diag}(\exp(z)) \qquad \overline{z} = \overline{y} J
 $$
@@ -403,7 +403,7 @@ defvjp(anp.true_divide, lambda g, ans, x, y : unbroadcast(x,   g / y),
                         lambda g, ans, x, y : unbroadcast(y, - g * x / y**2))
 ```
 
-## Hessian vector product
+### Hessian vector product
 Interestingly, a similar idea could be used to compute Hessian-vector products, which is essential for second-order optimization or conjugate gradient methods. For a scalar-valued function $f : \mathbb{R}^n \to \mathbb{R}$ with continuous second derivatives (so that the Hessian matrix is symmetric), the Hessian at a point $x \in \mathbb{R}^n$ is written as $\partial^2 f(x)$. A Hessian-vector product function is then able to evaluate
 
 $$
@@ -427,11 +427,11 @@ import jax.numpy as jnp
 def hvp(f, x, v):
     return grad(lambda x: jnp.vdot(grad(f)(x), v))(x)
 ```
-# Code
+## Code
 
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Autograd_and_Jax.ipynb)
 
-# Materials
+## Materials
 
 * [Autodidact](https://github.com/mattjj/autodidact) - a pedagogical implementation of Autograd
 * [CSC321](https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec06.pdf) Lecture 6

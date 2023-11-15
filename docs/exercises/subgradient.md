@@ -4,7 +4,7 @@ parent: Exercises
 order: 6
 ---
 
-# Subgradient and subdifferential{.unnumbered}
+## Subgradient and subdifferential{.unnumbered}
 
 1. Prove, that $x_0$ - is the minimum point of a convex function $f(x)$ if and only if $0 \in \partial f(x_0)$
 1. Find $\partial f(x)$, if $f(x) = \text{ReLU}(x) = \max \{0, x\}$

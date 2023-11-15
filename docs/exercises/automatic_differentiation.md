@@ -4,7 +4,7 @@ parent: Exercises
 order: 15
 ---
 
-# Automatic differentiation{.unnumbered}
+## Automatic differentiation{.unnumbered}
 
 1. Calculate the gradient of a Taylor series of a $\cos (x)$ using `autograd` library:
 

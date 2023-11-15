@@ -4,7 +4,7 @@ title: Duality
 order: 10
 ---
 
-# Motivation
+## Motivation
 
 Duality lets us associate to any constrained optimization problem a concave maximization problem, whose solutions lower bound the optimal value of the original problem. What is interesting is that there are cases, when one can solve the primal problem by first solving the dual one. Now, consider a general constrained optimization problem:
 
@@ -79,10 +79,10 @@ $$
 
 The term "dual feasible", to describe a pair $(\lambda, \nu)$ with $\lambda \succeq 0$ and $g(\lambda, \nu) > −\infty$, now makes sense. It means, as the name implies, that $(\lambda, \nu)$ is feasible for the dual problem. We refer to $(\lambda^*, \nu^*)$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
 
-## Summary
+### Summary
 
 |  | Primal | Dual |
-|:-----------:|:---------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------:|
+|:--:|:--:|:--:|
 | Function | $f_0(x)$ | $g(\lambda, \nu) = \min\limits_{x \in \mathcal{D}} L(x, \lambda, \nu)$ |
 | Variables | $x \in S \subseteq \mathbb{R^n}$ | $\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$ |
 | Constraints | $\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\lambda_i \geq 0, \forall i \in \overline{1,m}$ |
@@ -90,7 +90,7 @@ The term "dual feasible", to describe a pair $(\lambda, \nu)$ with $\lambda \suc
 | Optimal | $\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$ | $\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$ |
 
 :::{.callout-example}
-### Least-squares solution of linear equations {#sec-LLS}
+#### Least-squares solution of linear equations {#sec-LLS}
 
 We are addressing a problem within a non-empty budget set, defined as follows:
 $$
@@ -120,7 +120,7 @@ Which is a simple non-trivial lower bound without any problem solving.
 
 :::{.callout-example}
 
-### Two-way partitioning problem
+#### Two-way partitioning problem
 
 ![](partition.svg)
 
@@ -179,7 +179,7 @@ The code for the problem is available here [🧑‍💻](https://colab.research.
 :::
 :::
 
-# Strong duality
+## Strong duality
 It is common to name this relation between optimals of primal and dual problems as **weak duality**. For problem, we have: 
 
 $$
@@ -209,7 +209,7 @@ Notice: both $p^*$ and $d^*$ may be $+ \infty$.
 In the Least-squares solution of linear equations example above calculate the primal optimum $p^*$ and the dual optimum $d^*$ and check whether this problem has strong duality or not.
 :::
 
-# Useful features
+## Useful features
 * **Construction of lower bound on solution of the direct problem.**
 
 	It could be very complicated to solve the initial problem. But if we have the dual problem, we can take an arbitrary $y \in \Omega$ and substitute it in $g(y)$ - we'll immediately obtain some lower bound.
@@ -228,7 +228,7 @@ In the Least-squares solution of linear equations example above calculate the pr
 
 :::{.callout-example}
 
-### Projection onto probability simplex
+#### Projection onto probability simplex
 
 To find the Euclidean projection of $x \in \mathbb{R}^n$ onto probability simplex $\mathcal{P} = \{z \in \mathbb{R}^n \mid z \succeq 0, \mathbf{1}^\top z = 1\}$, we solve the following problem:
 
@@ -250,7 +250,7 @@ leaving the constraint $y \succeq 0$ implicit. Show that $y = (x − \nu \mathbf
 :::
 
 :::{.callout-question}
-### Projection on the Euclidian Ball
+#### Projection on the Euclidian Ball
 Find the projection of a point $x$ on the Euclidian ball
 $$
 \begin{split}
@@ -260,14 +260,14 @@ $$
 $$
 :::
 
-# Slater's condition 
+## Slater's condition 
 
 :::{.callout-theorem}
 If for a convex optimization problem (i.e., assuming minimization, $f_0,f_{i}$ are convex and $h_{i}$ are affine), there exists a point $x$ such that $h(x)=0$ and $f_{i}(x)<0$ (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.
 :::
 
 :::{.callout-example}
-### An example of convex problem, when Slater's condition does not hold
+#### An example of convex problem, when Slater's condition does not hold
 
 $$
 \min \{ f_0(x) = x \mid f_1(x) = \frac{x^2}{2} \leq 0 \}, 
@@ -281,7 +281,7 @@ $$
 :::
 
 :::{.callout-example}
-### A nonconvex quadratic problem with strong duality
+#### A nonconvex quadratic problem with strong duality
 
 On rare occasions strong duality obtains for a nonconvex problem. As an important example, we consider the problem of minimizing a nonconvex quadratic function over the unit ball
 
@@ -325,7 +325,7 @@ $$
 :::
 :::
 
-## Reminder of KKT statements:
+### Reminder of KKT statements:
 
 Suppose we have a general optimization problem (from the [chapter](Optimality.md))
 
@@ -366,7 +366,7 @@ $$
 $${#eq-kkt}
 
 :::{.callout-theorem}
-### KKT becomes necessary
+#### KKT becomes necessary
 
 If $x^*$ is a solution of the original problem @eq-gop, then if any of the following regularity conditions is satisfied:
 
@@ -379,14 +379,14 @@ Than it should satisfy @eq-kkt
 :::
 
 :::{.callout-theorem}
-### KKT in convex case
+#### KKT in convex case
 
 If a convex optimization problem @eq-cop with differentiable objective and constraint functions satisfies Slater’s condition, then the KKT conditions provide necessary and sufficient conditions for optimality: Slater’s condition implies that the optimal duality gap is zero and the dual optimum is attained, so $x^*$ is optimal if and only if there are $(\lambda^*,\nu^*)$ that, together with $x^*$, satisfy the KKT conditions.
 :::
 
-# Applications
+## Applications
 
-## Connection between Fenchel duality and Lagrange duality
+### Connection between Fenchel duality and Lagrange duality
 
 :::{.callout-example}
 $$
@@ -462,7 +462,7 @@ $$
 which allows us to formulate one of the most important theorems, that connects dual problems and conjugate functions:
 
 :::{.callout-theorem}
-### Fenchel - Rockafellar theorem 
+#### Fenchel - Rockafellar theorem 
 Let $f: E \to \mathbb{R}$ and $g: G \to \mathbb{R}$ — function, defined on the sets $E$ and $G$ in Euclidian Spaces $V$ and $W$ respectively. Let $f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}$ be the conjugate functions to the $f$ and $g$ respectively. Let $A: V \to W$ — linear mapping. Let $p^*, d^* \in [- \infty, + \infty]$ - optimal values of primal and dual problems:
 
 $$
@@ -485,7 +485,7 @@ $$
 
 Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters $(f, g, A)$, than the dual problem has the form $(f^*, g^*, -A^*)$.
 
-## Sensitivity analysis
+### Sensitivity analysis
 
 Let us switch from the original optimization problem
 
@@ -564,7 +564,7 @@ In scenarios where strong duality holds, we can draw several insights about the 
 
 These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.
 
-## Local sensitivity 
+### Local sensitivity 
 
 Suppose now that $p^*(u, v)$ is differentiable at $u = 0, v = 0$. 
 
@@ -596,7 +596,7 @@ The local sensitivity result @eq-local-sensitivity provides a way to understand 
 
 However, if $f_i(x^*) = 0$, meaning the constraint is precisely met at the optimum, then the situation is different. The value of the $i$-th optimal Lagrange multiplier, $\lambda^*_i$, gives us insight into how 'sensitive' or 'active' this constraint is. A small $\lambda^*_i$ indicates that slight adjustments to the constraint won't significantly affect the optimal value. Conversely, a large $\lambda^*_i$ implies that even minor changes to the constraint can have a significant impact on the optimal solution.
 
-## Shadow prices or tax interpretation
+### Shadow prices or tax interpretation
 
 Consider an enterprise where $x$ represents its operational strategy and $f_0(x)$ is the operating cost. Therefore, $-f_0(x)$ denotes the profit in dollars. Each constraint $f_i(x) \leq 0$ signifies a resource or regulatory limit. The goal is to maximize profit while adhering to these limits, which is equivalent to solving:
 
@@ -619,7 +619,7 @@ Weak duality implies that the cost in this flexible scenario (where the firm can
 
 If strong duality holds and the dual optimum is reached, the optimal $\lambda^*$ represents prices where the firm gains no extra advantage from trading constraint violations. These optimal $\lambda^*$ values are often termed 'shadow prices' for the original problem, indicating the hypothetical cost of constraint flexibility.
 
-## Mixed strategies for matrix games
+### Mixed strategies for matrix games
 
 ![The scheme of a mixed strategy matrix game](msmg.svg)
 
@@ -627,7 +627,7 @@ In zero-sum matrix games, players 1 and 2 choose actions from sets $\{1,...,n\}$
 
 The expected payoff from player 1 to player 2 is given by $\sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v$. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.
 
-### Player 1's Perspective
+#### Player 1's Perspective
 
 Assuming player 2 knows player 1's strategy $u$, player 2 will choose $v$ to maximize $u^T P v$. The worst-case expected payoff is thus:
 
@@ -647,7 +647,7 @@ $$ {#eq-player1-problem}
 
 This forms a convex optimization problem with the optimal value denoted as $p^*_1$.
 
-### Player 2's Perspective
+#### Player 2's Perspective
 
 Conversely, if player 1 knows player 2's strategy $v$, the goal is to minimize $u^T P v$. This leads to:
 
@@ -667,11 +667,11 @@ $$ {#eq-player2-problem}
 
 The optimal value here is $p^*_2$.
 
-### Duality and Equivalence
+#### Duality and Equivalence
 
 It's generally advantageous to know the opponent's strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1's problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2's problem. Due to strong duality in feasible linear programs, $p^*_1 = p^*_2$, showing no advantage in knowing the opponent’s strategy.
 
-### Formulating and Solving the Lagrange Dual
+#### Formulating and Solving the Lagrange Dual
 
 We approach problem @eq-player1-problem by setting it up as a linear programming (LP) problem. The goal is to minimize a variable $t$, subject to certain constraints:
 
@@ -681,7 +681,7 @@ We approach problem @eq-player1-problem by setting it up as a linear programming
 
 Here, $t$ is an additional variable in the real numbers ($t \in \mathbb{R}$).
 
-### Constructing the Lagrangian
+#### Constructing the Lagrangian
 
 We introduce multipliers for the constraints: $\lambda$ for $P^T u \leq t \mathbf{1}$, $\mu$ for $u \geq 0$, and $\nu$ for $1^T u = 1$. The Lagrangian is then formed as:
 
@@ -689,7 +689,7 @@ $$
 L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u
 $$
 
-### Defining the Dual Function
+#### Defining the Dual Function
 
 The dual function $g(\lambda, \mu, \nu)$ is defined as:
 
@@ -701,7 +701,7 @@ g(\lambda, \mu, \nu) =
 \end{cases}
 $$
 
-### Solving the Dual Problem
+#### Solving the Dual Problem
 
 The dual problem seeks to maximize $\nu$ under the following conditions:
 
@@ -722,11 +722,11 @@ $$
 \end{split}
 $$ 
 
-### Conclusion
+#### Conclusion
 
 This formulation shows that the Lagrange dual problem is equivalent to problem @eq-player2-problem. Given the feasibility of these linear programs, strong duality holds, meaning the optimal values of @eq-player1-problem and @eq-player2-problem are equal.
 
-# References
+## References
 
 * [Convex Optimization — Boyd & Vandenberghe @ Stanford](http://web.stanford.edu/class/ee364a/lectures/duality.pdf)
 * [Course Notes for EE227C. Lecture 13](https://ee227c.github.io/notes/ee227c-lecture13.pdf)

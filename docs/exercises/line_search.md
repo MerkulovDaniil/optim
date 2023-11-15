@@ -3,7 +3,7 @@ title: Line search
 order: 13
 ---
 
-# Line search{.unnumbered}
+## Line search{.unnumbered}
 
 1. Which function is called unimodal?
 1. Derive the convergence speed for a dichotomy method for a unimodal function. What type of convergence does this method have?

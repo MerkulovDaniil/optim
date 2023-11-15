@@ -3,9 +3,9 @@ title: Conjugate set
 order: 4
 ---
 
-# Conjugate (Fenchel conjugate, dual, Fenchel dual) set
+## Conjugate (Fenchel conjugate, dual, Fenchel dual) set
 
-## Definitions
+### Definitions
 
 Let $S \subseteq \mathbb{R}^n$ be an arbitrary non-empty set. Then its conjugate set is defined as:
 
@@ -24,7 +24,7 @@ $$
 * The sets $S_1$ and $S_2$ are called **inter-conjugate** if $S_1^* = S_2, S_2^* = S_1$.
 * A set $S$ is called **self-conjugate** if $S^{*} = S$.
 
-## Properties
+### Properties
 
 * A conjugate set is always closed, convex, and contains zero.
 * For an arbitrary set $S \subseteq \mathbb{R}^n$: 
@@ -38,7 +38,7 @@ $$
 * If $S$ is closed, convex, and includes $0$, then $S^{**} = S$.
 * $S^* = \left(\overline{S}\right)^*$.
 
-## Examples
+### Examples
 
 ::: {.callout-example}
 Prove that $S^* = \left(\overline{S}\right)^*$.
@@ -93,7 +93,7 @@ Prove that if $B(0,r)$ is a ball of radius $r$ by some norm centered at zero, th
 :::
 :::
 
-## Dual cones
+### Dual cones
 A conjugate cone to a cone $K$ is a set $K^*$ such that: 
 
 $$
@@ -108,7 +108,7 @@ $$
 
 ![Illustration of dual cone](conjugate_cone.svg){#fig-conjugate_cone}
 
-## Dual cones properties
+### Dual cones properties
 * Let $K$ be a closed convex cone. Then $K^{**} = K$.
 * For an arbitrary set $S \subseteq \mathbb{R}^n$ and a cone $K \subseteq \mathbb{R}^n$: 
 
@@ -129,7 +129,7 @@ $$
     $$
 
 
-## Examples
+### Examples
 
 ::: {.callout-example}
 Find the conjugate cone for a monotone nonnegative cone: 
@@ -157,7 +157,7 @@ So $K^* = \left\{ y \mid \sum\limits_{i=1}^k y_i \ge 0, k = \overline{1,n}\right
 :::
 :::
 
-## Polyhedra
+### Polyhedra
 The set of solutions to a system of linear inequalities and equalities is a polyhedron:
 
 $$
@@ -230,7 +230,7 @@ $$
 :::
 :::
 
-### Farkas' Lemma 
+#### Farkas' Lemma 
 Let $A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$. Then one and only one of the following two systems has a solution: 
 
 $$
@@ -247,7 +247,7 @@ $Ax = b$ when $x \geq 0$ means that $b$ lies in a cone stretched over the column
 
 $pA \geq 0, \; \langle p, b \rangle < 0$ means that there exists a separating hyperplane between the vector $b$ and the cone of columns of the matrix $A$.
 
-#### Corollary: 
+##### Corollary: 
 Let $A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m$. Then one and only one of the following two systems has a solution: 
 
 $$

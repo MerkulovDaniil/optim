@@ -3,7 +3,7 @@ title: Convex sets
 order: 1
 ---
 
-# Convex sets{.unnumbered}
+## Convex sets{.unnumbered}
 
 1. Show that the set is convex if and only if its intersection with any line is convex.
 1. Show that the convex hull of the $S$ set is the intersection of all convex sets containing $S$.

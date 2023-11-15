@@ -3,8 +3,8 @@ title: Convex set
 order: 2
 ---
 
-# Definitions
-## Line segment
+## Definitions
+### Line segment
 Suppose $x_1, x_2$ are two points in $\mathbb{R^n}$. Then the line segment between them is defined as follows:
 
 $$
@@ -13,7 +13,7 @@ $$
 
 ![Illustration of a line segment between points $x_1$, $x_2$](line_segment.svg){#fig-line_segment}
 
-## Convex set
+### Convex set
 The set $S$ is called **convex** if for any $x_1, x_2$ from $S$ the line segment between them also lies in $S$, i.e. 
 
 $$
@@ -30,10 +30,10 @@ Any affine set, a ray, a line segment - they all are convex sets.
 
 ![Top: examples of convex sets. Bottom: examples of non-convex sets.](convex_sets.svg){#fig-convex_sets}
 
-## Convex combination
+### Convex combination
 Let $x_1, x_2, \ldots, x_k \in S$, then the point $\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k$ is called the convex combination of points $x_1, x_2, \ldots, x_k$ if $\sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0$.
 
-## Convex hull
+### Convex hull
 The set of all convex combinations of points from $S$ is called the convex hull of the set $S$.
 
 $$
@@ -47,7 +47,7 @@ Examples:
 
 ![Top: convex hulls of the convex sets. Bottom: convex hull of the non-convex sets.](convex_hull.svg){#fig-convex_hull}
 
-## Minkowski addition
+### Minkowski addition
 The Minkowski sum of two sets of vectors $S_1$ and $S_2$ in Euclidean space is formed by adding each vector in $S_1$ to each vector in $S_2$:
 
 $$
@@ -72,14 +72,14 @@ $$
 This represents a rectangle. The sum of the sets $S_1$ and $S_2$ will form an enlarged rectangle $S_2$ with rounded corners. The resulting set will be convex.
 :::
 
-# Finding convexity
+## Finding convexity
 
 In practice, it is very important to understand whether a specific set is convex or not. Two approaches are used for this depending on the context.
 
 * By definition.
 * Show that $S$ is derived from simple convex sets using operations that preserve convexity.
 
-## By definition
+### By definition
 
 $$
 x_1, x_2 \in S, \; 0 \le \theta \le 1 \;\; \rightarrow \;\; \theta x_1 + (1-\theta)x_2 \in S
@@ -108,9 +108,9 @@ Which of the sets are convex:
 * A set of points whose distance to a given point does not exceed a certain part of the distance to another given point is $\{x \in \mathbb{R}^n \mid \Vert x - a\Vert _2 \leq \theta\Vert x - b\Vert _2, a,b \in \mathbb{R}^n, 0 \leq 1 \}$
 :::
 
-## Preserving convexity
+### Preserving convexity
 
-### The linear combination of convex sets is convex
+#### The linear combination of convex sets is convex
 
 Let there be 2 convex sets $S_x, S_y$, let the set 
 
@@ -137,11 +137,11 @@ $$
 c_1 x + c_2 y \in S
 $$
 
-### The intersection of any (!) number of convex sets is convex
+#### The intersection of any (!) number of convex sets is convex
 
 If the desired intersection is empty or contains one point, the property is proved by definition. Otherwise, take 2 points and a segment between them. These points must lie in all intersecting sets, and since they are all convex, the segment between them lies in all sets and, therefore, in their intersection.
 
-### The image of the convex set under affine mapping is convex
+#### The image of the convex set under affine mapping is convex
 
 $$
 S \subseteq \mathbb{R}^n \text{ convex}\;\; \rightarrow \;\; f(S) = \left\{ f(x) \mid x \in S \right\} \text{ convex} \;\;\;\; \left(f(x) = \mathbf{A}x + \mathbf{b}\right)

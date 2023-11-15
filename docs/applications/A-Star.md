@@ -3,7 +3,7 @@ title: $A^*$ algorithm for path finding
 parent: Applications
 ---
 
-# Problem
+## Problem
 
 The **graph** is one of the most significant structures in the algorithms, because this structure can represent many real life cases, from streets to networks.
 
@@ -14,10 +14,10 @@ Generally, we need determine input and output data:
 - **Input data:** graph map and end or start point/node (or both for certain path)
 - **Output data:** paths (or intermediate points/nodes) with the least sum of graph edges as result
 
-# Solutions
+## Solutions
 Today there is a variety of algorithms for solving this problem, and solutions have their own advantages and disadvantages regarding the task, so let's consider main of them:
 
-## Breadth First Search
+### Breadth First Search
 This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. 
 
 | Origin Graph | Result Tree| Animation
@@ -28,13 +28,13 @@ This is the simplest algorithm for graph traversing. It starts at the tree root 
 Obviously this algorithm has low performance: $O(\vert V \vert + \vert E\vert) = O(b^d)$, where **b** is *branch factor* (average quantity of children nodes in tree, e.g. for binary tree $b=2$) and **d** is depth/distance from root.
 
 
-## Dijkstra's algorithm
+### Dijkstra's algorithm
 
 | Description | Animation|
 |---|---|
 |Dijkstra’s Algorithm (also called Uniform Cost Search) lets us prioritize which paths to explore. Instead of exploring all possible paths equally (like in [Breadth First Search](#breadth-first-search)), it favors lower cost paths.|_________________________![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 
-## Greedy Best-First-Search
+### Greedy Best-First-Search
 With Breadth First Search and Dijkstra’s Algorithm, the frontier expands in all directions. This is a reasonable choice if you’re trying to find a path to all locations or to many locations. However, a common case is to find a path to only one location. 
 Let’s make the frontier expand towards the goal more than it expands in other directions. First, we’ll define a **heuristic function** that tells us how close we are to the goal. E.g. on flat map we can use function like $H(A, B) = |A.x - B.x| + |A.y - B.y|$ , where **A** and **B**  are nodes with coordinates **{x, y}**.
 Let's consider not only shortest edges, but also use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.
@@ -43,17 +43,17 @@ Let's consider not only shortest edges, but also use the estimated distance to t
 |---|---|
 | We can see that firstly nodes, that are closer to target are considered at first. But when algorithm finds a barrier, then it tries to find the path to walk around, but this path is best from the corner, not from the start position, so the result path is not the shortest. This is a result of the *heuristic function*. To solve this problem let's consider next algorithm |_________________________![_________________________](https://upload.wikimedia.org/wikipedia/commons/8/85/Weighted_A_star_with_eps_5.gif)
 
-## A-Star Algorithm
+### A-Star Algorithm
 Dijkstra’s Algorithm works well to find the shortest path, but it wastes time exploring in directions that aren’t promising. Greedy Best First Search explores in promising directions but it may not find the shortest path. The A* algorithm uses _both_ the actual distance from the start and the estimated distance to the goal.
 
 | Result of Cost and Heuristic function | Animation |
 |---|---|
 | Because of considering both **cost** and result of **heuristic functuion** as result metric for  Dijkstra’s algorithm, we can find the shortest path faster, than raw Dijkstra’s algorithm, and precisely, than Greedy Best-First-Search |_________________________![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)|
 
-## A-Star Implementation
+### A-Star Implementation
 Let's take a closer look at this algorithm and analyze it with code example. First of all you need to create a *Priority Queue* because you should consider points, which are closer to destination from start position. *Priority does not equal cost*. This Queue contains possible *points*, that are to be considered as possible shortest way to destination.
 ```python
-# Only main methods
+## Only main methods
 class PriorityQueue:
 	# Puts item in collection, sorted by priority.
 	def put(self, item, priority):
@@ -63,7 +63,7 @@ class PriorityQueue:
 Also you  need a class, that describes your Graph Model with 2 methods. First finds neighbors of current node, and second returns cost between current node and next. This methods allows to implement any structure, be neither grid, hexagonal map or graph.
 
 ```python
-# Only main methods
+## Only main methods
 class SquareGrid:
 	# Returns neigbours of 'id' cell
 	# according to map and 'walls'.
@@ -114,7 +114,7 @@ def  a_star_search(graph, start, goal):
 	
 ```
 
-# Results
+## Results
 Now let's try to compare Dijkstra's algorithm with A-Star. For this task we will generate map with size from 5 to 50 with step equal 3. Start position is in left top corner, and End position is opposite. Also, we will generate corners (the quantity is SIZE^0.4), with random length for one side and other side to the end of the map. Generated Maps you can find below, there is only example and comparison plot of iterations depending on the map size.
 
 | Dijkstras | A-Star |
@@ -126,11 +126,11 @@ Now let's try to compare Dijkstra's algorithm with A-Star. For this task we will
 
 It is seen that in most cases $A^*$ finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra's.
 
-# Code
+## Code
 
 [Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/A_star.ipynb){: .btn }
 
-# References
+## References
 
 * [Artificial Intelligence: A New Synthesis](https://epdf.pub/artificial-intelligence-a-new-synthesis.html)
 * [Introduction_to_algorithms](https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf)
