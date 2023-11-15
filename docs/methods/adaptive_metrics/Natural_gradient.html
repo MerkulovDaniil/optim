@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -697,12 +691,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/index.html">Adaptive metric methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/Natural_gradient.html">Natural gradient descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Natural gradient descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="intuition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Intuition</h1>
+<section id="intuition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
 <p>Let’s consider illustrative example of a simple function of 2 variables:</p>
 <p><span class="math display">
 f(x_1, x_2) = 2x_1 + \frac{1}{3}x_2, \quad \nabla_x f = \begin{pmatrix} 2\\ \frac{1}{3} \end{pmatrix}
@@ -729,22 +738,22 @@ B (A_x^{-1} \nabla_x f)
 \end{split}
 </span></p>
 </section>
-<section id="steepest-descent-in-distribution-space" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Steepest descent in distribution space</h1>
+<section id="steepest-descent-in-distribution-space" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="steepest-descent-in-distribution-space"><span class="header-section-number">2</span> Steepest descent in distribution space</h2>
 <p>Suppose, we have a probabilistic model represented by its likelihood $p(x ) $. We want to maximize this likelihood function to find the most likely parameter <span class="math inline">\theta</span> with given observations. Equivalent formulation would be to minimize the loss function <span class="math inline">\mathcal{L}(\theta)</span>, which is the negative logarithm of likelihood function.</p>
 </section>
-<section id="example" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Example</h1>
+<section id="example" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="example"><span class="header-section-number">3</span> Example</h2>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li><a href="https://ipvs.informatik.uni-stuttgart.de/mlr/marc/notes/gradientDescent.pdf">Some notes on gradient descent</a></li>
 <li><a href="https://wiseodd.github.io/techblog/2018/03/14/natural-gradient/">Natural Gradient Descent</a></li>
 </ul>
 </section>
-<section id="code" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Code</h1>
+<section id="code" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="code"><span class="header-section-number">5</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/NGD.ipynb">Open In Colab</a>{: .btn }</p>
 
 

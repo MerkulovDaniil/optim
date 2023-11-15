@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -695,12 +689,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/Lookahead.html">Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="summary" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Summary</h1>
+<section id="summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
 <p>The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family. The main idea is quite simple:</p>
 <ul>
 <li><p>Set some number <span class="math inline">k</span>. Take initial parameter weights <span class="math inline">x_0 = \hat{x}_0</span></p></li>
@@ -716,8 +725,8 @@ ul.task-list li input[type="checkbox"] {
 <p>It is worth to say, that author claims significant improvement in practical huge scale settings (ImageNet, CIFAR10,CIFAR100)</p>
 <p><img src="fast_vs_slow.png" class="img-fluid" alt="Illustration"> <img src="imagenet_train_loss.png" class="img-fluid" alt="Illustration"></p>
 </section>
-<section id="pros" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Pros</h1>
+<section id="pros" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="pros"><span class="header-section-number">2</span> Pros</h2>
 <ul>
 <li>Interesting idea, costs almost nothing, why not to try?</li>
 <li>Works with any SGD-like optimizer (SGD, Adam, RmsProp)</li>
@@ -725,8 +734,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Wide set of empirical tests (Image classification, Neural Translation, LSTM training)</li>
 </ul>
 </section>
-<section id="cons" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Cons</h1>
+<section id="cons" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cons"><span class="header-section-number">3</span> Cons</h2>
 <ul>
 <li>Lack of test loss pictures, the majority of them obtained for the train loss/accuracy</li>
 <li>Lack of pictures with different batch sizes</li>

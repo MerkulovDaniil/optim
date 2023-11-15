@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -699,12 +693,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/two_way_partitioning.html">Two way partitioning problem</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Two way partitioning problem</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="intuition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Intuition</h1>
+<section id="intuition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="partition.svg" class="img-fluid figure-img"></p>
@@ -721,8 +730,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Despite the hardness of the problems, there are several ways to approach it.</p>
 </section>
-<section id="problem" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Problem</h1>
+<section id="problem" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="problem"><span class="header-section-number">2</span> Problem</h2>
 <p>We consider the (nonconvex) problem</p>
 <p><span class="math display">
 \begin{align*}
@@ -732,8 +741,8 @@ ul.task-list li input[type="checkbox"] {
 </span></p>
 <p>where <span class="math inline">W \in \mathbb{R}^n</span> is the symetric matrix. The constraints restrict the values of <span class="math inline">x_i</span> to <span class="math inline">1</span> or <span class="math inline">−1</span>, so the problem is equivalent to finding the vector with components <span class="math inline">\pm 1</span> that minimizes <span class="math inline">x^\top W x</span>. The feasible set here is finite (it contains <span class="math inline">2^n</span> points), thus, is non-convex.</p>
 <p>The objective is the total cost, over all pairs of elements, and the problem is to find the partition with least total cost.</p>
-<section id="simple-lower-bound-with-duality" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="simple-lower-bound-with-duality"><span class="header-section-number">2.1</span> Simple lower bound with duality</h2>
+<section id="simple-lower-bound-with-duality" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="simple-lower-bound-with-duality"><span class="header-section-number">2.1</span> Simple lower bound with duality</h3>
 <p>We now derive the dual function for this problem. The Lagrangian is</p>
 <p><span class="math display">
 L(x, \nu) = x^\top W x + \sum\limits_{i=1}^n \nu_i (x^2_i − 1) = x^\top (W + \text{diag}(\nu))x − \mathbf{1}^\top \nu.
@@ -758,12 +767,12 @@ p^* \geq g(\nu) \geq −\mathbf{1}^\top \nu = n \lambda_{min}(W)
 <p><strong>Question</strong> Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?</p>
 </section>
 </section>
-<section id="code" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Code</h1>
+<section id="code" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="code"><span class="header-section-number">3</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb">Open In Colab</a>{: .btn }</p>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li><a href="https://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a> book by Stephen Boyd and Lieven Vandenberghe.</li>
 </ul>

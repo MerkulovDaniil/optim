@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -697,12 +691,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/index.html">Adaptive metric methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/Quasi_newton.html">Quasi Newton methods</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Quasi Newton methods</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="intuition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Intuition</h1>
+<section id="intuition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
 <p>For the classic task of unconditional optimization <span class="math inline">f(x) \to \min\limits_{x \in \mathbb{R}^n}</span> the general scheme of iteration method is written as:</p>
 <p><span class="math display">
 x_{k+1} = x_k + \alpha_k s_k
@@ -730,8 +739,8 @@ B_{k+1} = B_k + \Delta B_k
 \Delta B_k \Delta y_k = \Delta x_k - B_k \Delta y_k
 </span></p>
 </section>
-<section id="broyden-method" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Broyden method</h1>
+<section id="broyden-method" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="broyden-method"><span class="header-section-number">2</span> Broyden method</h2>
 <p>The simplest option is when the amendment <span class="math inline">\Delta B_k</span> has a rank equal to one. Then you can look for an amendment in the form</p>
 <p><span class="math display">
 \Delta B_k = \mu_k q_k q_k^\top.
@@ -753,8 +762,8 @@ B_{k+1} = B_k + \Delta B_k
 \Delta B_k = \dfrac{(\Delta x_k - B_k \Delta y_k)(\Delta x_k - B_k \Delta y_k)^\top}{\langle \Delta x_k - B_k \Delta y_k , \Delta y_k\rangle}.
 </span></p>
 </section>
-<section id="davidonfletcherpowell-method" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Davidon–Fletcher–Powell method</h1>
+<section id="davidonfletcherpowell-method" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="davidonfletcherpowell-method"><span class="header-section-number">3</span> Davidon–Fletcher–Powell method</h2>
 <p><span class="math display">
 \Delta B_k = \mu_1 \Delta x_k (\Delta x_k)^\top + \mu_2 B_k \Delta y_k (B_k \Delta y_k)^\top.
 </span></p>
@@ -762,8 +771,8 @@ B_{k+1} = B_k + \Delta B_k
 \Delta B_k = \dfrac{(\Delta x_k)(\Delta x_k )^\top}{\langle \Delta x_k , \Delta y_k\rangle} - \dfrac{(B_k \Delta y_k)( B_k \Delta y_k)^\top}{\langle B_k \Delta y_k , \Delta y_k\rangle}.
 </span></p>
 </section>
-<section id="broydenfletchergoldfarbshanno-method" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Broyden–Fletcher–Goldfarb–Shanno method</h1>
+<section id="broydenfletchergoldfarbshanno-method" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="broydenfletchergoldfarbshanno-method"><span class="header-section-number">4</span> Broyden–Fletcher–Goldfarb–Shanno method</h2>
 <p><span class="math display">
 \Delta B_k = Q U Q^\top, \quad Q = [q_1, q_2], \quad q_1, q_2 \in \mathbb{R}^n, \quad U = \begin{pmatrix} a &amp; c\\ c &amp; b \end{pmatrix}.
 </span></p>
@@ -771,8 +780,8 @@ B_{k+1} = B_k + \Delta B_k
 \Delta B_k = \dfrac{(\Delta x_k)(\Delta x_k )^\top}{\langle \Delta x_k , \Delta y_k\rangle} - \dfrac{(B_k \Delta y_k)( B_k \Delta y_k)^\top}{\langle B_k \Delta y_k , \Delta y_k\rangle} + p_k p_k^\top.
 </span></p>
 </section>
-<section id="code" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Code</h1>
+<section id="code" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="code"><span class="header-section-number">5</span> Code</h2>
 <ul>
 <li><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Quasi_Newton.ipynb">Open In Colab</a></li>
 <li><a href="https://nbviewer.jupyter.org/github/fabianp/pytron/blob/master/doc/benchmark_logistic.ipynb">Comparison of quasi Newton methods</a></li>

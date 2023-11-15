@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -699,12 +693,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Conic_sets.html">Conic set</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Conic set</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="cone" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Cone</h1>
+<section id="cone" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="cone"><span class="header-section-number">1</span> Cone</h2>
 <p>A non-empty set <span class="math inline">S</span> is called a cone, if:</p>
 <p><span class="math display">
 \forall x \in S, \; \theta \ge 0 \;\; \rightarrow \;\; \theta x \in S
@@ -720,8 +729,8 @@ Figure&nbsp;1: Illustration of a cone
 </figure>
 </div>
 </section>
-<section id="convex-cone" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Convex cone</h1>
+<section id="convex-cone" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="convex-cone"><span class="header-section-number">2</span> Convex cone</h2>
 <p>The set <span class="math inline">S</span> is called a convex cone, if:</p>
 <p><span class="math display">
 \forall x_1, x_2 \in S, \; \theta_1, \theta_2 \ge 0 \;\; \rightarrow \;\; \theta_1 x_1 + \theta_2 x_2 \in S
@@ -759,14 +768,14 @@ Example
 </div>
 </div>
 </section>
-<section id="related-definitions" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Related definitions</h1>
-<section id="conic-combination" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="conic-combination"><span class="header-section-number">3.1</span> Conic combination</h2>
+<section id="related-definitions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="related-definitions"><span class="header-section-number">3</span> Related definitions</h2>
+<section id="conic-combination" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="conic-combination"><span class="header-section-number">3.1</span> Conic combination</h3>
 <p>Let we have <span class="math inline">x_1, x_2, \ldots, x_k \in S</span>, then the point <span class="math inline">\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k</span> is called conic combination of <span class="math inline">x_1, x_2, \ldots, x_k</span> if <span class="math inline">\theta_i \ge 0</span>.</p>
 </section>
-<section id="conic-hull" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="conic-hull"><span class="header-section-number">3.2</span> Conic hull</h2>
+<section id="conic-hull" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="conic-hull"><span class="header-section-number">3.2</span> Conic hull</h3>
 <p>The set of all conic combinations of points in set <span class="math inline">S</span> is called the conic hull of <span class="math inline">S</span>:</p>
 <p><span class="math display">
 \mathbf{cone}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \; \theta_i \ge 0\right\}

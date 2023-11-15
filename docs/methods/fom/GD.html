@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -733,12 +727,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#convergence-analysis" id="toc-convergence-analysis" class="nav-link" data-scroll-target="#convergence-analysis"><span class="header-section-number">4</span> Convergence analysis</a>
   <ul class="collapse">
-  <li><a href="#convex-case" id="toc-convex-case" class="nav-link" data-scroll-target="#convex-case"><span class="header-section-number">4.1</span> Convex case</a>
-  <ul class="collapse">
-  <li><a href="#lipischitz-continuity-of-the-gradient" id="toc-lipischitz-continuity-of-the-gradient" class="nav-link" data-scroll-target="#lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.1.1</span> Lipischitz continuity of the gradient</a></li>
-  <li><a href="#optimal-constant-stepsize" id="toc-optimal-constant-stepsize" class="nav-link" data-scroll-target="#optimal-constant-stepsize"><span class="header-section-number">4.1.2</span> Optimal constant stepsize</a></li>
-  <li><a href="#convexity" id="toc-convexity" class="nav-link" data-scroll-target="#convexity"><span class="header-section-number">4.1.3</span> Convexity</a></li>
-  </ul></li>
+  <li><a href="#convex-case" id="toc-convex-case" class="nav-link" data-scroll-target="#convex-case"><span class="header-section-number">4.1</span> Convex case</a></li>
   <li><a href="#strongly-convex-case" id="toc-strongly-convex-case" class="nav-link" data-scroll-target="#strongly-convex-case"><span class="header-section-number">4.2</span> Strongly convex case</a></li>
   </ul></li>
   <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">5</span> Materials</a></li>
@@ -752,7 +741,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/GD.html">Gradient descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Gradient descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
@@ -774,8 +778,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="summary" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Summary</h1>
+<section id="summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
 <p>A classical problem of function minimization is considered.</p>
 <p><span class="math display">
 \tag{GD}
@@ -792,10 +796,10 @@ x_{k+1} = x_k - \eta_k\nabla f(x_k)
 &amp;= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}
 </span></p>
 </section>
-<section id="intuition" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Intuition</h1>
-<section id="direction-of-local-steepest-descent" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="direction-of-local-steepest-descent"><span class="header-section-number">2.1</span> Direction of local steepest descent</h2>
+<section id="intuition" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="intuition"><span class="header-section-number">2</span> Intuition</h2>
+<section id="direction-of-local-steepest-descent" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="direction-of-local-steepest-descent"><span class="header-section-number">2.1</span> Direction of local steepest descent</h3>
 <p>Let’s consider a linear approximation of the differentiable function <span class="math inline">f</span> along some direction <span class="math inline">h, \|h\|_2 = 1</span>:</p>
 <p><span class="math display">
 f(x + \eta h) = f(x) + \eta \langle f'(x), h \rangle + o(\eta)
@@ -825,8 +829,8 @@ h = -\dfrac{f'(x)}{\|f'(x)\|_2}
 x_{k+1} = x_k - \eta f'(x_k)
 </span></p>
 </section>
-<section id="gradient-flow-ode" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="gradient-flow-ode"><span class="header-section-number">2.2</span> Gradient flow ODE</h2>
+<section id="gradient-flow-ode" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="gradient-flow-ode"><span class="header-section-number">2.2</span> Gradient flow ODE</h3>
 <p>Let’s consider the following ODE, which is referred as Gradient Flow equation.</p>
 <p><span class="math display">
 \tag{GF}
@@ -843,8 +847,8 @@ x_{k+1} = x_k - \eta f'(x_k),
 </span></p>
 <p>which is exactly gradient descent.</p>
 </section>
-<section id="necessary-local-minimum-condition" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="necessary-local-minimum-condition"><span class="header-section-number">2.3</span> Necessary local minimum condition</h2>
+<section id="necessary-local-minimum-condition" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="necessary-local-minimum-condition"><span class="header-section-number">2.3</span> Necessary local minimum condition</h3>
 <p><span class="math display">
 \begin{align*}
 &amp; f'(x) = 0\\
@@ -855,8 +859,8 @@ x_{k+1} = x_k - \eta f'(x_k),
 </span></p>
 <p>This is, surely, not a proof at all, but some kind of intuitive explanation.</p>
 </section>
-<section id="minimizer-of-lipschitz-parabola" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="minimizer-of-lipschitz-parabola"><span class="header-section-number">2.4</span> Minimizer of Lipschitz parabola</h2>
+<section id="minimizer-of-lipschitz-parabola" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="minimizer-of-lipschitz-parabola"><span class="header-section-number">2.4</span> Minimizer of Lipschitz parabola</h3>
 <p>Some general highlights about Lipschitz properties are needed for explanation. If a function <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is continuously differentiable and its gradient satisfies Lipschitz conditions with constant <span class="math inline">L</span>, then <span class="math inline">\forall x,y \in \mathbb{R}^n</span>:</p>
 <p><span class="math display">
 |f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,
@@ -898,11 +902,11 @@ x_{k+1} = x_k - \eta f'(x_k),
 </span></p>
 </section>
 </section>
-<section id="stepsize-choosing-strategies" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Stepsize choosing strategies</h1>
+<section id="stepsize-choosing-strategies" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="stepsize-choosing-strategies"><span class="header-section-number">3</span> Stepsize choosing strategies</h2>
 <p>Stepsize choosing strategy <span class="math inline">\eta_k</span> significantly affects convergence. General line search algorithms might help in choosing scalar parameter.</p>
-<section id="constant-stepsize" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="constant-stepsize"><span class="header-section-number">3.1</span> Constant stepsize</h2>
+<section id="constant-stepsize" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="constant-stepsize"><span class="header-section-number">3.1</span> Constant stepsize</h3>
 <p>For <span class="math inline">f \in C_L^{1,1}</span>:</p>
 <p><span class="math display">
 \eta_k = \eta
@@ -915,15 +919,15 @@ f(x_k) - f(x_{k+1}) \geq \eta \left(1 - \frac{1}{2}L\eta \right) \|\nabla f(x_k)
 f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 </span></p>
 </section>
-<section id="fixed-sequence" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="fixed-sequence"><span class="header-section-number">3.2</span> Fixed sequence</h2>
+<section id="fixed-sequence" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fixed-sequence"><span class="header-section-number">3.2</span> Fixed sequence</h3>
 <p><span class="math display">
 \eta_k = \dfrac{1}{\sqrt{k+1}}
 </span></p>
 <p>The latter 2 strategies are the simplest in terms of implementation and analytical analysis. It is clear that this approach does not often work very well in practice (the function geometry is not known in advance).</p>
 </section>
-<section id="exact-line-search-aka-steepest-descent" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="exact-line-search-aka-steepest-descent"><span class="header-section-number">3.3</span> Exact line search aka steepest descent</h2>
+<section id="exact-line-search-aka-steepest-descent" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="exact-line-search-aka-steepest-descent"><span class="header-section-number">3.3</span> Exact line search aka steepest descent</h3>
 <p><span class="math display">
 \eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_{k+1}) = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))
 </span></p>
@@ -937,16 +941,16 @@ f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 \nabla f(x_{k+1})^\top \nabla f(x_k) = 0
 </span></p>
 </section>
-<section id="goldstein-armijo" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="goldstein-armijo"><span class="header-section-number">3.4</span> Goldstein-Armijo</h2>
+<section id="goldstein-armijo" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="goldstein-armijo"><span class="header-section-number">3.4</span> Goldstein-Armijo</h3>
 </section>
 </section>
-<section id="convergence-analysis" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Convergence analysis</h1>
-<section id="convex-case" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">4.1</span> Convex case</h2>
-<section id="lipischitz-continuity-of-the-gradient" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.1.1</span> Lipischitz continuity of the gradient</h3>
+<section id="convergence-analysis" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="convergence-analysis"><span class="header-section-number">4</span> Convergence analysis</h2>
+<section id="convex-case" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">4.1</span> Convex case</h3>
+<section id="lipischitz-continuity-of-the-gradient" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.1.1</span> Lipischitz continuity of the gradient</h4>
 <p>Assume that <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is convex and differentiable, and additionally <span class="math display">
 \|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
 </span></p>
@@ -973,15 +977,15 @@ f(x_{k+1}) &amp;\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{
 \end{align*}
 </span></p>
 </section>
-<section id="optimal-constant-stepsize" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="optimal-constant-stepsize"><span class="header-section-number">4.1.2</span> Optimal constant stepsize</h3>
+<section id="optimal-constant-stepsize" class="level4" data-number="4.1.2">
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="optimal-constant-stepsize"><span class="header-section-number">4.1.2</span> Optimal constant stepsize</h4>
 <p>Now, if we’ll consider constant stepsize strategy and will maximize <span class="math inline">\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}</span>, we’ll get <span class="math inline">\eta = \dfrac{1}{L}</span>.</p>
 <p><span class="math display">
 f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 </span></p>
 </section>
-<section id="convexity" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="convexity"><span class="header-section-number">4.1.3</span> Convexity</h3>
+<section id="convexity" class="level4" data-number="4.1.3">
+<h4 data-number="4.1.3" class="anchored" data-anchor-id="convexity"><span class="header-section-number">4.1.3</span> Convexity</h4>
 <p><span class="math display">
 f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*)
 </span></p>
@@ -1006,8 +1010,8 @@ f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfr
 </span></p>
 </section>
 </section>
-<section id="strongly-convex-case" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="strongly-convex-case"><span class="header-section-number">4.2</span> Strongly convex case</h2>
+<section id="strongly-convex-case" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="strongly-convex-case"><span class="header-section-number">4.2</span> Strongly convex case</h3>
 <p>If the function is strongly convex:</p>
 <p><span class="math display">
 f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n
@@ -1015,7 +1019,7 @@ f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \f
 <p>…</p>
 <p><span class="math display">
 \|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
-</span> # Bounds</p>
+</span> ## Bounds</p>
 <table class="table">
 <colgroup>
 <col style="width: 13%">
@@ -1064,8 +1068,8 @@ f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \f
 </ul>
 </section>
 </section>
-<section id="materials" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Materials</h1>
+<section id="materials" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="materials"><span class="header-section-number">5</span> Materials</h2>
 <ul>
 <li><a href="http://blog.mrtz.org/2013/09/07/the-zen-of-gradient-descent.html">The zen of gradient descent. Moritz Hardt</a></li>
 <li><a href="http://fa.bianp.net/teaching/2018/eecs227at/gradient_descent.html">Great visualization</a></li>

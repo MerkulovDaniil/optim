@@ -547,12 +547,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -688,10 +682,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#dual-cones" id="toc-dual-cones" class="nav-link" data-scroll-target="#dual-cones"><span class="header-section-number">1.4</span> Dual cones</a></li>
   <li><a href="#dual-cones-properties" id="toc-dual-cones-properties" class="nav-link" data-scroll-target="#dual-cones-properties"><span class="header-section-number">1.5</span> Dual cones properties</a></li>
   <li><a href="#examples-1" id="toc-examples-1" class="nav-link" data-scroll-target="#examples-1"><span class="header-section-number">1.6</span> Examples</a></li>
-  <li><a href="#polyhedra" id="toc-polyhedra" class="nav-link" data-scroll-target="#polyhedra"><span class="header-section-number">1.7</span> Polyhedra</a>
-  <ul class="collapse">
-  <li><a href="#farkas-lemma" id="toc-farkas-lemma" class="nav-link" data-scroll-target="#farkas-lemma"><span class="header-section-number">1.7.1</span> Farkas’ Lemma</a></li>
-  </ul></li>
+  <li><a href="#polyhedra" id="toc-polyhedra" class="nav-link" data-scroll-target="#polyhedra"><span class="header-section-number">1.7</span> Polyhedra</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Conjugate_set.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -703,14 +694,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Conjugate_set.html">Conjugate set</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Conjugate set</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="conjugate-fenchel-conjugate-dual-fenchel-dual-set" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Conjugate (Fenchel conjugate, dual, Fenchel dual) set</h1>
-<section id="definitions" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1</span> Definitions</h2>
+<section id="conjugate-fenchel-conjugate-dual-fenchel-dual-set" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="conjugate-fenchel-conjugate-dual-fenchel-dual-set"><span class="header-section-number">1</span> Conjugate (Fenchel conjugate, dual, Fenchel dual) set</h2>
+<section id="definitions" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1</span> Definitions</h3>
 <p>Let <span class="math inline">S \subseteq \mathbb{R}^n</span> be an arbitrary non-empty set. Then its conjugate set is defined as:</p>
 <p><span class="math display">
 S^* = \{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in S\}
@@ -734,8 +740,8 @@ S^{**} = \{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in
 <li>A set <span class="math inline">S</span> is called <strong>self-conjugate</strong> if <span class="math inline">S^{*} = S</span>.</li>
 </ul>
 </section>
-<section id="properties" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="properties"><span class="header-section-number">1.2</span> Properties</h2>
+<section id="properties" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="properties"><span class="header-section-number">1.2</span> Properties</h3>
 <ul>
 <li><p>A conjugate set is always closed, convex, and contains zero.</p></li>
 <li><p>For an arbitrary set <span class="math inline">S \subseteq \mathbb{R}^n</span>:</p>
@@ -748,8 +754,8 @@ S^{**} = \{y \in \mathbb{R}^n \mid \langle y, x\rangle \ge -1 \;\; \forall x \in
 <li><p><span class="math inline">S^* = \left(\overline{S}\right)^*</span>.</p></li>
 </ul>
 </section>
-<section id="examples" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.3</span> Examples</h2>
+<section id="examples" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.3</span> Examples</h3>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -885,8 +891,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="dual-cones" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="dual-cones"><span class="header-section-number">1.4</span> Dual cones</h2>
+<section id="dual-cones" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="dual-cones"><span class="header-section-number">1.4</span> Dual cones</h3>
 <p>A conjugate cone to a cone <span class="math inline">K</span> is a set <span class="math inline">K^*</span> such that:</p>
 <p><span class="math display">
 K^* = \left\{ y \mid \langle x, y\rangle \ge 0 \quad \forall x \in K\right\}
@@ -906,8 +912,8 @@ Figure&nbsp;2: Illustration of dual cone
 </figure>
 </div>
 </section>
-<section id="dual-cones-properties" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="dual-cones-properties"><span class="header-section-number">1.5</span> Dual cones properties</h2>
+<section id="dual-cones-properties" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="dual-cones-properties"><span class="header-section-number">1.5</span> Dual cones properties</h3>
 <ul>
 <li><p>Let <span class="math inline">K</span> be a closed convex cone. Then <span class="math inline">K^{**} = K</span>.</p></li>
 <li><p>For an arbitrary set <span class="math inline">S \subseteq \mathbb{R}^n</span> and a cone <span class="math inline">K \subseteq \mathbb{R}^n</span>:</p>
@@ -924,8 +930,8 @@ Figure&nbsp;2: Illustration of dual cone
   </span></p></li>
 </ul>
 </section>
-<section id="examples-1" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="examples-1"><span class="header-section-number">1.6</span> Examples</h2>
+<section id="examples-1" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="examples-1"><span class="header-section-number">1.6</span> Examples</h3>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -975,8 +981,8 @@ y_1 \ge 0, \;\; y_1 + y_2 \ge 0, \;\;\ldots, \;\;\;y_1 + \ldots + y_n \ge 0
 </div>
 </div>
 </section>
-<section id="polyhedra" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="polyhedra"><span class="header-section-number">1.7</span> Polyhedra</h2>
+<section id="polyhedra" class="level3" data-number="1.7">
+<h3 data-number="1.7" class="anchored" data-anchor-id="polyhedra"><span class="header-section-number">1.7</span> Polyhedra</h3>
 <p>The set of solutions to a system of linear inequalities and equalities is a polyhedron:</p>
 <p><span class="math display">
 Ax \preceq b, \;\;\; Cx = d
@@ -1097,8 +1103,8 @@ S^* = \left\{ -3p_1 + p_2 \ge 0, 2p_1 + 3p_2 \ge 0, 4p_1+5p_2 \ge 0 \right\}
 </div>
 </div>
 </div>
-<section id="farkas-lemma" class="level3" data-number="1.7.1">
-<h3 data-number="1.7.1" class="anchored" data-anchor-id="farkas-lemma"><span class="header-section-number">1.7.1</span> Farkas’ Lemma</h3>
+<section id="farkas-lemma" class="level4" data-number="1.7.1">
+<h4 data-number="1.7.1" class="anchored" data-anchor-id="farkas-lemma"><span class="header-section-number">1.7.1</span> Farkas’ Lemma</h4>
 <p>Let <span class="math inline">A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m</span>. Then one and only one of the following two systems has a solution:</p>
 <p><span class="math display">
 1) \; Ax = b, x \ge 0
@@ -1108,8 +1114,8 @@ S^* = \left\{ -3p_1 + p_2 \ge 0, 2p_1 + 3p_2 \ge 0, 4p_1+5p_2 \ge 0 \right\}
 </span></p>
 <p><span class="math inline">Ax = b</span> when <span class="math inline">x \geq 0</span> means that <span class="math inline">b</span> lies in a cone stretched over the columns of the matrix <span class="math inline">A</span>.</p>
 <p><span class="math inline">pA \geq 0, \; \langle p, b \rangle &lt; 0</span> means that there exists a separating hyperplane between the vector <span class="math inline">b</span> and the cone of columns of the matrix <span class="math inline">A</span>.</p>
-<section id="corollary" class="level4" data-number="1.7.1.1">
-<h4 data-number="1.7.1.1" class="anchored" data-anchor-id="corollary"><span class="header-section-number">1.7.1.1</span> Corollary:</h4>
+<section id="corollary" class="level5" data-number="1.7.1.1">
+<h5 data-number="1.7.1.1" class="anchored" data-anchor-id="corollary"><span class="header-section-number">1.7.1.1</span> Corollary:</h5>
 <p>Let <span class="math inline">A \in \mathbb{R}^{m\times n}, b \in \mathbb{R}^m</span>. Then one and only one of the following two systems has a solution:</p>
 <p><span class="math display">
 1) Ax \leq b

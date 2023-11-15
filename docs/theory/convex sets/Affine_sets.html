@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -701,12 +695,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Affine_sets.html">Affine set</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Affine set</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="line" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Line</h1>
+<section id="line" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="line"><span class="header-section-number">1</span> Line</h2>
 <p>Suppose <span class="math inline">x_1, x_2</span> are two points in <span class="math inline">\mathbb{R^n}</span>. Then the line passing through them is defined as follows:</p>
 <p><span class="math display">
 x = \theta x_1 + (1 - \theta)x_2, \theta \in \mathbb{R}
@@ -722,8 +731,8 @@ Figure&nbsp;1: Illustration of a line between two vectors <span class="math inli
 </figure>
 </div>
 </section>
-<section id="affine-set" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Affine set</h1>
+<section id="affine-set" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="affine-set"><span class="header-section-number">2</span> Affine set</h2>
 <p>The set <span class="math inline">A</span> is called <strong>affine</strong> if for any <span class="math inline">x_1, x_2</span> from <span class="math inline">A</span> the line passing through them also lies in <span class="math inline">A</span>, i.e.&nbsp;</p>
 <p><span class="math display">
 \forall \theta \in \mathbb{R}, \forall x_1, x_2 \in A: \theta x_1 + (1- \theta) x_2 \in A
@@ -749,14 +758,14 @@ Example
 </div>
 </div>
 </section>
-<section id="related-definitions" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Related definitions</h1>
-<section id="affine-combination" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="affine-combination"><span class="header-section-number">3.1</span> Affine combination</h2>
+<section id="related-definitions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="related-definitions"><span class="header-section-number">3</span> Related definitions</h2>
+<section id="affine-combination" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="affine-combination"><span class="header-section-number">3.1</span> Affine combination</h3>
 <p>Let we have <span class="math inline">x_1, x_2, \ldots, x_k \in S</span>, then the point <span class="math inline">\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k</span> is called affine combination of <span class="math inline">x_1, x_2, \ldots, x_k</span> if <span class="math inline">\sum\limits_{i=1}^k\theta_i = 1</span>.</p>
 </section>
-<section id="affine-hull" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="affine-hull"><span class="header-section-number">3.2</span> Affine hull</h2>
+<section id="affine-hull" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="affine-hull"><span class="header-section-number">3.2</span> Affine hull</h3>
 <p>The set of all affine combinations of points in set <span class="math inline">S</span> is called the affine hull of <span class="math inline">S</span>:</p>
 <p><span class="math display">
 \mathbf{aff}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1\right\}
@@ -779,16 +788,16 @@ Example
 </div>
 </div>
 </section>
-<section id="interior" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="interior"><span class="header-section-number">3.3</span> Interior</h2>
+<section id="interior" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="interior"><span class="header-section-number">3.3</span> Interior</h3>
 <p>The interior of the set <span class="math inline">S</span> is defined as the following set:</p>
 <p><span class="math display">
 \mathbf{int} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon &gt; 0, \; B(\mathbf{x}, \varepsilon) \subset S\}
 </span></p>
 <p>where <span class="math inline">B(\mathbf{x}, \varepsilon) = \mathbf{x} + \varepsilon B</span> is the ball centered at point <span class="math inline">\mathbf{x}</span> with radius <span class="math inline">\varepsilon</span>.</p>
 </section>
-<section id="relative-interior" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="relative-interior"><span class="header-section-number">3.4</span> Relative Interior</h2>
+<section id="relative-interior" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="relative-interior"><span class="header-section-number">3.4</span> Relative Interior</h3>
 <p>The relative interior of the set <span class="math inline">S</span> is defined as the following set:</p>
 <p><span class="math display">
 \mathbf{relint} (S) = \{\mathbf{x} \in S \mid \exists \varepsilon &gt; 0, \; B(\mathbf{x}, \varepsilon) \cap \mathbf{aff} (S) \subseteq S\}

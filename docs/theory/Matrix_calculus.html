@@ -547,12 +547,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -685,12 +679,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#vectors-and-matrices" id="toc-vectors-and-matrices" class="nav-link" data-scroll-target="#vectors-and-matrices"><span class="header-section-number">1.1</span> Vectors and matrices</a></li>
   <li><a href="#matrix-and-vector-product" id="toc-matrix-and-vector-product" class="nav-link" data-scroll-target="#matrix-and-vector-product"><span class="header-section-number">1.2</span> Matrix and vector product</a></li>
   <li><a href="#norms-and-scalar-products" id="toc-norms-and-scalar-products" class="nav-link" data-scroll-target="#norms-and-scalar-products"><span class="header-section-number">1.3</span> Norms and scalar products</a></li>
-  <li><a href="#eigenvalues-eigenvectors-and-the-singular-value-decomposition" id="toc-eigenvalues-eigenvectors-and-the-singular-value-decomposition" class="nav-link" data-scroll-target="#eigenvalues-eigenvectors-and-the-singular-value-decomposition"><span class="header-section-number">1.4</span> Eigenvalues, eigenvectors, and the singular-value decomposition</a>
-  <ul class="collapse">
-  <li><a href="#eigenvalues" id="toc-eigenvalues" class="nav-link" data-scroll-target="#eigenvalues"><span class="header-section-number">1.4.1</span> Eigenvalues</a></li>
-  <li><a href="#singular-value-decomposition" id="toc-singular-value-decomposition" class="nav-link" data-scroll-target="#singular-value-decomposition"><span class="header-section-number">1.4.2</span> Singular value decomposition</a></li>
-  <li><a href="#skeleton-decomposition" id="toc-skeleton-decomposition" class="nav-link" data-scroll-target="#skeleton-decomposition"><span class="header-section-number">1.4.3</span> Skeleton decomposition</a></li>
-  </ul></li>
+  <li><a href="#eigenvalues-eigenvectors-and-the-singular-value-decomposition" id="toc-eigenvalues-eigenvectors-and-the-singular-value-decomposition" class="nav-link" data-scroll-target="#eigenvalues-eigenvectors-and-the-singular-value-decomposition"><span class="header-section-number">1.4</span> Eigenvalues, eigenvectors, and the singular-value decomposition</a></li>
   <li><a href="#canonical-tensor-decomposition" id="toc-canonical-tensor-decomposition" class="nav-link" data-scroll-target="#canonical-tensor-decomposition"><span class="header-section-number">1.5</span> Canonical tensor decomposition</a></li>
   <li><a href="#determinant-and-trace" id="toc-determinant-and-trace" class="nav-link" data-scroll-target="#determinant-and-trace"><span class="header-section-number">1.6</span> Determinant and trace</a></li>
   </ul></li>
@@ -700,20 +689,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#hessian" id="toc-hessian" class="nav-link" data-scroll-target="#hessian"><span class="header-section-number">2.2</span> Hessian</a></li>
   <li><a href="#jacobian" id="toc-jacobian" class="nav-link" data-scroll-target="#jacobian"><span class="header-section-number">2.3</span> Jacobian</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.4</span> Summary</a></li>
-  <li><a href="#taylor-approximations" id="toc-taylor-approximations" class="nav-link" data-scroll-target="#taylor-approximations"><span class="header-section-number">2.5</span> Taylor approximations</a>
-  <ul class="collapse">
-  <li><a href="#first-order-taylor-approximation" id="toc-first-order-taylor-approximation" class="nav-link" data-scroll-target="#first-order-taylor-approximation"><span class="header-section-number">2.5.1</span> First-order Taylor approximation</a></li>
-  <li><a href="#second-order-taylor-approximation" id="toc-second-order-taylor-approximation" class="nav-link" data-scroll-target="#second-order-taylor-approximation"><span class="header-section-number">2.5.2</span> Second-order Taylor approximation</a></li>
-  </ul></li>
+  <li><a href="#taylor-approximations" id="toc-taylor-approximations" class="nav-link" data-scroll-target="#taylor-approximations"><span class="header-section-number">2.5</span> Taylor approximations</a></li>
   </ul></li>
   <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">3</span> Derivatives</a>
   <ul class="collapse">
   <li><a href="#naive-approach" id="toc-naive-approach" class="nav-link" data-scroll-target="#naive-approach"><span class="header-section-number">3.1</span> Naive approach</a></li>
-  <li><a href="#differential-approach" id="toc-differential-approach" class="nav-link" data-scroll-target="#differential-approach"><span class="header-section-number">3.2</span> Differential approach</a>
-  <ul class="collapse">
-  <li><a href="#differentials" id="toc-differentials" class="nav-link" data-scroll-target="#differentials"><span class="header-section-number">3.2.1</span> Differentials</a></li>
-  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties"><span class="header-section-number">3.2.2</span> Properties</a></li>
-  </ul></li>
+  <li><a href="#differential-approach" id="toc-differential-approach" class="nav-link" data-scroll-target="#differential-approach"><span class="header-section-number">3.2</span> Differential approach</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
   </ul>
@@ -726,14 +707,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Matrix_calculus.html">Matrix calculus</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Matrix calculus</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="basic-linear-algebra-background" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Basic linear algebra background</h1>
-<section id="vectors-and-matrices" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="vectors-and-matrices"><span class="header-section-number">1.1</span> Vectors and matrices</h2>
+<section id="basic-linear-algebra-background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="basic-linear-algebra-background"><span class="header-section-number">1</span> Basic linear algebra background</h2>
+<section id="vectors-and-matrices" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="vectors-and-matrices"><span class="header-section-number">1.1</span> Vectors and matrices</h3>
 <p>We will treat all vectors as column vectors by default. The space of real vectors of length <span class="math inline">n</span> is denoted by <span class="math inline">\mathbb{R}^n</span>, while the space of real-valued <span class="math inline">m \times n</span> matrices is denoted by <span class="math inline">\mathbb{R}^{m \times n}</span>. That’s it: <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><span id="eq-vector"><span class="math display">
 x = \begin{bmatrix}
@@ -788,8 +784,8 @@ Question
 </div>
 </div>
 </section>
-<section id="matrix-and-vector-product" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="matrix-and-vector-product"><span class="header-section-number">1.2</span> Matrix and vector product</h2>
+<section id="matrix-and-vector-product" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="matrix-and-vector-product"><span class="header-section-number">1.2</span> Matrix and vector product</h3>
 <p>Let <span class="math inline">A</span> be a matrix of size <span class="math inline">m \times n</span>, and <span class="math inline">B</span> be a matrix of size <span class="math inline">n \times p</span>, and let the product <span class="math inline">AB</span> be: <span class="math display">
 C = AB
 </span> then <span class="math inline">C</span> is a <span class="math inline">m \times p</span> matrix, with element <span class="math inline">(i, j)</span> given by: <span class="math display">
@@ -827,8 +823,8 @@ z_i = \sum_{k=1}^n a_{ik}x_k
 <li><span class="math inline">\langle x, Ay\rangle = \langle A^T x, y\rangle</span></li>
 </ul>
 </section>
-<section id="norms-and-scalar-products" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="norms-and-scalar-products"><span class="header-section-number">1.3</span> Norms and scalar products</h2>
+<section id="norms-and-scalar-products" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="norms-and-scalar-products"><span class="header-section-number">1.3</span> Norms and scalar products</h3>
 <p>Norm is a <strong>qualitative measure of the smallness of a vector</strong> and is typically denoted as <span class="math inline">\Vert x \Vert</span>.</p>
 <p>The norm should satisfy certain properties:</p>
 <ol type="1">
@@ -1002,10 +998,10 @@ Solution
 </div>
 </div>
 </section>
-<section id="eigenvalues-eigenvectors-and-the-singular-value-decomposition" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="eigenvalues-eigenvectors-and-the-singular-value-decomposition"><span class="header-section-number">1.4</span> Eigenvalues, eigenvectors, and the singular-value decomposition</h2>
-<section id="eigenvalues" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="eigenvalues"><span class="header-section-number">1.4.1</span> Eigenvalues</h3>
+<section id="eigenvalues-eigenvectors-and-the-singular-value-decomposition" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="eigenvalues-eigenvectors-and-the-singular-value-decomposition"><span class="header-section-number">1.4</span> Eigenvalues, eigenvectors, and the singular-value decomposition</h3>
+<section id="eigenvalues" class="level4" data-number="1.4.1">
+<h4 data-number="1.4.1" class="anchored" data-anchor-id="eigenvalues"><span class="header-section-number">1.4.1</span> Eigenvalues</h4>
 <p>A scalar value <span class="math inline">\lambda</span> is an eigenvalue of the <span class="math inline">n \times n</span> matrix <span class="math inline">A</span> if there is a nonzero vector <span class="math inline">q</span> such that <span class="math display">
 Aq = \lambda q.
 </span></p>
@@ -1122,8 +1118,8 @@ A = Q\Lambda Q^T,
 \kappa(A) = \|A\|\|A^{-1}\|
 </span></p>
 </section>
-<section id="singular-value-decomposition" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="singular-value-decomposition"><span class="header-section-number">1.4.2</span> Singular value decomposition</h3>
+<section id="singular-value-decomposition" class="level4" data-number="1.4.2">
+<h4 data-number="1.4.2" class="anchored" data-anchor-id="singular-value-decomposition"><span class="header-section-number">1.4.2</span> Singular value decomposition</h4>
 <p>Suppose <span class="math inline">A \in \mathbb{R}^{m \times n}</span> with rank <span class="math inline">A = r</span>. Then <span class="math inline">A</span> can be factored as</p>
 <p><span class="math display">
 A = U \Sigma V^T , \quad (A.12)
@@ -1239,8 +1235,8 @@ Question
 </div>
 </div>
 </section>
-<section id="skeleton-decomposition" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="skeleton-decomposition"><span class="header-section-number">1.4.3</span> Skeleton decomposition</h3>
+<section id="skeleton-decomposition" class="level4" data-number="1.4.3">
+<h4 data-number="1.4.3" class="anchored" data-anchor-id="skeleton-decomposition"><span class="header-section-number">1.4.3</span> Skeleton decomposition</h4>
 <p>Simple, yet very interesting decomposition is Skeleton decomposition, which can be written in two forms:</p>
 <p><span class="math display">
 A = U V^T \quad A = \hat{C}\hat{A}^{-1}\hat{R}
@@ -1281,8 +1277,8 @@ Question
 </ul>
 </section>
 </section>
-<section id="canonical-tensor-decomposition" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="canonical-tensor-decomposition"><span class="header-section-number">1.5</span> Canonical tensor decomposition</h2>
+<section id="canonical-tensor-decomposition" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="canonical-tensor-decomposition"><span class="header-section-number">1.5</span> Canonical tensor decomposition</h3>
 <p>One can consider the generalization of Skeleton decomposition to the higher order data structure, like tensors, which implies representing the tensor as a sum of <span class="math inline">r</span> primitive tensors.</p>
 <div id="fig-cp_decomposition" class="quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1329,8 +1325,8 @@ Question
 </div>
 </div>
 </section>
-<section id="determinant-and-trace" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="determinant-and-trace"><span class="header-section-number">1.6</span> Determinant and trace</h2>
+<section id="determinant-and-trace" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="determinant-and-trace"><span class="header-section-number">1.6</span> Determinant and trace</h3>
 <p>The determinant and trace can be expressed in terms of the eigenvalues</p>
 <p><span class="math display">
 \text{det} A = \prod\limits_{i=1}^n \lambda_i, \qquad \text{tr} A = \sum\limits_{i=1}^n \lambda_i
@@ -1404,10 +1400,10 @@ Question
 </div>
 </section>
 </section>
-<section id="optimization-bingo" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Optimization bingo</h1>
-<section id="gradient" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="gradient"><span class="header-section-number">2.1</span> Gradient</h2>
+<section id="optimization-bingo" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="optimization-bingo"><span class="header-section-number">2</span> Optimization bingo</h2>
+<section id="gradient" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="gradient"><span class="header-section-number">2.1</span> Gradient</h3>
 <p>Let <span class="math inline">f(x):\mathbb{R}^n→\mathbb{R}</span>, then vector, which contains all first-order partial derivatives:</p>
 <p><span class="math display">
 \nabla f(x) = \dfrac{df}{dx} = \begin{pmatrix}
@@ -1459,8 +1455,8 @@ Question
 </div>
 </div>
 </section>
-<section id="hessian" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="hessian"><span class="header-section-number">2.2</span> Hessian</h2>
+<section id="hessian" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="hessian"><span class="header-section-number">2.2</span> Hessian</h3>
 <p>Let <span class="math inline">f(x):\mathbb{R}^n→\mathbb{R}</span>, then matrix, containing all the second order partial derivatives:</p>
 <p><span class="math display">
 f''(x) = \nabla^2 f(x) = \dfrac{\partial^2 f}{\partial x_i \partial x_j} = \begin{pmatrix}
@@ -1520,7 +1516,7 @@ f(x,y) =
 </div>
 </div>
 </div>
-<p>In fact, Hessian could be a tensor in such a way: <span class="math inline">\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)</span> is just 3d tensor, every slice is just hessian of corresponding scalar function <span class="math inline">\left( H\left(f_1(x)\right), H\left(f_2(x)\right), \ldots, H\left(f_m(x)\right)\right)</span>.</p>
+<p>In fact, Hessian could be a tensor in such a way: <span class="math inline">\left(f(x): \mathbb{R}^n \to \mathbb{R}^m \right)</span> is just 3d tensor, every slice is just hessian of corresponding scalar function <span class="math inline">\left( \nabla^2f_1(x), \ldots, \nabla^2f_m(x)\right)</span>.</p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1562,8 +1558,8 @@ Question
 </div>
 </div>
 </section>
-<section id="jacobian" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="jacobian"><span class="header-section-number">2.3</span> Jacobian</h2>
+<section id="jacobian" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="jacobian"><span class="header-section-number">2.3</span> Jacobian</h3>
 <p>The extension of the gradient of multidimensional <span class="math inline">f(x):\mathbb{R}^n\to\mathbb{R}^m</span> is the following matrix:</p>
 <p><span class="math display">
 J_f = f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
@@ -1637,8 +1633,8 @@ Question
 </div>
 </div>
 </section>
-<section id="summary" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.4</span> Summary</h2>
+<section id="summary" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.4</span> Summary</h3>
 <p><span class="math display">
 f(x) : X \to Y; \qquad \frac{\partial f(x)}{\partial x} \in G
 </span></p>
@@ -1685,11 +1681,11 @@ f(x) : X \to Y; \qquad \frac{\partial f(x)}{\partial x} \in G
 </tbody>
 </table>
 </section>
-<section id="taylor-approximations" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="taylor-approximations"><span class="header-section-number">2.5</span> Taylor approximations</h2>
+<section id="taylor-approximations" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="taylor-approximations"><span class="header-section-number">2.5</span> Taylor approximations</h3>
 <p>Taylor approximations provide a way to approximate functions locally by polynomials. The idea is that for a smooth function, we can approximate it by its tangent (for the first order) or by its parabola (for the second order) at a point.</p>
-<section id="first-order-taylor-approximation" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="first-order-taylor-approximation"><span class="header-section-number">2.5.1</span> First-order Taylor approximation</h3>
+<section id="first-order-taylor-approximation" class="level4" data-number="2.5.1">
+<h4 data-number="2.5.1" class="anchored" data-anchor-id="first-order-taylor-approximation"><span class="header-section-number">2.5.1</span> First-order Taylor approximation</h4>
 <p>The first-order Taylor approximation, also known as the linear approximation, is centered around some point <span class="math inline">x_0</span>. If <span class="math inline">f: \mathbb{R}^n \rightarrow \mathbb{R}</span> is a differentiable function, then its first-order Taylor approximation is given by:</p>
 <p><span class="math display">
 f_{x_0}^I(x) = f(x_0) + \nabla f(x_0)^T (x - x_0)
@@ -1732,8 +1728,8 @@ f_{x_0}^{II}(x) = 1 + x + \frac{x^2}{2}
 </div>
 </div>
 </section>
-<section id="second-order-taylor-approximation" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="second-order-taylor-approximation"><span class="header-section-number">2.5.2</span> Second-order Taylor approximation</h3>
+<section id="second-order-taylor-approximation" class="level4" data-number="2.5.2">
+<h4 data-number="2.5.2" class="anchored" data-anchor-id="second-order-taylor-approximation"><span class="header-section-number">2.5.2</span> Second-order Taylor approximation</h4>
 <p>The second-order Taylor approximation, also known as the quadratic approximation, includes the curvature of the function. For a twice-differentiable function <span class="math inline">f: \mathbb{R}^n \rightarrow \mathbb{R}</span>, its second-order Taylor approximation centered at some point <span class="math inline">x_0</span> is:</p>
 <p><span class="math display">
 f_{x_0}^{II}(x) = f(x_0) + \nabla f(x_0)^T (x - x_0) + \frac{1}{2} (x - x_0)^T \nabla^2 f(x_0) (x - x_0)
@@ -1812,14 +1808,14 @@ Question
 </section>
 </section>
 </section>
-<section id="derivatives" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Derivatives</h1>
-<section id="naive-approach" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="naive-approach"><span class="header-section-number">3.1</span> Naive approach</h2>
+<section id="derivatives" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">3</span> Derivatives</h2>
+<section id="naive-approach" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="naive-approach"><span class="header-section-number">3.1</span> Naive approach</h3>
 <p>The basic idea of the naive approach is to reduce matrix/vector derivatives to the well-known scalar derivatives. <img src="./matrix_calculus.svg" id="fig-naive_derivative" class="img-fluid" alt="Naive approach of taking derivatives"> One of the most important practical tricks here is to separate indices of sum (<span class="math inline">i</span>) and partial derivatives (<span class="math inline">k</span>). Ignoring this simple rule tends to produce mistakes.</p>
 </section>
-<section id="differential-approach" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="differential-approach"><span class="header-section-number">3.2</span> Differential approach</h2>
+<section id="differential-approach" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="differential-approach"><span class="header-section-number">3.2</span> Differential approach</h3>
 <p>The guru approach implies formulating a set of simple rules, which allows you to calculate derivatives just like in a scalar case. It might be convenient to use the differential notation here. <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1840,8 +1836,8 @@ f(x + h) = f(x) + D[h] + o(\|h\|)
 </div>
 </div>
 </div>
-<section id="differentials" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="differentials"><span class="header-section-number">3.2.1</span> Differentials</h3>
+<section id="differentials" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="differentials"><span class="header-section-number">3.2.1</span> Differentials</h4>
 <p>After obtaining the differential notation of <span class="math inline">df</span> we can retrieve the gradient using the following formula:</p>
 <p><span class="math display">
 df(x) = \langle \nabla f(x), dx\rangle
@@ -1851,8 +1847,8 @@ df(x) = \langle \nabla f(x), dx\rangle
 d^2f(x) = \langle \nabla^2 f(x) dx_1, dx\rangle = \langle H_f(x) dx_1, dx\rangle
 </span></p>
 </section>
-<section id="properties" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="properties"><span class="header-section-number">3.2.2</span> Properties</h3>
+<section id="properties" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="properties"><span class="header-section-number">3.2.2</span> Properties</h4>
 <p>Let <span class="math inline">A</span> and <span class="math inline">B</span> be the constant matrices, while <span class="math inline">X</span> and <span class="math inline">Y</span> are the variables (or matrix functions).</p>
 <ul>
 <li><span class="math inline">dA = 0</span></li>
@@ -2067,8 +2063,8 @@ Solution
 </section>
 </section>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li><a href="https://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a> book by S. Boyd and L. Vandenberghe - Appendix A. Mathematical background.</li>
 <li><a href="assets/files/NumericalOptimization.pdf">Numerical Optimization</a> by J. Nocedal and S. J. Wright. - Background Material.</li>

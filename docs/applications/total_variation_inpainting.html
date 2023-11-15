@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -698,20 +692,35 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/total_variation_inpainting.html">Total variation in-painting</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Total variation in-painting</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tv_start.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
-<section id="grayscale-image" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="grayscale-image"><span class="header-section-number">1.1</span> Grayscale image</h2>
+<section id="grayscale-image" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="grayscale-image"><span class="header-section-number">1.1</span> Grayscale image</h3>
 <p>A grayscale image is represented as an <span class="math inline">m \times n</span> matrix of intensities <span class="math inline">U^{orig}</span> (typically between the values <span class="math inline">0</span> and <span class="math inline">255</span>). We are given all the values of corrupted picture, but some of them should be preserved as is through the recovering procedure: <span class="math inline">U^{corr}_{ij} \; \forall (i,j)\in K</span>, where <span class="math inline">K\subset\{1,\ldots,m\}×\{1,\ldots,n\}</span> is the set of indices corresponding to known pixel values. Our job is to in-paint the image by guessing the missing pixel values, i.e., those with indices not in <span class="math inline">K</span>. The reconstructed image will be represented by <span class="math inline">U \in \mathbb{R}^{m \times n}</span>, where <span class="math inline">U</span> matches the known pixels, i.e.&nbsp;<span class="math inline">U_{ij}=U^{corr}_{ij}</span> for <span class="math inline">(i,j)\in K</span>.</p>
 <p>The reconstruction <span class="math inline">U</span> is found by minimizing the total variation of <span class="math inline">U</span>, subject to matching the known pixel values. We will use the <span class="math inline">l_{2}</span> total variation, defined as</p>
 <p><span class="math display">
@@ -735,8 +744,8 @@ U_{i+1,j}-U_{ij}\\ U_{i,j+1}-U_{ij} \end{array} \right] \right\|_2.\end{split}
 </figure>
 </div>
 </section>
-<section id="color-image" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="color-image"><span class="header-section-number">1.2</span> Color image</h2>
+<section id="color-image" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="color-image"><span class="header-section-number">1.2</span> Color image</h3>
 <p>For the color case we consider in-painting problem in a slightly different setting: destroying some random part of all pixels. In this case the image itself is 3d tensor (we convert all others color schemes to the RGB). As it was in the grayscale case, we construct the mask <span class="math inline">K</span> of known pixels for all color channels uniformly, based on the principle of similarity of particular 3d pixel to the vector <span class="math inline">[0, 0, 0]</span> (black pixel). The results are quite promising - note, that we have no information about the original picture, but assumption, that corrupted pixels are black. For the color picture we just sum all tv’s on the each channel:</p>
 <p><span class="math display">
 \begin{split}\mathop{\bf tv}(U) =
@@ -805,9 +814,9 @@ U^k_{i+1,j}-U^k_{ij}\\ U^k_{i,j+1}-U^k_{ij} \end{array} \right] \right\|_2.\end{
 </div>
 </section>
 </section>
-<section id="code" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Code</h1>
-<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Total%20variation%20inpainting.ipynb">Open In Colab</a>{: .btn } # References</p>
+<section id="code" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="code"><span class="header-section-number">2</span> Code</h2>
+<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Total%20variation%20inpainting.ipynb">Open In Colab</a>{: .btn } ## References</p>
 <ul>
 <li><a href="https://www.cvxpy.org/examples/applications/tv_inpainting.html">CVXPY documentation</a></li>
 <li><a href="https://remi.flamary.com/demos/proxtv.html">Interactive demo</a></li>

@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -729,12 +723,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/golden_search.html">Golden search</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Golden search</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="idea" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Idea</h1>
+<section id="idea" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="idea"><span class="header-section-number">1</span> Idea</h2>
 <p>The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration one of the points will remain the golden point.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -743,8 +752,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Algorithm</h1>
+<section id="algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> golden_search(f, a, b, epsilon):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    tau <span class="op">=</span> (sqrt(<span class="dv">5</span>) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> a <span class="op">+</span> (b <span class="op">-</span> a) <span class="op">/</span> tau<span class="op">**</span><span class="dv">2</span></span>
@@ -760,8 +769,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            z <span class="op">=</span> a <span class="op">+</span> (b <span class="op">-</span> a) <span class="op">/</span> tau</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (a <span class="op">+</span> b) <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="bounds" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Bounds</h1>
+<section id="bounds" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="bounds"><span class="header-section-number">3</span> Bounds</h2>
 <p><span class="math display">
 |x_{k+1} - x_*| \leq b_{k+1} - a_{k+1} = \left( \frac{1}{\tau} \right)^{N-1} (b - a) \approx 0.618^k(b-a),
 </span></p>

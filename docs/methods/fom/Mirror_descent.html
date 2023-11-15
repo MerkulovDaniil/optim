@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -717,11 +711,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#dual-norm" id="toc-dual-norm" class="nav-link active" data-scroll-target="#dual-norm"><span class="header-section-number">0.1</span> Dual norm:</a></li>
-  <li><a href="#bregman-divergence" id="toc-bregman-divergence" class="nav-link" data-scroll-target="#bregman-divergence"><span class="header-section-number">0.2</span> Bregman divergence</a>
-  <ul class="collapse">
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">0.2.1</span> Examples</a></li>
-  <li><a href="#свойства" id="toc-свойства" class="nav-link" data-scroll-target="#свойства"><span class="header-section-number">0.2.2</span> Свойства</a></li>
-  </ul></li>
+  <li><a href="#bregman-divergence" id="toc-bregman-divergence" class="nav-link" data-scroll-target="#bregman-divergence"><span class="header-section-number">0.2</span> Bregman divergence</a></li>
   <li><a href="#возвращение-к-истокам" id="toc-возвращение-к-истокам" class="nav-link" data-scroll-target="#возвращение-к-истокам"><span class="header-section-number">1</span> Возвращение к истокам</a>
   <ul class="collapse">
   <li><a href="#алгоритм-зеркального-спуска-mirror-descent" id="toc-алгоритм-зеркального-спуска-mirror-descent" class="nav-link" data-scroll-target="#алгоритм-зеркального-спуска-mirror-descent"><span class="header-section-number">1.1</span> Алгоритм зеркального спуска (mirror descent):</a></li>
@@ -739,13 +729,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/Mirror_descent.html">Mirror descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Mirror descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
 <p>Метод зеркального спуска является естественным обобщением метода проекции субградиента в случае обобщения <span class="math inline">l_2</span> нормы на более общий случай какой-то функции расстояния.</p>
-<section id="dual-norm" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="dual-norm"><span class="header-section-number">0.1</span> Dual norm:</h2>
+<section id="dual-norm" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="dual-norm"><span class="header-section-number">0.1</span> Dual norm:</h3>
 <p><em>Определение:</em> Сопряженной нормой <span class="math inline">\|\cdot\|_*</span> к данной <span class="math inline">\|\cdot\|</span> называется:</p>
 <p><span class="math display">
 \|y\|_* = \max \{\langle y,x\rangle: \|x\|=1 \}
@@ -766,8 +771,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Обобщенное неравенство Коши Шварца: <span class="math inline">\langle y,x \rangle \leq \|y\|_*\|x\|</span>, следствие: <span class="math inline">\|x\|^2 \pm 2 \langle y,x \rangle + \|y\|_*^2 \geq 0</span></li>
 </ul>
 </section>
-<section id="bregman-divergence" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="bregman-divergence"><span class="header-section-number">0.2</span> Bregman divergence</h2>
+<section id="bregman-divergence" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="bregman-divergence"><span class="header-section-number">0.2</span> Bregman divergence</h3>
 <p>Попробуем интуитивно ввести понятие обобщенного расстояния, именуемого расстоянием Брэгмана. Для каждой точки <span class="math inline">y</span> она возвращает расстояние этой точки до <span class="math inline">x</span> - <span class="math inline">V_x(y)</span>. В самом простом случае можно взять <span class="math inline">V_x(y) = \frac{1}{2}\|x-y\|^2, \;\; \nabla V_x(y) = y-x</span>. Рассмотрим уже классическую запись:</p>
 <p><span class="math display">
 \begin{align*}
@@ -790,8 +795,8 @@ V_x(y) \geq \frac{1}{2} \|x-y\|^2
 V_x(y) = \phi(y) - \phi(x) - \langle\nabla \phi(x), y-x\rangle
 </span></p>
 <p>Заметим, что определение сильной выпуклости зависит от выбора прямой нормы <span class="math inline">\|\cdot\|</span>. Это важное замечание, поскольку именно это свойство позволит в будущем подстраивать расстояние под геометрию пространства.</p>
-<section id="examples" class="level3" data-number="0.2.1">
-<h3 data-number="0.2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">0.2.1</span> Examples</h3>
+<section id="examples" class="level4" data-number="0.2.1">
+<h4 data-number="0.2.1" class="anchored" data-anchor-id="examples"><span class="header-section-number">0.2.1</span> Examples</h4>
 <ul>
 <li>Выберем норму в прямом пространстве <span class="math inline">\|\cdot\| = \|\cdot\|_2</span>, пусть <span class="math inline">\phi(x) = \frac{1}{2}\|x\|^2</span>, тогда расстояние Брэгмана <span class="math inline">V_x(y) = \frac{1}{2}\|x-y\|^2</span>. Такой выбор совпадает с тем, что мы видели ранее в методе проекции субградиента</li>
 <li>Выберем теперь другую норму <span class="math inline">\|\cdot\| = \| \cdot \|_1</span>, пусть <span class="math inline">\phi(x) = \sum\limits_{i \in [n]}x_i \log x_i</span> - антиэнтропия. Тогда эта функция будет <span class="math inline">1</span> сильно выпукла на выпуклом множестве <span class="math inline">S : \left\{x \in S : x \geq 0, \sum\limits_{i \in [n]} x_i = 1\right\}</span> (вероятностном симплексе), а соответствующая ей дивергенция Брэгмана: <span class="math inline">V_x(y) = \sum\limits_{i \in [n]} y_i \log \frac{y_i}{x_i} = D(y \| x)</span> - расстояние Кульбака - Ляйблера.</li>
@@ -804,8 +809,8 @@ V_x(y) = \phi(y) - \phi(x) - \langle\nabla \phi(x), y-x\rangle
 </figure>
 </div>
 </section>
-<section id="свойства" class="level3" data-number="0.2.2">
-<h3 data-number="0.2.2" class="anchored" data-anchor-id="свойства"><span class="header-section-number">0.2.2</span> Свойства</h3>
+<section id="свойства" class="level4" data-number="0.2.2">
+<h4 data-number="0.2.2" class="anchored" data-anchor-id="свойства"><span class="header-section-number">0.2.2</span> Свойства</h4>
 <ul>
 <li>Аксиома тождества <span class="math inline">V_x(x) = 0</span></li>
 <li>Совместимость с Евклидовой нормой: <span class="math inline">V_x(y) \geq \frac{1}{2}\|x-y\|^2 \geq 0</span></li>
@@ -823,8 +828,8 @@ V_x(y) = \phi(y) - \phi(x) - \langle\nabla \phi(x), y-x\rangle
 </span></p>
 </section>
 </section>
-<section id="возвращение-к-истокам" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Возвращение к истокам</h1>
+<section id="возвращение-к-истокам" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="возвращение-к-истокам"><span class="header-section-number">1</span> Возвращение к истокам</h2>
 <p>Пусть задано выпуклое замкнутое множество <span class="math inline">S \in \mathbb{R}^n</span>, кроме того, есть алгоритм оптимизации, возвращающий последовательность точек <span class="math inline">x_1, \ldots, x_k, \ldots</span>. Тогда запишем (не)равенство треугольника для расстояния Брэгмана, полагая <span class="math inline">y = x_{k+1}, x = x_k</span> и произвольный <span class="math inline">z \in S</span> (который мы в дальнейшем для целостности изложения будем обозначать <span class="math inline">y</span>)</p>
 <p><span class="math display">
 \begin{align*}
@@ -875,8 +880,8 @@ f(\overline{x}) - f^* &amp;= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \ri
 \end{align*}
 </span></p>
 <p>Выбирая шаг <span class="math inline">\alpha_k = \alpha = \sqrt{\dfrac{2M}{G^2 T}}</span></p>
-<section id="алгоритм-зеркального-спуска-mirror-descent" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="алгоритм-зеркального-спуска-mirror-descent"><span class="header-section-number">1.1</span> Алгоритм зеркального спуска (mirror descent):</h2>
+<section id="алгоритм-зеркального-спуска-mirror-descent" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="алгоритм-зеркального-спуска-mirror-descent"><span class="header-section-number">1.1</span> Алгоритм зеркального спуска (mirror descent):</h3>
 <p><span class="math display">
 x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle + V_{x_k}(x) \right)
 </span></p>
@@ -886,8 +891,8 @@ x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle
 <li>Работает в существенно более широком классе практических задач</li>
 </ul>
 </section>
-<section id="онлайн-версия" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="онлайн-версия"><span class="header-section-number">1.2</span> Онлайн версия</h2>
+<section id="онлайн-версия" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="онлайн-версия"><span class="header-section-number">1.2</span> Онлайн версия</h3>
 <p>Совершенно ясно, что в наших оценках на каждом шаге может быть новая функция <span class="math inline">f_k(x)</span> на заданном классе. Поэтому, аналогичные оценки получаются и для онлайн постановки:</p>
 <p><span class="math display">
 R_{T-1} = \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}^{T-1} f_k(x) \leq \sqrt{2 M G^2 T}
@@ -896,8 +901,8 @@ R_{T-1} = \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}^{T-1
 \overline{R_{T-1}} = \dfrac{1}{T}R_{T-1} \leq \sqrt{\dfrac{2 M G^2}{T}}
 </span></p>
 </section>
-<section id="еще-одна-интерпретация" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="еще-одна-интерпретация"><span class="header-section-number">1.3</span> Еще одна интерпретация</h2>
+<section id="еще-одна-интерпретация" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="еще-одна-интерпретация"><span class="header-section-number">1.3</span> Еще одна интерпретация</h3>
 <p>Давайте покажем, что полученный алгоритм имеет еще одну очень интуитивную интерпретацию:</p>
 <ol type="1">
 <li><span class="math inline">y_{k} = \nabla \phi(x_k)</span> Отображение в сопряженное пространство с помощью функции <span class="math inline">\nabla \phi(x)</span></li>
@@ -940,8 +945,8 @@ x_{k+1} &amp;= \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \r
 <p>Здесь левая часть минимизируемого выражения представляет собой аппроксимацию первого порядка, а правая часть представляет собой проекционный член.</p>
 </section>
 </section>
-<section id="нафига" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> НАФИГА?</h1>
+<section id="нафига" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="нафига"><span class="header-section-number">2</span> НАФИГА?</h2>
 <p>Резонный вопрос, ведь в случае, если мы выбрали <span class="math inline">\|\cdot\| = \|\cdot\|_2</span> Евклидову норму и Евклидово расстояние, то этот метод в точности совпадает с тем, что мы уже называем метод проекции субградиента.</p>
 <p>Значит, надо предоставить сценарий, когда МЗС работает лучше, давайте рассмотрим <span class="math inline">S = \Delta_n</span> - вероятностный симплекс, а так же следующее расстояние Брэгмана <span class="math inline">V_x(y) = \sum_{i \in [n]} y_i \log \frac{y_i}{x_i} = D(y \| x)</span>. Норма в прямом пространстве при этом <span class="math inline">\|\|_1</span>, а в сопряженном - <span class="math inline">\|\|_\infty</span>. Кроме того, для заданной дивергенции Брэгмана справедливо:</p>
 <p><span class="math display">
@@ -992,12 +997,12 @@ f(\overline{x}) - f^*  \leq \sqrt{\dfrac{2 \log (n) G^2}{T}}
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mirror_descent(x0, grad, T):</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x0)</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.log(n)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     G = np.linalg.norm(A,np.inf)*1+np.linalg.norm(b,np.inf)</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     alpha = np.sqrt(2*M/(G**2*T))</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">##     G = np.linalg.norm(A,np.inf)*1+np.linalg.norm(b,np.inf)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">##     alpha = np.sqrt(2*M/(G**2*T))</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="fl">0.0001</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    xk <span class="op">=</span> x0</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    sequence <span class="op">=</span> []</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">#     print('MD %.3f'%alpha)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co">##     print('MD %.3f'%alpha)</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(T)):</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        sequence.append(xk)</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        g <span class="op">=</span> grad(xk)</span>
@@ -1007,10 +1012,10 @@ f(\overline{x}) - f^*  \leq \sqrt{\dfrac{2 \log (n) G^2}{T}}
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> projection_subgradient_descent(x0, grad, T):</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(x0)</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">#     G = np.linalg.norm(A,2)*1+np.linalg.norm(b,2)</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">#     alpha = np.sqrt(2*M/(G**2*T))</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">##     G = np.linalg.norm(A,2)*1+np.linalg.norm(b,2)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">##     alpha = np.sqrt(2*M/(G**2*T))</span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="fl">0.0001</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">#     print('GD %.3f'%alpha)</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co">##     print('GD %.3f'%alpha)</span></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>    xk <span class="op">=</span> x0</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    sequence <span class="op">=</span> []</span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(T)):</span>

@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -685,12 +679,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#problem" id="toc-problem" class="nav-link active" data-scroll-target="#problem"><span class="header-section-number">1</span> Problem</a></li>
   <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach"><span class="header-section-number">2</span> Approach</a>
   <ul class="collapse">
-  <li><a href="#linear-measurements-with-i.i.d.-noise" id="toc-linear-measurements-with-i.i.d.-noise" class="nav-link" data-scroll-target="#linear-measurements-with-i.i.d.-noise"><span class="header-section-number">2.1</span> Linear measurements with i.i.d. noise</a>
-  <ul class="collapse">
-  <li><a href="#gaussian-noise" id="toc-gaussian-noise" class="nav-link" data-scroll-target="#gaussian-noise"><span class="header-section-number">2.1.1</span> Gaussian noise</a></li>
-  <li><a href="#laplacian-noise" id="toc-laplacian-noise" class="nav-link" data-scroll-target="#laplacian-noise"><span class="header-section-number">2.1.2</span> Laplacian noise</a></li>
-  <li><a href="#uniform-noise" id="toc-uniform-noise" class="nav-link" data-scroll-target="#uniform-noise"><span class="header-section-number">2.1.3</span> Uniform noise</a></li>
-  </ul></li>
+  <li><a href="#linear-measurements-with-i.i.d.-noise" id="toc-linear-measurements-with-i.i.d.-noise" class="nav-link" data-scroll-target="#linear-measurements-with-i.i.d.-noise"><span class="header-section-number">2.1</span> Linear measurements with i.i.d. noise</a></li>
   <li><a href="#binary-logistic-regression" id="toc-binary-logistic-regression" class="nav-link" data-scroll-target="#binary-logistic-regression"><span class="header-section-number">2.2</span> Binary logistic regression</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
@@ -704,12 +693,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/MLE.html">Maximum likelihood estimation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Maximum likelihood estimation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>We need to estimate probability density <span class="math inline">p(x)</span> of a random variable from observed values.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -718,14 +722,14 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="approach" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Approach</h1>
+<section id="approach" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="approach"><span class="header-section-number">2</span> Approach</h2>
 <p>We will use idea of parametric distribution estimation, which involves choosing <em>the best</em> parameters, of a chosen family of densities <span class="math inline">p_\theta(x)</span>, indexed by a parameter <span class="math inline">\theta</span>. The idea is very natural: we choose such parameters, which maximizes the probability (or logarithm of probability) of observed values.</p>
 <p><span class="math display">
 \arg \max\limits_{\theta} \log p_\theta(x) = \theta^*
 </span></p>
-<section id="linear-measurements-with-i.i.d.-noise" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="linear-measurements-with-i.i.d.-noise"><span class="header-section-number">2.1</span> Linear measurements with i.i.d. noise</h2>
+<section id="linear-measurements-with-i.i.d.-noise" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="linear-measurements-with-i.i.d.-noise"><span class="header-section-number">2.1</span> Linear measurements with i.i.d. noise</h3>
 <p>Suppose, we are given the set of observations:</p>
 <p><span class="math display">
 x_i = \theta^\top a_i + \xi_i, \quad i = [1,m],
@@ -741,8 +745,8 @@ x_i = \theta^\top a_i + \xi_i, \quad i = [1,m],
 \max\limits_{\theta} \log p(x) = \max_\theta \sum\limits_{i=1}^m \log p (x_i - \theta^\top a_i) = \max_\theta L(\theta)
 </span></p>
 <p>Where the sum goes from the fact, that all observation are independent, which leads to the fact, that <span class="math inline">p(\xi) = \prod\limits_{i=1}^m p(\xi_i)</span>. The target function is called log-likelihood function <span class="math inline">L(\theta)</span>.</p>
-<section id="gaussian-noise" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="gaussian-noise"><span class="header-section-number">2.1.1</span> Gaussian noise</h3>
+<section id="gaussian-noise" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="gaussian-noise"><span class="header-section-number">2.1.1</span> Gaussian noise</h4>
 <p><span class="math display">
 p(z) = \dfrac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{z^2}{2 \sigma^2}}
 </span></p>
@@ -757,8 +761,8 @@ L(\theta) &amp;= \sum\limits_{i=1}^m \left[ - \dfrac{1}{2} \log (2 \pi \sigma^2)
 </span></p>
 <p>Which means, the maximum likelihood estimation in case of gaussian noise is a least squares solution.</p>
 </section>
-<section id="laplacian-noise" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="laplacian-noise"><span class="header-section-number">2.1.2</span> Laplacian noise</h3>
+<section id="laplacian-noise" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="laplacian-noise"><span class="header-section-number">2.1.2</span> Laplacian noise</h4>
 <p><span class="math display">
 p(z) = \dfrac{1}{2a} e^{-\frac{|z|}{a}}
 </span></p>
@@ -773,8 +777,8 @@ L(\theta) &amp;= \sum\limits_{i=1}^m \left[ - \log (2a) - -\dfrac{|(x_i - \theta
 </span></p>
 <p>Which means, the maximum likelihood estimation in case of Laplacian noise is a <span class="math inline">l_1</span>-norm solution.</p>
 </section>
-<section id="uniform-noise" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="uniform-noise"><span class="header-section-number">2.1.3</span> Uniform noise</h3>
+<section id="uniform-noise" class="level4" data-number="2.1.3">
+<h4 data-number="2.1.3" class="anchored" data-anchor-id="uniform-noise"><span class="header-section-number">2.1.3</span> Uniform noise</h4>
 <p><span class="math display">
 p(z) = \begin{cases}
   \frac{1}{2a}, &amp; -a \leq z \leq a, \\
@@ -797,8 +801,8 @@ L() =
 <p>Which means, the maximum likelihood estimation in case of uniform noise is any vector <span class="math inline">\theta</span>, which satisfies <span class="math inline">\vert x_i - \theta^\top a_i \vert \leq a</span>.</p>
 </section>
 </section>
-<section id="binary-logistic-regression" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="binary-logistic-regression"><span class="header-section-number">2.2</span> Binary logistic regression</h2>
+<section id="binary-logistic-regression" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="binary-logistic-regression"><span class="header-section-number">2.2</span> Binary logistic regression</h3>
 <p>Suppose, we are given a set of binary random variables <span class="math inline">y_i \in \{0,1\}</span>. Let us parametrize the distribution function as a sigmoid, using linear transformation of the input as an argument of a sigmoid.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -818,8 +822,8 @@ L(\theta_0, \theta_1) = \sum\limits_{i=1}^k (\theta_0^\top x_i + \theta_1) - \su
 </span></p>
 </section>
 </section>
-<section id="references" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> References</h1>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
 <ul>
 <li><a href="http://www.seas.ucla.edu/~vandenbe/ee236b/ee236b.html">Convex Optimization @ UCLA</a> by Prof.&nbsp;L. Vandenberghe</li>
 <li><a href="https://cvxopt.org/examples/book/logreg.html">Numerical explanation</a></li>

@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -708,12 +702,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/zom/index.html">Zero order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/zom/nelder-mead.html">Nelder–Mead</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Nelder–Mead</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>Sometimes the multidimensional function is so difficult to evaluate that even expressing the <span class="math inline">1^{\text{st}}</span> derivative for gradient-based methods of finding optimum becomes an impossible task. In this case, we can only rely on the values of the function at each point. Or, in other words, on the <span class="math inline">0</span> order oracle calls.</p>
 <p>Let’s take, for instance, Mishra’s Bird function:</p>
 <p><span class="math display">
@@ -733,10 +742,10 @@ f(x,y) = \sin{y} \cdot e^{\left( 1 - \cos{x} \right)^2} + \cos{x} \cdot e^{\left
 </figure>
 </div>
 </section>
-<section id="algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Algorithm</h1>
-<section id="related-definitions" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="related-definitions"><span class="header-section-number">2.1</span> Related definitions:</h2>
+<section id="algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
+<section id="related-definitions" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="related-definitions"><span class="header-section-number">2.1</span> Related definitions:</h3>
 <ul>
 <li><span class="math inline">\textbf{Simplex}</span> – polytope with the least possible number of vertices in <span class="math inline">n</span>-dimensional space. (So, it’s <span class="math inline">(n+1)</span>-polytope.) In our <span class="math inline">2D</span> case it will be triangle.</li>
 <li><span class="math inline">\textbf{Best point }x_1</span> – vertex of the simplex, function value in which is the smallest among all vertices.</li>
@@ -745,13 +754,13 @@ f(x,y) = \sin{y} \cdot e^{\left( 1 - \cos{x} \right)^2} + \cos{x} \cdot e^{\left
 <li><span class="math inline">\textbf{Centroid }x_o</span> – center of mass in the polytope. In Nelder-Mead the centroid is calculated for the polytope, constituted by best vertices. In our <span class="math inline">2D</span> case it will be the center of the triangle side, which contains <span class="math inline">2</span> best points <span class="math inline">x_o = \dfrac{x_1 + x_2}{2}</span>.</li>
 </ul>
 </section>
-<section id="main-idea" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="main-idea"><span class="header-section-number">2.2</span> Main idea</h2>
+<section id="main-idea" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="main-idea"><span class="header-section-number">2.2</span> Main idea</h3>
 <p>The algorithm maintains the set of test points in the form of simplex. For each point the function value is calculated and points are ordered accordingly. Depending on those values, the simplex exchanges the worst point of the set for the new one, which is closer to the local minimum. In some sense, the simplex is crawling to the minimal value in the domain.</p>
 <p>The simplex movements finish when its sides become too small (termination condition by sides) or its area becomes too small (termination condition by area). I prefer the second condition, because it takes into account cases when simplex becomes degenerate (three or more vertices on one axis).</p>
 </section>
-<section id="steps-of-the-algorithm" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="steps-of-the-algorithm"><span class="header-section-number">2.3</span> Steps of the algorithm</h2>
+<section id="steps-of-the-algorithm" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="steps-of-the-algorithm"><span class="header-section-number">2.3</span> Steps of the algorithm</h3>
 <p><strong>1. Ordering</strong></p>
 <p>Order vertices according to values in them:</p>
 <p><span class="math display">
@@ -805,11 +814,11 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 <p>Go to step <span class="math inline">1</span>.</p>
 </section>
 </section>
-<section id="examples" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
+<section id="examples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="examples"><span class="header-section-number">3</span> Examples</h2>
 <p>This algorithm, as any method in global optimization, is highly dependable on the initial conditions. For instance, if we use different initial simplex or different set of parameters <span class="math inline">\{ \alpha, \beta, \gamma, \sigma \}</span> the resulting optimal point will differ.</p>
-<section id="some-random-initial-simplex-and-default-set-of-parameters" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="some-random-initial-simplex-and-default-set-of-parameters"><span class="header-section-number">3.1</span> Some random initial simplex and default set of parameters</h2>
+<section id="some-random-initial-simplex-and-default-set-of-parameters" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="some-random-initial-simplex-and-default-set-of-parameters"><span class="header-section-number">3.1</span> Some random initial simplex and default set of parameters</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nm_SquareDomain1.gif" class="img-fluid figure-img"></p>
@@ -817,8 +826,8 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 </figure>
 </div>
 </section>
-<section id="different-initial-simplex-and-same-set-of-parameters" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="different-initial-simplex-and-same-set-of-parameters"><span class="header-section-number">3.2</span> Different initial simplex and same set of parameters</h2>
+<section id="different-initial-simplex-and-same-set-of-parameters" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="different-initial-simplex-and-same-set-of-parameters"><span class="header-section-number">3.2</span> Different initial simplex and same set of parameters</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nm_SquareDomain2.gif" class="img-fluid figure-img"></p>
@@ -826,8 +835,8 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 </figure>
 </div>
 </section>
-<section id="same-initial-simplex-and-different-set-of-parameters" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="same-initial-simplex-and-different-set-of-parameters"><span class="header-section-number">3.3</span> Same initial simplex and different set of parameters</h2>
+<section id="same-initial-simplex-and-different-set-of-parameters" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="same-initial-simplex-and-different-set-of-parameters"><span class="header-section-number">3.3</span> Same initial simplex and different set of parameters</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nm_SquareDomain3.gif" class="img-fluid figure-img"></p>
@@ -835,8 +844,8 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 </figure>
 </div>
 </section>
-<section id="round-domain" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="round-domain"><span class="header-section-number">3.4</span> Round domain</h2>
+<section id="round-domain" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="round-domain"><span class="header-section-number">3.4</span> Round domain</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nm_RoundDomain.gif" class="img-fluid figure-img"></p>
@@ -844,8 +853,8 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 </figure>
 </div>
 </section>
-<section id="examples-with-all-sets-of-simplexes" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="examples-with-all-sets-of-simplexes"><span class="header-section-number">3.5</span> Examples with all sets of simplexes</h2>
+<section id="examples-with-all-sets-of-simplexes" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="examples-with-all-sets-of-simplexes"><span class="header-section-number">3.5</span> Examples with all sets of simplexes</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="nm_SquareDomain1.svg" class="img-fluid figure-img"></p>
@@ -872,8 +881,8 @@ x_i = x_1 + \sigma \left( x_i - x_1 \right)
 </div>
 </section>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Nelder%20Mead.ipynb">Open In Colab</a></p>
 
 

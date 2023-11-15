@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -693,12 +687,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#finding-convexity" id="toc-finding-convexity" class="nav-link" data-scroll-target="#finding-convexity"><span class="header-section-number">2</span> Finding convexity</a>
   <ul class="collapse">
   <li><a href="#by-definition" id="toc-by-definition" class="nav-link" data-scroll-target="#by-definition"><span class="header-section-number">2.1</span> By definition</a></li>
-  <li><a href="#preserving-convexity" id="toc-preserving-convexity" class="nav-link" data-scroll-target="#preserving-convexity"><span class="header-section-number">2.2</span> Preserving convexity</a>
-  <ul class="collapse">
-  <li><a href="#the-linear-combination-of-convex-sets-is-convex" id="toc-the-linear-combination-of-convex-sets-is-convex" class="nav-link" data-scroll-target="#the-linear-combination-of-convex-sets-is-convex"><span class="header-section-number">2.2.1</span> The linear combination of convex sets is convex</a></li>
-  <li><a href="#the-intersection-of-any-number-of-convex-sets-is-convex" id="toc-the-intersection-of-any-number-of-convex-sets-is-convex" class="nav-link" data-scroll-target="#the-intersection-of-any-number-of-convex-sets-is-convex"><span class="header-section-number">2.2.2</span> The intersection of any (!) number of convex sets is convex</a></li>
-  <li><a href="#the-image-of-the-convex-set-under-affine-mapping-is-convex" id="toc-the-image-of-the-convex-set-under-affine-mapping-is-convex" class="nav-link" data-scroll-target="#the-image-of-the-convex-set-under-affine-mapping-is-convex"><span class="header-section-number">2.2.3</span> The image of the convex set under affine mapping is convex</a></li>
-  </ul></li>
+  <li><a href="#preserving-convexity" id="toc-preserving-convexity" class="nav-link" data-scroll-target="#preserving-convexity"><span class="header-section-number">2.2</span> Preserving convexity</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/convex sets/Convex_set.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -710,14 +699,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Convex_set.html">Convex set</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Convex set</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="definitions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Definitions</h1>
-<section id="line-segment" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="line-segment"><span class="header-section-number">1.1</span> Line segment</h2>
+<section id="definitions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1</span> Definitions</h2>
+<section id="line-segment" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="line-segment"><span class="header-section-number">1.1</span> Line segment</h3>
 <p>Suppose <span class="math inline">x_1, x_2</span> are two points in <span class="math inline">\mathbb{R^n}</span>. Then the line segment between them is defined as follows:</p>
 <p><span class="math display">
 x = \theta x_1 + (1 - \theta)x_2, \; \theta \in [0,1]
@@ -733,8 +737,8 @@ Figure&nbsp;1: Illustration of a line segment between points <span class="math i
 </figure>
 </div>
 </section>
-<section id="convex-set" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="convex-set"><span class="header-section-number">1.2</span> Convex set</h2>
+<section id="convex-set" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="convex-set"><span class="header-section-number">1.2</span> Convex set</h3>
 <p>The set <span class="math inline">S</span> is called <strong>convex</strong> if for any <span class="math inline">x_1, x_2</span> from <span class="math inline">S</span> the line segment between them also lies in <span class="math inline">S</span>, i.e.&nbsp;</p>
 <p><span class="math display">
 \forall \theta \in [0,1], \; \forall x_1, x_2 \in S: \\ \theta x_1 + (1- \theta) x_2 \in S
@@ -784,12 +788,12 @@ Figure&nbsp;2: Top: examples of convex sets. Bottom: examples of non-convex sets
 </figure>
 </div>
 </section>
-<section id="convex-combination" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="convex-combination"><span class="header-section-number">1.3</span> Convex combination</h2>
+<section id="convex-combination" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="convex-combination"><span class="header-section-number">1.3</span> Convex combination</h3>
 <p>Let <span class="math inline">x_1, x_2, \ldots, x_k \in S</span>, then the point <span class="math inline">\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k</span> is called the convex combination of points <span class="math inline">x_1, x_2, \ldots, x_k</span> if <span class="math inline">\sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0</span>.</p>
 </section>
-<section id="convex-hull" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="convex-hull"><span class="header-section-number">1.4</span> Convex hull</h2>
+<section id="convex-hull" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="convex-hull"><span class="header-section-number">1.4</span> Convex hull</h3>
 <p>The set of all convex combinations of points from <span class="math inline">S</span> is called the convex hull of the set <span class="math inline">S</span>.</p>
 <p><span class="math display">
 \mathbf{conv}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \sum\limits_{i=1}^k\theta_i = 1, \; \theta_i \ge 0\right\}
@@ -810,8 +814,8 @@ Figure&nbsp;3: Top: convex hulls of the convex sets. Bottom: convex hull of the 
 </figure>
 </div>
 </section>
-<section id="minkowski-addition" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="minkowski-addition"><span class="header-section-number">1.5</span> Minkowski addition</h2>
+<section id="minkowski-addition" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="minkowski-addition"><span class="header-section-number">1.5</span> Minkowski addition</h3>
 <p>The Minkowski sum of two sets of vectors <span class="math inline">S_1</span> and <span class="math inline">S_2</span> in Euclidean space is formed by adding each vector in <span class="math inline">S_1</span> to each vector in <span class="math inline">S_2</span>:</p>
 <p><span class="math display">
 S_1+S_2=\{\mathbf {s_1} +\mathbf {s_2} \,|\,\mathbf {s_1} \in S_1,\ \mathbf {s_2} \in S_2\}
@@ -844,15 +848,15 @@ S_2 := \{x \in \mathbb{R}^2 : -1 \leq x_1 \leq 2, -3 \leq x_2 \leq 4\}
 </div>
 </section>
 </section>
-<section id="finding-convexity" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Finding convexity</h1>
+<section id="finding-convexity" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="finding-convexity"><span class="header-section-number">2</span> Finding convexity</h2>
 <p>In practice, it is very important to understand whether a specific set is convex or not. Two approaches are used for this depending on the context.</p>
 <ul>
 <li>By definition.</li>
 <li>Show that <span class="math inline">S</span> is derived from simple convex sets using operations that preserve convexity.</li>
 </ul>
-<section id="by-definition" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="by-definition"><span class="header-section-number">2.1</span> By definition</h2>
+<section id="by-definition" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="by-definition"><span class="header-section-number">2.1</span> By definition</h3>
 <p><span class="math display">
 x_1, x_2 \in S, \; 0 \le \theta \le 1 \;\; \rightarrow \;\; \theta x_1 + (1-\theta)x_2 \in S
 </span></p>
@@ -920,10 +924,10 @@ Question
 </div>
 </div>
 </section>
-<section id="preserving-convexity" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="preserving-convexity"><span class="header-section-number">2.2</span> Preserving convexity</h2>
-<section id="the-linear-combination-of-convex-sets-is-convex" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="the-linear-combination-of-convex-sets-is-convex"><span class="header-section-number">2.2.1</span> The linear combination of convex sets is convex</h3>
+<section id="preserving-convexity" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="preserving-convexity"><span class="header-section-number">2.2</span> Preserving convexity</h3>
+<section id="the-linear-combination-of-convex-sets-is-convex" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="the-linear-combination-of-convex-sets-is-convex"><span class="header-section-number">2.2.1</span> The linear combination of convex sets is convex</h4>
 <p>Let there be 2 convex sets <span class="math inline">S_x, S_y</span>, let the set</p>
 <p><span class="math display">
 S = \left\{s \mid s = c_1 x + c_2 y, \; x \in S_x, \; y \in S_y, \; c_1, c_2 \in \mathbb{R}\right\}
@@ -942,12 +946,12 @@ c_1 (\theta x_1 + (1 - \theta)x_2) + c_2 (\theta y_1 + (1 - \theta)y_2)
 c_1 x + c_2 y \in S
 </span></p>
 </section>
-<section id="the-intersection-of-any-number-of-convex-sets-is-convex" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="the-intersection-of-any-number-of-convex-sets-is-convex"><span class="header-section-number">2.2.2</span> The intersection of any (!) number of convex sets is convex</h3>
+<section id="the-intersection-of-any-number-of-convex-sets-is-convex" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="the-intersection-of-any-number-of-convex-sets-is-convex"><span class="header-section-number">2.2.2</span> The intersection of any (!) number of convex sets is convex</h4>
 <p>If the desired intersection is empty or contains one point, the property is proved by definition. Otherwise, take 2 points and a segment between them. These points must lie in all intersecting sets, and since they are all convex, the segment between them lies in all sets and, therefore, in their intersection.</p>
 </section>
-<section id="the-image-of-the-convex-set-under-affine-mapping-is-convex" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="the-image-of-the-convex-set-under-affine-mapping-is-convex"><span class="header-section-number">2.2.3</span> The image of the convex set under affine mapping is convex</h3>
+<section id="the-image-of-the-convex-set-under-affine-mapping-is-convex" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="the-image-of-the-convex-set-under-affine-mapping-is-convex"><span class="header-section-number">2.2.3</span> The image of the convex set under affine mapping is convex</h4>
 <p><span class="math display">
 S \subseteq \mathbb{R}^n \text{ convex}\;\; \rightarrow \;\; f(S) = \left\{ f(x) \mid x \in S \right\} \text{ convex} \;\;\;\; \left(f(x) = \mathbf{A}x + \mathbf{b}\right)
 </span></p>

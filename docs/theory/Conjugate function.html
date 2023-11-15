@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -698,12 +692,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Conjugate function.html">Conjugate function</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Conjugate function</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="conjugate-dual-function" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Conjugate (dual) function</h1>
+<section id="conjugate-dual-function" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="conjugate-dual-function"><span class="header-section-number">1</span> Conjugate (dual) function</h2>
 <p>Let <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span>. The function <span class="math inline">f^*: \mathbb{R}^n \to \mathbb{R}</span> is called convex conjugate (Fenchel’s conjugate, dual, Legendre transform) <span class="math inline">f(x)</span> and is defined as follows:</p>
 <p><span class="math display">
 f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right).
@@ -719,8 +728,8 @@ Figure&nbsp;1: Illustration of conjugate function
 </figcaption>
 </figure>
 </div>
-<section id="properties" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="properties"><span class="header-section-number">1.1</span> Properties</h2>
+<section id="properties" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="properties"><span class="header-section-number">1.1</span> Properties</h3>
 <div id="fig-conjugate_slope" class="quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conjugate_slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -824,8 +833,8 @@ Figure&nbsp;5
   </span></p></li>
 </ul>
 </section>
-<section id="examples" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.2</span> Examples</h2>
+<section id="examples" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.2</span> Examples</h3>
 <p>The scheme of recovering the convex conjugate is pretty algorithmic: 1. Write down the definition <span class="math inline">f^\star(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right) = \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span>. 1. Find those <span class="math inline">y</span>, where <span class="math inline">\sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span> is finite. That’s the domain of the dual function <span class="math inline">f^\star(y)</span>. 1. Find <span class="math inline">x^\star</span>, which maximize <span class="math inline">g(x,y)</span> as a function on <span class="math inline">x</span>. <span class="math inline">f^\star(y) = g(x^\star, y)</span>.</p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1143,8 +1152,8 @@ M(p) = (−S)^*(−p).
 </div>
 </section>
 </section>
-<section id="references" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> References</h1>
+<section id="references" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="references"><span class="header-section-number">2</span> References</h2>
 <ul>
 <li>Great <a href="https://www.ise.ncsu.edu/fuzzy-neural/wp-content/uploads/sites/9/2019/01/or706-LF-transform-1.pdf">intuition</a> behind the Legendre-Fenchel transform.</li>
 </ul>

@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -726,16 +720,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#constrained-problem" id="toc-constrained-problem" class="nav-link" data-scroll-target="#constrained-problem"><span class="header-section-number">3</span> Constrained problem</a>
   <ul class="collapse">
-  <li><a href="#optimization-with-equality-conditions" id="toc-optimization-with-equality-conditions" class="nav-link" data-scroll-target="#optimization-with-equality-conditions"><span class="header-section-number">3.1</span> Optimization with equality conditions</a>
-  <ul class="collapse">
-  <li><a href="#intuition" id="toc-intuition" class="nav-link" data-scroll-target="#intuition"><span class="header-section-number">3.1.1</span> Intuition</a></li>
-  <li><a href="#general-formulation" id="toc-general-formulation" class="nav-link" data-scroll-target="#general-formulation"><span class="header-section-number">3.1.2</span> General formulation</a></li>
-  </ul></li>
-  <li><a href="#optimization-with-inequality-conditions" id="toc-optimization-with-inequality-conditions" class="nav-link" data-scroll-target="#optimization-with-inequality-conditions"><span class="header-section-number">3.2</span> Optimization with inequality conditions</a>
-  <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.2.1</span> Example</a></li>
-  <li><a href="#general-formulation-1" id="toc-general-formulation-1" class="nav-link" data-scroll-target="#general-formulation-1"><span class="header-section-number">3.2.2</span> General formulation</a></li>
-  </ul></li>
+  <li><a href="#optimization-with-equality-conditions" id="toc-optimization-with-equality-conditions" class="nav-link" data-scroll-target="#optimization-with-equality-conditions"><span class="header-section-number">3.1</span> Optimization with equality conditions</a></li>
+  <li><a href="#optimization-with-inequality-conditions" id="toc-optimization-with-inequality-conditions" class="nav-link" data-scroll-target="#optimization-with-inequality-conditions"><span class="header-section-number">3.2</span> Optimization with inequality conditions</a></li>
   </ul></li>
   <li><a href="#sec-KKT" id="toc-sec-KKT" class="nav-link" data-scroll-target="#sec-KKT"><span class="header-section-number">4</span> Karush-Kuhn-Tucker conditions</a>
   <ul class="collapse">
@@ -754,12 +740,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Optimality.html">Optimality conditions. KKT</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Optimality conditions. KKT</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="background" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Background</h1>
+<section id="background" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
 <p><span class="math display">
 f(x) \to \min\limits_{x \in S}
 </span></p>
@@ -836,8 +837,8 @@ f(x + p) = f(x) + \nabla f(x)^T p + \frac{1}{2} p^T \nabla^2 f(x + tp) p  \quad 
 </div>
 </div>
 </div>
-<section id="lagrange-multipliers" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="lagrange-multipliers"><span class="header-section-number">1.1</span> Lagrange multipliers</h2>
+<section id="lagrange-multipliers" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="lagrange-multipliers"><span class="header-section-number">1.1</span> Lagrange multipliers</h3>
 <p>Consider simple yet practical case of equality constraints:</p>
 <p><span class="math display">
 \begin{split}
@@ -851,8 +852,8 @@ L(x, \nu) = f(x) + \sum\limits_{i=1}^p \nu_i h_i(x) \to \min\limits_{x \in \math
 </span></p>
 </section>
 </section>
-<section id="unconstrained-optimization" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Unconstrained optimization</h1>
+<section id="unconstrained-optimization" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="unconstrained-optimization"><span class="header-section-number">2</span> Unconstrained optimization</h2>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1031,8 +1032,8 @@ Fermat’s rule
 </div>
 </div>
 </div>
-<section id="convex-case" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">2.1</span> Convex case</h2>
+<section id="convex-case" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">2.1</span> Convex case</h3>
 <p>It should be mentioned, that in the <strong>convex</strong> case (i.e., <span class="math inline">f(x)</span> is convex) necessary condition becomes sufficient.</p>
 <p>One more important result for convex unconstrained case sounds as follows. If <span class="math inline">f(x): S \to \mathbb{R}</span> - convex function defined on the convex set <span class="math inline">S</span>, then:</p>
 <ul>
@@ -1042,12 +1043,12 @@ Fermat’s rule
 </ul>
 </section>
 </section>
-<section id="constrained-problem" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Constrained problem</h1>
-<section id="optimization-with-equality-conditions" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="optimization-with-equality-conditions"><span class="header-section-number">3.1</span> Optimization with equality conditions</h2>
-<section id="intuition" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">3.1.1</span> Intuition</h3>
+<section id="constrained-problem" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="constrained-problem"><span class="header-section-number">3</span> Constrained problem</h2>
+<section id="optimization-with-equality-conditions" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="optimization-with-equality-conditions"><span class="header-section-number">3.1</span> Optimization with equality conditions</h3>
+<section id="intuition" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">3.1.1</span> Intuition</h4>
 <p>Things are pretty simple and intuitive in unconstrained problem. In this section we will add one equality constraint, i.e.</p>
 <p><span class="math display">
 \begin{split}
@@ -1147,8 +1148,8 @@ L(x, \nu) = f(x) + \nu h(x)
 </span></p>
 <p>We should notice that <span class="math inline">L(x^*, \nu^*) = f(x^*)</span>.</p>
 </section>
-<section id="general-formulation" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="general-formulation"><span class="header-section-number">3.1.2</span> General formulation</h3>
+<section id="general-formulation" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="general-formulation"><span class="header-section-number">3.1.2</span> General formulation</h4>
 <p><span class="math display">
 \tag{ECP}
 \begin{split}
@@ -1267,10 +1268,10 @@ Example
 </div>
 </section>
 </section>
-<section id="optimization-with-inequality-conditions" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="optimization-with-inequality-conditions"><span class="header-section-number">3.2</span> Optimization with inequality conditions</h2>
-<section id="example" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.2.1</span> Example</h3>
+<section id="optimization-with-inequality-conditions" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="optimization-with-inequality-conditions"><span class="header-section-number">3.2</span> Optimization with inequality conditions</h3>
+<section id="example" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.2.1</span> Example</h4>
 <p><span class="math display">
 f(x) = x_1^2 + x_2^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
 </span></p>
@@ -1410,8 +1411,8 @@ L (x, \lambda) = f(x) + \lambda g(x)
 </span></p>
 <p>It’s noticeable, that <span class="math inline">L(x^*, \lambda^*) = f(x^*)</span>. Conditions <span class="math inline">\lambda^* = 0 , (1), (4)</span> are the first scenario realization, and conditions <span class="math inline">\lambda^* &gt; 0 , (1), (3)</span> - the second one.</p>
 </section>
-<section id="general-formulation-1" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="general-formulation-1"><span class="header-section-number">3.2.2</span> General formulation</h3>
+<section id="general-formulation-1" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="general-formulation-1"><span class="header-section-number">3.2.2</span> General formulation</h4>
 <p><span class="math display">
 \begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
@@ -1427,8 +1428,8 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 </section>
 </section>
 </section>
-<section id="sec-KKT" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Karush-Kuhn-Tucker conditions</h1>
+<section id="sec-KKT" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sec-KKT"><span class="header-section-number">4</span> Karush-Kuhn-Tucker conditions</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><span class="citation" data-cites="bibtex">@bibtex</span></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">file</a></li></ul>
 <div class="tab-content">
@@ -1461,8 +1462,8 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 </div>
 </div>
 </div>
-<section id="necessary-conditions" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="necessary-conditions"><span class="header-section-number">4.1</span> Necessary conditions</h2>
+<section id="necessary-conditions" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="necessary-conditions"><span class="header-section-number">4.1</span> Necessary conditions</h3>
 <p>Let <span class="math inline">x^*</span>, <span class="math inline">(\lambda^*, \nu^*)</span> be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem <span class="math inline">p^*</span> is equal to the optimal value for the dual problem <span class="math inline">d^*</span>). Let also the functions <span class="math inline">f_0, f_i, h_i</span> be differentiable.</p>
 <ul>
 <li><span class="math inline">\nabla_x L(x^*, \lambda^*, \nu^*) = 0</span></li>
@@ -1472,8 +1473,8 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 <li><span class="math inline">f_i(x^*) \leq 0, i = 1,\ldots,m</span></li>
 </ul>
 </section>
-<section id="some-regularity-conditions" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="some-regularity-conditions"><span class="header-section-number">4.2</span> Some regularity conditions</h2>
+<section id="some-regularity-conditions" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="some-regularity-conditions"><span class="header-section-number">4.2</span> Some regularity conditions</h3>
 <p>These conditions are needed in order to make KKT solutions the necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater’s). Moreover, if you have regularity, you can write down necessary second order conditions <span class="math inline">\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0</span> with <em>semi-definite</em> hessian of Lagrangian.</p>
 <ul>
 <li><strong>Slater’s condition</strong>. If for a convex problem (i.e., assuming minimization, <span class="math inline">f_0,f_{i}</span> are convex and <span class="math inline">h_{i}</span> are affine), there exists a point <span class="math inline">x</span> such that <span class="math inline">h(x)=0</span> and <span class="math inline">f_{i}(x)&lt;0</span> (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.</li>
@@ -1481,8 +1482,8 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 <li>For other examples, see <a href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions#Regularity_conditions_(or_constraint_qualifications)">wiki</a>.</li>
 </ul>
 </section>
-<section id="sufficient-conditions" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="sufficient-conditions"><span class="header-section-number">4.3</span> Sufficient conditions</h2>
+<section id="sufficient-conditions" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="sufficient-conditions"><span class="header-section-number">4.3</span> Sufficient conditions</h3>
 <p>For smooth, non-linear optimization problems, a second order sufficient condition is given as follows. The solution <span class="math inline">x^{*},\lambda ^{*},\nu ^{*}</span>, which satisfies the KKT conditions (above) is a constrained local minimum if for the Lagrangian,</p>
 <p><span class="math display">
 L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
@@ -1497,8 +1498,8 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 </span></p>
 </section>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="http://www.csc.kth.se/utbildning/kth/kurser/DD3364/Lectures/KKT.pdf">Lecture</a> on KKT conditions (very intuitive explanation) in course “Elements of Statistical Learning” @ KTH.</li>
 <li><a href="https://link.springer.com/content/pdf/10.1007%2Fs11590-008-0096-3.pdf">One-line proof of KKT</a></li>

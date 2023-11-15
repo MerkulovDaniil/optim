@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -696,13 +690,28 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/inexact.html">Inexact line search</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Inexact line search</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
 <p>This strategy of inexact line search works well in practice, as well as it has the following geometric interpretation:</p>
-<section id="sufficient-decrease" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Sufficient decrease</h1>
+<section id="sufficient-decrease" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="sufficient-decrease"><span class="header-section-number">1</span> Sufficient decrease</h2>
 <p>Let’s consider the following scalar function while being at a specific point of <span class="math inline">x_k</span>:</p>
 <p><span class="math display">
 \phi(\alpha) = f(x_k - \alpha\nabla f(x_k)), \alpha \geq 0
@@ -717,16 +726,16 @@ f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top 
 </span></p>
 <p>for some constant <span class="math inline">c_1 \in (0,1)</span>. (Note, that <span class="math inline">c_1 = 1</span> stands for the first order Taylor approximation of <span class="math inline">\phi(\alpha)</span>). This is also called Armijo condition. The problem of this condition is, that it could accept arbitrary small values <span class="math inline">\alpha</span>, which may slow down solution of the problem. In practice, <span class="math inline">c_1</span> is chosen to be quite small, say <span class="math inline">c_1 \approx 10^{−4}</span>.</p>
 </section>
-<section id="curvature-condition" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Curvature condition</h1>
+<section id="curvature-condition" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="curvature-condition"><span class="header-section-number">2</span> Curvature condition</h2>
 <p>To rule out unacceptably short steps one can introduce a second requirement:</p>
 <p><span class="math display">
 -\nabla f (x_k - \alpha \nabla f(x_k))^\top \nabla f(x_k) \geq c_2 \nabla f(x_k)^\top(- \nabla f(x_k))
 </span></p>
 <p>for some constant <span class="math inline">c_2 \in (c_1,1)</span>, where <span class="math inline">c_1</span> is a constant from Armijo condition. Note that the left-handside is simply the derivative <span class="math inline">\nabla_\alpha \phi(\alpha)</span>, so the curvature condition ensures that the slope of <span class="math inline">\phi(\alpha)</span> at the target point is greater than <span class="math inline">c_2</span> times the initial slope <span class="math inline">\nabla_\alpha \phi(\alpha)(0)</span>. Typical values of <span class="math inline">c_2 \approx 0.9</span> for Newton or quasi-Newton method. The sufficient decrease and curvature conditions are known collectively as the Wolfe conditions.</p>
 </section>
-<section id="goldstein-conditions" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Goldstein conditions</h1>
+<section id="goldstein-conditions" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="goldstein-conditions"><span class="header-section-number">3</span> Goldstein conditions</h2>
 <p>Let’s consider also 2 linear scalar functions <span class="math inline">\phi_1(\alpha), \phi_2(\alpha)</span>:</p>
 <p><span class="math display">
 \phi_1(\alpha) = f(x_k) - c_1 \alpha \|\nabla f(x_k)\|^2
@@ -743,8 +752,8 @@ f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top 
 </figure>
 </div>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li>Numerical Optimization by J.Nocedal and S.J.Wright.</li>
 <li><a href="./wolfe_fmin.html">Interactive Wolfe Line Search Example</a> by <a href="https://github.com/benfred/fmin">fmin</a> library.</li>

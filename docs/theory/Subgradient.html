@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -701,12 +695,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Subgradient.html">Subgradient and subdifferential</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Subgradient and subdifferential</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="definition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Definition</h1>
+<section id="definition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1</span> Definition</h2>
 <p>An important property of a continuous convex function <span class="math inline">f(x)</span> is that at any chosen point <span class="math inline">x_0</span> for all <span class="math inline">x \in \text{dom } f</span> the inequality holds:</p>
 <p><span class="math display">
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
@@ -727,8 +736,8 @@ Figure&nbsp;1: Taylor linear approximation serves as a global lower bound for a 
 <li>Not all continuous convex functions are differentiable 🐱</li>
 </ul>
 <p>We wouldn’t want to lose such a nice property.</p>
-<section id="subgradient" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="subgradient"><span class="header-section-number">1.1</span> Subgradient</h2>
+<section id="subgradient" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="subgradient"><span class="header-section-number">1.1</span> Subgradient</h3>
 <p>A vector <span class="math inline">g</span> is called the <strong>subgradient</strong> of a function <span class="math inline">f(x): S \to \mathbb{R}</span> at a point <span class="math inline">x_0</span> if <span class="math inline">\forall x \in S</span>:</p>
 <p><span class="math display">
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
@@ -784,8 +793,8 @@ Figure&nbsp;2: Subgradient of <span class="math inline">\vert x \vert</span>
 </div>
 </div>
 </section>
-<section id="subdifferential" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="subdifferential"><span class="header-section-number">1.2</span> Subdifferential</h2>
+<section id="subdifferential" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="subdifferential"><span class="header-section-number">1.2</span> Subdifferential</h3>
 <p>The set of all subgradients of a function <span class="math inline">f(x)</span> at a point <span class="math inline">x_0</span> is called the <strong>subdifferential</strong> of <span class="math inline">f</span> at <span class="math inline">x_0</span> and is denoted by <span class="math inline">\partial f(x_0)</span>.</p>
 <div id="fig-subgradient_calculus" class="quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -804,8 +813,8 @@ Figure&nbsp;3: Subgradient calculus
 </ul>
 </section>
 </section>
-<section id="subdifferentiability-and-convexity" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Subdifferentiability and convexity</h1>
+<section id="subdifferentiability-and-convexity" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="subdifferentiability-and-convexity"><span class="header-section-number">2</span> Subdifferentiability and convexity</h2>
 <div class="callout callout-style-default callout-question no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -991,8 +1000,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="subdifferential-calculus" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Subdifferential calculus</h1>
+<section id="subdifferential-calculus" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="subdifferential-calculus"><span class="header-section-number">3</span> Subdifferential calculus</h2>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1051,8 +1060,8 @@ Theorem
 <li><span class="math inline">z \in \partial f(x)</span> if and only if <span class="math inline">x \in \partial f^*(z)</span>.</li>
 </ul>
 </section>
-<section id="examples" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Examples</h1>
+<section id="examples" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="examples"><span class="header-section-number">4</span> Examples</h2>
 <p>Концептуально, различают три способа решения задач на поиск субградиента:</p>
 <ul>
 <li>Теоремы Моро - Рокафеллара, композиции, максимума</li>
@@ -1363,8 +1372,8 @@ Proof
 </div>
 </div>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="https://people.orie.cornell.edu/dsd95/teaching/orie6300/ORIE6300Fall2019notes.pdf">Lecture Notes for ORIE 6300: Mathematical Programming I by Damek Davis</a></li>
 </ul>

@@ -547,12 +547,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -687,20 +681,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#bounds-derivation" id="toc-bounds-derivation" class="nav-link" data-scroll-target="#bounds-derivation"><span class="header-section-number">2</span> Bounds derivation</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
-  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">2.2</span> Algorithm</a>
-  <ul class="collapse">
-  <li><a href="#adaptive-stepsize-without-t" id="toc-adaptive-stepsize-without-t" class="nav-link" data-scroll-target="#adaptive-stepsize-without-t"><span class="header-section-number">2.2.1</span> Adaptive stepsize (without <span class="math inline">T</span>)</a></li>
-  <li><a href="#online-learning" id="toc-online-learning" class="nav-link" data-scroll-target="#online-learning"><span class="header-section-number">2.2.2</span> Online learning:</a></li>
-  </ul></li>
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">2.2</span> Algorithm</a></li>
   </ul></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">3</span> Examples</a>
   <ul class="collapse">
-  <li><a href="#least-squares-with-l_1-regularization" id="toc-least-squares-with-l_1-regularization" class="nav-link" data-scroll-target="#least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</a>
-  <ul class="collapse">
-  <li><a href="#nonnegativity" id="toc-nonnegativity" class="nav-link" data-scroll-target="#nonnegativity"><span class="header-section-number">3.1.1</span> Nonnegativity</a></li>
-  <li><a href="#l_2---ball" id="toc-l_2---ball" class="nav-link" data-scroll-target="#l_2---ball"><span class="header-section-number">3.1.2</span> <span class="math inline">l_2</span> - ball</a></li>
-  <li><a href="#linear-equality-constraints" id="toc-linear-equality-constraints" class="nav-link" data-scroll-target="#linear-equality-constraints"><span class="header-section-number">3.1.3</span> Linear equality constraints</a></li>
-  </ul></li>
+  <li><a href="#least-squares-with-l_1-regularization" id="toc-least-squares-with-l_1-regularization" class="nav-link" data-scroll-target="#least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</a></li>
   </ul></li>
   <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">4</span> Bounds</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
@@ -714,14 +699,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/Projected_subgradient_descent.html">Projected subgradient descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Projected subgradient descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="intuition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Intuition</h1>
-<section id="recap" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">1.1</span> Recap</h2>
+<section id="intuition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
+<section id="recap" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">1.1</span> Recap</h3>
 <p>Suppose, we are to solve the following problem:</p>
 <p><span class="math display">
 \tag{P}
@@ -735,10 +735,10 @@ x_{k+1} = x_k - \alpha_k g_k,
 <p>For this method we have the following bounds:</p>
 </section>
 </section>
-<section id="bounds-derivation" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Bounds derivation</h1>
-<section id="introduction" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
+<section id="bounds-derivation" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="bounds-derivation"><span class="header-section-number">2</span> Bounds derivation</h2>
+<section id="introduction" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h3>
 <p>В этом разделе мы будем рассматривать работу в рамках какого-то выпуклого множества <span class="math inline">S \in \mathbb{R}^n</span>, так, чтобы <span class="math inline">x_k \in S</span>. Запишем для начала соотношение для итераций:</p>
 <p><span class="math display">
 \begin{align*}
@@ -837,8 +837,8 @@ x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle
 </span></p>
 <p>Полученное неравенство в точности совпадает с неравенством (Forward Target), которое нам как раз таки и следовало доказать. Таким образом, мы получаем</p>
 </section>
-<section id="algorithm" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2.2</span> Algorithm</h2>
+<section id="algorithm" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2.2</span> Algorithm</h3>
 <p><span class="math display">
 x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle + \dfrac{1}{2} \| x - x_k\|^2 \right)
 </span></p>
@@ -847,8 +847,8 @@ x_{k+1} = \text{arg}\min\limits_{x \in S} \left( \langle \alpha_k g_k, x \rangle
 <li>Такая же скорость сходимости, как и для безусловного алгоритма. (Однако, стоимость каждой итерации может быть существенно больше из за необходимости решать задачу оптимизации на каждом шаге)</li>
 <li>В частном случае <span class="math inline">S = \mathbb{R}^n</span> в точности совпадает с безусловным алгоритмом (убедитесь)</li>
 </ul>
-<section id="adaptive-stepsize-without-t" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="adaptive-stepsize-without-t"><span class="header-section-number">2.2.1</span> Adaptive stepsize (without <span class="math inline">T</span>)</h3>
+<section id="adaptive-stepsize-without-t" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="adaptive-stepsize-without-t"><span class="header-section-number">2.2.1</span> Adaptive stepsize (without <span class="math inline">T</span>)</h4>
 <p>Разберем теперь одну из стратегий того, как избежать знания количества шагов <span class="math inline">T</span> заранее для подбора длины шага <span class="math inline">\alpha_k</span>. Для этого зададим “диаметр” нашего множества <span class="math inline">D</span>:</p>
 <p><span class="math display">
 D : \{ \max\limits_{x,y \in S} \|x - y\| \leq D \}
@@ -886,8 +886,8 @@ D : \{ \max\limits_{x,y \in S} \|x - y\| \leq D \}
 <p>Где <span class="math inline">\tau = \dfrac{D}{G\sqrt{2}}</span> - выбран путем минимизации данной оценки по <span class="math inline">\tau</span>.</p>
 <p>Таким образом, мы получили, что в случае, когда количество шагов <span class="math inline">T</span> неизвестно заранее (весьма важное свойство), оценка ухудшается в <span class="math inline">\sqrt{2}</span> раз. Такие оценки называют anytime bounds.</p>
 </section>
-<section id="online-learning" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="online-learning"><span class="header-section-number">2.2.2</span> Online learning:</h3>
+<section id="online-learning" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="online-learning"><span class="header-section-number">2.2.2</span> Online learning:</h4>
 <p>PSD - Projected Subgradient Descent</p>
 <p><span class="math display">
 \begin{align*}
@@ -900,21 +900,21 @@ R_{T-1} &amp;= \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x \in S} \sum\limits_{
 </section>
 </section>
 </section>
-<section id="examples" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
-<section id="least-squares-with-l_1-regularization" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</h2>
+<section id="examples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="examples"><span class="header-section-number">3</span> Examples</h2>
+<section id="least-squares-with-l_1-regularization" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</h3>
 <p><span class="math display">
 \min_{x \in \mathbb{R^n}} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
 </span></p>
-<section id="nonnegativity" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="nonnegativity"><span class="header-section-number">3.1.1</span> Nonnegativity</h3>
+<section id="nonnegativity" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="nonnegativity"><span class="header-section-number">3.1.1</span> Nonnegativity</h4>
 <p><span class="math display">
 S = \{x \in \mathbb{R}^n \mid x \geq 0 \}
 </span></p>
 </section>
-<section id="l_2---ball" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="l_2---ball"><span class="header-section-number">3.1.2</span> <span class="math inline">l_2</span> - ball</h3>
+<section id="l_2---ball" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="l_2---ball"><span class="header-section-number">3.1.2</span> <span class="math inline">l_2</span> - ball</h4>
 <p><span class="math display">
 S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}
 </span></p>
@@ -922,16 +922,16 @@ S = \{x \in \mathbb{R}^n \mid \|x - x_c\| \le R \}
 x_{k+1} = x_k - \alpha_k \left( A^\top(Ax_k - b) + \lambda \text{sign}(x_k)\right)
 </span></p>
 </section>
-<section id="linear-equality-constraints" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="linear-equality-constraints"><span class="header-section-number">3.1.3</span> Linear equality constraints</h3>
+<section id="linear-equality-constraints" class="level4" data-number="3.1.3">
+<h4 data-number="3.1.3" class="anchored" data-anchor-id="linear-equality-constraints"><span class="header-section-number">3.1.3</span> Linear equality constraints</h4>
 <p><span class="math display">
 S = \{x \in \mathbb{R}^n \mid Ax = b \}
 </span></p>
 </section>
 </section>
 </section>
-<section id="bounds" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Bounds</h1>
+<section id="bounds" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bounds"><span class="header-section-number">4</span> Bounds</h2>
 <table class="table">
 <colgroup>
 <col style="width: 13%">
@@ -963,8 +963,8 @@ S = \{x \in \mathbb{R}^n \mid Ax = b \}
 </tbody>
 </table>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li>Comprehensive <a href="https://www.princeton.edu/~yc5/ele522_optimization/lectures/subgradient_methods.pdf">presentation</a> on projected subgradient method.</li>
 <li><a href="http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html">Great cheatsheet</a> by Sebastian Pokutta</li>

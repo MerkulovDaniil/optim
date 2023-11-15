@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -698,11 +692,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#strong-convexity" id="toc-strong-convexity" class="nav-link" data-scroll-target="#strong-convexity"><span class="header-section-number">3</span> Strong convexity</a>
   <ul class="collapse">
-  <li><a href="#criteria-of-strong-convexity" id="toc-criteria-of-strong-convexity" class="nav-link" data-scroll-target="#criteria-of-strong-convexity"><span class="header-section-number">3.1</span> Criteria of strong convexity</a>
-  <ul class="collapse">
-  <li><a href="#first-order-differential-criterion-of-strong-convexity" id="toc-first-order-differential-criterion-of-strong-convexity" class="nav-link" data-scroll-target="#first-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.1</span> First-order differential criterion of strong convexity</a></li>
-  <li><a href="#second-order-differential-criterion-of-strong-convexity" id="toc-second-order-differential-criterion-of-strong-convexity" class="nav-link" data-scroll-target="#second-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.2</span> Second-order differential criterion of strong convexity</a></li>
-  </ul></li>
+  <li><a href="#criteria-of-strong-convexity" id="toc-criteria-of-strong-convexity" class="nav-link" data-scroll-target="#criteria-of-strong-convexity"><span class="header-section-number">3.1</span> Criteria of strong convexity</a></li>
   </ul></li>
   <li><a href="#facts" id="toc-facts" class="nav-link" data-scroll-target="#facts"><span class="header-section-number">4</span> Facts</a></li>
   <li><a href="#operations-that-preserve-convexity" id="toc-operations-that-preserve-convexity" class="nav-link" data-scroll-target="#operations-that-preserve-convexity"><span class="header-section-number">5</span> Operations that preserve convexity</a></li>
@@ -718,14 +708,29 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Convex_function.html">Convex function</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Convex function</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="convexity-definitions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Convexity definitions</h1>
-<section id="jensens-inequality" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="jensens-inequality"><span class="header-section-number">1.1</span> Jensen’s inequality</h2>
+<section id="convexity-definitions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="convexity-definitions"><span class="header-section-number">1</span> Convexity definitions</h2>
+<section id="jensens-inequality" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="jensens-inequality"><span class="header-section-number">1.1</span> Jensen’s inequality</h3>
 <p>The function <span class="math inline">f(x)</span>, <strong>which is defined on the convex set</strong> <span class="math inline">S \subseteq \mathbb{R}^n</span>, is called <strong>convex</strong> on <span class="math inline">S</span>, if:</p>
 <p><span class="math display">
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2)
@@ -769,8 +774,8 @@ Example
 </div>
 </div>
 </section>
-<section id="epigraph" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="epigraph"><span class="header-section-number">1.2</span> Epigraph</h2>
+<section id="epigraph" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="epigraph"><span class="header-section-number">1.2</span> Epigraph</h3>
 <p>For the function <span class="math inline">f(x)</span>, defined on <span class="math inline">S \subseteq \mathbb{R}^n</span>, the following set:</p>
 <p><span class="math display">
 \text{epi } f = \left\{[x,\mu] \in S \times \mathbb{R}: f(x) \le \mu\right\}
@@ -787,8 +792,8 @@ Figure&nbsp;2: Epigraph of a function
 </figure>
 </div>
 </section>
-<section id="sublevel-set" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sublevel-set"><span class="header-section-number">1.3</span> Sublevel set</h2>
+<section id="sublevel-set" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="sublevel-set"><span class="header-section-number">1.3</span> Sublevel set</h3>
 <p>For the function <span class="math inline">f(x)</span>, defined on <span class="math inline">S \subseteq \mathbb{R}^n</span>, the following set:</p>
 <p><span class="math display">
 \mathcal{L}_\beta = \left\{ x\in S : f(x) \le \beta\right\}
@@ -806,10 +811,10 @@ Figure&nbsp;3: Sublevel set of a function with respect to level <span class="mat
 </div>
 </section>
 </section>
-<section id="criteria-of-convexity" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Criteria of convexity</h1>
-<section id="first-order-differential-criterion-of-convexity" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="first-order-differential-criterion-of-convexity"><span class="header-section-number">2.1</span> First-order differential criterion of convexity</h2>
+<section id="criteria-of-convexity" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="criteria-of-convexity"><span class="header-section-number">2</span> Criteria of convexity</h2>
+<section id="first-order-differential-criterion-of-convexity" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="first-order-differential-criterion-of-convexity"><span class="header-section-number">2.1</span> First-order differential criterion of convexity</h3>
 <p>The differentiable function <span class="math inline">f(x)</span> defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span> is convex if and only if <span class="math inline">\forall x,y \in S</span>:</p>
 <p><span class="math display">
 f(y) \ge f(x) + \nabla f^T(x)(y-x)
@@ -829,8 +834,8 @@ Figure&nbsp;4: Convex function is greater or equal than Taylor linear approximat
 </figure>
 </div>
 </section>
-<section id="second-order-differential-criterion-of-convexity" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="second-order-differential-criterion-of-convexity"><span class="header-section-number">2.2</span> Second-order differential criterion of convexity</h2>
+<section id="second-order-differential-criterion-of-convexity" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="second-order-differential-criterion-of-convexity"><span class="header-section-number">2.2</span> Second-order differential criterion of convexity</h3>
 <p>Twice differentiable function <span class="math inline">f(x)</span> defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span> is convex if and only if <span class="math inline">\forall x \in \mathbf{int}(S) \neq \emptyset</span>:</p>
 <p><span class="math display">
 \nabla^2 f(x) \succeq 0
@@ -840,8 +845,8 @@ Figure&nbsp;4: Convex function is greater or equal than Taylor linear approximat
 \langle y, \nabla^2f(x)y\rangle \geq 0
 </span></p>
 </section>
-<section id="connection-with-epigraph" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="connection-with-epigraph"><span class="header-section-number">2.3</span> Connection with epigraph</h2>
+<section id="connection-with-epigraph" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="connection-with-epigraph"><span class="header-section-number">2.3</span> Connection with epigraph</h3>
 <p>The function is convex if and only if its epigraph is a convex set.</p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -869,18 +874,18 @@ K := \{(x,t) \in U \times \mathbb{R}^+ : \Vert x \Vert \leq t \}
 </div>
 </div>
 </section>
-<section id="connection-with-sublevel-set" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="connection-with-sublevel-set"><span class="header-section-number">2.4</span> Connection with sublevel set</h2>
+<section id="connection-with-sublevel-set" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="connection-with-sublevel-set"><span class="header-section-number">2.4</span> Connection with sublevel set</h3>
 <p>If <span class="math inline">f(x)</span> - is a convex function defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span>, then for any <span class="math inline">\beta</span> sublevel set <span class="math inline">\mathcal{L}_\beta</span> is convex.</p>
 <p>The function <span class="math inline">f(x)</span> defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span> is closed if and only if for any <span class="math inline">\beta</span> sublevel set <span class="math inline">\mathcal{L}_\beta</span> is closed.</p>
 </section>
-<section id="reduction-to-a-line" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="reduction-to-a-line"><span class="header-section-number">2.5</span> Reduction to a line</h2>
+<section id="reduction-to-a-line" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="reduction-to-a-line"><span class="header-section-number">2.5</span> Reduction to a line</h3>
 <p><span class="math inline">f: S \to \mathbb{R}</span> is convex if and only if <span class="math inline">S</span> is a convex set and the function <span class="math inline">g(t) = f(x + tv)</span> defined on <span class="math inline">\left\{ t \mid x + tv \in S \right\}</span> is convex for any <span class="math inline">x \in S, v \in \mathbb{R}^n</span>, which allows checking convexity of the scalar function to establish convexity of the vector function.</p>
 </section>
 </section>
-<section id="strong-convexity" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Strong convexity</h1>
+<section id="strong-convexity" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="strong-convexity"><span class="header-section-number">3</span> Strong convexity</h2>
 <p><span class="math inline">f(x)</span>, <strong>defined on the convex set</strong> <span class="math inline">S \subseteq \mathbb{R}^n</span>, is called <span class="math inline">\mu</span>-strongly convex (strongly convex) on <span class="math inline">S</span>, if:</p>
 <p><span class="math display">
 f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \frac{\mu{2}} \lambda (1 - \lambda)\|x_1 - x_2\|^2
@@ -896,10 +901,10 @@ Figure&nbsp;5: Strongly convex function is greater or equal than Taylor quadrati
 </figcaption>
 </figure>
 </div>
-<section id="criteria-of-strong-convexity" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="criteria-of-strong-convexity"><span class="header-section-number">3.1</span> Criteria of strong convexity</h2>
-<section id="first-order-differential-criterion-of-strong-convexity" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="first-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.1</span> First-order differential criterion of strong convexity</h3>
+<section id="criteria-of-strong-convexity" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="criteria-of-strong-convexity"><span class="header-section-number">3.1</span> Criteria of strong convexity</h3>
+<section id="first-order-differential-criterion-of-strong-convexity" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="first-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.1</span> First-order differential criterion of strong convexity</h4>
 <p>Differentiable <span class="math inline">f(x)</span> defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span> is <span class="math inline">\mu</span>-strongly convex if and only if <span class="math inline">\forall x,y \in S</span>:</p>
 <p><span class="math display">
 f(y) \ge f(x) + \nabla f^T(x)(y-x) + \dfrac{\mu}{2}\|y-x\|^2
@@ -909,8 +914,8 @@ f(y) \ge f(x) + \nabla f^T(x)(y-x) + \dfrac{\mu}{2}\|y-x\|^2
 f(x + \Delta x) \ge f(x) + \nabla f^T(x)\Delta x + \dfrac{\mu}{2}\|\Delta x\|^2
 </span></p>
 </section>
-<section id="second-order-differential-criterion-of-strong-convexity" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="second-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.2</span> Second-order differential criterion of strong convexity</h3>
+<section id="second-order-differential-criterion-of-strong-convexity" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="second-order-differential-criterion-of-strong-convexity"><span class="header-section-number">3.1.2</span> Second-order differential criterion of strong convexity</h4>
 <p>Twice differentiable function <span class="math inline">f(x)</span> defined on the convex set <span class="math inline">S \subseteq \mathbb{R}^n</span> is called <span class="math inline">\mu</span>-strongly convex if and only if <span class="math inline">\forall x \in \mathbf{int}(S) \neq \emptyset</span>:</p>
 <p><span class="math display">
 \nabla^2 f(x) \succeq \mu I
@@ -922,8 +927,8 @@ f(x + \Delta x) \ge f(x) + \nabla f^T(x)\Delta x + \dfrac{\mu}{2}\|\Delta x\|^2
 </section>
 </section>
 </section>
-<section id="facts" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Facts</h1>
+<section id="facts" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="facts"><span class="header-section-number">4</span> Facts</h2>
 <ul>
 <li><p><span class="math inline">f(x)</span> is called (strictly) concave, if the function <span class="math inline">-f(x)</span> - is (strictly) convex.</p></li>
 <li><p>Jensen’s inequality for the convex functions:</p>
@@ -940,8 +945,8 @@ For the infinite dimension case:</p>
 <li><p>Let <span class="math inline">f(x)</span> - be a convex function on a convex set <span class="math inline">S \subseteq \mathbb{R}^n</span>. Then <span class="math inline">f(x)</span> is continuous <span class="math inline">\forall x \in \textbf{ri}(S)</span>.</p></li>
 </ul>
 </section>
-<section id="operations-that-preserve-convexity" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Operations that preserve convexity</h1>
+<section id="operations-that-preserve-convexity" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="operations-that-preserve-convexity"><span class="header-section-number">5</span> Operations that preserve convexity</h2>
 <ul>
 <li>Non-negative sum of the convex functions: <span class="math inline">\alpha f(x) + \beta g(x), (\alpha \geq 0 , \beta \geq 0)</span>.</li>
 <li>Composition with affine function <span class="math inline">f(Ax + b)</span> is convex, if <span class="math inline">f(x)</span> is convex.</li>
@@ -951,8 +956,8 @@ For the infinite dimension case:</p>
 <li>Let <span class="math inline">f_1: S_1 \to \mathbb{R}</span> and <span class="math inline">f_2: S_2 \to \mathbb{R}</span>, where <span class="math inline">\operatorname{range}(f_1) \subseteq S_2</span>. If <span class="math inline">f_1</span> and <span class="math inline">f_2</span> are convex, and <span class="math inline">f_2</span> is increasing, then <span class="math inline">f_2 \circ f_1</span> is convex on <span class="math inline">S_1</span>.</li>
 </ul>
 </section>
-<section id="other-forms-of-convexity" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Other forms of convexity</h1>
+<section id="other-forms-of-convexity" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="other-forms-of-convexity"><span class="header-section-number">6</span> Other forms of convexity</h2>
 <ul>
 <li>Log-convex: <span class="math inline">\log f</span> is convex; Log convexity implies convexity.</li>
 <li>Log-concavity: <span class="math inline">\log f</span> concave; <strong>not</strong> closed under addition!</li>
@@ -1097,8 +1102,8 @@ f(x,y) = \dfrac{(y - \sin x)^2}{2}
 </div>
 </div>
 </section>
-<section id="references" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> References</h1>
+<section id="references" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="references"><span class="header-section-number">7</span> References</h2>
 <ul>
 <li><a href="http://web.stanford.edu/class/ee364a/lectures/functions.pdf">Steven Boyd lectures</a></li>
 <li><a href="http://suvrit.de/teach/ee227a/lect3.pdf">Suvrit Sra lectures</a></li>

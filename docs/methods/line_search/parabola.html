@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -729,12 +723,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/parabola.html">Successive parabolic interpolation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Successive parabolic interpolation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="idea" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Idea</h1>
+<section id="idea" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="idea"><span class="header-section-number">1</span> Idea</h2>
 <p>Sampling 3 points of a function determines unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that line segment <span class="math inline">[x_1, x_3]</span> contains minimum of a function <span class="math inline">f(x)</span>. Then, we need to solve the following system of equations:</p>
 <p><span class="math display">
 ax_i^2 + bx_i + c = f_i = f(x_i), i = 1,2,3
@@ -745,8 +754,8 @@ u = -\dfrac{b}{2a} = x_2 - \dfrac{(x_2 - x_1)^2(f_2 - f_3) - (x_2 - x_3)^2(f_2 -
 </span></p>
 <p>Note, that if <span class="math inline">f_2 &lt; f_1, f_2 &lt; f_3</span>, than <span class="math inline">u</span> will lie in <span class="math inline">[x_1, x_3]</span></p>
 </section>
-<section id="algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Algorithm</h1>
+<section id="algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parabola_search(f, x1, x2, x3, epsilon):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    f1, f2, f3 <span class="op">=</span> f(x1), f(x2), f(x3)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> x3 <span class="op">-</span> x1 <span class="op">&gt;</span> epsilon:</span>
@@ -769,8 +778,8 @@ u = -\dfrac{b}{2a} = x_2 - \dfrac{(x_2 - x_1)^2(f_2 - f_3) - (x_2 - x_3)^2(f_2 -
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                f1, f2, f3 <span class="op">=</span> fu, f2, f3</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (x1 <span class="op">+</span> x3) <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="bounds" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Bounds</h1>
+<section id="bounds" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="bounds"><span class="header-section-number">3</span> Bounds</h2>
 <p>The convergence of this method is superlinear, but local, which means, that you can take profit from using this method only near some neighbour of optimum.</p>
 
 

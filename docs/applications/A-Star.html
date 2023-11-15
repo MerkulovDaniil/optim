@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -738,22 +732,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/A-Star.html"><span class="math inline">A^*</span> algorithm for path finding</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="math inline">A^*</span> algorithm for path finding</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>The <strong>graph</strong> is one of the most significant structures in the algorithms, because this structure can represent many real life cases, from streets to networks.</p>
 <p>And one is the most popular problem is: <strong>Find the least sum of graph edges for given start and end points</strong></p>
 <p>Generally, we need determine input and output data:<br>
 - <strong>Input data:</strong> graph map and end or start point/node (or both for certain path) - <strong>Output data:</strong> paths (or intermediate points/nodes) with the least sum of graph edges as result</p>
 </section>
-<section id="solutions" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Solutions</h1>
+<section id="solutions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="solutions"><span class="header-section-number">2</span> Solutions</h2>
 <p>Today there is a variety of algorithms for solving this problem, and solutions have their own advantages and disadvantages regarding the task, so let’s consider main of them:</p>
-<section id="breadth-first-search" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="breadth-first-search"><span class="header-section-number">2.1</span> Breadth First Search</h2>
+<section id="breadth-first-search" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="breadth-first-search"><span class="header-section-number">2.1</span> Breadth First Search</h3>
 <p>This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.</p>
 <table class="table">
 <colgroup>
@@ -783,8 +792,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Obviously this algorithm has low performance: <span class="math inline">O(\vert V \vert + \vert E\vert) = O(b^d)</span>, where <strong>b</strong> is <em>branch factor</em> (average quantity of children nodes in tree, e.g.&nbsp;for binary tree <span class="math inline">b=2</span>) and <strong>d</strong> is depth/distance from root.</p>
 </section>
-<section id="dijkstras-algorithm" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="dijkstras-algorithm"><span class="header-section-number">2.2</span> Dijkstra’s algorithm</h2>
+<section id="dijkstras-algorithm" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="dijkstras-algorithm"><span class="header-section-number">2.2</span> Dijkstra’s algorithm</h3>
 <table class="table">
 <thead>
 <tr class="header">
@@ -800,8 +809,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="greedy-best-first-search" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="greedy-best-first-search"><span class="header-section-number">2.3</span> Greedy Best-First-Search</h2>
+<section id="greedy-best-first-search" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="greedy-best-first-search"><span class="header-section-number">2.3</span> Greedy Best-First-Search</h3>
 <p>With Breadth First Search and Dijkstra’s Algorithm, the frontier expands in all directions. This is a reasonable choice if you’re trying to find a path to all locations or to many locations. However, a common case is to find a path to only one location. Let’s make the frontier expand towards the goal more than it expands in other directions. First, we’ll define a <strong>heuristic function</strong> that tells us how close we are to the goal. E.g. on flat map we can use function like <span class="math inline">H(A, B) = |A.x - B.x| + |A.y - B.y|</span> , where <strong>A</strong> and <strong>B</strong> are nodes with coordinates <strong>{x, y}</strong>. Let’s consider not only shortest edges, but also use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.</p>
 <table class="table">
 <colgroup>
@@ -822,8 +831,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="a-star-algorithm" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="a-star-algorithm"><span class="header-section-number">2.4</span> A-Star Algorithm</h2>
+<section id="a-star-algorithm" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="a-star-algorithm"><span class="header-section-number">2.4</span> A-Star Algorithm</h3>
 <p>Dijkstra’s Algorithm works well to find the shortest path, but it wastes time exploring in directions that aren’t promising. Greedy Best First Search explores in promising directions but it may not find the shortest path. The A* algorithm uses <em>both</em> the actual distance from the start and the estimated distance to the goal.</p>
 <table class="table">
 <colgroup>
@@ -844,17 +853,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </section>
-<section id="a-star-implementation" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="a-star-implementation"><span class="header-section-number">2.5</span> A-Star Implementation</h2>
+<section id="a-star-implementation" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="a-star-implementation"><span class="header-section-number">2.5</span> A-Star Implementation</h3>
 <p>Let’s take a closer look at this algorithm and analyze it with code example. First of all you need to create a <em>Priority Queue</em> because you should consider points, which are closer to destination from start position. <em>Priority does not equal cost</em>. This Queue contains possible <em>points</em>, that are to be considered as possible shortest way to destination.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only main methods</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Only main methods</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PriorityQueue:</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Puts item in collection, sorted by priority.</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> put(<span class="va">self</span>, item, priority):</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Returns the most priority item.</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get(<span class="va">self</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Also you need a class, that describes your Graph Model with 2 methods. First finds neighbors of current node, and second returns cost between current node and next. This methods allows to implement any structure, be neither grid, hexagonal map or graph.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only main methods</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Only main methods</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SquareGrid:</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Returns neigbours of 'id' cell</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># according to map and 'walls'.</span></span>
@@ -901,8 +910,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="results" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<section id="results" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
 <p>Now let’s try to compare Dijkstra’s algorithm with A-Star. For this task we will generate map with size from 5 to 50 with step equal 3. Start position is in left top corner, and End position is opposite. Also, we will generate corners (the quantity is SIZE^0.4), with random length for one side and other side to the end of the map. Generated Maps you can find below, there is only example and comparison plot of iterations depending on the map size.</p>
 <table class="table">
 <colgroup>
@@ -934,12 +943,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>It is seen that in most cases <span class="math inline">A^*</span> finds faster. However, there are situations where heuristics do not help, and in this case A-Star works the same way as Dijkstra’s.</p>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/A_star.ipynb">Open In Colab</a>{: .btn }</p>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="https://epdf.pub/artificial-intelligence-a-new-synthesis.html">Artificial Intelligence: A New Synthesis</a></li>
 <li><a href="https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf">Introduction_to_algorithms</a></li>

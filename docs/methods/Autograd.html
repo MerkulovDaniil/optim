@@ -583,12 +583,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -743,20 +737,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Autograd.html">Automatic differentiation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Automatic differentiation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>Suppose we need to solve the following problem:</p>
 <p><span class="math display">
 L(w) \to \min_{w \in \mathbb{R}^d}
 </span></p>
 <p>Such problems typically arise in machine learning, when you need to find optimal hyperparameters <span class="math inline">w</span> of an ML model (i.e.&nbsp;train a neural network). You may use a lot of algorithms to approach this problem, but given the modern size of the problem, where <span class="math inline">d</span> could be dozens of billions it is very challenging to solve this problem without information about the gradients using zero-order optimization algorithms. That is why it would be beneficial to be able to calculate the gradient vector <span class="math inline">\nabla_w L = \left( \frac{\partial L}{\partial w_1}, \ldots, \frac{\partial L}{\partial w_d}\right)^T</span>. Typically, first-order methods perform much better in huge-scale optimization, while second-order methods require too much memory.</p>
 </section>
-<section id="finite-differences" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Finite differences</h1>
+<section id="finite-differences" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="finite-differences"><span class="header-section-number">2</span> Finite differences</h2>
 <p>The naive approach to get approximate values of gradients is <strong>Finite differences</strong> approach. For each coordinate, one can calculate the partial derivative approximation:</p>
 <p><span class="math display">
 \dfrac{\partial L}{\partial w_k} (w) \approx \dfrac{L(w+\varepsilon e_k) - L(w)}{\varepsilon}, \quad e_k = (0, \ldots, \underset{{\tiny k}}{1}, \ldots, 0)
@@ -816,8 +825,8 @@ Theorem
 </div>
 </div>
 </section>
-<section id="forward-mode-automatic-differentiation" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Forward mode automatic differentiation</h1>
+<section id="forward-mode-automatic-differentiation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="forward-mode-automatic-differentiation"><span class="header-section-number">3</span> Forward mode automatic differentiation</h2>
 <p>To dive deep into the idea of automatic differentiation we will consider a simple function for calculating derivatives:</p>
 <p><span class="math display">
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
@@ -1001,8 +1010,8 @@ Forward mode automatic differentiation algorithm
 </div>
 <p>Note, that this approach does not require storing all intermediate computations, but one can see, that for calculating the derivative <span class="math inline">\dfrac{\partial L}{\partial w_k}</span> we need <span class="math inline">\mathcal{O}(T)</span> operations. This means, that for the whole gradient, we need <span class="math inline">d\mathcal{O}(T)</span> operations, which is the same as for finite differences, but we do not have stability issues, or inaccuracies now (the formulas above are exact).</p>
 </section>
-<section id="backward-mode-automatic-differentiation" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Backward mode automatic differentiation</h1>
+<section id="backward-mode-automatic-differentiation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="backward-mode-automatic-differentiation"><span class="header-section-number">4</span> Backward mode automatic differentiation</h2>
 <p>We will consider the same function</p>
 <p><span class="math display">
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
@@ -1361,8 +1370,8 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 </div>
 </div>
 </div>
-<section id="what-automatic-differentiation-ad-is-not" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="what-automatic-differentiation-ad-is-not"><span class="header-section-number">4.1</span> What automatic differentiation (AD) is NOT:</h2>
+<section id="what-automatic-differentiation-ad-is-not" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="what-automatic-differentiation-ad-is-not"><span class="header-section-number">4.1</span> What automatic differentiation (AD) is NOT:</h3>
 <ul>
 <li>AD is not a finite differences</li>
 <li>AD is not a symbolic derivative</li>
@@ -1379,18 +1388,18 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 </div>
 </section>
 </section>
-<section id="important-stories-from-matrix-calculus" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Important stories from matrix calculus</h1>
+<section id="important-stories-from-matrix-calculus" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="important-stories-from-matrix-calculus"><span class="header-section-number">5</span> Important stories from matrix calculus</h2>
 <p>We will illustrate some important matrix calculus facts for specific cases</p>
-<section id="univariate-chain-rule" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="univariate-chain-rule"><span class="header-section-number">5.1</span> Univariate chain rule</h2>
+<section id="univariate-chain-rule" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="univariate-chain-rule"><span class="header-section-number">5.1</span> Univariate chain rule</h3>
 <p>Suppose, we have the following functions <span class="math inline">R: \mathbb{R} \to \mathbb{R} , L: \mathbb{R} \to \mathbb{R}</span> and <span class="math inline">W \in \mathbb{R}</span>. Then</p>
 <p><span class="math display">
 \dfrac{\partial R}{\partial W} = \dfrac{\partial R}{\partial L} \dfrac{\partial L}{\partial W}
 </span></p>
 </section>
-<section id="multivariate-chain-rule" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="multivariate-chain-rule"><span class="header-section-number">5.2</span> Multivariate chain rule</h2>
+<section id="multivariate-chain-rule" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="multivariate-chain-rule"><span class="header-section-number">5.2</span> Multivariate chain rule</h3>
 <p>The simplest example:</p>
 <p><span class="math display">
 \dfrac{\partial }{\partial t} f(x_1(t), x_2(t)) = \dfrac{\partial f}{\partial x_1} \dfrac{\partial x_1}{\partial t} + \dfrac{\partial f}{\partial x_2} \dfrac{\partial x_2}{\partial t}
@@ -1408,8 +1417,8 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 \dfrac{\partial f}{\partial t} = J \dfrac{\partial x}{\partial t}\quad \iff \quad \left(\dfrac{\partial f}{\partial t}\right)^\top =  \left( \dfrac{\partial x}{\partial t}\right)^\top J^\top
 </span></p>
 </section>
-<section id="backpropagation" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="backpropagation"><span class="header-section-number">5.3</span> Backpropagation</h2>
+<section id="backpropagation" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="backpropagation"><span class="header-section-number">5.3</span> Backpropagation</h3>
 <p>Backpropagation is a specific application of reverse-mode automatic differentiation within neural networks. It is the standard algorithm for computing gradients in neural networks, especially for training with stochastic gradient descent. Here’s how it works:</p>
 <ul>
 <li>Perform a forward pass through the network to compute activations and outputs.</li>
@@ -1419,8 +1428,8 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 <li>The critical point of backpropagation is that it efficiently calculates the gradient of a complex, multilayered function by decomposing it into simpler derivative calculations. This aspect makes the update of a large number of parameters in deep networks computationally feasible.</li>
 </ul>
 </section>
-<section id="jacobian-vector-product" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="jacobian-vector-product"><span class="header-section-number">5.4</span> Jacobian vector product</h2>
+<section id="jacobian-vector-product" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="jacobian-vector-product"><span class="header-section-number">5.4</span> Jacobian vector product</h3>
 <p>The power of automatic differentiation is encapsulated in the computation of the Jacobian-vector product. Instead of calculating the entire Jacobian matrix, which is computationally expensive and often unnecessary, AD computes the product of the Jacobian and a vector directly. This is crucial for gradients in neural networks where the Jacobian may be very large, but the end goal is the product of this Jacobian with the gradient of the loss with respect to the outputs (vector). The reason why it works so fast in practice is that the Jacobian of the operations is already developed effectively in automatic differentiation frameworks. Typically, we even do not construct or store the full Jacobian, doing matvec directly instead. Note, for some functions (for example, any element-wise function of the input vector) matvec costs linear time, instead of quadratic and requires no additional memory to store a Jacobian.</p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1453,8 +1462,8 @@ y = \exp{(z)} \qquad J = \text{diag}(\exp(z)) \qquad \overline{z} = \overline{y}
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>defvjp(anp.true_divide, <span class="kw">lambda</span> g, ans, x, y : unbroadcast(x,   g <span class="op">/</span> y),</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                        <span class="kw">lambda</span> g, ans, x, y : unbroadcast(y, <span class="op">-</span> g <span class="op">*</span> x <span class="op">/</span> y<span class="op">**</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="hessian-vector-product" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="hessian-vector-product"><span class="header-section-number">5.5</span> Hessian vector product</h2>
+<section id="hessian-vector-product" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="hessian-vector-product"><span class="header-section-number">5.5</span> Hessian vector product</h3>
 <p>Interestingly, a similar idea could be used to compute Hessian-vector products, which is essential for second-order optimization or conjugate gradient methods. For a scalar-valued function <span class="math inline">f : \mathbb{R}^n \to \mathbb{R}</span> with continuous second derivatives (so that the Hessian matrix is symmetric), the Hessian at a point <span class="math inline">x \in \mathbb{R}^n</span> is written as <span class="math inline">\partial^2 f(x)</span>. A Hessian-vector product function is then able to evaluate</p>
 <p><span class="math display">
 v \mapsto \partial^2 f(x) \cdot v
@@ -1471,12 +1480,12 @@ v \mapsto \partial^2 f(x) \cdot v
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> grad(<span class="kw">lambda</span> x: jnp.vdot(grad(f)(x), v))(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="code" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Code</h1>
+<section id="code" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="code"><span class="header-section-number">6</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Autograd_and_Jax.ipynb">Open In Colab</a></p>
 </section>
-<section id="materials" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Materials</h1>
+<section id="materials" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="materials"><span class="header-section-number">7</span> Materials</h2>
 <ul>
 <li><a href="https://github.com/mattjj/autodidact">Autodidact</a> - a pedagogical implementation of Autograd</li>
 <li><a href="https://www.cs.toronto.edu/~rgrosse/courses/csc321_2018/slides/lec06.pdf">CSC321</a> Lecture 6</li>

@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -686,10 +680,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#standard-form" id="toc-standard-form" class="nav-link" data-scroll-target="#standard-form"><span class="header-section-number">1.1</span> Standard form</a></li>
   <li><a href="#canonical-form" id="toc-canonical-form" class="nav-link" data-scroll-target="#canonical-form"><span class="header-section-number">1.2</span> Canonical form</a></li>
-  <li><a href="#real-world-problems" id="toc-real-world-problems" class="nav-link" data-scroll-target="#real-world-problems"><span class="header-section-number">1.3</span> Real world problems</a>
-  <ul class="collapse">
-  <li><a href="#diet-problem" id="toc-diet-problem" class="nav-link" data-scroll-target="#diet-problem"><span class="header-section-number">1.3.1</span> Diet problem</a></li>
-  </ul></li>
+  <li><a href="#real-world-problems" id="toc-real-world-problems" class="nav-link" data-scroll-target="#real-world-problems"><span class="header-section-number">1.3</span> Real world problems</a></li>
   </ul></li>
   <li><a href="#how-to-retrieve-lp" id="toc-how-to-retrieve-lp" class="nav-link" data-scroll-target="#how-to-retrieve-lp"><span class="header-section-number">2</span> How to retrieve LP</a>
   <ul class="collapse">
@@ -721,12 +712,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Simplex.html">LP and simplex algorithm</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">LP and simplex algorithm</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="what-is-lp" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> What is LP</h1>
+<section id="what-is-lp" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="what-is-lp"><span class="header-section-number">1</span> What is LP</h2>
 <p>Generally speaking, all problems with linear objective and linear equalitiesconstraints could be considered as Linear Programming. However, there are some widely accepted formulations.</p>
 <p><span class="math display">
 \tag{LP.Basic}
@@ -742,8 +748,8 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>for some vectors <span class="math inline">c \in \mathbb{R}^n</span>, <span class="math inline">b \in \mathbb{R}^m</span> and matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>. Where the inequalities are interpreted component-wise.</p>
-<section id="standard-form" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="standard-form"><span class="header-section-number">1.1</span> Standard form</h2>
+<section id="standard-form" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="standard-form"><span class="header-section-number">1.1</span> Standard form</h3>
 <p>This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors <span class="math inline">c \in \mathbb{R}^n</span>, <span class="math inline">b \in \mathbb{R}^m</span> and matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>.</p>
 <p><span class="math display">
 \tag{LP.Standard}
@@ -754,8 +760,8 @@ ul.task-list li input[type="checkbox"] {
 \end{align*}
 </span></p>
 </section>
-<section id="canonical-form" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="canonical-form"><span class="header-section-number">1.2</span> Canonical form</h2>
+<section id="canonical-form" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="canonical-form"><span class="header-section-number">1.2</span> Canonical form</h3>
 <p><span class="math display">
 \tag{LP.Canonical}
 \begin{align*}
@@ -765,10 +771,10 @@ ul.task-list li input[type="checkbox"] {
 \end{align*}
 </span></p>
 </section>
-<section id="real-world-problems" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="real-world-problems"><span class="header-section-number">1.3</span> Real world problems</h2>
-<section id="diet-problem" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="diet-problem"><span class="header-section-number">1.3.1</span> Diet problem</h3>
+<section id="real-world-problems" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="real-world-problems"><span class="header-section-number">1.3</span> Real world problems</h3>
+<section id="diet-problem" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="diet-problem"><span class="header-section-number">1.3.1</span> Diet problem</h4>
 <p>Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix <span class="math inline">W</span>. Let also assume, that we have the vector of requirements for each of nutrients <span class="math inline">r \in \mathbb{R}^n</span>. We need to find the cheapest configuration of the diet, which meets all the requirements:</p>
 <p><span class="math display">
 \begin{align*}
@@ -786,10 +792,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 </section>
-<section id="how-to-retrieve-lp" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> How to retrieve LP</h1>
-<section id="basic-transformations" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="basic-transformations"><span class="header-section-number">2.1</span> Basic transformations</h2>
+<section id="how-to-retrieve-lp" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="how-to-retrieve-lp"><span class="header-section-number">2</span> How to retrieve LP</h2>
+<section id="basic-transformations" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="basic-transformations"><span class="header-section-number">2.1</span> Basic transformations</h3>
 <p>Inequality to equality by increasing the dimension of the problem by <span class="math inline">m</span>.</p>
 <p><span class="math display">
 Ax \leq b \leftrightarrow
@@ -808,8 +814,8 @@ x_- \geq 0
 \end{cases}
 </span></p>
 </section>
-<section id="chebyshev-approximation-problem" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="chebyshev-approximation-problem"><span class="header-section-number">2.2</span> Chebyshev approximation problem</h2>
+<section id="chebyshev-approximation-problem" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="chebyshev-approximation-problem"><span class="header-section-number">2.2</span> Chebyshev approximation problem</h3>
 <p><span class="math display">
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
 </span></p>
@@ -821,8 +827,8 @@ x_- \geq 0
 \end{align*}
 </span></p>
 </section>
-<section id="l_1-approximation-problem" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="l_1-approximation-problem"><span class="header-section-number">2.3</span> <span class="math inline">l_1</span> approximation problem</h2>
+<section id="l_1-approximation-problem" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="l_1-approximation-problem"><span class="header-section-number">2.3</span> <span class="math inline">l_1</span> approximation problem</h3>
 <p><span class="math display">
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
 </span></p>
@@ -835,8 +841,8 @@ x_- \geq 0
 </span></p>
 </section>
 </section>
-<section id="idea-of-simplex-algorithm" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Idea of simplex algorithm</h1>
+<section id="idea-of-simplex-algorithm" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="idea-of-simplex-algorithm"><span class="header-section-number">3</span> Idea of simplex algorithm</h2>
 <ul>
 <li>The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases <span class="math inline">c^\top x</span> most</li>
 <li>This either terminates at a corner, or leads to an unconstrained edge (<span class="math inline">-\infty</span> optimum)</li>
@@ -862,8 +868,8 @@ x_- \geq 0
 <p><span class="math display">
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
 </span></p>
-<section id="main-lemma" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="main-lemma"><span class="header-section-number">3.1</span> Main lemma</h2>
+<section id="main-lemma" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="main-lemma"><span class="header-section-number">3.1</span> Main lemma</h3>
 <p>If all components of <span class="math inline">\lambda_B</span> are non-positive and <span class="math inline">B</span> is feasible, then <span class="math inline">B</span> is optimal.</p>
 <p><strong>Proof:</strong></p>
 <p><span class="math display">
@@ -876,8 +882,8 @@ c^\top x^* &amp; \geq c^\top  x_B \\
 \end{align*}
 </span></p>
 </section>
-<section id="changing-basis" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="changing-basis"><span class="header-section-number">3.2</span> Changing basis</h2>
+<section id="changing-basis" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="changing-basis"><span class="header-section-number">3.2</span> Changing basis</h3>
 <p>Suppose, some of the coefficients of <span class="math inline">\lambda_B</span> are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -889,8 +895,8 @@ c^\top x^* &amp; \geq c^\top  x_B \\
 x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </span></p>
 </section>
-<section id="finding-an-initial-basic-feasible-solution" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="finding-an-initial-basic-feasible-solution"><span class="header-section-number">3.3</span> Finding an initial basic feasible solution</h2>
+<section id="finding-an-initial-basic-feasible-solution" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="finding-an-initial-basic-feasible-solution"><span class="header-section-number">3.3</span> Finding an initial basic feasible solution</h3>
 <p>Let us consider <span class="math inline">\text{LP.Canonical}</span>.</p>
 <p><span class="math display">
 \begin{align*}
@@ -919,10 +925,10 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </ul>
 </section>
 </section>
-<section id="convergence" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Convergence</h1>
-<section id="klee-minty-example" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">4.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h2>
+<section id="convergence" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="convergence"><span class="header-section-number">4</span> Convergence</h2>
+<section id="klee-minty-example" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">4.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h3>
 <p>In the following problem simplex algorithm needs to check <span class="math inline">2^n - 1</span> vertexes with <span class="math inline">x_0 = 0</span>.</p>
 <p><span class="math display">
 \begin{align*} &amp; \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
@@ -940,8 +946,8 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </figure>
 </div>
 </section>
-<section id="strong-duality" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="strong-duality"><span class="header-section-number">4.2</span> Strong duality</h2>
+<section id="strong-duality" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="strong-duality"><span class="header-section-number">4.2</span> Strong duality</h3>
 <p>There are four possibilities:</p>
 <ul>
 <li>Both the primal and the dual are infeasible.</li>
@@ -951,8 +957,8 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </ul>
 </section>
 </section>
-<section id="summary" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Summary</h1>
+<section id="summary" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="summary"><span class="header-section-number">5</span> Summary</h2>
 <ul>
 <li>A wide variety of applications could be formulated as the linear programming.</li>
 <li>Simplex algorithm is simple, but could work exponentially long.</li>
@@ -960,12 +966,12 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 <li>Interior point methods are the last word in this area. However, good implementations of simplex-based methods and interior point methods are similar for routine applications of linear programming.</li>
 </ul>
 </section>
-<section id="code" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Code</h1>
+<section id="code" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="code"><span class="header-section-number">6</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb">Open In Colab</a></p>
 </section>
-<section id="materials" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Materials</h1>
+<section id="materials" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="materials"><span class="header-section-number">7</span> Materials</h2>
 <ul>
 <li><a href="https://yadi.sk/i/uhmarI88kCRfw">Linear Programming.</a> in V. Lempitsky optimization course.</li>
 <li><a href="https://yadi.sk/i/lzCxOVbnkFfZc">Simplex method.</a> in V. Lempitsky optimization course.</li>

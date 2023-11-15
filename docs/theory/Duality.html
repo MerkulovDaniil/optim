@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -698,17 +692,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sensitivity-analysis" id="toc-sensitivity-analysis" class="nav-link" data-scroll-target="#sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</a></li>
   <li><a href="#local-sensitivity" id="toc-local-sensitivity" class="nav-link" data-scroll-target="#local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</a></li>
   <li><a href="#shadow-prices-or-tax-interpretation" id="toc-shadow-prices-or-tax-interpretation" class="nav-link" data-scroll-target="#shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</a></li>
-  <li><a href="#mixed-strategies-for-matrix-games" id="toc-mixed-strategies-for-matrix-games" class="nav-link" data-scroll-target="#mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</a>
-  <ul class="collapse">
-  <li><a href="#player-1s-perspective" id="toc-player-1s-perspective" class="nav-link" data-scroll-target="#player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</a></li>
-  <li><a href="#player-2s-perspective" id="toc-player-2s-perspective" class="nav-link" data-scroll-target="#player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</a></li>
-  <li><a href="#duality-and-equivalence" id="toc-duality-and-equivalence" class="nav-link" data-scroll-target="#duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</a></li>
-  <li><a href="#formulating-and-solving-the-lagrange-dual" id="toc-formulating-and-solving-the-lagrange-dual" class="nav-link" data-scroll-target="#formulating-and-solving-the-lagrange-dual"><span class="header-section-number">5.5.4</span> Formulating and Solving the Lagrange Dual</a></li>
-  <li><a href="#constructing-the-lagrangian" id="toc-constructing-the-lagrangian" class="nav-link" data-scroll-target="#constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</a></li>
-  <li><a href="#defining-the-dual-function" id="toc-defining-the-dual-function" class="nav-link" data-scroll-target="#defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</a></li>
-  <li><a href="#solving-the-dual-problem" id="toc-solving-the-dual-problem" class="nav-link" data-scroll-target="#solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5.5.8</span> Conclusion</a></li>
-  </ul></li>
+  <li><a href="#mixed-strategies-for-matrix-games" id="toc-mixed-strategies-for-matrix-games" class="nav-link" data-scroll-target="#mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   </ul>
@@ -721,12 +705,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Duality.html">Duality</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Duality</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="motivation" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Motivation</h1>
+<section id="motivation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1</span> Motivation</h2>
 <p>Duality lets us associate to any constrained optimization problem a concave maximization problem, whose solutions lower bound the optimal value of the original problem. What is interesting is that there are cases, when one can solve the primal problem by first solving the dual one. Now, consider a general constrained optimization problem:</p>
 <p><span class="math display">
 \text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega}
@@ -775,13 +774,13 @@ g(\lambda, \nu) \leq p^*
 \end{split}
 </span></p>
 <p>The term “dual feasible”, to describe a pair <span class="math inline">(\lambda, \nu)</span> with <span class="math inline">\lambda \succeq 0</span> and <span class="math inline">g(\lambda, \nu) &gt; −\infty</span>, now makes sense. It means, as the name implies, that <span class="math inline">(\lambda, \nu)</span> is feasible for the dual problem. We refer to <span class="math inline">(\lambda^*, \nu^*)</span> as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.</p>
-<section id="summary" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.1</span> Summary</h2>
+<section id="summary" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.1</span> Summary</h3>
 <table class="table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 42%">
-<col style="width: 51%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +936,8 @@ p^* \geq -\mathbf{1}^T\nu = n \lambda_{\text{min}}(W).
 </div>
 </section>
 </section>
-<section id="strong-duality" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Strong duality</h1>
+<section id="strong-duality" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="strong-duality"><span class="header-section-number">2</span> Strong duality</h2>
 <p>It is common to name this relation between optimals of primal and dual problems as <strong>weak duality</strong>. For problem, we have:</p>
 <p><span class="math display">
 p^* \geq d^*
@@ -975,8 +974,8 @@ Question
 </div>
 </div>
 </section>
-<section id="useful-features" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Useful features</h1>
+<section id="useful-features" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="useful-features"><span class="header-section-number">3</span> Useful features</h2>
 <ul>
 <li><p><strong>Construction of lower bound on solution of the direct problem.</strong></p>
 <p>It could be very complicated to solve the initial problem. But if we have the dual problem, we can take an arbitrary <span class="math inline">y \in \Omega</span> and substitute it in <span class="math inline">g(y)</span> - we’ll immediately obtain some lower bound.</p></li>
@@ -1040,8 +1039,8 @@ Projection on the Euclidian Ball
 </div>
 </div>
 </section>
-<section id="slaters-condition" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Slater’s condition</h1>
+<section id="slaters-condition" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="slaters-condition"><span class="header-section-number">4</span> Slater’s condition</h2>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1144,8 +1143,8 @@ g(\lambda) = \begin{cases} -b^\top(A + \lambda I)^{\dagger}b - \lambda &amp;\tex
 </div>
 </div>
 </div>
-<section id="reminder-of-kkt-statements" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="reminder-of-kkt-statements"><span class="header-section-number">4.1</span> Reminder of KKT statements:</h2>
+<section id="reminder-of-kkt-statements" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="reminder-of-kkt-statements"><span class="header-section-number">4.1</span> Reminder of KKT statements:</h3>
 <p>Suppose we have a general optimization problem (from the <a href="../../docs/theory/Optimality.html">chapter</a>)</p>
 <p><span id="eq-gop"><span class="math display">
 \begin{split}
@@ -1219,10 +1218,10 @@ KKT in convex case
 </div>
 </section>
 </section>
-<section id="applications" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Applications</h1>
-<section id="connection-between-fenchel-duality-and-lagrange-duality" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5.1</span> Connection between Fenchel duality and Lagrange duality</h2>
+<section id="applications" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="applications"><span class="header-section-number">5</span> Applications</h2>
+<section id="connection-between-fenchel-duality-and-lagrange-duality" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="connection-between-fenchel-duality-and-lagrange-duality"><span class="header-section-number">5.1</span> Connection between Fenchel duality and Lagrange duality</h3>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1323,8 +1322,8 @@ d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^
 </div>
 <p>Convex case is especially important since if we have Fenchel - Rockafellar problem with parameters <span class="math inline">(f, g, A)</span>, than the dual problem has the form <span class="math inline">(f^*, g^*, -A^*)</span>.</p>
 </section>
-<section id="sensitivity-analysis" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</h2>
+<section id="sensitivity-analysis" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</h3>
 <p>Let us switch from the original optimization problem</p>
 <p><span class="math display">
 \begin{split}
@@ -1393,8 +1392,8 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 </ol>
 <p>These interpretations provide a framework for understanding how changes in constraints, reflected through their corresponding Lagrange multipliers, impact the optimal solution in problems where strong duality holds.</p>
 </section>
-<section id="local-sensitivity" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</h2>
+<section id="local-sensitivity" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</h3>
 <p>Suppose now that <span class="math inline">p^*(u, v)</span> is differentiable at <span class="math inline">u = 0, v = 0</span>.</p>
 <p><span id="eq-local-sensitivity"><span class="math display">
 \lambda_i^* = -\dfrac{\partial p^*(0,0)}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0)}{\partial v_i}
@@ -1415,8 +1414,8 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <p>The local sensitivity result <a href="#eq-local-sensitivity" class="quarto-xref">Equation&nbsp;5</a> provides a way to understand the impact of constraints on the optimal solution <span class="math inline">x^*</span> of an optimization problem. If a constraint <span class="math inline">f_i(x^*)</span> is negative at <span class="math inline">x^*</span>, it’s not affecting the optimal solution, meaning small changes to this constraint won’t alter the optimal value. In this case, the corresponding optimal Lagrange multiplier will be zero, as per the principle of complementary slackness.</p>
 <p>However, if <span class="math inline">f_i(x^*) = 0</span>, meaning the constraint is precisely met at the optimum, then the situation is different. The value of the <span class="math inline">i</span>-th optimal Lagrange multiplier, <span class="math inline">\lambda^*_i</span>, gives us insight into how ‘sensitive’ or ‘active’ this constraint is. A small <span class="math inline">\lambda^*_i</span> indicates that slight adjustments to the constraint won’t significantly affect the optimal value. Conversely, a large <span class="math inline">\lambda^*_i</span> implies that even minor changes to the constraint can have a significant impact on the optimal solution.</p>
 </section>
-<section id="shadow-prices-or-tax-interpretation" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</h2>
+<section id="shadow-prices-or-tax-interpretation" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</h3>
 <p>Consider an enterprise where <span class="math inline">x</span> represents its operational strategy and <span class="math inline">f_0(x)</span> is the operating cost. Therefore, <span class="math inline">-f_0(x)</span> denotes the profit in dollars. Each constraint <span class="math inline">f_i(x) \leq 0</span> signifies a resource or regulatory limit. The goal is to maximize profit while adhering to these limits, which is equivalent to solving:</p>
 <p><span class="math display">
 \begin{split}
@@ -1431,8 +1430,8 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <p>Weak duality implies that the cost in this flexible scenario (where the firm can trade constraint violations) is always less than or equal to the cost in the strict original scenario. This is because any optimal operation <span class="math inline">x^*</span> from the original scenario will cost less in the flexible scenario, as the firm can earn from underused constraints.</p>
 <p>If strong duality holds and the dual optimum is reached, the optimal <span class="math inline">\lambda^*</span> represents prices where the firm gains no extra advantage from trading constraint violations. These optimal <span class="math inline">\lambda^*</span> values are often termed ‘shadow prices’ for the original problem, indicating the hypothetical cost of constraint flexibility.</p>
 </section>
-<section id="mixed-strategies-for-matrix-games" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</h2>
+<section id="mixed-strategies-for-matrix-games" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="msmg.svg" class="img-fluid figure-img"></p>
@@ -1441,8 +1440,8 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 </div>
 <p>In zero-sum matrix games, players 1 and 2 choose actions from sets <span class="math inline">\{1,...,n\}</span> and <span class="math inline">\{1,...,m\}</span>, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix <span class="math inline">P \in \mathbb{R}^{n \times m}</span>. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities <span class="math inline">u_k</span> for each action <span class="math inline">i</span>, and player 2 uses <span class="math inline">v_l</span>.</p>
 <p>The expected payoff from player 1 to player 2 is given by <span class="math inline">\sum_{k=1}^{n} \sum_{l=1}^{m} u_k v_l P_{kl} = u^T P v</span>. Player 1 seeks to minimize this expected payoff, while player 2 aims to maximize it.</p>
-<section id="player-1s-perspective" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</h3>
+<section id="player-1s-perspective" class="level4" data-number="5.5.1">
+<h4 data-number="5.5.1" class="anchored" data-anchor-id="player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</h4>
 <p>Assuming player 2 knows player 1’s strategy <span class="math inline">u</span>, player 2 will choose <span class="math inline">v</span> to maximize <span class="math inline">u^T P v</span>. The worst-case expected payoff is thus:</p>
 <p><span class="math display">
 \max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i
@@ -1457,8 +1456,8 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 \tag{6}</span></span></p>
 <p>This forms a convex optimization problem with the optimal value denoted as <span class="math inline">p^*_1</span>.</p>
 </section>
-<section id="player-2s-perspective" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</h3>
+<section id="player-2s-perspective" class="level4" data-number="5.5.2">
+<h4 data-number="5.5.2" class="anchored" data-anchor-id="player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</h4>
 <p>Conversely, if player 1 knows player 2’s strategy <span class="math inline">v</span>, the goal is to minimize <span class="math inline">u^T P v</span>. This leads to:</p>
 <p><span class="math display">
 \min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i
@@ -1473,12 +1472,12 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 \tag{7}</span></span></p>
 <p>The optimal value here is <span class="math inline">p^*_2</span>.</p>
 </section>
-<section id="duality-and-equivalence" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</h3>
+<section id="duality-and-equivalence" class="level4" data-number="5.5.3">
+<h4 data-number="5.5.3" class="anchored" data-anchor-id="duality-and-equivalence"><span class="header-section-number">5.5.3</span> Duality and Equivalence</h4>
 <p>It’s generally advantageous to know the opponent’s strategy, but surprisingly, in mixed strategy matrix games, this advantage disappears. The key lies in duality: the problems above are Lagrange duals. By formulating player 1’s problem as a linear program and introducing Lagrange multipliers, we find that the dual problem matches player 2’s problem. Due to strong duality in feasible linear programs, <span class="math inline">p^*_1 = p^*_2</span>, showing no advantage in knowing the opponent’s strategy.</p>
 </section>
-<section id="formulating-and-solving-the-lagrange-dual" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="formulating-and-solving-the-lagrange-dual"><span class="header-section-number">5.5.4</span> Formulating and Solving the Lagrange Dual</h3>
+<section id="formulating-and-solving-the-lagrange-dual" class="level4" data-number="5.5.4">
+<h4 data-number="5.5.4" class="anchored" data-anchor-id="formulating-and-solving-the-lagrange-dual"><span class="header-section-number">5.5.4</span> Formulating and Solving the Lagrange Dual</h4>
 <p>We approach problem <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a> by setting it up as a linear programming (LP) problem. The goal is to minimize a variable <span class="math inline">t</span>, subject to certain constraints:</p>
 <ol type="1">
 <li><span class="math inline">u \geq 0</span>,</li>
@@ -1487,15 +1486,15 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 </ol>
 <p>Here, <span class="math inline">t</span> is an additional variable in the real numbers (<span class="math inline">t \in \mathbb{R}</span>).</p>
 </section>
-<section id="constructing-the-lagrangian" class="level3" data-number="5.5.5">
-<h3 data-number="5.5.5" class="anchored" data-anchor-id="constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</h3>
+<section id="constructing-the-lagrangian" class="level4" data-number="5.5.5">
+<h4 data-number="5.5.5" class="anchored" data-anchor-id="constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</h4>
 <p>We introduce multipliers for the constraints: <span class="math inline">\lambda</span> for <span class="math inline">P^T u \leq t \mathbf{1}</span>, <span class="math inline">\mu</span> for <span class="math inline">u \geq 0</span>, and <span class="math inline">\nu</span> for <span class="math inline">1^T u = 1</span>. The Lagrangian is then formed as:</p>
 <p><span class="math display">
 L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u
 </span></p>
 </section>
-<section id="defining-the-dual-function" class="level3" data-number="5.5.6">
-<h3 data-number="5.5.6" class="anchored" data-anchor-id="defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</h3>
+<section id="defining-the-dual-function" class="level4" data-number="5.5.6">
+<h4 data-number="5.5.6" class="anchored" data-anchor-id="defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</h4>
 <p>The dual function <span class="math inline">g(\lambda, \mu, \nu)</span> is defined as:</p>
 <p><span class="math display">
 g(\lambda, \mu, \nu) =
@@ -1505,8 +1504,8 @@ g(\lambda, \mu, \nu) =
 \end{cases}
 </span></p>
 </section>
-<section id="solving-the-dual-problem" class="level3" data-number="5.5.7">
-<h3 data-number="5.5.7" class="anchored" data-anchor-id="solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</h3>
+<section id="solving-the-dual-problem" class="level4" data-number="5.5.7">
+<h4 data-number="5.5.7" class="anchored" data-anchor-id="solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</h4>
 <p>The dual problem seeks to maximize <span class="math inline">\nu</span> under the following conditions:</p>
 <ol type="1">
 <li><span class="math inline">\lambda \geq 0</span>,</li>
@@ -1524,14 +1523,14 @@ g(\lambda, \mu, \nu) =
 \end{split}
 </span></p>
 </section>
-<section id="conclusion" class="level3" data-number="5.5.8">
-<h3 data-number="5.5.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.5.8</span> Conclusion</h3>
+<section id="conclusion" class="level4" data-number="5.5.8">
+<h4 data-number="5.5.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.5.8</span> Conclusion</h4>
 <p>This formulation shows that the Lagrange dual problem is equivalent to problem <a href="#eq-player2-problem" class="quarto-xref">Equation&nbsp;7</a>. Given the feasibility of these linear programs, strong duality holds, meaning the optimal values of <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a> and <a href="#eq-player2-problem" class="quarto-xref">Equation&nbsp;7</a> are equal.</p>
 </section>
 </section>
 </section>
-<section id="references" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
 <ul>
 <li><a href="http://web.stanford.edu/class/ee364a/lectures/duality.pdf">Convex Optimization — Boyd &amp; Vandenberghe @ Stanford</a></li>
 <li><a href="https://ee227c.github.io/notes/ee227c-lecture13.pdf">Course Notes for EE227C. Lecture 13</a></li>

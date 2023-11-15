@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -701,12 +695,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/index.html">Adaptive metric methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/adaptive_metrics/CG.html">Conjugate gradients</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Conjugate gradients</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="cg_win.svg" class="img-fluid figure-img"></p>
@@ -723,8 +732,8 @@ f(x) = \frac{1}{2}x^\top A x - b^\top x + c \to \min\limits_{x \in \mathbb{R}^n 
 </span></p>
 <p>Here <span class="math inline">x \in \mathbb{R}^n, A \in \mathbb{R}^{n \times n}</span>, <span class="math inline">b \in \mathbb{R}^n, c \in \mathbb{R}</span>.</p>
 </section>
-<section id="method-of-conjugate-gradients-for-the-quadratic-function" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Method of conjugate gradients for the quadratic function</h1>
+<section id="method-of-conjugate-gradients-for-the-quadratic-function" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="method-of-conjugate-gradients-for-the-quadratic-function"><span class="header-section-number">2</span> Method of conjugate gradients for the quadratic function</h2>
 <p>We will consider symmetric matrices <span class="math inline">A \in \mathbb{S}^n</span> (otherwise, replacing <span class="math inline">A' = \frac{A + A^\top}{2}</span> leads to the same optimization problem). Then:</p>
 <p><span class="math display">
 \nabla f = Ax - b
@@ -803,8 +812,8 @@ d_1^\top A d_0 = -\nabla f(x_1)^\top Ad_0 + \beta_0 d_0^\top A d_0 = 0
 <li>Repeat steps 2-4 until <span class="math inline">n</span> directions are built, where <span class="math inline">n</span> is the dimension of space (dimension of <span class="math inline">x</span>).</li>
 </ol>
 </section>
-<section id="method-of-conjugate-gradients-for-non-quadratic-function" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Method of conjugate gradients for non-quadratic function:</h1>
+<section id="method-of-conjugate-gradients-for-non-quadratic-function" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="method-of-conjugate-gradients-for-non-quadratic-function"><span class="header-section-number">3</span> Method of conjugate gradients for non-quadratic function:</h2>
 <p>In case we do not have an analytic expression for a function or its gradient, we will most likely not be able to solve the one-dimensional minimization problem analytically. Therefore, step 2 of the algorithm is replaced by the usual line search procedure. But there is the following mathematical trick for the fourth point:</p>
 <p>For two iterations, it is fair:</p>
 <p><span class="math display">
@@ -820,10 +829,10 @@ x_{k+1} - x_k = c d_k,
 </span></p>
 <p>This method is called the Polack - Ribier method.</p>
 </section>
-<section id="examples" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Examples</h1>
-<section id="example-1" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">4.1</span> Example 1</h2>
+<section id="examples" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="examples"><span class="header-section-number">4</span> Examples</h2>
+<section id="example-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">4.1</span> Example 1</h3>
 <p>Prove that if a set of vectors <span class="math inline">d_1, \ldots, d_k</span> - are <span class="math inline">A</span>-conjugate (each pair of vectors is <span class="math inline">A</span>-conjugate), these vectors are linearly independent. <span class="math inline">A \in \mathbb{S}^n_{++}</span>.</p>
 <p>Solution:</p>
 <p>We’ll show, that if <span class="math inline">\sum\limits_{i=1}^k\alpha_k d_k = 0</span>, than all coefficients should be equal to zero:</p>
@@ -838,16 +847,16 @@ x_{k+1} - x_k = c d_k,
 <p>Thus, <span class="math inline">\alpha_j = 0</span>, for all other indices one have perform the same process</p>
 </section>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf">An Introduction</a> to the Conjugate Gradient Method Without the Agonizing Pain</li>
 <li><a href="https://ikuz.eu/machine-learning-and-computer-science/the-concept-of-conjugate-gradient-descent-in-python/">The Concept of Conjugate Gradient Descent in Python</a> by Ilya Kuzovkin</li>
 <li><a href="http://fourier.eng.hmc.edu/e176/lectures/">Picture of bestinitial guess in SD</a></li>
 </ul>
 </section>
-<section id="code" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Code</h1>
+<section id="code" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="code"><span class="header-section-number">6</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/CG.ipynb">Open In Colab</a></p>
 
 

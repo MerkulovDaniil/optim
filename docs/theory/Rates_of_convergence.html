@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -705,38 +699,53 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Rates_of_convergence.html">Rates of convergence</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Rates of convergence</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="speed-of-convergence" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Speed of convergence</h1>
+<section id="speed-of-convergence" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="speed-of-convergence"><span class="header-section-number">1</span> Speed of convergence</h2>
 <p>In order to compare perfomance of algorithms we need to define a terminology for different types of convergence. Let <span class="math inline">\{x_k\}</span> be a sequence in <span class="math inline">\mathbb{R}^n</span> that converges to some point <span class="math inline">x^*</span></p>
-<section id="linear-convergence" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="linear-convergence"><span class="header-section-number">1.1</span> Linear convergence</h2>
+<section id="linear-convergence" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="linear-convergence"><span class="header-section-number">1.1</span> Linear convergence</h3>
 <p>We can define the <em>linear</em> convergence in a two different forms:</p>
 <p><span class="math display">
 \| x_{k+1} - x^* \|_2 \leq Cq^k \quad\text{or} \quad \| x_{k+1} - x^* \|_2 \leq q\| x_k - x^* \|_2,
 </span></p>
 <p>for all sufficiently large <span class="math inline">k</span>. Here <span class="math inline">q \in (0, 1)</span> and <span class="math inline">0 &lt; C &lt; \infty</span>. This means that the distance to the solution <span class="math inline">x^*</span> decreases at each iteration by at least a constant factor bounded away from <span class="math inline">1</span>. Note, that sometimes this type of convergence is also called <em>exponential</em> or <em>geometric</em>.</p>
 </section>
-<section id="superlinear-convergence" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="superlinear-convergence"><span class="header-section-number">1.2</span> Superlinear convergence</h2>
+<section id="superlinear-convergence" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="superlinear-convergence"><span class="header-section-number">1.2</span> Superlinear convergence</h3>
 <p>The convergence is said to be <em>superlinear</em> if:</p>
 <p><span class="math display">
 \| x_{k+1} - x^* \|_2 \leq Cq^{k^2} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq C_k\| x_k - x^* \|_2,
 </span></p>
 <p>where <span class="math inline">q \in (0, 1)</span> or <span class="math inline">0 &lt; C_k &lt; \infty</span>, <span class="math inline">C_k \to 0</span>. Note, that superlinear convergence is also linear convergence (one can even say, that it is linear convergence with <span class="math inline">q=0</span>).</p>
 </section>
-<section id="sublinear-convergence" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sublinear-convergence"><span class="header-section-number">1.3</span> Sublinear convergence</h2>
+<section id="sublinear-convergence" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="sublinear-convergence"><span class="header-section-number">1.3</span> Sublinear convergence</h3>
 <p><span class="math display">
 \| x_{k+1} - x^* \|_2 \leq C k^{q},
 </span></p>
 <p>where <span class="math inline">q &lt; 0</span> and <span class="math inline">0 &lt; C &lt; \infty</span>. Note, that sublinear convergence means, that the sequence is converging slower, than any geometric progression.</p>
 </section>
-<section id="quadratic-convergence" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="quadratic-convergence"><span class="header-section-number">1.4</span> Quadratic convergence</h2>
+<section id="quadratic-convergence" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="quadratic-convergence"><span class="header-section-number">1.4</span> Quadratic convergence</h3>
 <p><span class="math display">
 \| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq C\| x_k - x^* \|^2_2,
 </span></p>
@@ -750,10 +759,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Quasi-Newton methods for unconstrained optimization typically converge superlinearly, whereas Newton’s method converges quadratically under appropriate assumptions. In contrast, steepest descent algorithms converge only at a linear rate, and when the problem is ill-conditioned the convergence constant <span class="math inline">q</span> is close to <span class="math inline">1</span>.</p>
 </section>
 </section>
-<section id="how-to-determine-convergence-type" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> How to determine convergence type</h1>
-<section id="root-test" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="root-test"><span class="header-section-number">2.1</span> Root test</h2>
+<section id="how-to-determine-convergence-type" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="how-to-determine-convergence-type"><span class="header-section-number">2</span> How to determine convergence type</h2>
+<section id="root-test" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="root-test"><span class="header-section-number">2.1</span> Root test</h3>
 <p>Let <span class="math inline">\{r_k\}_{k=m}^\infty</span> be a sequence of non-negative numbers, converging to zero, and let</p>
 <p><span class="math display">
 q = \lim_{k \to \infty} \sup_k \; r_k ^{1/k}
@@ -765,8 +774,8 @@ q = \lim_{k \to \infty} \sup_k \; r_k ^{1/k}
 <li>The case <span class="math inline">q \gt 1</span> is impossible.</li>
 </ul>
 </section>
-<section id="ratio-test" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="ratio-test"><span class="header-section-number">2.2</span> Ratio test</h2>
+<section id="ratio-test" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ratio-test"><span class="header-section-number">2.2</span> Ratio test</h3>
 <p>Let <span class="math inline">\{r_k\}_{k=m}^\infty</span> be a sequence of strictly positive numbers converging to zero. Let</p>
 <p><span class="math display">
 q = \lim_{k \to \infty} \dfrac{r_{k+1}}{r_k}
@@ -781,8 +790,8 @@ q = \lim_{k \to \infty} \dfrac{r_{k+1}}{r_k}
 </ul>
 </section>
 </section>
-<section id="references" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> References</h1>
+<section id="references" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="references"><span class="header-section-number">3</span> References</h2>
 <ul>
 <li>Code for convergence plots - <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Convergence.ipynb">Open In Colab</a>{: .btn }</li>
 <li><a href="http://www.machinelearning.ru/wiki/images/9/9a/MOMO18_Extra1.pdf">CMC seminars (ru)</a></li>

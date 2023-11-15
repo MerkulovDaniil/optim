@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -702,12 +696,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/SGD.html">Stochastic gradient descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Stochastic gradient descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="summary" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Summary</h1>
+<section id="summary" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
 <p>Suppose, our target function is the sum of functions.</p>
 <p><span class="math display">
 \min\limits_{\theta \in \mathbb{R}^{p}} g(\theta) := \frac{1}{n} \sum_{i=1}^{n} f_i(\theta)
@@ -723,10 +732,10 @@ ul.task-list li input[type="checkbox"] {
 </span></p>
 <p>Iterations could be <span class="math inline">n</span> times cheaper! But convergence requires <span class="math inline">\alpha_k \to 0</span>.</p>
 </section>
-<section id="convergence" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Convergence</h1>
-<section id="general-setup" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="general-setup"><span class="header-section-number">2.1</span> General setup</h2>
+<section id="convergence" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="convergence"><span class="header-section-number">2</span> Convergence</h2>
+<section id="general-setup" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="general-setup"><span class="header-section-number">2.1</span> General setup</h3>
 <p>We consider classic finite-sample average minimization:</p>
 <p><span class="math display">
 \min_{x \in \mathbb{R}^p} f(x) = \min_{x \in \mathbb{R}^p}\frac{1}{n} \sum_{i=1}^n f_i(x)
@@ -757,8 +766,8 @@ f(x_{k+1}) \leq f(x_k) - \alpha_k \langle \nabla f(x_k),  \nabla f_{i_k}(x_k)\ra
 \mathbb{E}[f(x_{k+1})] \leq f(x_k) - \alpha_k \|\nabla f(x_k)\|^2 + \alpha_k^2\frac{L}{2} \mathbb{E}[\|\nabla f_{i_k}(x_k)\|^2]
 </span></p>
 </section>
-<section id="polyak-lojasiewicz-conditions" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="polyak-lojasiewicz-conditions"><span class="header-section-number">2.2</span> Polyak-Lojasiewicz conditions</h2>
+<section id="polyak-lojasiewicz-conditions" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="polyak-lojasiewicz-conditions"><span class="header-section-number">2.2</span> Polyak-Lojasiewicz conditions</h3>
 <p><span class="math display">
 \tag{PL}
 \frac{1}{2}\|\nabla f(x)\|_2^2 \geq \mu(f(x) - f^*), \forall x \in \mathbb{R}^p
@@ -769,8 +778,8 @@ f(x_{k+1}) \leq f(x_k) - \alpha_k \langle \nabla f(x_k),  \nabla f_{i_k}(x_k)\ra
 </span></p>
 <p>This bound already indicates, that we have something like linear convergence if far from solution and gradients are similar, but no progress if close to solution or have high variance in gradients at the same time.</p>
 </section>
-<section id="stochastic-subgradient-descent" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="stochastic-subgradient-descent"><span class="header-section-number">2.3</span> Stochastic subgradient descent</h2>
+<section id="stochastic-subgradient-descent" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="stochastic-subgradient-descent"><span class="header-section-number">2.3</span> Stochastic subgradient descent</h3>
 <p><span class="math display">
 \tag{SSD}
 x_{k+1} = x_k - \alpha_k g_{i_k}
@@ -795,8 +804,8 @@ x_{k+1} = x_k - \alpha_k g_{i_k}
 <p>where <span class="math inline">R = \|x_0- x^*\|</span></p>
 </section>
 </section>
-<section id="bounds" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Bounds</h1>
+<section id="bounds" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="bounds"><span class="header-section-number">3</span> Bounds</h2>
 <table class="table">
 <colgroup>
 <col style="width: 19%">
@@ -834,12 +843,12 @@ x_{k+1} = x_k - \alpha_k g_{i_k}
 </tbody>
 </table>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD.ipynb">Open In Colab</a></p>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="https://www.cs.ubc.ca/~schmidtm/Courses/540-W18/L10.pdf">Lecture</a> by Mark Schmidt @ University of British Columbia</li>
 <li><a href="https://perso.telecom-paristech.fr/rgower/pdf/M2_statistique_optimisation/grad_conv.pdf">Convergence theorems</a> on major cases of GD, SGD (projected version included)</li>

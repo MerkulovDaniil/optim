@@ -547,12 +547,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -695,21 +689,36 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Projection.html">Projection</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Projection</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="definitions" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Definitions</h1>
-<section id="distance-between-point-and-set" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="distance-between-point-and-set"><span class="header-section-number">1.1</span> Distance between point and set</h2>
+<section id="definitions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1</span> Definitions</h2>
+<section id="distance-between-point-and-set" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="distance-between-point-and-set"><span class="header-section-number">1.1</span> Distance between point and set</h3>
 <p>The distance <span class="math inline">d</span> from point <span class="math inline">\mathbf{y} \in \mathbb{R}^n</span> to closed set <span class="math inline">S \subset \mathbb{R}^n</span>:</p>
 <p><span class="math display">
 d(\mathbf{y}, S, \| \cdot \|) = \inf\{\|x - y\| \mid x \in S \}
 </span></p>
 </section>
-<section id="projection-of-a-point-on-set" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="projection-of-a-point-on-set"><span class="header-section-number">1.2</span> Projection of a point on set</h2>
+<section id="projection-of-a-point-on-set" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="projection-of-a-point-on-set"><span class="header-section-number">1.2</span> Projection of a point on set</h3>
 <p>Projection of a point <span class="math inline">\mathbf{y} \in \mathbb{R}^n</span> on set <span class="math inline">S \subseteq \mathbb{R}^n</span> is a point <span class="math inline">\pi_S(\mathbf{y}) \in S</span>:</p>
 <p><span class="math display">
 \| \pi_S(\mathbf{y}) - \mathbf{y}\| \le \|\mathbf{x} - \mathbf{y}\|, \forall \mathbf{x} \in S

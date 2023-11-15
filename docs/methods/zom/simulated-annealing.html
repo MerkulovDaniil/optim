@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -705,23 +699,38 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/zom/index.html">Zero order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/zom/simulated-annealing.html">Simulated annealing</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Simulated annealing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>We need to optimize the global optimum of a given function on some space using only the values of the function in some points on the space.</p>
 <p><span class="math display">
 \min_{x \in X} F(x) = F(x^*)
 </span></p>
 <p>Simulated Annealing is a probabilistic technique for approximating the global optimum of a given function.</p>
 </section>
-<section id="algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Algorithm</h1>
+<section id="algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
 <p>The name and inspiration come from annealing in metallurgy, a technique involving heating and controlled cooling of a material to increase the size of its crystals and reduce their defects. Both are attributes of the material that depend on its thermodynamic free energy. Heating and cooling the material affects both the temperature and the thermodynamic free energy. The simulation of annealing can be used to find an approximation of a global minimum for a function with many variables.</p>
-<section id="steps-of-the-algorithm" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="steps-of-the-algorithm"><span class="header-section-number">2.1</span> Steps of the Algorithm</h2>
+<section id="steps-of-the-algorithm" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="steps-of-the-algorithm"><span class="header-section-number">2.1</span> Steps of the Algorithm</h3>
 <p><strong>Step 1</strong> Let <span class="math inline">k = 0</span> - current iteration, <span class="math inline">T = T_k</span> - initial temperature.</p>
 <p><strong>Step 2</strong> Let <span class="math inline">x_k \in X</span> - some random point from our space</p>
 <p><strong>Step 3</strong> Let decrease the temperature by following rule <span class="math inline">T_{k+1} = \alpha T_k</span> where <span class="math inline">0 &lt; \alpha &lt; 1</span> - some constant that often is closer to 1</p>
@@ -731,12 +740,12 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Step 7</strong> If <span class="math inline">\Delta E &gt;= 0</span>, then we accept <span class="math inline">x_{k+1}</span> with the probability of <span class="math inline">P(\Delta E) = \exp^{-\Delta E / T_k}</span>. If we don’t accept <span class="math inline">x_{k+1}</span>, then we let <span class="math inline">k = k+ 1</span>. Go to the step <strong>Step 3</strong></p>
 <p>The algorithm can stop working according to various criteria, for example, achieving an optimal state or lowering the temperature below a predetermined level <span class="math inline">T_{min}</span>.</p>
 </section>
-<section id="convergence" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="convergence"><span class="header-section-number">2.2</span> Convergence</h2>
+<section id="convergence" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="convergence"><span class="header-section-number">2.2</span> Convergence</h3>
 <p>As it mentioned in <a href="https://ieeexplore.ieee.org/document/295910">Simulated annealing: a proof of convergence</a> the algorithm converges almost surely to a global maximum.</p>
 </section>
-<section id="illustration" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="illustration"><span class="header-section-number">2.3</span> Illustration</h2>
+<section id="illustration" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="illustration"><span class="header-section-number">2.3</span> Illustration</h3>
 <p>A gif from <a href="https://en.wikipedia.org/wiki/Simulated_annealing">Wikipedia</a>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -746,8 +755,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="example" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Example</h1>
+<section id="example" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="example"><span class="header-section-number">3</span> Example</h2>
 <p>In our example we solve the N queens puzzle - the problem of placing N&nbsp;chess&nbsp;queens&nbsp;on an N×N&nbsp;chessboard&nbsp;so that no two queens threaten each other.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -755,14 +764,14 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
-<section id="the-problem" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="the-problem"><span class="header-section-number">3.1</span> The Problem</h2>
+<section id="the-problem" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="the-problem"><span class="header-section-number">3.1</span> The Problem</h3>
 <p>Let <span class="math inline">E(x)</span> - the number of intersections, where <span class="math inline">x</span> - the array of placement queens at the field (the number in array means the column, the index of the number means the row).</p>
 <p><strong><em>The problem is</em></strong> to find <span class="math inline">x^*</span> where <span class="math inline">E(x^*) = \min_{x \in X} E(x)</span> - the global minimum, that is predefined and equals to 0 (no two queens threaten each other).</p>
 <p>In this code <span class="math inline">x_0 = [0,1,2,...,N]</span> that means all queens are placed at the board’s diagonal. So at the beginning <span class="math inline">E = N(N-1)</span>, because every queen intersects others.</p>
 </section>
-<section id="results" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="results"><span class="header-section-number">3.2</span> Results</h2>
+<section id="results" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="results"><span class="header-section-number">3.2</span> Results</h3>
 <p>Results of applying this algorithm with <span class="math inline">\alpha = 0.95</span> to the <span class="math inline">N</span> queens puzzle for <span class="math inline">N = 10</span> averaged by 100 runs are below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -779,8 +788,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Simulated%20annealing.ipynb">Open In Colab</a>{: .btn }</p>
 
 

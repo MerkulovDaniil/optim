@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -688,16 +682,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#approaches" id="toc-approaches" class="nav-link" data-scroll-target="#approaches"><span class="header-section-number">2</span> Approaches</a>
   <ul class="collapse">
-  <li><a href="#exact-solutions" id="toc-exact-solutions" class="nav-link" data-scroll-target="#exact-solutions"><span class="header-section-number">2.1</span> Exact solutions</a>
-  <ul class="collapse">
-  <li><a href="#full-search" id="toc-full-search" class="nav-link" data-scroll-target="#full-search"><span class="header-section-number">2.1.1</span> Full search</a></li>
-  <li><a href="#dynamic-programming-algorithm" id="toc-dynamic-programming-algorithm" class="nav-link" data-scroll-target="#dynamic-programming-algorithm"><span class="header-section-number">2.1.2</span> Dynamic programming algorithm</a></li>
-  </ul></li>
-  <li><a href="#approximation-algorithms" id="toc-approximation-algorithms" class="nav-link" data-scroll-target="#approximation-algorithms"><span class="header-section-number">2.2</span> Approximation algorithms</a>
-  <ul class="collapse">
-  <li><a href="#greedy-algorithm" id="toc-greedy-algorithm" class="nav-link" data-scroll-target="#greedy-algorithm"><span class="header-section-number">2.2.1</span> Greedy algorithm</a></li>
-  <li><a href="#probabilistic-algorithm" id="toc-probabilistic-algorithm" class="nav-link" data-scroll-target="#probabilistic-algorithm"><span class="header-section-number">2.2.2</span> Probabilistic algorithm</a></li>
-  </ul></li>
+  <li><a href="#exact-solutions" id="toc-exact-solutions" class="nav-link" data-scroll-target="#exact-solutions"><span class="header-section-number">2.1</span> Exact solutions</a></li>
+  <li><a href="#approximation-algorithms" id="toc-approximation-algorithms" class="nav-link" data-scroll-target="#approximation-algorithms"><span class="header-section-number">2.2</span> Approximation algorithms</a></li>
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">4</span> Code</a></li>
@@ -712,12 +698,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/knapsack_problem.html">Knapsack problem</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Knapsack problem</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>The knapsack problem or rucksack problem is a problem in combinatorial optimization. Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-size knapsack and must fill it with the most valuable items.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -725,8 +726,8 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Wikipedia</figcaption>
 </figure>
 </div>
-<section id="definitions" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1</span> Definitions</h2>
+<section id="definitions" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1</span> Definitions</h3>
 <p>The most common problem is the 0-1 knapsack problem, which restricts the number <span class="math inline">x_{i}</span> of copies of each kind of item to zero or one. Given a set of <span class="math inline">n</span> items numbered from <span class="math inline">1</span> up to <span class="math inline">n</span>, each with a weigh <span class="math inline">w_{i}</span> and a value <span class="math inline">v_{i}</span>, along with a maximum weight capacity <span class="math inline">W</span>,</p>
 <p><span class="math display">
 \begin{split}
@@ -737,16 +738,16 @@ ul.task-list li input[type="checkbox"] {
 <p>The decision problem form of the knapsack problem (Can a value of at least V be achieved without exceeding the weight W?) is NP-complete, thus there is no known algorithm both correct and fast (polynomial-time) in all cases.</p>
 </section>
 </section>
-<section id="approaches" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Approaches</h1>
-<section id="exact-solutions" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="exact-solutions"><span class="header-section-number">2.1</span> Exact solutions</h2>
-<section id="full-search" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="full-search"><span class="header-section-number">2.1.1</span> Full search</h3>
+<section id="approaches" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="approaches"><span class="header-section-number">2</span> Approaches</h2>
+<section id="exact-solutions" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="exact-solutions"><span class="header-section-number">2.1</span> Exact solutions</h3>
+<section id="full-search" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="full-search"><span class="header-section-number">2.1.1</span> Full search</h4>
 <p>As for other discrete tasks, the backpack problem can be solved by completely sorting through all possible solutions. Suppose there are <span class="math inline">n</span> items that can be packed in a backpack. It is necessary to determine the maximum value of the cargo, whose weight does not exceed <span class="math inline">W</span>. For each item, there are 2 options: the item is either put in a backpack or not. Then enumeration of all possible options has time complexity <span class="math inline">O(2^n)</span>, which allows it to be used only for a small number of objects. With an increase in the number of objects, the task becomes unsolvable by this method in an acceptable time.</p>
 </section>
-<section id="dynamic-programming-algorithm" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="dynamic-programming-algorithm"><span class="header-section-number">2.1.2</span> Dynamic programming algorithm</h3>
+<section id="dynamic-programming-algorithm" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="dynamic-programming-algorithm"><span class="header-section-number">2.1.2</span> Dynamic programming algorithm</h4>
 <p>A similar dynamic programming solution for the 0/1 knapsack problem also runs in pseudo-polynomial time. Assume <span class="math inline">w_{1},\,w_{2},\,\ldots ,\,w_{n}, W</span> are strictly positive integers. Define <span class="math inline">m(i,w)</span> to be the maximum value that can be attained with weight less than or equal to <span class="math inline">w</span> using items up to <span class="math inline">i</span> (first <span class="math inline">i</span> items). We can define <span class="math inline">m(i,w)</span> recursively as follows:</p>
 <p><span class="math display">
 m(i, w) =
@@ -759,20 +760,20 @@ m(i, w) =
 <p>The solution can then be found by calculating <span class="math inline">m(n,W)</span>. To do this efficiently, we can use a table to store previous computations. This solution will therefore run in <span class="math inline">O(nW)</span> time and <span class="math inline">O(nW)</span> space.</p>
 </section>
 </section>
-<section id="approximation-algorithms" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="approximation-algorithms"><span class="header-section-number">2.2</span> Approximation algorithms</h2>
-<section id="greedy-algorithm" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="greedy-algorithm"><span class="header-section-number">2.2.1</span> Greedy algorithm</h3>
+<section id="approximation-algorithms" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="approximation-algorithms"><span class="header-section-number">2.2</span> Approximation algorithms</h3>
+<section id="greedy-algorithm" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="greedy-algorithm"><span class="header-section-number">2.2.1</span> Greedy algorithm</h4>
 <p>To solve the problem by the greedy algorithm, it is necessary to sort things by their specific value (that is, the ratio of the value of an item to its weight), and put items with the highest specific value in a backpack. The running time of this algorithm is the sum of the sorting time and stacking time. The difficulty in sorting items is <span class="math inline">O(N \ log (N))</span>. Next, the calculation of how many items fit in a backpack for the total time <span class="math inline">O(N)</span>. Total complexity <span class="math inline">O(N \ log (N))</span> if necessary sorting and <span class="math inline">O(N)</span> if already sorted data. It should be understood that a greedy algorithm can lead to an answer arbitrarily far from optimal. For example, if one item has a weight of 1 and a cost of 2, and another has a weight of <span class="math inline">W</span> and a cost of <span class="math inline">W</span>, then the greedy algorithm will pick up the final cost of 2 with the optimal answer <span class="math inline">W</span>.</p>
 </section>
-<section id="probabilistic-algorithm" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="probabilistic-algorithm"><span class="header-section-number">2.2.2</span> Probabilistic algorithm</h3>
+<section id="probabilistic-algorithm" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="probabilistic-algorithm"><span class="header-section-number">2.2.2</span> Probabilistic algorithm</h4>
 <p>It is a modification of greedy algorithm. In this algorithm decision to include an item with index <span class="math inline">j</span> in the knapsack is taken based on th probability of <span class="math inline">\frac{\lambda_j}{\sum_{i=1}^n\lambda_i}</span>, where <span class="math inline">\lambda_i</span> is the ratio of the value of an item to its weight. This algorithm is run several times and the best solution is selected. If Algorithm starts as many times as you like, then the probability of getting it as a result the work of the optimal solution tends to 1. Total complexity is equal to <span class="math inline">O(mN log(N))</span> operations. <strong>Calculating experiment</strong> The above algorithms were implemented in the python programming language, their source codes are available at the link below. Initial data for the task, namely the values (<span class="math inline">v_{i}</span>) and weights (<span class="math inline">w_{i}</span>) of items were randomly generated. The following ranges of values have been selected <span class="math inline">v_{i}\in [0, 100]</span> and <span class="math inline">w_{i}\in [100, 200]</span>. Maximum weight capacity <span class="math inline">W</span> generated randomly from interval <span class="math inline">W \in [0.5\sum w_i, 0.75\sum w_i]</span>.</p>
 </section>
 </section>
 </section>
-<section id="results" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<section id="results" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
 <p>Dynamic programming algorithm vs probabilistic algorithm:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -794,12 +795,12 @@ m(i, w) =
 </figure>
 </div>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Knapsack_problem.ipynb">Open In Colab</a>{: .btn }</p>
 </section>
-<section id="references" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> References</h1>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li><a href="http://physcontrol.phys.msu.ru/materials/PosobieLazarev/TeorRasp.pdf">Scheduling theory</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Knapsack_problem">Wiki</a></li>

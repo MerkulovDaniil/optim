@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -700,19 +694,34 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/pca.html">Principal component analysis</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Principal component analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="intuition" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Intuition</h1>
+<section id="intuition" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
 <p>Imagine, that you have a dataset of points. Your goal is to choose orthogonal axes, that describe your data the most informative way. To be precise, we choose first axis in such a way, that maximize the variance (expressiveness) of the projected data. All the following axes have to be orthogonal to the previously chosen ones, while satisfy largest possible variance of the projections.</p>
 <p>Let’s take a look at the simple 2d data. We have a set of blue points on the plane. We can easily see that the projections on the first axis (red dots) have maximum variance at the final position of the animation. The second (and the last) axis should be orthogonal to the previous one.</p>
 <p><img src="https://i.stack.imgur.com/lNHqt.gif" class="img-fluid" alt="Illustration"> <a href="https://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues">source</a></p>
 <p>This idea could be used in a variety of ways. For example, it might happen, that projection of complex data on the principal plane (only 2 components) bring you enough intuition for clustering. The picture below plots projection of the labeled dataset onto the first to principal components (PCs), we can clearly see, that only two vectors (these PCs) would be enough to differ Finnish people from Italian in particular dataset (celiac disease (Dubois et al.&nbsp;2010)) <img src="https://nla.skoltech.ru/files/pca_example.png" class="img-fluid" alt="Illustration"> <a href="https://privefl.github.io/bigsnpr/articles/how-to-PCA.html">source</a></p>
 </section>
-<section id="problem" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Problem</h1>
+<section id="problem" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="problem"><span class="header-section-number">2</span> Problem</h2>
 <p>The first component should be defined in order to maximize variance. Suppose, we’ve already normalized the data, i.e.&nbsp;<span class="math inline">\sum\limits_i a_i = 0</span>, then sample variance will become the sum of all squared projections of data points to our vector <span class="math inline">{\mathbf{w}}_{(1)}</span>, which implies the following optimization problem:</p>
 <p><span class="math display">
 \mathbf{w}_{(1)}={\underset  {\Vert {\mathbf{w}}\Vert =1}{\operatorname{\arg \,max}}}\,\left\{\sum _{i}\left({\mathbf{a}}^{\top}_{(i)}\cdot {\mathbf{w}}\right)^{2}\right\}
@@ -769,10 +778,10 @@ A^\top A
 \Pi_r = U_r \Sigma_r
 </span></p>
 </section>
-<section id="examples" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
-<section id="iris-dataset" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="iris-dataset"><span class="header-section-number">3.1</span> 🌼 Iris dataset</h2>
+<section id="examples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="examples"><span class="header-section-number">3</span> Examples</h2>
+<section id="iris-dataset" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="iris-dataset"><span class="header-section-number">3.1</span> 🌼 Iris dataset</h3>
 <p>Consider the classical Iris dataset</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -796,12 +805,12 @@ A^\top A
 </div>
 </section>
 </section>
-<section id="code" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Code</h1>
+<section id="code" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="code"><span class="header-section-number">4</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PCA.ipynb">Open In Colab</a>{: .btn }</p>
 </section>
-<section id="related-materials" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Related materials</h1>
+<section id="related-materials" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="related-materials"><span class="header-section-number">5</span> Related materials</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Principal_component_analysis">Wikipedia</a></li>
 <li><a href="https://ethen8181.github.io/machine-learning/dim_reduct/svd.html">Blog post</a></li>

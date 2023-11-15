@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -682,8 +676,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">1</span> Summary</a></li>
-  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">2</span> Bounds</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary"><span class="header-section-number">0.1</span> Summary</a></li>
+  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">0.2</span> Bounds</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/ADAM.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -694,12 +688,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/ADAM.html">ADAM: A Method for Stochastic Optimization</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">ADAM: A Method for Stochastic Optimization</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="summary" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
+<section id="summary" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">0.1</span> Summary</h3>
 <p>Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second order moment of stochastic gradients.</p>
 <p><span class="math display">
 \tag{ADAM}
@@ -720,8 +729,8 @@ v_k &amp;= \beta_2 v_{k-1} + (1 - \beta_2)g_k^2 \\
 <li>The name came from “<strong>Ada</strong>ptive <strong>M</strong>oment estimation”.</li>
 </ul>
 </section>
-<section id="bounds" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="bounds"><span class="header-section-number">2</span> Bounds</h2>
+<section id="bounds" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="bounds"><span class="header-section-number">0.2</span> Bounds</h3>
 <table class="table">
 <colgroup>
 <col style="width: 13%">

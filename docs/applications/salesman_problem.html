@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -701,12 +695,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/salesman_problem.html">Travelling salesman problem</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Travelling salesman problem</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>Suppose, we have <span class="math inline">N</span> points in <span class="math inline">\mathbb{R}^d</span> Euclidian space (for simplicity, we’ll consider and plot case with <span class="math inline">d=2</span>). Let’s imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -720,12 +729,12 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 </span></p>
 <p>where <span class="math inline">x_k</span> is the <span class="math inline">k</span>-th point from <span class="math inline">N</span> and <span class="math inline">y</span> stands for the <span class="math inline">N</span>- dimensional vector of indicies, which describes the order of path. Actually, the problem could be <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem#Integer_linear_programming_formulations">formulated</a> as an LP problem, which is easier to solve.</p>
 </section>
-<section id="genetic-evolution-algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> 🧬Genetic (evolution) algorithm</h1>
-<p>Our approach is based on the famous global optimization algorithm, known as evolution algorithm. ## Population and individuals Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions <span class="math inline">\{y_k\}_{k=1}^n</span> as <em>population</em>, while each solution is called <em>individual</em> (or creature).</p>
+<section id="genetic-evolution-algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="genetic-evolution-algorithm"><span class="header-section-number">2</span> 🧬Genetic (evolution) algorithm</h2>
+<p>Our approach is based on the famous global optimization algorithm, known as evolution algorithm. ### Population and individuals Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions <span class="math inline">\{y_k\}_{k=1}^n</span> as <em>population</em>, while each solution is called <em>individual</em> (or creature).</p>
 <p>Each creature contains integer numbers <span class="math inline">1, \ldots, N</span>, which indicates the order of bypassing all the houses. The creature, that reflects the shortest path length among the others will be used as an output of an algorithm at the current iteration (generation).</p>
-<section id="crossing-procedure" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="crossing-procedure"><span class="header-section-number">2.1</span> Crossing procedure</h2>
+<section id="crossing-procedure" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="crossing-procedure"><span class="header-section-number">2.1</span> Crossing procedure</h3>
 <p>Each iteration of the algorithm starts with the crossing (breed) procedure. Formally speaking, we should formulate the mapping, that takes two creature vectors as an input and returns its offspring, which inherits parents properties, while remaining consistent. We will use <a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx">ordered crossover</a> as such procedure.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -734,12 +743,12 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 </figure>
 </div>
 </section>
-<section id="mutation" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="mutation"><span class="header-section-number">2.2</span> Mutation</h2>
+<section id="mutation" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="mutation"><span class="header-section-number">2.2</span> Mutation</h3>
 <p>In order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, <span class="math inline">0.05</span>). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose <span class="math inline">\text{mutation_rate} \cdot n</span> individuals and in each case swap random <span class="math inline">\text{mutation_rate} \cdot N</span> digits.</p>
 </section>
-<section id="selection" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.3</span> Selection</h2>
+<section id="selection" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.3</span> Selection</h3>
 <p>At the end of the iteration we have increased population (due to crossing results), then we just calculate total path distance to each individual and select top <span class="math inline">n</span> of them.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -759,12 +768,12 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 </span></p>
 </section>
 </section>
-<section id="code" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Code</h1>
+<section id="code" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="code"><span class="header-section-number">3</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Travelling%20salesman%20problem.ipynb">Open In Colab</a>{: .btn }</p>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li><a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms.aspx">General information about genetic algorithms</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Wiki</a></li>

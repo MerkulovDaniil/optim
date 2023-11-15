@@ -580,12 +580,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -727,12 +721,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Line search</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="problem" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Problem</h1>
+<section id="problem" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>Suppose, we have a problem of minimization of a function <span class="math inline">f(x): \mathbb{R} \to \mathbb{R}</span> of scalar variable:</p>
 <p><span class="math display">
 f(x) \to \min_{x \in \mathbb{R}}
@@ -750,25 +759,25 @@ f(x) \to \min_{x \in [a,b]}
 </figure>
 </div>
 </section>
-<section id="key-property-of-unimodal-functions" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Key property of unimodal functions</h1>
+<section id="key-property-of-unimodal-functions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="key-property-of-unimodal-functions"><span class="header-section-number">2</span> Key property of unimodal functions</h2>
 <p>Let <span class="math inline">f(x)</span> be unimodal function on <span class="math inline">[a, b]</span>. Than if <span class="math inline">x_1 &lt; x_2 \in [a, b]</span>, then:</p>
 <ul>
 <li>if <span class="math inline">f(x_1) \leq f(x_2) \to x_* \in [a, x_2]</span></li>
 <li>if <span class="math inline">f(x_1) \geq f(x_2) \to x_* \in [x_1, b]</span> <img src="unimodal_pro.gif" class="img-fluid" alt="Illustration"></li>
 </ul>
 </section>
-<section id="code" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Code</h1>
+<section id="code" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="code"><span class="header-section-number">3</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb">Open In Colab</a></p>
 <div id="listing-ls" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1700051340995" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1700091148732" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title" data-anchor-id="code">
+<h5 class="no-anchor card-title listing-title">
 Binary search
 </h5>
 <div class="card-text listing-description">
@@ -778,7 +787,7 @@ We divide a segment into two equal parts and choose the one that contains the so
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1700051340995" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1700091148732" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -793,7 +802,7 @@ The idea is quite similar to the dichotomy method. There are two golden points o
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1700051340995" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1700091148732" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
 <a href="../../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="backtracking.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -808,7 +817,7 @@ This strategy of inexact line search works well in practice, as well as it has t
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1700051340995" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1700091148732" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
 <a href="../../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -829,8 +838,8 @@ No matching items
 </div>
 </div>
 </section>
-<section id="references" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<section id="references" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
 <ul>
 <li><a href="http://www.machinelearning.ru/wiki/images/4/4d/MOMO16_min1d.pdf">CMC seminars (ru)</a></li>
 </ul>

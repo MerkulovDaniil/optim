@@ -549,12 +549,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/applications/Eigenfaces.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Eigenfaces</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Minimum volume ellipsoid</span></a>
   </div>
@@ -685,12 +679,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">2</span> Algorithm</a>
   <ul class="collapse">
-  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">2.1</span> Bounds</a>
-  <ul class="collapse">
-  <li><a href="#vanilla-version" id="toc-vanilla-version" class="nav-link" data-scroll-target="#vanilla-version"><span class="header-section-number">2.1.1</span> Vanilla version</a></li>
-  <li><a href="#steepest-subgradient-descent" id="toc-steepest-subgradient-descent" class="nav-link" data-scroll-target="#steepest-subgradient-descent"><span class="header-section-number">2.1.2</span> Steepest subgradient descent</a></li>
-  <li><a href="#online-learning" id="toc-online-learning" class="nav-link" data-scroll-target="#online-learning"><span class="header-section-number">2.1.3</span> Online learning</a></li>
-  </ul></li>
+  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">2.1</span> Bounds</a></li>
   </ul></li>
   <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">3</span> Examples</a>
   <ul class="collapse">
@@ -710,12 +699,27 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/Subgradient descent.html">Subgradient descent</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Subgradient descent</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
 </header>
 
 
-<section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Рассматривается классическая задача выпуклой оптимизации:</p>
 <p><span class="math display">
 \min_{x \in S} f(x),
@@ -730,17 +734,17 @@ f(x)  \geq f(x_0) +  \langle g, x - x_0 \rangle
 <p><strong>Вход:</strong> <span class="math inline">x \in \mathbb R^n</span></p>
 <p><strong>Выход:</strong> <span class="math inline">\partial f(x)</span> и <span class="math inline">f(x)</span></p>
 </section>
-<section id="algorithm" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Algorithm</h1>
+<section id="algorithm" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
 <p><span class="math display">
 \tag{SD}
 x_{k+1} = x_k - \alpha_k g_k,
 </span></p>
 <p>где <span class="math inline">g_k</span> - произвольный субградиент функции <span class="math inline">f(x)</span> в т. <span class="math inline">x_k</span>, <span class="math inline">g_k \in \partial f (x_k)</span></p>
-<section id="bounds" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="bounds"><span class="header-section-number">2.1</span> Bounds</h2>
-<section id="vanilla-version" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="vanilla-version"><span class="header-section-number">2.1.1</span> Vanilla version</h3>
+<section id="bounds" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="bounds"><span class="header-section-number">2.1</span> Bounds</h3>
+<section id="vanilla-version" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="vanilla-version"><span class="header-section-number">2.1.1</span> Vanilla version</h4>
 <p>Запишем как близко мы подошли к оптимуму <span class="math inline">x^* = \text{arg}\min\limits_{x \in \mathbb{R}^n} f(x) = \text{arg} f^*</span> на последней итерации:</p>
 <p><span class="math display">
 \begin{align*}
@@ -789,8 +793,8 @@ f(\overline{x}) - f^* &amp;= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \ri
 <li>Для выбора оптимального шага необходимо знать (предположить) число итераций заранее. Возможный выход: инициализировать <span class="math inline">T</span> небольшим значением, после достижения этого количества итераций удваивать <span class="math inline">T</span> и рестартовать алгоритм. Более интеллектуальный способ: адаптивный выбор длины шага.</li>
 </ul>
 </section>
-<section id="steepest-subgradient-descent" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="steepest-subgradient-descent"><span class="header-section-number">2.1.2</span> Steepest subgradient descent</h3>
+<section id="steepest-subgradient-descent" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="steepest-subgradient-descent"><span class="header-section-number">2.1.2</span> Steepest subgradient descent</h4>
 <p>Попробуем выбирать на каждой итерации длину шага более оптимально. Тогда:</p>
 <p><span class="math display">
 \| x_{k+1} - x^* \|^2  = \| x_k - x^* \|^2 + \alpha_k^2 \|g_k\|^2 - 2 \alpha_k \langle g_k, x_k - x^* \rangle
@@ -824,8 +828,8 @@ f(\overline{x}) - f^* &amp;= f \left( \frac{1}{T}\sum\limits_{k=0}^{T-1} x_k \ri
 </span></p>
 <p>Что приводит к абсолютно такой же оценке <span class="math inline">\mathcal{O}\left(\dfrac{1}{\sqrt{T}}\right)</span> на невязку по значению функции. На самом деле, для такого класса функций нельзя получить результат лучше, чем <span class="math inline">\dfrac{1}{\sqrt{T}}</span> или <span class="math inline">\dfrac{1}{\varepsilon^2}</span> по итерациям</p>
 </section>
-<section id="online-learning" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="online-learning"><span class="header-section-number">2.1.3</span> Online learning</h3>
+<section id="online-learning" class="level4" data-number="2.1.3">
+<h4 data-number="2.1.3" class="anchored" data-anchor-id="online-learning"><span class="header-section-number">2.1.3</span> Online learning</h4>
 <p>Рассматривается следующая игра: есть игрок и природа. На каждом из <span class="math inline">k = 0, \ldots, T-1</span> шагов:</p>
 <ul>
 <li><em>Игрок</em> выбирает действие <span class="math inline">x_k</span></li>
@@ -863,10 +867,10 @@ R_{T-1} &amp;= \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}
 </section>
 </section>
 </section>
-<section id="examples" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
-<section id="least-squares-with-l_1-regularization" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</h2>
+<section id="examples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="examples"><span class="header-section-number">3</span> Examples</h2>
+<section id="least-squares-with-l_1-regularization" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="least-squares-with-l_1-regularization"><span class="header-section-number">3.1</span> Least squares with <span class="math inline">l_1</span> regularization</h3>
 <p><span class="math display">
 \min_{x \in \mathbb{R}^n} \dfrac{1}{2}\|Ax - b\|_2^2 + \lambda \|x\|_1
 </span></p>
@@ -882,8 +886,8 @@ x_{k+1} = x_k - \alpha_k \left( A^\top(Ax_k - b) + \lambda \text{sign}(x_k)\righ
 </figure>
 </div>
 </section>
-<section id="support-vector-machines" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="support-vector-machines"><span class="header-section-number">3.2</span> Support vector machines</h2>
+<section id="support-vector-machines" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="support-vector-machines"><span class="header-section-number">3.2</span> Support vector machines</h3>
 <p>Let <span class="math inline">D = \{ (x_i, y_i) \mid x_i \in \mathbb{R}^n, y_i \in \{\pm 1\}\}</span></p>
 <p>We need to find <span class="math inline">\omega \in \mathbb{R}^n</span> and <span class="math inline">b \in \mathbb{R}</span> such that</p>
 <p><span class="math display">
@@ -891,8 +895,8 @@ x_{k+1} = x_k - \alpha_k \left( A^\top(Ax_k - b) + \lambda \text{sign}(x_k)\righ
 </span></p>
 </section>
 </section>
-<section id="bounds-1" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Bounds</h1>
+<section id="bounds-1" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="bounds-1"><span class="header-section-number">4</span> Bounds</h2>
 <table class="table">
 <colgroup>
 <col style="width: 13%">
@@ -942,15 +946,15 @@ x_{k+1} = x_k - \alpha_k \left( A^\top(Ax_k - b) + \lambda \text{sign}(x_k)\righ
 <li><span class="math inline">\|g_k\| \leq G</span></li>
 </ul>
 </section>
-<section id="code" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Code</h1>
+<section id="code" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="code"><span class="header-section-number">5</span> Code</h2>
 <ul>
 <li><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/subgrad.ipynb">Open In Colab</a> - Wolfe’s example and why we usually have oscillations in non-smooth optimization.</li>
 <li><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SD.ipynb">Open In Colab</a> - Linear least squares with <span class="math inline">l_1</span>- regularization.</li>
 </ul>
 </section>
-<section id="references" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+<section id="references" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="references"><span class="header-section-number">6</span> References</h2>
 <ul>
 <li><a href="http://www.pokutta.com/blog/research/2019/02/27/cheatsheet-nonsmooth.html">Great cheatsheet</a> by Sebastian Pokutta</li>
 <li><a href="http://suvrit.de/teach/ee227a/lect12.pdf">Lecture</a> on subgradient methods @ Berkley</li>
