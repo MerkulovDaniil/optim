@@ -17,6 +17,7 @@ filters:
   - fminxyz
 
 website:
+  site-url: https://fmin.xyz
   navbar:
     title: false
     logo: logo.svg
