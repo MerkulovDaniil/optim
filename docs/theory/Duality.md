@@ -77,17 +77,20 @@ $$
 $$
 
 
+
 The term "dual feasible", to describe a pair $(\lambda, \nu)$ with $\lambda \succeq 0$ and $g(\lambda, \nu) > −\infty$, now makes sense. It means, as the name implies, that $(\lambda, \nu)$ is feasible for the dual problem. We refer to $(\lambda^*, \nu^*)$ as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.
 
 ### Summary
 
+:::{.callout-theorem}
 |  | Primal | Dual |
 |:--:|:--:|:--:|
 | Function | $f_0(x)$ | $g(\lambda, \nu) = \min\limits_{x \in \mathcal{D}} L(x, \lambda, \nu)$ |
 | Variables | $x \in S \subseteq \mathbb{R^n}$ | $\lambda \in \mathbb{R}^m_{+}, \nu \in \mathbb{R}^p$ |
-| Constraints | $\begin{matrix} & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\lambda_i \geq 0, \forall i \in \overline{1,m}$ |
-| Problem | $\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$ | 
-| Optimal | $\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$ | $\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$ |
+| Constraints | $f_i(x) \leq 0$, $i = 1,\ldots,m$ $h_i(x) = 0, \; i = 1,\ldots, p$ | $\lambda_i \geq 0, \forall i \in \overline{1,m}$ |
+<!-- | Problem | $\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$ | 
+| Optimal | $\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$ | $\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$ | -->
+:::
 
 :::{.callout-example}
 #### Least-squares solution of linear equations {#sec-LLS}
@@ -621,7 +624,7 @@ If strong duality holds and the dual optimum is reached, the optimal $\lambda^*$
 
 ### Mixed strategies for matrix games
 
-![The scheme of a mixed strategy matrix game](msmg.svg)
+![The scheme of a mixed strategy matrix game](msmg.png)
 
 In zero-sum matrix games, players 1 and 2 choose actions from sets $\{1,...,n\}$ and $\{1,...,m\}$, respectively. The outcome is a payment from player 1 to player 2, determined by a payoff matrix $P \in \mathbb{R}^{n \times m}$. Each player aims to use mixed strategies, choosing actions according to a probability distribution: player 1 uses probabilities $u_k$ for each action $i$, and player 2 uses $v_l$.
 
