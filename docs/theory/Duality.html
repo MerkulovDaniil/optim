@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.504">
+<meta name="generator" content="quarto-1.4.506">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -776,6 +776,18 @@ g(\lambda, \nu) \leq p^*
 <p>The term “dual feasible”, to describe a pair <span class="math inline">(\lambda, \nu)</span> with <span class="math inline">\lambda \succeq 0</span> and <span class="math inline">g(\lambda, \nu) &gt; −\infty</span>, now makes sense. It means, as the name implies, that <span class="math inline">(\lambda, \nu)</span> is feasible for the dual problem. We refer to <span class="math inline">(\lambda^*, \nu^*)</span> as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.</p>
 <section id="summary" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.1</span> Summary</h3>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -802,21 +814,17 @@ g(\lambda, \nu) \leq p^*
 </tr>
 <tr class="odd">
 <td style="text-align: center;">Constraints</td>
-<td style="text-align: center;"><span class="math inline">\begin{matrix} &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\ &amp; h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}</span></td>
+<td style="text-align: center;"><span class="math inline">f_i(x) \leq 0</span>, <span class="math inline">i = 1,\ldots,m</span> <span class="math inline">h_i(x) = 0, \; i = 1,\ldots, p</span></td>
 <td style="text-align: center;"><span class="math inline">\lambda_i \geq 0, \forall i \in \overline{1,m}</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">Problem</td>
-<td style="text-align: center;"><span class="math inline">\begin{matrix}&amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\ &amp; h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}</span></td>
-<td style="text-align: center;"><span class="math inline">\begin{matrix} g(\lambda, \nu) &amp;\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } &amp; \lambda \succeq 0 \end{matrix}</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Optimal</td>
-<td style="text-align: center;"><span class="math inline">\begin{matrix} &amp;x^* \text{ if feasible}, \\ &amp;p^* = f_0(x^*)\end{matrix}</span></td>
-<td style="text-align: center;"><span class="math inline">\begin{matrix} &amp;\lambda^*, \nu^* \text{ if } \max \text{ is achieved}, \\ &amp;d^* = g(\lambda^*, \nu^*)\end{matrix}</span></td>
 </tr>
 </tbody>
 </table>
+<!-- | Problem | $\begin{matrix}& f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\ \text{s.t. } & f_i(x) \leq 0, \; i = 1,\ldots,m\\ & h_i(x) = 0, \; i = 1,\ldots, p \end{matrix}$ | $\begin{matrix}  g(\lambda, \nu) &\to \max\limits_{\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p }\\ \text{s.t. } & \lambda \succeq 0 \end{matrix}$ | 
+| Optimal | $\begin{matrix} &x^* \text{ if feasible},  \\ &p^* = f_0(x^*)\end{matrix}$ | $\begin{matrix} &\lambda^*, \nu^* \text{ if } \max \text{ is achieved},  \\ &d^* = g(\lambda^*, \nu^*)\end{matrix}$ | -->
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -836,7 +844,7 @@ Least-squares solution of linear equations
 \end{aligned}
 </span> with the matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -845,7 +853,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -885,7 +893,7 @@ Two-way partitioning problem
 \end{aligned}
 </span></p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -894,7 +902,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -1101,7 +1109,7 @@ A nonconvex quadratic problem with strong duality
 </span></p>
 <p>where <span class="math inline">A \in \mathbb{S}^n, A \nsucceq 0</span> and <span class="math inline">b \in \mathbb{R}^n</span>. Since <span class="math inline">A \nsucceq 0</span>, this is not a convex problem. This problem is sometimes called the trust region problem, and arises in minimizing a second-order approximation of a function over the unit ball, which is the region in which the approximation is assumed to be approximately valid.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1110,7 +1118,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -1434,7 +1442,7 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <h3 data-number="5.5" class="anchored" data-anchor-id="mixed-strategies-for-matrix-games"><span class="header-section-number">5.5</span> Mixed strategies for matrix games</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="msmg.svg" class="img-fluid figure-img"></p>
+<p><img src="msmg.png" class="img-fluid figure-img"></p>
 <figcaption>The scheme of a mixed strategy matrix game</figcaption>
 </figure>
 </div>
