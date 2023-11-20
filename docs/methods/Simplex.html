@@ -684,20 +684,19 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#chebyshev-approximation-problem" id="toc-chebyshev-approximation-problem" class="nav-link" data-scroll-target="#chebyshev-approximation-problem"><span class="header-section-number">3.2</span> Chebyshev approximation problem</a></li>
   <li><a href="#l_1-approximation-problem" id="toc-l_1-approximation-problem" class="nav-link" data-scroll-target="#l_1-approximation-problem"><span class="header-section-number">3.3</span> <span class="math inline">l_1</span> approximation problem</a></li>
   </ul></li>
-  <li><a href="#idea-of-simplex-algorithm" id="toc-idea-of-simplex-algorithm" class="nav-link" data-scroll-target="#idea-of-simplex-algorithm"><span class="header-section-number">4</span> Idea of simplex algorithm</a>
+  <li><a href="#duality" id="toc-duality" class="nav-link" data-scroll-target="#duality"><span class="header-section-number">4</span> Duality</a></li>
+  <li><a href="#idea-of-simplex-algorithm" id="toc-idea-of-simplex-algorithm" class="nav-link" data-scroll-target="#idea-of-simplex-algorithm"><span class="header-section-number">5</span> Idea of simplex algorithm</a>
   <ul class="collapse">
-  <li><a href="#main-lemma" id="toc-main-lemma" class="nav-link" data-scroll-target="#main-lemma"><span class="header-section-number">4.1</span> Main lemma</a></li>
-  <li><a href="#changing-basis" id="toc-changing-basis" class="nav-link" data-scroll-target="#changing-basis"><span class="header-section-number">4.2</span> Changing basis</a></li>
-  <li><a href="#finding-an-initial-basic-feasible-solution" id="toc-finding-an-initial-basic-feasible-solution" class="nav-link" data-scroll-target="#finding-an-initial-basic-feasible-solution"><span class="header-section-number">4.3</span> Finding an initial basic feasible solution</a></li>
+  <li><a href="#changing-basis" id="toc-changing-basis" class="nav-link" data-scroll-target="#changing-basis"><span class="header-section-number">5.1</span> Changing basis</a></li>
+  <li><a href="#finding-an-initial-basic-feasible-solution" id="toc-finding-an-initial-basic-feasible-solution" class="nav-link" data-scroll-target="#finding-an-initial-basic-feasible-solution"><span class="header-section-number">5.2</span> Finding an initial basic feasible solution</a></li>
   </ul></li>
-  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence"><span class="header-section-number">5</span> Convergence</a>
+  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence"><span class="header-section-number">6</span> Convergence</a>
   <ul class="collapse">
-  <li><a href="#klee-minty-example" id="toc-klee-minty-example" class="nav-link" data-scroll-target="#klee-minty-example"><span class="header-section-number">5.1</span> Klee Minty example</a></li>
-  <li><a href="#strong-duality" id="toc-strong-duality" class="nav-link" data-scroll-target="#strong-duality"><span class="header-section-number">5.2</span> Strong duality</a></li>
+  <li><a href="#klee-minty-example" id="toc-klee-minty-example" class="nav-link" data-scroll-target="#klee-minty-example"><span class="header-section-number">6.1</span> Klee Minty example</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">7</span> Code</a></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">8</span> Materials</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7</span> Summary</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">8</span> Code</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">9</span> Materials</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/Simplex.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -886,6 +885,64 @@ Transportation problem
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Blending problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p><a href="https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/02.03-Linear-Blending-Problem.html">Source</a></p>
+<p>A brewery receives an order for 100 gallons of 4% ABV (alchohol by volume) beer. The brewery has on hand beer Okhota that is 4.5% ABV that cost USD 0.32 per gallon to make, and beer Baltos that is 3.7% ABV and cost USD 0.25 per gallon. Water could also be used as a blending agent at a cost of USD 0.05 per gallon. Find the minimum cost blend that meets the customer requirements.</p>
+<section id="model-formulation" class="level4" data-number="2.0.1">
+<h4 data-number="2.0.1" class="anchored" data-anchor-id="model-formulation"><span class="header-section-number">2.0.1</span> Model Formulation</h4>
+<section id="objective-function" class="level5" data-number="2.0.1.1">
+<h5 data-number="2.0.1.1" class="anchored" data-anchor-id="objective-function"><span class="header-section-number">2.0.1.1</span> Objective Function</h5>
+<p>If we let subscript <span class="math inline">c</span> denote a blending component from the set of blending components <span class="math inline">C</span>, and denote the volume of <span class="math inline">c</span> used in the blend as <span class="math inline">x_c</span>, the cost of the blend is</p>
+<p><span class="math display">
+\text{cost}  = \sum_{c\in C} x_c P_c
+</span></p>
+<p>where <span class="math inline">P_c</span> is the price per unit volume of <span class="math inline">c</span>. Using the Python data dictionary defined above, the price <span class="math inline">P_c</span> is given by <code>data[c]['cost']</code>.</p>
+</section>
+<section id="volume-constraint" class="level5" data-number="2.0.1.2">
+<h5 data-number="2.0.1.2" class="anchored" data-anchor-id="volume-constraint"><span class="header-section-number">2.0.1.2</span> Volume Constraint</h5>
+<p>The customer requirement is produce a total volume <span class="math inline">V</span>. Assuming ideal solutions, the constraint is given by</p>
+<p><span class="math display">
+V  = \sum_{c\in C} x_c
+</span></p>
+<p>where <span class="math inline">x_c</span> denotes the volume of component <span class="math inline">c</span> used in the blend.</p>
+</section>
+<section id="product-composition-constraint" class="level5" data-number="2.0.1.3">
+<h5 data-number="2.0.1.3" class="anchored" data-anchor-id="product-composition-constraint"><span class="header-section-number">2.0.1.3</span> Product Composition Constraint</h5>
+<p>The product composition is specified as 4% alchohol by volume. Denoting this as <span class="math inline">\bar{A}</span>, the constraint may be written as</p>
+<p><span class="math display">
+\bar{A} = \frac{\sum_{c\in C}x_c A_c}{\sum_{c\in C} x_c}
+</span></p>
+<p>where <span class="math inline">A_c</span> is the alcohol by volume for component <span class="math inline">c</span>. As written, this is a nonlinear constraint. Multiplying both sides of the equation by the denominator yields a linear constraint</p>
+<p><span class="math display">
+\bar{A}\sum_{c\in C} x_c  = \sum_{c\in C}x_c A_c
+</span></p>
+<p>A final form for this constraint can be given in either of two versions. In the first version we subtract the left-hand side from the right to give</p>
+<p><span class="math display">
+0  = \sum_{c\in C}x_c \left(A_c - \bar{A}\right)  \text{ Version 1 of the linear blending constraint}
+</span></p>
+<p>Alternatively, the summation on the left-hand side corresponds to total volume. Since that is known as part of the problem specification, the blending constraint could also be written as</p>
+<p><span class="math display">
+\bar{A}V  = \sum_{c\in C}x_c A_c   \text{ Version 2 of the linear blending constraint}
+</span></p>
+<p>Which should you use? Either will generally work well. The advantage of version 1 is that it is fully specified by a product requirement <span class="math inline">\bar{A}</span>, which is sometimes helpful in writing elegant Python code.</p>
+<p>The code for the problem is available here: <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP_blending.ipynb">💻</a></p>
+</section>
+</section>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="how-to-retrieve-lp" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="how-to-retrieve-lp"><span class="header-section-number">3</span> How to retrieve LP</h2>
@@ -936,8 +993,18 @@ x_- \geq 0
 </span></p>
 </section>
 </section>
-<section id="idea-of-simplex-algorithm" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="idea-of-simplex-algorithm"><span class="header-section-number">4</span> Idea of simplex algorithm</h2>
+<section id="duality" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="duality"><span class="header-section-number">4</span> Duality</h2>
+<p>There are four possibilities:</p>
+<ul>
+<li>Both the primal and the dual are infeasible.</li>
+<li>The primal is infeasible and the dual is unbounded.</li>
+<li>The primal is unbounded and the dual is infeasible.</li>
+<li>Both the primal and the dual are feasible and their optimal values are equal.</li>
+</ul>
+</section>
+<section id="idea-of-simplex-algorithm" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="idea-of-simplex-algorithm"><span class="header-section-number">5</span> Idea of simplex algorithm</h2>
 <ul>
 <li>The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases <span class="math inline">c^\top x</span> most</li>
 <li>This either terminates at a corner, or leads to an unconstrained edge (<span class="math inline">-\infty</span> optimum)</li>
@@ -963,10 +1030,33 @@ x_- \geq 0
 <p><span class="math display">
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
 </span></p>
-<section id="main-lemma" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="main-lemma"><span class="header-section-number">4.1</span> Main lemma</h3>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
 <p>If all components of <span class="math inline">\lambda_B</span> are non-positive and <span class="math inline">B</span> is feasible, then <span class="math inline">B</span> is optimal.</p>
-<p><strong>Proof:</strong></p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof">
 <p><span class="math display">
 \begin{align*}
 \exists x^*: Ax^* &amp;\leq b, c^\top x^* &lt; c^\top x_B \\
@@ -976,9 +1066,17 @@ c^\top x^* &amp; \geq \lambda_B^\top A_B x_B \\
 c^\top x^* &amp; \geq c^\top  x_B \\
 \end{align*}
 </span></p>
-</section>
-<section id="changing-basis" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="changing-basis"><span class="header-section-number">4.2</span> Changing basis</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="changing-basis" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="changing-basis"><span class="header-section-number">5.1</span> Changing basis</h3>
 <p>Suppose, some of the coefficients of <span class="math inline">\lambda_B</span> are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -990,8 +1088,8 @@ c^\top x^* &amp; \geq c^\top  x_B \\
 x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </span></p>
 </section>
-<section id="finding-an-initial-basic-feasible-solution" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="finding-an-initial-basic-feasible-solution"><span class="header-section-number">4.3</span> Finding an initial basic feasible solution</h3>
+<section id="finding-an-initial-basic-feasible-solution" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="finding-an-initial-basic-feasible-solution"><span class="header-section-number">5.2</span> Finding an initial basic feasible solution</h3>
 <p>Let us consider <span class="math inline">\text{LP.Canonical}</span>.</p>
 <p><span class="math display">
 \begin{align*}
@@ -1020,10 +1118,10 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </ul>
 </section>
 </section>
-<section id="convergence" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="convergence"><span class="header-section-number">5</span> Convergence</h2>
-<section id="klee-minty-example" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">5.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h3>
+<section id="convergence" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="convergence"><span class="header-section-number">6</span> Convergence</h2>
+<section id="klee-minty-example" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">6.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h3>
 <p>In the following problem simplex algorithm needs to check <span class="math inline">2^n - 1</span> vertexes with <span class="math inline">x_0 = 0</span>.</p>
 <p><span class="math display">
 \begin{align*} &amp; \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
@@ -1041,19 +1139,9 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </figure>
 </div>
 </section>
-<section id="strong-duality" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="strong-duality"><span class="header-section-number">5.2</span> Strong duality</h3>
-<p>There are four possibilities:</p>
-<ul>
-<li>Both the primal and the dual are infeasible.</li>
-<li>The primal is infeasible and the dual is unbounded.</li>
-<li>The primal is unbounded and the dual is infeasible.</li>
-<li>Both the primal and the dual are feasible and their optimal values are equal.</li>
-</ul>
 </section>
-</section>
-<section id="summary" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="summary"><span class="header-section-number">6</span> Summary</h2>
+<section id="summary" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="summary"><span class="header-section-number">7</span> Summary</h2>
 <ul>
 <li>A wide variety of applications could be formulated as the linear programming.</li>
 <li>Simplex algorithm is simple, but could work exponentially long.</li>
@@ -1061,12 +1149,12 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 <li>Interior point methods are the last word in this area. However, good implementations of simplex-based methods and interior point methods are similar for routine applications of linear programming.</li>
 </ul>
 </section>
-<section id="code" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="code"><span class="header-section-number">7</span> Code</h2>
+<section id="code" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="code"><span class="header-section-number">8</span> Code</h2>
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb">Open In Colab</a></p>
 </section>
-<section id="materials" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="materials"><span class="header-section-number">8</span> Materials</h2>
+<section id="materials" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="materials"><span class="header-section-number">9</span> Materials</h2>
 <ul>
 <li><a href="https://yadi.sk/i/uhmarI88kCRfw">Linear Programming.</a> in V. Lempitsky optimization course.</li>
 <li><a href="https://yadi.sk/i/lzCxOVbnkFfZc">Simplex method.</a> in V. Lempitsky optimization course.</li>
