@@ -678,12 +678,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-linear-programming" id="toc-what-is-linear-programming" class="nav-link active" data-scroll-target="#what-is-linear-programming"><span class="header-section-number">1</span> What is Linear Programming?</a></li>
   <li><a href="#examples-of-lp-problems" id="toc-examples-of-lp-problems" class="nav-link" data-scroll-target="#examples-of-lp-problems"><span class="header-section-number">2</span> Examples of LP problems</a></li>
-  <li><a href="#how-to-retrieve-lp" id="toc-how-to-retrieve-lp" class="nav-link" data-scroll-target="#how-to-retrieve-lp"><span class="header-section-number">3</span> How to retrieve LP</a>
-  <ul class="collapse">
-  <li><a href="#basic-transformations" id="toc-basic-transformations" class="nav-link" data-scroll-target="#basic-transformations"><span class="header-section-number">3.1</span> Basic transformations</a></li>
-  <li><a href="#chebyshev-approximation-problem" id="toc-chebyshev-approximation-problem" class="nav-link" data-scroll-target="#chebyshev-approximation-problem"><span class="header-section-number">3.2</span> Chebyshev approximation problem</a></li>
-  <li><a href="#l_1-approximation-problem" id="toc-l_1-approximation-problem" class="nav-link" data-scroll-target="#l_1-approximation-problem"><span class="header-section-number">3.3</span> <span class="math inline">l_1</span> approximation problem</a></li>
-  </ul></li>
+  <li><a href="#basic-transformations" id="toc-basic-transformations" class="nav-link" data-scroll-target="#basic-transformations"><span class="header-section-number">3</span> Basic transformations</a></li>
   <li><a href="#duality" id="toc-duality" class="nav-link" data-scroll-target="#duality"><span class="header-section-number">4</span> Duality</a></li>
   <li><a href="#idea-of-simplex-algorithm" id="toc-idea-of-simplex-algorithm" class="nav-link" data-scroll-target="#idea-of-simplex-algorithm"><span class="header-section-number">5</span> Idea of simplex algorithm</a>
   <ul class="collapse">
@@ -944,10 +939,8 @@ V  = \sum_{c\in C} x_c
 </div>
 </div>
 </section>
-<section id="how-to-retrieve-lp" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="how-to-retrieve-lp"><span class="header-section-number">3</span> How to retrieve LP</h2>
-<section id="basic-transformations" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="basic-transformations"><span class="header-section-number">3.1</span> Basic transformations</h3>
+<section id="basic-transformations" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="basic-transformations"><span class="header-section-number">3</span> Basic transformations</h2>
 <p>Inequality to equality by increasing the dimension of the problem by <span class="math inline">m</span>.</p>
 <p><span class="math display">
 Ax \leq b \leftrightarrow
@@ -965,12 +958,22 @@ x_+ \geq 0 \\
 x_- \geq 0
 \end{cases}
 </span></p>
-</section>
-<section id="chebyshev-approximation-problem" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="chebyshev-approximation-problem"><span class="header-section-number">3.2</span> Chebyshev approximation problem</h3>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Chebyshev approximation problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
 <p><span class="math display">
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
 </span></p>
+<p>Could be equivalently written as a LP with thre replacement of maximum coordinate of a vector:</p>
 <p><span class="math display">
 \begin{align*}
 &amp;\min_{t \in \mathbb{R}, x \in \mathbb{R}^n} t \\
@@ -978,12 +981,26 @@ x_- \geq 0
 &amp; -a_i^\top x + b_i \leq t, \; i = 1,\dots, n
 \end{align*}
 </span></p>
-</section>
-<section id="l_1-approximation-problem" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="l_1-approximation-problem"><span class="header-section-number">3.3</span> <span class="math inline">l_1</span> approximation problem</h3>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+l_1 approximation problem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
 <p><span class="math display">
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
 </span></p>
+<p>Could be equivalently written as a LP with thre replacement of the sum of coordinates of a vector:</p>
 <p><span class="math display">
 \begin{align*}
 &amp;\min_{t \in \mathbb{R}^n, x \in \mathbb{R}^n} \mathbf{1}^\top t \\
@@ -991,7 +1008,10 @@ x_- \geq 0
 &amp; -a_i^\top x + b_i \leq t_i, \; i = 1,\dots, n
 \end{align*}
 </span></p>
-</section>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="duality" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="duality"><span class="header-section-number">4</span> Duality</h2>
@@ -1002,6 +1022,38 @@ x_- \geq 0
 <li>The primal is unbounded and the dual is infeasible.</li>
 <li>Both the primal and the dual are feasible and their optimal values are equal.</li>
 </ul>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Ensure, that the following standard form LP:</p>
+<p><span class="math display">
+\begin{align*}
+&amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
+\text{s.t. } &amp; Ax = b\\
+&amp; x_i \geq 0, \; i = 1,\dots, n
+\end{align*}
+</span></p>
+<p>Has the following dual:</p>
+<p><span class="math display">
+\begin{align*}
+&amp;\max_{y \in \mathbb{R}^n} b^{\top}y \\
+\text{s.t. } &amp; A^Ty \preceq c\\
+\end{align*}
+</span></p>
+<p>Find the dual problem to the problem above (it should be the original LP).</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="idea-of-simplex-algorithm" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="idea-of-simplex-algorithm"><span class="header-section-number">5</span> Idea of simplex algorithm</h2>
@@ -1026,6 +1078,27 @@ x_- \geq 0
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<ol type="1">
+<li>If Standartd LP has a nonempty feasible region, then there is at least one basic feasible point</li>
+<li>If Standartd LP has solutions, then at least one such solution is a basic optimal point.</li>
+<li>If Standartd LP is feasible and bounded, then it has an optimal solution.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 <p>Since we have a basis, we can decompose our objective vector <span class="math inline">c</span> in this basis and find the scalar coefficients <span class="math inline">\lambda_B</span>:</p>
 <p><span class="math display">
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
@@ -1044,7 +1117,7 @@ Theorem
 <div class="callout-theorem">
 <p>If all components of <span class="math inline">\lambda_B</span> are non-positive and <span class="math inline">B</span> is feasible, then <span class="math inline">B</span> is optimal.</p>
 <div class="callout callout-style-default callout-proof no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1053,7 +1126,7 @@ Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-proof">
@@ -1120,6 +1193,7 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 </section>
 <section id="convergence" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="convergence"><span class="header-section-number">6</span> Convergence</h2>
+<p>Since the number of edge point is finite, algorithm should converge (except some degenerate cases, which are not covered here). However, the convergence could be exponentially slow, due to the high number of edges. There is the following iconic example, when simplex algorithm should perform exactly all vertexes.</p>
 <section id="klee-minty-example" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">6.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h3>
 <p>In the following problem simplex algorithm needs to check <span class="math inline">2^n - 1</span> vertexes with <span class="math inline">x_0 = 0</span>.</p>
