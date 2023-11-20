@@ -1,11 +1,12 @@
 ---
 parent: Methods
-title: LP and simplex algorithm
+title: Linear Programming and simplex algorithm
 order: 4
 ---
-## What is LP
 
-Generally speaking, all problems with linear objective and linear equalities\inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.
+## What is Linear Programming?
+
+Generally speaking, all problems with linear objective and linear equalities/inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.
 
 $$
 \tag{LP.Basic}
@@ -19,8 +20,7 @@ $$
 
 for some vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$. Where the inequalities are interpreted component-wise.
 
-### Standard form
-This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$.
+**Standard form.** This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors $c \in \mathbb{R}^n$, $b \in \mathbb{R}^m$ and matrix $A \in \mathbb{R}^{m \times n}$.
 
 $$
 \tag{LP.Standard}
@@ -31,20 +31,12 @@ $$
 \end{align*}
 $$
 
-### Canonical form
+## Examples of LP problems
 
-$$
-\tag{LP.Canonical}
-\begin{align*}
-&\min_{x \in \mathbb{R}^n} c^{\top}x \\
-\text{s.t. } & Ax \leq b\\
-& x_i \geq 0, \; i = 1,\dots, n
-\end{align*}
-$$
+:::{.callout-example}
 
-### Real world problems
+### Diet problem
 
-#### Diet problem
 Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix $W$. Let also assume, that we have the vector of requirements for each of nutrients $r \in \mathbb{R}^n$. We need to find the cheapest configuration of the diet, which meets all the requirements:
 
 $$
@@ -56,6 +48,50 @@ $$
 $$
 
 ![Illustration](diet_LP.svg)
+:::
+
+:::{.callout-example}
+
+### Transportation problem
+[Source](https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/03.01-Transportation-Networks.html)
+
+The prototypical transportation problem deals with the distribution of a commodity from a set of sources to a set of destinations. The object is to minimize total transportation costs while satisfying constraints on the supplies available at each of the sources, and satisfying demand requirements at each of the destinations.
+
+Here we illustrate the transportation problem using an example from Chapter 5 of Johannes Bisschop, "AIMMS Optimization Modeling", Paragon Decision Sciences, 1999. In this example there are two factories and six customer sites located in 8 European cities as shown in the following map. The customer sites are labeled in red, the factories are labeled in blue.
+
+![West Europe Map](LP_west_europe.png)
+
+| Customer\Source | Arnhem [&euro;/ton] | Gouda [&euro;/ton] | Demand [tons]|
+| :--: | :----: | :---: | :----: |
+| London | n/a | 2.5 | 125 |
+| Berlin | 2.5 | n/a | 175 |
+| Maastricht | 1.6 | 2.0 | 225 |
+| Amsterdam | 1.4 | 1.0 | 250 |
+| Utrecht | 0.8 | 1.0 | 225 |
+| The Hague | 1.4 | 0.8 | 200 |
+| **Supply [tons]** | 550 tons | 700 tons |  |
+
+This can be represented as the following graph:
+
+![Graph associated with the problem](LP_transport_graph.svg)
+
+For each link we can have a parameter $T[c,s]$ denoting the cost of shipping a ton of goods over the link. What we need to determine is the amount of goods to be shipped over each link, which we will represent as a non-negative decision variable $x[c,s]$.
+
+The problem objective is to minimize the total shipping cost to all customers from all sources. 
+
+$$\text{minimize:}\quad \text{Cost} = \sum_{c \in Customers}\sum_{s \in Sources} T[c,s] x[c,s]$$
+
+Shipments from all sources can not exceed the manufacturing capacity of the source.
+
+$$\sum_{c \in Customers} x[c,s] \leq \text{Supply}[s] \qquad \forall s \in Sources$$
+
+Shipments to each customer must satisfy their demand.
+
+$$\sum_{s\in Sources} x[c,s] = \text{Demand}[c] \qquad \forall c \in Customers$$
+
+The code for the problem is available here: [💻](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP_transport.ipynb)
+
+:::
 
 ## How to retrieve LP
 
