@@ -154,9 +154,8 @@ The code for the problem is available here: [💻](https://colab.research.google
 
 :::
 
-## How to retrieve LP
+## Basic transformations
 
-### Basic transformations
 Inequality to equality by increasing the dimension of the problem by $m$.
 
 $$
@@ -178,11 +177,15 @@ x_- \geq 0
 \end{cases}
 $$
 
+:::{.callout-example}
+
 ### Chebyshev approximation problem
 
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
 $$
+
+Could be equivalently written as a LP with thre replacement of maximum coordinate of a vector:
 
 $$
 \begin{align*}
@@ -192,11 +195,17 @@ $$
 \end{align*}
 $$
 
+:::
+
+:::{.callout-example}
+
 ### $l_1$ approximation problem
 
 $$
 \min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
 $$
+
+Could be equivalently written as a LP with thre replacement of the sum of coordinates of a vector:
 
 $$
 \begin{align*}
@@ -205,6 +214,7 @@ $$
 & -a_i^\top x + b_i \leq t_i, \; i = 1,\dots, n
 \end{align*}
 $$
+:::
 
 ## Duality
 
@@ -214,6 +224,30 @@ There are four possibilities:
 * The primal is infeasible and the dual is unbounded.
 * The primal is unbounded and the dual is infeasible.
 * Both the primal and the dual are feasible and their optimal values are equal.
+
+:::{.callout-example}
+
+Ensure, that the following standard form LP:
+
+$$
+\begin{align*}
+&\min_{x \in \mathbb{R}^n} c^{\top}x \\
+\text{s.t. } & Ax = b\\
+& x_i \geq 0, \; i = 1,\dots, n
+\end{align*}
+$$
+
+Has the following dual:
+
+$$
+\begin{align*}
+&\max_{y \in \mathbb{R}^n} b^{\top}y \\
+\text{s.t. } & A^Ty \preceq c\\
+\end{align*}
+$$
+
+Find the dual problem to the problem above (it should be the original LP).
+:::
 
 ## Idea of simplex algorithm
 
@@ -238,6 +272,12 @@ A basis $B$ is optimal if $x_B$ is an optimum of the $\text{LP.Inequality}$.
 
 ![Illustration](LP_1.svg)
 
+:::{.callout-theorem}
+1. If Standartd LP has a nonempty feasible region, then there is at least one basic feasible point
+1. If Standartd LP has solutions, then at least one such solution is a basic optimal point.
+1. If Standartd LP is feasible and bounded, then it has an optimal solution.
+:::
+
 Since we have a basis, we can decompose our objective vector $c$ in this basis and find the scalar coefficients $\lambda_B$:
 
 $$
@@ -261,6 +301,7 @@ c^\top x^* & \geq c^\top  x_B \\
 $$
 :::
 :::
+
 ### Changing basis
 
 Suppose, some of the coefficients of $\lambda_B$ are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)
@@ -307,9 +348,11 @@ An initial basis for $\text{LP.Phase 1}$ is $\tilde{A}_B = I, \tilde{A}_N = A$ w
 
 ## Convergence
 
+Since the number of edge point is finite, algorithm should converge (except some degenerate cases, which are not covered here). However, the convergence could be exponentially slow, due to the high number of edges. There is the following iconic example, when simplex algorithm should perform exactly all vertexes.
+
 ### [Klee Minty](https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube) example
 
-In the following problem simplex algorithm needs to check $2^n - 1$ vertexes with $x_0 = 0$. 
+In the following problem simplex algorithm needs to check $2^n - 1$ vertexes with $x_0 = 0$.
 
 $$
 \begin{align*} & \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
@@ -332,7 +375,7 @@ $$
 
 ## Code
 
-[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb)
+[Open In Colab](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP.ipynb) 
 
 ## Materials
 
