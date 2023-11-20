@@ -93,6 +93,67 @@ The code for the problem is available here: [💻](https://colab.research.google
 
 :::
 
+:::{.callout-example}
+
+### Blending problem
+[Source](https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/02.03-Linear-Blending-Problem.html)
+
+A brewery receives an order for 100 gallons of 4% ABV (alchohol by volume) beer. The brewery has on hand beer Okhota that is 4.5% ABV that cost USD 0.32 per gallon to make, and beer Baltos that is 3.7% ABV and cost USD 0.25 per gallon. Water could also be used as a blending agent at a cost of USD 0.05 per gallon. Find the minimum cost blend that meets the customer requirements.
+
+#### Model Formulation
+
+##### Objective Function
+
+If we let subscript $c$ denote a blending component from the set of blending components $C$, and denote the volume of $c$ used in the blend as $x_c$, the cost of the blend is
+
+$$
+\text{cost}  = \sum_{c\in C} x_c P_c
+$$
+
+where $P_c$ is the price per unit volume of $c$. Using the Python data dictionary defined above, the price $P_c$ is given by `data[c]['cost']`.
+
+##### Volume Constraint
+
+The customer requirement is produce a total volume $V$. Assuming ideal solutions, the constraint is given by
+
+$$
+V  = \sum_{c\in C} x_c
+$$
+
+where $x_c$ denotes the volume of component $c$ used in the blend.
+
+##### Product Composition Constraint
+
+The product composition is specified as 4% alchohol by volume. Denoting this as $\bar{A}$, the constraint may be written as
+
+$$
+\bar{A} = \frac{\sum_{c\in C}x_c A_c}{\sum_{c\in C} x_c}
+$$
+
+where $A_c$ is the alcohol by volume for component $c$. As written, this is a nonlinear constraint. Multiplying both sides of the equation by the denominator yields a linear constraint
+
+$$
+\bar{A}\sum_{c\in C} x_c  = \sum_{c\in C}x_c A_c
+$$
+
+A final form for this constraint can be given in either of two versions. In the first version we subtract the left-hand side from the right to give
+
+$$
+0  = \sum_{c\in C}x_c \left(A_c - \bar{A}\right)  \text{ Version 1 of the linear blending constraint}
+$$
+
+Alternatively, the summation on the left-hand side corresponds to total volume. Since that is known as part of the problem specification, the blending constraint could also be written as
+
+$$
+\bar{A}V  = \sum_{c\in C}x_c A_c   \text{ Version 2 of the linear blending constraint}
+$$
+
+Which should you use? Either will generally work well. The advantage of version 1 is that it is fully specified by a product requirement $\bar{A}$, which is sometimes helpful in writing elegant Python code.
+
+The code for the problem is available here: [💻](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP_blending.ipynb)
+
+:::
+
 ## How to retrieve LP
 
 ### Basic transformations
@@ -145,6 +206,15 @@ $$
 \end{align*}
 $$
 
+## Duality
+
+There are four possibilities:
+
+* Both the primal and the dual are infeasible.
+* The primal is infeasible and the dual is unbounded.
+* The primal is unbounded and the dual is infeasible.
+* Both the primal and the dual are feasible and their optimal values are equal.
+
 ## Idea of simplex algorithm
 
 * The Simplex Algorithm walks along the edges of the polytope, at every corner choosing the edge that decreases $c^\top x$ most
@@ -174,11 +244,11 @@ $$
 \lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
 $$
 
-### Main lemma
+:::{.callout-theorem}
 
 If all components of $\lambda_B$ are non-positive and $B$ is feasible, then $B$ is optimal.
 
-**Proof:**
+:::{.callout-proof}
 
 $$
 \begin{align*}
@@ -189,7 +259,8 @@ c^\top x^* & \geq \lambda_B^\top A_B x_B \\
 c^\top x^* & \geq c^\top  x_B \\
 \end{align*}
 $$
-
+:::
+:::
 ### Changing basis
 
 Suppose, some of the coefficients of $\lambda_B$ are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)
@@ -251,15 +322,6 @@ $$
 $$
 
 ![Illustration](LP_KM.svg)
-
-### Strong duality
-
-There are four possibilities:
-
-* Both the primal and the dual are infeasible.
-* The primal is infeasible and the dual is unbounded.
-* The primal is unbounded and the dual is infeasible.
-* Both the primal and the dual are feasible and their optimal values are equal.
 
 ## Summary
 
