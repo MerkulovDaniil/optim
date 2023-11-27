@@ -8,6 +8,7 @@ project:
   resources: 
     - "docs/**/*.mp4"
     - "assets/files/*.pdf"
+    - "assets/js/**"
 
 format: fminxyz-html
 
