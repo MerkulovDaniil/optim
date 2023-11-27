@@ -745,13 +745,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#iterative-methods" id="toc-iterative-methods" class="nav-link" data-scroll-target="#iterative-methods"><span class="header-section-number">1.1</span> Iterative methods</a></li>
   <li><a href="#oracle-conception" id="toc-oracle-conception" class="nav-link" data-scroll-target="#oracle-conception"><span class="header-section-number">1.2</span> Oracle conception</a></li>
-  <li><a href="#complexity" id="toc-complexity" class="nav-link" data-scroll-target="#complexity"><span class="header-section-number">1.3</span> Complexity</a></li>
   </ul></li>
-  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges"><span class="header-section-number">2</span> Challenges</a>
+  <li><a href="#unsolvability-of-numerical-optimization-problem" id="toc-unsolvability-of-numerical-optimization-problem" class="nav-link" data-scroll-target="#unsolvability-of-numerical-optimization-problem"><span class="header-section-number">2</span> Unsolvability of numerical optimization problem</a>
   <ul class="collapse">
-  <li><a href="#unsolvability" id="toc-unsolvability" class="nav-link" data-scroll-target="#unsolvability"><span class="header-section-number">2.1</span> Unsolvability</a></li>
-  <li><a href="#stopping-rules" id="toc-stopping-rules" class="nav-link" data-scroll-target="#stopping-rules"><span class="header-section-number">2.2</span> Stopping rules</a></li>
-  <li><a href="#local-nature-of-the-methods" id="toc-local-nature-of-the-methods" class="nav-link" data-scroll-target="#local-nature-of-the-methods"><span class="header-section-number">2.3</span> Local nature of the methods</a></li>
+  <li><a href="#stopping-rules" id="toc-stopping-rules" class="nav-link" data-scroll-target="#stopping-rules"><span class="header-section-number">2.1</span> Stopping rules</a></li>
+  <li><a href="#local-nature-of-the-methods" id="toc-local-nature-of-the-methods" class="nav-link" data-scroll-target="#local-nature-of-the-methods"><span class="header-section-number">2.2</span> Local nature of the methods</a></li>
   </ul></li>
   <li><a href="#contents-of-the-chapter" id="toc-contents-of-the-chapter" class="nav-link" data-scroll-target="#contents-of-the-chapter"><span class="header-section-number">3</span> Contents of the chapter</a></li>
   </ul>
@@ -792,7 +790,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 \end{split}
 </span></p>
-<p>Some necessary or/and sufficient conditions are known (See {% include link.html title=‘Optimality conditions. KKT’%} and {% include link.html title=‘Convex optimization problem’ %}) * In fact, there might be very challenging to recognize the convenient form of optimization problem. * Analytical solution of KKT could be inviable.</p>
+<p>Some necessary or/and sufficient conditions are known (See <a href="../../docs/theory/Optimality.html">Optimality conditions. KKT</a> and <a href="../../docs/theory/Convex_optimization_problem.html">Convex optimization problem</a>.</p>
+<ul>
+<li>In fact, there might be very challenging to recognize the convenient form of optimization problem.</li>
+<li>Analytical solution of KKT could be inviable.</li>
+</ul>
 <section id="iterative-methods" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="iterative-methods"><span class="header-section-number">1.1</span> Iterative methods</h3>
 <p>Typically, the methods generate an infinite sequence of approximate solutions</p>
@@ -800,7 +802,12 @@ h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 \{x_t\},
 </span></p>
 <p>which for a finite number of steps (or better - time) converges to an optimal (at least one of the optimal) solution <span class="math inline">x_*</span>.</p>
-<p><img src="./iterative.svg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="iterative.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of iterative method approaches to the solution <span class="math inline">x^*</span></figcaption>
+</figure>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> GeneralScheme(x, epsilon):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">not</span> StopCriterion(x, epsilon):</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        OracleResponse <span class="op">=</span> RequestOracle(x)</span>
@@ -809,31 +816,31 @@ h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 </section>
 <section id="oracle-conception" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="oracle-conception"><span class="header-section-number">1.2</span> Oracle conception</h3>
-<p><img src="./oracle.svg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./oracle.svg" class="img-fluid figure-img"></p>
+<figcaption>Depending on the maximum order of derivative available from the oracle we call the oracles as zero order, first order, second order oravle and etc.</figcaption>
+</figure>
+</div>
 </section>
-<section id="complexity" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="complexity"><span class="header-section-number">1.3</span> Complexity</h3>
 </section>
-</section>
-<section id="challenges" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="challenges"><span class="header-section-number">2</span> Challenges</h2>
-<section id="unsolvability" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="unsolvability"><span class="header-section-number">2.1</span> Unsolvability</h3>
+<section id="unsolvability-of-numerical-optimization-problem" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="unsolvability-of-numerical-optimization-problem"><span class="header-section-number">2</span> Unsolvability of numerical optimization problem</h2>
 <p>In general, <strong>optimization problems are unsolvable.</strong> ¯\<em>(ツ)</em>/¯</p>
 <p>Consider the following simple optimization problem of a function over unit cube:</p>
 <p><span class="math display">
 \begin{split}
 &amp; \min_{x \in \mathbb{R}^n} f(x)\\
-\text{s.t. } &amp;  x \in \mathbb{B}^n
+\text{s.t. } &amp;  x \in \mathbb{C}^n
 \end{split}
 </span></p>
 <p>We assume, that the objective function <span class="math inline">f (\cdot) : \mathbb{R}^n \to \mathbb{R}</span> is Lipschitz continuous on <span class="math inline">\mathbb{B}^n</span>:</p>
 <p><span class="math display">
-| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
+| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{C}^n,
 </span></p>
-<p>with some constant <span class="math inline">L</span> (Lipschitz constant). Here <span class="math inline">\mathbb{B}^n</span> - the <span class="math inline">n</span>-dimensional unit cube</p>
+<p>with some constant <span class="math inline">L</span> (Lipschitz constant). Here <span class="math inline">\mathbb{C}^n</span> - the <span class="math inline">n</span>-dimensional unit cube</p>
 <p><span class="math display">
-\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
+\mathbb{C}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
 </span></p>
 <p>Our goal is to find such <span class="math inline">\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon</span> for some positive <span class="math inline">\varepsilon</span>. Here <span class="math inline">f^*</span> is the global minima of the problem. Uniform grid with <span class="math inline">p</span> points on each dimension guarantees at least this quality:</p>
 <p><span class="math display">
@@ -843,10 +850,9 @@ h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 <p><span class="math display">
 |f (\tilde{x}) − f (x_*)| \leq \frac{L}{2p}
 </span></p>
-<p>Our goal is to find the <span class="math inline">p</span> for some <span class="math inline">\varepsilon</span>. So, we need to sample $ ()^n$ points, since we need to measure function in <span class="math inline">p^n</span> points. Doesn’t look scary, but if we’ll take <span class="math inline">L = 2, n = 11, \varepsilon = 0.01</span>, computations on the modern personal computers will take 31,250,000 years.</p>
-</section>
-<section id="stopping-rules" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="stopping-rules"><span class="header-section-number">2.2</span> Stopping rules</h3>
+<p>Our goal is to find the <span class="math inline">p</span> for some <span class="math inline">\varepsilon</span>. So, we need to sample <span class="math inline">\left(\frac{L}{2 \varepsilon}\right)^n</span> points, since we need to measure function in <span class="math inline">p^n</span> points. Doesn’t look scary, but if we’ll take <span class="math inline">L = 2, n = 11, \varepsilon = 0.01</span>, computations on the modern personal computers will take 31,250,000 years.</p>
+<section id="stopping-rules" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="stopping-rules"><span class="header-section-number">2.1</span> Stopping rules</h3>
 <ul>
 <li><p>Argument closeness:</p>
 <p><span class="math display">
@@ -867,17 +873,43 @@ h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 \|x_{k+1} - x_k \| = \|x_{k+1} - x_k + x_* - x_* \| \leq \|x_{k+1} - x_* \| + \| x_k - x_* \| \leq 2\varepsilon
 </span></p>
 <p><strong>Note</strong>: it’s better to use relative changing of these values, i.e.&nbsp;<span class="math inline">\dfrac{\|x_{k+1} - x_k \|_2}{\| x_k \|_2}</span>.</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>Suppose, you are trying to estimate the vector <span class="math inline">x_{true}</span> with some approximation <span class="math inline">x_{approx}</span>. One can choose between two relative errors:</p>
+<p><span class="math display">
+\dfrac{\|x_{approx} - x_{true}\|}{\|x_{approx}\|} \quad \dfrac{\|x_{approx} - x_{true}\|}{\|x_{true}\|}
+</span></p>
+<p>If both <span class="math inline">x_{approx}</span> and <span class="math inline">x_{true}</span> are close to each other, then the difference between them is small, while if your approximation is far from the truth (say, <span class="math inline">x_{approx} = 10x_{true}</span> or <span class="math inline">x_{approx} = 0.01 x_{true}</span> they differ drastically).</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="local-nature-of-the-methods" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="local-nature-of-the-methods"><span class="header-section-number">2.3</span> Local nature of the methods</h3>
-<p><img src="./globallocal.png" class="img-fluid"></p>
+<section id="local-nature-of-the-methods" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="local-nature-of-the-methods"><span class="header-section-number">2.2</span> Local nature of the methods</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="globallocal.png" class="img-fluid figure-img"></p>
+<figcaption>Illustration of the idea of locality in black-box optimization</figcaption>
+</figure>
+</div>
 </section>
 </section>
 <section id="contents-of-the-chapter" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="contents-of-the-chapter"><span class="header-section-number">3</span> Contents of the chapter</h2>
 <div id="listing-methods" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="7" data-listing-word-count-sort="1282">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1701099414082" data-listing-reading-time-sort="7" data-listing-word-count-sort="1282">
 <a href="../../docs/methods/fom/GD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fom/lipschitz_parabola.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -889,7 +921,7 @@ Gradient descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1701086481414" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1701099414078" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
 <a href="../../docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="adaptive_metrics/newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -901,7 +933,7 @@ Newton method
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1701086481414" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1701099414078" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
 <a href="../../docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -913,7 +945,7 @@ Quasi Newton methods
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1701099414086" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
 <a href="../../docs/methods/fom/Subgradient descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fom/SD.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -925,7 +957,7 @@ Subgradient descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1701099414086" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
 <a href="../../docs/methods/fom/Projected_subgradient_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fom/geom_bound.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -937,7 +969,7 @@ Projected subgradient descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1701086481414" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1701099414074" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
 <a href="../../docs/methods/Simplex.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="LP.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -949,7 +981,7 @@ Linear Programming and simplex algorithm
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1701099414086" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
 <a href="../../docs/methods/fom/Mirror_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fom/bregman.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -961,7 +993,7 @@ Mirror descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1701086481410" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1701099414070" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
 <a href="../../docs/methods/Autograd.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="comp_graph.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -973,7 +1005,7 @@ Automatic differentiation
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1701099414086" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
 <a href="../../docs/methods/fom/SGD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -985,7 +1017,7 @@ Stochastic gradient descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1701099414086" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
 <a href="../../docs/methods/fom/SAG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -997,7 +1029,7 @@ Stochastic average gradient
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1701099414082" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
 <a href="../../docs/methods/fom/ADAM.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1009,7 +1041,7 @@ ADAM: A Method for Stochastic Optimization
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1701086481422" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1701099414082" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
 <a href="../../docs/methods/fom/Lookahead.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="fom/fast_vs_slow.png" alt="Illustration" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1021,7 +1053,7 @@ Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span cla
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1701086481474" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1701099414138" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
 <a href="../../docs/methods/zom/bee_algorithm.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="zom/Schwefel_function_plot.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1033,7 +1065,7 @@ Bee algorithm
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1701086481430" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1701099414090" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="line_search/binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1045,7 +1077,7 @@ Binary search
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1701086481414" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1701099414074" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <a href="../../docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="adaptive_metrics/cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1057,7 +1089,7 @@ Conjugate gradients
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1701086481430" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1701099414090" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="line_search/golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1069,7 +1101,7 @@ Golden search
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1701086481430" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
+<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1701099414090" data-listing-reading-time-sort="2" data-listing-word-count-sort="323">
 <a href="../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="line_search/backtracking.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1081,7 +1113,7 @@ Inexact line search
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1701086481414" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
+<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1701099414074" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
 <a href="../../docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1093,7 +1125,7 @@ Natural gradient descent
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1701086481474" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
+<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1701099414138" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
 <a href="../../docs/methods/zom/nelder-mead.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="zom/nm_mishra3d.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1105,7 +1137,7 @@ Nelder–Mead
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1701086481690" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1701099414350" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
 <a href="../../docs/methods/zom/simulated-annealing.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="zom/sa_wiki.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1117,7 +1149,7 @@ Simulated annealing
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1701086481430" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1701099414090" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
 <a href="../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
