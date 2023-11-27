@@ -25,7 +25,8 @@ $$
 \end{split}
 $$
 
-Some necessary or/and sufficient conditions are known (See {% include link.html title='Optimality conditions. KKT'%} and {% include link.html title='Convex optimization problem' %})
+Some necessary or/and sufficient conditions are known (See [Optimality conditions. KKT](../theory/Optimality.md) and [Convex optimization problem](../theory/Convex_optimization_problem.md).
+
 * In fact, there might be very challenging to recognize the convenient form of optimization problem.
 * Analytical solution of KKT could be inviable.
 
@@ -38,7 +39,7 @@ $$
 
 which for a finite number of steps (or better - time) converges to an optimal (at least one of the optimal) solution  $x_*$.
 
-![](./iterative.svg)
+![Illustration of iterative method approaches to the solution $x^*$](iterative.svg)
 
 ```python
 def GeneralScheme(x, epsilon):
@@ -50,13 +51,10 @@ def GeneralScheme(x, epsilon):
 
 ### Oracle conception
 
-![](./oracle.svg)
+![Depending on the maximum order of derivative available from the oracle we call the oracles as zero order, first order, second order oravle and etc.](./oracle.svg)
 
-### Complexity
 
-## Challenges
-
-### Unsolvability
+## Unsolvability of numerical optimization problem
 In general, **optimization problems are unsolvable.**  ¯\\_(ツ)_/¯
 
 Consider the following simple optimization problem of a function over unit cube:
@@ -64,20 +62,20 @@ Consider the following simple optimization problem of a function over unit cube:
 $$
 \begin{split}
 & \min_{x \in \mathbb{R}^n} f(x)\\
-\text{s.t. } &  x \in \mathbb{B}^n
+\text{s.t. } &  x \in \mathbb{C}^n
 \end{split}
 $$
 
 We assume, that the objective function $f (\cdot) : \mathbb{R}^n \to \mathbb{R}$ is Lipschitz continuous on $\mathbb{B}^n$:
 
 $$
-| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{B}^n,
+| f (x) − f (y) | \leq L \| x − y \|_{\infty} \forall x,y \in \mathbb{C}^n,
 $$
 
-with some constant $L$ (Lipschitz constant). Here $\mathbb{B}^n$ - the $n$-dimensional unit cube 
+with some constant $L$ (Lipschitz constant). Here $\mathbb{C}^n$ - the $n$-dimensional unit cube 
 
 $$
-\mathbb{B}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
+\mathbb{C}^n = \{x \in \mathbb{R}^n \mid 0 \leq x_i \leq 1, i = 1, \ldots, n\}
 $$ 
 
 Our goal is to find such $\tilde{x}: \vert f(\tilde{x}) - f^*\vert \leq \varepsilon$ for some positive $\varepsilon$. Here $f^*$ is the global minima of the problem. Uniform grid with $p$ points on each dimension guarantees at least this quality:
@@ -92,7 +90,7 @@ $$
 |f (\tilde{x}) − f (x_*)| \leq \frac{L}{2p}
 $$
 
-Our goal is to find the $p$ for some $\varepsilon$. So, we need to sample $ \left(\frac{L}{2 \varepsilon}\right)^n$ points, since we need to measure function in $p^n$ points. Doesn't look scary, but if we'll take $L = 2, n = 11, \varepsilon = 0.01$, computations on the modern personal computers will take 31,250,000 years.
+Our goal is to find the $p$ for some $\varepsilon$. So, we need to sample $\left(\frac{L}{2 \varepsilon}\right)^n$ points, since we need to measure function in $p^n$ points. Doesn't look scary, but if we'll take $L = 2, n = 11, \varepsilon = 0.01$, computations on the modern personal computers will take 31,250,000 years.
 
 ### Stopping rules
 * Argument closeness: 
@@ -123,10 +121,19 @@ $$
 
 **Note**: it's better to use relative changing of these values, i.e. $\dfrac{\|x_{k+1} - x_k \|_2}{\| x_k \|_2}$.
 
+:::{.callout-example}
+Suppose, you are trying to estimate the vector $x_{true}$ with some approximation $x_{approx}$. One can choose between two relative errors:
+
+$$
+\dfrac{\|x_{approx} - x_{true}\|}{\|x_{approx}\|} \quad \dfrac{\|x_{approx} - x_{true}\|}{\|x_{true}\|}
+$$
+
+If both $x_{approx}$ and $x_{true}$ are close to each other, then the difference between them is small, while if your approximation is far from the truth (say, $x_{approx} = 10x_{true}$ or $x_{approx} = 0.01 x_{true}$ they differ drastically).
+:::
 
 ### Local nature of the methods
 
-![](./globallocal.png)
+![Illustration of the idea of locality in black-box optimization](globallocal.png)
 
 ## Contents of the chapter
 
