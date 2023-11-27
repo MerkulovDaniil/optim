@@ -1683,18 +1683,62 @@
     "href": "docs/applications/Neural_Lipschitz_constant.html",
     "title": "Neural network Lipschitz constant",
     "section": "",
-    "text": "It was observed, that small perturbation in Neural Network input could lead to significant errors, i.e. misclassifications.\n\n\n\nhttps://escholarship.org/content/qt3k2780bg/qt3k2780bg_noSplash_e0803cb722032c480ec3468d84e60e2a.pdf?t=qqf3iz\n\n\nLipschitz constant bounds the magnitude of the output of a function, so it cannot change drastically with a slight change in the input\n\n\\|NN(image) - NN(image+\\varepsilon)\\| \\leq L\\|\\varepsilon\\|\n\nIn this notebook we will try to estimate Lipschitz constant of some convolutional layer of a Neural Network.",
+    "text": "It was observed, that small perturbation in Neural Network input could lead to significant errors, i.e. misclassifications.\n\n\n\nTypical illustration of adversarial attacks in image domain. Source\n\n\nLipschitz constant bounds the magnitude of the output of a function, so it cannot change drastically with a slight change in the input\n\n\\|\\mathcal{NN}(image) - \\mathcal{NN}(image+\\varepsilon)\\| \\leq L_{\\mathcal{NN}}\\|\\varepsilon\\|\n\nNote, that a variety of feed-forward neural networks could be represented as a series of linear transformations, followed by some nonlinear function (say, \\text{ReLU }(x)):\n\n\\mathcal{NN}(x) = f_L \\circ w_L \\circ \\ldots \\circ f_1 \\circ w_1 \\circ x,\n\nwhere L is the number of layers, f_i - non-linear activation function, w_i = W_i x + b_i - linear layer.",
     "crumbs": [
       "Applications",
       "Neural network Lipschitz constant"
     ]
   },
   {
-    "objectID": "docs/applications/Neural_Lipschitz_constant.html#lipschitz-constant-of-a-convolutional-layer-in-neural-network",
-    "href": "docs/applications/Neural_Lipschitz_constant.html#lipschitz-constant-of-a-convolutional-layer-in-neural-network",
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#lipschitz-constant-and-robustness-to-a-small-perturbation",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#lipschitz-constant-and-robustness-to-a-small-perturbation",
     "title": "Neural network Lipschitz constant",
     "section": "",
-    "text": "It was observed, that small perturbation in Neural Network input could lead to significant errors, i.e. misclassifications.\n\n\n\nhttps://escholarship.org/content/qt3k2780bg/qt3k2780bg_noSplash_e0803cb722032c480ec3468d84e60e2a.pdf?t=qqf3iz\n\n\nLipschitz constant bounds the magnitude of the output of a function, so it cannot change drastically with a slight change in the input\n\n\\|NN(image) - NN(image+\\varepsilon)\\| \\leq L\\|\\varepsilon\\|\n\nIn this notebook we will try to estimate Lipschitz constant of some convolutional layer of a Neural Network.",
+    "text": "It was observed, that small perturbation in Neural Network input could lead to significant errors, i.e. misclassifications.\n\n\n\nTypical illustration of adversarial attacks in image domain. Source\n\n\nLipschitz constant bounds the magnitude of the output of a function, so it cannot change drastically with a slight change in the input\n\n\\|\\mathcal{NN}(image) - \\mathcal{NN}(image+\\varepsilon)\\| \\leq L_{\\mathcal{NN}}\\|\\varepsilon\\|\n\nNote, that a variety of feed-forward neural networks could be represented as a series of linear transformations, followed by some nonlinear function (say, \\text{ReLU }(x)):\n\n\\mathcal{NN}(x) = f_L \\circ w_L \\circ \\ldots \\circ f_1 \\circ w_1 \\circ x,\n\nwhere L is the number of layers, f_i - non-linear activation function, w_i = W_i x + b_i - linear layer.",
+    "crumbs": [
+      "Applications",
+      "Neural network Lipschitz constant"
+    ]
+  },
+  {
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#estimating-lipschitz-constant-of-a-neural-network",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#estimating-lipschitz-constant-of-a-neural-network",
+    "title": "Neural network Lipschitz constant",
+    "section": "2 Estimating Lipschitz constant of a neural network",
+    "text": "2 Estimating Lipschitz constant of a neural network\n\n\n\n\n\n\nTheorem\n\n\n\n\n\nAn everywhere differentiable function f: \\mathbb{R} \\to \\mathbb{R} is Lipschitz continuous with L = \\sup |\\nabla f(x)| if and only if it has bounded first derivative.\n\n\n\n\n\n\n\n\n\n\nTheorem\n\n\n\n\n\nIf f = g_1 \\circ g_2, then L_f \\leq L_{g_1} L_{g_2}\n\n\n\n\nTherefore, we can bound the Lipschitz constant of a neural network:\n\nL_{\\mathcal{NN}} \\leq L_{f_1} \\ldots L_{f_L} L_{w_1} \\ldots L_{w_L}\n\n\n\n\n\n\n\nExample\n\n\n\n\n\nLet’s consider one the simplest non-liear activation function.\n\nf(x) = \\text{ReLU}(x)\n\n\nIts Lipschitz L_f constant equals to 1, because:\n\n\\|f(x) - f(y)\\| \\leq 1 \\|x-y\\|\n\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\nWhat is the Lipschitz constant of a linear layer of neural network\n\nw(x) = Wx + b\n\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\n\\|w(x) - w(y)\\| = \\|Wx + b - (Wy + b)\\|_2 = \\|W(x-y)\\|_2 \\leq \\|W\\|_2 \\|x-y\\|_2\n Therefore, L_w = \\|W\\|_2",
+    "crumbs": [
+      "Applications",
+      "Neural network Lipschitz constant"
+    ]
+  },
+  {
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#how-to-compute-w_2",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#how-to-compute-w_2",
+    "title": "Neural network Lipschitz constant",
+    "section": "3 How to compute \\|W\\|_2?",
+    "text": "3 How to compute \\|W\\|_2?\nLet W = U \\Sigma V^T – SVD of the matrix W \\in \\mathbb{R}^{m \\times n}. Then\n\n\\|W\\|_2 = \\sup_{x \\ne 0} \\frac{\\| W x \\|_2}{\\| x \\|_{2}} = \\sigma_1(W) = \\sqrt{\\lambda_\\text{max} (W^*W)}\n\nFor m = n, computing SVD is \\mathcal{O}(n^3).\n\nTime measurements with jax and Google colab CPU.\n\n\nn\n10\n100\n1000\n5000\n\n\n\n\nTime\n38.7 µs\n3.04 ms\n717 ms\n1min 21s\n\n\nMemory for W in fp32\n0.4 KB\n40 KB\n4 MB\n95 MB\n\n\n\nWorks only for small linear layers.\nIn this notebook we will try to estimate Lipschitz constant of some convolutional layer of a Neural Network.",
+    "crumbs": [
+      "Applications",
+      "Neural network Lipschitz constant"
+    ]
+  },
+  {
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#convolutional-layer",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#convolutional-layer",
+    "title": "Neural network Lipschitz constant",
+    "section": "4 Convolutional layer",
+    "text": "4 Convolutional layer\n\n\n\nAnimation of Convolution operation. Source\n\n\nSuppose, that we have an input X and the convolutional layer C with the filter size k \\times k. Here we assume, that p_1, p_2 - are the indices of pixels of the kernel, while q_1, q_2 are the indices of pixels of the output.\n\nC \\circ X = \\sum_{p_1 = 0}^{k-1}\\sum_{p_2 = 0}^{k-1} C_{p_1, p_2} X_{p_1 + q_1, p_2 + q_2}\n\nWhile multichannel convolution could be written in the following form:\n\nY_j = \\sum_{i = 1}^{m_{in}} C_{:, :, i, j} \\circ X_{:, :, i},\n\nwhere\n\nC \\in \\mathbb{R}^{k \\times k \\times m_{in} \\times m_{out}} – convolution kernel\nk – filter size\nm_{in} – number of input channels (e.g., 3 for RGB)\nm_{out} – number of output channels.\n\nIt is easy to see, that the output of the multichannel convolution operation is linear w.r.t. the input X, which actually means, that one can write it as matvec:\n\n\\text{vec }(Y) = W \\text{vec }(X)\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\nWhat is the size of the matrix W in this case, if the input image is square of size n?\n\n\n\n\n\n\nAnswer\n\n\n\n\n\n\n\n\nW \\in \\mathbb{R}^{m_{out}n^2 \\times m_{in}n^2}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\nIf the image size is n = 224, number if input and output channels are m_{in} = m_{out} = 64, then W \\in \\mathbb{R}^{3 211 264 \\times 3 211 264}. Storing this matrix in fp32 requW^T W x_kires approximately 40 Gb of RAM.\n\n\n\n\nIt seems, that computing \\|W\\|_2 is almost impossible, isn’t it?",
+    "crumbs": [
+      "Applications",
+      "Neural network Lipschitz constant"
+    ]
+  },
+  {
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#power-method-for-computing-the-largest-singular-value",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#power-method-for-computing-the-largest-singular-value",
+    "title": "Neural network Lipschitz constant",
+    "section": "5 Power method for computing the largest singular value",
+    "text": "5 Power method for computing the largest singular value\nSince we are interested in the largest singular value and\n\n\\|W\\|_2 = \\sigma_1(W) = \\sqrt{\\lambda_\\text{max} (W^*W)}\n\nwe can apply the power method\n\nx_{k+1} = \\dfrac{W^T W x_k}{\\|W^T W x_k\\|_2}\n\n\n\\sigma_{k+1} = \\dfrac{W x_{k+1}}{\\|x_{k+1}\\|_2}",
     "crumbs": [
       "Applications",
       "Neural network Lipschitz constant"
@@ -1704,8 +1748,19 @@
     "objectID": "docs/applications/Neural_Lipschitz_constant.html#code",
     "href": "docs/applications/Neural_Lipschitz_constant.html#code",
     "title": "Neural network Lipschitz constant",
-    "section": "2 Code",
-    "text": "2 Code\nOpen In Colab{: .btn }",
+    "section": "6 Code",
+    "text": "6 Code\nOpen In Colab{: .btn }",
+    "crumbs": [
+      "Applications",
+      "Neural network Lipschitz constant"
+    ]
+  },
+  {
+    "objectID": "docs/applications/Neural_Lipschitz_constant.html#references",
+    "href": "docs/applications/Neural_Lipschitz_constant.html#references",
+    "title": "Neural network Lipschitz constant",
+    "section": "7 References",
+    "text": "7 References\n\nMaxim Rakhuba’s lecture on Matrix and tensor methods in ML.",
     "crumbs": [
       "Applications",
       "Neural network Lipschitz constant"
