@@ -513,7 +513,7 @@
     "href": "docs/methods/line_search/index.html#code",
     "title": "Line search",
     "section": "3 Code",
-    "text": "3 Code\nOpen In Colab\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInexact line search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\n\n\n\nNo matching items",
+    "text": "3 Code\nOpen In Colab\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nInexact Line Search\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Methods",
       "Line search"
@@ -2801,7 +2801,7 @@
     "href": "docs/methods/index.html#contents-of-the-chapter",
     "title": "Methods",
     "section": "3 Contents of the chapter",
-    "text": "3 Contents of the chapter\n\n\n\n\n\n\n\n\nGradient descent\n\n\n\n\n\n\n\n\n\n\n\nNewton method\n\n\n\n\n\n\n\n\n\n\n\nQuasi Newton methods\n\n\n\n\n\n\n\n\n\n\n\nSubgradient descent\n\n\n\n\n\n\n\n\n\n\n\nProjected subgradient descent\n\n\n\n\n\n\n\n\n\n\n\nLinear Programming and simplex algorithm\n\n\n\n\n\n\n\n\n\n\n\nMirror descent\n\n\n\n\n\n\n\n\n\n\n\nAutomatic differentiation\n\n\n\n\n\n\n\n\n\n\n\nStochastic gradient descent\n\n\n\n\n\n\n\n\n\n\n\nStochastic average gradient\n\n\n\n\n\n\n\n\n\n\n\nADAM: A Method for Stochastic Optimization\n\n\n\n\n\n\n\n\n\n\n\nLookahead Optimizer: k steps forward, 1 step back\n\n\n\n\n\n\n\n\n\n\n\nBee algorithm\n\n\n\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\nConjugate gradients\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\nInexact line search\n\n\n\n\n\n\n\n\n\n\n\nNatural gradient descent\n\n\n\n\n\n\n\n\n\n\n\nNelder–Mead\n\n\n\n\n\n\n\n\n\n\n\nSimulated annealing\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\nNo matching items",
+    "text": "3 Contents of the chapter\n\n\n\n\n\n\n\n\nGradient descent\n\n\n\n\n\n\n\n\n\n\n\nNewton method\n\n\n\n\n\n\n\n\n\n\n\nQuasi Newton methods\n\n\n\n\n\n\n\n\n\n\n\nSubgradient descent\n\n\n\n\n\n\n\n\n\n\n\nProjected subgradient descent\n\n\n\n\n\n\n\n\n\n\n\nLinear Programming and simplex algorithm\n\n\n\n\n\n\n\n\n\n\n\nMirror descent\n\n\n\n\n\n\n\n\n\n\n\nAutomatic differentiation\n\n\n\n\n\n\n\n\n\n\n\nStochastic gradient descent\n\n\n\n\n\n\n\n\n\n\n\nStochastic average gradient\n\n\n\n\n\n\n\n\n\n\n\nADAM: A Method for Stochastic Optimization\n\n\n\n\n\n\n\n\n\n\n\nLookahead Optimizer: k steps forward, 1 step back\n\n\n\n\n\n\n\n\n\n\n\nBee algorithm\n\n\n\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\nConjugate gradients\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\nInexact Line Search\n\n\n\n\n\n\n\n\n\n\n\nNatural gradient descent\n\n\n\n\n\n\n\n\n\n\n\nNelder–Mead\n\n\n\n\n\n\n\n\n\n\n\nSimulated annealing\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Methods"
     ]
@@ -2857,61 +2857,73 @@
   {
     "objectID": "docs/methods/line_search/inexact.html",
     "href": "docs/methods/line_search/inexact.html",
-    "title": "Inexact line search",
+    "title": "Inexact Line Search",
     "section": "",
-    "text": "This strategy of inexact line search works well in practice, as well as it has the following geometric interpretation:",
+    "text": "The strategy of inexact line search is practical and has a significant geometric interpretation:",
     "crumbs": [
       "Methods",
       "Line search",
-      "Inexact line search"
+      "Inexact Line Search"
     ]
   },
   {
     "objectID": "docs/methods/line_search/inexact.html#sufficient-decrease",
     "href": "docs/methods/line_search/inexact.html#sufficient-decrease",
-    "title": "Inexact line search",
-    "section": "1 Sufficient decrease",
-    "text": "1 Sufficient decrease\nLet’s consider the following scalar function while being at a specific point of x_k:\n\n\\phi(\\alpha) = f(x_k - \\alpha\\nabla f(x_k)), \\alpha \\geq 0\n\nconsider first order approximation of \\phi(\\alpha):\n\n\\phi(\\alpha) \\approx f(x_k) - \\alpha\\nabla f(x_k)^\\top \\nabla f(x_k)\n\nA popular inexact line search condition stipulates that \\alpha should first of all give sufficient decrease in the objective function f, as measured by the following inequality:\n\nf(x_k - \\alpha \\nabla f (x_k)) \\leq f(x_k) - c_1 \\cdot \\alpha\\nabla f(x_k)^\\top \\nabla f(x_k)\n\nfor some constant c_1 \\in (0,1). (Note, that c_1 = 1 stands for the first order Taylor approximation of \\phi(\\alpha)). This is also called Armijo condition. The problem of this condition is, that it could accept arbitrary small values \\alpha, which may slow down solution of the problem. In practice, c_1 is chosen to be quite small, say c_1 \\approx 10^{−4}.",
+    "title": "Inexact Line Search",
+    "section": "1 Sufficient Decrease",
+    "text": "1 Sufficient Decrease\nConsider a scalar function \\phi(\\alpha) at a point x_k:\n\n\\phi(\\alpha) = f(x_k - \\alpha\\nabla f(x_k)), \\alpha \\geq 0\n\nThe first-order approximation of \\phi(\\alpha) near \\alpha = 0 is:\n\n\\phi(\\alpha) \\approx f(x_k) - \\alpha\\nabla f(x_k)^\\top \\nabla f(x_k)\n\n\n\n\nIllustration of Taylor approximation of \\phi^I_0(\\alpha)\n\n\nThe inexact line search condition, known as the Armijo condition, states that \\alpha should provide sufficient decrease in the function f, satisfying:\n\nf(x_k - \\alpha \\nabla f (x_k)) \\leq f(x_k) - c_1 \\cdot \\alpha\\nabla f(x_k)^\\top \\nabla f(x_k)\n\n\n\n\nIllustration of sufficient decrease condition with coefficient c_1\n\n\nfor some constant c_1 \\in (0,1). Note that setting c_1 = 1 corresponds to the first-order Taylor approximation of \\phi(\\alpha). However, this condition can accept very small values of \\alpha, potentially slowing down the solution process. Typically, c_1 \\approx 10^{−4} is used in practice.\n\n\n\n\n\n\nExample\n\n\n\n\n\nIf f(x) represents a cost function in an optimization problem, choosing an appropriate c_1 value is crucial. For instance, in a machine learning model training scenario, an improper c_1 might lead to either very slow convergence or missing the minimum.\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\nHow does the choice of c_1 affect the convergence speed in optimization problems?",
     "crumbs": [
       "Methods",
       "Line search",
-      "Inexact line search"
-    ]
-  },
-  {
-    "objectID": "docs/methods/line_search/inexact.html#curvature-condition",
-    "href": "docs/methods/line_search/inexact.html#curvature-condition",
-    "title": "Inexact line search",
-    "section": "2 Curvature condition",
-    "text": "2 Curvature condition\nTo rule out unacceptably short steps one can introduce a second requirement:\n\n-\\nabla f (x_k - \\alpha \\nabla f(x_k))^\\top \\nabla f(x_k) \\geq c_2 \\nabla f(x_k)^\\top(- \\nabla f(x_k))\n\nfor some constant c_2 \\in (c_1,1), where c_1 is a constant from Armijo condition. Note that the left-handside is simply the derivative \\nabla_\\alpha \\phi(\\alpha), so the curvature condition ensures that the slope of \\phi(\\alpha) at the target point is greater than c_2 times the initial slope \\nabla_\\alpha \\phi(\\alpha)(0). Typical values of c_2 \\approx 0.9 for Newton or quasi-Newton method. The sufficient decrease and curvature conditions are known collectively as the Wolfe conditions.",
-    "crumbs": [
-      "Methods",
-      "Line search",
-      "Inexact line search"
+      "Inexact Line Search"
     ]
   },
   {
     "objectID": "docs/methods/line_search/inexact.html#goldstein-conditions",
     "href": "docs/methods/line_search/inexact.html#goldstein-conditions",
-    "title": "Inexact line search",
-    "section": "3 Goldstein conditions",
-    "text": "3 Goldstein conditions\nLet’s consider also 2 linear scalar functions \\phi_1(\\alpha), \\phi_2(\\alpha):\n\n\\phi_1(\\alpha) = f(x_k) - c_1 \\alpha \\|\\nabla f(x_k)\\|^2\n\nand\n\n\\phi_2(\\alpha) = f(x_k) - c_2 \\alpha \\|\\nabla f(x_k)\\|^2\n\nNote, that Goldstein-Armijo conditions determine the location of the function \\phi(\\alpha) between \\phi_1(\\alpha) and \\phi_2(\\alpha). Typically, we choose c_1 = \\rho and c_2 = 1 - \\rho, while $ (0.5, 1)$.\n\n\n\nIllustration",
+    "title": "Inexact Line Search",
+    "section": "2 Goldstein Conditions",
+    "text": "2 Goldstein Conditions\nConsider two linear scalar functions \\phi_1(\\alpha) and \\phi_2(\\alpha):\n\n\\phi_1(\\alpha) = f(x_k) - c_1 \\alpha \\|\\nabla f(x_k)\\|^2\n\n\n\\phi_2(\\alpha) = f(x_k) - c_2 \\alpha \\|\\nabla f(x_k)\\|^2\n\nThe Goldstein-Armijo conditions locate the function \\phi(\\alpha) between \\phi_1(\\alpha) and \\phi_2(\\alpha). Typically, c_1 = \\rho and c_2 = 1 - \\rho, with $ (0.5, 1)$.\n\n\n\nIllustration of Goldstein conditions",
     "crumbs": [
       "Methods",
       "Line search",
-      "Inexact line search"
+      "Inexact Line Search"
+    ]
+  },
+  {
+    "objectID": "docs/methods/line_search/inexact.html#curvature-condition",
+    "href": "docs/methods/line_search/inexact.html#curvature-condition",
+    "title": "Inexact Line Search",
+    "section": "3 Curvature Condition",
+    "text": "3 Curvature Condition\nTo avoid excessively short steps, we introduce a second criterion:\n\n-\\nabla f (x_k - \\alpha \\nabla f(x_k))^\\top \\nabla f(x_k) \\geq c_2 \\nabla f(x_k)^\\top(- \\nabla f(x_k))\n\n\n\n\nIllustration of curvature condition\n\n\nfor some c_2 \\in (c_1,1). Here, c_1 is from the Armijo condition. The left-hand side is the derivative \\nabla_\\alpha \\phi(\\alpha), ensuring that the slope of \\phi(\\alpha) at the target point is at least c_2 times the initial slope \\nabla_\\alpha \\phi(\\alpha)(0). Commonly, c_2 \\approx 0.9 is used for Newton or quasi-Newton methods. Together, the sufficient decrease and curvature conditions form the Wolfe conditions.\n\n\n\nIllustration of Wolfe condition\n\n\n\n\n\n\n\n\nExample\n\n\n\n\n\nIn gradient descent algorithms, applying the curvature condition can prevent the algorithm from taking steps that are too small, thus enhancing the efficiency of finding the minimum.\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\nWhy is it important to have a balance between the sufficient decrease and curvature conditions in optimization algorithms?",
+    "crumbs": [
+      "Methods",
+      "Line search",
+      "Inexact Line Search"
+    ]
+  },
+  {
+    "objectID": "docs/methods/line_search/inexact.html#backtracking-line-search",
+    "href": "docs/methods/line_search/inexact.html#backtracking-line-search",
+    "title": "Inexact Line Search",
+    "section": "4 Backtracking Line Search",
+    "text": "4 Backtracking Line Search\nBacktracking line search is a technique to find a step size that satisfies the Armijo condition, Goldstein conditions, or other criteria of inexact line search. It begins with a relatively large step size and iteratively scales it down until a condition is met.\n\n4.1 Algorithm:\n\nChoose an initial step size, \\alpha_0, and parameters \\beta \\in (0, 1) and c_1 \\in (0, 1).\nCheck if the chosen step size satisfies the chosen condition (e.g., Armijo condition).\nIf the condition is satisfied, stop; else, set \\alpha := \\beta \\alpha and repeat step 2.\n\nThe step size \\alpha is updated as\n\n\\alpha_{k+1} := \\beta \\alpha_k\n\nin each iteration until the chosen condition is satisfied.\n\n\n\n\n\n\nExample\n\n\n\n\n\nIn machine learning model training, the backtracking line search can be used to adjust the learning rate. If the loss doesn’t decrease sufficiently, the learning rate is reduced multiplicatively until the Armijo condition is met.\n\n\n\n\n\n\n\n\n\n\nQuestion\n\n\n\n\n\nWhy is it crucial to carefully choose the initial step size and the reduction factor \\beta in backtracking line search algorithms?",
+    "crumbs": [
+      "Methods",
+      "Line search",
+      "Inexact Line Search"
     ]
   },
   {
     "objectID": "docs/methods/line_search/inexact.html#references",
     "href": "docs/methods/line_search/inexact.html#references",
-    "title": "Inexact line search",
-    "section": "4 References",
-    "text": "4 References\n\nNumerical Optimization by J.Nocedal and S.J.Wright.\nInteractive Wolfe Line Search Example by fmin library.",
+    "title": "Inexact Line Search",
+    "section": "5 References",
+    "text": "5 References\n\nNumerical Optimization by J.Nocedal and S.J.Wright.\nInteractive Wolfe Line Search Example by fmin library.",
     "crumbs": [
       "Methods",
       "Line search",
-      "Inexact line search"
+      "Inexact Line Search"
     ]
   },
   {
@@ -3388,7 +3400,7 @@
     "href": "index.html#get-started",
     "title": "Welcome to 💎fmin.xyz!",
     "section": "Get Started",
-    "text": "Get Started\nDive into the wealth of resources available:\n\nTheoryMethodsExercisesApplicationsBenchmarks\n\n\n\n\n\n\n\n\n\n\nAffine set\n\n\n\n\n\n\n\n\n\n\n\nMatrix calculus\n\n\n\n\n\n\n\n\n\n\n\nConvex set\n\n\n\n\n\n\n\n\n\n\n\nConic set\n\n\n\n\n\n\n\n\n\n\n\nConvex function\n\n\n\n\n\n\n\n\n\n\n\nConjugate set\n\n\n\n\n\n\n\n\n\n\n\nConjugate function\n\n\n\n\n\n\n\n\n\n\n\nProjection\n\n\n\n\n\n\n\n\n\n\n\nDual norm\n\n\n\n\n\n\n\n\n\n\n\nSubgradient and subdifferential\n\n\n\n\n\n\n\n\n\n\n\nOptimality conditions. KKT\n\n\n\n\n\n\n\n\n\n\n\nConvex optimization problem\n\n\n\n\n\n\n\n\n\n\n\nDuality\n\n\n\n\n\n\n\n\n\n\n\nRates of convergence\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\nGradient descent\n\n\n\n\n\n\n\n\n\n\n\nNewton method\n\n\n\n\n\n\n\n\n\n\n\nQuasi Newton methods\n\n\n\n\n\n\n\n\n\n\n\nSubgradient descent\n\n\n\n\n\n\n\n\n\n\n\nProjected subgradient descent\n\n\n\n\n\n\n\n\n\n\n\nLinear Programming and simplex algorithm\n\n\n\n\n\n\n\n\n\n\n\nMirror descent\n\n\n\n\n\n\n\n\n\n\n\nAutomatic differentiation\n\n\n\n\n\n\n\n\n\n\n\nStochastic gradient descent\n\n\n\n\n\n\n\n\n\n\n\nStochastic average gradient\n\n\n\n\n\n\n\n\n\n\n\nADAM: A Method for Stochastic Optimization\n\n\n\n\n\n\n\n\n\n\n\nLookahead Optimizer: k steps forward, 1 step back\n\n\n\n\n\n\n\n\n\n\n\nBee algorithm\n\n\n\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\nConjugate gradients\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\nInexact line search\n\n\n\n\n\n\n\n\n\n\n\nNatural gradient descent\n\n\n\n\n\n\n\n\n\n\n\nNelder–Mead\n\n\n\n\n\n\n\n\n\n\n\nSimulated annealing\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nMatrix calculus\n\n\n\n\nConvex sets\n\n\n\n\nProjection\n\n\n\n\nSeparation\n\n\n\n\nConjugate sets\n\n\n\n\nConvex functions\n\n\n\n\nSubgradient and subdifferential\n\n\n\n\nConjugate functions\n\n\n\n\nGeneral optimization problems\n\n\n\n\nDuality\n\n\n\n\nRates of convergence\n\n\n\n\nLine search\n\n\n\n\nCVXPY library\n\n\n\n\nAutomatic differentiation\n\n\n\n\nZero order methods\n\n\n\n\nFirst order methods\n\n\n\n\nUncategorized\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\n\n\n\n\nA^* algorithm for path finding\n\n\n\n\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nKnapsack problem\n\n\n\n\n\n\n\n\n\n\n\nLinear least squares\n\n\n\n\n\n\n\n\n\n\n\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\nMinimum volume ellipsoid\n\n\n\n\n\n\n\n\n\n\n\nNeural Network Loss Surface Visualization\n\n\n\n\n\n\n\n\n\n\n\nNeural network Lipschitz constant\n\n\n\n\n\n\n\n\n\n\n\nPrincipal component analysis\n\n\n\n\n\n\n\n\n\n\n\nRendezvous problem\n\n\n\n\n\n\n\n\n\n\n\nTotal variation in-painting\n\n\n\n\n\n\n\n\n\n\n\nTravelling salesman problem\n\n\n\n\n\n\n\n\n\n\n\nTwo way partitioning problem\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\nCNN on FashionMNIST\n\n\n\n\n\n\n\n\n\n\n\nLinear Least Squares\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Get Started\nDive into the wealth of resources available:\n\nTheoryMethodsExercisesApplicationsBenchmarks\n\n\n\n\n\n\n\n\n\n\nAffine set\n\n\n\n\n\n\n\n\n\n\n\nMatrix calculus\n\n\n\n\n\n\n\n\n\n\n\nConvex set\n\n\n\n\n\n\n\n\n\n\n\nConic set\n\n\n\n\n\n\n\n\n\n\n\nConvex function\n\n\n\n\n\n\n\n\n\n\n\nConjugate set\n\n\n\n\n\n\n\n\n\n\n\nConjugate function\n\n\n\n\n\n\n\n\n\n\n\nProjection\n\n\n\n\n\n\n\n\n\n\n\nDual norm\n\n\n\n\n\n\n\n\n\n\n\nSubgradient and subdifferential\n\n\n\n\n\n\n\n\n\n\n\nOptimality conditions. KKT\n\n\n\n\n\n\n\n\n\n\n\nConvex optimization problem\n\n\n\n\n\n\n\n\n\n\n\nDuality\n\n\n\n\n\n\n\n\n\n\n\nRates of convergence\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\nGradient descent\n\n\n\n\n\n\n\n\n\n\n\nNewton method\n\n\n\n\n\n\n\n\n\n\n\nQuasi Newton methods\n\n\n\n\n\n\n\n\n\n\n\nSubgradient descent\n\n\n\n\n\n\n\n\n\n\n\nProjected subgradient descent\n\n\n\n\n\n\n\n\n\n\n\nLinear Programming and simplex algorithm\n\n\n\n\n\n\n\n\n\n\n\nMirror descent\n\n\n\n\n\n\n\n\n\n\n\nAutomatic differentiation\n\n\n\n\n\n\n\n\n\n\n\nStochastic gradient descent\n\n\n\n\n\n\n\n\n\n\n\nStochastic average gradient\n\n\n\n\n\n\n\n\n\n\n\nADAM: A Method for Stochastic Optimization\n\n\n\n\n\n\n\n\n\n\n\nLookahead Optimizer: k steps forward, 1 step back\n\n\n\n\n\n\n\n\n\n\n\nBee algorithm\n\n\n\n\n\n\n\n\n\n\n\nBinary search\n\n\n\n\n\n\n\n\n\n\n\nConjugate gradients\n\n\n\n\n\n\n\n\n\n\n\nGolden search\n\n\n\n\n\n\n\n\n\n\n\nInexact Line Search\n\n\n\n\n\n\n\n\n\n\n\nNatural gradient descent\n\n\n\n\n\n\n\n\n\n\n\nNelder–Mead\n\n\n\n\n\n\n\n\n\n\n\nSimulated annealing\n\n\n\n\n\n\n\n\n\n\n\nSuccessive parabolic interpolation\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nTitle\n\n\n\n\n\n\nMatrix calculus\n\n\n\n\nConvex sets\n\n\n\n\nProjection\n\n\n\n\nSeparation\n\n\n\n\nConjugate sets\n\n\n\n\nConvex functions\n\n\n\n\nSubgradient and subdifferential\n\n\n\n\nConjugate functions\n\n\n\n\nGeneral optimization problems\n\n\n\n\nDuality\n\n\n\n\nRates of convergence\n\n\n\n\nLine search\n\n\n\n\nCVXPY library\n\n\n\n\nAutomatic differentiation\n\n\n\n\nZero order methods\n\n\n\n\nFirst order methods\n\n\n\n\nUncategorized\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n\n\n\n\n\nA^* algorithm for path finding\n\n\n\n\n\n\n\n\n\n\n\nDeep learning\n\n\n\n\n\n\n\n\n\n\n\nKnapsack problem\n\n\n\n\n\n\n\n\n\n\n\nLinear least squares\n\n\n\n\n\n\n\n\n\n\n\nMaximum likelihood estimation\n\n\n\n\n\n\n\n\n\n\n\nMinimum volume ellipsoid\n\n\n\n\n\n\n\n\n\n\n\nNeural Network Loss Surface Visualization\n\n\n\n\n\n\n\n\n\n\n\nNeural network Lipschitz constant\n\n\n\n\n\n\n\n\n\n\n\nPrincipal component analysis\n\n\n\n\n\n\n\n\n\n\n\nRendezvous problem\n\n\n\n\n\n\n\n\n\n\n\nTotal variation in-painting\n\n\n\n\n\n\n\n\n\n\n\nTravelling salesman problem\n\n\n\n\n\n\n\n\n\n\n\nTwo way partitioning problem\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\nCNN on FashionMNIST\n\n\n\n\n\n\n\n\n\n\n\nLinear Least Squares\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#our-principles",

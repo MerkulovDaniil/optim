@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.510">
+<meta name="generator" content="quarto-1.4.515">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inexact line search</title>
+<title>Inexact Line Search</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,9 +83,9 @@ ul.task-list li input[type="checkbox"] {
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<meta property="og:title" content="Inexact line search">
+<meta property="og:title" content="Inexact Line Search">
 <meta property="og:description" content="">
-<meta name="twitter:title" content="Inexact line search">
+<meta name="twitter:title" content="Inexact Line Search">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -114,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/inexact.html">Inexact line search</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/inexact.html">Inexact Line Search</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -265,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/line_search/inexact.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Inexact line search</span></a>
+ <span class="menu-text">Inexact Line Search</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -676,10 +676,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sufficient-decrease" id="toc-sufficient-decrease" class="nav-link active" data-scroll-target="#sufficient-decrease"><span class="header-section-number">1</span> Sufficient decrease</a></li>
-  <li><a href="#curvature-condition" id="toc-curvature-condition" class="nav-link" data-scroll-target="#curvature-condition"><span class="header-section-number">2</span> Curvature condition</a></li>
-  <li><a href="#goldstein-conditions" id="toc-goldstein-conditions" class="nav-link" data-scroll-target="#goldstein-conditions"><span class="header-section-number">3</span> Goldstein conditions</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
+  <li><a href="#sufficient-decrease" id="toc-sufficient-decrease" class="nav-link active" data-scroll-target="#sufficient-decrease"><span class="header-section-number">1</span> Sufficient Decrease</a></li>
+  <li><a href="#goldstein-conditions" id="toc-goldstein-conditions" class="nav-link" data-scroll-target="#goldstein-conditions"><span class="header-section-number">2</span> Goldstein Conditions</a></li>
+  <li><a href="#curvature-condition" id="toc-curvature-condition" class="nav-link" data-scroll-target="#curvature-condition"><span class="header-section-number">3</span> Curvature Condition</a></li>
+  <li><a href="#backtracking-line-search" id="toc-backtracking-line-search" class="nav-link" data-scroll-target="#backtracking-line-search"><span class="header-section-number">4</span> Backtracking Line Search</a>
+  <ul class="collapse">
+  <li><a href="#algorithm" id="toc-algorithm" class="nav-link" data-scroll-target="#algorithm"><span class="header-section-number">4.1</span> Algorithm:</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">5</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/line_search/inexact.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -690,9 +694,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/inexact.html">Inexact line search</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/index.html">Line search</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/line_search/inexact.html">Inexact Line Search</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Inexact line search</h1>
+<h1 class="title">Inexact Line Search</h1>
 </div>
 
 
@@ -709,55 +713,198 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This strategy of inexact line search works well in practice, as well as it has the following geometric interpretation:</p>
+<p>The strategy of inexact line search is practical and has a significant geometric interpretation:</p>
 <section id="sufficient-decrease" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="sufficient-decrease"><span class="header-section-number">1</span> Sufficient decrease</h2>
-<p>Let’s consider the following scalar function while being at a specific point of <span class="math inline">x_k</span>:</p>
+<h2 data-number="1" class="anchored" data-anchor-id="sufficient-decrease"><span class="header-section-number">1</span> Sufficient Decrease</h2>
+<p>Consider a scalar function <span class="math inline">\phi(\alpha)</span> at a point <span class="math inline">x_k</span>:</p>
 <p><span class="math display">
 \phi(\alpha) = f(x_k - \alpha\nabla f(x_k)), \alpha \geq 0
 </span></p>
-<p>consider first order approximation of <span class="math inline">\phi(\alpha)</span>:</p>
+<p>The first-order approximation of <span class="math inline">\phi(\alpha)</span> near <span class="math inline">\alpha = 0</span> is:</p>
 <p><span class="math display">
 \phi(\alpha) \approx f(x_k) - \alpha\nabla f(x_k)^\top \nabla f(x_k)
 </span></p>
-<p>A popular inexact line search condition stipulates that <span class="math inline">\alpha</span> should first of all give sufficient decrease in the objective function <span class="math inline">f</span>, as measured by the following inequality:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="inexact.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of Taylor approximation of <span class="math inline">\phi^I_0(\alpha)</span></figcaption>
+</figure>
+</div>
+<p>The inexact line search condition, known as the Armijo condition, states that <span class="math inline">\alpha</span> should provide sufficient decrease in the function <span class="math inline">f</span>, satisfying:</p>
 <p><span class="math display">
 f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top \nabla f(x_k)
 </span></p>
-<p>for some constant <span class="math inline">c_1 \in (0,1)</span>. (Note, that <span class="math inline">c_1 = 1</span> stands for the first order Taylor approximation of <span class="math inline">\phi(\alpha)</span>). This is also called Armijo condition. The problem of this condition is, that it could accept arbitrary small values <span class="math inline">\alpha</span>, which may slow down solution of the problem. In practice, <span class="math inline">c_1</span> is chosen to be quite small, say <span class="math inline">c_1 \approx 10^{−4}</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sufficient_decrease.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of sufficient decrease condition with coefficient <span class="math inline">c_1</span></figcaption>
+</figure>
+</div>
+<p>for some constant <span class="math inline">c_1 \in (0,1)</span>. Note that setting <span class="math inline">c_1 = 1</span> corresponds to the first-order Taylor approximation of <span class="math inline">\phi(\alpha)</span>. However, this condition can accept very small values of <span class="math inline">\alpha</span>, potentially slowing down the solution process. Typically, <span class="math inline">c_1 \approx 10^{−4}</span> is used in practice.</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>If <span class="math inline">f(x)</span> represents a cost function in an optimization problem, choosing an appropriate <span class="math inline">c_1</span> value is crucial. For instance, in a machine learning model training scenario, an improper <span class="math inline">c_1</span> might lead to either very slow convergence or missing the minimum.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>How does the choice of <span class="math inline">c_1</span> affect the convergence speed in optimization problems?</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="curvature-condition" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="curvature-condition"><span class="header-section-number">2</span> Curvature condition</h2>
-<p>To rule out unacceptably short steps one can introduce a second requirement:</p>
-<p><span class="math display">
--\nabla f (x_k - \alpha \nabla f(x_k))^\top \nabla f(x_k) \geq c_2 \nabla f(x_k)^\top(- \nabla f(x_k))
-</span></p>
-<p>for some constant <span class="math inline">c_2 \in (c_1,1)</span>, where <span class="math inline">c_1</span> is a constant from Armijo condition. Note that the left-handside is simply the derivative <span class="math inline">\nabla_\alpha \phi(\alpha)</span>, so the curvature condition ensures that the slope of <span class="math inline">\phi(\alpha)</span> at the target point is greater than <span class="math inline">c_2</span> times the initial slope <span class="math inline">\nabla_\alpha \phi(\alpha)(0)</span>. Typical values of <span class="math inline">c_2 \approx 0.9</span> for Newton or quasi-Newton method. The sufficient decrease and curvature conditions are known collectively as the Wolfe conditions.</p>
-</section>
-<section id="goldstein-conditions" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="goldstein-conditions"><span class="header-section-number">3</span> Goldstein conditions</h2>
-<p>Let’s consider also 2 linear scalar functions <span class="math inline">\phi_1(\alpha), \phi_2(\alpha)</span>:</p>
+<section id="goldstein-conditions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="goldstein-conditions"><span class="header-section-number">2</span> Goldstein Conditions</h2>
+<p>Consider two linear scalar functions <span class="math inline">\phi_1(\alpha)</span> and <span class="math inline">\phi_2(\alpha)</span>:</p>
 <p><span class="math display">
 \phi_1(\alpha) = f(x_k) - c_1 \alpha \|\nabla f(x_k)\|^2
 </span></p>
-<p>and</p>
 <p><span class="math display">
 \phi_2(\alpha) = f(x_k) - c_2 \alpha \|\nabla f(x_k)\|^2
 </span></p>
-<p>Note, that Goldstein-Armijo conditions determine the location of the function <span class="math inline">\phi(\alpha)</span> between <span class="math inline">\phi_1(\alpha)</span> and <span class="math inline">\phi_2(\alpha)</span>. Typically, we choose <span class="math inline">c_1 = \rho</span> and <span class="math inline">c_2 = 1 - \rho</span>, while $ (0.5, 1)$.</p>
+<p>The Goldstein-Armijo conditions locate the function <span class="math inline">\phi(\alpha)</span> between <span class="math inline">\phi_1(\alpha)</span> and <span class="math inline">\phi_2(\alpha)</span>. Typically, <span class="math inline">c_1 = \rho</span> and <span class="math inline">c_2 = 1 - \rho</span>, with $ (0.5, 1)$.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="backtracking.svg" class="img-fluid figure-img"></p>
-<figcaption>Illustration</figcaption>
+<p><img src="goldstein.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of Goldstein conditions</figcaption>
 </figure>
 </div>
 </section>
-<section id="references" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
+<section id="curvature-condition" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="curvature-condition"><span class="header-section-number">3</span> Curvature Condition</h2>
+<p>To avoid excessively short steps, we introduce a second criterion:</p>
+<p><span class="math display">
+-\nabla f (x_k - \alpha \nabla f(x_k))^\top \nabla f(x_k) \geq c_2 \nabla f(x_k)^\top(- \nabla f(x_k))
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="curvature.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of curvature condition</figcaption>
+</figure>
+</div>
+<p>for some <span class="math inline">c_2 \in (c_1,1)</span>. Here, <span class="math inline">c_1</span> is from the Armijo condition. The left-hand side is the derivative <span class="math inline">\nabla_\alpha \phi(\alpha)</span>, ensuring that the slope of <span class="math inline">\phi(\alpha)</span> at the target point is at least <span class="math inline">c_2</span> times the initial slope <span class="math inline">\nabla_\alpha \phi(\alpha)(0)</span>. Commonly, <span class="math inline">c_2 \approx 0.9</span> is used for Newton or quasi-Newton methods. Together, the sufficient decrease and curvature conditions form the Wolfe conditions.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="wolfe.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of Wolfe condition</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>In gradient descent algorithms, applying the curvature condition can prevent the algorithm from taking steps that are too small, thus enhancing the efficiency of finding the minimum.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>Why is it important to have a balance between the sufficient decrease and curvature conditions in optimization algorithms?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="backtracking-line-search" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="backtracking-line-search"><span class="header-section-number">4</span> Backtracking Line Search</h2>
+<p>Backtracking line search is a technique to find a step size that satisfies the Armijo condition, Goldstein conditions, or other criteria of inexact line search. It begins with a relatively large step size and iteratively scales it down until a condition is met.</p>
+<section id="algorithm" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">4.1</span> Algorithm:</h3>
+<ol type="1">
+<li>Choose an initial step size, <span class="math inline">\alpha_0</span>, and parameters <span class="math inline">\beta \in (0, 1)</span> and <span class="math inline">c_1 \in (0, 1)</span>.</li>
+<li>Check if the chosen step size satisfies the chosen condition (e.g., Armijo condition).</li>
+<li>If the condition is satisfied, stop; else, set <span class="math inline">\alpha := \beta \alpha</span> and repeat step 2.</li>
+</ol>
+<p>The step size <span class="math inline">\alpha</span> is updated as</p>
+<p><span class="math display">
+\alpha_{k+1} := \beta \alpha_k
+</span></p>
+<p>in each iteration until the chosen condition is satisfied.</p>
+<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-example">
+<p>In machine learning model training, the backtracking line search can be used to adjust the learning rate. If the loss doesn’t decrease sufficiently, the learning rate is reduced multiplicatively until the Armijo condition is met.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Question
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-question">
+<p>Why is it crucial to carefully choose the initial step size and the reduction factor <span class="math inline">\beta</span> in backtracking line search algorithms?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="references"><span class="header-section-number">5</span> References</h2>
 <ul>
 <li>Numerical Optimization by J.Nocedal and S.J.Wright.</li>
 <li><a href="./wolfe_fmin.html">Interactive Wolfe Line Search Example</a> by <a href="https://github.com/benfred/fmin">fmin</a> library.</li>
 </ul>
+<hr>
 
 
 </section>
