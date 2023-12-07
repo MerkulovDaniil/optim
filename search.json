@@ -1969,7 +1969,7 @@
     "href": "docs/applications/salesman_problem.html#genetic-evolution-algorithm",
     "title": "Travelling salesman problem",
     "section": "2 🧬Genetic (evolution) algorithm",
-    "text": "2 🧬Genetic (evolution) algorithm\nOur approach is based on the famous global optimization algorithm, known as evolution algorithm. ### Population and individuals Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions \\{y_k\\}_{k=1}^n as population, while each solution is called individual (or creature).\nEach creature contains integer numbers 1, \\ldots, N, which indicates the order of bypassing all the houses. The creature, that reflects the shortest path length among the others will be used as an output of an algorithm at the current iteration (generation).\n\n2.1 Crossing procedure\nEach iteration of the algorithm starts with the crossing (breed) procedure. Formally speaking, we should formulate the mapping, that takes two creature vectors as an input and returns its offspring, which inherits parents properties, while remaining consistent. We will use ordered crossover as such procedure.\n\n\n\nIllustration\n\n\n\n\n2.2 Mutation\nIn order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, 0.05). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose \\text{mutation_rate} \\cdot n individuals and in each case swap random \\text{mutation_rate} \\cdot N digits.\n\n\n2.3 Selection\nAt the end of the iteration we have increased population (due to crossing results), then we just calculate total path distance to each individual and select top n of them.\n\n\n\nIllustration\n\n\n\n\n\nIllustration\n\n\nIn general, for any c &gt; 0, where d is the number of dimensions in the Euclidean space, there is a polynomial-time algorithm that finds a tour of length at most (1 + \\frac{1}{c}) times the optimal for geometric instances of TSP in\n\n\\mathcal{O}\\left(N(\\log N)^{(\\mathcal{O}(c{\\sqrt {d}}))^{d-1}}\\right)",
+    "text": "2 🧬Genetic (evolution) algorithm\nOur approach is based on the famous global optimization algorithm, known as evolution algorithm. ### Population and individuals Firstly, we need to generate the set of random solutions as an initialization. We will call a set of solutions \\{y_k\\}_{k=1}^n as population, while each solution is called individual (or creature).\nEach creature contains integer numbers 1, \\ldots, N, which indicates the order of bypassing all the houses. The creature, that reflects the shortest path length among the others will be used as an output of an algorithm at the current iteration (generation).\n\n2.1 Crossing procedure\nEach iteration of the algorithm starts with the crossing (breed) procedure. Formally speaking, we should formulate the mapping, that takes two creature vectors as an input and returns its offspring, which inherits parents properties, while remaining consistent. We will use ordered crossover as such procedure.\n\n\n\nIllustration\n\n\n\n\n2.2 Mutation\nIn order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, 0.05). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose \\text{mutation rate} \\cdot n individuals and in each case swap random \\text{mutation rate} \\cdot N digits.\n\n\n2.3 Selection\nAt the end of the iteration we have increased population (due to crossing results), then we just calculate total path distance to each individual and select top n of them.\n\n\n\nIllustration\n\n\n\n\n\nIllustration\n\n\nIn general, for any c &gt; 0, where d is the number of dimensions in the Euclidean space, there is a polynomial-time algorithm that finds a tour of length at most (1 + \\frac{1}{c}) times the optimal for geometric instances of TSP in\n\n\\mathcal{O}\\left(N(\\log N)^{(\\mathcal{O}(c{\\sqrt {d}}))^{d-1}}\\right)",
     "crumbs": [
       "Applications",
       "Travelling salesman problem"
@@ -1980,7 +1980,7 @@
     "href": "docs/applications/salesman_problem.html#code",
     "title": "Travelling salesman problem",
     "section": "3 Code",
-    "text": "3 Code\nOpen In Colab{: .btn }",
+    "text": "3 Code\nOpen In Colab",
     "crumbs": [
       "Applications",
       "Travelling salesman problem"
@@ -2402,6 +2402,17 @@
     "title": "Automatic differentiation",
     "section": "7 Materials",
     "text": "7 Materials\n\nAutodidact - a pedagogical implementation of Autograd\nCSC321 Lecture 6\nCSC321 Lecture 10\nWhy you should understand backpropagation :)\nJAX autodiff cookbook\nMaterials from CS207: Systems Development for Computational Science course with very intuitive explanation.\nGreat lecture on AD from Dmitry Kropotov (in Russian).",
+    "crumbs": [
+      "Methods",
+      "Automatic differentiation"
+    ]
+  },
+  {
+    "objectID": "docs/methods/Autograd.html#footnotes",
+    "href": "docs/methods/Autograd.html#footnotes",
+    "title": "Automatic differentiation",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nLinnainmaa S. The representation of the cumulative rounding error of an algorithm as a Taylor expansion of the local rounding errors. Master’s Thesis (in Finnish), Univ. Helsinki, 1970.↩︎",
     "crumbs": [
       "Methods",
       "Automatic differentiation"
@@ -3237,6 +3248,17 @@
     "title": "Matrix calculus",
     "section": "4 References",
     "text": "4 References\n\nConvex Optimization book by S. Boyd and L. Vandenberghe - Appendix A. Mathematical background.\nNumerical Optimization by J. Nocedal and S. J. Wright. - Background Material.\nMatrix decompositions Cheat Sheet.\nGood introduction\nThe Matrix Cookbook\nMSU seminars (Rus.)\nOnline tool for analytic expression of a derivative.\nDeterminant derivative\nIntroduction to Applied Linear Algebra – Vectors, Matrices, and Least Squares - book by Stephen Boyd & Lieven Vandenberghe.\nNumerical Linear Algebra course at Skoltech",
+    "crumbs": [
+      "Theory",
+      "Matrix calculus"
+    ]
+  },
+  {
+    "objectID": "docs/theory/Matrix_calculus.html#footnotes",
+    "href": "docs/theory/Matrix_calculus.html#footnotes",
+    "title": "Matrix calculus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nA full introduction to applied linear algebra can be found in Introduction to Applied Linear Algebra – Vectors, Matrices, and Least Squares - book by Stephen Boyd & Lieven Vandenberghe, which is indicated in the source. Also, a useful refresher for linear algebra is in Appendix A of the book Numerical Optimization by Jorge Nocedal Stephen J. Wright.↩︎\nA good cheat sheet with matrix decomposition is available at the NLA course website.↩︎\nThe most comprehensive and intuitive guide about the theory of taking matrix derivatives is presented in these notes by Dmitry Kropotov team.↩︎",
     "crumbs": [
       "Theory",
       "Matrix calculus"

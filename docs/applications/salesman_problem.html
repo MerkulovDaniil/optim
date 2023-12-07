@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.515">
+<meta name="generator" content="quarto-1.4.521">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,9 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
-    null
+    "f",
+    "/",
+    "s"
   ],
   "language": {
     "search-no-results-text": "No results",
@@ -58,6 +60,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -745,7 +748,7 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 </section>
 <section id="mutation" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="mutation"><span class="header-section-number">2.2</span> Mutation</h3>
-<p>In order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, <span class="math inline">0.05</span>). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose <span class="math inline">\text{mutation_rate} \cdot n</span> individuals and in each case swap random <span class="math inline">\text{mutation_rate} \cdot N</span> digits.</p>
+<p>In order to give our algorithm some ability to escape local minima, we provide it with mutation procedure. We simply swap some houses in an individual vector. To be more accurate, we define mutation rate (say, <span class="math inline">0.05</span>). On the one hand, the higher the rate, the less stable the population is, on the other, the smaller the rate, the more often algorithm gets stuck in the local minima. We choose <span class="math inline">\text{mutation rate} \cdot n</span> individuals and in each case swap random <span class="math inline">\text{mutation rate} \cdot N</span> digits.</p>
 </section>
 <section id="selection" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.3</span> Selection</h3>
@@ -770,7 +773,7 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 </section>
 <section id="code" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="code"><span class="header-section-number">3</span> Code</h2>
-<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Travelling%20salesman%20problem.ipynb">Open In Colab</a>{: .btn }</p>
+<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Travelling%20salesman%20problem.ipynb">Open In Colab</a></p>
 </section>
 <section id="references" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
