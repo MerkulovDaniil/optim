@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-12-02T22:23:04.074Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="GZnmEsOcY_sRk8M4XG11" version="21.6.5" type="device" pages="93">
+<mxfile host="Electron" modified="2023-12-04T10:05:05.798Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="Xi56y2bEm2H-8tjUVlAE" version="21.6.5" type="device" pages="93">
   <diagram id="Tc_C-4fhjzrIpTlicYjt" name="fmin_logo">
     <mxGraphModel dx="1026" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1830" pageHeight="430" math="1" shadow="0">
       <root>
@@ -7461,7 +7461,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="inexact" id="Iw_SWABJVW-uP9iswnFr">
-    <mxGraphModel dx="611" dy="443" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="400" pageHeight="400" math="1" shadow="0">
+    <mxGraphModel dx="906" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="400" pageHeight="400" math="1" shadow="0">
       <root>
         <mxCell id="ezFt8YuyQ2c4t2fy24Mx-0" />
         <mxCell id="ezFt8YuyQ2c4t2fy24Mx-1" parent="ezFt8YuyQ2c4t2fy24Mx-0" />
