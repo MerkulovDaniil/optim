@@ -33,6 +33,7 @@ Using the geometric intuition above, draw the conjugate function to the function
 :::
 :::
 
+* Straightforward from the definition: $\inf\limits_{x \in \mathbf{dom} \; f} f(x) = -f^*(0)$
 * $f^*(y)$ - is always a closed convex function (a point-wise supremum of closed convex functions) on $y$.
 (Function $f:X\rightarrow R$ is called closed if $\mathbf{epi}(f)$ is a closed set in $X\times R$.)
 * Fenchel–Young inequality: 

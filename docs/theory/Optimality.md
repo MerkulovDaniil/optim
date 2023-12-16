@@ -451,6 +451,66 @@ $$
 [📜 File](/assets/files/karush.pdf)
 :::
 
+:::{.callout-theorem}
+
+## Subdifferential form of KKT
+
+Let $X$ be a linear normed space, and let $f_j: X \to \mathbb{R}$, $j = 0, 1, \ldots, m$, be convex proper (it never takes on the value $-\infty$ and also is not identically equal to $\infty$) functions. Consider the problem
+
+$$
+\begin{split}
+& f_0(x) \to \min\limits_{x \in X}\\
+\text{s.t. } & f_j(x) \leq 0, \; j = 1,\ldots,m\\
+\end{split}
+$$
+
+Let $x^* \in X$ be a minimum in problem above and the functions $f_j$, $j = 0, 1, \ldots, m$, be continuous at the point $x^*$. Then there exist numbers $\lambda_j \geq 0$, $j = 0, 1, \ldots, m$, such that
+
+$$
+\sum_{j=0}^{m} \lambda_j = 1,
+$$
+
+$$
+\lambda_j f_j(x^*) = 0, \quad j = 1, \ldots, m,
+$$
+
+$$
+0 \in \sum_{j=0}^{m} \lambda_j \partial f_j(x^*).
+$$
+
+:::{.callout-proof}
+Consider the function
+
+$$
+f(x) = \max\{f_0(x) - f_0(x^*), f_1(x), \ldots, f_m(x)\}.
+$$
+
+The point $x^*$ is a global minimum of this function. Indeed, if at some point $x_e \in X$ the inequality $f(x_e) < 0$ were satisfied, it would imply that $f_0(x_e) < f_0(x^*)$ and $f_j(x_e) < 0$, $j = 1, \ldots, m$, contradicting the minimality of $x^*$ in problem above. 
+
+Then, from Fermat's theorem in subdifferential form, it follows that 
+
+$$
+0 \in \partial f(x^*).
+$$
+
+By the Dubovitskii-Milyutin theorem, we have
+
+$$
+\partial f(x^*) = \text{conv } \left( \bigcup\limits_{j \in I}\partial f_j(x^*)\right),
+$$
+
+where $I = \{0\} \cup \{j : f_j(x^*) = 0, 1 \leq j \leq m\}$. 
+
+Therefore, there exist $g_j \in \partial f_j(x^*)$, $j \in I$, such that
+
+$$
+\sum_{j \in I} \lambda_j g_j = 0, \quad \sum\limits_{j \in I}\lambda_j = 1, \quad \lambda_j \geq 0, \quad j \in I.
+$$
+
+It remains to set $\lambda_j = 0$ for $j \notin I$.
+:::
+:::
+
 ### Necessary conditions
 Let $x^*$, $(\lambda^*, \nu^*)$ be a solution to a mathematical programming problem with zero duality gap (the optimal value for the primal problem $p^*$ is equal to the optimal value for the dual problem $d^*$). Let also the functions $f_0, f_i, h_i$ be differentiable.
 

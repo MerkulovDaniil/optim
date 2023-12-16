@@ -19,7 +19,7 @@ The intuition for the finite-dimensional space is how the linear function (eleme
 * One can easily define the dual norm as:
 	
 	$$
-	\Vert x\Vert _* = \sup\limits_{y \neq 0} \dfrac{\langle y,x\rangle}{\Vert y\Vert }
+	\Vert y\Vert _* = \sup\limits_{x \neq 0} \dfrac{\langle y,x\rangle}{\Vert x\Vert }
 	$$
 
 * The dual norm is also a norm itself
@@ -40,9 +40,40 @@ dual_balls.html
 Let $f(x) = \Vert x\Vert$. Prove that $f^\star(y) = \mathbb{O}_{\Vert y\Vert _\star \leq 1}$
 
 ::: {.callout-solution collapse="true"}
-<br/>
-<br/>
-<br/>
-<br/>
+1. By definition of the conjugate function:
+
+	$$
+	f^*(y) = \sup_{x} \{ \langle y, x \rangle - f(x) \} = \sup_{x} \{ \langle y, x \rangle - \|x\| \}
+	$$
+
+2. Consider the case $\|y\|_* > 1$. By definition of the dual norm, 
+
+	$$
+	\Vert y\Vert _* = \sup\limits_{\Vert x\Vert  \leq 1} \langle y,x\rangle > 1
+	$$
+
+	Which means, that there is some $x^\dagger$, such that $\|x^\dagger\|\leq 1$, but $\langle y,x^\dagger\rangle > 1$. Now consider the vector $\bar{x} = tx^\dagger$, where $t \in \mathbb{R}^+$. The value of the conjugate function is a supremum, therefore we have the following relation:
+
+	$$
+	\begin{split}
+	f^*(y) &\geq \langle y, \bar{x} \rangle - \|\bar{x}\| = \langle y, tx^\dagger \rangle - t\|x^\dagger\|\\
+	&= t(\langle y, x^\dagger \rangle - \|x^\dagger\|) \to \infty \text{ with } t \to \infty
+	\end{split} 
+	$$
+
+	Thus, $\|y\|_* > 1$ does not belong to the $\text{dom } f^*$.
+
+1. Consider the case $\|y\|_* \leq 1$. By CBS inequality:
+
+	$$
+	\langle y, x \rangle \leq \| y \|_* \| x \| \leq \| x \|
+	$$
+
+	Equality holds when $x=0$. Therefore
+
+	$$
+	f^*(y) = \sup_{x} \{ \langle y, x \rangle - \|x\| \} = 0
+	$$
+
 :::
 :::

@@ -190,7 +190,7 @@ $$
     $$
 
     $$
-    \langle p, x_i\rangle \ge -\frac{1}{\theta} \to \langle p, x_i\rangle 0. 
+    \langle p, x_i\rangle \ge -\frac{1}{\theta} \to \langle p, x_i\rangle \geq 0. 
     $$
 
     So $p \in Y \to X^* \subset Y$.

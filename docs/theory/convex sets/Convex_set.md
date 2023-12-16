@@ -88,7 +88,7 @@ $$
 ::: {.callout-example}
 Prove, that ball in $\mathbb{R}^n$ (i.e. the following set $\{ \mathbf{x} \mid \Vert \mathbf{x} - \mathbf{x}_c \Vert \leq r \}$) - is convex.
 
-::: {.callout-solution}
+::: {.callout-solution collapse="true"}
 <br/><br/>
 <br/><br/>
 <br/><br/>
@@ -168,7 +168,7 @@ Determine if the following sets of $p$ are convex:
 * $\mathbb{E} \vert x^{201}\vert \le \alpha \mathbb{E}\vert x \vert$
 * $\mathbb{E} \vert x^{2}\vert \ge \alpha$$\mathbb{V} x \ge \alpha$
 
-::: {.callout-solution}
+::: {.callout-solution collapse="true"}
 <br/><br/>
 <br/><br/>
 <br/><br/>
