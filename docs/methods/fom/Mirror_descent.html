@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,6 +119,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Mirror descent">
 <meta property="og:description" content="">
@@ -805,7 +832,7 @@ V_x(y) = \phi(y) - \phi(x) - \langle\nabla \phi(x), y-x\rangle
 <li>Выберем теперь другую норму <span class="math inline">\|\cdot\| = \| \cdot \|_1</span>, пусть <span class="math inline">\phi(x) = \sum\limits_{i \in [n]}x_i \log x_i</span> - антиэнтропия. Тогда эта функция будет <span class="math inline">1</span> сильно выпукла на выпуклом множестве <span class="math inline">S : \left\{x \in S : x \geq 0, \sum\limits_{i \in [n]} x_i = 1\right\}</span> (вероятностном симплексе), а соответствующая ей дивергенция Брэгмана: <span class="math inline">V_x(y) = \sum\limits_{i \in [n]} y_i \log \frac{y_i}{x_i} = D(y \| x)</span> - расстояние Кульбака - Ляйблера.</li>
 <li>Еще немного примеров <a href="https://authors.library.caltech.edu/9428/1/DHIsiamjmaa07.pdf">отсюда</a>:</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="bregman.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -912,7 +939,7 @@ R_{T-1} = \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}^{T-1
 <li><span class="math inline">y_{k+1} = y_k - \alpha_k \nabla f_k(x_k)</span> Градиентный шаг в сопряженном пространстве</li>
 <li><span class="math inline">x_{k+1} = \text{arg}\min\limits_{x \in S}V_{\nabla \phi^*(y_{k+1})}(x)</span> Обратное отображение с помощью функции <span class="math inline">\nabla \phi^*(x)</span> и проекция на бюджетное множество</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="MD.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -1049,7 +1076,7 @@ f(\overline{x}) - f^*  \leq \sqrt{\dfrac{2 \log (n) G^2}{T}}
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'T'</span>)</span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r'$f(\overline</span><span class="sc">{x}</span><span class="vs">) - f(x^*)$'</span>)</span>
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./MD_test.png" class="img-fluid figure-img"></p>
 <figcaption>png</figcaption>
@@ -1206,27 +1233,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1241,10 +1247,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1253,7 +1263,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1480,4 +1492,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/Mirror_descent.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

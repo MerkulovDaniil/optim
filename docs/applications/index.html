@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -116,6 +116,33 @@ ul.task-list li input[type="checkbox"] {
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Applications">
 <meta property="og:description" content="">
@@ -742,7 +769,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div id="listing-applications" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1701988003726" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1702761919938" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163">
 <a href="../../docs/applications/A-Star.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -754,7 +781,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1701988003742" data-listing-reading-time-sort="2" data-listing-word-count-sort="220">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1702761919950" data-listing-reading-time-sort="2" data-listing-word-count-sort="220">
 <a href="../../docs/applications/deep_learning.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="dl.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -766,7 +793,7 @@ Deep learning
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1701988003742" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1702761919954" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <a href="../../docs/applications/knapsack_problem.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -778,7 +805,7 @@ Knapsack problem
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1701988003742" data-listing-reading-time-sort="3" data-listing-word-count-sort="439">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1702761919954" data-listing-reading-time-sort="3" data-listing-word-count-sort="439">
 <a href="../../docs/applications/least_squares.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="lls_idea.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -790,7 +817,7 @@ Linear least squares
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1701988003726" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1702761919938" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
 <a href="../../docs/applications/MLE.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="mle.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -802,7 +829,7 @@ Maximum likelihood estimation
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1701988003742" data-listing-reading-time-sort="1" data-listing-word-count-sort="188">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1702761919954" data-listing-reading-time-sort="1" data-listing-word-count-sort="188">
 <a href="../../docs/applications/ellipsoid.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="ellipsoid.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -814,7 +841,7 @@ Minimum volume ellipsoid
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1701988003726" data-listing-reading-time-sort="2" data-listing-word-count-sort="339">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1702761919938" data-listing-reading-time-sort="2" data-listing-word-count-sort="339">
 <a href="../../docs/applications/NN_Loss_Surface.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="nn_vis_CNN_line_no_drop.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -826,7 +853,7 @@ Neural Network Loss Surface Visualization
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1701988003726" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1702761919938" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
 <a href="../../docs/applications/Neural_Lipschitz_constant.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="adv_attack.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -838,7 +865,7 @@ Neural network Lipschitz constant
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1701988003746" data-listing-reading-time-sort="3" data-listing-word-count-sort="520">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1702761919958" data-listing-reading-time-sort="3" data-listing-word-count-sort="520">
 <a href="../../docs/applications/pca.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -850,7 +877,7 @@ Principal component analysis
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1701988003750" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1702761919958" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
 <a href="../../docs/applications/rendezvous.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="rendezvous.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -862,7 +889,7 @@ Rendezvous problem
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1701988003758" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1702761919970" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
 <a href="../../docs/applications/total_variation_inpainting.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="tv_start.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -874,7 +901,7 @@ Total variation in-painting
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1701988003758" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1702761919970" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
 <a href="../../docs/applications/salesman_problem.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="salesman_problem.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -886,7 +913,7 @@ Travelling salesman problem
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1701988003762" data-listing-reading-time-sort="3" data-listing-word-count-sort="411">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1702761919974" data-listing-reading-time-sort="3" data-listing-word-count-sort="411">
 <a href="../../docs/applications/two_way_partitioning.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="partition.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -1054,27 +1081,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1089,10 +1095,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1101,7 +1111,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }

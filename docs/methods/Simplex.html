@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -85,6 +85,33 @@ ul.task-list li input[type="checkbox"] {
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Linear Programming and simplex algorithm">
 <meta property="og:description" content="">
@@ -734,7 +761,7 @@ ul.task-list li input[type="checkbox"] {
 \text{s.t. } &amp; Ax \leq b\\
 \end{align*}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -773,7 +800,7 @@ Diet problem
 &amp; x_i \geq 0, \; i = 1,\dots, n
 \end{align*}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="diet_LP.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -798,7 +825,7 @@ Transportation problem
 <p><a href="https://jckantor.github.io/ND-Pyomo-Cookbook/notebooks/03.01-Transportation-Networks.html">Source</a></p>
 <p>The prototypical transportation problem deals with the distribution of a commodity from a set of sources to a set of destinations. The object is to minimize total transportation costs while satisfying constraints on the supplies available at each of the sources, and satisfying demand requirements at each of the destinations.</p>
 <p>Here we illustrate the transportation problem using an example from Chapter 5 of Johannes Bisschop, “AIMMS Optimization Modeling”, Paragon Decision Sciences, 1999. In this example there are two factories and six customer sites located in 8 European cities as shown in the following map. The customer sites are labeled in red, the factories are labeled in blue.</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_west_europe.png" class="img-fluid figure-img"></p>
 <figcaption>West Europe Map</figcaption>
@@ -865,7 +892,7 @@ Transportation problem
 </tbody>
 </table>
 <p>This can be represented as the following graph:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_transport_graph.svg" class="img-fluid figure-img"></p>
 <figcaption>Graph associated with the problem</figcaption>
@@ -1075,7 +1102,7 @@ Example
 <p>Definition: a <strong>basis</strong> <span class="math inline">B</span> is a subset of <span class="math inline">n</span> (integer) numbers between <span class="math inline">1</span> and <span class="math inline">m</span>, so that <span class="math inline">\text{rank} A_B = n</span>. Note, that we can associate submatrix <span class="math inline">A_B</span> and corresponding right-hand side <span class="math inline">b_B</span> with the basis <span class="math inline">B</span>. Also, we can derive a point of intersection of all these hyperplanes from basis: <span class="math inline">x_B = A^{-1}_B b_B</span>.</p>
 <p>If <span class="math inline">A x_B \leq b</span>, then basis <span class="math inline">B</span> is <strong>feasible</strong>.</p>
 <p>A basis <span class="math inline">B</span> is optimal if <span class="math inline">x_B</span> is an optimum of the <span class="math inline">\text{LP.Inequality}</span>.</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_1.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -1154,7 +1181,7 @@ c^\top x^* &amp; \geq c^\top  x_B \\
 <section id="changing-basis" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="changing-basis"><span class="header-section-number">5.1</span> Changing basis</h3>
 <p>Suppose, some of the coefficients of <span class="math inline">\lambda_B</span> are positive. Then we need to go through the edge of the polytope to the new vertex (i.e., switch the basis)</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_2.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -1209,7 +1236,7 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 &amp; 2^n x_1 + 2^{n-1}x_2 + 2^{n-2}x_3 + \ldots + x_n \leq 5^n\ &amp; x \geq 0
 \end{align*}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_KM.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -1392,27 +1419,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1427,10 +1433,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1439,7 +1449,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1666,4 +1678,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/Simplex.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

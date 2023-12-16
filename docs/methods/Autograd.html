@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,6 +119,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Automatic differentiation">
 <meta property="og:description" content="">
@@ -835,7 +862,7 @@ Theorem
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </span></p>
 <p>Let’s draw a <em>computational graph</em> of this function:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="comp_graph.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of computation graph of primitive arithmetic operations for the function <span class="math inline">L(w_1, w_2)</span></figcaption>
@@ -990,7 +1017,7 @@ Forward mode automatic differentiation algorithm
 <p><span class="math display">
 \overline{v_i} = \dfrac{\partial v_i}{\partial w_k}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="auto_diff_forward.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of forward chain rule to calculate the derivative of the function <span class="math inline">L</span> with respect to <span class="math inline">w_k</span>.</figcaption>
@@ -1020,7 +1047,7 @@ Forward mode automatic differentiation algorithm
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </span></p>
 <p>with a computational graph:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="comp_graph.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of computation graph of primitive arithmetic operations for the function <span class="math inline">L(w_1, w_2)</span></figcaption>
@@ -1121,7 +1148,7 @@ Reverse mode automatic differentiation algorithm
 <p><span class="math display">
 \overline{v_i}  = \dfrac{\partial L}{\partial v_i} = \dfrac{\partial v_N}{\partial v_i}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="auto_diff_reverse.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of reverse chain rule to calculate the derivative of the function <span class="math inline">L</span> with respect to the node <span class="math inline">v_i</span>.</figcaption>
@@ -1158,14 +1185,14 @@ Example
 <div>
 <div class="callout-example">
 <p>Which of the AD modes would you choose (forward/ reverse) for the following computational graph of primitive arithmetic operations? Suppose, you are needed to compute the jacobian <span class="math inline">J = \left\{ \dfrac{\partial L_i}{\partial w_j} \right\}_{i,j}</span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ad_choose.svg" class="img-fluid figure-img"></p>
 <figcaption>Which mode would you choose for calculating gradients there?</figcaption>
 </figure>
 </div>
 <p>Note, that the reverse mode computational time is proportional to the number of outputs here, while the forward mode works proportionally to the number of inputs there. This is why it would be a good idea to consider the forward mode AD.</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="forward_vs_reverse_ad.svg" class="img-fluid figure-img"></p>
 <figcaption>This graph nicely illustrates the idea of choice between the modes. The <span class="math inline">n = 100</span> dimension is fixed and the graph presents the time needed for Jacobian calculation w.r.t. <span class="math inline">x</span> for <span class="math inline">f(x) = Ax</span></figcaption>
@@ -1188,7 +1215,7 @@ Question
 <div>
 <div class="callout-question">
 <p>Which of the AD modes would you choose (forward/ reverse) for the following computational graph of primitive arithmetic operations? Suppose, you are needed to compute the jacobian <span class="math inline">J = \left\{ \dfrac{\partial L_i}{\partial w_j} \right\}_{i,j}</span>. Note, that <span class="math inline">G</span> is an arbitrary computational graph</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ad_mixed.svg" class="img-fluid figure-img"></p>
 <figcaption>Which mode would you choose for calculating gradients there?</figcaption>
@@ -1230,7 +1257,7 @@ Feedforward Architecture
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="feedforward.svg" class="img-fluid figure-img"></p>
 <figcaption>Feedforward neural network architecture</figcaption>
@@ -1270,7 +1297,7 @@ Gradient propagation through the linear least squares
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_least_squares_layer.svg" class="img-fluid figure-img"></p>
 <figcaption><span class="math inline">x</span> could be found as a solution of linear system</figcaption>
@@ -1383,7 +1410,7 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 <li>AD (reverse mode) is time-efficient and numerically stable</li>
 <li>AD (reverse mode) is memory inefficient (you need to store all intermediate computations from the forward pass). :::</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="differentiation_scheme.svg" class="img-fluid figure-img"></p>
 <figcaption>Different approaches for taking derivatives</figcaption>
@@ -1655,27 +1682,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1690,10 +1696,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1702,7 +1712,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1929,4 +1941,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/Autograd.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

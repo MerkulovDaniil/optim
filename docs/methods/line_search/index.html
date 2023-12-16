@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -116,6 +116,33 @@ ul.task-list li input[type="checkbox"] {
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Line search">
 <meta property="og:description" content="">
@@ -755,7 +782,7 @@ f(x) \to \min_{x \in [a,b]}
 </span></p>
 <p>Line search is one of the simplest formal optimization problems, however, it is an important link in solving more complex tasks, so it is very important to solve it effectively. Let’s restrict the class of problems under consideration where <span class="math inline">f(x)</span> is a <em>unimodal function</em>.</p>
 <p>Function <span class="math inline">f(x)</span> is called <strong>unimodal</strong> on <span class="math inline">[a, b]</span>, if there is <span class="math inline">x_* \in [a, b]</span>, that <span class="math inline">f(x_1) &gt; f(x_2) \;\;\; \forall a \le x_1 &lt; x_2 &lt; x_*</span> and <span class="math inline">f(x_1) &lt; f(x_2) \;\;\; \forall x_* &lt; x_1 &lt; x_2 \leq b</span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="unimodal.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -775,7 +802,7 @@ f(x) \to \min_{x \in [a,b]}
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb">Open In Colab</a></p>
 <div id="listing-ls" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1701988003794" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1702761920006" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -790,7 +817,7 @@ We divide a segment into two equal parts and choose the one that contains the so
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1701988003794" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1702761920006" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -805,7 +832,7 @@ The idea is quite similar to the dichotomy method. There are two golden points o
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1701988003794" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1702761920006" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
 <a href="../../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -820,7 +847,7 @@ The strategy of inexact line search is practical and has a significant geometric
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1701988003794" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1702761920006" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
 <a href="../../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -998,27 +1025,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1033,10 +1039,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1045,7 +1055,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1272,4 +1284,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/line_search/index.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -119,6 +119,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Optimality conditions. KKT">
 <meta property="og:description" content="">
@@ -1060,55 +1087,55 @@ Fermat’s rule
 \end{split}
 </span></p>
 <p>We will try to illustrate approach to solve this problem through the simple example with <span class="math inline">f(x) = x_1 + x_2</span> and <span class="math inline">h(x) = x_1^2 + x_2^2 - 2</span>.</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_1.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_2.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_3.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_4.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_5.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_6.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_7.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_8.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_9.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
@@ -1128,7 +1155,7 @@ Fermat’s rule
 \langle  \delta x, - \nabla f(x)\rangle = \langle  \delta x, \nu\nabla h(x)\rangle = 0  
 </span></p>
 <p>Then we came to the point of the budget set, moving from which it will not be possible to reduce our function. This is the local minimum in the constrained problem :)</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="eq_constr_10.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT</figcaption>
@@ -1284,25 +1311,25 @@ f(x) = x_1^2 + x_2^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
 \text{s.t. } &amp; g(x) \leq 0
 \end{split}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_1.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_2.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_3.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_4.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
@@ -1318,43 +1345,43 @@ f(x) = (x_1 - 1)^2 + (x_2 + 1)^2 \;\;\;\; g(x) = x_1^2 + x_2^2 - 1
 \text{s.t. } &amp; g(x) \leq 0
 \end{split}
 </span></p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_5.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_6.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_7.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_8.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_9.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_10.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ineq_constr_11.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of KKT (inequality case)</figcaption>
@@ -1462,6 +1489,77 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p><a href="../../assets/files/karush.pdf">📜 File</a></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Subdifferential form of KKT
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">X</span> be a linear normed space, and let <span class="math inline">f_j: X \to \mathbb{R}</span>, <span class="math inline">j = 0, 1, \ldots, m</span>, be convex proper (it never takes on the value <span class="math inline">-\infty</span> and also is not identically equal to <span class="math inline">\infty</span>) functions. Consider the problem</p>
+<p><span class="math display">
+\begin{split}
+&amp; f_0(x) \to \min\limits_{x \in X}\\
+\text{s.t. } &amp; f_j(x) \leq 0, \; j = 1,\ldots,m\\
+\end{split}
+</span></p>
+<p>Let <span class="math inline">x^* \in X</span> be a minimum in problem above and the functions <span class="math inline">f_j</span>, <span class="math inline">j = 0, 1, \ldots, m</span>, be continuous at the point <span class="math inline">x^*</span>. Then there exist numbers <span class="math inline">\lambda_j \geq 0</span>, <span class="math inline">j = 0, 1, \ldots, m</span>, such that</p>
+<p><span class="math display">
+\sum_{j=0}^{m} \lambda_j = 1,
+</span></p>
+<p><span class="math display">
+\lambda_j f_j(x^*) = 0, \quad j = 1, \ldots, m,
+</span></p>
+<p><span class="math display">
+0 \in \sum_{j=0}^{m} \lambda_j \partial f_j(x^*).
+</span></p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof">
+<p>Consider the function</p>
+<p><span class="math display">
+f(x) = \max\{f_0(x) - f_0(x^*), f_1(x), \ldots, f_m(x)\}.
+</span></p>
+<p>The point <span class="math inline">x^*</span> is a global minimum of this function. Indeed, if at some point <span class="math inline">x_e \in X</span> the inequality <span class="math inline">f(x_e) &lt; 0</span> were satisfied, it would imply that <span class="math inline">f_0(x_e) &lt; f_0(x^*)</span> and <span class="math inline">f_j(x_e) &lt; 0</span>, <span class="math inline">j = 1, \ldots, m</span>, contradicting the minimality of <span class="math inline">x^*</span> in problem above.</p>
+<p>Then, from Fermat’s theorem in subdifferential form, it follows that</p>
+<p><span class="math display">
+0 \in \partial f(x^*).
+</span></p>
+<p>By the Dubovitskii-Milyutin theorem, we have</p>
+<p><span class="math display">
+\partial f(x^*) = \text{conv } \left( \bigcup\limits_{j \in I}\partial f_j(x^*)\right),
+</span></p>
+<p>where <span class="math inline">I = \{0\} \cup \{j : f_j(x^*) = 0, 1 \leq j \leq m\}</span>.</p>
+<p>Therefore, there exist <span class="math inline">g_j \in \partial f_j(x^*)</span>, <span class="math inline">j \in I</span>, such that</p>
+<p><span class="math display">
+\sum_{j \in I} \lambda_j g_j = 0, \quad \sum\limits_{j \in I}\lambda_j = 1, \quad \lambda_j \geq 0, \quad j \in I.
+</span></p>
+<p>It remains to set <span class="math inline">\lambda_j = 0</span> for <span class="math inline">j \notin I</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1661,27 +1759,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1696,10 +1773,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1708,7 +1789,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1935,4 +2018,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Optimality.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -85,6 +85,33 @@ ul.task-list li input[type="checkbox"] {
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Convex function">
 <meta property="og:description" content="">
@@ -750,6 +777,67 @@ Figure&nbsp;1: Difference between convex and non-convex function
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Jensen’s inequality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f(x)</span> be a convex function on a convex set <span class="math inline">X \subseteq \mathbb{R}^n</span> and let <span class="math inline">x_i \in X, 1 \leq i \leq m</span>, be arbitrary points from <span class="math inline">X</span>. Then</p>
+<p><span class="math display">
+f\left( \sum_{i=1}^{m} \lambda_i x_i \right) \leq \sum_{i=1}^{m} \lambda_i f(x_i)
+</span></p>
+<p>for any <span class="math inline">\lambda = [\lambda_1, \ldots, \lambda_m] \in \Delta_m</span> - probability simplex.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<ol type="1">
+<li><p>First, note that the point <span class="math inline">\sum_{i=1}^{m} \lambda_i x_i</span> as a convex combination of points from the convex set <span class="math inline">X</span> belongs to <span class="math inline">X</span>.</p></li>
+<li><p>We will prove this by induction. For <span class="math inline">m = 1</span>, the statement is obviously true, and for <span class="math inline">m = 2</span>, it follows from the definition of a convex function.</p></li>
+<li><p>Assume it is true for all <span class="math inline">m</span> up to <span class="math inline">m = k</span>, and we will prove it for <span class="math inline">m = k + 1</span>. Let <span class="math inline">\lambda \in \Delta{k+1}</span> and</p>
+<p><span class="math display">
+x = \sum_{i=1}^{k+1} \lambda_i x_i = \sum_{i=1}^{k} \lambda_i x_i + \lambda_{k+1} x_{k+1}.
+</span></p>
+<p>Assuming <span class="math inline">0 &lt; \lambda_{k+1} &lt; 1</span>, as otherwise, it reduces to previously considered cases, we have</p>
+<p><span class="math display">
+x = \lambda_{k+1} x_{k+1} + (1 - \lambda_{k+1}) \bar{x},
+</span></p>
+<p>where <span class="math inline">\bar{x} = \sum_{i=1}^{k} \gamma_i x_i</span> and <span class="math inline">\gamma_i = \frac{\lambda_i}{1-\lambda_{k+1}} \geq 0, 1 \leq i \leq k</span>.</p></li>
+<li><p>Since <span class="math inline">\lambda \in \Delta_{k+1}</span>, then <span class="math inline">\gamma = [\gamma_1, \ldots, \gamma_k] \in \Delta_k</span>. Therefore <span class="math inline">\bar{x} \in X</span> and by the convexity of <span class="math inline">f(x)</span> and the induction hypothesis:</p>
+<p><span class="math display">
+\begin{split}
+f\left( \sum_{i=1}^{k+1} \lambda_i x_i \right) = f\left( \lambda_{k+1} x_{k+1} + (1 - \lambda_{k+1})\bar{x} \right) &amp;\leq \\
+\lambda_{k+1}f(x_{k+1}) + (1 - \lambda_{k+1})f(\bar{x}) \leq \sum_{i=1}^{k+1} \lambda_i f(x_i)&amp;
+\end{split}
+</span></p>
+<p>Thus, initial inequality is satisfied for <span class="math inline">m = k + 1</span> as well.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -793,6 +881,62 @@ Example
 Figure&nbsp;2: Epigraph of a function
 </figcaption>
 </figure>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Convexity of the epigraph is the convexity of the function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>For a function <span class="math inline">f(x)</span>, defined on a convex set <span class="math inline">X</span>, to be convex on <span class="math inline">X</span>, it is necessary and sufficient that the epigraph of <span class="math inline">f</span> is a convex set.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<ol type="1">
+<li><p><strong>Necessity</strong>: Assume <span class="math inline">f(x)</span> is convex on <span class="math inline">X</span>. Take any two arbitrary points <span class="math inline">[x_1, \mu_1] \in \text{epi}f</span> and <span class="math inline">[x_2, \mu_2] \in \text{epi}f</span>. Also take <span class="math inline">0 \leq \lambda \leq 1</span> and denote <span class="math inline">x_{\lambda} = \lambda x_1 + (1 - \lambda) x_2, \mu_{\lambda} = \lambda \mu_1 + (1 - \lambda) \mu_2</span>. Then,</p>
+<p><span class="math display">
+\lambda\begin{bmatrix}x_1\\ \mu_1\end{bmatrix} + (1 - \lambda)\begin{bmatrix}x_2\\ \mu_2\end{bmatrix} = \begin{bmatrix}x_{\lambda}\\ \mu_{\lambda}\end{bmatrix}.
+</span></p>
+<p>From the convexity of the set <span class="math inline">X</span>, it follows that <span class="math inline">x_{\lambda} \in X</span>. Moreover, since <span class="math inline">f(x)</span> is a convex function,</p>
+<p><span class="math display">
+f(x_{\lambda}) \leq \lambda f(x_1) + (1 - \lambda) f(x_2) \leq \lambda \mu_1 + (1 - \lambda) \mu_2 = \mu_{\lambda}
+</span></p>
+<p>Inequality above indicates that <span class="math inline">\begin{bmatrix}x_{\lambda}\\ \mu_{\lambda}\end{bmatrix} \in \text{epi}f</span>. Thus, the epigraph of <span class="math inline">f</span> is a convex set.</p></li>
+<li><p><strong>Sufficiency</strong>: Assume the epigraph of <span class="math inline">f</span>, <span class="math inline">\text{epi}f</span>, is a convex set. Then, from the membership of the points <span class="math inline">[x_1, \mu_1]</span> and <span class="math inline">[x_2, \mu_2]</span> in the epigraph of <span class="math inline">f</span>, it follows that</p>
+<p><span class="math display">
+  \begin{bmatrix}x_{\lambda}\\ \mu_{\lambda}\end{bmatrix} =  \lambda\begin{bmatrix}x_1\\ \mu_1\end{bmatrix} + (1 - \lambda)\begin{bmatrix}x_2\\ \mu_2\end{bmatrix} \in \text{epi}f
+</span></p>
+<p>for any <span class="math inline">0 \leq \lambda \leq 1</span>, i.e., <span class="math inline">f(x_{\lambda}) \leq \mu_{\lambda} = \lambda \mu_1 + (1 - \lambda) \mu_2</span>. But this is true for all <span class="math inline">\mu_1 \geq f(x_1)</span> and <span class="math inline">\mu_2 \geq f(x_2)</span>, particularly when <span class="math inline">\mu_1 = f(x_1)</span> and <span class="math inline">\mu_2 = f(x_2)</span>. Hence we arrive at the inequality</p>
+<p><span class="math display">
+f(x_{\lambda}) = f (\lambda x_1 + (1 - \lambda) x_2) \leq \lambda f(x_1) + (1 - \lambda) f(x_2).
+</span></p>
+<p>Since points <span class="math inline">x_1 \in X</span> and <span class="math inline">x_2 \in X</span> can be arbitrarily chosen, <span class="math inline">f(x)</span> is a convex function on <span class="math inline">X</span>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="sublevel-set" class="level3" data-number="1.3">
@@ -891,7 +1035,7 @@ K := \{(x,t) \in U \times \mathbb{R}^+ : \Vert x \Vert \leq t \}
 <h2 data-number="3" class="anchored" data-anchor-id="strong-convexity"><span class="header-section-number">3</span> Strong convexity</h2>
 <p><span class="math inline">f(x)</span>, <strong>defined on the convex set</strong> <span class="math inline">S \subseteq \mathbb{R}^n</span>, is called <span class="math inline">\mu</span>-strongly convex (strongly convex) on <span class="math inline">S</span>, if:</p>
 <p><span class="math display">
-f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \frac{\mu{2}} \lambda (1 - \lambda)\|x_1 - x_2\|^2
+f(\lambda x_1 + (1 - \lambda)x_2) \le \lambda f(x_1) + (1 - \lambda)f(x_2) - \frac{\mu}{2} \lambda (1 - \lambda)\|x_1 - x_2\|^2
 </span></p>
 <p>for any <span class="math inline">x_1, x_2 \in S</span> and <span class="math inline">0 \le \lambda \le 1</span> for some <span class="math inline">\mu &gt; 0</span>.</p>
 <div id="fig-strongly_convex" class="quarto-figure quarto-figure-center anchored">
@@ -927,6 +1071,140 @@ f(x + \Delta x) \ge f(x) + \nabla f^T(x)\Delta x + \dfrac{\mu}{2}\|\Delta x\|^2
 <p><span class="math display">
 \langle y, \nabla^2f(x)y\rangle \geq \mu \|y\|^2
 </span></p>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f(x)</span> be a differentiable function on a convex set <span class="math inline">X \subseteq \mathbb{R}^n</span>. Then <span class="math inline">f(x)</span> is strongly convex on <span class="math inline">X</span> with a constant <span class="math inline">\mu &gt; 0</span> if and only if</p>
+<p><span class="math display">
+f(x) - f(x_0) \geq \langle \nabla f(x_0), x - x_0 \rangle + \frac{\mu}{2} \| x - x_0 \|^2
+</span></p>
+<p>for all <span class="math inline">x, x_0 \in X</span>.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<p><strong>Necessity</strong>: Let <span class="math inline">0 &lt; \lambda \leq 1</span>. According to the definition of a strongly convex function,</p>
+<p><span class="math display">
+f(\lambda x + (1 - \lambda) x_0) \leq \lambda f(x) + (1 - \lambda) f(x_0) - \frac{\mu}{2} \lambda (1 - \lambda) \| x - x_0 \|^2
+</span></p>
+<p>or equivalently,</p>
+<p><span class="math display">
+f(x) - f(x_0) - \frac{\mu}{2} (1 - \lambda) \| x - x_0 \|^2 \geq \frac{1}{\lambda} [f(\lambda x + (1 - \lambda) x_0) - f(x_0)] =
+</span></p>
+<p><span class="math display">
+= \frac{1}{\lambda} [f(x_0 + \lambda(x - x_0)) - f(x_0)] = \frac{1}{\lambda} [\lambda \langle \nabla f(x_0), x - x_0 \rangle + o(\lambda)] =
+</span></p>
+<p><span class="math display">
+= \langle \nabla f(x_0), x - x_0 \rangle + \frac{o(\lambda)}{\lambda}.
+</span></p>
+<p>Thus, taking the limit as <span class="math inline">\lambda \downarrow 0</span>, we arrive at the initial statement.</p>
+<p><strong>Sufficiency</strong>: Assume the inequality in the theorem is satisfied for all <span class="math inline">x, x_0 \in X</span>. Take <span class="math inline">x_0 = \lambda x_1 + (1 - \lambda) x_2</span>, where <span class="math inline">x_1, x_2 \in X</span>, <span class="math inline">0 \leq \lambda \leq 1</span>. According to the inequality, the following inequalities hold:</p>
+<p><span class="math display">
+f(x_1) - f(x_0) \geq \langle \nabla f(x_0), x_1 - x_0 \rangle + \frac{\mu}{2} \| x_1 - x_0 \|^2,
+</span></p>
+<p><span class="math display">
+f(x_2) - f(x_0) \geq \langle \nabla f(x_0), x_2 - x_0 \rangle + \frac{\mu}{2} \| x_2 - x_0 \|^2.
+</span></p>
+<p>Multiplying the first inequality by <span class="math inline">\lambda</span> and the second by <span class="math inline">1 - \lambda</span> and adding them, considering that</p>
+<p><span class="math display">
+x_1 - x_0 = (1 - \lambda)(x_1 - x_2), \quad x_2 - x_0 = \lambda(x_2 - x_1),
+</span></p>
+<p>and <span class="math inline">\lambda(1 - \lambda)^2 + \lambda^2(1 - \lambda) = \lambda(1 - \lambda)</span>, we get</p>
+<p><span class="math display">
+\begin{split}
+\lambda f(x_1) + (1 - \lambda) f(x_2) - f(x_0) - \frac{\mu}{2} \lambda (1 - \lambda) \| x_1 - x_2 \|^2 \geq \\
+\langle \nabla f(x_0), \lambda x_1 + (1 - \lambda) x_2 - x_0 \rangle = 0.
+\end{split}
+</span></p>
+<p>Thus, inequality from the definition of a strongly convex function is satisfied. It is important to mention, that <span class="math inline">\mu = 0</span> stands for the convex case and corresponding differential criterion.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">X \subseteq \mathbb{R}^n</span> be a convex set, with <span class="math inline">\text{int}X \neq \emptyset</span>. Furthermore, let <span class="math inline">f(x)</span> be a twice continuously differentiable function on <span class="math inline">X</span>. Then <span class="math inline">f(x)</span> is strongly convex on <span class="math inline">X</span> with a constant <span class="math inline">\mu &gt; 0</span> if and only if</p>
+<p><span class="math display">
+\langle y, \nabla^2 f(x) y \rangle \geq \mu \| y \|^2 \quad
+</span></p>
+<p>for all <span class="math inline">x \in X</span> and <span class="math inline">y \in \mathbb{R}^n</span>.</p>
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-proof" data-collapse="true">
+<p>The target inequality is trivial when <span class="math inline">y = \mathbf{0}_n</span>, hence we assume <span class="math inline">y \neq \mathbf{0}_n</span>.</p>
+<p><strong>Necessity</strong>: Assume initially that <span class="math inline">x</span> is an interior point of <span class="math inline">X</span>. Then <span class="math inline">x + \alpha y \in X</span> for all <span class="math inline">y \in \mathbb{R}^n</span> and sufficiently small <span class="math inline">\alpha</span>. Since <span class="math inline">f(x)</span> is twice differentiable,</p>
+<p><span class="math display">
+f(x + \alpha y) = f(x) + \alpha \langle \nabla f(x), y \rangle + \frac{\alpha^2}{2} \langle y, \nabla^2 f(x) y \rangle + o(\alpha^2).
+</span></p>
+<p>Based on the first order criterion of strong convexity, we have</p>
+<p><span class="math display">
+\frac{\alpha^2}{2} \langle y, \nabla^2 f(x) y \rangle + o(\alpha^2) = f(x + \alpha y) - f(x) - \alpha \langle \nabla f(x), y \rangle \geq \frac{\mu}{2} \alpha^2 \| y \|^2.
+</span></p>
+<p>This inequality reduces to the target inequality after dividing both sides by <span class="math inline">\alpha^2</span> and taking the limit as <span class="math inline">\alpha \downarrow 0</span>.</p>
+<p>If <span class="math inline">x \in X</span> but <span class="math inline">x \notin \text{int}X</span>, consider a sequence <span class="math inline">\{x_k\}</span> such that <span class="math inline">x_k \in \text{int}X</span> and <span class="math inline">x_k \rightarrow x</span> as <span class="math inline">k \rightarrow \infty</span>. Then, we arrive at the target inequality after taking the limit.</p>
+<p><strong>Sufficiency</strong>: Using Taylor’s formula with the Lagrange remainder and the target inequality, we obtain for <span class="math inline">x + y \in X</span>:</p>
+<p><span class="math display">
+f(x + y) - f(x) - \langle \nabla f(x), y \rangle = \frac{1}{2} \langle y, \nabla^2 f(x + \alpha y) y \rangle \geq \frac{\mu}{2} \| y \|^2,
+</span></p>
+<p>where <span class="math inline">0 \leq \alpha \leq 1</span>. Therefore,</p>
+<p><span class="math display">
+f(x + y) - f(x) \geq \langle \nabla f(x), y \rangle + \frac{\mu}{2} \| y \|^2.
+</span></p>
+<p>Consequently, by the first order criterion of strong convexity, the function <span class="math inline">f(x)</span> is strongly convex with a constant <span class="math inline">\mu</span>. It is important to mention, that <span class="math inline">\mu = 0</span> stands for the convex case and corresponding differential criterion.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -984,7 +1262,7 @@ Example
 <div class="callout-example">
 <p>Show, that <span class="math inline">f(x) = c^\top x + b</span> is convex and concave.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -993,7 +1271,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -1021,7 +1299,7 @@ Example
 <div class="callout-example">
 <p>Show, that <span class="math inline">f(x) = x^\top Ax</span>, where <span class="math inline">A\succeq 0</span> - is convex on <span class="math inline">\mathbb{R}^n</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1030,7 +1308,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -1058,7 +1336,7 @@ Example
 <div class="callout-example">
 <p>Show, that <span class="math inline">f(A) = \lambda_{max}(A)</span> - is convex, if <span class="math inline">A \in S^n</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1067,7 +1345,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
@@ -1264,27 +1542,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -1299,10 +1556,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -1311,7 +1572,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1538,4 +1801,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/Convex_function.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

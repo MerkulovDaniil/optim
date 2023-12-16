@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.521">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -85,6 +85,33 @@ ul.task-list li input[type="checkbox"] {
 }}});
   </script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Simulated annealing">
 <meta property="og:description" content="">
@@ -750,7 +777,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="illustration" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="illustration"><span class="header-section-number">2.3</span> Illustration</h3>
 <p>A gif from <a href="https://en.wikipedia.org/wiki/Simulated_annealing">Wikipedia</a>:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sa_wiki.gif" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -761,7 +788,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="example" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="example"><span class="header-section-number">3</span> Example</h2>
 <p>In our example we solve the N queens puzzle - the problem of placing N&nbsp;chess&nbsp;queens&nbsp;on an N×N&nbsp;chessboard&nbsp;so that no two queens threaten each other.</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="queens.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -776,14 +803,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="results" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="results"><span class="header-section-number">3.2</span> Results</h3>
 <p>Results of applying this algorithm with <span class="math inline">\alpha = 0.95</span> to the <span class="math inline">N</span> queens puzzle for <span class="math inline">N = 10</span> averaged by 100 runs are below:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sa-example.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
 <p>Results of running the code for <span class="math inline">N</span> from <span class="math inline">4</span> to <span class="math inline">40</span> and measuring the time it takes to find the solution averaged by 100 runs are below:</p>
-<div class="quarto-figure quarto-figure-center">
+<div class="img-fluid quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sa-runs.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -945,27 +972,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    const typesetMath = (el) => {
-      if (window.MathJax) {
-        // MathJax Typeset
-        window.MathJax.typeset([el]);
-      } else if (window.katex) {
-        // KaTeX Render
-        var mathElements = el.getElementsByClassName("math");
-        var macros = [];
-        for (var i = 0; i < mathElements.length; i++) {
-          var texText = mathElements[i].firstChild;
-          if (mathElements[i].tagName == "SPAN") {
-            window.katex.render(texText.data, mathElements[i], {
-              displayMode: mathElements[i].classList.contains('display'),
-              throwOnError: false,
-              macros: macros,
-              fleqn: false
-            });
-          }
-        }
-      }
-    }
     if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
@@ -980,10 +986,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             break;
           }
         }
-        typesetMath(container);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
         return container.innerHTML
       } else {
-        typesetMath(note);
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
@@ -992,7 +1002,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
-      typesetMath(note);
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
       return note.innerHTML;
     }
   }
@@ -1219,4 +1231,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/zom/simulated-annealing.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
