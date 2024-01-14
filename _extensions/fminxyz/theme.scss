@@ -217,9 +217,9 @@ div.callout-proof.callout-style-default > .callout-header {
 }
 
 .table {
-  display: block; // Change the table's display property
   max-width: 100%; // Limit the maximum width
   overflow-x: auto; // Add horizontal scrolling
+  vertical-align: middle;
 }
 
 .navbar #quarto-search{
