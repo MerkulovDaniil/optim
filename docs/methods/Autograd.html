@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -862,7 +862,7 @@ Theorem
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </span></p>
 <p>Let’s draw a <em>computational graph</em> of this function:</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="comp_graph.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of computation graph of primitive arithmetic operations for the function <span class="math inline">L(w_1, w_2)</span></figcaption>
@@ -1017,7 +1017,7 @@ Forward mode automatic differentiation algorithm
 <p><span class="math display">
 \overline{v_i} = \dfrac{\partial v_i}{\partial w_k}
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="auto_diff_forward.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of forward chain rule to calculate the derivative of the function <span class="math inline">L</span> with respect to <span class="math inline">w_k</span>.</figcaption>
@@ -1047,7 +1047,7 @@ Forward mode automatic differentiation algorithm
 L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </span></p>
 <p>with a computational graph:</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="comp_graph.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of computation graph of primitive arithmetic operations for the function <span class="math inline">L(w_1, w_2)</span></figcaption>
@@ -1080,7 +1080,7 @@ L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </tr>
 <tr class="odd">
 <td style="text-align: center;">3</td>
-<td style="text-align: center;"><span class="math inline">\begin{aligned}\frac{\partial L}{\partial v_2} &amp;= \frac{\partial L}{\partial v_3}\frac{\partial v_3}{\partial v_2} + \frac{\partial L}{\partial L}\frac{\partial L}{\partial v_2} \\&amp;= \frac{\partial L}{\partial v_3}\frac{1}{2\sqrt{v_2}} + \frac{\partial L}{\partial L}1\end{aligned}</span></td>
+<td style="text-align: center;"><span class="math inline">\begin{aligned}\frac{\partial L}{\partial v_2} &amp;= \frac{\partial L}{\partial v_3}\frac{\partial v_3}{\partial v_2} + \frac{\partial L}{\partial L}\frac{\partial L}{\partial v_2} \\&amp;= \frac{\partial L}{\partial v_3}\frac{1}{2\sqrt{v_2}} +  \frac{\partial L}{\partial L}1\end{aligned}</span></td>
 <td style="text-align: center;"><img src="revad_3.svg" class="img-fluid"></td>
 </tr>
 <tr class="even">
@@ -1144,11 +1144,11 @@ Reverse mode automatic differentiation algorithm
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-theorem">
-<p>Suppose, we have a computational graph <span class="math inline">v_i, i \in [1; N]</span>. Our goal is to calculate the derivative of the output of this graph with respect to all inputs variable <span class="math inline">w</span>, i.e.&nbsp;<span class="math inline">\nabla_w v_N = \left( \frac{\partial v_N}{\partial w_1}, \ldots, \frac{\partial v_N}{\partial w_d}\right)^T</span>. This idea implies propagation of the gradient of the function with respect to the intermediate variables from the end to the origin, that is why we can introduce the notation:</p>
+<p>Suppose, we have a computational graph <span class="math inline">v_i, i \in [1; N]</span>. Our goal is to calculate the derivative of the output of this graph with respect to all inputs variable <span class="math inline">w</span>, i.e.&nbsp;<span class="math inline">\nabla_w v_N =  \left( \frac{\partial v_N}{\partial w_1}, \ldots, \frac{\partial v_N}{\partial w_d}\right)^T</span>. This idea implies propagation of the gradient of the function with respect to the intermediate variables from the end to the origin, that is why we can introduce the notation:</p>
 <p><span class="math display">
 \overline{v_i}  = \dfrac{\partial L}{\partial v_i} = \dfrac{\partial v_N}{\partial v_i}
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="auto_diff_reverse.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of reverse chain rule to calculate the derivative of the function <span class="math inline">L</span> with respect to the node <span class="math inline">v_i</span>.</figcaption>
@@ -1185,14 +1185,14 @@ Example
 <div>
 <div class="callout-example">
 <p>Which of the AD modes would you choose (forward/ reverse) for the following computational graph of primitive arithmetic operations? Suppose, you are needed to compute the jacobian <span class="math inline">J = \left\{ \dfrac{\partial L_i}{\partial w_j} \right\}_{i,j}</span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ad_choose.svg" class="img-fluid figure-img"></p>
 <figcaption>Which mode would you choose for calculating gradients there?</figcaption>
 </figure>
 </div>
 <p>Note, that the reverse mode computational time is proportional to the number of outputs here, while the forward mode works proportionally to the number of inputs there. This is why it would be a good idea to consider the forward mode AD.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="forward_vs_reverse_ad.svg" class="img-fluid figure-img"></p>
 <figcaption>This graph nicely illustrates the idea of choice between the modes. The <span class="math inline">n = 100</span> dimension is fixed and the graph presents the time needed for Jacobian calculation w.r.t. <span class="math inline">x</span> for <span class="math inline">f(x) = Ax</span></figcaption>
@@ -1215,7 +1215,7 @@ Question
 <div>
 <div class="callout-question">
 <p>Which of the AD modes would you choose (forward/ reverse) for the following computational graph of primitive arithmetic operations? Suppose, you are needed to compute the jacobian <span class="math inline">J = \left\{ \dfrac{\partial L_i}{\partial w_j} \right\}_{i,j}</span>. Note, that <span class="math inline">G</span> is an arbitrary computational graph</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ad_mixed.svg" class="img-fluid figure-img"></p>
 <figcaption>Which mode would you choose for calculating gradients there?</figcaption>
@@ -1257,7 +1257,7 @@ Feedforward Architecture
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="feedforward.svg" class="img-fluid figure-img"></p>
 <figcaption>Feedforward neural network architecture</figcaption>
@@ -1268,7 +1268,7 @@ Feedforward Architecture
 <li><p><span class="math inline">v_0 = x</span> typically we have a batch of data <span class="math inline">x</span> here as an input.</p></li>
 <li><p>For <span class="math inline">k = 1, \ldots, t-1, t</span>:</p>
 <ul>
-<li><span class="math inline">v_k = \sigma(v_{k-1}w_k)</span>. Note, that practically speaking the data has dimension <span class="math inline">x \in \mathbb{R}^{b \times d}</span>, where <span class="math inline">b</span> is the batch size (for the single data point <span class="math inline">b=1</span>). While the weight matrix <span class="math inline">w_k</span> of a <span class="math inline">k</span> layer has a shape <span class="math inline">n_{k-1} \times n_k</span>, where <span class="math inline">n_k</span> is the dimension of an inner representation of the data.</li>
+<li><span class="math inline">v_k = \sigma(v_{k-1}w_k)</span>. Note, that practically speaking the data has dimension <span class="math inline">x  \in \mathbb{R}^{b \times d}</span>, where <span class="math inline">b</span> is the batch size (for the single data point <span class="math inline">b=1</span>). While the weight matrix <span class="math inline">w_k</span> of a <span class="math inline">k</span> layer has a shape <span class="math inline">n_{k-1} \times n_k</span>, where <span class="math inline">n_k</span> is the dimension of an inner representation of the data.</li>
 </ul></li>
 <li><p><span class="math inline">L = L(v_t)</span> - calculate the loss function.</p></li>
 </ul>
@@ -1278,7 +1278,7 @@ Feedforward Architecture
 <li><p>For <span class="math inline">k = t, t-1, \ldots, 1</span>:</p>
 <ul>
 <li><span class="math inline">\underset{b \times n_k}{\dfrac{\partial L}{\partial v_k}} = \underset{b \times n_{k+1}}{\dfrac{\partial L}{\partial v_{k+1}}} \underset{n_{k+1} \times n_k}{\dfrac{\partial v_{k+1}}{\partial v_{k}}}</span></li>
-<li><span class="math inline">\underset{b \times n_{k-1} \cdot n_k}{\dfrac{\partial L}{\partial w_k}} = \underset{b \times n_{k+1}}{\dfrac{\partial L}{\partial v_{k+1}}} \cdot \underset{n_{k+1} \times n_{k-1} \cdot n_k}{\dfrac{\partial v_{k+1}}{\partial w_{k}}}</span></li>
+<li><span class="math inline">\underset{b \times n_{k-1} \cdot n_k}{\dfrac{\partial L}{\partial w_k}} = \underset{b \times n_{k+1}}{\dfrac{\partial L}{\partial v_{k+1}}} \cdot  \underset{n_{k+1} \times n_{k-1} \cdot n_k}{\dfrac{\partial v_{k+1}}{\partial w_{k}}}</span></li>
 </ul></li>
 </ul>
 </div>
@@ -1297,7 +1297,7 @@ Gradient propagation through the linear least squares
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="linear_least_squares_layer.svg" class="img-fluid figure-img"></p>
 <figcaption><span class="math inline">x</span> could be found as a solution of linear system</figcaption>
@@ -1410,7 +1410,7 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 <li>AD (reverse mode) is time-efficient and numerically stable</li>
 <li>AD (reverse mode) is memory inefficient (you need to store all intermediate computations from the forward pass). :::</li>
 </ul>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="differentiation_scheme.svg" class="img-fluid figure-img"></p>
 <figcaption>Different approaches for taking derivatives</figcaption>

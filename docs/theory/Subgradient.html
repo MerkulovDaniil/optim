@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -751,7 +751,7 @@ window.Quarto = {
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
 </span></p>
 <p>for some vector <span class="math inline">g</span>, i.e., the tangent to the graph of the function is the <em>global</em> estimate from below for the function.</p>
-<div id="fig-conv_support" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-conv_support" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conv_support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="conv_support.svg" class="img-fluid figure-img">
@@ -803,7 +803,7 @@ Solution
 <p><span class="math display">
 f(x) = \max\{-x, x\}
 </span></p>
-<div id="fig-subgrad_abs" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-subgrad_abs" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-subgrad_abs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="subgradmod.svg" class="img-fluid figure-img">
@@ -826,7 +826,7 @@ Figure&nbsp;2: Subgradient of <span class="math inline">\vert x \vert</span>
 <section id="subdifferential" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="subdifferential"><span class="header-section-number">1.2</span> Subdifferential</h3>
 <p>The set of all subgradients of a function <span class="math inline">f(x)</span> at a point <span class="math inline">x_0</span> is called the <strong>subdifferential</strong> of <span class="math inline">f</span> at <span class="math inline">x_0</span> and is denoted by <span class="math inline">\partial f(x_0)</span>.</p>
-<div id="fig-subgradient_calculus" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-subgradient_calculus" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-subgradient_calculus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="subgrad_calc.svg" class="img-fluid figure-img">
@@ -935,7 +935,7 @@ Proof
 <div>
 <div class="callout-proof" data-collapse="true">
 <ol type="1">
-<li>Assume, that <span class="math inline">s \in \partial f(x_0)</span> for some <span class="math inline">s \in \mathbb{R}^n</span> distinct from <span class="math inline">\nabla f(x_0)</span>. Let <span class="math inline">v \in \mathbb{R}^n</span> be a unit vector. Because <span class="math inline">x_0</span> is an interior point of <span class="math inline">S</span>, there exists <span class="math inline">\delta &gt; 0</span> such that <span class="math inline">x_0 + tv \in S</span> for all <span class="math inline">0 &lt; t &lt; \delta</span>. By the definition of the subgradient, we have <span class="math display">
+<li>Assume, that <span class="math inline">s \in \partial f(x_0)</span> for some <span class="math inline">s \in \mathbb{R}^n</span> distinct from <span class="math inline">\nabla f(x_0)</span>. Let <span class="math inline">v \in  \mathbb{R}^n</span> be a unit vector. Because <span class="math inline">x_0</span> is an interior point of <span class="math inline">S</span>, there exists <span class="math inline">\delta &gt; 0</span> such that <span class="math inline">x_0 + tv \in S</span> for all <span class="math inline">0 &lt; t &lt; \delta</span>. By the definition of the subgradient, we have <span class="math display">
 f(x_0 + tv) \geq f(x_0) + t \langle s, v \rangle
 </span> which implies: <span class="math display">
 \frac{f(x_0 + tv) - f(x_0)}{t} \geq \langle s, v \rangle
@@ -1065,7 +1065,7 @@ Theorem
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-theorem">
-<p><strong>Dubovitsky - Milutin theorem</strong> (subdifferential of a point-wise maximum). Пусть <span class="math inline">f_i(x)</span> - выпуклые функции на открытом выпуклом множестве <span class="math inline">S \subseteq \mathbb{R}^n, \; x_0 \in S</span>, а поточечный максимум определяется как <span class="math inline">f(x) = \underset{i}{\operatorname{max}} f_i(x)</span>. Тогда:</p>
+<p><strong>Dubovitsky - Milutin theorem</strong> (subdifferential of a point-wise maximum). Пусть <span class="math inline">f_i(x)</span> - выпуклые функции на открытом выпуклом множестве <span class="math inline">S  \subseteq \mathbb{R}^n, \; x_0 \in S</span>, а поточечный максимум определяется как <span class="math inline">f(x)  = \underset{i}{\operatorname{max}} f_i(x)</span>. Тогда:</p>
 <p><span class="math display">
 \partial_S f(x_0) = \mathbf{conv}\left\{  \bigcup\limits_{i \in I(x_0)} \partial_S f_i(x_0) \right\},
 </span></p>
@@ -1170,7 +1170,7 @@ Solution
 <div>
 <div class="callout-solution" data-collapse="true">
 <p>Пусть <span class="math inline">f_1(x) = |c_1^\top x|</span>, а <span class="math inline">f_2(x) = |c_2^\top x|</span>. Так как эти функции выпуклы, субдифференциал их суммы равен сумме субдифференциалов. Найдем каждый из них:</p>
-<p><span class="math inline">\partial f_1(x) = \partial \left( \max \{c_1^\top x, -c_1^\top x\} \right) = \begin{cases} -c_1, &amp;c_1^\top x &lt; 0\\ \mathbf{conv}(-c_1;c_1), &amp;c_1^\top x = 0 \\ c_1, &amp;c_1^\top x &gt; 0 \end{cases}</span> <span class="math inline">\partial f_2(x) = \partial \left( \max \{c_2^\top x, -c_2^\top x\} \right) = \begin{cases} -c_2, &amp;c_2^\top x &lt; 0\\ \mathbf{conv}(-c_2;c_2), &amp;c_2^\top x = 0 \\ c_2, &amp;c_2^\top x &gt; 0 \end{cases}</span></p>
+<p><span class="math inline">\partial f_1(x) = \partial \left( \max \{c_1^\top x, -c_1^\top x\} \right) = \begin{cases} -c_1,  &amp;c_1^\top x &lt; 0\\ \mathbf{conv}(-c_1;c_1), &amp;c_1^\top x = 0 \\ c_1,  &amp;c_1^\top x &gt; 0 \end{cases}</span> <span class="math inline">\partial f_2(x) = \partial \left( \max \{c_2^\top x, -c_2^\top x\} \right) = \begin{cases} -c_2,  &amp;c_2^\top x &lt; 0\\ \mathbf{conv}(-c_2;c_2), &amp;c_2^\top x = 0 \\ c_2,  &amp;c_2^\top x &gt; 0 \end{cases}</span></p>
 <p>Далее интересными представляются лишь различные взаимные расположения векторов <span class="math inline">c_1</span> и <span class="math inline">c_2</span>, рассмотрение которых предлагается читателю.</p>
 </div>
 </div>
@@ -1255,7 +1255,7 @@ Solution
 </span></p>
 <p>Рассмотрим эту сумму как поточечный максимум линейных функций по <span class="math inline">x</span>: <span class="math inline">g(x) = s^\top x</span>, где <span class="math inline">s_i = \{ -1, 1\}</span>. Каждая такая функция однозначно определяется набором коэффициентов <span class="math inline">\{s_i\}_{i=1}^n</span>.</p>
 <p>Тогда по теореме Дубовицкого - Милютина, в каждой точке <span class="math inline">\partial f = \mathbf{conv}\left(\bigcup\limits_{i \in I(x)} \partial g_i(x)\right)</span></p>
-<p>Заметим, что <span class="math inline">\partial g(x) = \partial \left( \max \{s^\top x, -s^\top x\} \right) = \begin{cases} -s, &amp;s^\top x &lt; 0\\ \mathbf{conv}(-s;s), &amp;s^\top x = 0 \\ s, &amp;s^\top x &gt; 0 \end{cases}</span>.</p>
+<p>Заметим, что <span class="math inline">\partial g(x) = \partial \left( \max \{s^\top x, -s^\top x\} \right) = \begin{cases} -s,  &amp;s^\top x &lt; 0\\ \mathbf{conv}(-s;s), &amp;s^\top x = 0 \\ s,  &amp;s^\top x &gt; 0 \end{cases}</span>.</p>
 <p>Причем, правило выбора “активной” функции поточечного максимума в каждой точке следующее: * Если j-ая координата точки отрицательна, <span class="math inline">s_i^j = -1</span> * Если j-ая координата точки положительна, <span class="math inline">s_i^j = 1</span> * Если j-ая координата точки равна нулю, то подходят оба варианта коэффициентов и соответствующих им функций, а значит, необходимо включать субградиенты этих функций в объединение в теореме Дубовицкого - Милютина.</p>
 <p>В итоге получаем ответ:</p>
 <p><span class="math display">

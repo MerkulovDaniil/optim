@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -747,7 +747,7 @@ window.Quarto = {
 <section id="problem" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="problem"><span class="header-section-number">1</span> Problem</h2>
 <p>Suppose, we have <span class="math inline">N</span> points in <span class="math inline">\mathbb{R}^d</span> Euclidian space (for simplicity, we’ll consider and plot case with <span class="math inline">d=2</span>). Let’s imagine, that these points are nothing else but houses in some 2d village. Salesman should find the shortest way to go through the all houses only once.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="salesman_problem.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -766,7 +766,7 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 <section id="crossing-procedure" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="crossing-procedure"><span class="header-section-number">2.1</span> Crossing procedure</h3>
 <p>Each iteration of the algorithm starts with the crossing (breed) procedure. Formally speaking, we should formulate the mapping, that takes two creature vectors as an input and returns its offspring, which inherits parents properties, while remaining consistent. We will use <a href="http://www.rubicite.com/Tutorials/GeneticAlgorithms/CrossoverOperators/Order1CrossoverOperator.aspx">ordered crossover</a> as such procedure.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="ordered_crossover.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -780,13 +780,13 @@ d = \sum_{i=1}^{N-1} \| x_{y(i+1)}  - x_{y(i)}\|_2 \to \min_{y},
 <section id="selection" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="selection"><span class="header-section-number">2.3</span> Selection</h3>
 <p>At the end of the iteration we have increased population (due to crossing results), then we just calculate total path distance to each individual and select top <span class="math inline">n</span> of them.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="salesman.gif" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="salesman_loss.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -840,7 +840,7 @@ r_k = \dfrac{4}{3^k}
 \| x_{k+1} - x^* \|_2 \leq C q^{2^k} \qquad \text{or} \qquad \| x_{k+1} - x^* \|_2 \leq C\| x_k - x^* \|^2_2,
 </span></p>
 <p>where <span class="math inline">q \in (0, 1)</span> and <span class="math inline">0 &lt; C &lt; \infty</span>.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="convergence.svg" class="img-fluid figure-img"></p>
 <figcaption>Difference between the convergence speed</figcaption>
@@ -871,12 +871,12 @@ q = \lim_{k \to \infty} \sup_k \; r_k ^{1/k}
 q = \lim_{k \to \infty} \dfrac{r_{k+1}}{r_k}
 </span></p>
 <ul>
-<li>If there exists <span class="math inline">q</span> and <span class="math inline">0 \leq q \lt 1</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has linear convergence with constant <span class="math inline">q</span>.</li>
+<li>If there exists <span class="math inline">q</span> and <span class="math inline">0 \leq q \lt  1</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has linear convergence with constant <span class="math inline">q</span>.</li>
 <li>In particular, if <span class="math inline">q = 0</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has superlinear convergence.</li>
-<li>If <span class="math inline">q</span> does not exist, but <span class="math inline">q = \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k} \lt 1</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has linear convergence with a constant not exceeding <span class="math inline">q</span>.</li>
+<li>If <span class="math inline">q</span> does not exist, but <span class="math inline">q = \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k} \lt  1</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has linear convergence with a constant not exceeding <span class="math inline">q</span>.</li>
 <li>If <span class="math inline">\lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} =1</span>, then <span class="math inline">\{r_k\}_{k=m}^\infty</span> has sublinear convergence.</li>
 <li>The case <span class="math inline">\lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \gt 1</span> is impossible.</li>
-<li>In all other cases (i.e., when <span class="math inline">\lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt 1 \leq \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}</span>) we cannot claim anything concrete about the convergence rate <span class="math inline">\{r_k\}_{k=m}^\infty</span>.</li>
+<li>In all other cases (i.e., when <span class="math inline">\lim\limits_{k \to \infty} \inf_k \dfrac{r_{k+1}}{r_k} \lt  1 \leq  \lim\limits_{k \to \infty} \sup_k \dfrac{r_{k+1}}{r_k}</span>) we cannot claim anything concrete about the convergence rate <span class="math inline">\{r_k\}_{k=m}^\infty</span>.</li>
 </ul>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">

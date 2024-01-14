@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -754,7 +754,7 @@ window.Quarto = {
 <p><span class="math display">
 \phi(\alpha) \approx f(x_k) - \alpha\nabla f(x_k)^\top \nabla f(x_k)
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="inexact.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of Taylor approximation of <span class="math inline">\phi^I_0(\alpha)</span></figcaption>
@@ -764,7 +764,7 @@ window.Quarto = {
 <p><span class="math display">
 f(x_k - \alpha \nabla f (x_k)) \leq f(x_k) - c_1 \cdot \alpha\nabla f(x_k)^\top \nabla f(x_k)
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="sufficient_decrease.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of sufficient decrease condition with coefficient <span class="math inline">c_1</span></figcaption>
@@ -816,7 +816,7 @@ Question
 \phi_2(\alpha) = f(x_k) - c_2 \alpha \|\nabla f(x_k)\|^2
 </span></p>
 <p>The Goldstein-Armijo conditions locate the function <span class="math inline">\phi(\alpha)</span> between <span class="math inline">\phi_1(\alpha)</span> and <span class="math inline">\phi_2(\alpha)</span>. Typically, <span class="math inline">c_1 = \rho</span> and <span class="math inline">c_2 = 1 - \rho</span>, with $ (0.5, 1)$.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="goldstein.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of Goldstein conditions</figcaption>
@@ -829,14 +829,14 @@ Question
 <p><span class="math display">
 -\nabla f (x_k - \alpha \nabla f(x_k))^\top \nabla f(x_k) \geq c_2 \nabla f(x_k)^\top(- \nabla f(x_k))
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="curvature.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of curvature condition</figcaption>
 </figure>
 </div>
 <p>for some <span class="math inline">c_2 \in (c_1,1)</span>. Here, <span class="math inline">c_1</span> is from the Armijo condition. The left-hand side is the derivative <span class="math inline">\nabla_\alpha \phi(\alpha)</span>, ensuring that the slope of <span class="math inline">\phi(\alpha)</span> at the target point is at least <span class="math inline">c_2</span> times the initial slope <span class="math inline">\nabla_\alpha \phi(\alpha)(0)</span>. Commonly, <span class="math inline">c_2 \approx 0.9</span> is used for Newton or quasi-Newton methods. Together, the sufficient decrease and curvature conditions form the Wolfe conditions.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="wolfe.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration of Wolfe condition</figcaption>

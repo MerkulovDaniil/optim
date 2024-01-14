@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -748,7 +748,7 @@ window.Quarto = {
 f^*(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right).
 </span></p>
 <p>Let’s notice, that the domain of the function <span class="math inline">f^*</span> is the set of those <span class="math inline">y</span>, where the supremum is finite.</p>
-<div id="fig-conjugate_function" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-conjugate_function" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conjugate_function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="conj.svg" class="img-fluid figure-img">
@@ -760,7 +760,7 @@ Figure&nbsp;1: Illustration of conjugate function
 </div>
 <section id="properties" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="properties"><span class="header-section-number">1.1</span> Properties</h3>
-<div id="fig-conjugate_slope" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-conjugate_slope" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conjugate_slope-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="conj_intuition_1.svg" class="img-fluid figure-img">
@@ -783,7 +783,7 @@ Question
 <div>
 <div class="callout-question">
 <p>Using the geometric intuition above, draw the conjugate function to the function below:</p>
-<div id="fig-conj-question" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-conj-question" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conj-question-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="conj_intuition_question.svg" class="img-fluid figure-img">
@@ -807,7 +807,7 @@ Solution
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
-<div id="fig-conj-answer" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-conj-answer" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conj-answer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="conj_intuition_answer.svg" class="img-fluid figure-img">
@@ -836,7 +836,7 @@ Figure&nbsp;4: Take a look at the constant slope <span class="math inline">x_0</
 <li><p>Let the functions <span class="math inline">f(x), f^\star(y), f^{\star\star}(x)</span> be defined on the <span class="math inline">\mathbb{R}^n</span>. Then <span class="math inline">f^{\star\star}(x) = f(x)</span> if and only if <span class="math inline">f(x)</span> - is a proper convex function (Fenchel - Moreau theorem). (proper convex function = closed convex function)</p></li>
 <li><p>Consequence from Fenchel–Young inequality: <span class="math inline">f(x) \ge f^{\star\star}(x)</span>.</p></li>
 </ul>
-<div id="fig-double_conjugate_function" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-double_conjugate_function" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-double_conjugate_function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="doubl_conj.svg" id="fig-double_conjugate_function" class="img-fluid figure-img">
@@ -866,7 +866,7 @@ Figure&nbsp;5
 </section>
 <section id="examples" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="examples"><span class="header-section-number">1.2</span> Examples</h3>
-<p>The scheme of recovering the convex conjugate is pretty algorithmic: 1. Write down the definition <span class="math inline">f^\star(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right) = \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span>. 1. Find those <span class="math inline">y</span>, where <span class="math inline">\sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span> is finite. That’s the domain of the dual function <span class="math inline">f^\star(y)</span>. 1. Find <span class="math inline">x^\star</span>, which maximize <span class="math inline">g(x,y)</span> as a function on <span class="math inline">x</span>. <span class="math inline">f^\star(y) = g(x^\star, y)</span>.</p>
+<p>The scheme of recovering the convex conjugate is pretty algorithmic: 1. Write down the definition <span class="math inline">f^\star(y) = \sup\limits_{x \in \mathbf{dom} \; f} \left( \langle y,x\rangle - f(x)\right)  = \sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span>. 1. Find those <span class="math inline">y</span>, where <span class="math inline">\sup\limits_{x \in \mathbf{dom} \; g} g(x,y)</span> is finite. That’s the domain of the dual function <span class="math inline">f^\star(y)</span>. 1. Find <span class="math inline">x^\star</span>, which maximize <span class="math inline">g(x,y)</span> as a function on <span class="math inline">x</span>. <span class="math inline">f^\star(y) = g(x^\star, y)</span>.</p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

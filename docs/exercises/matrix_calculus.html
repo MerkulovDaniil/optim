@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -778,9 +778,9 @@ L(\theta) = - \left[ \sum_{i=1}^n  (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^{(
 f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)
 </span></p></li>
 <li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{1}{3}\Vert x\Vert _2^3</span></p></li>
-<li><p>Calculate <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \Vert AX - B\Vert _F, X \in \mathbb{R}^{k \times n}, A \in \mathbb{R}^{m \times k}, B \in \mathbb{R}^{m \times n}</span></p></li>
+<li><p>Calculate <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \Vert  AX - B\Vert _F, X \in \mathbb{R}^{k \times n}, A \in \mathbb{R}^{m \times k}, B \in \mathbb{R}^{m \times n}</span></p></li>
 <li><p>Calculate the derivatives of the loss function with respect to parameters <span class="math inline">\frac{\partial L}{\partial W}, \frac{\partial L}{\partial b}</span> for the single object <span class="math inline">x_i</span> (or, <span class="math inline">n = 1</span>)</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="simple_learning.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -790,7 +790,7 @@ f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)
 <li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{\langle Ax, x\rangle}{\Vert x\Vert _2^2}, x \in \mathbb{R}^p \setminus \{0\}, A \in \mathbb{S}^n</span></p></li>
 <li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{1}{2}\Vert A - xx^T\Vert ^2_F, A \in \mathbb{S}^n</span></p></li>
 <li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \Vert xx^T\Vert _2</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac1n \sum\limits_{i=1}^n \log \left( 1 + \exp(a_i^{T}x) \right) + \frac{\mu}{2}\Vert x\Vert _2^2, \; a_i \in \mathbb R^n, \; \mu&gt;0</span>.</p></li>
+<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac1n \sum\limits_{i=1}^n \log \left( 1 + \exp(a_i^{T}x)  \right) + \frac{\mu}{2}\Vert x\Vert _2^2, \; a_i \in \mathbb R^n, \; \mu&gt;0</span>.</p></li>
 <li><p>Match functions with their gradients:</p>
 <ul class="task-list">
 <li><label><input type="checkbox"><span class="math inline">f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}</span></label></li>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -750,7 +750,7 @@ window.Quarto = {
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>The knapsack problem or rucksack problem is a problem in combinatorial optimization. Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. It derives its name from the problem faced by someone who is constrained by a fixed-size knapsack and must fill it with the most valuable items.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Knapsack.svg" class="img-fluid figure-img"></p>
 <figcaption>Wikipedia</figcaption>
@@ -798,27 +798,27 @@ m(i, w) =
 </section>
 <section id="probabilistic-algorithm" class="level4" data-number="2.2.2">
 <h4 data-number="2.2.2" class="anchored" data-anchor-id="probabilistic-algorithm"><span class="header-section-number">2.2.2</span> Probabilistic algorithm</h4>
-<p>It is a modification of greedy algorithm. In this algorithm decision to include an item with index <span class="math inline">j</span> in the knapsack is taken based on th probability of <span class="math inline">\frac{\lambda_j}{\sum_{i=1}^n\lambda_i}</span>, where <span class="math inline">\lambda_i</span> is the ratio of the value of an item to its weight. This algorithm is run several times and the best solution is selected. If Algorithm starts as many times as you like, then the probability of getting it as a result the work of the optimal solution tends to 1. Total complexity is equal to <span class="math inline">O(mN log(N))</span> operations. <strong>Calculating experiment</strong> The above algorithms were implemented in the python programming language, their source codes are available at the link below. Initial data for the task, namely the values (<span class="math inline">v_{i}</span>) and weights (<span class="math inline">w_{i}</span>) of items were randomly generated. The following ranges of values have been selected <span class="math inline">v_{i}\in [0, 100]</span> and <span class="math inline">w_{i}\in [100, 200]</span>. Maximum weight capacity <span class="math inline">W</span> generated randomly from interval <span class="math inline">W \in [0.5\sum w_i, 0.75\sum w_i]</span>.</p>
+<p>It is a modification of greedy algorithm. In this algorithm decision to include an item with index <span class="math inline">j</span> in the knapsack is taken based on th probability of <span class="math inline">\frac{\lambda_j}{\sum_{i=1}^n\lambda_i}</span>, where <span class="math inline">\lambda_i</span> is the ratio of the value of an item to its weight. This algorithm is run several times and the best solution is selected. If Algorithm starts as many times as you like, then the probability of getting it as a result the work of the optimal solution tends to 1. Total complexity is equal to <span class="math inline">O(mN  log(N))</span> operations. <strong>Calculating experiment</strong> The above algorithms were implemented in the python programming language, their source codes are available at the link below. Initial data for the task, namely the values (<span class="math inline">v_{i}</span>) and weights (<span class="math inline">w_{i}</span>) of items were randomly generated. The following ranges of values have been selected <span class="math inline">v_{i}\in [0, 100]</span> and <span class="math inline">w_{i}\in [100, 200]</span>. Maximum weight capacity <span class="math inline">W</span> generated randomly from interval <span class="math inline">W \in [0.5\sum w_i, 0.75\sum w_i]</span>.</p>
 </section>
 </section>
 </section>
 <section id="results" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
 <p>Dynamic programming algorithm vs probabilistic algorithm:</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./knapsack_problem_1.svg" class="img-fluid figure-img"></p>
 <figcaption>knapsack_problem_1</figcaption>
 </figure>
 </div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./knapsack_problem_2.svg" class="img-fluid figure-img"></p>
 <figcaption>knapsack_problem_2</figcaption>
 </figure>
 </div>
 <p>Probabilistic algorithm in case when number of items is fixed (150 items):</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./knapsack_problem_3.svg" class="img-fluid figure-img"></p>
 <figcaption>knapsack_problem_3</figcaption>

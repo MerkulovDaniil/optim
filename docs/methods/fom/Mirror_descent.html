@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -832,7 +832,7 @@ V_x(y) = \phi(y) - \phi(x) - \langle\nabla \phi(x), y-x\rangle
 <li>Выберем теперь другую норму <span class="math inline">\|\cdot\| = \| \cdot \|_1</span>, пусть <span class="math inline">\phi(x) = \sum\limits_{i \in [n]}x_i \log x_i</span> - антиэнтропия. Тогда эта функция будет <span class="math inline">1</span> сильно выпукла на выпуклом множестве <span class="math inline">S : \left\{x \in S : x \geq 0, \sum\limits_{i \in [n]} x_i = 1\right\}</span> (вероятностном симплексе), а соответствующая ей дивергенция Брэгмана: <span class="math inline">V_x(y) = \sum\limits_{i \in [n]} y_i \log \frac{y_i}{x_i} = D(y \| x)</span> - расстояние Кульбака - Ляйблера.</li>
 <li>Еще немного примеров <a href="https://authors.library.caltech.edu/9428/1/DHIsiamjmaa07.pdf">отсюда</a>:</li>
 </ul>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="bregman.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -939,7 +939,7 @@ R_{T-1} = \sum\limits_{k = 0}^{T-1} f_k(x_k) - \min_{x} \sum\limits_{k = 0}^{T-1
 <li><span class="math inline">y_{k+1} = y_k - \alpha_k \nabla f_k(x_k)</span> Градиентный шаг в сопряженном пространстве</li>
 <li><span class="math inline">x_{k+1} = \text{arg}\min\limits_{x \in S}V_{\nabla \phi^*(y_{k+1})}(x)</span> Обратное отображение с помощью функции <span class="math inline">\nabla \phi^*(x)</span> и проекция на бюджетное множество</li>
 </ol>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="MD.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -1076,7 +1076,7 @@ f(\overline{x}) - f^*  \leq \sqrt{\dfrac{2 \log (n) G^2}{T}}
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'T'</span>)</span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="vs">r'$f(\overline</span><span class="sc">{x}</span><span class="vs">) - f(x^*)$'</span>)</span>
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="./MD_test.png" class="img-fluid figure-img"></p>
 <figcaption>png</figcaption>

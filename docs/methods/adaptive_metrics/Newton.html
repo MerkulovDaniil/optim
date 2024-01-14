@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.528">
+<meta name="generator" content="quarto-1.4.542">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -767,7 +767,7 @@ window.Quarto = {
 <p><span class="math display">
 x_{k+1} = x_k - \dfrac{\varphi(x_k)}{\varphi'(x_k)}.
 </span></p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="newton_1.png" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -791,7 +791,7 @@ x_{k+1} = x_k - \left[ f''(x_k)\right]^{-1}f'(x_k).
 \tilde{f}(x) = f(x_k) + \langle f'(x_k), x - x_k\rangle + \frac{1}{2} \langle f''(x_k)(x-x_k), x-x_k \rangle.
 </span></p>
 <p>The idea of the method is to find the point <span class="math inline">x_{k+1}</span>, that minimizes the function <span class="math inline">\tilde{f}(x)</span>, i.e.&nbsp;<span class="math inline">\nabla \tilde{f}(x_{k+1}) = 0</span>.</p>
-<div class="img-fluid quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="newton.svg" class="img-fluid figure-img"></p>
 <figcaption>Illustration</figcaption>
@@ -856,7 +856,7 @@ f''(x_k) \succeq (\mu- Mr_k )I_n \\
 <p><span class="math display">
 r_{k+1}  \leq \dfrac{r_k^2 M}{2(\mu - Mr_k)}
 </span></p>
-<p>The convergence condition <span class="math inline">r_{k+1} &lt; r_k</span> imposes additional conditions on <span class="math inline">r_k: \;\;\; r_k &lt; \frac{2 \mu}{3M}</span></p>
+<p>The convergence condition <span class="math inline">r_{k+1} &lt; r_k</span> imposes additional conditions on <span class="math inline">r_k:  \;\;\; r_k &lt; \frac{2 \mu}{3M}</span></p>
 <p>Thus, we have an important result: Newton’s method for the function with Lipschitz positive Hessian converges <strong>quadratically</strong> near (<span class="math inline">\| x_0 - x^* \| &lt; \frac{2 \mu}{3M}</span>) to the solution.</p>
 <section id="theorem" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="theorem"><span class="header-section-number">2.1</span> Theorem</h3>
