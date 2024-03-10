@@ -9,6 +9,7 @@ project:
     - "docs/**/*.mp4"
     - "assets/files/*.pdf"
     - "assets/js/**"
+    - "assets/files/*.csv"
 
 format: fminxyz-html
 
