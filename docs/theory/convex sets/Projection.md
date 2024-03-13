@@ -46,7 +46,7 @@ Find $\pi_S (y) = \pi$, if $S = \{x \in \mathbb{R}^n \mid \|x - x_0\| \le R \}$,
 
 ::: {.callout-solution collapse="true"}
 
-![Projection of point to the ball](proj_cir.gif){#fig-projection_ball}
+![Projection of point to the ball](proj_ball.svg){#fig-projection_ball}
 
 * Build a hypothesis from the figure: $\pi = x_0 + R \cdot \frac{y - x_0}{\|y - x_0\|}$ 
 
@@ -90,7 +90,7 @@ Find $\pi_S (y) = \pi$, if $S = \{x \in \mathbb{R}^n \mid c^T x = b \}$, $y \not
 
 ::: {.callout-solution collapse="true"}
 
-![Projection of point to the ball](proj_half.gif){#fig-projection_halfspace}
+![Projection of point to the halfspace](proj_half.svg){#fig-projection_halfspace}
 
 * Build a hypothesis from the figure: $\pi = y + \alpha c$. Coefficient $\alpha$ is chosen so that $\pi \in S$: $c^T \pi = b$, so: 
 
@@ -136,7 +136,7 @@ Find $\pi_S (y) = \pi$, if $S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{
 
 ::: {.callout-solution collapse="true"}
 
-![Projection of point to the set of linear equations](proj_poly.gif){#fig-projection_linear_system}
+![Projection of point to the set of linear equations](proj_poly.svg){#fig-projection_linear_system}
 
 * Build a hypothesis from the figure: $\pi = y + \sum\limits_{i=1}^m\alpha_i A_i = y + A^T \alpha$. Coefficient $\alpha$ is chosen so that $\pi \in S$: $A \pi = b$, so: 
 

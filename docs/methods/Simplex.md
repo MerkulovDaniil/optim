@@ -360,7 +360,8 @@ $$
 & 4x_1 + x_2 \leq 25\\
 & 8x_1 + 4x_2 + x_3 \leq 125\\
 & \ldots\\
-& 2^n x_1 + 2^{n-1}x_2 + 2^{n-2}x_3 + \ldots + x_n \leq 5^n\ & x \geq 0 
+& 2^n x_1 + 2^{n-1}x_2 + 2^{n-2}x_3 + \ldots + x_n \leq 5^n\\ 
+& x \geq 0 
 \end{align*}
 $$
 
