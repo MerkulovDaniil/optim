@@ -47,7 +47,7 @@ The set of all subgradients of a function $f(x)$ at a point $x_0$ is called the 
 ![Subgradient calculus](subgrad_calc.svg){#fig-subgradient_calculus}
 
 * If $x_0 \in \mathbf{ri } S$, then $\partial f(x_0)$ is a convex compact set.
-* The convex function $f(x)$ is differentiable at the point $x_0\Rightarrow \partial f(x_0) = \{\nabla f(x_0)\}$$ 
+* The convex function $f(x)$ is differentiable at the point $x_0\Rightarrow \partial f(x_0) = \{\nabla f(x_0)\}$.
 * If $\partial f(x_0) \neq \emptyset \quad \forall x_0 \in S$, then $f(x)$ is convex on $S$.
 
 ## Subdifferentiability and convexity
