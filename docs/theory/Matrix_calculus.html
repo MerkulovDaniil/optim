@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.32">
+<meta name="generator" content="quarto-1.5.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -783,7 +783,7 @@ a_{12} &amp; a_{22} &amp; \dots &amp; a_{m2} \\
 a_{1n} &amp; a_{2n} &amp; \dots &amp; a_{mn}
 \end{bmatrix} \quad A \in \mathbb{R}^{m \times n}, a_{ij} \in \mathbb{R}
 </span> We will write <span class="math inline">x \geq 0</span> and <span class="math inline">x \neq 0</span> to indicate componentwise relationships</p>
-<div id="fig-vector" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-vector" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vector-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="vector_im.svg" class="img-fluid figure-img">
@@ -877,7 +877,7 @@ d(x, y) = \Vert x - y \Vert.
 \Vert x \Vert_1 = \sum_i |x_i|
 </span></p>
 <p><span class="math inline">L_1</span> norm plays a very important role: it all relates to the <strong>compressed sensing</strong> methods that emerged in the mid-00s as one of the most popular research topics. The code for the picture below is available here: <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Balls_p_norm.ipynb">👨‍💻</a></p>
-<div id="fig-p_balls" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-p_balls" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-p_balls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./p_balls.svg" class="img-fluid figure-img">
@@ -1272,7 +1272,7 @@ Question
 A = U V^T \quad A = \hat{C}\hat{A}^{-1}\hat{R}
 </span></p>
 <p>The latter expression refers to the fun fact: you can randomly choose <span class="math inline">r</span> linearly independent columns of a matrix and any <span class="math inline">r</span> linearly independent rows of a matrix and store only them with the ability to reconstruct the whole matrix exactly.</p>
-<div id="fig-skeleton" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-skeleton" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-skeleton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./skeleton.svg" class="img-fluid figure-img">
@@ -1310,7 +1310,7 @@ Question
 <section id="canonical-tensor-decomposition" class="level3" data-number="1.5">
 <h3 data-number="1.5" class="anchored" data-anchor-id="canonical-tensor-decomposition"><span class="header-section-number">1.5</span> Canonical tensor decomposition</h3>
 <p>One can consider the generalization of Skeleton decomposition to the higher order data structure, like tensors, which implies representing the tensor as a sum of <span class="math inline">r</span> primitive tensors.</p>
-<div id="fig-cp_decomposition" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cp_decomposition" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cp_decomposition-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./cp.svg" class="img-fluid figure-img">
@@ -1726,7 +1726,7 @@ f_{x_0}^I(x) = f(x_0) + \nabla f(x_0)^T (x - x_0)
 <li><span class="math inline">\nabla f(x_0)</span> is the gradient of the function at the point <span class="math inline">x_0</span>.</li>
 </ul>
 <p>It is very usual to replace the <span class="math inline">f(x)</span> with <span class="math inline">f_{x_0}^I(x)</span> near the point <span class="math inline">x_0</span> for simple analysis of some approaches.</p>
-<div id="fig-first_order_taylor" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-first_order_taylor" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-first_order_taylor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./first_order_taylor.svg" class="img-fluid figure-img">
@@ -1768,7 +1768,7 @@ f_{x_0}^{II}(x) = f(x_0) + \nabla f(x_0)^T (x - x_0) + \frac{1}{2} (x - x_0)^T \
 <ul>
 <li><span class="math inline">\nabla^2 f(x_0)</span> is the Hessian matrix of <span class="math inline">f</span> at the point <span class="math inline">x_0</span>.</li>
 </ul>
-<div id="fig-second_order_taylor" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-second_order_taylor" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-second_order_taylor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="./second_order_taylor.svg" class="img-fluid figure-img">
