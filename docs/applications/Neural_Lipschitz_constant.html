@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.37">
+<meta name="generator" content="quarto-1.5.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -763,10 +763,10 @@ window.Quarto = {
 </section>
 <section id="estimating-lipschitz-constant-of-a-neural-network" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="estimating-lipschitz-constant-of-a-neural-network"><span class="header-section-number">2</span> Estimating Lipschitz constant of a neural network</h2>
-<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout callout-style-default callout-theorem callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -780,10 +780,10 @@ Theorem
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout callout-style-default callout-theorem callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -801,10 +801,10 @@ Theorem
 <p><span class="math display">
 L_{\mathcal{NN}} \leq L_{f_1} \ldots L_{f_L} L_{w_1} \ldots L_{w_L}
 </span></p>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -826,10 +826,10 @@ f(x) = \text{ReLU}(x)
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -842,10 +842,10 @@ Question
 <p><span class="math display">
 w(x) = Wx + b
 </span></p>
-<div class="callout callout-style-default callout-answer no-icon callout-titled">
+<div class="callout callout-style-default callout-answer callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
@@ -876,7 +876,7 @@ Answer
 \|W\|_2 = \sup_{x \ne 0} \frac{\| W x \|_2}{\| x \|_{2}} = \sigma_1(W) = \sqrt{\lambda_\text{max} (W^*W)}
 </span></p>
 <p>For <span class="math inline">m = n</span>, computing SVD is <span class="math inline">\mathcal{O}(n^3)</span>.</p>
-<table class="table">
+<table class="caption-top table">
 <caption>Time measurements with jax and Google colab CPU.</caption>
 <thead>
 <tr class="header">
@@ -934,10 +934,10 @@ Y_j = \sum_{i = 1}^{m_{in}} C_{:, :, i, j} \circ X_{:, :, i},
 <p><span class="math display">
 \text{vec }(Y) = W \text{vec }(X)
 </span></p>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -947,10 +947,10 @@ Question
 <div>
 <div class="callout-question">
 <p>What is the size of the matrix <span class="math inline">W</span> in this case, if the input image is square of size <span class="math inline">n</span>?</p>
-<div class="callout callout-style-default callout-answer no-icon callout-titled">
+<div class="callout callout-style-default callout-answer callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
@@ -973,10 +973,10 @@ W \in \mathbb{R}^{m_{out}n^2 \times m_{in}n^2}
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example

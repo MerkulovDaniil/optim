@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.37">
+<meta name="generator" content="quarto-1.5.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -800,10 +800,10 @@ L(w) \to \min_{w \in \mathbb{R}^d}
 <p><span class="math display">
 \dfrac{\partial L}{\partial w_k} (w) \approx \dfrac{L(w+\varepsilon e_k) - L(w)}{\varepsilon}, \quad e_k = (0, \ldots, \underset{{\tiny k}}{1}, \ldots, 0)
 </span></p>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -813,10 +813,10 @@ Question
 <div>
 <div class="callout-question">
 <p>If the time needed for one calculation of <span class="math inline">L(w)</span> is <span class="math inline">T</span>, what is the time needed for calculating <span class="math inline">\nabla_w L</span> with this approach?</p>
-<div class="callout callout-style-default callout-answer no-icon callout-titled">
+<div class="callout callout-style-default callout-answer callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
@@ -837,10 +837,10 @@ Answer
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout callout-style-default callout-theorem callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -869,7 +869,7 @@ L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </figure>
 </div>
 <p>Let’s go from the beginning of the graph to the end and calculate the derivative <span class="math inline">\dfrac{\partial L}{\partial w_1}</span>:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 20%">
@@ -917,10 +917,10 @@ L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -930,10 +930,10 @@ Question
 <div>
 <div class="callout-question">
 <p>Make the same computations for <span class="math inline">\dfrac{\partial L}{\partial w_2}</span></p>
-<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout callout-style-default callout-solution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -944,7 +944,7 @@ Solution
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 20%">
@@ -1001,10 +1001,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout callout-style-default callout-theorem callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Forward mode automatic differentiation algorithm
@@ -1054,7 +1054,7 @@ L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </figure>
 </div>
 <p>Assume, that we have some values of the parameters <span class="math inline">w_1, w_2</span> and we have already performed a forward pass (i.e.&nbsp;single propagation through the computational graph from left to right). Suppose, also, that we somehow saved all intermediate values of <span class="math inline">v_i</span>. Let’s go from the end of the graph to the beginning and calculate the derivatives <span class="math inline">\dfrac{\partial L}{\partial w_1}, \dfrac{\partial L}{\partial w_1}</span>:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 20%">
@@ -1095,10 +1095,10 @@ L(w_1, w_2) = w_2 \log w_1 + \sqrt{w_2 \log w_1}
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -1108,10 +1108,10 @@ Question
 <div>
 <div class="callout-question">
 <p>Note, that for the same price of computations as it was in the forward mode we have the full vector of gradient <span class="math inline">\nabla_w L</span>. Is it a free lunch? What is the cost of acceleration?</p>
-<div class="callout callout-style-default callout-answer no-icon callout-titled">
+<div class="callout callout-style-default callout-answer callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
@@ -1132,10 +1132,10 @@ Answer
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout callout-style-default callout-theorem callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Reverse mode automatic differentiation algorithm
@@ -1172,10 +1172,10 @@ Reverse mode automatic differentiation algorithm
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1202,10 +1202,10 @@ Example
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-question no-icon callout-titled">
+<div class="callout callout-style-default callout-question callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -1221,10 +1221,10 @@ Question
 <figcaption>Which mode would you choose for calculating gradients there?</figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-answer no-icon callout-titled">
+<div class="callout callout-style-default callout-answer callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Answer
@@ -1245,10 +1245,10 @@ Answer
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Feedforward Architecture
@@ -1285,10 +1285,10 @@ Feedforward Architecture
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Gradient propagation through the linear least squares
@@ -1331,10 +1331,10 @@ dAx + Adx = db &amp;\to dx = A^{-1}(db - dAx)
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Gradient propagation through the SVD
@@ -1461,10 +1461,10 @@ dL &amp;= \text{tr}\left(\dfrac{\partial L}{\partial \Sigma}^T \text{diag}(U^T d
 <section id="jacobian-vector-product" class="level3" data-number="5.4">
 <h3 data-number="5.4" class="anchored" data-anchor-id="jacobian-vector-product"><span class="header-section-number">5.4</span> Jacobian vector product</h3>
 <p>The power of automatic differentiation is encapsulated in the computation of the Jacobian-vector product. Instead of calculating the entire Jacobian matrix, which is computationally expensive and often unnecessary, AD computes the product of the Jacobian and a vector directly. This is crucial for gradients in neural networks where the Jacobian may be very large, but the end goal is the product of this Jacobian with the gradient of the loss with respect to the outputs (vector). The reason why it works so fast in practice is that the Jacobian of the operations is already developed effectively in automatic differentiation frameworks. Typically, we even do not construct or store the full Jacobian, doing matvec directly instead. Note, for some functions (for example, any element-wise function of the input vector) matvec costs linear time, instead of quadratic and requires no additional memory to store a Jacobian.</p>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+<div class="callout callout-style-default callout-example callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example: element-wise exponent

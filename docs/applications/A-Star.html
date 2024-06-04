@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.37">
+<meta name="generator" content="quarto-1.5.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -794,7 +794,7 @@ window.Quarto = {
 <section id="breadth-first-search" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="breadth-first-search"><span class="header-section-number">2.1</span> Breadth First Search</h3>
 <p>This is the simplest algorithm for graph traversing. It starts at the tree root (it may be start/end node) and explores all the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -824,7 +824,7 @@ window.Quarto = {
 </section>
 <section id="dijkstras-algorithm" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="dijkstras-algorithm"><span class="header-section-number">2.2</span> Dijkstra’s algorithm</h3>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Description</th>
@@ -842,7 +842,7 @@ window.Quarto = {
 <section id="greedy-best-first-search" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="greedy-best-first-search"><span class="header-section-number">2.3</span> Greedy Best-First-Search</h3>
 <p>With Breadth First Search and Dijkstra’s Algorithm, the frontier expands in all directions. This is a reasonable choice if you’re trying to find a path to all locations or to many locations. However, a common case is to find a path to only one location. Let’s make the frontier expand towards the goal more than it expands in other directions. First, we’ll define a <strong>heuristic function</strong> that tells us how close we are to the goal. E.g. on flat map we can use function like <span class="math inline">H(A, B) = |A.x - B.x| + |A.y - B.y|</span> , where <strong>A</strong> and <strong>B</strong> are nodes with coordinates <strong>{x, y}</strong>. Let’s consider not only shortest edges, but also use the estimated distance to the goal for the priority queue ordering. The location closest to the goal will be explored first.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -864,7 +864,7 @@ window.Quarto = {
 <section id="a-star-algorithm" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="a-star-algorithm"><span class="header-section-number">2.4</span> A-Star Algorithm</h3>
 <p>Dijkstra’s Algorithm works well to find the shortest path, but it wastes time exploring in directions that aren’t promising. Greedy Best First Search explores in promising directions but it may not find the shortest path. The A* algorithm uses <em>both</em> the actual distance from the start and the estimated distance to the goal.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -943,7 +943,7 @@ window.Quarto = {
 <section id="results" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
 <p>Now let’s try to compare Dijkstra’s algorithm with A-Star. For this task we will generate map with size from 5 to 50 with step equal 3. Start position is in left top corner, and End position is opposite. Also, we will generate corners (the quantity is SIZE^0.4), with random length for one side and other side to the end of the map. Generated Maps you can find below, there is only example and comparison plot of iterations depending on the map size.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
