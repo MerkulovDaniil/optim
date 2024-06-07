@@ -2,322 +2,322 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fmin.xyz/docs/theory/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.400Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.390Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/convex sets/Projection.html</loc>
-    <lastmod>2024-06-07T12:24:47.384Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.374Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/convex sets/Conic_sets.html</loc>
-    <lastmod>2024-06-07T12:24:47.384Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.370Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Subgradient.html</loc>
-    <lastmod>2024-06-07T12:24:47.376Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Optimality.html</loc>
-    <lastmod>2024-06-07T12:24:47.376Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Duality.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Convex_optimization_problem.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Conjugate_set.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/zom/simulated-annealing.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/zom/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.160Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.146Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/line_search/parabola.html</loc>
-    <lastmod>2024-06-07T12:24:47.116Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.102Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/line_search/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.116Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.102Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/line_search/binary_search.html</loc>
-    <lastmod>2024-06-07T12:24:47.112Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.102Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.112Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.098Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/SGD.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/Projected_subgradient_descent.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/Lookahead.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/ADAM.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/adaptive_metrics/Quasi_newton.html</loc>
-    <lastmod>2024-06-07T12:24:47.096Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.086Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/adaptive_metrics/Natural_gradient.html</loc>
-    <lastmod>2024-06-07T12:24:47.096Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.086Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/Simplex.html</loc>
-    <lastmod>2024-06-07T12:24:47.096Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.082Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/materials/tutorials/Colab tutorial.html</loc>
-    <lastmod>2024-06-07T12:24:47.084Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/zom.html</loc>
-    <lastmod>2024-06-07T12:24:47.084Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/subgradient.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/projection.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/line_search.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/gop.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/duality.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/convex_sets.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/convergence.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/conjugate_functions.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/benchmarks/linear_least_squares.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/benchmarks/CNN_on_Fashion_MNIST.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/total_variation_inpainting.html</loc>
-    <lastmod>2024-06-07T12:24:47.076Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.062Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/rendezvous.html</loc>
-    <lastmod>2024-06-07T12:24:47.064Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.054Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/least_squares.html</loc>
-    <lastmod>2024-06-07T12:24:47.060Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.046Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.060Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.046Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/deep_learning.html</loc>
-    <lastmod>2024-06-07T12:24:47.056Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.046Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/NN_Loss_Surface.html</loc>
-    <lastmod>2024-06-07T12:24:47.044Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.030Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/A-Star.html</loc>
-    <lastmod>2024-06-07T12:24:47.044Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.030Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/MLE.html</loc>
-    <lastmod>2024-06-07T12:24:47.044Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.030Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/Neural_Lipschitz_constant.html</loc>
-    <lastmod>2024-06-07T12:24:47.044Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.030Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/ellipsoid.html</loc>
-    <lastmod>2024-06-07T12:24:47.060Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.046Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/knapsack_problem.html</loc>
-    <lastmod>2024-06-07T12:24:47.060Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.046Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/pca.html</loc>
-    <lastmod>2024-06-07T12:24:47.064Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.050Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/salesman_problem.html</loc>
-    <lastmod>2024-06-07T12:24:47.076Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.062Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/applications/two_way_partitioning.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/benchmarks/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/automatic_differentiation.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/conjugate_sets.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/convex_functions.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.066Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/cvxpy.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/fom.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/matrix_calculus.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/separation.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/exercises/uncategorized.html</loc>
-    <lastmod>2024-06-07T12:24:47.080Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/materials/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.084Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.070Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/Autograd.html</loc>
-    <lastmod>2024-06-07T12:24:47.092Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.082Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/adaptive_metrics/CG.html</loc>
-    <lastmod>2024-06-07T12:24:47.096Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.086Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/adaptive_metrics/Newton.html</loc>
-    <lastmod>2024-06-07T12:24:47.096Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.086Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/adaptive_metrics/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.100Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.086Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/GD.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/Mirror_descent.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/SAG.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/fom/Subgradient descent.html</loc>
-    <lastmod>2024-06-07T12:24:47.108Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.094Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.112Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.098Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/line_search/golden_search.html</loc>
-    <lastmod>2024-06-07T12:24:47.116Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.102Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/line_search/inexact.html</loc>
-    <lastmod>2024-06-07T12:24:47.116Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.102Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/zom/bee_algorithm.html</loc>
-    <lastmod>2024-06-07T12:24:47.160Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.146Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/methods/zom/nelder-mead.html</loc>
-    <lastmod>2024-06-07T12:24:47.160Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.146Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Conjugate function.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Convex_function.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Dual norm.html</loc>
-    <lastmod>2024-06-07T12:24:47.372Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Matrix_calculus.html</loc>
-    <lastmod>2024-06-07T12:24:47.376Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/Rates_of_convergence.html</loc>
-    <lastmod>2024-06-07T12:24:47.376Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.362Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/convex sets/Affine_sets.html</loc>
-    <lastmod>2024-06-07T12:24:47.384Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.370Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/convex sets/Convex_set.html</loc>
-    <lastmod>2024-06-07T12:24:47.384Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.374Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/docs/theory/convex sets/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.384Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.374Z</lastmod>
   </url>
   <url>
     <loc>https://fmin.xyz/index.html</loc>
-    <lastmod>2024-06-07T12:24:47.416Z</lastmod>
+    <lastmod>2024-06-07T13:23:40.402Z</lastmod>
   </url>
 </urlset>
