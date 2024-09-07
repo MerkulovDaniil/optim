@@ -225,3 +225,11 @@ div.callout-proof.callout-style-default > .callout-header {
 .navbar #quarto-search{
   margin-left: unset;
 }
+
+/* Remove obsolete margin before and after proofs */
+div.callout-solution.callout-style-default,
+div.callout-proof.callout-style-default,
+div.callout-answer.callout-style-default {
+  margin-top: 2px !important;
+  margin-bottom: 2px !important;
+}
