@@ -66,7 +66,7 @@ Make the same computations for $\dfrac{\partial L}{\partial w_2}$
 |  Step | Function  | Derivative  | Scheme | 
 |:-:|:--:|:--:|:------: |
 | 1 |  $w_1 = w_1, w_2 = w_2$ | $\dfrac{\partial w_1}{\partial w_2} = 0, \dfrac{\partial w_2}{\partial w_2} = 1$  | ![](cgraph_ex_1.svg) |
-| 2 |  $v_1 = \log w_1$ | $\begin{aligned}\frac{\partial v_1}{\partial w_2} &= \frac{\partial v_1}{\partial w_2} \frac{\partial w_2}{\partial w_2}\\ &= 0 \cdot 1\end{aligned}$  | ![](cgraph_ex_2.svg) |
+| 2 |  $v_1 = \log w_1$ | $\begin{aligned}\frac{\partial v_1}{\partial w_2} &= \frac{\partial v_1}{\partial w_1} \frac{\partial w_1}{\partial w_2}\\ &= \frac{1}{w_1} \cdot 0\end{aligned}$  | ![](cgraph_ex_2.svg) |
 | 3 |  $v_2 = w_2 v_1$  | $\begin{aligned}\frac{\partial v_2}{\partial w_2} &= \frac{\partial v_2}{\partial v_1}\frac{\partial v_1}{\partial w_2} + \frac{\partial v_2}{\partial w_2}\frac{\partial w_2}{\partial w_2} \\&= w_2\frac{\partial v_1}{\partial w_2} + v_1\frac{\partial w_2}{\partial w_2}\end{aligned}$  | ![](cgraph_ex_3.svg) |
 | 4 |  $v_3 = \sqrt{v_2}$  | $\begin{aligned}\frac{\partial v_3}{\partial w_2} &= \frac{\partial v_3}{\partial v_2}\frac{\partial v_2}{\partial w_2} \\ &= \frac{1}{2\sqrt{v_2}}\frac{\partial v_2}{\partial w_2}\end{aligned}$  | ![](cgraph_ex_4.svg) |
 | 5 |  $L = v_2 + v_3$  | $\begin{aligned}\frac{\partial L}{\partial w_2} &= \frac{\partial L}{\partial v_2}\frac{\partial v_2}{\partial w_2} + \frac{\partial L}{\partial v_3}\frac{\partial v_3}{\partial w_2} \\&= 1\frac{\partial v_2}{\partial w_2} + 1\frac{\partial v_3}{\partial w_2}\end{aligned}$  | ![](cgraph_ex_5.svg) |
