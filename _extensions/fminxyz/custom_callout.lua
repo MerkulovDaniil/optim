@@ -33,12 +33,14 @@ function Div(div)
     -- Replace hyphens with underscores for the callout type
     calloutType = calloutType:gsub("%-", "_")
 
-    -- Return a callout instead of the Div
+    -- Return a callout without the icon container
     return quarto.Callout({
       type = calloutType,
       content = { pandoc.Div(div) },
       title = title,
-      collapse = collapse
+      collapse = collapse,
+      -- Remove icon container by setting `icon` parameter to `false`
+      icon = false
     })
   end
 end
