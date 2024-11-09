@@ -1,9 +1,21 @@
 ---
 title: Matrix calculus
 order: 1
+format:
+  fminxyz-html: default
+  gfm: default
+  # pdf: default
+  # beamer: default
+
+format-links:
+  - format: pdf
+    text: PDF
+  # - format: beamer
+  #   text: Slides
 ---
 
 ## Basic linear algebra background
+
 ### Vectors and matrices
 
 We will treat all vectors as column vectors by default. The space of real vectors of length $n$ is denoted by $\mathbb{R}^n$, while the space of real-valued $m \times n$ matrices is denoted by $\mathbb{R}^{m \times n}$. That's it: [^1]
