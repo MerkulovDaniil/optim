@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-358ab6a2ccda50ca439f828c7f343a17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6e9afcd0f31548c0cb7c10bdd2f6418f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,8 +103,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script defer="" type="text/javascript" src="../../assets/toggle_button.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -117,41 +117,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
 </script>
+<script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <meta property="og:title" content="Optimality conditions. KKT">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://fmin.xyz/docs/theory/critical_points.svg">
 <meta name="twitter:title" content="Optimality conditions. KKT">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fmin.xyz/docs/theory/critical_points.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -770,6 +745,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Optimality.html">Optimality conditions. KKT</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Optimality conditions. KKT</h1>
@@ -787,7 +763,6 @@ window.Quarto = {
 
 
 </header>
-
 
 <section id="background" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="background"><span class="header-section-number">1</span> Background</h2>
@@ -814,10 +789,10 @@ Figure&nbsp;1: Illustration of different stationary (critical) points
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Extreme value (Weierstrass) theorem
@@ -841,10 +816,10 @@ Figure&nbsp;2: A lot of practical problems are theoretically solvable
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Taylor’s Theorem
@@ -884,10 +859,10 @@ L(x, \nu) = f(x) + \sum\limits_{i=1}^p \nu_i h_i(x) \to \min\limits_{x \in \math
 </section>
 <section id="unconstrained-optimization" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="unconstrained-optimization"><span class="header-section-number">2</span> Unconstrained optimization</h2>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 First-Order Necessary Conditions
@@ -900,10 +875,10 @@ First-Order Necessary Conditions
 <p><span id="eq-unconstrained_problem_necessary"><span class="math display">
 \nabla f(x^*) = 0
 \tag{1}</span></span></p>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -936,10 +911,10 @@ f(x^* + \bar{t}p) = f(x^*) + \bar{t} p^T \nabla f(x^* + tp), \text{ for some } t
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Second-Order Sufficient Conditions
@@ -953,10 +928,10 @@ Second-Order Sufficient Conditions
 \nabla f(x^*) = 0 \quad \nabla^2 f(x^*) \succ 0.
 </span></p>
 <p>Then <span class="math inline">x^*</span> is a strict local minimizer of <span class="math inline">f</span>.</p>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -984,10 +959,10 @@ f(x^* + p) = f(x^*) + p^T \nabla f(x^*) + \frac{1}{2} p^T \nabla^2 f(z) p
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Peano surface
@@ -1026,10 +1001,10 @@ Figure&nbsp;3: General first order local optimality condition
 </figcaption>
 </figure>
 </div>
-<div class="callout callout-style-default callout-question callout-titled">
+<div class="callout callout-style-default callout-question no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -1043,10 +1018,10 @@ Question
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Fermat’s rule
@@ -1274,10 +1249,10 @@ L(x, \nu) = f(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f(x) + \nu^\top h(x)
 
 
 
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1492,10 +1467,10 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Subdifferential form of KKT
@@ -1521,10 +1496,10 @@ Subdifferential form of KKT
 <p><span class="math display">
 0 \in \sum_{j=0}^{m} \lambda_j \partial f_j(x^*).
 </span></p>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -2039,7 +2014,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

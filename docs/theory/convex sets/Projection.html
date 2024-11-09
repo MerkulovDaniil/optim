@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-358ab6a2ccda50ca439f828c7f343a17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-6e9afcd0f31548c0cb7c10bdd2f6418f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,8 @@ ul.task-list li input[type="checkbox"] {
 <script defer="" type="text/javascript" src="../../../assets/toggle_button.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -83,39 +83,14 @@ ul.task-list li input[type="checkbox"] {
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
 </script>
+<script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <meta property="og:title" content="Projection">
+<meta property="og:image" content="https://fmin.xyz/docs/theory/convex sets/proj_ball.svg">
 <meta name="twitter:title" content="Projection">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fmin.xyz/docs/theory/convex sets/proj_ball.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -719,6 +694,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Projection.html">Projection</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Projection</h1>
@@ -736,7 +712,6 @@ window.Quarto = {
 
 
 </header>
-
 
 <section id="definitions" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1</span> Definitions</h2>
@@ -773,10 +748,10 @@ d(\mathbf{y}, S, \| \cdot \|) = \inf\{\|x - y\| \mid x \in S \}
 <li><strong>Sufficient conditions of existence of a projection</strong>. If <span class="math inline">S \subseteq \mathbb{R}^n</span> - closed set, then the projection on set <span class="math inline">S</span> exists for any point.</li>
 <li><strong>Sufficient conditions of uniqueness of a projection</strong>. If <span class="math inline">S \subseteq \mathbb{R}^n</span> - closed convex set, then the projection on set <span class="math inline">S</span> is unique for any point.</li>
 </ul>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -786,10 +761,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Find <span class="math inline">\pi_S (y) = \pi</span>, if <span class="math inline">S = \{x \in \mathbb{R}^n \mid \|x - x_0\| \le R \}</span>, <span class="math inline">y \notin S</span></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -845,10 +820,10 @@ Figure&nbsp;1: Projection of point to the ball
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -858,10 +833,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Find <span class="math inline">\pi_S (y) = \pi</span>, if <span class="math inline">S = \{x \in \mathbb{R}^n \mid c^T x = b \}</span>, <span class="math inline">y \notin S</span>.</p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -919,10 +894,10 @@ Figure&nbsp;2: Projection of point to the halfspace
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -932,10 +907,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Find <span class="math inline">\pi_S (y) = \pi</span>, if <span class="math inline">S = \{x \in \mathbb{R}^n \mid Ax = b, A \in \mathbb{R}^{m \times n},  b \in \mathbb{R}^{m} \}</span>, <span class="math inline">y \notin S</span>.</p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1422,7 +1397,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

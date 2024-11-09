@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-358ab6a2ccda50ca439f828c7f343a17.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6e9afcd0f31548c0cb7c10bdd2f6418f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,8 @@ ul.task-list li input[type="checkbox"] {
 <script defer="" type="text/javascript" src="../../assets/toggle_button.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -83,41 +83,16 @@ ul.task-list li input[type="checkbox"] {
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
 </script>
+<script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <meta property="og:title" content="Subgradient and subdifferential">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://fmin.xyz/docs/theory/conv_support.svg">
 <meta name="twitter:title" content="Subgradient and subdifferential">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fmin.xyz/docs/theory/conv_support.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -725,6 +700,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Subgradient.html">Subgradient and subdifferential</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Subgradient and subdifferential</h1>
@@ -742,7 +718,6 @@ window.Quarto = {
 
 
 </header>
-
 
 <section id="definition" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="definition"><span class="header-section-number">1</span> Definition</h2>
@@ -772,10 +747,10 @@ Figure&nbsp;1: Taylor linear approximation serves as a global lower bound for a 
 <p><span class="math display">
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
 </span></p>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -785,10 +760,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = |x|</span></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -845,10 +820,10 @@ Figure&nbsp;3: Subgradient calculus
 </section>
 <section id="subdifferentiability-and-convexity" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="subdifferentiability-and-convexity"><span class="header-section-number">2</span> Subdifferentiability and convexity</h2>
-<div class="callout callout-style-default callout-question callout-titled">
+<div class="callout callout-style-default callout-question no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -862,10 +837,10 @@ Question
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -875,10 +850,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \sin x, x \in [\pi/2; 2\pi]</span> <img src="sin.svg" class="img-fluid"></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -907,10 +882,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -920,10 +895,10 @@ Theorem
 <div>
 <div class="callout-theorem">
 <p><strong>Subdifferential of a differentiable function</strong> Let <span class="math inline">f : S \to \mathbb{R}</span> be a function defined on the set <span class="math inline">S</span> in a Euclidean space <span class="math inline">\mathbb{R}^n</span>. If <span class="math inline">x_0 \in \mathbf{ri }(S)</span> and <span class="math inline">f</span> is differentiable at <span class="math inline">x_0</span>, then either <span class="math inline">\partial f(x_0) = \emptyset</span> or <span class="math inline">\partial f(x_0) = \{\nabla f(x_0)\}</span>. Moreover, if the function <span class="math inline">f</span> is convex, the first scenario is impossible.</p>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -957,10 +932,10 @@ v = -\frac{s - \nabla f(x_0)}{\| s - \nabla f(x_0) \|},
 </div>
 </div>
 <p>It is interesting to mention, that the statement for the convex function could be strengthened. Let <span class="math inline">f : S \to \mathbb{R}</span> be a convex function defined on the set <span class="math inline">S</span> in a finite-dimensional Euclidean space <span class="math inline">\mathbb{R}^n</span>, and let <span class="math inline">x_0 \in \mathbf{ri }(S)</span>. Then, <span class="math inline">f</span> is differentiable at <span class="math inline">x_0</span> if and only if the subdifferential <span class="math inline">\partial f(x_0)</span> contains exactly one element. In this case, <span class="math inline">\partial f(x_0) = \{\nabla f(x_0)\}</span>.</p>
-<div class="callout callout-style-default callout-question callout-titled">
+<div class="callout callout-style-default callout-question no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -974,10 +949,10 @@ Question
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-question callout-titled">
+<div class="callout callout-style-default callout-question no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Question
@@ -992,10 +967,10 @@ Question
 </div>
 </div>
 <p>Convexity follows from subdifferentiability at any point. A natural question to ask is whether the converse is true: is every convex function subdifferentiable? It turns out that, generally speaking, the answer to this question is negative.</p>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1005,10 +980,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Let <span class="math inline">f : [0,\infty) \to \mathbb{R}</span> be the function defined by <span class="math inline">f(x) := -\sqrt{x}</span>. Then, <span class="math inline">\partial f(0) = \emptyset</span>.</p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1032,10 +1007,10 @@ Solution
 </section>
 <section id="subdifferential-calculus" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="subdifferential-calculus"><span class="header-section-number">3</span> Subdifferential calculus</h2>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -1053,10 +1028,10 @@ Theorem
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -1098,10 +1073,10 @@ Theorem
 <li>Геометрически</li>
 <li>По определению</li>
 </ul>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1111,10 +1086,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = |x - 1| + |x + 1|</span></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1142,10 +1117,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1155,10 +1130,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = |c_1^\top x| + |c_2^\top x|</span></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1181,10 +1156,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1194,10 +1169,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = \left[ \max(0, f_0(x))\right]^q</span>. Здесь <span class="math inline">f_0(x)</span> - выпуклая функция на открытом выпуклом множестве <span class="math inline">S</span>, <span class="math inline">q \geq 1</span>.</p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1222,10 +1197,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1235,10 +1210,10 @@ Example
 <div>
 <div class="callout-example">
 <p>Найти <span class="math inline">\partial f(x)</span>, если <span class="math inline">f(x) = \| x\|_1</span></p>
-<div class="callout callout-style-default callout-solution callout-titled">
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Solution
@@ -1270,10 +1245,10 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1291,10 +1266,10 @@ B_{\lVert \cdot \rVert_*}(0, 1), &amp; \text{if } x_0 = 0, \\
 \end{cases}
 </span></p>
 <p>Where <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span> is the closed unit ball centered at zero with respect to the conjugate norm. In other words, a vector <span class="math inline">s \in V</span> with <span class="math inline">\lVert s \rVert_* = 1</span> is a subgradient of the norm <span class="math inline">\lVert \cdot \rVert</span> at point <span class="math inline">x_0 \neq 0</span> if and only if the Hölder’s inequality <span class="math inline">\langle s, x_0 \rangle \leq \lVert x_0 \rVert</span> becomes an equality.</p>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -1337,10 +1312,10 @@ Proof
 </div>
 </div>
 <p>The conjugate norm in Example above does not appear by chance. It turns out that, in a completely similar manner for an arbitrary function <span class="math inline">f</span> (not just for the norm), its subdifferential can be described in terms of the dual object — the Fenchel conjugate function.</p>
-<div class="callout callout-style-default callout-example callout-titled">
+<div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Example
@@ -1359,10 +1334,10 @@ Example
 </div>
 <p>In other words, a vector <span class="math inline">s \in E^*</span> is a subgradient of the function <span class="math inline">f</span> at point <span class="math inline">x_0</span> if and only if the Fenchel-Young inequality <span class="math inline">\langle s, x_0 \rangle \leq f^*(s) + f(x_0)</span> becomes an equality.</p>
 <p>In the case <span class="math inline">f = \lVert \cdot \rVert</span>, we have <span class="math inline">f^* = \delta_{B_{\lVert \cdot \rVert_*}(0,1)}</span>, i.e., the conjugate function is equal to the indicator function of the ball <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span>, and equation becomes.</p>
-<div class="callout callout-style-default callout-theorem callout-titled">
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Theorem
@@ -1377,10 +1352,10 @@ Theorem
 <li><p><span class="math inline">s \in \partial f(x)</span>.</p></li>
 <li><p><span class="math inline">x \in \partial f^*(s)</span>.</p></li>
 </ol>
-<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Proof
@@ -1838,7 +1813,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
