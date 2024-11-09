@@ -26,6 +26,3 @@ Welcome to 💎fmin.xyz, a comprehensive source designed for enthusiasts, resear
 - **Built with Quarto:** 💎fmin.xyz is powered by the [Quarto](https://quarto.org) system, ensuring a smooth and responsive user experience.
 
 - **Contribute & Collaborate:** Your insights are valuable! Contributions are not just welcomed but encouraged. Check out our guides at the repository and join us in refining and expanding this educational endeavor.
-
-
-Embark on a learning adventure with 💎fmin.xyz, where knowledge is open, and education is accessible. Happy learning!

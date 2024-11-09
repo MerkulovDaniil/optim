@@ -2,7 +2,7 @@ title: fminxyz
 author: Daniil Merkulov
 version: 2.0.0
 contributes:
-  formats:
+  format:
     html:
       number-sections: true
       link-external-newwindow: true
@@ -17,11 +17,10 @@ contributes:
         - text: |
             <script defer type="text/javascript" src="/assets/toggle_button.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
-    pdf:
-      toc: false
-      geometry:
-      - left=10mm
-      - right=10mm
+      template: template.html
+      # template-partials:
+      #   - title-block.html
+
   filters:
     - custom_callout.lua
     - custom_local_video.lua

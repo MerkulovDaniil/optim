@@ -14,6 +14,27 @@ project:
 
 format: fminxyz-html
 
+formats:
+  # pdf:
+  #   toc: false
+  #   geometry:
+  #   - left=10mm
+  #   - right=10mm
+  gfm:
+    toc: false
+  # beamer:
+  #   pdf-engine: pdflatex
+  #   aspectratio: 169
+  #   fontsize: 9pt
+  #   section-titles: true
+  #   incremental: true
+  #   include-in-header: header.tex  # Custom LaTeX commands and preamble
+
+format-links:
+  - fminxyz-html
+  - format: gfm
+    text: Markdown
+
 execute:
   freeze: auto
 

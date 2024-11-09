@@ -154,8 +154,12 @@ div.callout-proof.callout-style-default > .callout-header {
 .quarto-margin-footer {
   .margin-footer-item {
     #toggleSpoilers {
-      font-size: 0.75rem;
-      padding-left: 2px;
+      font-size: 0.65rem;
+      padding-left: 0px;
+      padding-right: 0px;
+      border-left-width: 0px;
+      margin-left: -1px;
+      margin-right: -1px;
     }
   }
 }
