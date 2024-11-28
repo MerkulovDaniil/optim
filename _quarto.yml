@@ -12,28 +12,21 @@ project:
     - "assets/js/**"
     - "assets/files/*.csv"
 
-format: fminxyz-html
-
-formats:
+format: 
+  fminxyz-html: default
   # pdf:
-  #   toc: false
-  #   geometry:
-  #   - left=10mm
-  #   - right=10mm
-  gfm:
-    toc: false
-  # beamer:
-  #   pdf-engine: pdflatex
-  #   aspectratio: 169
-  #   fontsize: 9pt
-  #   section-titles: true
-  #   incremental: true
-  #   include-in-header: header.tex  # Custom LaTeX commands and preamble
+  #   pdf-engine: xelatex
+  #   number-sections: true
+  #   number-depth: 1
+  #   keep-tex: true
+  gfm: default
 
 format-links:
   - fminxyz-html
   - format: gfm
     text: Markdown
+  # - format: pdf
+    # text: PDF
 
 execute:
   freeze: auto
