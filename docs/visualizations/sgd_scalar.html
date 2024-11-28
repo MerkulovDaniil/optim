@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Two way partitioning problem</title>
+<title>SGD intuition in a scalar case</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,12 +86,14 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Two way partitioning problem">
+<meta property="og:title" content="SGD intuition in a scalar case">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fmin.xyz/docs/applications/partition.svg">
-<meta name="twitter:title" content="Two way partitioning problem">
+<meta property="og:image" content="https://fmin.xyz/docs/visualizations/sam_1.svg">
+<meta property="og:image:alt" content="Idea of SAM">
+<meta name="twitter:title" content="SGD intuition in a scalar case">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://fmin.xyz/docs/applications/partition.svg">
+<meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/sam_1.svg">
+<meta name="twitter:image:alt" content="Idea of SAM">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -119,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/two_way_partitioning.html">Two way partitioning problem</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/gd_lls.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/sgd_scalar.html">SGD intuition in a scalar case</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -535,11 +537,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -614,7 +616,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/applications/two_way_partitioning.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/applications/two_way_partitioning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Two way partitioning problem</span></a>
   </div>
 </li>
@@ -673,13 +675,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
@@ -694,7 +696,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/sgd_scalar.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/sgd_scalar.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">SGD intuition in a scalar case</span></a>
   </div>
 </li>
@@ -706,31 +708,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#intuition" id="toc-intuition" class="nav-link active" data-scroll-target="#intuition"><span class="header-section-number">1</span> Intuition</a></li>
-  <li><a href="#problem" id="toc-problem" class="nav-link" data-scroll-target="#problem"><span class="header-section-number">2</span> Problem</a>
-  <ul class="collapse">
-  <li><a href="#simple-lower-bound-with-duality" id="toc-simple-lower-bound-with-duality" class="nav-link" data-scroll-target="#simple-lower-bound-with-duality"><span class="header-section-number">2.1</span> Simple lower bound with duality</a></li>
-  </ul></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">3</span> Code</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/applications/two_way_partitioning.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="two_way_partitioning-gfm.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
 </button>
-</div></div></div>
+</div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="sgd_scalar-gfm.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/applications/index.html">Applications</a></li><li class="breadcrumb-item"><a href="../../docs/applications/two_way_partitioning.html">Two way partitioning problem</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/gd_lls.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/sgd_scalar.html">SGD intuition in a scalar case</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Two way partitioning problem</h1>
+<h1 class="title">SGD intuition in a scalar case</h1>
 </div>
 
 
@@ -746,73 +736,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="intuition" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="intuition"><span class="header-section-number">1</span> Intuition</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="partition.svg" class="img-fluid figure-img"></p>
-<figcaption>Illustration</figcaption>
-</figure>
-</div>
-<p>Suppose, we have a set of <span class="math inline">n</span> objects, which are needed to be split into two groups. Moreover, we have information about the preferences of all possible pairs of objects to be in the same group. This information could be presented in the matrix form: <span class="math inline">W \in \mathbb{R}^{n \times n}</span>, where <span class="math inline">\{w_{ij}\}</span> is the cost of having <span class="math inline">i</span>-th and <span class="math inline">j</span>-th object in the same partitions. It is easy to see, that the total number of partitions is finite and equals to <span class="math inline">2^n</span>. So this problem can in principle be solved by simply checking the objective value of each feasible point. Since the number of feasible points grows exponentially, however, this is possible only for small problems (say, with <span class="math inline">n \leq 30</span>). In general (and for n larger than, say, <span class="math inline">50</span>) the problem is very difficult to solve.</p>
-<p>For example, bruteforce solution on MacBook Air with M1 processor without any explicit parallelization will take more, than a universe lifetime for <span class="math inline">n=62</span>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="partition_bruteforce.svg" class="img-fluid figure-img"></p>
-<figcaption>Illustration</figcaption>
-</figure>
-</div>
-<p>Despite the hardness of the problems, there are several ways to approach it.</p>
-</section>
-<section id="problem" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="problem"><span class="header-section-number">2</span> Problem</h2>
-<p>We consider the (nonconvex) problem</p>
-<p><span class="math display">
-\begin{align*}
-&amp; \min_{x \in \mathbb{R}^n} x^\top W x,\\
-\text{s.t. } &amp; x_i^2 = 1,  \; i= 1, \ldots, n\\
-\end{align*}
-</span></p>
-<p>where <span class="math inline">W \in \mathbb{R}^n</span> is the symetric matrix. The constraints restrict the values of <span class="math inline">x_i</span> to <span class="math inline">1</span> or <span class="math inline">−1</span>, so the problem is equivalent to finding the vector with components <span class="math inline">\pm 1</span> that minimizes <span class="math inline">x^\top W x</span>. The feasible set here is finite (it contains <span class="math inline">2^n</span> points), thus, is non-convex.</p>
-<p>The objective is the total cost, over all pairs of elements, and the problem is to find the partition with least total cost.</p>
-<section id="simple-lower-bound-with-duality" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="simple-lower-bound-with-duality"><span class="header-section-number">2.1</span> Simple lower bound with duality</h3>
-<p>We now derive the dual function for this problem. The Lagrangian is</p>
-<p><span class="math display">
-L(x, \nu) = x^\top W x + \sum\limits_{i=1}^n \nu_i (x^2_i − 1) = x^\top (W + \text{diag}(\nu))x − \mathbf{1}^\top \nu.
-</span></p>
-<p>We obtain the Lagrange dual function by minimizing over <span class="math inline">x</span>:</p>
-<p><span class="math display">
-\begin{split}
-g(\nu) &amp;= \inf_{x \in\mathbb{R}^n} x^\top (W + diag(\nu))x − \mathbf{1}^\top \nu = \\
-&amp;= \begin{cases}
-\mathbf{1}^\top \nu,  &amp;W + \text{diag}(\nu) \succeq 0 \\
--\infty, &amp;\text{ otherwise} \end{cases}
-\end{split}
-</span></p>
-<p>This dual function provides lower bounds on the optimal value of the difficult problem. For example, we can take any specific value of the dual variable</p>
-<p><span class="math display">
-\nu = −\lambda_{min}(W)\mathbf{1},
-</span></p>
-<p>This yields the bound on the optimal value <span class="math inline">p^*</span>:</p>
-<p><span class="math display">
-p^* \geq g(\nu) \geq −\mathbf{1}^\top \nu = n \lambda_{min}(W)
-</span></p>
-<p><strong>Question</strong> Can you obtain the same lower bound without knowledge of duality, but using the idea of eigenvalues?</p>
-</section>
-</section>
-<section id="code" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="code"><span class="header-section-number">3</span> Code</h2>
-<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb">Open In Colab</a>{: .btn }</p>
-</section>
-<section id="references" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="references"><span class="header-section-number">4</span> References</h2>
-<ul>
-<li><a href="https://web.stanford.edu/~boyd/cvxbook/">Convex Optimization</a> book by Stephen Boyd and Lieven Vandenberghe.</li>
-</ul>
+<p>Gradient descent with an appropriate constant learning rate converges for a minimum for a convex function:</p>
+<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="sgd_3.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p>But what if the minimized function is not convex?</p>
+<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="sgd_4.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p>In contrast, Stochastic Gradient Descent (SGD) could escape local minimuma:</p>
+<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="sgd_5.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p>Recent studies suggest, that we should care not only about the depth of the local minimum, but of its width as well:</p>
+<p><img src="sam_1.svg" class="img-fluid" alt="Idea of SAM"> <img src="sam_2.svg" class="img-fluid" alt="Idea of SAM"> <img src="sam_3.svg" class="img-fluid" alt="Idea of SAM"></p>
+<p>One more interesting case, where the classical convergence of Gradient Descent may not be useful:</p>
+<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="sgd_1.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p>While what initially looks like a clear divergence leads to a better minimum from the generalization perspective:</p>
+<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="sgd_2.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD_1d_visualization.ipynb">Code</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1241,4 +1179,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/applications/two_way_partitioning.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/sgd_scalar.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
