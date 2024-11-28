@@ -25,4 +25,4 @@ It can be seen that the more cities on the map (the higher the dimensionality of
 It turns out that for gradient methods (under a set of reasonable assumptions), the number of iterations required before the method converges does not depend directly on the dimensionality of the problem. That is, if you consider a correctly tuned gradient descent on a ten-dimensional problem, it will need, say, at most 20 iterations to converge. And if you take conventionally the same problem but 100500-dimensional, it will need the same 20 iterations. Of course, the cost of one iteration grows with the dimensionality of the problem, but at least the number of iterations does not grow.
 
 
-[\faPython Code](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/MDS.ipynb)
+[Code](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/MDS.ipynb)
