@@ -521,7 +521,7 @@ Let $x^*$, $(\lambda^*, \nu^*)$ be a solution to a mathematical programming prob
 * $f_i(x^*) \leq 0, i = 1,\ldots,m$
 
 ### Some regularity conditions
-These conditions are needed in order to make KKT solutions the necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$ with *semi-definite* hessian of Lagrangian.
+These conditions are required in order to make KKT solutions the necessary conditions. Some of them even turn necessary conditions into sufficient (for example, Slater's). Moreover, if you have regularity, you can write down necessary second order conditions $\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$ with *semi-definite* hessian of Lagrangian.
 
 * **Slater's condition**. If for a convex problem (i.e., assuming minimization, $f_0,f_{i}$ are convex and $h_{i}$ are affine), there exists a point $x$ such that $h(x)=0$ and $f_{i}(x)<0$ (existance of a strictly feasible point), then we have a zero duality gap and KKT conditions become necessary and sufficient.
 * **Linearity constraint qualification** If $f_{i}$ and $h_{i}$ are affine functions, then no other condition is needed.
