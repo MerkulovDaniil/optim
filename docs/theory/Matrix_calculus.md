@@ -913,7 +913,7 @@ And the gradient is $\nabla f(X) =  S - X^{-T}$.
 :::
 
 ::: {.callout-example} 
-Find the gradient $\nabla f(x)$ and hessian $\nabla^2f(x)$, if $f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)$ 
+Find the gradient $\nabla f(x)$ and the Hessian $\nabla^2f(x)$, if $f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)$ 
 
 ::: {.callout-solution collapse="true"}
 1. Let's start by computing the differential $df$. We have:
