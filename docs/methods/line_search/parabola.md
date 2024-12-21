@@ -4,19 +4,19 @@ parent: Line search
 grand_parent: Methods
 ---
 ## Idea
-Sampling 3 points of a function determines unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points $x_1 < x_2 < x_3$ such that line segment $[x_1, x_3]$ contains minimum of a function $f(x)$. Then, we need to solve the following system of equations:
+Sampling 3 points of a function determines a unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points $x_1 < x_2 < x_3$ such that line segment $[x_1, x_3]$ contains minimum of a function $f(x)$. Then, we need to solve the following system of equations:
 
 $$
 ax_i^2 + bx_i + c = f_i = f(x_i), i = 1,2,3 
 $$
 
-Note, that this system is linear, since we need to solve it on $a,b,c$. Minimum of this parabola will be calculated as:
+Note that this system is linear since we need to solve it on $a,b,c$. The minimum of this parabola will be calculated as follows:
 
 $$
 u = -\dfrac{b}{2a} = x_2 - \dfrac{(x_2 - x_1)^2(f_2 - f_3) - (x_2 - x_3)^2(f_2 - f_1)}{2\left[ (x_2 - x_1)(f_2 - f_3) - (x_2 - x_3)(f_2 - f_1)\right]}
 $$
 
-Note, that if $f_2 < f_1, f_2 < f_3$, than $u$ will lie in $[x_1, x_3]$
+Note that if $f_2 < f_1, f_2 < f_3$, then $u$ will lie in $[x_1, x_3]$
 
 ## Algorithm
 
