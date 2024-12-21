@@ -52,7 +52,7 @@ $$
 \phi_2(\alpha) = f(x_k) - c_2 \alpha \|\nabla f(x_k)\|^2
 $$
 
-The Goldstein-Armijo conditions locate the function $\phi(\alpha)$ between $\phi_1(\alpha)$ and $\phi_2(\alpha)$. Typically, $c_1 = \rho$ and $c_2 = 1 - \rho$, with $ \rho \in (0.5, 1)$.
+The Goldstein-Armijo conditions locate the function $\phi(\alpha)$ between $\phi_1(\alpha)$ and $\phi_2(\alpha)$. Typically, $c_1 = \rho$ and $c_2 = 1 - \rho$, with $\rho \in (0.5, 1)$.
 
 ![Illustration of Goldstein conditions](goldstein.svg)
 
