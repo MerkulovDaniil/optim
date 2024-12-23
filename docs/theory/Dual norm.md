@@ -63,7 +63,7 @@ Let $f(x) = \Vert x\Vert$. Prove that $f^\star(y) = \mathbb{O}_{\Vert y\Vert _\s
 
 	Thus, $\|y\|_* > 1$ does not belong to the $\text{dom } f^*$.
 
-1. Consider the case $\|y\|_* \leq 1$. By CBS inequality:
+1. Consider the case $\|y\|_* \leq 1$. From the definition of the dual norm:
 
 	$$
 	\langle y, x \rangle \leq \| y \|_* \| x \| \leq \| x \|
