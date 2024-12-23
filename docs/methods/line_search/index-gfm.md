@@ -10,17 +10,18 @@ $$
 f(x) \to \min_{x \in \mathbb{R}}
 $$
 
-Sometimes, we refer to the similar problem of finding minimum on the
+Sometimes, we refer to a similar problem of finding the minimum on the
 line segment $[a,b]$:
 
 $$
 f(x) \to \min_{x \in [a,b]}
 $$
 
-Line search is one of the simplest formal optimization problems,
-however, it is an important link in solving more complex tasks, so it is
+Line search is one of the simplest formal optimization problems.
+However, it is an important link in solving more complex tasks, so it is
 very important to solve it effectively. Let’s restrict the class of
-problems under consideration where $f(x)$ is a *unimodal function*.
+problems under consideration to the cases where $f(x)$ is a *unimodal
+function*.
 
 Function $f(x)$ is called **unimodal** on $[a, b]$, if there is
 $x_* \in [a, b]$, that
@@ -31,8 +32,8 @@ $f(x_1) < f(x_2) \;\;\; \forall x_* < x_1 < x_2 \leq b$
 
 ## Key property of unimodal functions
 
-Let $f(x)$ be unimodal function on $[a, b]$. Than if
-$x_1 < x_2 \in [a, b]$, then:
+Let $f(x)$ be a unimodal function on $[a, b]$. Then if
+$x_1 < x_2 \in [a, b]$:
 
 - if $f(x_1) \leq f(x_2) \to x_* \in [a, x_2]$
 - if $f(x_1) \geq f(x_2) \to x_* \in [x_1, b]$

@@ -781,10 +781,10 @@ $d^*$). Let also the functions $f_0, f_i, h_i$ be differentiable.
 
 ### Some regularity conditions
 
-These conditions are needed in order to make KKT solutions the necessary
-conditions. Some of them even turn necessary conditions into sufficient
-(for example, Slater’s). Moreover, if you have regularity, you can write
-down necessary second order conditions
+These conditions are required in order to make KKT solutions the
+necessary conditions. Some of them even turn necessary conditions into
+sufficient (for example, Slater’s). Moreover, if you have regularity,
+you can write down necessary second order conditions
 $\langle y , \nabla^2_{xx} L(x^*, \lambda^*, \nu^*) y \rangle \geq 0$
 with *semi-definite* hessian of Lagrangian.
 

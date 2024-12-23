@@ -796,11 +796,11 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">
 f(x) \to \min_{x \in \mathbb{R}}
 </span></p>
-<p>Sometimes, we refer to the similar problem of finding minimum on the line segment <span class="math inline">[a,b]</span>:</p>
+<p>Sometimes, we refer to a similar problem of finding the minimum on the line segment <span class="math inline">[a,b]</span>:</p>
 <p><span class="math display">
 f(x) \to \min_{x \in [a,b]}
 </span></p>
-<p>Line search is one of the simplest formal optimization problems, however, it is an important link in solving more complex tasks, so it is very important to solve it effectively. Let’s restrict the class of problems under consideration where <span class="math inline">f(x)</span> is a <em>unimodal function</em>.</p>
+<p>Line search is one of the simplest formal optimization problems. However, it is an important link in solving more complex tasks, so it is very important to solve it effectively. Let’s restrict the class of problems under consideration to the cases where <span class="math inline">f(x)</span> is a <em>unimodal function</em>.</p>
 <p>Function <span class="math inline">f(x)</span> is called <strong>unimodal</strong> on <span class="math inline">[a, b]</span>, if there is <span class="math inline">x_* \in [a, b]</span>, that <span class="math inline">f(x_1) &gt; f(x_2) \;\;\; \forall a \le x_1 &lt; x_2 &lt; x_*</span> and <span class="math inline">f(x_1) &lt; f(x_2) \;\;\; \forall x_* &lt; x_1 &lt; x_2 \leq b</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -811,7 +811,7 @@ f(x) \to \min_{x \in [a,b]}
 </section>
 <section id="key-property-of-unimodal-functions" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="key-property-of-unimodal-functions"><span class="header-section-number">2</span> Key property of unimodal functions</h2>
-<p>Let <span class="math inline">f(x)</span> be unimodal function on <span class="math inline">[a, b]</span>. Than if <span class="math inline">x_1 &lt; x_2 \in [a, b]</span>, then:</p>
+<p>Let <span class="math inline">f(x)</span> be a unimodal function on <span class="math inline">[a, b]</span>. Then if <span class="math inline">x_1 &lt; x_2 \in [a, b]</span>:</p>
 <ul>
 <li>if <span class="math inline">f(x_1) \leq f(x_2) \to x_* \in [a, x_2]</span></li>
 <li>if <span class="math inline">f(x_1) \geq f(x_2) \to x_* \in [x_1, b]</span> <img src="unimodal_pro.gif" class="img-fluid" alt="Illustration"></li>
@@ -823,7 +823,7 @@ f(x) \to \min_{x \in [a,b]}
 <div id="listing-ls" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
 
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1734957989603" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1734958080204" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -838,7 +838,7 @@ f(x) \to \min_{x \in [a,b]}
 
 </div></a></div>
 
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1734957989603" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1734958080205" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -853,7 +853,7 @@ f(x) \to \min_{x \in [a,b]}
 
 </div></a></div>
 
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734957989604" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734958080205" data-listing-reading-time-sort="3" data-listing-word-count-sort="554">
 <a href="../../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -868,7 +868,7 @@ f(x) \to \min_{x \in [a,b]}
 
 </div></a></div>
 
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1734957989604" data-listing-reading-time-sort="3" data-listing-word-count-sort="477">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1734958080205" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
 <a href="../../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -877,13 +877,13 @@ f(x) \to \min_{x \in [a,b]}
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">Successive parabolic interpolation</h5>
 
-<div class="card-text listing-description delink">Sampling 3 points of a function determines unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that…<span class="math inline"></span><span class="math inline"></span></div>
+<div class="card-text listing-description delink">Sampling 3 points of a function determines a unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that…<span class="math inline"></span><span class="math inline"></span></div>
 
 </div>
 
 </div></a></div>
 
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1734958045760">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1734958136820">
 <a href="../../../docs/methods/line_search/binary_search-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
@@ -895,7 +895,7 @@ f(x) \to \min_{x \in [a,b]}
 
 </div></a></div>
 
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1734958046451">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1734958137527">
 <a href="../../../docs/methods/line_search/golden_search-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 

@@ -788,15 +788,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="idea" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="idea"><span class="header-section-number">1</span> Idea</h2>
-<p>Sampling 3 points of a function determines unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that line segment <span class="math inline">[x_1, x_3]</span> contains minimum of a function <span class="math inline">f(x)</span>. Then, we need to solve the following system of equations:</p>
+<p>Sampling 3 points of a function determines a unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that line segment <span class="math inline">[x_1, x_3]</span> contains minimum of a function <span class="math inline">f(x)</span>. Then, we need to solve the following system of equations:</p>
 <p><span class="math display">
 ax_i^2 + bx_i + c = f_i = f(x_i), i = 1,2,3
 </span></p>
-<p>Note, that this system is linear, since we need to solve it on <span class="math inline">a,b,c</span>. Minimum of this parabola will be calculated as:</p>
+<p>Note that this system is linear since we need to solve it on <span class="math inline">a,b,c</span>. The minimum of this parabola will be calculated as follows:</p>
 <p><span class="math display">
 u = -\dfrac{b}{2a} = x_2 - \dfrac{(x_2 - x_1)^2(f_2 - f_3) - (x_2 - x_3)^2(f_2 - f_1)}{2\left[ (x_2 - x_1)(f_2 - f_3) - (x_2 - x_3)(f_2 - f_1)\right]}
 </span></p>
-<p>Note, that if <span class="math inline">f_2 &lt; f_1, f_2 &lt; f_3</span>, than <span class="math inline">u</span> will lie in <span class="math inline">[x_1, x_3]</span></p>
+<p>Note that if <span class="math inline">f_2 &lt; f_1, f_2 &lt; f_3</span>, then <span class="math inline">u</span> will lie in <span class="math inline">[x_1, x_3]</span></p>
 </section>
 <section id="algorithm" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="algorithm"><span class="header-section-number">2</span> Algorithm</h2>
