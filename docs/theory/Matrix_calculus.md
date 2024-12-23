@@ -50,14 +50,14 @@ We will write $x \geq 0$ and $x \neq 0$ to indicate componentwise relationships
 
 ![Equivivalent representations of a vector](vector_im.svg){#fig-vector}
 
-A matrix is symmetric if $A = A^T$. It is denoted as $A \in \mathbb{S}^n$ (set of square symmetric matrices of dimension $n$). Note, that only a square matrix could be symmetric by definition.
+A matrix is symmetric if $A = A^T$. It is denoted as $A \in \mathbb{S}^n$ (set of square symmetric matrices of dimension $n$). Note that only a square matrix could be symmetric by definition.
 
 A matrix $A \in \mathbb{S}^n$ is called **positive (negative) definite** if for all $x \neq 0 : x^T Ax > (<) 0$. We denote this as $A \succ (\prec) 0$. The set of such matrices is denoted as $\mathbb{S}^n_{++} (\mathbb{S}^n_{- -})$
 
 A matrix $A \in \mathbb{S}^n$ is called **positive (negative) semidefinite** if for all $x : x^T Ax \geq (\leq) 0$. We denote this as $A \succeq (\preceq) 0$. The set of such matrices is denoted as $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 
 :::{.callout-question}
-Is it correct, that a positive semidefinite matrix has all non-negative positive entries?
+Is it correct that a positive semidefinite matrix has all non-negative positive entries?
 
 :::{.callout-solution collapse="true"}
 **Answer: No.**  
@@ -70,7 +70,7 @@ is positive semidefinite, because $x^\top A x = x_1^2 + x_2^2 - 2x_1x_2 \geq 0$ 
 :::
 
 :::{.callout-question}
-Is it correct, that if a matrix is symmetric it should be positive definite?
+Is it correct that a matrix should be positive definite if it is symmetric?
 
 :::{.callout-solution collapse="true"}
 **Answer: No.**  
