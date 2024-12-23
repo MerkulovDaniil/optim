@@ -409,7 +409,7 @@ Show, that $f(A) = \lambda_{max}(A)$ - is convex, if $A \in S^n$.
 :::
 
 ::: {.callout-example}
-PL inequality holds if the following condition is satisfied for some $ \mu > 0 $,
+PL inequality holds if the following condition is satisfied for some $\mu > 0$,
 $$
 \Vert \nabla f(x) \Vert^2 \geq \mu (f(x) - f^*) \forall x
 $$
