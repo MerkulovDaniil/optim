@@ -11,8 +11,8 @@ $$
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
 $$
 
-for some vector $g$, i.e., the tangent to the graph of the function is
-the *global* estimate from below for the function.
+for some vector $g$, i.e., the tangent to the function’s graph is the
+*global* estimate from below for the function.
 
 <div id="fig-conv_support">
 
@@ -569,8 +569,8 @@ $$
 > centered at zero with respect to the conjugate norm. In other words, a
 > vector $s \in V$ with $\lVert s \rVert_* = 1$ is a subgradient of the
 > norm $\lVert \cdot \rVert$ at point $x_0 \neq 0$ if and only if the
-> Hölder’s inequality $\langle s, x_0 \rangle \leq \lVert x_0 \rVert$
-> becomes an equality.
+> inequality from the definition of the dual norm
+> $\langle s, x_0 \rangle \leq \lVert x_0 \rVert$ becomes equality.
 >
 > > [!PROOF]
 > >
@@ -616,7 +616,7 @@ $$
 > >
 > > Consequently, it remains to note that for $x_0 \neq 0$, the
 > > inequality $\lVert s \rVert_* \leq 1$ must become an equality since,
-> > when $\lVert s \rVert_* < 1$, Hölder’s inequality implies
+> > when $\lVert s \rVert_* < 1$, definition of the dual norm implies
 > > $\langle s, x_0 \rangle \leq \lVert s \rVert_* \lVert x_0 \rVert < \lVert x_0 \rVert$.
 > >
 > > </div>

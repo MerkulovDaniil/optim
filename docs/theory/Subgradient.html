@@ -766,7 +766,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">
 f(x) \geq f(x_0) + \langle g, x - x_0 \rangle
 </span></p>
-<p>for some vector <span class="math inline">g</span>, i.e., the tangent to the graph of the function is the <em>global</em> estimate from below for the function.</p>
+<p>for some vector <span class="math inline">g</span>, i.e., the tangent to the function’s graph is the <em>global</em> estimate from below for the function.</p>
 <div id="fig-conv_support" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-conv_support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1306,7 +1306,7 @@ B_{\lVert \cdot \rVert_*}(0, 1), &amp; \text{if } x_0 = 0, \\
 \{s \in V : \lVert s \rVert_* \leq 1; \langle s, x_0 \rangle = \lVert x_0 \rVert \} = \{s \in V : \lVert s \rVert_* = 1; \langle s, x_0 \rangle = \lVert x_0 \rVert \}, &amp; \text{otherwise.}
 \end{cases}
 </span></p>
-<p>Where <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span> is the closed unit ball centered at zero with respect to the conjugate norm. In other words, a vector <span class="math inline">s \in V</span> with <span class="math inline">\lVert s \rVert_* = 1</span> is a subgradient of the norm <span class="math inline">\lVert \cdot \rVert</span> at point <span class="math inline">x_0 \neq 0</span> if and only if the Hölder’s inequality <span class="math inline">\langle s, x_0 \rangle \leq \lVert x_0 \rVert</span> becomes an equality.</p>
+<p>Where <span class="math inline">B_{\lVert \cdot \rVert_*}(0,1)</span> is the closed unit ball centered at zero with respect to the conjugate norm. In other words, a vector <span class="math inline">s \in V</span> with <span class="math inline">\lVert s \rVert_* = 1</span> is a subgradient of the norm <span class="math inline">\lVert \cdot \rVert</span> at point <span class="math inline">x_0 \neq 0</span> if and only if the inequality from the definition of the dual norm <span class="math inline">\langle s, x_0 \rangle \leq \lVert x_0 \rVert</span> becomes equality.</p>
 <div class="callout callout-style-default callout-proof no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1342,7 +1342,7 @@ Proof
 \end{cases}
 </span></p>
 <p>Thus, equation is equivalent to <span class="math inline">\lVert s \rVert_* \leq 1</span> and <span class="math inline">\langle s, x_0 \rangle = \lVert x_0 \rVert</span>.</p>
-<p>Consequently, it remains to note that for <span class="math inline">x_0 \neq 0</span>, the inequality <span class="math inline">\lVert s \rVert_* \leq 1</span> must become an equality since, when <span class="math inline">\lVert s \rVert_* &lt; 1</span>, Hölder’s inequality implies <span class="math inline">\langle s, x_0 \rangle \leq \lVert s \rVert_* \lVert x_0 \rVert &lt; \lVert x_0 \rVert</span>.</p>
+<p>Consequently, it remains to note that for <span class="math inline">x_0 \neq 0</span>, the inequality <span class="math inline">\lVert s \rVert_* \leq 1</span> must become an equality since, when <span class="math inline">\lVert s \rVert_* &lt; 1</span>, definition of the dual norm implies <span class="math inline">\langle s, x_0 \rangle \leq \lVert s \rVert_* \lVert x_0 \rVert &lt; \lVert x_0 \rVert</span>.</p>
 </div>
 </div>
 </div>

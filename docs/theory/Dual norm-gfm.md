@@ -100,7 +100,8 @@ i.e. $\Vert y\Vert _* = \sup\limits_{x \neq 0} \dfrac{\langle y,x\rangle}{\Vert
 > >
 > >     Thus, $\|y\|_* > 1$ does not belong to the $\text{dom } f^*$.
 > >
-> > 3.  Consider the case $\|y\|_* \leq 1$. By CBS inequality:
+> > 3.  Consider the case $\|y\|_* \leq 1$. From the definition of the
+> >     dual norm:
 > >
 > >     $$
 > >      \langle y, x \rangle \leq \| y \|_* \| x \| \leq \| x \|
