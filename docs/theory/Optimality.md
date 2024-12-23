@@ -24,8 +24,7 @@ We say that the problem has a solution if the budget set **is not empty**: $x^* 
 
 ### Extreme value (Weierstrass) theorem
 
-Let $S \subset \mathbb{R}^n$ be a compact set and $f(x)$ a continuous function on $S$. 
-So that, the point of the global minimum of the function $f (x)$ on $S$ exists.
+Let $S \subset \mathbb{R}^n$ be a compact set, and let $f(x)$ be a continuous function on $S$. Then, the point of the global minimum of the function $f (x)$ on $S$ exists.
 :::
 
 ![A lot of practical problems are theoretically solvable](goodnews.png){#fig-weierstrass}
