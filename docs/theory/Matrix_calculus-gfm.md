@@ -45,7 +45,7 @@ Figure 1: Equivivalent representations of a vector
 
 A matrix is symmetric if $A = A^T$. It is denoted as
 $A \in \mathbb{S}^n$ (set of square symmetric matrices of dimension
-$n$). Note, that only a square matrix could be symmetric by definition.
+$n$). Note that only a square matrix could be symmetric by definition.
 
 A matrix $A \in \mathbb{S}^n$ is called **positive (negative) definite**
 if for all $x \neq 0 : x^T Ax > (<) 0$. We denote this as
@@ -65,8 +65,8 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 >
 > <div class="callout-question">
 >
-> Is it correct, that a positive semidefinite matrix has all
-> non-negative positive entries?
+> Is it correct that a positive semidefinite matrix has all non-negative
+> positive entries?
 >
 > > [!SOLUTION]
 > >
@@ -104,8 +104,8 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 >
 > <div class="callout-question">
 >
-> Is it correct, that if a matrix is symmetric it should be positive
-> definite?
+> Is it correct that a matrix should be positive definite if it is
+> symmetric?
 >
 > > [!SOLUTION]
 > >
@@ -1622,7 +1622,7 @@ variables (or matrix functions).
 >
 > <div class="callout-example">
 >
-> Find the gradient $\nabla f(x)$ and hessian $\nabla^2f(x)$, if
+> Find the gradient $\nabla f(x)$ and the Hessian $\nabla^2f(x)$, if
 > $f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)$
 >
 > > [!SOLUTION]

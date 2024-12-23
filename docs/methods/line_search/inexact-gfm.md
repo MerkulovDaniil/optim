@@ -199,7 +199,5 @@ in each iteration until the chosen condition is satisfied.
 ## References
 
 - Numerical Optimization by J.Nocedal and S.J.Wright.
-- [Interactive Wolfe Line Search Example](./wolfe_fmin.html) by
-  [fmin](https://github.com/benfred/fmin) library.
 
-------------------------------------------------------------------------
+- ## [Interactive Wolfe Line Search Example](./wolfe_fmin.html) by [fmin](https://github.com/benfred/fmin) library.
