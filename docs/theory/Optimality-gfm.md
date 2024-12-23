@@ -39,9 +39,9 @@ Figure 1: Illustration of different stationary (critical) points
 >
 > <div class="callout-theorem">
 >
-> Let $S \subset \mathbb{R}^n$ be a compact set and $f(x)$ a continuous
-> function on $S$. So that, the point of the global minimum of the
-> function $f (x)$ on $S$ exists.
+> Let $S \subset \mathbb{R}^n$ be a compact set, and let $f(x)$ be a
+> continuous function on $S$. Then, the point of the global minimum of
+> the function $f (x)$ on $S$ exists.
 >
 > </div>
 >
