@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.5">
+<meta name="generator" content="quarto-1.7.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,12 +33,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-listing/list.min.js"></script>
 <script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ff4371ef257df69894857e99c6ad0d06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-73e053f00451a6823eaeab9714ac17cd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-8ea96b03d490a968a5e59738d0a949a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -711,6 +712,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/double_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">We have Double Descent at home!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent for linear regression</span></a>
   </div>
@@ -815,119 +822,104 @@ f(x_0 + \delta x) \approx f(x_0) + \nabla f(x_0)^\top \delta x
 <p>Indeed, if the space is isotropic and <span class="math inline">A = I</span>, we immediately have gradient descent formula, while Newton method uses local Hessian as a metric matrix.</p>
 <div id="listing-amm" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1734958307402" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1737032691286" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
 <a href="../../../docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Newton method</h5>
-
-<div class="card-text listing-description delink">Consider the function <span class="math inline">\varphi(x): \mathbb{R} \to \mathbb{R}</span>. Let there be equation <span class="math inline">\varphi(x^*) = 0</span>. Consider a linear approximation of the function <span class="math inline">\varphi(x)</span> near the…<span class="math inline"></span></div>
-
+<h5 class="no-anchor card-title listing-title">
+Newton method
+</h5>
+<div class="card-text listing-description delink">
+Consider the function <span class="math inline">\varphi(x): \mathbb{R} \to \mathbb{R}</span>. Let there be equation <span class="math inline">\varphi(x^*) = 0</span>. Consider a linear approximation of the function <span class="math inline">\varphi(x)</span> near the…<span class="math inline"></span>
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1734958307402" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1737032691286" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
 <a href="../../../docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Quasi Newton methods</h5>
-
-<div class="card-text listing-description delink">For the classic task of unconditional optimization <span class="math inline">f(x) \to \min\limits_{x \in \mathbb{R}^n}</span> the general scheme of iteration method is written as:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Quasi Newton methods
+</h5>
+<div class="card-text listing-description delink">
+For the classic task of unconditional optimization <span class="math inline">f(x) \to \min\limits_{x \in \mathbb{R}^n}</span> the general scheme of iteration method is written as:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734958307401" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1737032691286" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <a href="../../../docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Conjugate gradients</h5>
-
-<div class="card-text listing-description delink">Originally, the conjugate gradients method was created to solve a system of linear equations.</div>
-
+<h5 class="no-anchor card-title listing-title">
+Conjugate gradients
+</h5>
+<div class="card-text listing-description delink">
+Originally, the conjugate gradients method was created to solve a system of linear equations.
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1734958307402" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1737032691286" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
 <a href="../../../docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Natural gradient descent</h5>
-
-<div class="card-text listing-description delink">Let’s consider illustrative example of a simple function of 2 variables:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Natural gradient descent
+</h5>
+<div class="card-text listing-description delink">
+Let’s consider illustrative example of a simple function of 2 variables:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1734958351387">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1737032737191">
 <a href="../../../docs/methods/adaptive_metrics/CG-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1734958352120">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1737032737963">
 <a href="../../../docs/methods/adaptive_metrics/Natural_gradient-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1734958352977">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1737032738870">
 <a href="../../../docs/methods/adaptive_metrics/Newton-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1734958353731">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1737032739620">
 <a href="../../../docs/methods/adaptive_metrics/Quasi_newton-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+</div></a>
 </div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 
 

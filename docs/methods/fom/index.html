@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.5">
+<meta name="generator" content="quarto-1.7.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,12 +33,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-listing/list.min.js"></script>
 <script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ff4371ef257df69894857e99c6ad0d06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-73e053f00451a6823eaeab9714ac17cd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-8ea96b03d490a968a5e59738d0a949a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -711,6 +712,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/double_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">We have Double Descent at home!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent for linear regression</span></a>
   </div>
@@ -784,227 +791,200 @@ ul.task-list li input[type="checkbox"] {
 <p>Now we have only first order information from the oracle.</p>
 <div id="listing-fom" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="7" data-listing-word-count-sort="1282">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1737032691293" data-listing-reading-time-sort="7" data-listing-word-count-sort="1282">
 <a href="../../../docs/methods/fom/GD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="lipschitz_parabola.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Gradient descent</h5>
-
-<div class="card-text listing-description delink">Original Cauchy paper</div>
-
+<h5 class="no-anchor card-title listing-title">
+Gradient descent
+</h5>
+<div class="card-text listing-description delink">
+Original Cauchy paper
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1734958307410" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1737032691294" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
 <a href="../../../docs/methods/fom/Subgradient descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="SD.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Subgradient descent</h5>
-
-<div class="card-text listing-description delink">Рассматривается классическая задача выпуклой оптимизации:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Subgradient descent
+</h5>
+<div class="card-text listing-description delink">
+Рассматривается классическая задача выпуклой оптимизации:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1737032691294" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
 <a href="../../../docs/methods/fom/Projected_subgradient_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="geom_bound.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Projected subgradient descent</h5>
-
-<div class="card-text listing-description delink">Suppose, we are to solve the following problem:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Projected subgradient descent
+</h5>
+<div class="card-text listing-description delink">
+Suppose, we are to solve the following problem:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1737032691294" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
 <a href="../../../docs/methods/fom/Mirror_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="bregman.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Mirror descent</h5>
-
-<div class="card-text listing-description delink">Метод зеркального спуска является естественным обобщением метода проекции субградиента в случае обобщения <span class="math inline">l_2</span> нормы на более общий случай какой-то функции расстояния.</div>
-
+<h5 class="no-anchor card-title listing-title">
+Mirror descent
+</h5>
+<div class="card-text listing-description delink">
+Метод зеркального спуска является естественным обобщением метода проекции субградиента в случае обобщения <span class="math inline">l_2</span> нормы на более общий случай какой-то функции расстояния.
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1734958307410" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1737032691294" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
 <a href="../../../docs/methods/fom/SGD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Stochastic gradient descent</h5>
-
-<div class="card-text listing-description delink">Suppose, our target function is the sum of functions.</div>
-
+<h5 class="no-anchor card-title listing-title">
+Stochastic gradient descent
+</h5>
+<div class="card-text listing-description delink">
+Suppose, our target function is the sum of functions.
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1737032691294" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
 <a href="../../../docs/methods/fom/SAG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Stochastic average gradient</h5>
-
-<div class="card-text listing-description delink">A classical problem of minimizing finite sum of the smooth and convex functions was considered.</div>
-
+<h5 class="no-anchor card-title listing-title">
+Stochastic average gradient
+</h5>
+<div class="card-text listing-description delink">
+A classical problem of minimizing finite sum of the smooth and convex functions was considered.
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1737032691293" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
 <a href="../../../docs/methods/fom/ADAM.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">ADAM: A Method for Stochastic Optimization</h5>
-
-<div class="card-text listing-description delink">Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second…</div>
-
+<h5 class="no-anchor card-title listing-title">
+ADAM: A Method for Stochastic Optimization
+</h5>
+<div class="card-text listing-description delink">
+Adam is the stochastic first order optimization algorithm, that uses historical information about stochastic gradients and incorporates it in attempt to estimate second…
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1734958307409" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1737032691293" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
 <a href="../../../docs/methods/fom/Lookahead.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="fast_vs_slow.png" alt="Illustration" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Lookahead Optimizer: $k$ steps forward, $1$ step back</h5>
-
-<div class="card-text listing-description delink">The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family. The main idea is quite simple:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back
+</h5>
+<div class="card-text listing-description delink">
+The lookahead method provides an interesting way to accelerate and stabilize algorithms of stochastic gradient descent family. The main idea is quite simple:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1734958355191">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1737032741174">
 <a href="../../../docs/methods/fom/ADAM-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1734958356117">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1737032742126">
 <a href="../../../docs/methods/fom/GD-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1734958356885">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1737032742884">
 <a href="../../../docs/methods/fom/Lookahead-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1734958357885">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1737032743923">
 <a href="../../../docs/methods/fom/Mirror_descent-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1734958358847">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1737032744882">
 <a href="../../../docs/methods/fom/Projected_subgradient_descent-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1734958359598">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1737032745658">
 <a href="../../../docs/methods/fom/SAG-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1734958360402">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1737032746480">
 <a href="../../../docs/methods/fom/SGD-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1734958361318">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1737032747426">
 <a href="../../../docs/methods/fom/Subgradient descent-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+</div></a>
 </div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 <section id="materials" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="materials"><span class="header-section-number">1</span> Materials</h2>

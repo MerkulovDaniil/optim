@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.5">
+<meta name="generator" content="quarto-1.7.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,12 +33,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-listing/list.min.js"></script>
 <script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ff4371ef257df69894857e99c6ad0d06.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-73e053f00451a6823eaeab9714ac17cd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-8ea96b03d490a968a5e59738d0a949a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -717,6 +718,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/double_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">We have Double Descent at home!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent for linear regression</span></a>
   </div>
@@ -822,95 +829,84 @@ f(x) \to \min_{x \in [a,b]}
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb">Open In Colab</a></p>
 <div id="listing-ls" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1734958307416" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1737032691300" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Binary search</h5>
-
-<div class="card-text listing-description delink">We divide a segment into two equal parts and choose the one that contains the solution of the problem using the values of functions.</div>
-
+<h5 class="no-anchor card-title listing-title">
+Binary search
+</h5>
+<div class="card-text listing-description delink">
+We divide a segment into two equal parts and choose the one that contains the solution of the problem using the values of functions.
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1734958307416" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1737032691301" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Golden search</h5>
-
-<div class="card-text listing-description delink">The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration…</div>
-
+<h5 class="no-anchor card-title listing-title">
+Golden search
+</h5>
+<div class="card-text listing-description delink">
+The idea is quite similar to the dichotomy method. There are two golden points on the line segment (left and right) and the insightful idea is, that on the next iteration…
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1734958307417" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1737032691301" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
 <a href="../../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Inexact Line Search</h5>
-
-<div class="card-text listing-description delink">The strategy of inexact line search is practical and has a significant geometric interpretation:</div>
-
+<h5 class="no-anchor card-title listing-title">
+Inexact Line Search
+</h5>
+<div class="card-text listing-description delink">
+The strategy of inexact line search is practical and has a significant geometric interpretation:
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1734958307417" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1737032691301" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
 <a href="../../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-
 <p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-
 <div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">Successive parabolic interpolation</h5>
-
-<div class="card-text listing-description delink">Sampling 3 points of a function determines a unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that…<span class="math inline"></span><span class="math inline"></span></div>
-
+<h5 class="no-anchor card-title listing-title">
+Successive parabolic interpolation
+</h5>
+<div class="card-text listing-description delink">
+Sampling 3 points of a function determines a unique parabola. Using this information we will go directly to its minimum. Suppose, we have 3 points <span class="math inline">x_1 &lt; x_2 &lt; x_3</span> such that…<span class="math inline"></span><span class="math inline"></span>
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1734958363649">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1737032749992">
 <a href="../../../docs/methods/line_search/binary_search-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1734958364361">
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1737032750728">
 <a href="../../../docs/methods/line_search/golden_search-gfm.md" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 
 <div class="card-body post-contents">
-
-<div class="card-text listing-description delink"></div>
-
+<div class="card-text listing-description delink">
 </div>
-
-</div></a></div>
-
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+</div></a>
 </div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
 </div>
 </section>
 <section id="references" class="level2" data-number="4">
