@@ -1,7 +1,7 @@
 ---
 title: Convex sets
 order: 2
-skip_listing: SKIP
+skip_listing: true
 listing: 
   - id: convex
     contents: "*.md"

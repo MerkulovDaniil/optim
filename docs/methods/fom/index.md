@@ -1,7 +1,7 @@
 ---
 title: First order methods
 order: 2
-skip_listing: SKIP
+skip_listing: true
 listing: 
   - id: fom
     contents: "*.md"

@@ -1,6 +1,6 @@
 ---
 title: Adaptive metric methods
-skip_listing: SKIP
+skip_listing: true
 order: 3
 listing: 
   - id: amm

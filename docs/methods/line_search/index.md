@@ -1,6 +1,6 @@
 ---
 title: Line search
-skip_listing: SKIP
+skip_listing: true
 listing: 
   - id: ls
     contents: "*.md"

@@ -1,7 +1,7 @@
 ---
 title: Applications
 order: 4
-skip_listing: SKIP
+skip_listing: true
 listing:
   - id: applications
     contents: "*.md"
@@ -11,7 +11,7 @@ listing:
     grid-item-border: true
     fields: [title, image]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
     image-placeholder: /favicon.svg
 ---
 

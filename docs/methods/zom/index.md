@@ -1,6 +1,6 @@
 ---
 title: Zero order methods
-skip_listing: SKIP
+skip_listing: true
 listing: 
   - id: zom
     contents: "*.md"

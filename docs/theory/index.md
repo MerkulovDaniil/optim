@@ -1,7 +1,7 @@
 ---
 title: Theory
 order: 1
-skip_listing: SKIP
+skip_listing: true
 listing: 
   - id: theory
     contents: "**/*.md"

@@ -13,7 +13,7 @@ listing:
     grid-item-border: false
     fields: [image, title]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
   - id: methods
     contents: "docs/methods/**/*.md"
     type: grid
@@ -23,7 +23,7 @@ listing:
     grid-item-border: false
     fields: [image, title]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
   - id: exercises
     contents: "docs/exercises/**/*.md"
     type: table
@@ -31,7 +31,7 @@ listing:
     table-hover: true
     fields: [title]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
   - id: applications
     contents: "docs/applications/**/*.md"
     type: grid
@@ -40,7 +40,7 @@ listing:
     grid-item-border: false
     fields: [image, title]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
   - id: benchmarks
     contents: "docs/benchmarks/**.md"
     type: grid
@@ -49,7 +49,7 @@ listing:
     grid-item-border: false
     fields: [image, title]
     exclude:
-        skip_listing: "SKIP"
+        skip_listing: true
 ---
 
 ## Introduction
