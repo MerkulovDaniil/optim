@@ -21,4 +21,6 @@ assets/Notebooks/.ipynb_checkpoints
 /assets/Notebooks/*.html
 /assets/Notebooks/*.svg
 /assets/Notebooks/*.png
+/assets/Notebooks/*.pdf
+/assets/Notebooks/*.mp4
 /assets/media_files
