@@ -1,7 +1,7 @@
 # We have Double Descent at home!
 
 
-<div class="responsive-video"><video autoplay loop class="video"><source src="double_descent.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="double_descent.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 **Mom, I want double descent!**  
 *“We have double descent at home.”*

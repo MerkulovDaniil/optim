@@ -1,7 +1,7 @@
 # Multidimensional scaling
 
 
-<div class="responsive-video"><video autoplay loop class="video"><source src="mds.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="mds.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 Why does everyone use gradient methods to train large models?
 

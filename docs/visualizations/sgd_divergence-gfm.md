@@ -29,6 +29,6 @@ problems it is possible to deal with nonconvergence by \* gradually
 decreasing the step (slow convergence) \* increasing the patch size
 (expensive) \* using variance reduction methods (more on this later)
 
-<div class="responsive-video"><video autoplay loop class="video"><source src="sgd_divergence.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="sgd_divergence.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 [Code](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/SGD_2d_visualization.ipynb)

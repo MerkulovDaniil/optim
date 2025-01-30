@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8ea96b03d490a968a5e59738d0a949a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-9aef4f629f965065326a2881cd158417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -751,7 +751,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="responsive-video"><video autoplay="" loop="" class="video"><source src="mds.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="mds.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <p>Why does everyone use gradient methods to train large models?</p>
 <p>We’ll demonstrate it with the example of solving the Multidimensional Scaling (MDS) problem. In this problem, we need to draw objects on the plane that we only know how far each of them is from each other. That is, we have a matrix of pairwise distances as input, and coordinates of objects on the plane as output. And these coordinates should be such that the ratio of distances between the objects remains as close as possible to the original ones. As a loss function is the sum of squares of deviations of distances between cities at the current coordinates and the given value.</p>
 <p>Suppose, we have a pairwise distance matrix for <span class="math inline">N</span> <span class="math inline">d</span>-dimensional objects <span class="math inline">D \in \mathbb{R}^{N \times N}</span>. Given this matrix, our goal is to recover the initial coordinates <span class="math inline">W_i \in \mathbb{R}^d, \; i = 1, \ldots, N</span>.</p>

@@ -76,7 +76,7 @@ Let us immediately note the limitations related to the necessity of the
 Hessian’s non-degeneracy (for the method to exist), as well as its
 positive definiteness (for the convergence guarantee).
 
-<div class="responsive-video"><video autoplay loop class="video"><source src="../../theory/inaccurate_taylor.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="../../theory/inaccurate_taylor.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 Quadratic approximation and Newton step (in green) for varying starting
 points (in red). Note that when the starting point is far from the
@@ -86,7 +86,7 @@ minimizer. Picture was taken from the
 
 ## Convergence
 
-<div class="responsive-video"><video autoplay loop class="video"><source src="newton_field.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="newton_field.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 Let’s try to get an estimate of how quickly the classical Newton method
 converges. We will try to enter the necessary data and constants as
