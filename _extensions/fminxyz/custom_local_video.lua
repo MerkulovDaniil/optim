@@ -5,10 +5,10 @@ function Div(div)
       -- Extract video file path from the div content
       local videoPath = pandoc.utils.stringify(div.content[1])
       
-      -- Create video element with autoplay and loop attributes
+      -- Create video element with required attributes for Chrome
       local videoElement = pandoc.RawBlock("html", 
       '<div class="responsive-video">' ..
-      '<video autoplay loop class="video">' ..
+      '<video autoplay loop muted playsinline class="video">' ..
       '<source src="' .. videoPath .. '" type="video/mp4">' ..
       'Your browser does not support the video tag.' ..
       '</video></div>')
