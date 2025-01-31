@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Subgradient and subdifferential</title>
+<title>Step Size Selection in Gradient Descent via Line Search</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,9 +87,13 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Subgradient and subdifferential">
-<meta name="twitter:title" content="Subgradient and subdifferential">
-<meta name="twitter:card" content="summary">
+<meta property="og:title" content="Step Size Selection in Gradient Descent via Line Search">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://fmin.xyz/docs/visualizations/ls_gd.svg">
+<meta name="twitter:title" content="Step Size Selection in Gradient Descent via Line Search">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/ls_gd.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -116,7 +120,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/subgradient.html">Subgradient and subdifferential</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/double_descent.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/ls_gd.html">Step Size Selection in Gradient Descent via Line Search</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -419,11 +423,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -462,7 +466,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/exercises/subgradient.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/exercises/subgradient.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Subgradient and subdifferential</span></a>
   </div>
 </li>
@@ -670,13 +674,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/double_descent.html" class="sidebar-item-text sidebar-link">
@@ -691,7 +695,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Step Size Selection in Gradient Descent via Line Search</span></a>
   </div>
 </li>
@@ -727,25 +731,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#subgradient-and-subdifferential" id="toc-subgradient-and-subdifferential" class="nav-link active" data-scroll-target="#subgradient-and-subdifferential">Subgradient and subdifferential</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/subgradient.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="subgradient-gfm.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
 </button>
-</div></div></div>
+</div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ls_gd-gfm.md"><i class="bi bi-file-code"></i>Markdown</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/subgradient.html">Subgradient and subdifferential</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/double_descent.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/ls_gd.html">Step Size Selection in Gradient Descent via Line Search</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Subgradient and subdifferential</h1>
+<h1 class="title">Step Size Selection in Gradient Descent via Line Search</h1>
 </div>
 
 
@@ -761,35 +759,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="subgradient-and-subdifferential" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="subgradient-and-subdifferential">Subgradient and subdifferential</h2>
-<ol type="1">
-<li>Prove, that <span class="math inline">x_0</span> - is the minimum point of a convex function <span class="math inline">f(x)</span> if and only if <span class="math inline">0 \in \partial f(x_0)</span></li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \text{ReLU}(x) = \max \{0, x\}</span></li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \text{Leaky ReLU}(x) = \begin{cases}
-x &amp; \text{if } x &gt; 0, \\
-0.01x &amp; \text{otherwise}.
-\end{cases}</span></li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \|x\|_p</span> при <span class="math inline">p = 1,2, \infty</span></li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = \|Ax - b\|_1^2</span></li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = e^{\|x\|}</span>. Try do the task for an arbitrary norm. At least, try <span class="math inline">\|\cdot\| = \|\cdot\|_{\{2,1,\infty\}}</span>.</li>
-<li>Describe the connection between subgradient of a scalar function <span class="math inline">f: \mathbb{R} \to \mathbb{R}</span> and global linear lower bound, which support (tangent) the graph of the function at a point.</li>
-<li>What can we say about subdifferential of a convex function in those points, where the function is differentiable?</li>
-<li>Does the subgradient coincide with the gradient of a function if the function is differentiable? Under which condition it holds?</li>
-<li>If the function is convex on <span class="math inline">S</span>, whether <span class="math inline">\partial f(x) \neq \emptyset  \;\;\; \forall x \in S</span> always holds or not?</li>
-<li>Find <span class="math inline">\partial f(x)</span>, if <span class="math inline">f(x) = x^3</span></li>
-<li>Find <span class="math inline">f(x) = \lambda_{max} (A(x)) = \sup\limits_{\|y\|_2 = 1} y^T A(x)y</span>, где <span class="math inline">A(x) = A_0 + x_1A_1 + \ldots + x_nA_n</span>, all the matrices <span class="math inline">A_i \in \mathbb{S}^k</span> are symmetric and defined.</li>
-<li>Find subdifferential of a function <span class="math inline">f(x,y) = x^2 + xy + y^2 + 3\vert x + y − 2\vert</span> at points <span class="math inline">(1,0)</span> and <span class="math inline">(1,1)</span>.</li>
-<li>Find subdifferential of a function <span class="math inline">f(x) = \sin x</span> on the set <span class="math inline">X = [0, \frac32 \pi]</span>.</li>
-<li>Find subdifferential of a function <span class="math inline">f(x) = \vert c^{\top}x\vert, \; x \in \mathbb{R}^n</span>.</li>
-<li>Find subdifferential of a function <span class="math inline">f(x) = \|x\|_1, \; x \in \mathbb{R}^n</span>.</li>
-<li>Suppose, that if <span class="math inline">f(x) = \|x\|_\infty</span>. Prove that <span class="math display">
-\partial f(0) = \textbf{conv}\{\pm e_1, \ldots , \pm e_n\},
-</span> where <span class="math inline">e_i</span> is <span class="math inline">i</span>-th canonical basis vector (column of identity matrix).</li>
-</ol>
+<p>If a function is strongly convex with known parameters, the optimal fixed step size is <span class="math inline">\frac{2}{\mu + L}</span>, where <span class="math inline">\mu</span> and <span class="math inline">L</span> are the smallest and largest Hessian eigenvalues.</p>
+<p>In practice, these are rarely known, and functions may be non-convex. Instead, we tune the learning rate manually, use line search, or adaptive methods like AdamW &amp; NAG-GS.</p>
+<ul>
+<li>Golden-section search works well for convex functions but lacks guarantees for non-unimodal ones.</li>
+<li>Wolfe conditions ensure sufficient function decrease while avoiding too tiny steps.</li>
+</ul>
+<p>Line search often reduces function values faster with fewer iterations, despite higher per-step costs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ls_gd.svg" class="img-fluid figure-img"></p>
+<figcaption>Line search</figcaption>
+</figure>
+</div>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="ls_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="ls.py">Code</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1218,4 +1204,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/subgradient.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/ls_gd.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
