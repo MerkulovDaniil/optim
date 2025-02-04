@@ -19,12 +19,12 @@ format:
   #   number-sections: true
   #   number-depth: 1
   #   keep-tex: true
-  gfm: default
+  # gfm: default
 
 format-links:
   - fminxyz-html
-  - format: gfm
-    text: Markdown
+  # - format: gfm
+  #   text: Markdown
   # - format: pdf
     # text: PDF
 
