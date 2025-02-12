@@ -3450,12 +3450,12 @@
   {
     "objectID": "docs/visualizations/condition_number_gd.html",
     "href": "docs/visualizations/condition_number_gd.html",
-    "title": "How condition number affects gradient descent convergence",
+    "title": "Condition number and gradient descent",
     "section": "",
-    "text": "Suppose, we have a strongly convex quadratic function minimization problem solved by the gradient descent method: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x^{k+1} = x^k - \\alpha_k \\nabla f(x^k).\n\nThe gradient descent method with the learning rate \\alpha_k = \\frac{2}{\\mu + L} converges to the optimal solution x^* with the following guarantee: \n\\|x^{k+1} - x^*\\|_2 = \\left( \\frac{\\kappa-1}{\\kappa+1}\\right)^k \\|x^0 - x^*\\|_2 \\qquad f(x^{k+1}) - f(x^*) \\left( \\frac{\\kappa-1}{\\kappa+1}\\right)^{2k} \\left(f(x^0) - f(x^*)\\right)\n\nYour browser does not support the video tag.\nCode",
+    "text": "Suppose, we have a strongly convex quadratic function minimization problem solved by the gradient descent method: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x^{k+1} = x^k - \\alpha_k \\nabla f(x^k).\n\nThe gradient descent method with the learning rate \\alpha_k = \\frac{2}{\\mu + L} converges to the optimal solution x^* with the following guarantee: \n\\|x^{k+1} - x^*\\|_2 = \\left( \\frac{\\varkappa-1}{\\varkappa+1}\\right)^k \\|x^0 - x^*\\|_2 \\qquad f(x^{k+1}) - f(x^*) \\left( \\frac{\\varkappa-1}{\\varkappa+1}\\right)^{2k} \\left(f(x^0) - f(x^*)\\right),\n where \\varkappa is the condition number of the Hessian matrix A.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "How condition number affects gradient descent convergence"
+      "Condition number and gradient descent"
     ]
   },
   {

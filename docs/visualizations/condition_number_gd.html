@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How condition number affects gradient descent convergence</title>
+<title>Condition number and gradient descent</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9aef4f629f965065326a2881cd158417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-032b3c86ac889838fceaa0ced56f1455.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -87,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="How condition number affects gradient descent convergence">
+<meta property="og:title" content="Condition number and gradient descent">
 <meta property="og:description" content="">
-<meta name="twitter:title" content="How condition number affects gradient descent convergence">
+<meta name="twitter:title" content="Condition number and gradient descent">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">How condition number affects gradient descent convergence</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Condition number and gradient descent</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -682,7 +682,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/condition_number_gd.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">How condition number affects gradient descent convergence</span></a>
+ <span class="menu-text">Condition number and gradient descent</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -745,9 +745,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">How condition number affects gradient descent convergence</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Condition number and gradient descent</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">How condition number affects gradient descent convergence</h1>
+<h1 class="title">Condition number and gradient descent</h1>
 </div>
 
 
@@ -767,8 +767,8 @@ ul.task-list li input[type="checkbox"] {
 f(x) = \frac{1}{2} x^T A x - b^T x \qquad x^{k+1} = x^k - \alpha_k \nabla f(x^k).
 </span></p>
 <p>The gradient descent method with the learning rate <span class="math inline">\alpha_k = \frac{2}{\mu + L}</span> converges to the optimal solution <span class="math inline">x^*</span> with the following guarantee: <span class="math display">
-\|x^{k+1} - x^*\|_2 = \left( \frac{\kappa-1}{\kappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) \left( \frac{\kappa-1}{\kappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right)
-</span></p>
+\|x^{k+1} - x^*\|_2 = \left( \frac{\varkappa-1}{\varkappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) \left( \frac{\varkappa-1}{\varkappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right),
+</span> where <span class="math inline">\varkappa</span> is the condition number of the Hessian matrix <span class="math inline">A</span>.</p>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="condition_number_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <p><a href="condition_number_gd.py">Code</a></p>
 
