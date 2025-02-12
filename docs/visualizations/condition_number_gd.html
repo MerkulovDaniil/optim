@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Uncategorized</title>
+<title>How condition number affects gradient descent convergence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,8 +87,10 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Uncategorized">
-<meta name="twitter:title" content="Uncategorized">
+<meta property="og:title" content="How condition number affects gradient descent convergence">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="How condition number affects gradient descent convergence">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -116,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/uncategorized.html">Uncategorized</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">How condition number affects gradient descent convergence</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -419,11 +421,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -522,7 +524,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/exercises/uncategorized.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/exercises/uncategorized.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Uncategorized</span></a>
   </div>
 </li>
@@ -670,16 +672,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/condition_number_gd.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/condition_number_gd.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">How condition number affects gradient descent convergence</span></a>
   </div>
 </li>
@@ -733,13 +735,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#uncategorized" id="toc-uncategorized" class="nav-link active" data-scroll-target="#uncategorized">Uncategorized</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/uncategorized.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -749,9 +745,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/uncategorized.html">Uncategorized</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/condition_number_gd.html">How condition number affects gradient descent convergence</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Uncategorized</h1>
+<h1 class="title">How condition number affects gradient descent convergence</h1>
 </div>
 
 
@@ -767,48 +763,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="uncategorized" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="uncategorized">Uncategorized</h2>
-<ol type="1">
-<li><p>Show, that these conditions are equivalent:</p>
-<p><span class="math display">
-  \|\nabla f(x) - \nabla f(z) \| \le L \|x-z\|
+<p>Suppose, we have a strongly convex quadratic function minimization problem solved by the gradient descent method: <span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \qquad x^{k+1} = x^k - \alpha_k \nabla f(x^k).
 </span></p>
-<p>and</p>
-<p><span class="math display">
-f(z) \le f(x) + \nabla f(x)^T(z-x) + \frac L 2 \|z-x\|^2
-</span></p></li>
-<li><p>We say that the function belongs to the class <span class="math inline">f  \in C^{k,p}_L (Q)</span> if it is <span class="math inline">k</span> times continuously differentiable on <span class="math inline">Q</span>, and the <span class="math inline">p</span> derivative has a Lipschitz constant <span class="math inline">L</span>.</p>
-<p><span class="math display">
-\|\nabla^p f(x) - \nabla^p f(y)\| \leq L \|x-y\|, \qquad \forall x,y \in Q
+<p>The gradient descent method with the learning rate <span class="math inline">\alpha_k = \frac{2}{\mu + L}</span> converges to the optimal solution <span class="math inline">x^*</span> with the following guarantee: <span class="math display">
+\|x^{k+1} - x^*\|_2 = \left( \frac{\kappa-1}{\kappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) \left( \frac{\kappa-1}{\kappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right)
 </span></p>
-<p>The most commonly used <span class="math inline">C_L^{1,1}, C_L^{2,2}</span> for <span class="math inline">\mathbb{R}^n</span>. Notice that:</p>
-<ul>
-<li><span class="math inline">p \leq k</span></li>
-<li>If <span class="math inline">q \geq k</span>, then <span class="math inline">C_L^{q,p} \subseteq C_L^{k,p}</span>. The higher is the order of the derivative, the stronger is the limitation (fewer functions belong to the class).</li>
-</ul>
-<p>Prove that the function belongs to the class <span class="math inline">C_L^{2,1}. \subseteq C_L^{1,1}</span> if and only if <span class="math inline">\forall x \in \mathbb{R}^n</span>:</p>
-<p><span class="math display">
-\|\nabla^2 f(x)\| \leq L
-</span></p>
-<p>Prove that the last condition can be rewritten in the form without loss of generality:</p>
-<p><span class="math display">
--L I_n \preceq \nabla^2 f(x) \preceq L I_n
-</span></p></li>
-<li><p>Show that for gradient descent with the following stepsize selection strategies:</p>
-<ul>
-<li>constant step <span class="math inline">h_k = \dfrac{1}{L}</span></li>
-<li>Dropping sequence <span class="math inline">h_k = \dfrac{\alpha_k}{L}, \quad \alpha_k \to 0</span>.</li>
-</ul>
-<p>you can get the estimation of the function decrease at the iteration of the view:</p>
-<p><span class="math display">
-f(x_k) - f(x_{k+1}) \geq \dfrac{\omega}{L}\|\nabla f(x_k)\|^2
-</span></p>
-<p><span class="math inline">\omega &gt; 0</span> - some constant, <span class="math inline">L</span> - Lipschitz constant of the function gradient.</p></li>
-</ol>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="condition_number_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="condition_number_gd.py">Code</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1237,4 +1201,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/uncategorized.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/condition_number_gd.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
