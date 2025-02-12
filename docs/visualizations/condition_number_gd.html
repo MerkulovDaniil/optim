@@ -767,7 +767,7 @@ ul.task-list li input[type="checkbox"] {
 f(x) = \frac{1}{2} x^T A x - b^T x \qquad x^{k+1} = x^k - \alpha_k \nabla f(x^k).
 </span></p>
 <p>The gradient descent method with the learning rate <span class="math inline">\alpha_k = \frac{2}{\mu + L}</span> converges to the optimal solution <span class="math inline">x^*</span> with the following guarantee: <span class="math display">
-\|x^{k+1} - x^*\|_2 = \left( \frac{\varkappa-1}{\varkappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) \left( \frac{\varkappa-1}{\varkappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right),
+\|x^{k+1} - x^*\|_2 = \left( \frac{\varkappa-1}{\varkappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) = \left( \frac{\varkappa-1}{\varkappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right),
 </span> where <span class="math inline">\varkappa</span> is the condition number of the Hessian matrix <span class="math inline">A</span>.</p>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="condition_number_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <p><a href="condition_number_gd.py">Code</a></p>
