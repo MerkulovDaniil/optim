@@ -9,7 +9,7 @@ $$
 
 The gradient descent method with the learning rate $\alpha_k = \frac{2}{\mu + L}$ converges to the optimal solution $x^*$ with the following guarantee:
 $$
-\|x^{k+1} - x^*\|_2 = \left( \frac{\varkappa-1}{\varkappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) \left( \frac{\varkappa-1}{\varkappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right),
+\|x^{k+1} - x^*\|_2 = \left( \frac{\varkappa-1}{\varkappa+1}\right)^k \|x^0 - x^*\|_2 \qquad f(x^{k+1}) - f(x^*) = \left( \frac{\varkappa-1}{\varkappa+1}\right)^{2k} \left(f(x^0) - f(x^*)\right),
 $$
 where $\varkappa$ is the condition number of the Hessian matrix $A$.
 
