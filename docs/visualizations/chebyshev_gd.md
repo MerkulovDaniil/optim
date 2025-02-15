@@ -223,4 +223,4 @@ chebyshev_gd.mp4
 :::
 
 
-[Code](chebyshev_gd.py.py)
+[Code](chebyshev_gd.py)
