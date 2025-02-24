@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matrix calculus</title>
+<title>Conjugate Gradient for Quadratics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,11 +87,11 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Matrix calculus">
-<meta property="og:image" content="https://fmin.xyz/docs/exercises/simple_learning.svg">
-<meta name="twitter:title" content="Matrix calculus">
-<meta name="twitter:image" content="https://fmin.xyz/docs/exercises/simple_learning.svg">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Conjugate Gradient for Quadratics">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="Conjugate Gradient for Quadratics">
+<meta name="twitter:description" content="">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/matrix_calculus.html">Matrix calculus</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Conjugate Gradient for Quadratics</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -421,14 +421,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix calculus</span></a>
   </div>
 </li>
@@ -672,16 +672,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Conjugate Gradient for Quadratics</span></a>
   </div>
 </li>
@@ -747,13 +747,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#matrix-calculus" id="toc-matrix-calculus" class="nav-link active" data-scroll-target="#matrix-calculus">Matrix calculus</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/matrix_calculus.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -763,9 +757,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/matrix_calculus.html">Matrix calculus</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Conjugate Gradient for Quadratics</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Matrix calculus</h1>
+<h1 class="title">Conjugate Gradient for Quadratics</h1>
 </div>
 
 
@@ -781,86 +775,11 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="matrix-calculus" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="matrix-calculus">Matrix calculus</h2>
-<ol type="1">
-<li><p>Find the derivatives of <span class="math inline">f(x) = Ax, \quad \nabla_x f(x) = ?, \nabla_A f(x) = ?</span></p></li>
-<li><p>Find <span class="math inline">\nabla f(x)</span>, if <span class="math inline">f(x) = c^Tx</span>.</p></li>
-<li><p>Find <span class="math inline">\nabla f(x)</span>, if <span class="math inline">f(x) = \dfrac{1}{2}x^TAx + b^Tx + c</span>.</p></li>
-<li><p>Find <span class="math inline">\nabla f(x), f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = -e^{-x^Tx}</span>.</p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \dfrac{1}{2} \Vert Ax - b\Vert ^2_2</span>.</p></li>
-<li><p>Find <span class="math inline">\nabla f(x)</span>, if <span class="math inline">f(x) = \Vert x\Vert _2 , x \in \mathbb{R}^p \setminus \{0\}</span>.</p></li>
-<li><p>Find <span class="math inline">\nabla f(x)</span>, if <span class="math inline">f(x) = \Vert Ax\Vert _2 , x \in \mathbb{R}^p \setminus \{0\}</span>.</p></li>
-<li><p>Find <span class="math inline">\nabla f(x), f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \dfrac{-1}{1 + x^T x}</span>.</p></li>
-<li><p>Calculate <span class="math inline">df(x)</span> and <span class="math inline">\nabla f(x)</span> for the function <span class="math inline">f(x) = \log(x^{T}\mathrm{A}x)</span>.</p></li>
-<li><p>Find <span class="math inline">f^\prime(X)</span>, if <span class="math inline">f(X) = \det X</span></p>
-<p>Note: here under <span class="math inline">f^\prime(X)</span> assumes first order approximation of <span class="math inline">f(X)</span> using Taylor series:</p>
-<p><span class="math display">
-f(X + \Delta X) \approx f(X) + \mathbf{tr}(f^\prime(X)^T \Delta X)
-</span></p></li>
-<li><p>Find <span class="math inline">f^{\prime\prime}(X)</span>, if <span class="math inline">f(X) = \log \det X</span></p>
-<p>Note: here under <span class="math inline">f^{\prime\prime}(X)</span> assumes second order approximation of <span class="math inline">f(X)</span> using Taylor series:</p>
-<p><span class="math display">
-f(X + \Delta X) \approx f(X) + \mathbf{tr}(f^\prime(X)^T \Delta X) + \frac{1}{2}\mathbf{tr}(\Delta X^T f^{\prime\prime}(X) \Delta X)
-</span></p></li>
-<li><p>Find gradient and hessian of <span class="math inline">f : \mathbb{R}^n \to \mathbb{R}</span>, if:</p>
-<p><span class="math display">
-f(x) = \log \sum\limits_{i=1}^m \exp (a_i^T x + b_i), \;\;\;\; a_1, \ldots, a_m \in \mathbb{R}^n; \;\;\;  b_1, \ldots, b_m  \in \mathbb{R}
-</span></p></li>
-<li><p>What is the gradient, Jacobian, Hessian? Is there any connection between those three definitions?</p></li>
-<li><p>Calculate: <span class="math inline">\dfrac{\partial }{\partial X} \sum \text{eig}(X), \;\;\dfrac{\partial }{\partial X} \prod \text{eig}(X), \;\;\dfrac{\partial }{\partial X}\text{tr}(X), \;\; \dfrac{\partial }{\partial X} \text{det}(X)</span></p></li>
-<li><p>Calculate the Frobenious norm derivative: <span class="math inline">\dfrac{\partial}{\partial X}\Vert X\Vert _F^2</span></p></li>
-<li><p>Calculate the gradient of the softmax regression <span class="math inline">\nabla_\theta L</span> in binary case (<span class="math inline">K = 2</span>) <span class="math inline">n</span> - dimensional objects:</p>
-<p><span class="math display">
-h_\theta(x) = \begin{bmatrix} P(y = 1 \vert x; \theta) \\ P(y = 2 \vert x; \theta) \\ \vdots \\ P(y = K \vert x; \theta) \end{bmatrix} = \frac{1}{ \sum_{j=1}^{K}{\exp(\theta^{(j)T} x) }} \begin{bmatrix} \exp(\theta^{(1)T} x ) \\ \exp(\theta^{(2)T} x ) \\ \vdots \\ \exp(\theta^{(K)T} x ) \\ \end{bmatrix}
-</span></p>
-<p><span class="math display">
-L(\theta) = - \left[ \sum_{i=1}^n  (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^{(i)} \log h_\theta(x^{(i)}) \right]
-</span></p></li>
-<li><p>Find <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \text{tr } AX</span></p></li>
-<li><p>Find <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \langle S, X\rangle - \log \det X</span></p></li>
-<li><p>Find <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \ln \langle Ax, x\rangle, A \in \mathbb{S^n_{++}}</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if</p>
-<p><span class="math display">
-f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)
-</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{1}{3}\Vert x\Vert _2^3</span></p></li>
-<li><p>Calculate <span class="math inline">\nabla f(X)</span>, if <span class="math inline">f(X) = \Vert  AX - B\Vert _F, X \in \mathbb{R}^{k \times n}, A \in \mathbb{R}^{m \times k}, B \in \mathbb{R}^{m \times n}</span></p></li>
-<li><p>Calculate the derivatives of the loss function with respect to parameters <span class="math inline">\frac{\partial L}{\partial W}, \frac{\partial L}{\partial b}</span> for the single object <span class="math inline">x_i</span> (or, <span class="math inline">n = 1</span>)</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="simple_learning.svg" class="img-fluid figure-img"></p>
-<figcaption>Illustration</figcaption>
-</figure>
-</div></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \langle x, x\rangle^{\langle x, x\rangle}, x \in \mathbb{R}^p \setminus \{0\}</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{\langle Ax, x\rangle}{\Vert x\Vert _2^2}, x \in \mathbb{R}^p \setminus \{0\}, A \in \mathbb{S}^n</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac{1}{2}\Vert A - xx^T\Vert ^2_F, A \in \mathbb{S}^n</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \Vert xx^T\Vert _2</span></p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span> and hessian <span class="math inline">f^{\prime\prime}(x)</span>, if <span class="math inline">f(x) = \frac1n \sum\limits_{i=1}^n \log \left( 1 + \exp(a_i^{T}x)  \right) + \frac{\mu}{2}\Vert x\Vert _2^2, \; a_i \in \mathbb R^n, \; \mu&gt;0</span>.</p></li>
-<li><p>Match functions with their gradients:</p>
-<ul class="task-list">
-<li><label><input type="checkbox"><span class="math inline">f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">f(\mathrm{X}) = \mathrm{Tr}\mathrm{X}^{-1}</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">f(\mathrm{X}) = \det \mathrm{X}</span></label></li>
-<li><label><input type="checkbox"><span class="math inline">f(\mathrm{X}) = \ln \det \mathrm{X}</span></label></li>
-</ul>
-<ol type="1">
-<li><span class="math inline">\nabla f(\mathrm{X}) = \mathrm{X}^{-1}</span></li>
-<li><span class="math inline">\nabla f(\mathrm{X}) = \mathrm{I}</span></li>
-<li><span class="math inline">\nabla f(\mathrm{X}) = \det (\mathrm{X})\cdot (\mathrm{X}^{-1})^{T}</span></li>
-<li><span class="math inline">\nabla f(\mathrm{X}) = -\left(\mathrm{X}^{-2}\right)^{T}</span></li>
-</ol></li>
-<li><p>Calculate the first and the second derivative of the following function <span class="math inline">f : S \to \mathbb{R}</span></p>
-<p><span class="math display">
-f(t) = \text{det}(A − tI_n),
-</span></p>
-<p>where <span class="math inline">A \in \mathbb{R}^{n \times n}, S := \{t \in \mathbb{R} : \text{det}(A − tI_n) \neq 0\}</span>.</p></li>
-<li><p>Find the gradient <span class="math inline">\nabla f(x)</span>, if <span class="math inline">f(x) = \text{tr}\left( AX^2BX^{-T} \right)</span>.</p></li>
-</ol>
+<p>Below you can find the animation of the conjugate gradient method applied to a quadratic function for different condition numbers and a comparison with the gradient descent method and Chebyshev’s acceleration of gradient descent method.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" class="video"><source src="cg_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="cg_gd.py">Code</a></p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1289,4 +1208,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/matrix_calculus.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/cg_quad.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
