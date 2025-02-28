@@ -3593,45 +3593,45 @@
   {
     "objectID": "docs/visualizations/qr_algorithm.html",
     "href": "docs/visualizations/qr_algorithm.html",
-    "title": "QR Algorithm: Eigenvalue Computation",
+    "title": "QR Algorithm",
     "section": "",
     "text": "The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm’s beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm: Eigenvalue Computation"
+      "QR Algorithm"
     ]
   },
   {
     "objectID": "docs/visualizations/qr_algorithm.html#algorithm-overview",
     "href": "docs/visualizations/qr_algorithm.html#algorithm-overview",
-    "title": "QR Algorithm: Eigenvalue Computation",
+    "title": "QR Algorithm",
     "section": "1 Algorithm Overview",
     "text": "1 Algorithm Overview\nThe basic QR iteration proceeds as follows:\n\nStart with a matrix A₀ = A\nFor k = 0, 1, 2, …:\n\nCompute QR decomposition: Aₖ = QₖRₖ\nForm next iterate: Aₖ₊₁ = RₖQₖ\n\n\nFor symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré post.\nYour browser does not support the video tag.\nThe visualization above demonstrates how the QR algorithm gradually transforms a symmetric matrix into diagonal form, with the off-diagonal elements converging to zero. The convergence rate depends on the separation of eigenvalues - better separated eigenvalues typically lead to faster convergence.",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm: Eigenvalue Computation"
+      "QR Algorithm"
     ]
   },
   {
     "objectID": "docs/visualizations/qr_algorithm.html#implementation",
     "href": "docs/visualizations/qr_algorithm.html#implementation",
-    "title": "QR Algorithm: Eigenvalue Computation",
+    "title": "QR Algorithm",
     "section": "2 Implementation",
     "text": "2 Implementation\nCode",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm: Eigenvalue Computation"
+      "QR Algorithm"
     ]
   },
   {
     "objectID": "docs/visualizations/qr_algorithm.html#key-properties",
     "href": "docs/visualizations/qr_algorithm.html#key-properties",
-    "title": "QR Algorithm: Eigenvalue Computation",
+    "title": "QR Algorithm",
     "section": "3 Key Properties",
     "text": "3 Key Properties\n\nPreservation of Eigenvalues: Each iteration Aₖ₊₁ = RₖQₖ is similar to Aₖ, thus preserving eigenvalues\nConvergence: For symmetric matrices, the algorithm converges to a diagonal matrix\nNumerical Stability: The use of orthogonal transformations ensures good numerical properties\n\nThe QR algorithm forms the basis of modern eigenvalue computations and is implemented in most numerical linear algebra libraries. While the basic version shown here is elegant, practical implementations use various enhancements like shifts and deflation to improve efficiency.",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm: Eigenvalue Computation"
+      "QR Algorithm"
     ]
   },
   {
