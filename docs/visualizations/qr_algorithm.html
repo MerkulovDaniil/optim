@@ -794,11 +794,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1" class="anchored" data-anchor-id="algorithm-overview"><span class="header-section-number">1</span> Algorithm Overview</h2>
 <p>The basic QR iteration proceeds as follows:</p>
 <ol type="1">
-<li>Start with a matrix A₀ = A</li>
-<li>For k = 0, 1, 2, …:
+<li>Start with a matrix <span class="math inline">A_0 = A</span></li>
+<li>For <span class="math inline">k = 0, 1, 2, \ldots</span> :
 <ul>
-<li>Compute QR decomposition: Aₖ = QₖRₖ</li>
-<li>Form next iterate: Aₖ₊₁ = RₖQₖ</li>
+<li>Compute QR decomposition: <span class="math inline">A_k = Q_kR_k</span></li>
+<li>Form next iterate: <span class="math inline">A_{k+1} = R_kQ_k</span></li>
 </ul></li>
 </ol>
 <p>For symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré <a href="https://x.com/gabrielpeyre/status/1881582504219734216?t=romY906gYOjWRDboK42_Cw&amp;s=09">post</a>.</p>
