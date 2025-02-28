@@ -1,5 +1,5 @@
 ---
-title: "QR Algorithm: Eigenvalue Computation"
+title: "QR Algorithm"
 ---
 
 The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm's beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.
