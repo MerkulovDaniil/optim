@@ -8,10 +8,10 @@ The QR algorithm is one of the most elegant and powerful methods in numerical li
 
 The basic QR iteration proceeds as follows:
 
-1. Start with a matrix A₀ = A
-2. For k = 0, 1, 2, ...:
-   - Compute QR decomposition: Aₖ = QₖRₖ
-   - Form next iterate: Aₖ₊₁ = RₖQₖ
+1. Start with a matrix $A_0 = A$
+2. For $k = 0, 1, 2, \ldots$ :
+   - Compute QR decomposition: $A_k = Q_kR_k$
+   - Form next iterate: $A_{k+1} = R_kQ_k$
 
 For symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré [post](https://x.com/gabrielpeyre/status/1881582504219734216?t=romY906gYOjWRDboK42_Cw&s=09).
 
