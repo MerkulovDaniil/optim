@@ -16,7 +16,7 @@ f(x) = \begin{cases}
 $$
 You will see, that it is strongly convex function with smooth gradient (i.e. Lipschitz continuous Hessian).
 
-![Note, that the Hessian is Lipschitz continuous and strictly positive](newton_piecewise_smoooth.svg)
+![Note, that the Hessian is Lipschitz continuous and strictly positive](newton_piecewise_parabola_lipshitz_hessian.svg)
 
 :::{.video}
 newton_method_local_convergence.mp4
