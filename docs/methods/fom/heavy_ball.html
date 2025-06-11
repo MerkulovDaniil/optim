@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conic set</title>
+<title>Heavy Ball Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -88,12 +123,12 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Conic set">
+<meta property="og:title" content="Heavy Ball Method">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fmin.xyz/docs/theory/convex sets/cone.svg">
-<meta name="twitter:title" content="Conic set">
+<meta property="og:image" content="https://fmin.xyz/docs/methods/fom/GD_vs_HB_hor.svg">
+<meta name="twitter:title" content="Heavy Ball Method">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://fmin.xyz/docs/theory/convex sets/cone.svg">
+<meta name="twitter:image" content="https://fmin.xyz/docs/methods/fom/GD_vs_HB_hor.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -121,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Conic_sets.html">Conic set</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/heavy_ball.html">Heavy Ball Method</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -137,11 +172,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -152,11 +187,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -171,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/theory/convex sets/Conic_sets.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../docs/theory/convex sets/Conic_sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conic set</span></a>
   </div>
 </li>
@@ -243,11 +278,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
@@ -316,11 +351,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
@@ -329,7 +364,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../docs/methods/fom/heavy_ball.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../docs/methods/fom/heavy_ball.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Heavy Ball Method</span></a>
   </div>
 </li>
@@ -772,15 +807,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cone" id="toc-cone" class="nav-link active" data-scroll-target="#cone"><span class="header-section-number">1</span> Cone</a></li>
-  <li><a href="#convex-cone" id="toc-convex-cone" class="nav-link" data-scroll-target="#convex-cone"><span class="header-section-number">2</span> Convex cone</a></li>
-  <li><a href="#related-definitions" id="toc-related-definitions" class="nav-link" data-scroll-target="#related-definitions"><span class="header-section-number">3</span> Related definitions</a>
-  <ul class="collapse">
-  <li><a href="#conic-combination" id="toc-conic-combination" class="nav-link" data-scroll-target="#conic-combination"><span class="header-section-number">3.1</span> Conic combination</a></li>
-  <li><a href="#conic-hull" id="toc-conic-hull" class="nav-link" data-scroll-target="#conic-hull"><span class="header-section-number">3.2</span> Conic hull</a></li>
-  </ul></li>
+  <li><a href="#oscillations-and-acceleration" id="toc-oscillations-and-acceleration" class="nav-link active" data-scroll-target="#oscillations-and-acceleration"><span class="header-section-number">1</span> Oscillations and acceleration</a></li>
+  <li><a href="#coordinate-shift" id="toc-coordinate-shift" class="nav-link" data-scroll-target="#coordinate-shift"><span class="header-section-number">2</span> Coordinate shift</a></li>
+  <li><a href="#polyak-heavy-ball-method" id="toc-polyak-heavy-ball-method" class="nav-link" data-scroll-target="#polyak-heavy-ball-method"><span class="header-section-number">3</span> Polyak Heavy ball method</a></li>
+  <li><a href="#reduction-to-a-scalar-case" id="toc-reduction-to-a-scalar-case" class="nav-link" data-scroll-target="#reduction-to-a-scalar-case"><span class="header-section-number">4</span> Reduction to a scalar case</a></li>
+  <li><a href="#heavy-ball-quadratic-convergence" id="toc-heavy-ball-quadratic-convergence" class="nav-link" data-scroll-target="#heavy-ball-quadratic-convergence"><span class="header-section-number">5</span> Heavy ball quadratic convergence</a></li>
+  <li><a href="#heavy-ball-global-convergence" id="toc-heavy-ball-global-convergence" class="nav-link" data-scroll-target="#heavy-ball-global-convergence"><span class="header-section-number">6</span> Heavy Ball Global Convergence </a></li>
+  <li><a href="#heavy-ball-method-summary" id="toc-heavy-ball-method-summary" class="nav-link" data-scroll-target="#heavy-ball-method-summary"><span class="header-section-number">7</span> Heavy ball method summary</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/convex sets/Conic_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/heavy_ball.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -790,9 +825,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/index.html">Convex sets</a></li><li class="breadcrumb-item"><a href="../../../docs/theory/convex sets/Conic_sets.html">Conic set</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/heavy_ball.html">Heavy Ball Method</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Conic set</h1>
+<h1 class="title">Heavy Ball Method</h1>
 </div>
 
 
@@ -808,90 +843,238 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="cone" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="cone"><span class="header-section-number">1</span> Cone</h2>
-<p>A non-empty set <span class="math inline">S</span> is called a cone, if:</p>
-<p><span class="math display">
-\forall x \in S, \; \theta \ge 0 \;\; \rightarrow \;\; \theta x \in S
-</span></p>
-<div id="fig-cone" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="cone.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Illustration of a cone
-</figcaption>
+<section id="oscillations-and-acceleration" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="oscillations-and-acceleration"><span class="header-section-number">1</span> Oscillations and acceleration</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GD_vs_HB_hor.svg" class="img-fluid figure-img"></p>
+<figcaption>Running Gradient Descent and Heavy Ball methods with optimal hyperparameters. Link to the code <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/GD.ipynb">👨‍💻</a>.</figcaption>
 </figure>
 </div>
 </section>
-<section id="convex-cone" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="convex-cone"><span class="header-section-number">2</span> Convex cone</h2>
-<p>The set <span class="math inline">S</span> is called a convex cone, if:</p>
-<p><span class="math display">
-\forall x_1, x_2 \in S, \; \theta_1, \theta_2 \ge 0 \;\; \rightarrow \;\; \theta_1 x_1 + \theta_2 x_2 \in S
-</span></p>
-<div id="fig-convex_cone" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-convex_cone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="convex_cone.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-convex_cone-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Illustration of a convex cone
-</figcaption>
+<section id="coordinate-shift" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="coordinate-shift"><span class="header-section-number">2</span> Coordinate shift</h2>
+<p>For an arbitrary strongly convex quadratic function we can introduce such new coordinates that the quadratic function matrix becomes diagonal. To do this, we turn to the spectral decomposition of the matrix <span class="math inline">A = Q \Lambda Q^T</span>. Let <span class="math inline">\hat{x} = Q^T(x - x^*)</span>, where <span class="math inline">x^*</span> is the minimum of the original function, defined as <span class="math inline">Ax^* = b</span>. Then <span class="math inline">x = Q\hat{x} + x^*</span>. <span class="math display">
+\begin{split}
+f(\hat{x}) &amp;= \frac12  (Q\hat{x} + x^*)^\top  A (Q\hat{x} + x^*) - b^\top  (Q\hat{x} + x^*) \\
+&amp;= \frac12 \hat{x}^T Q^TAQ\hat{x} + \frac12 (x^*)^T A (x^*) + (x^*)^TAQ\hat{x} - b^T Q\hat{x} - b^T x^*\\
+&amp;= \frac12 \hat{x}^T \Lambda \hat{x} + \frac12 (x^*)^T A (x^*) + (x^*)^TAQ\hat{x} - (x^*)^T A^TQ\hat{x} - (x^*)^T A x^*\\
+&amp;= \frac12 \hat{x}^T \Lambda \hat{x} \underbrace{- \frac12 (x^*)^T A x^*}_{f(x^*)} \simeq \frac12 \hat{x}^T \Lambda \hat{x}
+\end{split}
+</span> In the last transition, we discarded the constant term, which is exactly equal to <span class="math inline">f(x^*)</span>. It is needed to make the values of the function in the new coordinates equal to the values of the function in the original coordinates, but it does not affect the method.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="coordinate_shift_horizontal.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
-<div class="callout callout-style-default callout-example no-icon callout-titled">
+</section>
+<section id="polyak-heavy-ball-method" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="polyak-heavy-ball-method"><span class="header-section-number">3</span> Polyak Heavy ball method</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img src="GD_HB.svg" class="img-fluid"></p>
+</div><div class="column" style="width:75%;">
+<p>Let’s introduce the idea of momentum, proposed by Polyak in 1964. Recall that the momentum update is <span class="math display">
+x^{k+1} = x^k - \alpha \nabla f(x^k) + \beta (x^k - x^{k-1}).
+</span> Which is in our (quadratics) case is <span class="math display">
+\hat{x}_{k+1} = \hat{x}_k - \alpha \Lambda \hat{x}_k + \beta (\hat{x}_k - \hat{x}_{k-1}) = (I - \alpha \Lambda + \beta I) \hat{x}_k - \beta \hat{x}_{k-1}
+</span> This can be rewritten as follows <span class="math display">
+\begin{split}
+&amp;\hat{x}_{k+1} = (I - \alpha \Lambda + \beta I) \hat{x}_k - \beta \hat{x}_{k-1}, \\
+&amp;\hat{x}_{k} = \hat{x}_k.
+\end{split}
+</span> Let’s use the following notation <span class="math inline">\hat{z}_k = \begin{bmatrix}
+\hat{x}_{k+1} \\
+\hat{x}_{k}
+\end{bmatrix}</span>. Therefore <span class="math inline">\hat{z}_{k+1} = M \hat{z}_k</span>, where the iteration matrix <span class="math inline">M</span> is: <span class="math display">
+M = \begin{bmatrix}
+I - \alpha \Lambda + \beta I &amp; - \beta I \\
+I &amp; 0_{d}
+\end{bmatrix}.
+</span></p>
+</div>
+</div>
+</section>
+<section id="reduction-to-a-scalar-case" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="reduction-to-a-scalar-case"><span class="header-section-number">4</span> Reduction to a scalar case</h2>
+<p>Note, that <span class="math inline">M</span> is <span class="math inline">2d \times 2d</span> matrix with 4 block-diagonal matrices of size <span class="math inline">d \times d</span> inside. It means, that we can rearrange the order of coordinates to make <span class="math inline">M</span> block-diagonal in the following form. Note that in the equation below, the matrix <span class="math inline">M</span> denotes the same as in the notation above, except for the described permutation of rows and columns. We use this slight abuse of notation for the sake of clarity.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Rearranging_squares.svg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of matrix <span class="math inline">M</span> rearrangement</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<p><span class="math display">
+\begin{aligned}
+\begin{bmatrix}
+\hat{x}_{k}^{(1)} \\
+\vdots \\
+\hat{x}_{k}^{(d)} \\[0.5em]
+\hat{x}_{k-1}^{(1)} \\
+\vdots \\
+\hat{x}_{k-1}^{(d)}
+\end{bmatrix} \to
+\begin{bmatrix}
+\hat{x}_{k}^{(1)} \\[0.5em]
+\hat{x}_{k-1}^{(1)} \\
+\vdots \\
+\hat{x}_{k}^{(d)} \\[0.5em]
+\hat{x}_{k-1}^{(d)}
+\end{bmatrix} \quad M = \begin{bmatrix}
+M_1\\
+&amp;M_2\\
+&amp;&amp;\ldots\\
+&amp;&amp;&amp;M_d
+\end{bmatrix}
+\end{aligned}
+</span></p>
+</div>
+</div>
+<p>where <span class="math inline">\hat{x}_{k}^{(i)}</span> is <span class="math inline">i</span>-th coordinate of vector <span class="math inline">\hat{x}_{k} \in \mathbb{R}^d</span> and <span class="math inline">M_i</span> stands for <span class="math inline">2 \times 2</span> matrix. This rearrangement allows us to study the dynamics of the method independently for each dimension. One may observe, that the asymptotic convergence rate of the <span class="math inline">2d</span>-dimensional vector sequence of <span class="math inline">\hat{z}_k</span> is defined by the worst convergence rate among its block of coordinates. Thus, it is enough to study the optimization in a one-dimensional case.</p>
+<p>For <span class="math inline">i</span>-th coordinate with <span class="math inline">\lambda_i</span> as an <span class="math inline">i</span>-th eigenvalue of matrix <span class="math inline">W</span> we have: <span class="math display">
+M_i = \begin{bmatrix}
+1 - \alpha \lambda_i + \beta &amp; -\beta \\
+1 &amp; 0
+\end{bmatrix}.
+</span> The method will be convergent if <span class="math inline">\rho(M) &lt; 1</span>, and the optimal parameters can be computed by optimizing the spectral radius <span class="math display">
+\alpha^*, \beta^* = \arg \min_{\alpha, \beta} \max_{i} \rho(M_i) \quad \alpha^* = \dfrac{4}{(\sqrt{L} + \sqrt{\mu})^2}; \quad \beta^* = \left(\dfrac{\sqrt{L} - \sqrt{\mu}}{\sqrt{L} + \sqrt{\mu}}\right)^2.
+</span> It can be shown, that for such parameters the matrix <span class="math inline">M</span> has complex eigenvalues, which forms a conjugate pair, so the distance to the optimum (in this case, <span class="math inline">\Vert z_k \Vert</span>), generally, will not go to zero monotonically.</p>
+</section>
+<section id="heavy-ball-quadratic-convergence" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="heavy-ball-quadratic-convergence"><span class="header-section-number">5</span> Heavy ball quadratic convergence</h2>
+<p>We can explicitly calculate the eigenvalues of <span class="math inline">M_i</span>: <span class="math display">
+\lambda^M_1, \lambda^M_2 = \lambda \left( \begin{bmatrix}
+1 - \alpha \lambda_i + \beta &amp; -\beta \\
+1 &amp; 0
+\end{bmatrix}\right) = \dfrac{1+\beta - \alpha \lambda_i \pm \sqrt{(1+\beta - \alpha\lambda_i)^2 - 4\beta}}{2}.
+</span> When <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> are optimal (<span class="math inline">\alpha^*, \beta^*</span>), the eigenvalues are complex-conjugated pair <span class="math inline">(1+\beta - \alpha\lambda_i)^2 - 4\beta \leq 0</span>, i.e.&nbsp;<span class="math inline">\beta \geq (1 - \sqrt{\alpha \lambda_i})^2</span>. <span class="math display">
+\text{Re}(\lambda^M) = \dfrac{L + \mu - 2\lambda_i}{(\sqrt{L} + \sqrt{\mu})^2}; \quad \text{Im}(\lambda^M) = \dfrac{\pm 2\sqrt{(L - \lambda_i)(\lambda_i - \mu)}}{(\sqrt{L} + \sqrt{\mu})^2}; \quad \vert \lambda^M \vert = \dfrac{L - \mu}{(\sqrt{L} + \sqrt{\mu})^2}.
+</span> And the convergence rate does not depend on the stepsize and equals to <span class="math inline">\sqrt{\beta^*}</span>.</p>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Example</span>Example
+<span class="screen-reader-only">Theorem</span>Theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div>
-<div class="callout-example">
-<ul>
-<li><span class="math inline">\mathbb{R}^n</span></li>
-<li>Affine sets, containing <span class="math inline">0</span></li>
-<li>Ray</li>
-<li><span class="math inline">\mathbf{S}^n_+</span> - the set of symmetric positive semi-definite matrices</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="related-definitions" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="related-definitions"><span class="header-section-number">3</span> Related definitions</h2>
-<section id="conic-combination" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="conic-combination"><span class="header-section-number">3.1</span> Conic combination</h3>
-<p>Let we have <span class="math inline">x_1, x_2, \ldots, x_k \in S</span>, then the point <span class="math inline">\theta_1 x_1 + \theta_2 x_2 + \ldots + \theta_k x_k</span> is called conic combination of <span class="math inline">x_1, x_2, \ldots, x_k</span> if <span class="math inline">\theta_i \ge 0</span>.</p>
-</section>
-<section id="conic-hull" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="conic-hull"><span class="header-section-number">3.2</span> Conic hull</h3>
-<p>The set of all conic combinations of points in set <span class="math inline">S</span> is called the conic hull of <span class="math inline">S</span>:</p>
-<p><span class="math display">
-\mathbf{cone}(S) = \left\{ \sum\limits_{i=1}^k\theta_i x_i \mid x_i \in S, \; \theta_i \ge 0\right\}
+<div class="callout-theorem">
+<p>Assume that <span class="math inline">f</span> is quadratic <span class="math inline">\mu</span>-strongly convex <span class="math inline">L</span>-smooth quadratics, then Heavy Ball method with parameters <span class="math display">
+\alpha = \dfrac{4}{(\sqrt{L} + \sqrt{\mu})^2}, \beta = \left(\dfrac{\sqrt{L} - \sqrt{\mu}}{\sqrt{L} + \sqrt{\mu}}\right)^2
 </span></p>
-<div id="fig-convex_hull" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-convex_hull-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="conic_hull.svg" class="img-fluid figure-img">
+<p>converges linearly:</p>
+<p><span class="math display">
+\|x_k - x^*\|_2 \leq \left( \dfrac{\sqrt{\kappa} - 1}{\sqrt{\kappa} + 1} \right)^k \|x_0 - x^*\|
+</span></p>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-convex_hull-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Illustration of a convex hull
-</figcaption>
-</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="heavy-ball-global-convergence" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="heavy-ball-global-convergence"><span class="header-section-number">6</span> Heavy Ball Global Convergence <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Assume that <span class="math inline">f</span> is smooth and convex and that</p>
+<p><span class="math display">
+\beta\in[0,1),\quad \alpha\in\biggl(0,\dfrac{2(1-\beta)}{L}\biggr).
+</span></p>
+<p>Then, the sequence <span class="math inline">\{x_k\}</span> generated by Heavy-ball iteration satisfies</p>
+<p><span class="math display">
+f(\overline{x}_T)-f^{\star} \leq  \begin{cases}
+\frac{\Vert x_{0}-x^\star\Vert^2}{2(T+1)}\biggl(\frac{L\beta}{1-\beta}+\frac{1-\beta}{\alpha}\biggr) &amp; \;\;\textup{if}\;\;
+\alpha\in\left(0,\dfrac{1-\beta}{L}\right],\\[0.5em]
+\frac{\Vert x_{0}-x^\star\Vert^2}{2(T+1)(2(1-\beta)-\alpha L)}\biggl({L\beta}+\frac{(1-\beta)^2}{\alpha}\biggr) &amp; \;\;\textup{if}\;\;
+\alpha\in\left[\dfrac{1-\beta}{L},\dfrac{2(1-\beta)}{L}\right),
+\end{cases}
+</span></p>
+<p>where <span class="math inline">\overline{x}_T</span> is the Cesaro average of the iterates, i.e.,</p>
+<p><span class="math display">
+\overline{x}_T = \frac{1}{T+1}\sum_{k=0}^T x_k.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Assume that <span class="math inline">f</span> is smooth and strongly convex and that</p>
+<p><span class="math display">
+\alpha\in\left(0,\dfrac{2}{L}\right),\quad 0\leq  \beta&lt;\dfrac{1}{2}\biggl( \dfrac{\mu \alpha}{2}+\sqrt{\dfrac{\mu^2\alpha^2}{4}+4(1-\frac{\alpha L}{2})} \biggr) .
+</span></p>
+<p>Then, the sequence <span class="math inline">\{x_k\}</span> generated by Heavy-ball iteration converges linearly to a unique optimizer <span class="math inline">x^\star</span>. In particular,</p>
+<p><span class="math display">
+f(x_{k})-f^\star \leq q^k (f(x_0)-f^\star),
+</span></p>
+<p>where <span class="math inline">q\in[0,1)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="heavy-ball-method-summary" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="heavy-ball-method-summary"><span class="header-section-number">7</span> Heavy ball method summary</h2>
+<ul>
+<li>Ensures accelerated convergence for strongly convex quadratic problems</li>
+<li>Local accelerated convergence was proved in the original paper.</li>
+<li>Recently <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> was proved, that there is no global accelerated convergence for the method.</li>
+<li>Method was not extremely popular until the ML boom</li>
+<li>Nowadays, it is de-facto standard for practical acceleration of gradient methods, even for the non-convex problems (neural network training)</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">📚 bibtex</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">polyak1964some</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>={Some methods of speeding up the convergence of iteration methods},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>={Ussr computational mathematics and mathematical physics},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">volume</span>={4},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">number</span>={5},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pages</span>={1--17},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>={1964},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span>={Elsevier}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://arxiv.org/abs/1412.7457">Global convergence of the Heavy-ball method for convex optimization, Euhanna Ghadimi et.al.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://arxiv.org/pdf/2307.11291">Provable non-accelerations of the heavy-ball method</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1300,4 +1483,4 @@ Figure&nbsp;3: Illustration of a convex hull
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/theory/convex sets/Conic_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/heavy_ball.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

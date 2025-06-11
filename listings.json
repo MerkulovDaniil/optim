@@ -40,6 +40,7 @@
     "listing": "/docs/methods/fom/index.html",
     "items": [
       "/docs/methods/fom/GD.html",
+      "/docs/methods/fom/heavy_ball.html",
       "/docs/methods/fom/Subgradient descent.html",
       "/docs/methods/fom/Projected_subgradient_descent.html",
       "/docs/methods/fom/Mirror_descent.html",
@@ -47,6 +48,15 @@
       "/docs/methods/fom/SAG.html",
       "/docs/methods/fom/ADAM.html",
       "/docs/methods/fom/Lookahead.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/adaptive_metrics/index.html",
+    "items": [
+      "/docs/methods/adaptive_metrics/Newton.html",
+      "/docs/methods/adaptive_metrics/Quasi_newton.html",
+      "/docs/methods/adaptive_metrics/CG.html",
+      "/docs/methods/adaptive_metrics/Natural_gradient.html"
     ]
   },
   {
@@ -68,18 +78,10 @@
     ]
   },
   {
-    "listing": "/docs/methods/adaptive_metrics/index.html",
-    "items": [
-      "/docs/methods/adaptive_metrics/Newton.html",
-      "/docs/methods/adaptive_metrics/Quasi_newton.html",
-      "/docs/methods/adaptive_metrics/CG.html",
-      "/docs/methods/adaptive_metrics/Natural_gradient.html"
-    ]
-  },
-  {
     "listing": "/docs/methods/index.html",
     "items": [
       "/docs/methods/fom/GD.html",
+      "/docs/methods/fom/heavy_ball.html",
       "/docs/methods/adaptive_metrics/Newton.html",
       "/docs/methods/adaptive_metrics/Quasi_newton.html",
       "/docs/methods/fom/Subgradient descent.html",
@@ -129,6 +131,7 @@
       "/docs/theory/Duality.html",
       "/docs/theory/Rates_of_convergence.html",
       "/docs/methods/fom/GD.html",
+      "/docs/methods/fom/heavy_ball.html",
       "/docs/methods/adaptive_metrics/Newton.html",
       "/docs/methods/adaptive_metrics/Quasi_newton.html",
       "/docs/methods/fom/Subgradient descent.html",

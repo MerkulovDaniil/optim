@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.17">
+<meta name="generator" content="quarto-1.8.14">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,14 +33,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-da03d714c310c60cec1d83284c92da2c.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-73dad83a12b098a6cdd5b814870bea6d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cf0cf7e4cedb4be356d5e075d93d0e7b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -322,6 +323,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../docs/methods/fom/heavy_ball.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heavy Ball Method</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -861,7 +868,7 @@ Figure&nbsp;1: Equivivalent representations of a vector
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -869,12 +876,12 @@ Question
 <div class="callout-question">
 <p>Is it correct that a positive semidefinite matrix has all non-negative positive entries?</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -901,7 +908,7 @@ A = \begin{pmatrix} 1 &amp; -1 \\ -1 &amp; 1 \end{pmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -909,12 +916,12 @@ Question
 <div class="callout-question">
 <p>Is it correct that a matrix should be positive definite if it is symmetric?</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -941,7 +948,7 @@ A = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -949,12 +956,12 @@ Question
 <div class="callout-question">
 <p>Is it correct, that if a matrix is positive definite it should be symmetric?</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -989,7 +996,7 @@ c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1020,7 +1027,7 @@ z_i = \sum_{k=1}^n a_{ik}x_k
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Simple yet important idea on matrix computations.
+<span class="screen-reader-only">Example</span>Simple yet important idea on matrix computations.
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1094,7 +1101,7 @@ Figure&nbsp;2: Balls in different norms on a plane
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1115,7 +1122,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1132,7 +1139,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1153,7 +1160,7 @@ Example
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1170,7 +1177,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1180,12 +1187,12 @@ Example
 \sum\limits_{i=1}^n \langle S^{-1} a_i, a_i \rangle,
 </span> where <span class="math inline">S = \sum\limits_{i=1}^n a_ia_i^T, a_i \in \mathbb{R}^n, \det(S) \neq 0</span></p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1232,7 +1239,7 @@ Aq = \lambda q.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1257,7 +1264,7 @@ A = \begin{bmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem
+<span class="screen-reader-only">Theorem</span>Theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1269,12 +1276,12 @@ A \succeq 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } \geq 0
 A \succ 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } &gt; 0
 </span></p>
 <div class="callout callout-style-default callout-proof no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Proof
+<span class="screen-reader-only">Proof</span>Proof
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1309,7 +1316,7 @@ x^T A x &amp;= (\alpha_1 v_1 + \ldots + \alpha_n v_n)^T A (\alpha_1 v_1 + \ldots
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1385,7 +1392,7 @@ A = \sum_{i=1}^{r} \sigma_i u_i v_i^T,
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1409,7 +1416,7 @@ B = U \Sigma V^T.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1420,12 +1427,12 @@ Example
 \|A\|_F^2 = \sum_{i=1}^{q} \sigma_i^2(A),
 </span> where <span class="math inline">\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0</span> are the singular values of matrix <span class="math inline">A</span>. Hint: use the connection between Frobenius norm and scalar product and SVD.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1453,7 +1460,7 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1461,12 +1468,12 @@ Question
 <div class="callout-question">
 <p>Suppose, matrix <span class="math inline">A \in \mathbb{S}^n_{++}</span>. What can we say about the connection between its eigenvalues and singular values?</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1492,7 +1499,7 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1500,12 +1507,12 @@ Question
 <div class="callout-question">
 <p>How do the singular values of a matrix relate to its eigenvalues, especially for a symmetric matrix?</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1549,7 +1556,7 @@ Figure&nbsp;5: Illustration of Skeleton decomposition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1587,7 +1594,7 @@ Figure&nbsp;6: Illustration of Canonical Polyadic decomposition
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1604,7 +1611,7 @@ Example
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1638,7 +1645,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1661,7 +1668,7 @@ C = \begin{bmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1678,7 +1685,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1711,7 +1718,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1734,7 +1741,7 @@ Example
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1764,7 +1771,7 @@ f''(x) = \nabla^2 f(x) = \dfrac{\partial^2 f}{\partial x_i \partial x_j} = \begi
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1787,7 +1794,7 @@ H_f(x, y) = \begin{bmatrix} 2 &amp; 0 \\
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1804,7 +1811,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Schwartz theorem
+<span class="screen-reader-only">Theorem</span>Schwartz theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1828,7 +1835,7 @@ Schwartz theorem
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Schwartz counterexample
+<span class="screen-reader-only">Example</span>Schwartz counterexample
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1866,7 +1873,7 @@ J_f = f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1895,7 +1902,7 @@ J_f(x, y) = \begin{bmatrix}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1912,7 +1919,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2003,7 +2010,7 @@ Figure&nbsp;7: First order Taylor approximation near the point <span class="math
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2046,7 +2053,7 @@ Figure&nbsp;8: Second order Taylor approximation near the point <span class="mat
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2054,12 +2061,12 @@ Example
 <div class="callout-example">
 <p>Calculate first and second order Taylor approximation of the function <span class="math inline">f(x) = \dfrac{1}{2}x^T A x - b^T x + c</span></p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2115,7 +2122,7 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Question
+<span class="screen-reader-only">Question</span>Question
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2146,7 +2153,7 @@ Question
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Theorem
+<span class="screen-reader-only">Theorem</span>Theorem
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2194,7 +2201,7 @@ d^2f(x) = \langle \nabla^2 f(x) dx_1, dx\rangle = \langle H_f(x) dx_1, dx\rangle
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2202,12 +2209,12 @@ Example
 <div class="callout-example">
 <p>Find <span class="math inline">\nabla^2 f(x)</span>, if <span class="math inline">f(x) = \langle Ax, x\rangle - \langle b, x\rangle + c</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2250,7 +2257,7 @@ d^2f &amp;= d\left(\langle (A+A^T)x - b, dx_1\rangle\right) \\
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2258,12 +2265,12 @@ Example
 <div class="callout-example">
 <p>Find <span class="math inline">df, \nabla f(x)</span>, if <span class="math inline">f(x) = \ln \langle x, Ax\rangle</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2297,7 +2304,7 @@ df = \left\langle  \dfrac{2 A x}{ \langle x, Ax\rangle} , dx\right\rangle
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2305,12 +2312,12 @@ Example
 <div class="callout-example">
 <p>Find <span class="math inline">df, \nabla f(X)</span>, if <span class="math inline">f(X) = \Vert AX - B\Vert_F</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2341,7 +2348,7 @@ df &amp;= d\left(\Vert AX - B\Vert_F\right) = d\left(\langle AX - B, AX - B \ran
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2349,12 +2356,12 @@ Example
 <div class="callout-example">
 <p>Find <span class="math inline">df, \nabla f(X)</span>, if <span class="math inline">f(X) = \langle S, X\rangle - \log \det X</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2379,7 +2386,7 @@ Solution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example
+<span class="screen-reader-only">Example</span>Example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -2387,12 +2394,12 @@ Example
 <div class="callout-example">
 <p>Find the gradient <span class="math inline">\nabla f(x)</span> and the Hessian <span class="math inline">\nabla^2f(x)</span>, if <span class="math inline">f(x) = \ln \left( 1 + \exp\langle a,x\rangle\right)</span></p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+<span class="screen-reader-only">Solution</span>Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
