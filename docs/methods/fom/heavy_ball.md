@@ -1,6 +1,6 @@
 ---
 title: Heavy Ball Method
-order: 1
+order: 2
 ---
 
 ## Oscillations and acceleration
@@ -142,6 +142,11 @@ $$
 \|x_k - x^*\|_2 \leq \left( \dfrac{\sqrt{\kappa} - 1}{\sqrt{\kappa} + 1} \right)^k \|x_0 - x^*\|
 $$
 
+:::
+
+
+:::{.plotly}
+heavy_ball_spectral_radius.html
 :::
 
 ## Heavy Ball Global Convergence ^[[Global convergence of the Heavy-ball method for convex optimization, Euhanna Ghadimi et.al.](https://arxiv.org/abs/1412.7457)]
