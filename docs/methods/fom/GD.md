@@ -109,6 +109,11 @@ $$
 
 which is exactly gradient descent.
 
+![Gradient flow trajectory](GD_vs_GF.svg){width=60%}
+
+[Open In Colab $\clubsuit$](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/GD_vs_GF.ipynb)
+
+
 ### Necessary local minimum condition
 
 $$
@@ -223,9 +228,98 @@ $$
 \nabla f(x_{k+1})^\top \nabla f(x_k) = 0
 $$
 
-### Goldstein-Armijo
+![Steepest Descent](GD_vs_Steepest.svg){width=60%}
+
+[Open In Colab $\clubsuit$](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Steepest_descent.ipynb)
 
 ## Convergence analysis
+
+### Strongly convex quadratics
+
+#### Coordinate shift
+
+Consider the following quadratic optimization problem:
+$$
+\min\limits_{x \in \mathbb{R}^d} f(x) =  \min\limits_{x \in \mathbb{R}^d} \dfrac{1}{2} x^\top  A x - b^\top  x + c, \text{ where }A \in \mathbb{S}^d_{++}.
+$$
+
+* Firstly, without loss of generality we can set $c = 0$, which will or affect optimization process.
+* Secondly, we have a spectral decomposition of the matrix $A = Q \Lambda Q^T$.
+* Let's show, that we can switch coordinates to make an analysis a little bit easier. Let $\hat{x} = Q^T(x - x^*)$, where $x^*$ is the minimum point of initial function, defined by $Ax^* = b$. At the same time $x = Q\hat{x} + x^*$.
+
+$$
+\begin{align*}
+f(\hat{x}) 
+&= \frac{1}{2} (Q\hat{x} + x^*)^\top A (Q\hat{x} + x^*) - b^\top (Q\hat{x} + x^*) \\
+&= \frac{1}{2} \hat{x}^\top Q^\top A Q \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - b^\top Q\hat{x} - b^\top x^* \\
+&= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - (x^*)^\top A^\top Q\hat{x} - (x^*)^\top A x^* \\
+&= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} - \frac{1}{2} (x^*)^\top A x^* \\
+&\simeq \frac{1}{2} \hat{x}^\top \Lambda \hat{x}
+\end{align*}
+$$
+
+
+<img src="coordinate_shift.svg" width="70%" style="display:block; margin:auto;">
+
+#### Convergence analysis
+
+Now we can work with the function $f(x) = \frac12 x^T \Lambda x$ with $x^* = 0$ without loss of generality (drop the hat from the $\hat{x}$)
+
+$$
+\begin{align*}
+x^{k+1} &= x^k - \alpha^k \nabla f(x^k) \\
+        &= x^k - \alpha^k \Lambda x^k \\
+        &= (I - \alpha^k \Lambda) x^k \\
+x^{k+1}_{(i)} &= (1 - \alpha^k \lambda_{(i)}) x^k_{(i)} \quad \text{(for $i$-th coordinate)} \\
+x^{k}_{(i)}   &= (1 - \alpha^k \lambda_{(i)})^k x^0_{(i)}
+\end{align*}
+$$
+
+Let's use constant stepsize $\alpha^k = \alpha$. Convergence condition:
+$$
+\rho(\alpha) = \max_{i} |1 - \alpha \lambda_{(i)}| < 1
+$$
+Remember, that $\lambda_{\text{min}} = \mu > 0, \lambda_{\text{max}} = L \geq \mu$.}
+
+$$
+\begin{align*}
+& |1 - \alpha L| < 1 \\
+& -1 < 1 - \alpha L < 1 \\
+& \alpha < \frac{2}{L} \quad \alpha L > 0
+\end{align*}
+$$
+
+$\alpha < \frac{2}{L}$ is needed for convergence.
+
+$$
+\begin{align*}
+\rho^* &=  \min_{\alpha} \rho(\alpha) = \min_{\alpha} \max_{i} |1 - \alpha \lambda_{(i)}| \\
+&=  \min_{\alpha} \left\{|1 - \alpha \mu|, |1 - \alpha L| \right\} \\
+\alpha^*: & \quad  1 - \alpha^* \mu = \alpha^* L - 1 \\
+& \alpha^* = \frac{2}{\mu + L} \quad \rho^* = \frac{L - \mu}{L + \mu} \\
+x^{k+1}_{(i)} &= \left( \frac{L - \mu}{L + \mu} \right)^k x^0_{(i)} \\
+\|x^{k+1}\|_2 &\leq \left( \frac{L - \mu}{L + \mu} \right)^k \|x^0\|_2 \\
+f(x^{k+1}) &\leq \left( \frac{L - \mu}{L + \mu} \right)^{2k} f(x^0)
+\end{align*}
+$$
+
+
+So, we have a linear convergence in the domain with rate $\frac{\varkappa - 1}{\varkappa + 1} = 1 - \frac{2}{\varkappa + 1}$, where $\varkappa = \frac{L}{\mu}$ is sometimes called *condition number* of the quadratic problem.
+
+| $\varkappa$ | $\rho$ | Iterations to decrease domain gap $10$ times | Iterations to decrease function gap $10$ times |
+|:-:|:-:|:-----------:|:-----------:|
+| $1.1$ | $0.05$ | $1$ | $1$ |
+| $2$ | $0.33$ | $3$ | $2$ |
+| $5$ | $0.67$ | $6$ | $3$ |
+| $10$ | $0.82$ | $12$ | $6$ |
+| $50$ | $0.96$ | $58$ | $29$ |
+| $100$ | $0.98$ | $116$ | $58$ |
+| $500$ | $0.996$ | $576$ | $288$ |
+| $1000$ | $0.998$ | $1152$ | $576$ |
+
+#### Condition number $\varkappa$
+
+[![](condition_number_gd.svg)](https://fmin.xyz/docs/visualizations/condition_number_gd.mp4){width=60%}
 
 ### Convex case
 
@@ -310,11 +404,196 @@ $$
 f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n
 $$
 
-...
+$$
+f(x^*) \geq f(x) + \nabla f(x)^\top (x^* - x) + \frac{\mu}{2}\|x^* - x\|^2
+$$
+
+$$
+f(x^*) \leq f(x)
+$$
+
+$$
+\nabla f(x)^\top (x - x^*) \geq f(x) - f(x^*) + \frac{\mu}{2}\|x - x^*\|^2
+$$
+
+Since $\nabla f$ Lipschitz with constant $L$ and we proved that 
+
+$$
+f(x_{k}) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2 
+$$
+
+We get
+
+$$
+f(x_k) - f(x^*) \geq f(x_k) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2 
+$$
+
+$$
+\nabla f(x_k)^\top (x_k - x^*) \geq \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \quad (1)
+$$
+
+Then we break down $\|x_{k+1} - x^*\|^2$
+
+$$
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &= \|(x_k - \eta \nabla f(x_k)) - x^*\|^2 \\
+&= \|(x_k - x^*) - \eta \nabla f(x_k)\|^2 \\
+\end{align*}
+$$
+
+Using $\|a-b\|^2 = \|a\|^2 - 2a^\top b + \|b\|^2$:
+
+$$
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &= \|x_k - x^*\|^2 - 2\eta \nabla f(x_k)^\top (x_k - x^*) + \eta^2 \|\nabla f(x_k)\|^2 \quad (2)
+\end{align*}
+$$
+
+Multipling by $-2\eta$ inequality (1):
+
+$$
+-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -2\eta \left( \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \right)
+$$
+
+$$
+-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -\frac{\eta}{L}\|\nabla f(x_k)\|^2 - \eta\mu\|x_k - x^*\|^2
+$$
+
+And then plug into (2):
+
+$$
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &\leq \|x_k - x^*\|^2 - \left(\frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta\mu\|x_k - x^*\|^2\right) + \eta^2 \|\nabla f(x_k)\|^2 \\
+&= \|x_k - x^*\|^2 - \eta\mu\|x_k - x^*\|^2 - \frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta^2 \|\nabla f(x_k)\|^2 \\
+&= (1 - \eta\mu)\|x_k - x^*\|^2 - \eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2
+\end{align*}
+$$
+
+Since we choose $\eta \leq \frac{1}{L}$
+$$
+\frac{1}{L} - \eta \geq 0
+$$
+
+$$
+-\eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2 \leq 0
+$$
+
+So, we can drop it and get:
+
 
 $$
 \|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
 $$
+
+
+### Polyak-Lojasiewicz smooth case
+
+#### Polyak-Lojasiewicz condition. Linear convergence of gradient descent without convexity
+
+PL inequality holds if the following condition is satisfied for some $\mu > 0$,
+$$
+\Vert \nabla f(x) \Vert^2 \geq 2 \mu (f(x) - f^*) \quad \forall x
+$$
+It is interesting, that the Gradient Descent algorithm might converge linearly even without convexity.
+
+The following functions satisfy the PL condition but are not convex. [\faPython Link to the code](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PL_function.ipynb)
+
+
+$$
+f(x) = x^2 + 3\sin^2(x)
+$$
+
+![PL function](pl_2d.svg){width=65%}
+
+
+$$
+f(x,y) = \dfrac{(y - \sin x)^2}{2}
+$$
+
+![PL function](pl_3d.svg){width=80%}
+
+#### Convergence analysis
+
+:::{.callout-theorem}
+Consider the Problem 
+
+$$
+f(x) \to \min_{x \in \mathbb{R}^d}
+$$
+
+and assume that $f$ is $\mu$-Polyak-Lojasiewicz and $L$-smooth, for some $L\geq \mu >0$.
+
+Consider $(x^k)_{k \in \mathbb{N}}$ a sequence generated by the gradient descent constant stepsize algorithm, with a stepsize satisfying $0<\alpha \leq \frac{1}{L}$. Then:
+
+$$
+f(x^{k})-f^* \leq (1-\alpha \mu)^k (f(x^0)-f^*).
+$$
+:::
+
+We can use $L$-smoothness, together with the update rule of the algorithm, to write
+
+$$
+\begin{split}
+f(x^{k+1}) &\leq f(x^{k}) + \langle \nabla f(x^{k}), x^{k+1}-x^{k} \rangle +\frac{L}{2} \| x^{k+1}-x^{k}\|^2\\
+&= f(x^{k})-\alpha\Vert \nabla f(x^{k}) \Vert^2 +\frac{L \alpha^2}{2} \| \nabla f(x^{k})\|^2 \\
+&= f(x^{k}) - \frac{\alpha}{2} \left(2 - L \alpha \right)\Vert \nabla f(x^{k}) \Vert^2 \\
+& \leq f(x^{k}) - \frac{\alpha}{2}\Vert \nabla f(x^{k})\Vert^2,
+\end{split}
+$$
+
+
+where in the last inequality we used our hypothesis on the stepsize that $\alpha L \leq 1$.
+
+We can now use the Polyak-Lojasiewicz property to write:
+
+$$
+f(x^{k+1}) \leq f(x^{k}) - \alpha \mu (f(x^{k}) - f^*).
+$$
+
+The conclusion follows after subtracting $f^*$ on both sides of this inequality and using recursion.
+
+#### Any $\mu$-strongly convex differentiable function is a PL-function
+
+:::{.callout-theorem}
+If a function $f(x)$ is differentiable and $\mu$-strongly convex, then it is a PL function.
+:::
+
+**Proof**
+
+By first order strong convexity criterion:
+$$
+f(y) \geq f(x) + \nabla f(x)^T(y-x) + \dfrac{\mu}{2}\|y-x\|_2^2
+$$
+Putting $y = x^*$:
+$$
+\begin{split}
+f(x^*) &\geq f(x) + \nabla f(x)^T(x^*-x) + \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
+f(x) - f(x^*) &\leq \nabla f(x)^T(x-x^*) - \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
+&= \left(\nabla f(x)^T - \dfrac{\mu}{2}(x^*-x)\right)^T (x-x^*) \\
+&= \frac12 \left(\frac{2}{\sqrt{\mu}}\nabla f(x)^T - \sqrt{\mu}(x^*-x)\right)^T \sqrt{\mu}(x-x^*)
+\end{split}
+$$
+
+Let $a = \frac{1}{\sqrt{\mu}}\nabla f(x)$ and $b =\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)$ 
+
+Then $a+b = \sqrt{\mu}(x-x^*)$ and $a-b=\frac{2}{\sqrt{\mu}}\nabla f(x)-\sqrt{\mu}(x-x^*)$, which leads to
+
+$$
+\begin{split}
+f(x) - f(x^*) &\leq \frac12 \left(\frac{1}{\mu}\|\nabla f(x)\|^2_2 - \left\|\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)\right\|_2^2\right) \\
+f(x) - f(x^*) &\leq \frac{1}{2\mu}\|\nabla f(x)\|^2_2,
+\end{split}
+$$
+
+<!-- which is exactly the PL condition. It means, that we already have linear convergence proof for any strongly convex function.
+
+### $\mu$-strongly convex differentiable case
+
+We have already proved that $\mu$-strongly convex differentiable function is PL, but how to prove linear argument convergence? -->
+
+
+
+
 ## Bounds
 
 | Conditions | $\Vert f(x_k) - f(x^*)\Vert \leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
@@ -323,9 +602,105 @@ $$
 | Convex<br/>Lipschitz-continuous gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
 | $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
 | $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
+| $f$ is $\mu$-Polyak-Lojasiewicz and Lipschitz-continuous gradient($L$) | $\mathcal{O}\left((1 - \frac{\mu}{L})^k \right) \;$ | Linear |  |
 
 * $R = \| x_0 - x^*\|$ - initial distance
 * $\overline{R} = \dfrac{2\mu}{M}$
+
+## Numerical experiments 
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_random_0.001_100_60.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_random_10_100_60.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_random_10_1000_60.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_clustered_10_1000_60.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_clustered_10_1000_600.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_uniform spectrum_1_100_60.svg)
+
+\\
+
+$$
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+$$
+
+
+![](gd_Hilbert_1_10_60.svg)
+
+\\
+
+
+$$
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](GD 0.07GD 0.9GD 10.0_0.svg){fig-align="center" width=95%}
+
+\\
+
+
+$$
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](GD 0.12GD 0.14GD 0.15_0.1.svg){fig-align="center" width=95%}
+
+\\
+
+
+$$
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_non_linear_1000_300_0_None.svg)
+
+\\
+
+
+$$
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+$$
+
+![](gd_non_linear_1000_300_1_None.svg)
+
+
 
 ## Materials
 
