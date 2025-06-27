@@ -125,10 +125,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Gradient descent">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fmin.xyz/docs/methods/fom/lipschitz_parabola.svg">
+<meta property="og:image" content="https://fmin.xyz/docs/methods/fom/GD_vs_GF.svg">
 <meta name="twitter:title" content="Gradient descent">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://fmin.xyz/docs/methods/fom/lipschitz_parabola.svg">
+<meta name="twitter:image" content="https://fmin.xyz/docs/methods/fom/GD_vs_GF.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -820,14 +820,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#constant-stepsize" id="toc-constant-stepsize" class="nav-link" data-scroll-target="#constant-stepsize"><span class="header-section-number">3.1</span> Constant stepsize</a></li>
   <li><a href="#fixed-sequence" id="toc-fixed-sequence" class="nav-link" data-scroll-target="#fixed-sequence"><span class="header-section-number">3.2</span> Fixed sequence</a></li>
   <li><a href="#exact-line-search-aka-steepest-descent" id="toc-exact-line-search-aka-steepest-descent" class="nav-link" data-scroll-target="#exact-line-search-aka-steepest-descent"><span class="header-section-number">3.3</span> Exact line search aka steepest descent</a></li>
-  <li><a href="#goldstein-armijo" id="toc-goldstein-armijo" class="nav-link" data-scroll-target="#goldstein-armijo"><span class="header-section-number">3.4</span> Goldstein-Armijo</a></li>
   </ul></li>
   <li><a href="#convergence-analysis" id="toc-convergence-analysis" class="nav-link" data-scroll-target="#convergence-analysis"><span class="header-section-number">4</span> Convergence analysis</a>
   <ul class="collapse">
-  <li><a href="#convex-case" id="toc-convex-case" class="nav-link" data-scroll-target="#convex-case"><span class="header-section-number">4.1</span> Convex case</a></li>
-  <li><a href="#strongly-convex-case" id="toc-strongly-convex-case" class="nav-link" data-scroll-target="#strongly-convex-case"><span class="header-section-number">4.2</span> Strongly convex case</a></li>
+  <li><a href="#strongly-convex-quadratics" id="toc-strongly-convex-quadratics" class="nav-link" data-scroll-target="#strongly-convex-quadratics"><span class="header-section-number">4.1</span> Strongly convex quadratics</a></li>
+  <li><a href="#convex-case" id="toc-convex-case" class="nav-link" data-scroll-target="#convex-case"><span class="header-section-number">4.2</span> Convex case</a></li>
+  <li><a href="#strongly-convex-case" id="toc-strongly-convex-case" class="nav-link" data-scroll-target="#strongly-convex-case"><span class="header-section-number">4.3</span> Strongly convex case</a></li>
+  <li><a href="#polyak-lojasiewicz-smooth-case" id="toc-polyak-lojasiewicz-smooth-case" class="nav-link" data-scroll-target="#polyak-lojasiewicz-smooth-case"><span class="header-section-number">4.4</span> Polyak-Lojasiewicz smooth case</a></li>
   </ul></li>
-  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">5</span> Materials</a></li>
+  <li><a href="#bounds" id="toc-bounds" class="nav-link" data-scroll-target="#bounds"><span class="header-section-number">5</span> Bounds</a></li>
+  <li><a href="#numerical-experiments" id="toc-numerical-experiments" class="nav-link" data-scroll-target="#numerical-experiments"><span class="header-section-number">6</span> Numerical experiments</a></li>
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials"><span class="header-section-number">7</span> Materials</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/GD.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -943,6 +946,13 @@ x_{k+1} = x_k - \eta f'(x_k)
 x_{k+1} = x_k - \eta f'(x_k),
 </span></p>
 <p>which is exactly gradient descent.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GD_vs_GF.svg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Gradient flow trajectory</figcaption>
+</figure>
+</div>
+<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/GD_vs_GF.ipynb">Open In Colab <span class="math inline">\clubsuit</span></a></p>
 </section>
 <section id="necessary-local-minimum-condition" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="necessary-local-minimum-condition"><span class="header-section-number">2.3</span> Necessary local minimum condition</h3>
@@ -1037,17 +1047,152 @@ f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 <p><span class="math display">
 \nabla f(x_{k+1})^\top \nabla f(x_k) = 0
 </span></p>
-</section>
-<section id="goldstein-armijo" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="goldstein-armijo"><span class="header-section-number">3.4</span> Goldstein-Armijo</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GD_vs_Steepest.svg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Steepest Descent</figcaption>
+</figure>
+</div>
+<p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Steepest_descent.ipynb">Open In Colab <span class="math inline">\clubsuit</span></a></p>
 </section>
 </section>
 <section id="convergence-analysis" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="convergence-analysis"><span class="header-section-number">4</span> Convergence analysis</h2>
-<section id="convex-case" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">4.1</span> Convex case</h3>
-<section id="lipischitz-continuity-of-the-gradient" class="level4" data-number="4.1.1">
-<h4 data-number="4.1.1" class="anchored" data-anchor-id="lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.1.1</span> Lipischitz continuity of the gradient</h4>
+<section id="strongly-convex-quadratics" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="strongly-convex-quadratics"><span class="header-section-number">4.1</span> Strongly convex quadratics</h3>
+<section id="coordinate-shift" class="level4" data-number="4.1.1">
+<h4 data-number="4.1.1" class="anchored" data-anchor-id="coordinate-shift"><span class="header-section-number">4.1.1</span> Coordinate shift</h4>
+<p>Consider the following quadratic optimization problem: <span class="math display">
+\min\limits_{x \in \mathbb{R}^d} f(x) =  \min\limits_{x \in \mathbb{R}^d} \dfrac{1}{2} x^\top  A x - b^\top  x + c, \text{ where }A \in \mathbb{S}^d_{++}.
+</span></p>
+<ul>
+<li>Firstly, without loss of generality we can set <span class="math inline">c = 0</span>, which will or affect optimization process.</li>
+<li>Secondly, we have a spectral decomposition of the matrix <span class="math inline">A = Q \Lambda Q^T</span>.</li>
+<li>Let’s show, that we can switch coordinates to make an analysis a little bit easier. Let <span class="math inline">\hat{x} = Q^T(x - x^*)</span>, where <span class="math inline">x^*</span> is the minimum point of initial function, defined by <span class="math inline">Ax^* = b</span>. At the same time <span class="math inline">x = Q\hat{x} + x^*</span>.</li>
+</ul>
+<p><span class="math display">
+\begin{align*}
+f(\hat{x})
+&amp;= \frac{1}{2} (Q\hat{x} + x^*)^\top A (Q\hat{x} + x^*) - b^\top (Q\hat{x} + x^*) \\
+&amp;= \frac{1}{2} \hat{x}^\top Q^\top A Q \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - b^\top Q\hat{x} - b^\top x^* \\
+&amp;= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - (x^*)^\top A^\top Q\hat{x} - (x^*)^\top A x^* \\
+&amp;= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} - \frac{1}{2} (x^*)^\top A x^* \\
+&amp;\simeq \frac{1}{2} \hat{x}^\top \Lambda \hat{x}
+\end{align*}
+</span></p>
+<p><img src="coordinate_shift.svg" width="70%" style="display:block; margin:auto;"></p>
+</section>
+<section id="convergence-analysis-1" class="level4" data-number="4.1.2">
+<h4 data-number="4.1.2" class="anchored" data-anchor-id="convergence-analysis-1"><span class="header-section-number">4.1.2</span> Convergence analysis</h4>
+<p>Now we can work with the function <span class="math inline">f(x) = \frac12 x^T \Lambda x</span> with <span class="math inline">x^* = 0</span> without loss of generality (drop the hat from the <span class="math inline">\hat{x}</span>)</p>
+<p><span class="math display">
+\begin{align*}
+x^{k+1} &amp;= x^k - \alpha^k \nabla f(x^k) \\
+        &amp;= x^k - \alpha^k \Lambda x^k \\
+        &amp;= (I - \alpha^k \Lambda) x^k \\
+x^{k+1}_{(i)} &amp;= (1 - \alpha^k \lambda_{(i)}) x^k_{(i)} \quad \text{(for $i$-th coordinate)} \\
+x^{k}_{(i)}   &amp;= (1 - \alpha^k \lambda_{(i)})^k x^0_{(i)}
+\end{align*}
+</span></p>
+<p>Let’s use constant stepsize <span class="math inline">\alpha^k = \alpha</span>. Convergence condition: <span class="math display">
+\rho(\alpha) = \max_{i} |1 - \alpha \lambda_{(i)}| &lt; 1
+</span> Remember, that <span class="math inline">\lambda_{\text{min}} = \mu &gt; 0, \lambda_{\text{max}} = L \geq \mu</span>.}</p>
+<p><span class="math display">
+\begin{align*}
+&amp; |1 - \alpha L| &lt; 1 \\
+&amp; -1 &lt; 1 - \alpha L &lt; 1 \\
+&amp; \alpha &lt; \frac{2}{L} \quad \alpha L &gt; 0
+\end{align*}
+</span></p>
+<p><span class="math inline">\alpha &lt; \frac{2}{L}</span> is needed for convergence.</p>
+<p><span class="math display">
+\begin{align*}
+\rho^* &amp;=  \min_{\alpha} \rho(\alpha) = \min_{\alpha} \max_{i} |1 - \alpha \lambda_{(i)}| \\
+&amp;=  \min_{\alpha} \left\{|1 - \alpha \mu|, |1 - \alpha L| \right\} \\
+\alpha^*: &amp; \quad  1 - \alpha^* \mu = \alpha^* L - 1 \\
+&amp; \alpha^* = \frac{2}{\mu + L} \quad \rho^* = \frac{L - \mu}{L + \mu} \\
+x^{k+1}_{(i)} &amp;= \left( \frac{L - \mu}{L + \mu} \right)^k x^0_{(i)} \\
+\|x^{k+1}\|_2 &amp;\leq \left( \frac{L - \mu}{L + \mu} \right)^k \|x^0\|_2 \\
+f(x^{k+1}) &amp;\leq \left( \frac{L - \mu}{L + \mu} \right)^{2k} f(x^0)
+\end{align*}
+</span></p>
+<p>So, we have a linear convergence in the domain with rate <span class="math inline">\frac{\varkappa - 1}{\varkappa + 1} = 1 - \frac{2}{\varkappa + 1}</span>, where <span class="math inline">\varkappa = \frac{L}{\mu}</span> is sometimes called <em>condition number</em> of the quadratic problem.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\varkappa</span></th>
+<th style="text-align: center;"><span class="math inline">\rho</span></th>
+<th style="text-align: center;">Iterations to decrease domain gap <span class="math inline">10</span> times</th>
+<th style="text-align: center;">Iterations to decrease function gap <span class="math inline">10</span> times</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">1.1</span></td>
+<td style="text-align: center;"><span class="math inline">0.05</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">2</span></td>
+<td style="text-align: center;"><span class="math inline">0.33</span></td>
+<td style="text-align: center;"><span class="math inline">3</span></td>
+<td style="text-align: center;"><span class="math inline">2</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">5</span></td>
+<td style="text-align: center;"><span class="math inline">0.67</span></td>
+<td style="text-align: center;"><span class="math inline">6</span></td>
+<td style="text-align: center;"><span class="math inline">3</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">10</span></td>
+<td style="text-align: center;"><span class="math inline">0.82</span></td>
+<td style="text-align: center;"><span class="math inline">12</span></td>
+<td style="text-align: center;"><span class="math inline">6</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">50</span></td>
+<td style="text-align: center;"><span class="math inline">0.96</span></td>
+<td style="text-align: center;"><span class="math inline">58</span></td>
+<td style="text-align: center;"><span class="math inline">29</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">100</span></td>
+<td style="text-align: center;"><span class="math inline">0.98</span></td>
+<td style="text-align: center;"><span class="math inline">116</span></td>
+<td style="text-align: center;"><span class="math inline">58</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">500</span></td>
+<td style="text-align: center;"><span class="math inline">0.996</span></td>
+<td style="text-align: center;"><span class="math inline">576</span></td>
+<td style="text-align: center;"><span class="math inline">288</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">1000</span></td>
+<td style="text-align: center;"><span class="math inline">0.998</span></td>
+<td style="text-align: center;"><span class="math inline">1152</span></td>
+<td style="text-align: center;"><span class="math inline">576</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="condition-number-varkappa" class="level4" data-number="4.1.3">
+<h4 data-number="4.1.3" class="anchored" data-anchor-id="condition-number-varkappa"><span class="header-section-number">4.1.3</span> Condition number <span class="math inline">\varkappa</span></h4>
+<p><a href="https://fmin.xyz/docs/visualizations/condition_number_gd.mp4" width="60%"><img src="condition_number_gd.svg" class="img-fluid"></a></p>
+</section>
+</section>
+<section id="convex-case" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">4.2</span> Convex case</h3>
+<section id="lipischitz-continuity-of-the-gradient" class="level4" data-number="4.2.1">
+<h4 data-number="4.2.1" class="anchored" data-anchor-id="lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.2.1</span> Lipischitz continuity of the gradient</h4>
 <p>Assume that <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is convex and differentiable, and additionally <span class="math display">
 \|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
 </span></p>
@@ -1074,15 +1219,15 @@ f(x_{k+1}) &amp;\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{
 \end{align*}
 </span></p>
 </section>
-<section id="optimal-constant-stepsize" class="level4" data-number="4.1.2">
-<h4 data-number="4.1.2" class="anchored" data-anchor-id="optimal-constant-stepsize"><span class="header-section-number">4.1.2</span> Optimal constant stepsize</h4>
+<section id="optimal-constant-stepsize" class="level4" data-number="4.2.2">
+<h4 data-number="4.2.2" class="anchored" data-anchor-id="optimal-constant-stepsize"><span class="header-section-number">4.2.2</span> Optimal constant stepsize</h4>
 <p>Now, if we’ll consider constant stepsize strategy and will maximize <span class="math inline">\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}</span>, we’ll get <span class="math inline">\eta = \dfrac{1}{L}</span>.</p>
 <p><span class="math display">
 f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 </span></p>
 </section>
-<section id="convexity" class="level4" data-number="4.1.3">
-<h4 data-number="4.1.3" class="anchored" data-anchor-id="convexity"><span class="header-section-number">4.1.3</span> Convexity</h4>
+<section id="convexity" class="level4" data-number="4.2.3">
+<h4 data-number="4.2.3" class="anchored" data-anchor-id="convexity"><span class="header-section-number">4.2.3</span> Convexity</h4>
 <p><span class="math display">
 f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*)
 </span></p>
@@ -1107,16 +1252,189 @@ f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfr
 </span></p>
 </section>
 </section>
-<section id="strongly-convex-case" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="strongly-convex-case"><span class="header-section-number">4.2</span> Strongly convex case</h3>
+<section id="strongly-convex-case" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="strongly-convex-case"><span class="header-section-number">4.3</span> Strongly convex case</h3>
 <p>If the function is strongly convex:</p>
 <p><span class="math display">
 f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n
 </span></p>
-<p>…</p>
+<p><span class="math display">
+f(x^*) \geq f(x) + \nabla f(x)^\top (x^* - x) + \frac{\mu}{2}\|x^* - x\|^2
+</span></p>
+<p><span class="math display">
+f(x^*) \leq f(x)
+</span></p>
+<p><span class="math display">
+\nabla f(x)^\top (x - x^*) \geq f(x) - f(x^*) + \frac{\mu}{2}\|x - x^*\|^2
+</span></p>
+<p>Since <span class="math inline">\nabla f</span> Lipschitz with constant <span class="math inline">L</span> and we proved that</p>
+<p><span class="math display">
+f(x_{k}) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2
+</span></p>
+<p>We get</p>
+<p><span class="math display">
+f(x_k) - f(x^*) \geq f(x_k) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2
+</span></p>
+<p><span class="math display">
+\nabla f(x_k)^\top (x_k - x^*) \geq \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \quad (1)
+</span></p>
+<p>Then we break down <span class="math inline">\|x_{k+1} - x^*\|^2</span></p>
+<p><span class="math display">
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &amp;= \|(x_k - \eta \nabla f(x_k)) - x^*\|^2 \\
+&amp;= \|(x_k - x^*) - \eta \nabla f(x_k)\|^2 \\
+\end{align*}
+</span></p>
+<p>Using <span class="math inline">\|a-b\|^2 = \|a\|^2 - 2a^\top b + \|b\|^2</span>:</p>
+<p><span class="math display">
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &amp;= \|x_k - x^*\|^2 - 2\eta \nabla f(x_k)^\top (x_k - x^*) + \eta^2 \|\nabla f(x_k)\|^2 \quad (2)
+\end{align*}
+</span></p>
+<p>Multipling by <span class="math inline">-2\eta</span> inequality (1):</p>
+<p><span class="math display">
+-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -2\eta \left( \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \right)
+</span></p>
+<p><span class="math display">
+-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -\frac{\eta}{L}\|\nabla f(x_k)\|^2 - \eta\mu\|x_k - x^*\|^2
+</span></p>
+<p>And then plug into (2):</p>
+<p><span class="math display">
+\begin{align*}
+\|x_{k+1} - x^*\|^2 &amp;\leq \|x_k - x^*\|^2 - \left(\frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta\mu\|x_k - x^*\|^2\right) + \eta^2 \|\nabla f(x_k)\|^2 \\
+&amp;= \|x_k - x^*\|^2 - \eta\mu\|x_k - x^*\|^2 - \frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta^2 \|\nabla f(x_k)\|^2 \\
+&amp;= (1 - \eta\mu)\|x_k - x^*\|^2 - \eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2
+\end{align*}
+</span></p>
+<p>Since we choose <span class="math inline">\eta \leq \frac{1}{L}</span> <span class="math display">
+\frac{1}{L} - \eta \geq 0
+</span></p>
+<p><span class="math display">
+-\eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2 \leq 0
+</span></p>
+<p>So, we can drop it and get:</p>
 <p><span class="math display">
 \|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
-</span> ## Bounds</p>
+</span></p>
+</section>
+<section id="polyak-lojasiewicz-smooth-case" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="polyak-lojasiewicz-smooth-case"><span class="header-section-number">4.4</span> Polyak-Lojasiewicz smooth case</h3>
+<section id="polyak-lojasiewicz-condition.-linear-convergence-of-gradient-descent-without-convexity" class="level4" data-number="4.4.1">
+<h4 data-number="4.4.1" class="anchored" data-anchor-id="polyak-lojasiewicz-condition.-linear-convergence-of-gradient-descent-without-convexity"><span class="header-section-number">4.4.1</span> Polyak-Lojasiewicz condition. Linear convergence of gradient descent without convexity</h4>
+<p>PL inequality holds if the following condition is satisfied for some <span class="math inline">\mu &gt; 0</span>, <span class="math display">
+\Vert \nabla f(x) \Vert^2 \geq 2 \mu (f(x) - f^*) \quad \forall x
+</span> It is interesting, that the Gradient Descent algorithm might converge linearly even without convexity.</p>
+<p>The following functions satisfy the PL condition but are not convex. <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PL_function.ipynb">Link to the code</a></p>
+<p><span class="math display">
+f(x) = x^2 + 3\sin^2(x)
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pl_2d.svg" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>PL function</figcaption>
+</figure>
+</div>
+<p><span class="math display">
+f(x,y) = \dfrac{(y - \sin x)^2}{2}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="pl_3d.svg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>PL function</figcaption>
+</figure>
+</div>
+</section>
+<section id="convergence-analysis-2" class="level4" data-number="4.4.2">
+<h4 data-number="4.4.2" class="anchored" data-anchor-id="convergence-analysis-2"><span class="header-section-number">4.4.2</span> Convergence analysis</h4>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Consider the Problem</p>
+<p><span class="math display">
+f(x) \to \min_{x \in \mathbb{R}^d}
+</span></p>
+<p>and assume that <span class="math inline">f</span> is <span class="math inline">\mu</span>-Polyak-Lojasiewicz and <span class="math inline">L</span>-smooth, for some <span class="math inline">L\geq \mu &gt;0</span>.</p>
+<p>Consider <span class="math inline">(x^k)_{k \in \mathbb{N}}</span> a sequence generated by the gradient descent constant stepsize algorithm, with a stepsize satisfying <span class="math inline">0&lt;\alpha \leq \frac{1}{L}</span>. Then:</p>
+<p><span class="math display">
+f(x^{k})-f^* \leq (1-\alpha \mu)^k (f(x^0)-f^*).
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>We can use <span class="math inline">L</span>-smoothness, together with the update rule of the algorithm, to write</p>
+<p><span class="math display">
+\begin{split}
+f(x^{k+1}) &amp;\leq f(x^{k}) + \langle \nabla f(x^{k}), x^{k+1}-x^{k} \rangle +\frac{L}{2} \| x^{k+1}-x^{k}\|^2\\
+&amp;= f(x^{k})-\alpha\Vert \nabla f(x^{k}) \Vert^2 +\frac{L \alpha^2}{2} \| \nabla f(x^{k})\|^2 \\
+&amp;= f(x^{k}) - \frac{\alpha}{2} \left(2 - L \alpha \right)\Vert \nabla f(x^{k}) \Vert^2 \\
+&amp; \leq f(x^{k}) - \frac{\alpha}{2}\Vert \nabla f(x^{k})\Vert^2,
+\end{split}
+</span></p>
+<p>where in the last inequality we used our hypothesis on the stepsize that <span class="math inline">\alpha L \leq 1</span>.</p>
+<p>We can now use the Polyak-Lojasiewicz property to write:</p>
+<p><span class="math display">
+f(x^{k+1}) \leq f(x^{k}) - \alpha \mu (f(x^{k}) - f^*).
+</span></p>
+<p>The conclusion follows after subtracting <span class="math inline">f^*</span> on both sides of this inequality and using recursion.</p>
+</section>
+<section id="any-mu-strongly-convex-differentiable-function-is-a-pl-function" class="level4" data-number="4.4.3">
+<h4 data-number="4.4.3" class="anchored" data-anchor-id="any-mu-strongly-convex-differentiable-function-is-a-pl-function"><span class="header-section-number">4.4.3</span> Any <span class="math inline">\mu</span>-strongly convex differentiable function is a PL-function</h4>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>If a function <span class="math inline">f(x)</span> is differentiable and <span class="math inline">\mu</span>-strongly convex, then it is a PL function.</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<p>By first order strong convexity criterion: <span class="math display">
+f(y) \geq f(x) + \nabla f(x)^T(y-x) + \dfrac{\mu}{2}\|y-x\|_2^2
+</span> Putting <span class="math inline">y = x^*</span>: <span class="math display">
+\begin{split}
+f(x^*) &amp;\geq f(x) + \nabla f(x)^T(x^*-x) + \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
+f(x) - f(x^*) &amp;\leq \nabla f(x)^T(x-x^*) - \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
+&amp;= \left(\nabla f(x)^T - \dfrac{\mu}{2}(x^*-x)\right)^T (x-x^*) \\
+&amp;= \frac12 \left(\frac{2}{\sqrt{\mu}}\nabla f(x)^T - \sqrt{\mu}(x^*-x)\right)^T \sqrt{\mu}(x-x^*)
+\end{split}
+</span></p>
+<p>Let <span class="math inline">a = \frac{1}{\sqrt{\mu}}\nabla f(x)</span> and <span class="math inline">b =\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)</span></p>
+<p>Then <span class="math inline">a+b = \sqrt{\mu}(x-x^*)</span> and <span class="math inline">a-b=\frac{2}{\sqrt{\mu}}\nabla f(x)-\sqrt{\mu}(x-x^*)</span>, which leads to</p>
+<p><span class="math display">
+\begin{split}
+f(x) - f(x^*) &amp;\leq \frac12 \left(\frac{1}{\mu}\|\nabla f(x)\|^2_2 - \left\|\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)\right\|_2^2\right) \\
+f(x) - f(x^*) &amp;\leq \frac{1}{2\mu}\|\nabla f(x)\|^2_2,
+\end{split}
+</span></p>
+<!-- which is exactly the PL condition. It means, that we already have linear convergence proof for any strongly convex function.
+
+### $\mu$-strongly convex differentiable case
+
+We have already proved that $\mu$-strongly convex differentiable function is PL, but how to prove linear argument convergence? -->
+</section>
+</section>
+</section>
+<section id="bounds" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="bounds"><span class="header-section-number">5</span> Bounds</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
@@ -1157,6 +1475,12 @@ f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \f
 <td>Locally linear<br> <span class="math inline">R &lt; \overline{R}</span></td>
 <td><span class="math inline">\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)</span></td>
 </tr>
+<tr class="odd">
+<td><span class="math inline">f</span> is <span class="math inline">\mu</span>-Polyak-Lojasiewicz and Lipschitz-continuous gradient(<span class="math inline">L</span>)</td>
+<td><span class="math inline">\mathcal{O}\left((1 - \frac{\mu}{L})^k \right) \;</span></td>
+<td>Linear</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -1164,9 +1488,73 @@ f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \f
 <li><span class="math inline">\overline{R} = \dfrac{2\mu}{M}</span></li>
 </ul>
 </section>
+<section id="numerical-experiments" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="numerical-experiments"><span class="header-section-number">6</span> Numerical experiments</h2>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_random_0.001_100_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_random_10_100_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_random_10_1000_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_clustered_10_1000_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_clustered_10_1000_600.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_uniform spectrum_1_100_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_Hilbert_1_10_60.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GD 0.07GD 0.9GD 10.0_0.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="GD 0.12GD 0.14GD 0.15_0.1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_non_linear_1000_300_0_None.svg" class="img-fluid"></p>
+<p>\</p>
+<p><span class="math display">
+f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
+</span></p>
+<p><img src="gd_non_linear_1000_300_1_None.svg" class="img-fluid"></p>
 </section>
-<section id="materials" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="materials"><span class="header-section-number">5</span> Materials</h2>
+<section id="materials" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="materials"><span class="header-section-number">7</span> Materials</h2>
 <ul>
 <li><a href="http://blog.mrtz.org/2013/09/07/the-zen-of-gradient-descent.html">The zen of gradient descent. Moritz Hardt</a></li>
 <li><a href="http://fa.bianp.net/teaching/2018/eecs227at/gradient_descent.html">Great visualization</a></li>
