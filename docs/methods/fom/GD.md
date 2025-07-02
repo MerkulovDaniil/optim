@@ -109,9 +109,10 @@ $$
 
 which is exactly gradient descent.
 
-![Gradient flow trajectory](GD_vs_GF.svg){width=60%}
+![Gradient flow trajectory](GD_vs_GF.svg){width=100%}
 
 [Open In Colab $\clubsuit$](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/GD_vs_GF.ipynb)
+
 
 
 ### Necessary local minimum condition
@@ -162,7 +163,7 @@ $$
 \end{align*}
 $$
 
-![Illustration](lipschitz_parabola.svg)
+![Illustration](lipschitz_parabola.svg){fig-align="center" width=80%}
 
 This way leads to the $\frac{1}{L}$ stepsize choosing. However, often the $L$ constant is not known.
 
@@ -228,7 +229,7 @@ $$
 \nabla f(x_{k+1})^\top \nabla f(x_k) = 0
 $$
 
-![Steepest Descent](GD_vs_Steepest.svg){width=60%}
+![Steepest Descent](GD_vs_Steepest.svg){width=100%}
 
 [Open In Colab $\clubsuit$](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Steepest_descent.ipynb)
 
@@ -259,7 +260,7 @@ f(\hat{x})
 $$
 
 
-<img src="coordinate_shift.svg" width="70%" style="display:block; margin:auto;">
+<img src="coordinate_shift_horizontal.svg" width="70%" style="display:block; margin:auto;">
 
 #### Convergence analysis
 
@@ -596,16 +597,17 @@ We have already proved that $\mu$-strongly convex differentiable function is PL,
 
 ## Bounds
 
-| Conditions | $\Vert f(x_k) - f(x^*)\Vert \leq$ | Type of convergence | $\Vert x_k - x^* \Vert \leq$ |
-| ---------- | ---------------------- | ------------------- | --------------------- |
-| Convex<br/>Lipschitz-continuous function($G$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{GR}{k}$ | Sublinear |                       |
-| Convex<br/>Lipschitz-continuous gradient ($L$) | $\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}$ | Sublinear |                       |
-| $\mu$-Strongly convex<br/>Lipschitz-continuous gradient($L$) |                        | Linear | $(1 - \eta \mu)^k R^2$ |
-| $\mu$-Strongly convex<br/>Lipschitz-continuous hessian($M$) |                        | Locally linear<br /> $R < \overline{R}$ | $\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)$ |
-| $f$ is $\mu$-Polyak-Lojasiewicz and Lipschitz-continuous gradient($L$) | $\mathcal{O}\left((1 - \frac{\mu}{L})^k \right) \;$ | Linear |  |
+
+| Problem | Bound | Iteration number | 
+| ---------- | ---------------------- | ------------------- |
+| Non Convex & Smooth | $\|\nabla f(x^k)\|^2 \sim \mathcal{O} \left( \dfrac{1}{k} \right)$  | $k = \mathcal{O}\left(\frac{1}{\epsilon}\right)$, Sublinear |             
+| Strongly convex, quadratics | $\|x^k - x^*\|_2 \leq \left( \frac{L - \mu}{L + \mu} \right)^k \|x^0 - x^*\|_2$ | $k = \mathcal{O}\left(\log \frac{1}{\epsilon} \right)$, Linear|                      |
+| Convex<br/>Lipschitz-continuous gradient($L$) |   $f(x_k) - f(x^*) \leq \dfrac{R^2L}{2k}$ | $k = \mathcal{O}\left(\frac{1}{\epsilon}\right)$, Sublinear | 
+| $f$ is $\mu$-Polyak-Lojasiewicz and Lipschitz-continuous gradient($L$) | $f(x^k) - f^* \leq \left(1 - \frac{\mu}{L}\right)^k (f(x^0) - f^*)$ | $k = \mathcal{O}\left( \log\frac{1}{\epsilon} \right)$, Linear | 
+| Smooth & $\mu$-Strongly Convex | $\|x^k - x^*\|^2 \leq \left(1 - \frac{\mu}{L}\right)^k R^2$ | $k = \mathcal{O}\left( \log\frac{1}{\epsilon} \right)$, Linear
 
 * $R = \| x_0 - x^*\|$ - initial distance
-* $\overline{R} = \dfrac{2\mu}{M}$
+<!-- * $\overline{R} = \dfrac{2\mu}{M}$ -->
 
 ## Numerical experiments 
 
