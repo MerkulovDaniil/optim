@@ -948,7 +948,7 @@ x_{k+1} = x_k - \eta f'(x_k),
 <p>which is exactly gradient descent.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="GD_vs_GF.svg" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="GD_vs_GF.svg" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Gradient flow trajectory</figcaption>
 </figure>
 </div>
@@ -994,7 +994,7 @@ x_{k+1} = x_k - \eta f'(x_k),
 </span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lipschitz_parabola.svg" class="img-fluid figure-img"></p>
+<p><img src="lipschitz_parabola.svg" class="img-fluid figure-img" style="width:80.0%"></p>
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
@@ -1049,7 +1049,7 @@ f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 </span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="GD_vs_Steepest.svg" class="img-fluid figure-img" style="width:60.0%"></p>
+<p><img src="GD_vs_Steepest.svg" class="img-fluid figure-img" style="width:100.0%"></p>
 <figcaption>Steepest Descent</figcaption>
 </figure>
 </div>
@@ -1080,7 +1080,7 @@ f(\hat{x})
 &amp;\simeq \frac{1}{2} \hat{x}^\top \Lambda \hat{x}
 \end{align*}
 </span></p>
-<p><img src="coordinate_shift.svg" width="70%" style="display:block; margin:auto;"></p>
+<p><img src="coordinate_shift_horizontal.svg" width="70%" style="display:block; margin:auto;"></p>
 </section>
 <section id="convergence-analysis-1" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="convergence-analysis-1"><span class="header-section-number">4.1.2</span> Convergence analysis</h4>
@@ -1437,55 +1437,47 @@ We have already proved that $\mu$-strongly convex differentiable function is PL,
 <h2 data-number="5" class="anchored" data-anchor-id="bounds"><span class="header-section-number">5</span> Bounds</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 30%">
-<col style="width: 26%">
-<col style="width: 29%">
+<col style="width: 19%">
+<col style="width: 43%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Conditions</th>
-<th><span class="math inline">\Vert f(x_k) - f(x^*)\Vert \leq</span></th>
-<th>Type of convergence</th>
-<th><span class="math inline">\Vert x_k - x^* \Vert \leq</span></th>
+<th>Problem</th>
+<th>Bound</th>
+<th>Iteration number</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Convex<br>Lipschitz-continuous function(<span class="math inline">G</span>)</td>
-<td><span class="math inline">\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{GR}{k}</span></td>
-<td>Sublinear</td>
-<td></td>
+<td>Non Convex &amp; Smooth</td>
+<td><span class="math inline">\|\nabla f(x^k)\|^2 \sim \mathcal{O} \left( \dfrac{1}{k} \right)</span></td>
+<td><span class="math inline">k = \mathcal{O}\left(\frac{1}{\epsilon}\right)</span>, Sublinear</td>
 </tr>
 <tr class="even">
-<td>Convex<br>Lipschitz-continuous gradient (<span class="math inline">L</span>)</td>
-<td><span class="math inline">\mathcal{O}\left(\dfrac{1}{k} \right) \; \dfrac{LR^2}{k}</span></td>
-<td>Sublinear</td>
-<td></td>
+<td>Strongly convex, quadratics</td>
+<td><span class="math inline">\|x^k - x^*\|_2 \leq \left( \frac{L - \mu}{L + \mu} \right)^k \|x^0 - x^*\|_2</span></td>
+<td><span class="math inline">k = \mathcal{O}\left(\log \frac{1}{\epsilon} \right)</span>, Linear</td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\mu</span>-Strongly convex<br>Lipschitz-continuous gradient(<span class="math inline">L</span>)</td>
-<td></td>
-<td>Linear</td>
-<td><span class="math inline">(1 - \eta \mu)^k R^2</span></td>
+<td>Convex<br>Lipschitz-continuous gradient(<span class="math inline">L</span>)</td>
+<td><span class="math inline">f(x_k) - f(x^*) \leq \dfrac{R^2L}{2k}</span></td>
+<td><span class="math inline">k = \mathcal{O}\left(\frac{1}{\epsilon}\right)</span>, Sublinear</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\mu</span>-Strongly convex<br>Lipschitz-continuous hessian(<span class="math inline">M</span>)</td>
-<td></td>
-<td>Locally linear<br> <span class="math inline">R &lt; \overline{R}</span></td>
-<td><span class="math inline">\dfrac{\overline{R}R}{\overline{R} - R} \left( 1 - \dfrac{2\mu}{L+3\mu}\right)</span></td>
-</tr>
-<tr class="odd">
 <td><span class="math inline">f</span> is <span class="math inline">\mu</span>-Polyak-Lojasiewicz and Lipschitz-continuous gradient(<span class="math inline">L</span>)</td>
-<td><span class="math inline">\mathcal{O}\left((1 - \frac{\mu}{L})^k \right) \;</span></td>
-<td>Linear</td>
-<td></td>
+<td><span class="math inline">f(x^k) - f^* \leq \left(1 - \frac{\mu}{L}\right)^k (f(x^0) - f^*)</span></td>
+<td><span class="math inline">k = \mathcal{O}\left( \log\frac{1}{\epsilon} \right)</span>, Linear</td>
+</tr>
+<tr class="odd">
+<td>Smooth &amp; <span class="math inline">\mu</span>-Strongly Convex</td>
+<td><span class="math inline">\|x^k - x^*\|^2 \leq \left(1 - \frac{\mu}{L}\right)^k R^2</span></td>
+<td><span class="math inline">k = \mathcal{O}\left( \log\frac{1}{\epsilon} \right)</span>, Linear</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><span class="math inline">R = \| x_0 - x^*\|</span> - initial distance</li>
-<li><span class="math inline">\overline{R} = \dfrac{2\mu}{M}</span></li>
+<li><span class="math inline">R = \| x_0 - x^*\|</span> - initial distance <!-- * $\overline{R} = \dfrac{2\mu}{M}$ --></li>
 </ul>
 </section>
 <section id="numerical-experiments" class="level2" data-number="6">
