@@ -62,3 +62,5 @@ website:
   favicon: favicon.svg
   # reader-mode: true
   # back-to-top-navigation: true
+  margin-footer: |
+      <button type="button" name="button" class="btn" id="toggleSpoilers">🔽</button>
