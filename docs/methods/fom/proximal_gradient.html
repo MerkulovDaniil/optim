@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.17">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Proximal gradient method</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c2d8198b7f72dec16de60f0cb3fab69f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-505fa5e63a5c3c7e3d3d9f716b67ea4e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script defer="" type="text/javascript" src="../../../assets/toggle_button.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+</script>
+<script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<meta property="og:title" content="Proximal gradient method">
+<meta property="og:image" content="https://fmin.xyz/docs/methods/fom/prox_vis.jpeg">
+<meta name="twitter:title" content="Proximal gradient method">
+<meta name="twitter:image" content="https://fmin.xyz/docs/methods/fom/prox_vis.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../logo.svg" alt="fmin.xyz" class="navbar-logo light-content">
+    <img src="../../../logo.svg" alt="fmin.xyz" class="navbar-logo dark-content">
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-wide tools-end">
+    <a href="https://github.com/MerkulovDaniil/optim" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://www.youtube.com/@fmin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <a href="https://t.me/fminxyz" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-telegram"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/proximal_gradient.html">Proximal gradient method</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Theory</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex sets</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Affine set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/convex sets/Convex_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/convex sets/Conic_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conic set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/convex sets/Projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projection</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Convex_function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Conjugate_set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Conjugate function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate function</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Dual norm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dual norm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Subgradient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subgradient and subdifferential</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Optimality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optimality conditions. KKT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Convex_optimization_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex optimization problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Duality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/theory/Rates_of_convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rates of convergence</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line search</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binary search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/line_search/golden_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Golden search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/line_search/inexact.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Inexact Line Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/line_search/parabola.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Successive parabolic interpolation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero order methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bee algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/zom/nelder-mead.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nelder–Mead</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/zom/simulated-annealing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simulated annealing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First order methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/heavy_ball.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Heavy Ball Method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/Subgradient descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subgradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/Projected_subgradient_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projected subgradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/Mirror_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mirror descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/SGD.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stochastic gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/SAG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stochastic average gradient</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/ADAM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ADAM: A Method for Stochastic Optimization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/Lookahead.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/fom/proximal_gradient.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Proximal gradient method</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptive metric methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Newton method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/adaptive_metrics/Quasi_newton.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quasi Newton methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/adaptive_metrics/CG.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate gradients</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/adaptive_metrics/Natural_gradient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Natural gradient descent</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/Simplex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Programming and simplex algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/methods/Autograd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatic differentiation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exercises</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix calculus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/convex_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/projection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projection</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/separation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Separation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate sets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/convex_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Convex functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/subgradient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subgradient and subdifferential</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/conjugate_functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/gop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">General optimization problems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/duality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Duality</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rates of convergence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/line_search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Line search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/cvxpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CVXPY library</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/automatic_differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Automatic differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/zom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero order methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/fom.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First order methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/exercises/uncategorized.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Uncategorized</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Applications</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="math inline">A^*</span> algorithm for path finding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/deep_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Deep learning</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/ellipsoid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Minimum volume ellipsoid</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/knapsack_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Knapsack problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear least squares</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/MLE.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maximum likelihood estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/Neural_Lipschitz_constant.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural network Lipschitz constant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/NN_Loss_Surface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Network Loss Surface Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/pca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Principal component analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/rendezvous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rendezvous problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/salesman_problem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Travelling salesman problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/total_variation_inpainting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Total variation in-painting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/applications/two_way_partitioning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two way partitioning problem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CNN on FashionMNIST</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/benchmarks/linear_least_squares.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Least Squares</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Materials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Quick start to the Colab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+ <span class="menu-text">Visualizations</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conjugate Gradient for Quadratics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/chebyshev_gd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Chebyshev’s acceleration of gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/condition_number_gd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Condition number and gradient descent</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/double_descent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">We have Double Descent at home!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient descent for linear regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Step Size Selection in Gradient Descent via Line Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/mds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multidimensional scaling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/newton_method_local_convergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Local convergence of Newton method</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/qr_algorithm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">QR Algorithm</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/sg_algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Adaptive gradient algorithms visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/sgd_divergence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why stochastic gradient descent does not converge?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/sgd_scalar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SGD intuition in a scalar case</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#proximal-operator" id="toc-proximal-operator" class="nav-link active" data-scroll-target="#proximal-operator"><span class="header-section-number">1</span> Proximal operator</a>
+  <ul class="collapse">
+  <li><a href="#proximal-mapping-intuition" id="toc-proximal-mapping-intuition" class="nav-link" data-scroll-target="#proximal-mapping-intuition"><span class="header-section-number">1.1</span> Proximal mapping intuition</a></li>
+  <li><a href="#proximal-operator-visualization" id="toc-proximal-operator-visualization" class="nav-link" data-scroll-target="#proximal-operator-visualization"><span class="header-section-number">1.2</span> Proximal operator visualization</a></li>
+  <li><a href="#proximal-mapping-intuition-1" id="toc-proximal-mapping-intuition-1" class="nav-link" data-scroll-target="#proximal-mapping-intuition-1"><span class="header-section-number">1.3</span> Proximal mapping intuition</a></li>
+  <li><a href="#from-projections-to-proximity" id="toc-from-projections-to-proximity" class="nav-link" data-scroll-target="#from-projections-to-proximity"><span class="header-section-number">1.4</span> From projections to proximity</a></li>
+  </ul></li>
+  <li><a href="#composite-optimization" id="toc-composite-optimization" class="nav-link" data-scroll-target="#composite-optimization"><span class="header-section-number">2</span> Composite optimization</a>
+  <ul class="collapse">
+  <li><a href="#regularized-composite-objectives" id="toc-regularized-composite-objectives" class="nav-link" data-scroll-target="#regularized-composite-objectives"><span class="header-section-number">2.1</span> Regularized / Composite Objectives</a></li>
+  <li><a href="#proximal-mapping-intuition-2" id="toc-proximal-mapping-intuition-2" class="nav-link" data-scroll-target="#proximal-mapping-intuition-2"><span class="header-section-number">2.2</span> Proximal mapping intuition</a></li>
+  <li><a href="#proximal-operators-examples" id="toc-proximal-operators-examples" class="nav-link" data-scroll-target="#proximal-operators-examples"><span class="header-section-number">2.3</span> Proximal operators examples</a></li>
+  <li><a href="#proximal-operator-properties" id="toc-proximal-operator-properties" class="nav-link" data-scroll-target="#proximal-operator-properties"><span class="header-section-number">2.4</span> Proximal operator properties</a></li>
+  <li><a href="#proximal-operator-properties-1" id="toc-proximal-operator-properties-1" class="nav-link" data-scroll-target="#proximal-operator-properties-1"><span class="header-section-number">2.5</span> Proximal operator properties</a></li>
+  <li><a href="#proximal-operator-properties-2" id="toc-proximal-operator-properties-2" class="nav-link" data-scroll-target="#proximal-operator-properties-2"><span class="header-section-number">2.6</span> Proximal operator properties</a></li>
+  <li><a href="#proximal-operator-properties-3" id="toc-proximal-operator-properties-3" class="nav-link" data-scroll-target="#proximal-operator-properties-3"><span class="header-section-number">2.7</span> Proximal operator properties</a></li>
+  </ul></li>
+  <li><a href="#theoretical-tools-for-convergence-analysis" id="toc-theoretical-tools-for-convergence-analysis" class="nav-link" data-scroll-target="#theoretical-tools-for-convergence-analysis"><span class="header-section-number">3</span> Theoretical tools for convergence analysis</a>
+  <ul class="collapse">
+  <li><a href="#convergence-tools" id="toc-convergence-tools" class="nav-link" data-scroll-target="#convergence-tools"><span class="header-section-number">3.1</span> Convergence tools &nbsp;</a></li>
+  <li><a href="#convergence-tools-1" id="toc-convergence-tools-1" class="nav-link" data-scroll-target="#convergence-tools-1"><span class="header-section-number">3.2</span> Convergence tools &nbsp;&nbsp;</a></li>
+  <li><a href="#convergence-tools-2" id="toc-convergence-tools-2" class="nav-link" data-scroll-target="#convergence-tools-2"><span class="header-section-number">3.3</span> Convergence tools &nbsp;&nbsp;&nbsp;</a></li>
+  <li><a href="#convergence-tools-3" id="toc-convergence-tools-3" class="nav-link" data-scroll-target="#convergence-tools-3"><span class="header-section-number">3.4</span> Convergence tools &nbsp;&nbsp;&nbsp;</a></li>
+  </ul></li>
+  <li><a href="#proximal-gradient-method.-convex-case" id="toc-proximal-gradient-method.-convex-case" class="nav-link" data-scroll-target="#proximal-gradient-method.-convex-case"><span class="header-section-number">4</span> Proximal Gradient Method. Convex case</a>
+  <ul class="collapse">
+  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence"><span class="header-section-number">4.1</span> Convergence</a></li>
+  <li><a href="#convergence-1" id="toc-convergence-1" class="nav-link" data-scroll-target="#convergence-1"><span class="header-section-number">4.2</span> Convergence &nbsp;</a></li>
+  <li><a href="#convergence-2" id="toc-convergence-2" class="nav-link" data-scroll-target="#convergence-2"><span class="header-section-number">4.3</span> Convergence &nbsp;&nbsp;</a></li>
+  <li><a href="#convergence-3" id="toc-convergence-3" class="nav-link" data-scroll-target="#convergence-3"><span class="header-section-number">4.4</span> Convergence &nbsp;&nbsp;&nbsp;</a></li>
+  <li><a href="#convergence-4" id="toc-convergence-4" class="nav-link" data-scroll-target="#convergence-4"><span class="header-section-number">4.5</span> Convergence &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+  <li><a href="#convergence-5" id="toc-convergence-5" class="nav-link" data-scroll-target="#convergence-5"><span class="header-section-number">4.6</span> Convergence &nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+  </ul></li>
+  <li><a href="#proximal-gradient-method.-strongly-convex-case" id="toc-proximal-gradient-method.-strongly-convex-case" class="nav-link" data-scroll-target="#proximal-gradient-method.-strongly-convex-case"><span class="header-section-number">5</span> Proximal Gradient Method. Strongly convex case</a>
+  <ul class="collapse">
+  <li><a href="#convergence-6" id="toc-convergence-6" class="nav-link" data-scroll-target="#convergence-6"><span class="header-section-number">5.1</span> Convergence</a></li>
+  <li><a href="#convergence-7" id="toc-convergence-7" class="nav-link" data-scroll-target="#convergence-7"><span class="header-section-number">5.2</span> Convergence &nbsp;</a></li>
+  <li><a href="#convergence-8" id="toc-convergence-8" class="nav-link" data-scroll-target="#convergence-8"><span class="header-section-number">5.3</span> Convergence &nbsp;</a></li>
+  <li><a href="#accelerated-proximal-gradient-convex-objective" id="toc-accelerated-proximal-gradient-convex-objective" class="nav-link" data-scroll-target="#accelerated-proximal-gradient-convex-objective"><span class="header-section-number">5.4</span> Accelerated Proximal Gradient ‒ <em>convex</em> objective</a></li>
+  <li><a href="#accelerated-proximal-gradient-mustrongly-convex-objective" id="toc-accelerated-proximal-gradient-mustrongly-convex-objective" class="nav-link" data-scroll-target="#accelerated-proximal-gradient-mustrongly-convex-objective"><span class="header-section-number">5.5</span> Accelerated Proximal Gradient ‒ <em><span class="math inline">\mu</span>‑strongly convex</em> objective</a></li>
+  </ul></li>
+  <li><a href="#numerical-experiments" id="toc-numerical-experiments" class="nav-link" data-scroll-target="#numerical-experiments"><span class="header-section-number">6</span> Numerical experiments</a>
+  <ul class="collapse">
+  <li><a href="#quadratic-case" id="toc-quadratic-case" class="nav-link" data-scroll-target="#quadratic-case"><span class="header-section-number">6.1</span> Quadratic case</a></li>
+  <li><a href="#quadratic-case-1" id="toc-quadratic-case-1" class="nav-link" data-scroll-target="#quadratic-case-1"><span class="header-section-number">6.2</span> Quadratic case</a></li>
+  <li><a href="#quadratic-case-2" id="toc-quadratic-case-2" class="nav-link" data-scroll-target="#quadratic-case-2"><span class="header-section-number">6.3</span> Quadratic case</a></li>
+  <li><a href="#binary-logistic-regression" id="toc-binary-logistic-regression" class="nav-link" data-scroll-target="#binary-logistic-regression"><span class="header-section-number">6.4</span> Binary logistic regression</a></li>
+  <li><a href="#softmax-multiclass-regression" id="toc-softmax-multiclass-regression" class="nav-link" data-scroll-target="#softmax-multiclass-regression"><span class="header-section-number">6.5</span> Softmax multiclass regression</a></li>
+  <li><a href="#example-ista" id="toc-example-ista" class="nav-link" data-scroll-target="#example-ista"><span class="header-section-number">6.6</span> Example: ISTA</a>
+  <ul class="collapse">
+  <li><a href="#iterative-shrinkage-thresholding-algorithm-ista" id="toc-iterative-shrinkage-thresholding-algorithm-ista" class="nav-link" data-scroll-target="#iterative-shrinkage-thresholding-algorithm-ista"><span class="header-section-number">6.6.1</span> Iterative Shrinkage-Thresholding Algorithm (ISTA)</a></li>
+  </ul></li>
+  <li><a href="#example-fista" id="toc-example-fista" class="nav-link" data-scroll-target="#example-fista"><span class="header-section-number">6.7</span> Example: FISTA</a>
+  <ul class="collapse">
+  <li><a href="#fast-iterative-shrinkage-thresholding-algorithm-fista" id="toc-fast-iterative-shrinkage-thresholding-algorithm-fista" class="nav-link" data-scroll-target="#fast-iterative-shrinkage-thresholding-algorithm-fista"><span class="header-section-number">6.7.1</span> Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)</a></li>
+  </ul></li>
+  <li><a href="#example-matrix-completion" id="toc-example-matrix-completion" class="nav-link" data-scroll-target="#example-matrix-completion"><span class="header-section-number">6.8</span> Example: Matrix Completion</a>
+  <ul class="collapse">
+  <li><a href="#solving-the-matrix-completion-problem" id="toc-solving-the-matrix-completion-problem" class="nav-link" data-scroll-target="#solving-the-matrix-completion-problem"><span class="header-section-number">6.8.1</span> Solving the Matrix Completion Problem</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.9</span> Summary</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/proximal_gradient.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    <div class="quarto-margin-footer"><div class="margin-footer-item">
+<button type="button" name="button" class="btn" id="toggleSpoilers">
+🔽
+</button>
+</div></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/proximal_gradient.html">Proximal gradient method</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Proximal gradient method</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+<section id="proximal-operator" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Proximal operator</h1>
+<section id="proximal-mapping-intuition" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="proximal-mapping-intuition"><span class="header-section-number">1.1</span> Proximal mapping intuition</h2>
+<p>Consider Gradient Flow ODE: <span class="math display">
+\dfrac{dx}{dt} = - \nabla f(x)
+</span></p>
+<p><strong>Explicit Euler discretization:</strong> <span class="math display">
+\frac{x_{k+1} - x_k}{\alpha} = -\nabla f(x_k)
+</span> Leads to ordinary Gradient Descent method</p>
+<p><strong>Implicit Euler discretization:</strong> <span class="math display">
+\begin{aligned}
+\frac{x_{k+1} - x_k}{\alpha} = -\nabla f(x_{k+1}) \\
+\frac{x_{k+1} - x_k}{\alpha} + \nabla f(x_{k+1}) = 0 \\
+\left. \frac{x - x_k}{\alpha} + \nabla f(x)\right|_{x = x_{k+1}} = 0 \\
+\left. \nabla \left[ \frac{1}{2\alpha} \|x - x_k\|^2_2 + f(x) \right]\right|_{x = x_{k+1}} = 0 \\
+x_{k+1} = \text{arg}\min_{x\in \mathbb{R}^n} \left[ f(x) +  \frac{1}{2\alpha} \|x - x_k\|^2_2 \right]
+\end{aligned}
+</span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Proximal operator
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\text{prox}_{f, \alpha}(x_k) = \text{arg}\min_{x\in \mathbb{R}^n} \left[ f(x) +  \frac{1}{2\alpha} \|x - x_k\|^2_2 \right]
+</span></p>
+</div>
+</div>
+</section>
+<section id="proximal-operator-visualization" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="proximal-operator-visualization"><span class="header-section-number">1.2</span> Proximal operator visualization</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="prox_vis.jpeg" class="img-fluid figure-img" style="width:63.0%"></p>
+<figcaption><a href="https://twitter.com/gabrielpeyre/status/1273842947704999936">Source</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="proximal-mapping-intuition-1" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="proximal-mapping-intuition-1"><span class="header-section-number">1.3</span> Proximal mapping intuition</h2>
+<ul>
+<li><p><strong>GD from proximal method.</strong> Back to the discretization: <span class="math display">
+\begin{aligned}
+x_{k+1} + \alpha \nabla f(x_{k+1}) &amp;= x_k \\
+(I + \alpha \nabla f ) (x_{k+1}) &amp;= x_k \\
+x_{k+1} = (I + \alpha \nabla f )^{-1} x_k &amp;\stackrel{\alpha \to 0}{\approx} (I - \alpha \nabla f) x_k
+\end{aligned}
+</span> Thus, we have a usual gradient descent with <span class="math inline">\alpha \to 0</span>: <span class="math inline">x_{k+1} = x_k - \alpha \nabla f(x_k)</span></p></li>
+<li><p><strong>Newton from proximal method.</strong> Now let’s consider proximal mapping of a second order Taylor approximation of the function <span class="math inline">f^{II}_{x_k}(x)</span>: <span class="math display">
+\begin{aligned}
+x_{k+1} = \text{prox}_{f^{II}_{x_k}, \alpha}(x_k) &amp;=  \text{arg}\min_{x\in \mathbb{R}^n} \left[ f(x_k) + \langle \nabla f(x_k), x - x_k\rangle + \frac{1}{2} \langle \nabla^2 f(x_k)(x-x_k), x-x_k \rangle +  \frac{1}{2\alpha} \|x - x_k\|^2_2 \right] &amp; \\
+&amp; \left. \nabla f(x_{k}) + \nabla^2 f(x_k)(x - x_k) + \frac{1}{\alpha}(x - x_k)\right|_{x = x_{k+1}} = 0 &amp; \\
+&amp; x_{k+1} = x_k - \left[\nabla^2 f(x_k) + \frac{1}{\alpha} I\right]^{-1} \nabla f(x_{k}) &amp;
+\end{aligned}
+</span></p></li>
+</ul>
+</section>
+<section id="from-projections-to-proximity" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="from-projections-to-proximity"><span class="header-section-number">1.4</span> From projections to proximity</h2>
+<p>Let <span class="math inline">\mathbb{I}_S</span> be the indicator function for closed, convex <span class="math inline">S</span>. Recall orthogonal projection <span class="math inline">\pi_S(y)</span></p>
+<p><span class="math display">
+\pi_S(y) := \arg\min_{x \in S} \frac{1}{2}\|x-y\|_2^2.
+</span></p>
+<p>With the following notation of indicator function <span class="math display">
+\mathbb{I}_S(x) = \begin{cases} 0, &amp;x \in S, \\ \infty, &amp;x \notin S, \end{cases}
+</span></p>
+<p>Rewrite orthogonal projection <span class="math inline">\pi_S(y)</span> as <span class="math display">
+\pi_S(y) := \arg\min_{x \in \mathbb{R}^n} \frac{1}{2} \|x - y\|^2 + \mathbb{I}_S (x).
+</span></p>
+<p>Proximity: Replace <span class="math inline">\mathbb{I}_S</span> by some convex function! <span class="math display">
+\text{prox}_{r} (y) = \text{prox}_{r, 1} (y) := \arg\min \frac{1}{2} \|x - y\|^2 + r(x)
+</span></p>
+</section>
+</section>
+<section id="composite-optimization" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Composite optimization</h1>
+<section id="regularized-composite-objectives" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="regularized-composite-objectives"><span class="header-section-number">2.1</span> Regularized / Composite Objectives</h2>
+<p>Many nonsmooth problems take the form <span class="math display">
+\min_{x \in \mathbb{R}^n} \varphi(x) = f(x) + r(x)
+</span></p>
+<ul>
+<li><strong>Lasso, L1-LS, compressed sensing</strong> <span class="math display">
+  f(x) = \frac12 \|Ax - b\|_2^2, r(x) = \lambda \|x\|_1
+  </span></li>
+<li><strong>L1-Logistic regression, sparse LR</strong> <span class="math display">
+  f(x) = -y \log h(x) - (1-y)\log(1-h(x)), r(x) = \lambda \|x\|_1
+  </span></li>
+</ul>
+<p><img src="Composite.svg" class="img-fluid"></p>
+</section>
+<section id="proximal-mapping-intuition-2" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="proximal-mapping-intuition-2"><span class="header-section-number">2.2</span> Proximal mapping intuition</h2>
+<p>Optimality conditions: <span class="math display">
+\begin{aligned}
+0 &amp;\in \nabla f(x^*) + \partial r(x^*) \\
+0 &amp;\in \alpha \nabla f(x^*) + \alpha \partial r(x^*) \\
+x^* &amp;\in \alpha \nabla f(x^*) + (I + \alpha \partial r)(x^*) \\
+x^* - \alpha \nabla f(x^*) &amp;\in (I + \alpha \partial r)(x^*) \\
+x^* &amp;= (I + \alpha \partial r)^{-1}(x^* - \alpha \nabla f(x^*)) \\
+x^* &amp;= \text{prox}_{r, \alpha}(x^* - \alpha \nabla f(x^*))
+\end{aligned}
+</span></p>
+<p>Which leads to the proximal gradient method: <span class="math display">
+x_{k+1} = \text{prox}_{r, \alpha}(x_k - \alpha \nabla f(x_k))
+</span> And this method converges at a rate of <span class="math inline">\mathcal{O}(\frac{1}{k})</span>!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Another form of proximal operator
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\text{prox}_{f, \alpha}(x_k) = \text{prox}_{\alpha f}(x_k) = \text{arg}\min_{x\in \mathbb{R}^n} \left[ \alpha f(x) +  \frac{1}{2} \|x - x_k\|^2_2 \right] \qquad \text{prox}_{f}(x_k) = \text{arg}\min_{x\in \mathbb{R}^n} \left[ f(x) +  \frac{1}{2} \|x - x_k\|^2_2 \right]
+</span></p>
+</div>
+</div>
+</section>
+<section id="proximal-operators-examples" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="proximal-operators-examples"><span class="header-section-number">2.3</span> Proximal operators examples</h2>
+<ul>
+<li><span class="math inline">r(x) = \lambda \|x\|_1</span>, <span class="math inline">\lambda &gt; 0</span> <span class="math display">
+  [\text{prox}_r(x)]_i = \left[ |x_i| - \lambda \right]_+ \cdot \text{sign}(x_i),
+  </span> which is also known as soft-thresholding operator.</li>
+<li><span class="math inline">r(x) = \frac{\lambda}{2} \|x\|_2^2</span>, <span class="math inline">\lambda &gt; 0</span> <span class="math display">
+  \text{prox}_{r}(x) =  \frac{x}{1 + \lambda}.
+  </span></li>
+<li><span class="math inline">r(x) = \mathbb{I}_S(x)</span>. <span class="math display">
+  \text{prox}_{r}(x_k - \alpha \nabla f(x_k)) = \text{proj}_{r}(x_k - \alpha \nabla f(x_k))
+  </span></li>
+</ul>
+</section>
+<section id="proximal-operator-properties" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="proximal-operator-properties"><span class="header-section-number">2.4</span> Proximal operator properties</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">r: \mathbb{R}^n \to \mathbb{R} \cup \{+\infty\}</span> be a convex function for which <span class="math inline">\text{prox}_r</span> is defined. If there exists such an <span class="math inline">\hat{x} \in \mathbb{R}^n</span> that <span class="math inline">r(x) &lt; +\infty</span>. Then, the proximal operator is uniquely defined (i.e., it always returns a single unique value).</p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong>:</p>
+<p>The proximal operator returns the minimum of some optimization problem.</p>
+<p>Question: What can be said about this problem?</p>
+<p>It is strongly convex, meaning it has exactly one unique minimum (the existence of <span class="math inline">\hat{x}</span> is necessary for <span class="math inline">r(\tilde{x}) + \frac{1}{2} \| x - \tilde{x} \|_2^2</span> to take a finite value somewhere).</p>
+</section>
+<section id="proximal-operator-properties-1" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="proximal-operator-properties-1"><span class="header-section-number">2.5</span> Proximal operator properties</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">r : \mathbb{R}^n \rightarrow \mathbb{R} \cup \{+\infty\}</span> be a convex function for which <span class="math inline">\text{prox}_r</span> is defined. Then, for any <span class="math inline">x, y \in \mathbb{R}^n</span>, the following three conditions are equivalent:</p>
+<ul>
+<li><span class="math inline">\text{prox}_r(x) = y</span>,</li>
+<li><span class="math inline">x - y \in \partial r(y)</span>,</li>
+<li><span class="math inline">\langle x - y, z - y \rangle \leq r(z) - r(y)</span> for any <span class="math inline">z \in \mathbb{R}^n</span>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li><p>Let’s establish the equivalence between the first and second conditions.The first condition can be rewritten as <span class="math display">
+y = \arg \min_{\tilde{x} \in \mathbb{R}^d} \left( r(\tilde{x}) + \frac{1}{2} \| x - \tilde{x} \|^2 \right).
+</span> From the optimality condition for the convex function <span class="math inline">r</span>, this is equivalent to: <span class="math display">
+0 \in \left.\partial \left( r(\tilde{x}) + \frac{1}{2} \| x - \tilde{x} \|^2 \right)\right|_{\tilde{x} = y} = \partial r(y) + y - x.
+</span></p></li>
+<li><p>From the definition of the subdifferential, for any subgradient <span class="math inline">g \in \partial f(y)</span> and for any <span class="math inline">z \in \mathbb{R}^d</span>: <span class="math display">
+\langle g, z - y \rangle \leq r(z) - r(y).
+</span> In particular, this holds true for <span class="math inline">g = x - y</span>. Conversely, it is also clear: for <span class="math inline">g = x - y</span>, the above relationship holds, which means <span class="math inline">g \in \partial r(y)</span>.</p></li>
+</ol>
+</section>
+<section id="proximal-operator-properties-2" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="proximal-operator-properties-2"><span class="header-section-number">2.6</span> Proximal operator properties</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>The operator <span class="math inline">\text{prox}_{r}(x)</span> is firmly nonexpansive (FNE) <span class="math display">
+\|\text{prox}_{r}(x) -\text{prox}_{r}(y)\|_2^2 \leq \langle\text{prox}_{r}(x)-\text{prox}_{r}(y), x-y\rangle
+</span> and nonexpansive: <span class="math display">
+\|\text{prox}_{r}(x) -\text{prox}_{r}(y)\|_2 \leq \|x-y \|_2
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li><p>Let <span class="math inline">u = \text{prox}_r(x)</span>, and <span class="math inline">v = \text{prox}_r(y)</span>. Then, from the previous property: <span class="math display">
+\begin{aligned}
+\langle x - u, z_1 - u \rangle \leq r(z_1) - r(u) \\
+\langle y - v, z_2 - v \rangle \leq r(z_2) - r(v).
+\end{aligned}
+</span></p></li>
+<li><p>Substitute <span class="math inline">z_1 = v</span> and <span class="math inline">z_2 = u</span>. Summing up, we get: <span class="math display">
+\begin{aligned}
+\langle x - u, v - u \rangle + \langle y - v, u - v \rangle \leq 0,\\
+\langle x - y, v - u \rangle + \|v - u\|^2_2 \leq 0.
+\end{aligned}
+</span></p></li>
+<li><p>Which is exactly what we need to prove after substitution of <span class="math inline">u,v</span>. <span class="math display">
+\|u -v\|_2^2 \leq \langle x - y, u - v \rangle
+</span></p></li>
+<li><p>The last point comes from simple Cauchy-Bunyakovsky-Schwarz for the last inequality.</p></li>
+</ol>
+</section>
+<section id="proximal-operator-properties-3" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="proximal-operator-properties-3"><span class="header-section-number">2.7</span> Proximal operator properties</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f: \mathbb{R}^n \rightarrow \mathbb{R} \cup \{+\infty\}</span> and <span class="math inline">r: \mathbb{R}^n \rightarrow \mathbb{R} \cup \{+\infty\}</span> be convex functions. Additionally, assume that <span class="math inline">f</span> is continuously differentiable and <span class="math inline">L</span>-smooth, and for <span class="math inline">r</span>, <span class="math inline">\text{prox}_r</span> is defined. Then, <span class="math inline">x^*</span> is a solution to the composite optimization problem if and only if, for any <span class="math inline">\alpha &gt; 0</span>, it satisfies: <span class="math display">
+x^* = \text{prox}_{r, \alpha}(x^* - \alpha \nabla f(x^*))
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li>Optimality conditions: <span class="math display">
+\begin{aligned}
+  0 \in &amp; \nabla f(x^*) + \partial r(x^*) \\
+  - \alpha \nabla f(x^*) \in &amp; \alpha \partial r(x^*) \\
+  x^* - \alpha \nabla f(x^*) - x^* \in &amp; \alpha \partial r(x^*)
+\end{aligned}
+</span></li>
+<li>Recall from the previous lemma: <span class="math display">
+\text{prox}_r(x) = y \Leftrightarrow x - y \in \partial r(y)
+</span></li>
+<li>Finally, <span class="math display">
+x^* = \text{prox}_{\alpha r}(x^* - \alpha \nabla f(x^*)) = \text{prox}_{r, \alpha}(x^* - \alpha \nabla f(x^*))
+</span></li>
+</ol>
+</section>
+</section>
+<section id="theoretical-tools-for-convergence-analysis" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Theoretical tools for convergence analysis</h1>
+<section id="convergence-tools" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="convergence-tools"><span class="header-section-number">3.1</span> Convergence tools &nbsp;</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f: \mathbb{R}^n \rightarrow \mathbb{R}</span> be an <span class="math inline">L</span>-smooth convex function. Then, for any <span class="math inline">x, y \in \mathbb{R}^n</span>, the following inequality holds:</p>
+<p><span class="math display">
+\begin{aligned}
+f(x) + \langle \nabla f(x), y - x \rangle + \frac{1}{2L} &amp; \|\nabla f(x) - \nabla f(y)\|^2_2 \leq f(y) \text{ or, equivalently, }\\
+\|\nabla f(y)-\nabla f (x)\|_2^2 = &amp; \|\nabla f(x)-\nabla f (y)\|_2^2 \leq 2L\left(f(x)-f(y)-\langle\nabla f (y),x -y\rangle \right)
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li>To prove this, we’ll consider another function <span class="math inline">\varphi(y) = f(y) - \langle \nabla f(x), y\rangle</span>. It is obviously a convex function (as a sum of convex functions). And it is easy to verify, that it is an <span class="math inline">L</span>-smooth function by definition, since <span class="math inline">\nabla \varphi(y) = \nabla f(y) - \nabla f(x)</span> and <span class="math inline">\|\nabla \varphi(y_1) - \nabla \varphi(y_2)\| = \|\nabla f(y_1) - \nabla f(y_2)\| \leq L\|y_1 - y_2\|</span>.</li>
+<li>Now let’s consider the smoothness parabolic property for the <span class="math inline">\varphi(y)</span> function: <span class="math display">
+  \begin{aligned}
+  \varphi(y) &amp; \leq  \varphi(x) + \langle \nabla \varphi(x), y-x \rangle + \frac{L}{2}\|y-x\|_2^2 \\
+  \stackrel{x := y, y := y - \frac1L \nabla\varphi(y)}{ }\;\;\varphi\left(y - \frac1L \nabla\varphi(y)\right) &amp;  \leq \varphi(y) + \left\langle \nabla \varphi(y), - \frac1L \nabla\varphi(y)\right\rangle + \frac{1}{2L}\|\nabla\varphi(y)\|_2^2 \\
+  \varphi\left(y - \frac1L \nabla\varphi(y)\right) &amp;  \leq \varphi(y) - \frac{1}{2L}\|\nabla\varphi(y)\|_2^2
+  \end{aligned}
+  </span></li>
+</ol>
+</section>
+<section id="convergence-tools-1" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="convergence-tools-1"><span class="header-section-number">3.2</span> Convergence tools &nbsp;&nbsp;</h2>
+<ol start="3" type="1">
+<li>From the first order optimality conditions for the convex function <span class="math inline">\nabla \varphi (y) =\nabla f(y) - \nabla f(x) = 0</span>. We can conclude, that for any <span class="math inline">x</span>, the minimum of the function <span class="math inline">\varphi(y)</span> is at the point <span class="math inline">y=x</span>. Therefore: <span class="math display">
+  \varphi(x) \leq \varphi\left(y - \frac1L \nabla\varphi(y)\right) \leq \varphi(y) - \frac{1}{2L}\|\nabla\varphi(y)\|_2^2
+  </span></li>
+<li>Now, substitute <span class="math inline">\varphi(y) = f(y) - \langle \nabla f(x), y\rangle</span>: <span class="math display">
+  \begin{aligned}
+  &amp; f(x) - \langle \nabla f(x), x\rangle \leq f(y) - \langle \nabla f(x), y\rangle - \frac{1}{2L}\|\nabla f(y) - \nabla f(x)\|_2^2 \\
+  &amp; f(x) + \langle \nabla f(x), y - x \rangle + \frac{1}{2L} \|\nabla f(x) - \nabla f(y)\|^2_2 \leq f(y) \\
+  &amp; \|\nabla f(y) - \nabla f(x)\|^2_2 \leq 2L \left( f(y) - f(x) - \langle \nabla f(x), y - x \rangle \right) \\
+  {\scriptsize \text{switch x and y}} \quad &amp; \|\nabla f(x)-\nabla f (y)\|_2^2 \leq 2L\left(f(x)-f(y)-\langle\nabla f (y),x -y\rangle \right)
+  \end{aligned}
+  </span></li>
+</ol>
+<p>The lemma has been proved. From the first view it does not make a lot of geometrical sense, but we will use it as a convenient tool to bound the difference between gradients.</p>
+</section>
+<section id="convergence-tools-2" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="convergence-tools-2"><span class="header-section-number">3.3</span> Convergence tools &nbsp;&nbsp;&nbsp;</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f: \mathbb{R}^n \rightarrow \mathbb{R}</span> be continuously differentiable on <span class="math inline">\mathbb{R}^n</span>. Then, the function <span class="math inline">f</span> is <span class="math inline">\mu</span>-strongly convex if and only if for any <span class="math inline">x, y \in \mathbb{R}^d</span> the following holds: <span class="math display">
+\begin{aligned}
+\text{Strongly convex case } \mu &gt;0 &amp; &amp;\langle \nabla f(x) - \nabla f(y), x - y \rangle &amp;\geq \mu \|x - y\|^2 \\
+\text{Convex case } \mu = 0 &amp; &amp;\langle \nabla f(x) - \nabla f(y), x - y \rangle &amp;\geq 0
+\end{aligned}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li>We will only give the proof for the strongly convex case, the convex one follows from it with setting <span class="math inline">\mu=0</span>. We start from necessity. For the strongly convex function <span class="math display">
+  \begin{aligned}
+  &amp; f(y) \geq f(x) + \langle \nabla f(x), y-x\rangle + \frac{\mu}{2}\|x-y\|_2^2 \\
+  &amp; f(x) \geq f(y) + \langle \nabla f(y), x-y\rangle + \frac{\mu}{2}\|x-y\|_2^2 \\
+  {\scriptsize \text{sum}} \;\; &amp; \langle \nabla f(x) - \nabla f(y), x - y \rangle \geq \mu \|x - y\|^2
+  \end{aligned}
+  </span></li>
+</ol>
+</section>
+<section id="convergence-tools-3" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="convergence-tools-3"><span class="header-section-number">3.4</span> Convergence tools &nbsp;&nbsp;&nbsp;</h2>
+<ol start="2" type="1">
+<li>For the sufficiency we assume, that <span class="math inline">\langle \nabla f(x) - \nabla f(y), x - y \rangle \geq \mu \|x - y\|^2</span>. Using Newton-Leibniz theorem <span class="math inline">f(x) = f(y) + \int_{0}^{1} \langle \nabla f(y + t(x - y)), x - y \rangle dt</span>: <span class="math display">
+  \begin{aligned}
+f(x) - f(y) - \langle \nabla f(y), x - y \rangle &amp;= \int_{0}^{1} \langle \nabla f(y + t(x - y)), x - y \rangle dt - \langle \nabla f(y), x - y \rangle \\
+\stackrel{ \langle \nabla f(y), x - y \rangle = \int_{0}^{1}\langle \nabla f(y), x - y \rangle dt}{ }\qquad &amp;= \int_{0}^{1} \langle \nabla f(y + t(x - y)) - \nabla f(y), (x - y) \rangle dt \\
+\stackrel{ y + t(x - y) - y = t(x - y)}{ }\qquad&amp;= \int_{0}^{1} t^{-1} \langle \nabla f(y + t(x - y)) - \nabla f(y), t(x - y) \rangle dt \\
+&amp; \geq \int_{0}^{1} t^{-1} \mu \| t(x - y) \|^2 dt   = \mu \| x - y \|^2 \int_{0}^{1} t dt = \frac{\mu}{2} \| x - y \|^2_2
+  \end{aligned}
+  </span></li>
+</ol>
+<p>Thus, we have a strong convexity criterion satisfied <span class="math display">
+  \begin{aligned}
+   &amp; f(x) \geq f(y) + \langle \nabla f(y), x - y \rangle + \frac{\mu}{2} \| x - y \|^2_2  \text{ or, equivivalently: }\\
+   {\scriptsize \text{switch x and y}} \quad &amp; - \langle \nabla f(x), x - y \rangle \leq - \left(f(x) - f(y) + \frac{\mu}{2} \| x - y \|^2_2 \right)
+  \end{aligned}
+  </span></p>
+</section>
+</section>
+<section id="proximal-gradient-method.-convex-case" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Proximal Gradient Method. Convex case</h1>
+<section id="convergence" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="convergence"><span class="header-section-number">4.1</span> Convergence</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Consider the proximal gradient method <span class="math display">
+x_{k+1} = \text{prox}_{\alpha r}\left(x_k - \alpha \nabla f(x_k)\right)
+</span> For the criterion <span class="math inline">\varphi(x) = f(x) + r(x)</span>, we assume:</p>
+<div class="nonincremental">
+<ul>
+<li><span class="math inline">f</span> is convex, differentiable, <span class="math inline">\text{dom}(f) = \mathbb{R}^n</span>, and <span class="math inline">\nabla f</span> is Lipschitz continuous with constant <span class="math inline">L &gt; 0</span>.</li>
+<li><span class="math inline">r</span> is convex, and <span class="math inline">\text{prox}_{\alpha r}(x_k) = \text{arg}\min\limits_{x\in \mathbb{R}^n} \left[ \alpha r(x) +  \frac{1}{2} \|x - x_k\|^2_2 \right]</span> can be evaluated.</li>
+</ul>
+</div>
+<p>Proximal gradient descent with fixed step size <span class="math inline">\alpha = 1/L</span> satisfies <span class="math display">
+\varphi(x_k) - \varphi^* \leq \frac{L \|x_0 - x^*\|^2}{2 k},
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>Proximal gradient descent has a convergence rate of <span class="math inline">O(1/k)</span> or <span class="math inline">O(1/\varepsilon)</span>. This matches the gradient descent rate! (But remember the proximal operation cost)</p>
+</section>
+<section id="convergence-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="convergence-1"><span class="header-section-number">4.2</span> Convergence &nbsp;</h2>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li>Let’s introduce the <strong>gradient mapping</strong>, denoted as <span class="math inline">G_{\alpha}(x)</span>, acts as a “gradient-like object”: <span class="math display">
+  \begin{aligned}
+  x_{k+1} &amp;= \text{prox}_{\alpha r}(x_k - \alpha \nabla f(x_k))\\
+  x_{k+1} &amp;= x_k - \alpha G_{\alpha}(x_k).
+  \end{aligned}
+  </span></li>
+</ol>
+<p>where <span class="math inline">G_{\alpha}(x)</span> is: <span class="math display">
+  G_{\alpha}(x) = \frac{1}{\alpha} \left( x - \text{prox}_{\alpha r}\left(x - \alpha \nabla f\left(x\right)\right) \right)
+  </span></p>
+<p>Observe that <span class="math inline">G_{\alpha}(x) = 0</span> if and only if <span class="math inline">x</span> is optimal. Therefore, <span class="math inline">G_{\alpha}</span> is analogous to <span class="math inline">\nabla f</span>. If <span class="math inline">x</span> is locally optimal, then <span class="math inline">G_{\alpha}(x) = 0</span> even for nonconvex <span class="math inline">f</span>. This demonstrates that the proximal gradient method effectively combines gradient descent on <span class="math inline">f</span> with the proximal operator of <span class="math inline">r</span>, allowing it to handle non-differentiable components effectively.</p>
+<ol start="2" type="1">
+<li>We will use smoothness and convexity of <span class="math inline">f</span> for some arbitrary point <span class="math inline">x</span>: <span class="math display">
+  \begin{aligned}
+{\scriptsize \text{smoothness}} \;\; f(x_{k+1}) &amp;\leq  f(x_k) + \langle \nabla f(x_k), x_{k+1}-x_k \rangle + \frac{L}{2}\|x_{k+1}-x_k\|_2^2 \\
+\stackrel{\text{convexity } f(x) \geq f(x_k) + \langle \nabla f(x_k), x-x_k \rangle}{ } \;\;   &amp;\leq f(x) - \langle \nabla f(x_k), x-x_k \rangle + \langle \nabla f(x_k), x_{k+1}-x_k \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2 \\
+&amp;\leq f(x) + \langle \nabla f(x_k), x_{k+1}-x \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2
+  \end{aligned}
+  </span></li>
+</ol>
+</section>
+<section id="convergence-2" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="convergence-2"><span class="header-section-number">4.3</span> Convergence &nbsp;&nbsp;</h2>
+<ol start="3" type="1">
+<li>Now we will use a proximal map property, which was proven before: <span class="math display">
+  \begin{aligned}
+x_{k+1} = \text{prox}_{\alpha r}\left(x_k - \alpha \nabla f(x_k)\right) \qquad  \Leftrightarrow \qquad x_k - \alpha \nabla f(x_k) - x_{k+1} \in \partial \alpha r (x_{k+1}) \\
+\text{Since } x_{k+1} - x_k = - \alpha G_{\alpha}(x_k) \qquad \Rightarrow \qquad  \alpha G_{\alpha}(x_k) - \alpha \nabla f(x_k) \in \partial \alpha r (x_{k+1}) \\
+G_{\alpha}(x_k) - \nabla f(x_k) \in \partial r (x_{k+1})
+  \end{aligned}
+  </span></li>
+<li>By the definition of the subgradient of convex function <span class="math inline">r</span> for any point <span class="math inline">x</span>: <span class="math display">
+  \begin{aligned}
+&amp; r(x) \geq r(x_{k+1}) + \langle g, x - x_{k+1} \rangle, \quad g \in \partial r (x_{k+1}) \\
+{\scriptsize \text{substitute specific subgradient}} \qquad &amp; r(x) \geq r(x_{k+1}) + \langle G_{\alpha}(x_k) - \nabla f(x), x - x_{k+1} \rangle \\
+&amp; r(x) \geq r(x_{k+1}) + \langle G_{\alpha}(x_k), x - x_{k+1} \rangle - \langle \nabla f(x), x - x_{k+1} \rangle \\
+&amp; \langle \nabla f(x),x_{k+1} - x \rangle \leq r(x) - r(x_{k+1}) - \langle G_{\alpha}(x_k), x - x_{k+1} \rangle
+  \end{aligned}
+  </span></li>
+<li>Taking into account the above bound we return back to the smoothness and convexity: <span class="math display">
+  \begin{aligned}
+f(x_{k+1}) &amp;\leq f(x) + \langle \nabla f(x_k), x_{k+1}-x \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2 \\
+f(x_{k+1}) &amp;\leq f(x) + r(x) - r(x_{k+1}) - \langle G_{\alpha}(x_k), x - x_{k+1} \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2 \\
+f(x_{k+1}) + r(x_{k+1}) &amp;\leq f(x) + r(x) - \langle G_{\alpha}(x_k), x - x_k + \alpha G_{\alpha}(x_k) \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2
+  \end{aligned}
+  </span></li>
+</ol>
+</section>
+<section id="convergence-3" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="convergence-3"><span class="header-section-number">4.4</span> Convergence &nbsp;&nbsp;&nbsp;</h2>
+<ol start="6" type="1">
+<li>Using <span class="math inline">\varphi(x) = f(x) + r(x)</span> we can now prove extremely useful inequality, which will allow us to demonstrate monotonic decrease of the iteration: <span class="math display">
+  \begin{aligned}
+&amp; \varphi(x_{k+1}) \leq \varphi(x) - \langle G_{\alpha}(x_k), x - x_k \rangle - \langle G_{\alpha}(x_k), \alpha G_{\alpha}(x_k) \rangle + \frac{\alpha^2 L}{2}\|G_{\alpha}(x_k)\|_2^2 \\
+&amp; \varphi(x_{k+1}) \leq \varphi(x) + \langle G_{\alpha}(x_k), x_k - x \rangle + \frac{\alpha}{2} \left( \alpha L - 2 \right) \|G_{\alpha}(x_k) \|_2^2 \\
+\stackrel{\alpha \leq \frac1L \Rightarrow \frac{\alpha}{2} \left( \alpha L - 2 \right) \leq  -\frac{\alpha}{2}}{ } \quad   &amp; \varphi(x_{k+1}) \leq \varphi(x) + \langle G_{\alpha}(x_k), x_k - x \rangle - \frac{\alpha}{2} \|G_{\alpha}(x_k) \|_2^2
+  \end{aligned}
+  </span></li>
+<li>Now it is easy to verify, that when <span class="math inline">x = x_k</span> we have monotonic decrease for the proximal gradient algorithm: <span class="math display">
+  \varphi(x_{k+1}) \leq \varphi(x_k) - \frac{\alpha}{2} \|G_{\alpha}(x_k) \|_2^2
+  </span></li>
+</ol>
+</section>
+<section id="convergence-4" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="convergence-4"><span class="header-section-number">4.5</span> Convergence &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+<ol start="8" type="1">
+<li>When <span class="math inline">x = x^*</span>: <span class="math display">
+  \begin{aligned}
+\varphi(x_{k+1}) &amp;\leq \varphi(x^*) + \langle G_{\alpha}(x_k), x_k - x^* \rangle - \frac{\alpha}{2} \|G_{\alpha}(x_k) \|_2^2 \\
+\varphi(x_{k+1}) - \varphi(x^*) &amp;\leq \langle G_{\alpha}(x_k), x_k - x^* \rangle - \frac{\alpha}{2} \|G_{\alpha}(x_k) \|_2^2 \\
+&amp;\leq \frac{1}{2\alpha}\left[2 \langle \alpha G_{\alpha}(x_k), x_k - x^* \rangle - \|\alpha G_{\alpha}(x_k) \|_2^2\right] \\
+&amp;\leq \frac{1}{2\alpha}\left[2 \langle \alpha G_{\alpha}(x_k), x_k - x^* \rangle - \|\alpha G_{\alpha}(x_k) \|_2^2 - \|x_k - x^* \|_2^2 + \|x_k - x^* \|_2^2\right] \\
+&amp;\leq \frac{1}{2\alpha}\left[- \|x_k - x^* -  \alpha G_{\alpha}(x_k)\|_2^2 + \|x_k - x^* \|_2^2\right] \\
+&amp;\leq \frac{1}{2\alpha}\left[\|x_k - x^* \|_2^2 - \|x_{k+1} - x^* \|_2^2\right]
+  \end{aligned}
+  </span></li>
+</ol>
+</section>
+<section id="convergence-5" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="convergence-5"><span class="header-section-number">4.6</span> Convergence &nbsp;&nbsp;&nbsp;&nbsp;</h2>
+<ol start="9" type="1">
+<li><p>Now we write the bound above for all iterations <span class="math inline">i \in 0, k-1</span> and sum them: <span class="math display">
+  \begin{aligned}
+\sum\limits_{i=0}^{k-1}\left[ \varphi(x_{i+1}) - \varphi(x^*) \right] &amp; \leq \frac{1}{2\alpha}\left[\|x_0 - x^* \|_2^2 - \|x_{k} - x^* \|_2^2\right] \\
+&amp; \leq \frac{1}{2\alpha} \|x_0 - x^* \|_2^2
+  \end{aligned}
+  </span></p></li>
+<li><p>Since <span class="math inline">\varphi(x_{k})</span> is a decreasing sequence, it follows that: <span class="math display">
+  \begin{aligned}
+   \sum\limits_{i=0}^{k-1} \varphi(x_{k})= k \varphi(x_{k}) &amp;\leq \sum\limits_{i=0}^{k-1} \varphi(x_{i+1}) \\
+   \varphi(x_{k}) &amp;\leq \frac1k \sum\limits_{i=0}^{k-1} \varphi(x_{i+1}) \\
+   \varphi(x_{k})  - \varphi(x^*) &amp;\leq \frac1k \sum\limits_{i=0}^{k-1}\left[ \varphi(x_{i+1}) - \varphi(x^*)\right] \leq \frac{\|x_0 - x^* \|_2^2}{2\alpha k}
+  \end{aligned}
+  </span></p></li>
+</ol>
+<p>Which is a standard <span class="math inline">\frac{L \|x_0 - x^* \|_2^2}{2 k}</span> with <span class="math inline">\alpha = \frac1L</span>, or, <span class="math inline">\mathcal{O}\left( \frac1k \right)</span> rate for smooth convex problems with Gradient Descent!</p>
+</section>
+</section>
+<section id="proximal-gradient-method.-strongly-convex-case" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Proximal Gradient Method. Strongly convex case</h1>
+<section id="convergence-6" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="convergence-6"><span class="header-section-number">5.1</span> Convergence</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Theorem
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Consider the proximal gradient method <span class="math display">
+x_{k+1} = \text{prox}_{\alpha r}\left(x_k - \alpha \nabla f(x_k)\right)
+</span> For the criterion <span class="math inline">\varphi(x) = f(x) + r(x)</span>, we assume:</p>
+<div class="nonincremental">
+<ul>
+<li><span class="math inline">f</span> is <span class="math inline">\mu</span>-strongly convex, differentiable, <span class="math inline">\text{dom}(f) = \mathbb{R}^n</span>, and <span class="math inline">\nabla f</span> is Lipschitz continuous with constant <span class="math inline">L &gt; 0</span>.</li>
+<li><span class="math inline">r</span> is convex, and <span class="math inline">\text{prox}_{\alpha r}(x_k) = \text{arg}\min\limits_{x\in \mathbb{R}^n} \left[ \alpha r(x) +  \frac{1}{2} \|x - x_k\|^2_2 \right]</span> can be evaluated.</li>
+</ul>
+</div>
+<p>Proximal gradient descent with fixed step size <span class="math inline">\alpha \leq 1/L</span> satisfies <span class="math display">
+\|x_{k} - x^*\|_2^2 \leq \left(1 - \alpha \mu\right)^k \|x_{0} - x^*\|_2^2
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<p>This is exactly gradient descent convergence rate. Note, that the original problem is even non-smooth!</p>
+</section>
+<section id="convergence-7" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="convergence-7"><span class="header-section-number">5.2</span> Convergence &nbsp;</h2>
+<p><strong>Proof</strong></p>
+<ol type="1">
+<li><p>Considering the distance to the solution and using the stationary point lemm: <span class="math display">
+  \begin{aligned}
+\|x_{k+1} - x^*\|^2_2 &amp;= \|\text{prox}_{\alpha f} (x_k - \alpha \nabla f (x_k)) - x^*\|^2_2 \\
+{\scriptsize \text{stationary point lemm}}  &amp; = \|\text{prox}_{\alpha f} (x_k - \alpha \nabla f (x_k)) - \text{prox}_{\alpha f} (x^* - \alpha \nabla f (x^*)) \|^2_2 \\
+{\scriptsize \text{nonexpansiveness}}   &amp; \leq \|x_k - \alpha \nabla f (x_k) - x^* + \alpha \nabla f (x^*) \|^2_2 \\
+&amp; =  \|x_k - x^*\|^2 - 2\alpha \langle \nabla f(x_k) - \nabla f(x^*), x_k - x^* \rangle + \alpha^2 \|\nabla f(x_k) - \nabla f(x^*)\|^2_2
+  \end{aligned}
+  </span></p></li>
+<li><p>Now we use smoothness from the convergence tools and strong convexity: <span class="math display">
+  \begin{aligned}
+\text{smoothness} \;\; &amp;\|\nabla f(x_k)-\nabla f (x^*)\|_2^2 \leq 2L\left(f(x_k)-f(x^*)-\langle\nabla f (x^*),x_k -x^*\rangle \right) \\
+\text{strong convexity} \;\; &amp; - \langle \nabla f(x_k) -  \nabla f(x^*), x_k - x^* \rangle \leq - \left(f(x_k) - f(x^*) + \frac{\mu}{2} \| x_k - x^* \|^2_2 \right) - \langle \nabla f(x^*), x_k - x^* \rangle
+  \end{aligned}
+  </span></p></li>
+</ol>
+</section>
+<section id="convergence-8" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="convergence-8"><span class="header-section-number">5.3</span> Convergence &nbsp;</h2>
+<ol start="3" type="1">
+<li><p>Substitute it: <span class="math display">
+  \begin{aligned}
+\|x_{k+1} - x^*\|^2_2 &amp;\leq \|x_k - x^*\|^2 - 2\alpha \left(f(x_k) - f(x^*) + \frac{\mu}{2} \| x_k - x^* \|^2_2 \right) - 2\alpha \langle \nabla f(x^*), x_k - x^* \rangle + \\
+  &amp; + \alpha^2 2L\left(f(x_k)-f(x^*)-\langle\nabla f (x^*),x_k -x^*\rangle \right)  \\
+&amp;\leq (1 - \alpha \mu)\|x_k - x^*\|^2 + 2\alpha (\alpha L - 1) \left( f(x_k) - f(x^*) - \langle \nabla f(x^*), x_k - x^* \rangle \right)
+  \end{aligned}
+  </span></p></li>
+<li><p>Due to convexity of <span class="math inline">f</span>: <span class="math inline">f(x_k) - f(x^*) - \langle \nabla f(x^*), x_k - x^* \rangle \geq 0</span>. Therefore, if we use <span class="math inline">\alpha \leq \frac1L</span>: <span class="math display">
+  \|x_{k+1} - x^*\|^2_2 \leq (1 - \alpha \mu)\|x_k - x^*\|^2,
+  </span> which is exactly linear convergence of the method with up to <span class="math inline">1 - \frac{\mu}{L}</span> convergence rate.</p></li>
+</ol>
+</section>
+<section id="accelerated-proximal-gradient-convex-objective" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="accelerated-proximal-gradient-convex-objective"><span class="header-section-number">5.4</span> Accelerated Proximal Gradient ‒ <em>convex</em> objective</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Accelerated Proximal Gradient Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Let <span class="math inline">f:\mathbb{R}^n\!\to\!\mathbb{R}</span> be <strong>convex</strong> and <strong><span class="math inline">L</span>‑smooth</strong>, <span class="math inline">r:\mathbb{R}^n\!\to\!\mathbb{R}\cup\{+\infty\}</span> be proper, closed and convex, <span class="math inline">\varphi(x)=f(x)+r(x)</span> admit a minimiser <span class="math inline">x^\star</span>, and suppose <span class="math inline">\operatorname{prox}_{\alpha r}</span> is easy to evaluate for <span class="math inline">\alpha&gt;0</span>. With any <span class="math inline">x_0\in\operatorname{dom}r</span> define the sequence<br>
+<span class="math display">
+\begin{aligned}
+t_0 &amp;= 1,\qquad y_0 = x_0,\\
+x_k &amp;= \operatorname{prox}_{\tfrac1L r}\!\bigl(y_{k-1}-\tfrac1L\nabla f(y_{k-1})\bigr),\\
+t_k &amp;= \frac{1+\sqrt{1+4t_{k-1}^2}}{2},\\
+y_k &amp;= x_k+\frac{t_{k-1}-1}{t_k}\,(x_k-x_{k-1}), \qquad k\ge 1.
+\end{aligned}
+</span> Then for every <span class="math inline">k\ge 1</span> <span class="math display">
+\boxed{\;
+\varphi(x_k)-\varphi(x^\star)\;\le\;
+\frac{2L\,\|x_0-x^\star\|_2^{\,2}}{(k+1)^2}
+\;}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="accelerated-proximal-gradient-mustrongly-convex-objective" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="accelerated-proximal-gradient-mustrongly-convex-objective"><span class="header-section-number">5.5</span> Accelerated Proximal Gradient ‒ <em><span class="math inline">\mu</span>‑strongly convex</em> objective</h2>
+<div class="callout callout-style-default callout-theorem no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Theorem</span>Accelerated Proximal Gradient Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div>
+<div class="callout-theorem">
+<p>Assume in addition that <span class="math inline">f</span> is <strong><span class="math inline">\mu</span>‑strongly convex</strong> (<span class="math inline">\mu&gt;0</span>).<br>
+Set the step <span class="math inline">\alpha=\tfrac1L</span> and the fixed momentum parameter<br>
+<span class="math display">
+\beta\;=\;\frac{\sqrt{L/\mu}-1}{\sqrt{L/\mu}+1}.
+</span> Generate the iterates for <span class="math inline">k\ge 0</span> (take <span class="math inline">x_{-1}=x_0</span>): <span class="math display">
+\begin{aligned}
+y_k &amp;= x_k+\beta\,(x_k-x_{k-1}),\\
+x_{k+1} &amp;= \operatorname{prox}_{\alpha r}\!\bigl(y_k-\alpha\nabla f(y_k)\bigr).
+\end{aligned}
+</span> Then for every <span class="math inline">k\ge 0</span> <span class="math display">
+\boxed{\;
+\varphi(x_k)-\varphi(x^\star)\;\le\;\Bigl(1-\sqrt{\tfrac{\mu}{L}}\Bigr)^{k} \left( \varphi(x_0) - \varphi(x^\star) + \frac{\mu}{2} \|x_0 - x^\star\|_2^2 \right)
+\;}
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="numerical-experiments" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Numerical experiments</h1>
+<section id="quadratic-case" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="quadratic-case"><span class="header-section-number">6.1</span> Quadratic case</h2>
+<p><span class="math display">
+f(x) = \frac{1}{2m}\|Ax - b\|_2^2 + \lambda \|x\|_1 \to \min_{x \in \mathbb{R}^n}, \qquad A \in \mathbb{R}^{m \times n}, \quad \lambda\left(\tfrac{1}{m} A^TA\right) \in [\mu; L].
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lasso_proximal_subgrad_0.svg" class="img-fluid figure-img"></p>
+<figcaption>Smooth convex case. Sublinear convergence, no convergence in domain, no difference between subgradient and proximal methods</figcaption>
+</figure>
+</div>
+</section>
+<section id="quadratic-case-1" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="quadratic-case-1"><span class="header-section-number">6.2</span> Quadratic case</h2>
+<p><span class="math display">
+f(x) = \frac{1}{2m}\|Ax - b\|_2^2 + \lambda \|x\|_1 \to \min_{x \in \mathbb{R}^n}, \qquad A \in \mathbb{R}^{m \times n}, \quad \lambda\left(\tfrac{1}{m} A^TA\right) \in [\mu; L].
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lasso_proximal_subgrad_1_short.svg" class="img-fluid figure-img"></p>
+<figcaption>Non-smooth convex case. Sublinear convergence. At the beginning, the subgradient method and proximal method are close.</figcaption>
+</figure>
+</div>
+</section>
+<section id="quadratic-case-2" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="quadratic-case-2"><span class="header-section-number">6.3</span> Quadratic case</h2>
+<p><span class="math display">
+f(x) = \frac{1}{2m}\|Ax - b\|_2^2 + \lambda \|x\|_1 \to \min_{x \in \mathbb{R}^n}, \qquad A \in \mathbb{R}^{m \times n}, \quad \lambda\left(\tfrac{1}{m} A^TA\right) \in [\mu; L].
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lasso_proximal_subgrad_1_long.svg" class="img-fluid figure-img"></p>
+<figcaption>Non-smooth convex case. If we take more iterations, the proximal method converges with the constant learning rate, which is not the case for the subgradient method. The difference is tremendous, while the iteration complexity is the same.</figcaption>
+</figure>
+</div>
+</section>
+<section id="binary-logistic-regression" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="binary-logistic-regression"><span class="header-section-number">6.4</span> Binary logistic regression</h2>
+<p><span class="math display">
+f(x) = \frac{1}{m}\sum_{i=1}^{m} \log(1 + \exp(-b_i(A_i x))) + \lambda \|x\|_1 \to \min_{x \in \mathbb{R}^n}, \qquad A_i \in \mathbb{R}^n, \quad b_i \in \{-1,1\}
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="logistic_m_300_n_50_lambda_0.1.svg" class="img-fluid figure-img"></p>
+<figcaption>Logistic regression with <span class="math inline">\ell_1</span> regularization</figcaption>
+</figure>
+</div>
+</section>
+<section id="softmax-multiclass-regression" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="softmax-multiclass-regression"><span class="header-section-number">6.5</span> Softmax multiclass regression</h2>
+<p><img src="Subgrad-lr-1.00Subgrad-lr-0.50Proximal-lr-0.50_0.01.svg" class="img-fluid"></p>
+</section>
+<section id="example-ista" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="example-ista"><span class="header-section-number">6.6</span> Example: ISTA</h2>
+<section id="iterative-shrinkage-thresholding-algorithm-ista" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="iterative-shrinkage-thresholding-algorithm-ista"><span class="header-section-number">6.6.1</span> Iterative Shrinkage-Thresholding Algorithm (ISTA)</h3>
+<p>ISTA is a popular method for solving optimization problems involving L1 regularization, such as Lasso. It combines gradient descent with a shrinkage operator to handle the non-smooth L1 penalty effectively.</p>
+<ul>
+<li><strong>Algorithm</strong>:
+<ul>
+<li>Given <span class="math inline">x_0</span>, for <span class="math inline">k \geq 0</span>, repeat: <span class="math display">
+x_{k+1} = \text{prox}_{\lambda \alpha \|\cdot\|_1} \left(x_k - \alpha \nabla f(x_k)\right),
+</span> where <span class="math inline">\text{prox}_{\lambda \alpha \|\cdot\|_1}(v)</span> applies soft thresholding to each component of <span class="math inline">v</span>.</li>
+</ul></li>
+<li><strong>Convergence</strong>:
+<ul>
+<li>Converges at a rate of <span class="math inline">O(1/k)</span> for suitable step size <span class="math inline">\alpha</span>.</li>
+</ul></li>
+<li><strong>Application</strong>:
+<ul>
+<li>Efficient for sparse signal recovery, image processing, and compressed sensing.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="example-fista" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="example-fista"><span class="header-section-number">6.7</span> Example: FISTA</h2>
+<section id="fast-iterative-shrinkage-thresholding-algorithm-fista" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="fast-iterative-shrinkage-thresholding-algorithm-fista"><span class="header-section-number">6.7.1</span> Fast Iterative Shrinkage-Thresholding Algorithm (FISTA)</h3>
+<p>FISTA improves upon ISTA’s convergence rate by incorporating a momentum term, inspired by Nesterov’s accelerated gradient method.</p>
+<ul>
+<li><strong>Algorithm</strong>:
+<ul>
+<li>Initialize <span class="math inline">x_0 = y_0</span>, <span class="math inline">t_0 = 1</span>.</li>
+<li>For <span class="math inline">k \geq 1</span>, update: <span class="math display">
+\begin{aligned}
+x_{k} &amp;= \text{prox}_{\lambda \alpha \|\cdot\|_1} \left(y_{k-1} - \alpha \nabla f(y_{k-1})\right), \\
+t_{k} &amp;= \frac{1 + \sqrt{1 + 4t_{k-1}^2}}{2}, \\
+y_{k} &amp;= x_{k} + \frac{t_{k-1} - 1}{t_{k}}(x_{k} - x_{k-1}).
+\end{aligned}
+</span></li>
+</ul></li>
+<li><strong>Convergence</strong>:
+<ul>
+<li>Improves the convergence rate to <span class="math inline">O(1/k^2)</span>.</li>
+</ul></li>
+<li><strong>Application</strong>:
+<ul>
+<li>Especially useful for large-scale problems in machine learning and signal processing where the L1 penalty induces sparsity.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="example-matrix-completion" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="example-matrix-completion"><span class="header-section-number">6.8</span> Example: Matrix Completion</h2>
+<section id="solving-the-matrix-completion-problem" class="level3" data-number="6.8.1">
+<h3 data-number="6.8.1" class="anchored" data-anchor-id="solving-the-matrix-completion-problem"><span class="header-section-number">6.8.1</span> Solving the Matrix Completion Problem</h3>
+<p>Matrix completion problems seek to fill in the missing entries of a partially observed matrix under certain assumptions, typically low-rank. This can be formulated as a minimization problem involving the nuclear norm (sum of singular values), which promotes low-rank solutions.</p>
+<ul>
+<li><p><strong>Problem Formulation</strong>: <span class="math display">
+\min_{X} \frac{1}{2} \|P_{\Omega}(X) - P_{\Omega}(M)\|_F^2 + \lambda \|X\|_*,
+</span> where <span class="math inline">P_{\Omega}</span> projects onto the observed set <span class="math inline">\Omega</span>, and <span class="math inline">\|\cdot\|_*</span> denotes the nuclear norm.</p></li>
+<li><p><strong>Proximal Operator</strong>:</p>
+<ul>
+<li>The proximal operator for the nuclear norm involves singular value decomposition (SVD) and soft-thresholding of the singular values.</li>
+</ul></li>
+<li><p><strong>Algorithm</strong>:</p>
+<ul>
+<li>Similar proximal gradient or accelerated proximal gradient methods can be applied, where the main computational effort lies in performing partial SVDs.</li>
+</ul></li>
+<li><p><strong>Application</strong>:</p>
+<ul>
+<li>Widely used in recommender systems, image recovery, and other domains where data is naturally matrix-formed but partially observed.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="summary" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.9</span> Summary</h2>
+<ul>
+<li><p>If we exploit the structure of the problem, we may beat the lower bounds for the unstructured problem.</p></li>
+<li><p>Proximal gradient method for a composite problem with an <span class="math inline">L</span>-smooth convex function <span class="math inline">f</span> and a convex proximal friendly function <span class="math inline">r</span> has the same convergence as the gradient descent method for the function <span class="math inline">f</span>. The smoothness/non-smoothness properties of <span class="math inline">r</span> do not affect convergence.</p></li>
+<li><p>It seems that by putting <span class="math inline">f = 0</span>, any nonsmooth problem can be solved using such a method. Question: is this true?</p>
+<p>If we allow the proximal operator to be inexact (numerically), then it is true that we can solve any nonsmooth optimization problem. But this is not better from the point of view of theory than solving the problem by subgradient descent, because some auxiliary method (for example, the same subgradient descent) is used to solve the proximal subproblem.</p></li>
+<li><p>Proximal method is a general modern framework for many numerical methods. Further development includes accelerated, stochastic, primal-dual modifications and etc.</p></li>
+<li><p>Further reading: Proximal operator splitting, Douglas-Rachford splitting, Best approximation problem, Three operator splitting.</p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/methods/fom/proximal_gradient.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

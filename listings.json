@@ -37,29 +37,6 @@
     ]
   },
   {
-    "listing": "/docs/methods/fom/index.html",
-    "items": [
-      "/docs/methods/fom/GD.html",
-      "/docs/methods/fom/heavy_ball.html",
-      "/docs/methods/fom/Subgradient descent.html",
-      "/docs/methods/fom/Projected_subgradient_descent.html",
-      "/docs/methods/fom/Mirror_descent.html",
-      "/docs/methods/fom/SGD.html",
-      "/docs/methods/fom/SAG.html",
-      "/docs/methods/fom/ADAM.html",
-      "/docs/methods/fom/Lookahead.html"
-    ]
-  },
-  {
-    "listing": "/docs/methods/adaptive_metrics/index.html",
-    "items": [
-      "/docs/methods/adaptive_metrics/Newton.html",
-      "/docs/methods/adaptive_metrics/Quasi_newton.html",
-      "/docs/methods/adaptive_metrics/CG.html",
-      "/docs/methods/adaptive_metrics/Natural_gradient.html"
-    ]
-  },
-  {
     "listing": "/docs/applications/index.html",
     "items": [
       "/docs/applications/A-Star.html",
@@ -78,6 +55,30 @@
     ]
   },
   {
+    "listing": "/docs/methods/adaptive_metrics/index.html",
+    "items": [
+      "/docs/methods/adaptive_metrics/Newton.html",
+      "/docs/methods/adaptive_metrics/Quasi_newton.html",
+      "/docs/methods/adaptive_metrics/CG.html",
+      "/docs/methods/adaptive_metrics/Natural_gradient.html"
+    ]
+  },
+  {
+    "listing": "/docs/methods/fom/index.html",
+    "items": [
+      "/docs/methods/fom/GD.html",
+      "/docs/methods/fom/heavy_ball.html",
+      "/docs/methods/fom/Subgradient descent.html",
+      "/docs/methods/fom/Projected_subgradient_descent.html",
+      "/docs/methods/fom/Mirror_descent.html",
+      "/docs/methods/fom/SGD.html",
+      "/docs/methods/fom/SAG.html",
+      "/docs/methods/fom/ADAM.html",
+      "/docs/methods/fom/Lookahead.html",
+      "/docs/methods/fom/proximal_gradient.html"
+    ]
+  },
+  {
     "listing": "/docs/methods/index.html",
     "items": [
       "/docs/methods/fom/GD.html",
@@ -93,6 +94,7 @@
       "/docs/methods/fom/SAG.html",
       "/docs/methods/fom/ADAM.html",
       "/docs/methods/fom/Lookahead.html",
+      "/docs/methods/fom/proximal_gradient.html",
       "/docs/methods/zom/bee_algorithm.html",
       "/docs/methods/line_search/binary_search.html",
       "/docs/methods/adaptive_metrics/CG.html",
@@ -143,6 +145,7 @@
       "/docs/methods/fom/SAG.html",
       "/docs/methods/fom/ADAM.html",
       "/docs/methods/fom/Lookahead.html",
+      "/docs/methods/fom/proximal_gradient.html",
       "/docs/methods/zom/bee_algorithm.html",
       "/docs/methods/line_search/binary_search.html",
       "/docs/methods/adaptive_metrics/CG.html",
