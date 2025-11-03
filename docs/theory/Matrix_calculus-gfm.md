@@ -1381,7 +1381,7 @@ Note, that even the second-order approximation could become inaccurate
 very quickly. The code for the picture below is available here:
 [👨‍💻](https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/taylor_inaccuracy.ipynb)
 
-<div class="responsive-video"><video autoplay loop muted playsinline class="video"><source src="inaccurate_taylor.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<div class="responsive-video"><video autoplay loop muted playsinline webkit-playsinline preload="metadata" class="video"><source src="inaccurate_taylor.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 ## Derivatives
 
