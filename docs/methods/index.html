@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.9">
+<meta name="generator" content="quarto-1.10.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Methods</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,15 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5d254f1e278c2921d96b26102a150bb1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-9a2e2782961d490053d6ec69e247c6be.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-25ee734c0f585391a84512cdb3ee5921.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -793,6 +795,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../docs/visualizations/l1_sparsity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L1 sparsity: subgradient vs proximal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Step Size Selection in Gradient Descent via Line Search</span></a>
   </div>
@@ -1019,10 +1027,10 @@ h_j(x) =&amp; 0, \; j = 1,\ldots,k\\
 <h2 data-number="3" class="anchored" data-anchor-id="contents-of-the-chapter"><span class="header-section-number">3</span> Contents of the chapter</h2>
 <div id="listing-methods" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1762334861453" data-listing-reading-time-sort="13" data-listing-word-count-sort="2559">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1774705335578" data-listing-reading-time-sort="13" data-listing-word-count-sort="2559">
 <a href="../../docs/methods/fom/GD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/GD_vs_GF.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/GD_vs_GF.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Gradient descent
@@ -1030,10 +1038,10 @@ Gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1762334861444" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1774705335571" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
 <a href="../../docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="adaptive_metrics/newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="adaptive_metrics/newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Newton method
@@ -1041,10 +1049,10 @@ Newton method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1762334861466" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1774705335591" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
 <a href="../../docs/methods/fom/heavy_ball.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/GD_vs_HB_hor.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/GD_vs_HB_hor.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Heavy Ball Method
@@ -1052,10 +1060,10 @@ Heavy Ball Method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1762334861444" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1774705335571" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
 <a href="../../docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Quasi Newton methods
@@ -1063,10 +1071,10 @@ Quasi Newton methods
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1762334861459" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1774705335583" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
 <a href="../../docs/methods/fom/Subgradient descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/SD.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/SD.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Subgradient descent
@@ -1074,10 +1082,10 @@ Subgradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1762334861456" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1774705335580" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
 <a href="../../docs/methods/fom/Projected_subgradient_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/geom_bound.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/geom_bound.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Projected subgradient descent
@@ -1085,10 +1093,10 @@ Projected subgradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1762334861444" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1774705335569" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
 <a href="../../docs/methods/Simplex.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="LP.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="LP.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Linear Programming and simplex algorithm
@@ -1096,10 +1104,10 @@ Linear Programming and simplex algorithm
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1762334861456" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1774705335580" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
 <a href="../../docs/methods/fom/Mirror_descent.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/bregman.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/bregman.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Mirror descent
@@ -1107,10 +1115,10 @@ Mirror descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1762334861440" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1774705335566" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
 <a href="../../docs/methods/Autograd.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="comp_graph.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="comp_graph.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Automatic differentiation
@@ -1118,10 +1126,10 @@ Automatic differentiation
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1762334861456" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1774705335581" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
 <a href="../../docs/methods/fom/SGD.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Stochastic gradient descent
@@ -1129,10 +1137,10 @@ Stochastic gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1762334861456" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1774705335581" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
 <a href="../../docs/methods/fom/SAG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Stochastic average gradient
@@ -1140,10 +1148,10 @@ Stochastic average gradient
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1762334861451" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1774705335576" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
 <a href="../../docs/methods/fom/ADAM.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 ADAM: A Method for Stochastic Optimization
@@ -1151,10 +1159,10 @@ ADAM: A Method for Stochastic Optimization
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1762334861455" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1774705335580" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
 <a href="../../docs/methods/fom/Lookahead.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/fast_vs_slow.png" alt="Illustration" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/fast_vs_slow.png" alt="Illustration" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span class="math inline">1</span> step back
@@ -1162,10 +1170,10 @@ Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span cla
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1762334861489" data-listing-reading-time-sort="23" data-listing-word-count-sort="4533">
+<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1774705335614" data-listing-reading-time-sort="23" data-listing-word-count-sort="4533">
 <a href="../../docs/methods/fom/proximal_gradient.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="fom/prox_vis.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="fom/prox_vis.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Proximal gradient method
@@ -1173,10 +1181,10 @@ Proximal gradient method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1762334861533" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
+<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1774705335659" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
 <a href="../../docs/methods/zom/bee_algorithm.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="zom/Schwefel_function_plot.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="zom/Schwefel_function_plot.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Bee algorithm
@@ -1184,10 +1192,10 @@ Bee algorithm
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1762334861492" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1774705335617" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="line_search/binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="line_search/binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Binary search
@@ -1195,10 +1203,10 @@ Binary search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1762334861444" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1774705335569" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
 <a href="../../docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="adaptive_metrics/cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="adaptive_metrics/cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Conjugate gradients
@@ -1206,10 +1214,10 @@ Conjugate gradients
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1762334861492" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1774705335617" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="line_search/golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="line_search/golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Golden search
@@ -1217,10 +1225,10 @@ Golden search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1762334861492" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
+<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1774705335617" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
 <a href="../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="line_search/inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="line_search/inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Inexact Line Search
@@ -1228,10 +1236,10 @@ Inexact Line Search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1762334861444" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
+<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1774705335571" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
 <a href="../../docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Natural gradient descent
@@ -1239,10 +1247,10 @@ Natural gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1762334861534" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
+<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1774705335660" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
 <a href="../../docs/methods/zom/nelder-mead.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="zom/nm_mishra3d.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="zom/nm_mishra3d.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nelder–Mead
@@ -1250,10 +1258,10 @@ Nelder–Mead
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="21" data-listing-file-modified-sort="1762334861730" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<div class="g-col-1" data-index="21" data-listing-file-modified-sort="1774705335877" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
 <a href="../../docs/methods/zom/simulated-annealing.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="zom/sa_wiki.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="zom/sa_wiki.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Simulated annealing
@@ -1261,10 +1269,10 @@ Simulated annealing
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="22" data-listing-file-modified-sort="1762334861492" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+<div class="g-col-1" data-index="22" data-listing-file-modified-sort="1774705335618" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
 <a href="../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Successive parabolic interpolation

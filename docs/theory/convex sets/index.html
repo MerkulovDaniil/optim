@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.9">
+<meta name="generator" content="quarto-1.10.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Convex sets</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,15 +38,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-5d254f1e278c2921d96b26102a150bb1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-9a2e2782961d490053d6ec69e247c6be.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-25ee734c0f585391a84512cdb3ee5921.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -756,6 +758,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/l1_sparsity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">L1 sparsity: subgradient vs proximal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Step Size Selection in Gradient Descent via Line Search</span></a>
   </div>
@@ -841,10 +849,10 @@ ul.task-list li input[type="checkbox"] {
 <p>In this chapter, a variety of convex sets and related definitions are described.</p>
 <div id="listing-convex" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1762334861740" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1774705335888" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
 <a href="../../../docs/theory/convex sets/Affine_sets.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="line.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="line.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Affine set
@@ -855,10 +863,10 @@ Suppose <span class="math inline">x_1, x_2</span> are two points in <span class=
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1762334861740" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1774705335889" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
 <a href="../../../docs/theory/convex sets/Convex_set.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="line_segment.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="line_segment.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Convex set
@@ -869,10 +877,10 @@ Suppose <span class="math inline">x_1, x_2</span> are two points in <span class=
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1762334861740" data-listing-reading-time-sort="1" data-listing-word-count-sort="149">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1774705335889" data-listing-reading-time-sort="1" data-listing-word-count-sort="149">
 <a href="../../../docs/theory/convex sets/Conic_sets.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="cone.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="cone.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Conic set
@@ -883,10 +891,10 @@ A non-empty set <span class="math inline">S</span> is called a cone, if:
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1762334861740" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1774705335889" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072">
 <a href="../../../docs/theory/convex sets/Projection.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="proj_ball.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="proj_ball.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Projection
