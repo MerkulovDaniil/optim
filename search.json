@@ -55,25 +55,47 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/lipschitz_strong_convexity.html",
-    "href": "docs/visualizations/lipschitz_strong_convexity.html",
-    "title": "Strong convexity and smoothness bounds",
-    "section": "",
-    "text": "When a function is both \\mu-strongly convex and L-smooth, its Hessian satisfies:\n\n\\mu I \\preceq \\nabla^2 f(x) \\preceq L I\n\nThis gives two-sided quadratic bounds at every point:\n\nf(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{\\mu}{2}\\|y-x\\|^2 \\leq f(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2}\\|y-x\\|^2\n\nThe ratio \\kappa = L / \\mu is the condition number, which determines convergence rates of optimization methods. The animation shows how the function is sandwiched between a lower parabola (strong convexity) and an upper parabola (smoothness) at each point.\n\n\n\nStrong convexity and smoothness\n\n\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "Strong convexity and smoothness bounds"
-    ]
-  },
-  {
     "objectID": "docs/visualizations/lipschitz_cone.html",
     "href": "docs/visualizations/lipschitz_cone.html",
-    "title": "Lipschitz continuity of a function",
+    "title": "Lipschitz continuity",
     "section": "",
     "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
     "crumbs": [
       "Visualizations",
-      "Lipschitz continuity of a function"
+      "Lipschitz continuity"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
+    "href": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
+    "title": "Lipschitz continuity",
+    "section": "",
+    "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Lipschitz continuity"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
+    "href": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
+    "title": "Lipschitz continuity",
+    "section": "2 L-smoothness and the descent lemma",
+    "text": "2 L-smoothness and the descent lemma\nA function f is called L-smooth if its gradient is L-Lipschitz continuous:\n\n\\|\\nabla f(x) - \\nabla f(y)\\| \\leq L \\|x - y\\|\n\nAn equivalent characterization is the descent lemma: for all x, y,\n\nf(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2} \\|y - x\\|^2\n\nThis means the function is always bounded above by a parabola with curvature L tangent at any point. The animation shows how moving the tangent point shifts the bounding parabola while the function stays below it.\n\n\n\nL-smoothness\n\n\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Lipschitz continuity"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
+    "href": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
+    "title": "Lipschitz continuity",
+    "section": "3 Strong convexity and smoothness bounds",
+    "text": "3 Strong convexity and smoothness bounds\nWhen a function is both \\mu-strongly convex and L-smooth, its Hessian satisfies:\n\n\\mu I \\preceq \\nabla^2 f(x) \\preceq L I\n\nThis gives two-sided quadratic bounds at every point:\n\nf(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{\\mu}{2}\\|y-x\\|^2 \\leq f(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2}\\|y-x\\|^2\n\nThe ratio \\kappa = L / \\mu is the condition number, which determines convergence rates of optimization methods. The animation shows how the function is sandwiched between a lower parabola (strong convexity) and an upper parabola (smoothness) at each point.\n\n\n\nStrong convexity and smoothness\n\n\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Lipschitz continuity"
     ]
   },
   {
@@ -4196,17 +4218,6 @@
     "crumbs": [
       "Visualizations",
       "L1 sparsity: subgradient vs proximal"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/lipschitz_parabola.html",
-    "href": "docs/visualizations/lipschitz_parabola.html",
-    "title": "L-smoothness and the descent lemma",
-    "section": "",
-    "text": "A function f is called L-smooth if its gradient is L-Lipschitz continuous:\n\n\\|\\nabla f(x) - \\nabla f(y)\\| \\leq L \\|x - y\\|\n\nAn equivalent characterization is the descent lemma: for all x, y,\n\nf(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2} \\|y - x\\|^2\n\nThis means the function is always bounded above by a parabola with curvature L tangent at any point. The animation shows how moving the tangent point shifts the bounding parabola while the function stays below it.\n\n\n\nL-smoothness\n\n\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "L-smoothness and the descent lemma"
     ]
   },
   {

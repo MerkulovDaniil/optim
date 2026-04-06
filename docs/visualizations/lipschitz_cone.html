@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lipschitz continuity of a function</title>
+<title>Lipschitz continuity</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,10 +90,10 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Lipschitz continuity of a function">
+<meta property="og:title" content="Lipschitz continuity">
 <meta property="og:description" content="">
 <meta property="og:image" content="https://fmin.xyz/docs/visualizations/lipschitz_cone.svg">
-<meta name="twitter:title" content="Lipschitz continuity of a function">
+<meta name="twitter:title" content="Lipschitz continuity">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/lipschitz_cone.svg">
 <meta name="twitter:card" content="summary_large_image">
@@ -124,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/lipschitz_cone.html">Lipschitz continuity of a function</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/lipschitz_cone.html">Lipschitz continuity</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -736,19 +736,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/lipschitz_cone.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Lipschitz continuity of a function</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/lipschitz_parabola.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">L-smoothness and the descent lemma</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/lipschitz_strong_convexity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Strong convexity and smoothness bounds</span></a>
+ <span class="menu-text">Lipschitz continuity</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -807,7 +795,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#lipschitz-continuity-of-a-function" id="toc-lipschitz-continuity-of-a-function" class="nav-link active" data-scroll-target="#lipschitz-continuity-of-a-function"><span class="header-section-number">1</span> Lipschitz continuity of a function</a></li>
+  <li><a href="#l-smoothness-and-the-descent-lemma" id="toc-l-smoothness-and-the-descent-lemma" class="nav-link" data-scroll-target="#l-smoothness-and-the-descent-lemma"><span class="header-section-number">2</span> L-smoothness and the descent lemma</a></li>
+  <li><a href="#strong-convexity-and-smoothness-bounds" id="toc-strong-convexity-and-smoothness-bounds" class="nav-link" data-scroll-target="#strong-convexity-and-smoothness-bounds"><span class="header-section-number">3</span> Strong convexity and smoothness bounds</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/lipschitz_cone.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -817,9 +813,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/lipschitz_cone.html">Lipschitz continuity of a function</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/lipschitz_cone.html">Lipschitz continuity</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Lipschitz continuity of a function</h1>
+<h1 class="title">Lipschitz continuity</h1>
 </div>
 
 
@@ -835,6 +831,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="lipschitz-continuity-of-a-function" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="lipschitz-continuity-of-a-function"><span class="header-section-number">1</span> Lipschitz continuity of a function</h2>
 <p>A function <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is called <span class="math inline">G</span>-Lipschitz continuous on a set <span class="math inline">S</span> if there exists a constant <span class="math inline">G \geq 0</span> such that for all <span class="math inline">x, y \in S</span>:</p>
 <p><span class="math display">
 |f(x) - f(y)| \leq G \|x - y\|
@@ -847,8 +845,47 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="lipschitz_cone.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="l-smoothness-and-the-descent-lemma" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="l-smoothness-and-the-descent-lemma"><span class="header-section-number">2</span> L-smoothness and the descent lemma</h2>
+<p>A function <span class="math inline">f</span> is called <span class="math inline">L</span>-smooth if its gradient is <span class="math inline">L</span>-Lipschitz continuous:</p>
+<p><span class="math display">
+\|\nabla f(x) - \nabla f(y)\| \leq L \|x - y\|
+</span></p>
+<p>An equivalent characterization is the descent lemma: for all <span class="math inline">x, y</span>,</p>
+<p><span class="math display">
+f(y) \leq f(x) + \langle \nabla f(x), y - x \rangle + \frac{L}{2} \|y - x\|^2
+</span></p>
+<p>This means the function is always bounded above by a parabola with curvature <span class="math inline">L</span> tangent at any point. The animation shows how moving the tangent point shifts the bounding parabola while the function stays below it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lipschitz_parabola.svg" class="img-fluid figure-img"></p>
+<figcaption>L-smoothness</figcaption>
+</figure>
+</div>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="lipschitz_parabola.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="strong-convexity-and-smoothness-bounds" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="strong-convexity-and-smoothness-bounds"><span class="header-section-number">3</span> Strong convexity and smoothness bounds</h2>
+<p>When a function is both <span class="math inline">\mu</span>-strongly convex and <span class="math inline">L</span>-smooth, its Hessian satisfies:</p>
+<p><span class="math display">
+\mu I \preceq \nabla^2 f(x) \preceq L I
+</span></p>
+<p>This gives two-sided quadratic bounds at every point:</p>
+<p><span class="math display">
+f(x) + \langle \nabla f(x), y - x \rangle + \frac{\mu}{2}\|y-x\|^2 \leq f(y) \leq f(x) + \langle \nabla f(x), y - x \rangle + \frac{L}{2}\|y-x\|^2
+</span></p>
+<p>The ratio <span class="math inline">\kappa = L / \mu</span> is the condition number, which determines convergence rates of optimization methods. The animation shows how the function is sandwiched between a lower parabola (strong convexity) and an upper parabola (smoothness) at each point.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lipschitz_strong_convexity.svg" class="img-fluid figure-img"></p>
+<figcaption>Strong convexity and smoothness</figcaption>
+</figure>
+</div>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="lipschitz_strong_convexity.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1260,4 +1297,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/lipschitz_cone.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/lipschitz_cone.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
