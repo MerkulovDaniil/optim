@@ -22,25 +22,58 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/optimization_3d.html",
-    "href": "docs/visualizations/optimization_3d.html",
-    "title": "Simple 3D visualization of gradient descent",
+    "objectID": "docs/visualizations/qr_algorithm.html",
+    "href": "docs/visualizations/qr_algorithm.html",
+    "title": "QR Algorithm",
     "section": "",
-    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "text": "The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm’s beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.",
     "crumbs": [
       "Visualizations",
-      "Simple 3D visualization of gradient descent"
+      "QR Algorithm"
     ]
   },
   {
-    "objectID": "docs/visualizations/optimization_3d.html#gradient-descent",
-    "href": "docs/visualizations/optimization_3d.html#gradient-descent",
-    "title": "Simple 3D visualization of gradient descent",
-    "section": "",
-    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "objectID": "docs/visualizations/qr_algorithm.html#algorithm-overview",
+    "href": "docs/visualizations/qr_algorithm.html#algorithm-overview",
+    "title": "QR Algorithm",
+    "section": "1 Algorithm Overview",
+    "text": "1 Algorithm Overview\nThe basic QR iteration proceeds as follows:\n\nStart with a matrix A_0 = A\nFor k = 0, 1, 2, \\ldots :\n\nCompute QR decomposition: A_k = Q_kR_k\nForm next iterate: A_{k+1} = R_kQ_k\n\n\nFor symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré post.\nYour browser does not support the video tag.\nThe visualization above demonstrates how the QR algorithm gradually transforms a symmetric matrix into diagonal form, with the off-diagonal elements converging to zero. The convergence rate depends on the separation of eigenvalues - better separated eigenvalues typically lead to faster convergence.",
     "crumbs": [
       "Visualizations",
-      "Simple 3D visualization of gradient descent"
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/qr_algorithm.html#implementation",
+    "href": "docs/visualizations/qr_algorithm.html#implementation",
+    "title": "QR Algorithm",
+    "section": "2 Implementation",
+    "text": "2 Implementation\nCode",
+    "crumbs": [
+      "Visualizations",
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/qr_algorithm.html#key-properties",
+    "href": "docs/visualizations/qr_algorithm.html#key-properties",
+    "title": "QR Algorithm",
+    "section": "3 Key Properties",
+    "text": "3 Key Properties\n\nPreservation of Eigenvalues: Each iteration Aₖ₊₁ = RₖQₖ is similar to Aₖ, thus preserving eigenvalues\nConvergence: For symmetric matrices, the algorithm converges to a diagonal matrix\nNumerical Stability: The use of orthogonal transformations ensures good numerical properties\n\nThe QR algorithm forms the basis of modern eigenvalue computations and is implemented in most numerical linear algebra libraries. While the basic version shown here is elegant, practical implementations use various enhancements like shifts and deflation to improve efficiency.",
+    "crumbs": [
+      "Visualizations",
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/newton_method_local_convergence.html",
+    "href": "docs/visualizations/newton_method_local_convergence.html",
+    "title": "Local convergence of Newton method",
+    "section": "",
+    "text": "It is well known that Newton method converges quadratically to the root of a function if the initial point is close enough to the root and the Hessian is Lipschitz continuous. \nx_{k+1} = x_k - \\left[\\nabla^2 f(x_k)\\right]^{-1} \\nabla f(x_k)\n If you will consider the following function: \nf(x) = \\begin{cases}\n(x - 1)^2, & x \\leq -1 \\\\\n-\\frac{1}{4}x^4 + \\frac{5}{2}x^2 + \\frac{7}{4}, & -1 &lt; x &lt; 1 \\\\\n(x + 1)^2, & x \\geq 1\n\\end{cases}\n You will see, that it is strongly convex function with smooth gradient (i.e. Lipschitz continuous Hessian).\n\n\n\nNote, that the Hessian is Lipschitz continuous and strictly positive\n\n\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Local convergence of Newton method"
     ]
   },
   {
@@ -107,6 +140,17 @@
     "crumbs": [
       "Visualizations",
       "Gradient descent for linear regression"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/double_descent.html",
+    "href": "docs/visualizations/double_descent.html",
+    "title": "We have Double Descent at home!",
+    "section": "",
+    "text": "Your browser does not support the video tag.\nMom, I want double descent!\n“We have double descent at home.”\nThe phenomenon of double descent is a curious effect observed in machine learning models. As model complexity increases, prediction quality on test data first improves (the first descent), then, as expected, error rises due to overfitting. But unexpectedly, beyond a certain point, the model’s generalization ability improves again (the second descent). Interestingly, a similar pattern can be observed in a relatively simple example of polynomial regression. In the animation above, the left side shows 50 sinusoidal points used as a training set for polynomial regression.\nA typical outcome when increasing the polynomial degree is overfitting — almost zero error on the training data (the blue points on the left) but high error on the test set (100 evenly spaced points along the black line). However, as the model’s complexity continues to increase, we observe that, out of the infinite number of possible solutions, smoother ones are somehow selected. In this way, we clearly witness double descent.\nOf course, this doesn’t happen by accident. In this particular animation, I used Chebyshev polynomials, and from the infinite set of suitable polynomial coefficients, I chose those with the smallest norm. In machine learning, it’s often not possible to explicitly enforce this, so techniques like weight decay are used to favor solutions with smaller norms.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "We have Double Descent at home!"
     ]
   },
   {
@@ -4199,14 +4243,25 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/double_descent.html",
-    "href": "docs/visualizations/double_descent.html",
-    "title": "We have Double Descent at home!",
+    "objectID": "docs/visualizations/continuous_time_flows.html",
+    "href": "docs/visualizations/continuous_time_flows.html",
+    "title": "GF / AGF / GD",
     "section": "",
-    "text": "Your browser does not support the video tag.\nMom, I want double descent!\n“We have double descent at home.”\nThe phenomenon of double descent is a curious effect observed in machine learning models. As model complexity increases, prediction quality on test data first improves (the first descent), then, as expected, error rises due to overfitting. But unexpectedly, beyond a certain point, the model’s generalization ability improves again (the second descent). Interestingly, a similar pattern can be observed in a relatively simple example of polynomial regression. In the animation above, the left side shows 50 sinusoidal points used as a training set for polynomial regression.\nA typical outcome when increasing the polynomial degree is overfitting — almost zero error on the training data (the blue points on the left) but high error on the test set (100 evenly spaced points along the black line). However, as the model’s complexity continues to increase, we observe that, out of the infinite number of possible solutions, smoother ones are somehow selected. In this way, we clearly witness double descent.\nOf course, this doesn’t happen by accident. In this particular animation, I used Chebyshev polynomials, and from the infinite set of suitable polynomial coefficients, I chose those with the smallest norm. In machine learning, it’s often not possible to explicitly enforce this, so techniques like weight decay are used to favor solutions with smaller norms.\nCode",
+    "text": "Your browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "We have Double Descent at home!"
+      "GF / AGF / GD"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/fokker_planck_density.html",
+    "href": "docs/visualizations/fokker_planck_density.html",
+    "title": "Fokker–Planck Density Evolution",
+    "section": "",
+    "text": "Your browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Fokker--Planck Density Evolution"
     ]
   },
   {
@@ -4232,58 +4287,47 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/newton_method_local_convergence.html",
-    "href": "docs/visualizations/newton_method_local_convergence.html",
-    "title": "Local convergence of Newton method",
+    "objectID": "docs/visualizations/nesterov_infinite_length.html",
+    "href": "docs/visualizations/nesterov_infinite_length.html",
+    "title": "Nesterov Flow: Infinite Path Length",
     "section": "",
-    "text": "It is well known that Newton method converges quadratically to the root of a function if the initial point is close enough to the root and the Hessian is Lipschitz continuous. \nx_{k+1} = x_k - \\left[\\nabla^2 f(x_k)\\right]^{-1} \\nabla f(x_k)\n If you will consider the following function: \nf(x) = \\begin{cases}\n(x - 1)^2, & x \\leq -1 \\\\\n-\\frac{1}{4}x^4 + \\frac{5}{2}x^2 + \\frac{7}{4}, & -1 &lt; x &lt; 1 \\\\\n(x + 1)^2, & x \\geq 1\n\\end{cases}\n You will see, that it is strongly convex function with smooth gradient (i.e. Lipschitz continuous Hessian).\n\n\n\nNote, that the Hessian is Lipschitz continuous and strictly positive\n\n\nYour browser does not support the video tag.\nCode",
+    "text": "Your browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Local convergence of Newton method"
+      "Nesterov Flow: Infinite Path Length"
     ]
   },
   {
-    "objectID": "docs/visualizations/qr_algorithm.html",
-    "href": "docs/visualizations/qr_algorithm.html",
-    "title": "QR Algorithm",
+    "objectID": "docs/visualizations/optimization_3d.html",
+    "href": "docs/visualizations/optimization_3d.html",
+    "title": "Simple 3D visualization of gradient descent",
     "section": "",
-    "text": "The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm’s beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.",
+    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm"
+      "Simple 3D visualization of gradient descent"
     ]
   },
   {
-    "objectID": "docs/visualizations/qr_algorithm.html#algorithm-overview",
-    "href": "docs/visualizations/qr_algorithm.html#algorithm-overview",
-    "title": "QR Algorithm",
-    "section": "1 Algorithm Overview",
-    "text": "1 Algorithm Overview\nThe basic QR iteration proceeds as follows:\n\nStart with a matrix A_0 = A\nFor k = 0, 1, 2, \\ldots :\n\nCompute QR decomposition: A_k = Q_kR_k\nForm next iterate: A_{k+1} = R_kQ_k\n\n\nFor symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré post.\nYour browser does not support the video tag.\nThe visualization above demonstrates how the QR algorithm gradually transforms a symmetric matrix into diagonal form, with the off-diagonal elements converging to zero. The convergence rate depends on the separation of eigenvalues - better separated eigenvalues typically lead to faster convergence.",
+    "objectID": "docs/visualizations/optimization_3d.html#gradient-descent",
+    "href": "docs/visualizations/optimization_3d.html#gradient-descent",
+    "title": "Simple 3D visualization of gradient descent",
+    "section": "",
+    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm"
+      "Simple 3D visualization of gradient descent"
     ]
   },
   {
-    "objectID": "docs/visualizations/qr_algorithm.html#implementation",
-    "href": "docs/visualizations/qr_algorithm.html#implementation",
-    "title": "QR Algorithm",
-    "section": "2 Implementation",
-    "text": "2 Implementation\nCode",
+    "objectID": "docs/visualizations/scalar_methods_dynamics.html",
+    "href": "docs/visualizations/scalar_methods_dynamics.html",
+    "title": "Scalar Dynamics: GF / HB / NAG",
+    "section": "",
+    "text": "Your browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/qr_algorithm.html#key-properties",
-    "href": "docs/visualizations/qr_algorithm.html#key-properties",
-    "title": "QR Algorithm",
-    "section": "3 Key Properties",
-    "text": "3 Key Properties\n\nPreservation of Eigenvalues: Each iteration Aₖ₊₁ = RₖQₖ is similar to Aₖ, thus preserving eigenvalues\nConvergence: For symmetric matrices, the algorithm converges to a diagonal matrix\nNumerical Stability: The use of orthogonal transformations ensures good numerical properties\n\nThe QR algorithm forms the basis of modern eigenvalue computations and is implemented in most numerical linear algebra libraries. While the basic version shown here is elegant, practical implementations use various enhancements like shifts and deflation to improve efficiency.",
-    "crumbs": [
-      "Visualizations",
-      "QR Algorithm"
+      "Scalar Dynamics: GF / HB / NAG"
     ]
   },
   {
