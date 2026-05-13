@@ -5,6 +5,13 @@ resources:
   - sochi_skier_map.jpg
   - sochi_skier_dem_f32.bin
   - sochi_skier_meta.json
+  - sochi_skier_fp_combined_web_sigma_000.mp4
+  - sochi_skier_fp_combined_web_sigma_025.mp4
+  - sochi_skier_fp_combined_web_sigma_050.mp4
+  - sochi_skier_fp_combined_web_sigma_075.mp4
+  - sochi_skier_fp_combined_web_sigma_100.mp4
+  - sochi_skier_fp_combined_web_sigma_125.mp4
+  - sochi_skier_fp_combined_web_sigma_150.mp4
 ---
 
 The skier follows an overdamped Langevin dynamics on a digital elevation
@@ -38,7 +45,7 @@ sliding along one deterministic descent line.
       </span>
       <input class="sochi-skier__range" data-role="sigma" type="range" min="0" max="120" step="0.5" value="10">
     </label>
-    <button class="sochi-skier__button sochi-skier__button--primary" data-role="restart" type="button">Roza Khutor</button>
+    <button class="sochi-skier__button sochi-skier__button--primary" data-role="restart" type="button">Аибга-2</button>
     <button class="sochi-skier__button" data-role="clear" type="button">Clear trail</button>
     <button class="sochi-skier__button" data-role="toggle" type="button" aria-pressed="false">Pause</button>
   </div>
@@ -55,6 +62,62 @@ sliding along one deterministic descent line.
 ```
 
 Tap or click the map to set a new starting point.
+
+## Fokker--Planck particle fields
+
+The pre-rendered videos below start 4464 particles from a uniform grid over
+the same map and evolve their independent Langevin trajectories for 10 seconds
+at 60 fps. The batched trajectory step is computed with `jax.vmap`. The noise
+values are uniformly spaced from $\sigma = 0$ to $\sigma = 15$.
+
+```{=html}
+<div class="sochi-skier-fp" aria-label="Fokker-Planck particle and KDE videos">
+  <div class="sochi-skier-fp__grid">
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_000.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 0: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_025.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 2.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_050.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_075.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 7.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_100.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 10: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_125.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 12.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item">
+      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_150.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">&sigma; = 15: particles left, KDE right</figcaption>
+    </figure>
+  </div>
+</div>
+```
 
 ```{=html}
 <script defer src="sochi_skier.js"></script>
