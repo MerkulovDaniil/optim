@@ -899,51 +899,21 @@ dx = -\nabla h(x)\,dt + \sigma\,dW
 <section id="fokkerplanck-particle-fields" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="fokkerplanck-particle-fields"><span class="header-section-number">1</span> Fokker–Planck particle fields</h2>
 <p>The pre-rendered videos below start 4464 particles from a uniform grid over the same map and evolve their independent Langevin trajectories for 10 seconds at 60 fps. The batched trajectory step is computed with <code>jax.vmap</code>. The noise values are uniformly spaced from <span class="math inline">\sigma = 0</span> to <span class="math inline">\sigma = 15</span>.</p>
-<div class="sochi-skier-fp" aria-label="Fokker-Planck particle and KDE videos">
-  <div class="sochi-skier-fp__grid">
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_000.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 0: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_025.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 2.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_050.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_075.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 7.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_100.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 10: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_125.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 12.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item figure">
-      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_150.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">σ = 15: particles left, KDE right</figcaption>
-    </figure>
-  </div>
+<div class="sochi-skier-fp">
+<p><strong><span class="math inline">\sigma = 0</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_000.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 2.5</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_025.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 5</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_050.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 7.5</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_075.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 10</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_100.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 12.5</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_125.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><strong><span class="math inline">\sigma = 15</span>: particles left, KDE right</strong></p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="sochi_skier_fp_combined_web_sigma_150.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 </div>
 <script defer="" src="sochi_skier.js"></script>
 
