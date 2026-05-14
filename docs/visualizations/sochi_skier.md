@@ -70,54 +70,49 @@ the same map and evolve their independent Langevin trajectories for 10 seconds
 at 60 fps. The batched trajectory step is computed with `jax.vmap`. The noise
 values are uniformly spaced from $\sigma = 0$ to $\sigma = 15$.
 
-```{=html}
-<div class="sochi-skier-fp" aria-label="Fokker-Planck particle and KDE videos">
-  <div class="sochi-skier-fp__grid">
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_000.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 0: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_025.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 2.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_050.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_075.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 7.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_100.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 10: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_125.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 12.5: particles left, KDE right</figcaption>
-    </figure>
-    <figure class="sochi-skier-fp__item">
-      <video class="sochi-skier-fp__video" controls muted playsinline preload="metadata">
-        <source src="sochi_skier_fp_combined_web_sigma_150.mp4" type="video/mp4">
-      </video>
-      <figcaption class="sochi-skier-fp__caption">&sigma; = 15: particles left, KDE right</figcaption>
-    </figure>
-  </div>
-</div>
-```
+:::: {.sochi-skier-fp}
+**$\sigma = 0$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_000.mp4
+:::
+
+**$\sigma = 2.5$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_025.mp4
+:::
+
+**$\sigma = 5$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_050.mp4
+:::
+
+**$\sigma = 7.5$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_075.mp4
+:::
+
+**$\sigma = 10$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_100.mp4
+:::
+
+**$\sigma = 12.5$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_125.mp4
+:::
+
+**$\sigma = 15$: particles left, KDE right**
+
+:::{.video}
+sochi_skier_fp_combined_web_sigma_150.mp4
+:::
+::::
 
 ```{=html}
 <script defer src="sochi_skier.js"></script>

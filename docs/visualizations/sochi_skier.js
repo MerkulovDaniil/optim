@@ -216,36 +216,16 @@
   width: min(100%, calc(100vw - 2rem));
   margin: 1.5rem 0 1.4rem;
 }
-.sochi-skier-fp h3 {
+.sochi-skier-fp > p {
   color: var(--sochi-ink);
-  font-size: 1rem;
-  font-weight: 750;
-  line-height: 1.2;
-  margin: 1.2rem 0 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  margin: 1.15rem 0 0.45rem;
 }
-.sochi-skier-fp__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.9rem;
-}
-.sochi-skier-fp__item {
-  margin: 0;
-  min-width: 0;
-}
-.sochi-skier-fp__video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1440 / 624;
-  border: 1px solid var(--sochi-border);
-  border-radius: 8px;
-  background: #f1f5f9;
-}
-.sochi-skier-fp__caption {
-  color: var(--sochi-muted);
-  font-size: 0.82rem;
-  font-weight: 650;
-  line-height: 1.25;
-  margin-top: 0.32rem;
+.sochi-skier-fp .responsive-video {
+  padding-top: 0;
+  padding-bottom: 43.333333%;
+  margin: 0 0 1.05rem;
 }
 @media (max-width: 980px) {
   .sochi-skier__toolbar {
