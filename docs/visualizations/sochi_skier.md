@@ -59,6 +59,8 @@ sliding along one deterministic descent line.
     <span>Position <strong data-role="position">...</strong></span>
   </div>
 </div>
+
+<script defer src="sochi_skier.js"></script>
 ```
 
 Tap or click the map to set a new starting point.
@@ -113,7 +115,3 @@ sochi_skier_fp_combined_web_sigma_125.mp4
 sochi_skier_fp_combined_web_sigma_150.mp4
 :::
 ::::
-
-```{=html}
-<script defer src="sochi_skier.js"></script>
-```
