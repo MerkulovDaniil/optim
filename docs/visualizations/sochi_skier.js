@@ -9,8 +9,9 @@
   const DEFAULT_FPS = 60;
   const DEFAULT_SIGMA = 10;
   const DT = 50;
+  const SQRT_DT = Math.sqrt(DT);
   const SUBSTEPS = 5;
-  const MAX_TRAIL_LIMIT = 18000;
+  const SKIER_DIRTY_RADIUS = 22;
 
   function injectStyles() {
     if (document.getElementById(STYLE_ID)) return;
@@ -109,9 +110,18 @@
   touch-action: manipulation;
 }
 .sochi-skier__canvas {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
+  pointer-events: none;
+}
+.sochi-skier__canvas--trail {
+  z-index: 1;
+}
+.sochi-skier__canvas--skier {
+  z-index: 2;
 }
 .sochi-skier__loading {
   position: absolute;
@@ -121,6 +131,7 @@
   color: var(--sochi-muted);
   font-size: 0.9rem;
   background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(241, 245, 249, 0.86));
+  z-index: 4;
 }
 .sochi-skier__loading[hidden] {
   display: none;
@@ -129,6 +140,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 3;
 }
 .sochi-skier__poi {
   position: absolute;
@@ -200,6 +212,41 @@
   color: var(--sochi-ink);
   font-weight: 700;
 }
+.sochi-skier-fp {
+  width: min(100%, calc(100vw - 2rem));
+  margin: 1.5rem 0 1.4rem;
+}
+.sochi-skier-fp h3 {
+  color: var(--sochi-ink);
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.2;
+  margin: 1.2rem 0 0.55rem;
+}
+.sochi-skier-fp__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.9rem;
+}
+.sochi-skier-fp__item {
+  margin: 0;
+  min-width: 0;
+}
+.sochi-skier-fp__video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1440 / 624;
+  border: 1px solid var(--sochi-border);
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+.sochi-skier-fp__caption {
+  color: var(--sochi-muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.25;
+  margin-top: 0.32rem;
+}
 @media (max-width: 980px) {
   .sochi-skier__toolbar {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -269,27 +316,26 @@
     return Math.max(1, Math.min(cap, raw));
   }
 
-  function getTrailLimit(width) {
-    if (width < 480) return 5200;
-    if (width < 760) return 8000;
-    return MAX_TRAIL_LIMIT;
-  }
-
-  function getTrailStride(length, width) {
-    const target = width < 480 ? 1200 : width < 760 ? 1900 : 3600;
-    return Math.max(1, Math.ceil(length / target));
-  }
-
   function getMaxStepsPerFrame(width) {
     return width < 480 ? 7 : width < 760 ? 10 : 14;
   }
 
+  let spareNormal = null;
+
   function randn() {
+    if (spareNormal !== null) {
+      const value = spareNormal;
+      spareNormal = null;
+      return value;
+    }
     let u = 0;
     let v = 0;
     while (u === 0) u = Math.random();
     while (v === 0) v = Math.random();
-    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+    const magnitude = Math.sqrt(-2 * Math.log(u));
+    const angle = 2 * Math.PI * v;
+    spareNormal = magnitude * Math.sin(angle);
+    return magnitude * Math.cos(angle);
   }
 
   function createInterpolator(dem, meta) {
@@ -336,40 +382,13 @@
       return cubic(rowAt(y0, ix, tx), rowAt(y1, ix, tx), rowAt(y2, ix, tx), rowAt(y3, ix, tx), ty);
     }
 
-    function gradient(x, y) {
+    function gradientInto(x, y, out) {
       const eps = Math.max(px, py) * 0.5;
-      return [
-        (elevation(x + eps, y) - elevation(x - eps, y)) / (2 * eps),
-        (elevation(x, y + eps) - elevation(x, y - eps)) / (2 * eps),
-      ];
+      out[0] = (elevation(x + eps, y) - elevation(x - eps, y)) / (2 * eps);
+      out[1] = (elevation(x, y + eps) - elevation(x, y - eps)) / (2 * eps);
     }
 
-    return { elevation, gradient };
-  }
-
-  function createProjector(meta, size) {
-    const xSpan = meta.xMax - meta.xMin;
-    const ySpan = meta.yMax - meta.yMin;
-    return {
-      worldToScreen(x, y) {
-        return {
-          x: ((x - meta.xMin) / xSpan) * size.width,
-          y: ((meta.yMax - y) / ySpan) * size.height,
-        };
-      },
-      screenToWorld(x, y) {
-        return {
-          x: meta.xMin + (x / size.width) * xSpan,
-          y: meta.yMax - (y / size.height) * ySpan,
-        };
-      },
-      worldSizeToScreen(w, h) {
-        return {
-          width: (w / xSpan) * size.width,
-          height: (h / ySpan) * size.height,
-        };
-      },
-    };
+    return { elevation, gradientInto };
   }
 
   async function init(root) {
@@ -393,7 +412,14 @@
     const elevationValue = qs(root, "elevation");
     const positionValue = qs(root, "position");
 
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true, desynchronized: true });
+    const trailCanvas = document.createElement("canvas");
+    trailCanvas.className = "sochi-skier__canvas sochi-skier__canvas--trail";
+    trailCanvas.setAttribute("aria-hidden", "true");
+    canvas.classList.add("sochi-skier__canvas--skier");
+    stage.insertBefore(trailCanvas, canvas);
+
+    const trailCtx = trailCanvas.getContext("2d", { alpha: true, desynchronized: true });
     const mapUrl = `${base}sochi_skier_map.jpg`;
     const [meta, demBuffer] = await Promise.all([
       fetch(`${base}sochi_skier_meta.json`).then((response) => response.json()),
@@ -402,13 +428,23 @@
     ]);
     const dem = new Float32Array(demBuffer);
     const field = createInterpolator(dem, meta);
+    const restartPoint = meta.poi.find((poi) => poi.label === "Aibga-2") || meta.start;
+    const xSpan = meta.xMax - meta.xMin;
+    const ySpan = meta.yMax - meta.yMin;
+    const gradient = [0, 0];
+    let hasPendingTrail = false;
     const state = {
       paused: false,
-      pos: [meta.start.x, meta.start.y],
-      trail: [],
+      posX: restartPoint.x,
+      posY: restartPoint.y,
+      trailX: restartPoint.x,
+      trailY: restartPoint.y,
       size: { width: 0, height: 0 },
       dpr: 1,
-      trailLimit: MAX_TRAIL_LIMIT,
+      scaleX: 1,
+      scaleY: 1,
+      skierScreenX: null,
+      skierScreenY: null,
       targetFps: DEFAULT_FPS,
       tickAccumulator: 0,
       lastFrameTime: 0,
@@ -437,30 +473,117 @@
       return x >= meta.xMin && x <= meta.xMax && y >= meta.yMin && y <= meta.yMax;
     }
 
+    function screenX(x) {
+      return (x - meta.xMin) * state.scaleX;
+    }
+
+    function screenY(y) {
+      return (meta.yMax - y) * state.scaleY;
+    }
+
+    function configureTrailContext() {
+      trailCtx.lineJoin = "round";
+      trailCtx.lineCap = "round";
+      trailCtx.lineWidth = 1.35;
+      trailCtx.strokeStyle = "rgba(214, 40, 40, 0.86)";
+    }
+
+    function clearTrailLayer() {
+      if (!trailCanvas.width || !trailCanvas.height) return;
+      trailCtx.save();
+      trailCtx.setTransform(1, 0, 0, 1, 0, 0);
+      trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+      trailCtx.restore();
+    }
+
+    function clearSkierLayer() {
+      if (!state.size.width || !state.size.height) return;
+      ctx.clearRect(0, 0, state.size.width, state.size.height);
+      state.skierScreenX = null;
+      state.skierScreenY = null;
+    }
+
+    function resizeTrailLayer(width, height, dpr) {
+      const pixelWidth = Math.max(1, Math.round(width * dpr));
+      const pixelHeight = Math.max(1, Math.round(height * dpr));
+      trailCanvas.style.width = `${width}px`;
+      trailCanvas.style.height = `${height}px`;
+      if (trailCanvas.width === pixelWidth && trailCanvas.height === pixelHeight) {
+        trailCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        configureTrailContext();
+        return;
+      }
+
+      let previous = null;
+      if (trailCanvas.width && trailCanvas.height) {
+        previous = document.createElement("canvas");
+        previous.width = trailCanvas.width;
+        previous.height = trailCanvas.height;
+        previous.getContext("2d").drawImage(trailCanvas, 0, 0);
+      }
+
+      trailCanvas.width = pixelWidth;
+      trailCanvas.height = pixelHeight;
+      trailCtx.setTransform(1, 0, 0, 1, 0, 0);
+      trailCtx.clearRect(0, 0, pixelWidth, pixelHeight);
+      if (previous) {
+        trailCtx.imageSmoothingEnabled = true;
+        trailCtx.drawImage(previous, 0, 0, previous.width, previous.height, 0, 0, pixelWidth, pixelHeight);
+      }
+      trailCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      configureTrailContext();
+    }
+
+    function beginTrailPath() {
+      if (!trailCanvas.width || !state.size.width) return;
+      hasPendingTrail = false;
+      configureTrailContext();
+      trailCtx.beginPath();
+    }
+
+    function appendTrailSegment(fromX, fromY, toX, toY) {
+      if (!trailCanvas.width || !state.size.width) return;
+      trailCtx.moveTo(screenX(fromX), screenY(fromY));
+      trailCtx.lineTo(screenX(toX), screenY(toY));
+      hasPendingTrail = true;
+    }
+
+    function strokeTrailPath() {
+      if (hasPendingTrail) trailCtx.stroke();
+    }
+
     function resetTrail(x, y) {
-      state.pos = [clamp(x, meta.xMin, meta.xMax), clamp(y, meta.yMin, meta.yMax)];
-      state.trail = [{ x: state.pos[0], y: state.pos[1] }];
+      state.posX = clamp(x, meta.xMin, meta.xMax);
+      state.posY = clamp(y, meta.yMin, meta.yMax);
+      state.trailX = state.posX;
+      state.trailY = state.posY;
+      state.tickAccumulator = 0;
+      clearTrailLayer();
+      clearSkierLayer();
       updateReadout(performance.now(), true);
-      draw();
+      drawSkier();
     }
 
     function stepSimulation() {
-      const sd = Math.sqrt(DT);
+      let x = state.posX;
+      let y = state.posY;
+      const noiseScale = state.sigma * SQRT_DT;
       for (let index = 0; index < SUBSTEPS; index += 1) {
-        const grad = field.gradient(state.pos[0], state.pos[1]);
-        const nx = state.pos[0] + (-grad[0] * DT + state.sigma * sd * randn());
-        const ny = state.pos[1] + (-grad[1] * DT + state.sigma * sd * randn());
+        field.gradientInto(x, y, gradient);
+        const nx = x + (-gradient[0] * DT + noiseScale * randn());
+        const ny = y + (-gradient[1] * DT + noiseScale * randn());
         if (isInside(nx, ny)) {
-          state.pos[0] = nx;
-          state.pos[1] = ny;
+          x = nx;
+          y = ny;
         }
       }
-      state.pos[0] = clamp(state.pos[0], meta.xMin, meta.xMax);
-      state.pos[1] = clamp(state.pos[1], meta.yMin, meta.yMax);
-      state.trail.push({ x: state.pos[0], y: state.pos[1] });
-      if (state.trail.length > state.trailLimit) {
-        state.trail.splice(0, state.trail.length - state.trailLimit);
-      }
+      x = clamp(x, meta.xMin, meta.xMax);
+      y = clamp(y, meta.yMin, meta.yMax);
+      appendTrailSegment(state.trailX, state.trailY, x, y);
+      state.posX = x;
+      state.posY = y;
+      state.trailX = x;
+      state.trailY = y;
     }
 
     function resize() {
@@ -470,52 +593,41 @@
       const dpr = getCanvasDpr(width);
       state.size = { width, height };
       state.dpr = dpr;
-      state.trailLimit = getTrailLimit(width);
-      if (state.trail.length > state.trailLimit) {
-        state.trail.splice(0, state.trail.length - state.trailLimit);
-      }
+      state.scaleX = width / xSpan;
+      state.scaleY = height / ySpan;
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      resizeTrailLayer(width, height, dpr);
       positionMap();
       placePois();
-      draw();
+      clearSkierLayer();
+      drawSkier();
     }
 
     function positionMap() {
       if (!state.size.width) return;
-      const projector = createProjector(meta, state.size);
-      const imageOrigin = projector.worldToScreen(meta.image.x, meta.image.y);
-      const imageSize = projector.worldSizeToScreen(meta.image.w, meta.image.h);
       stage.style.backgroundImage = `url("${mapUrl}")`;
-      stage.style.backgroundPosition = `${imageOrigin.x}px ${imageOrigin.y}px`;
-      stage.style.backgroundSize = `${imageSize.width}px ${imageSize.height}px`;
+      stage.style.backgroundPosition = `${screenX(meta.image.x)}px ${screenY(meta.image.y)}px`;
+      stage.style.backgroundSize = `${meta.image.w * state.scaleX}px ${meta.image.h * state.scaleY}px`;
     }
 
-    function drawTrail(projector) {
-      if (state.trail.length < 2) return;
-      const stride = getTrailStride(state.trail.length, state.size.width);
-      ctx.save();
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
-      ctx.lineWidth = 1.35;
-      ctx.strokeStyle = "rgba(214, 40, 40, 0.86)";
-      ctx.beginPath();
-      for (let index = 0; index < state.trail.length; index += 1) {
-        if (index !== 0 && index !== state.trail.length - 1 && index % stride !== 0) continue;
-        const point = state.trail[index];
-        const screen = projector.worldToScreen(point.x, point.y);
-        if (index === 0) ctx.moveTo(screen.x, screen.y);
-        else ctx.lineTo(screen.x, screen.y);
+    function drawSkier() {
+      if (!state.size.width || !state.size.height) return;
+      if (state.skierScreenX === null || state.skierScreenY === null) {
+        ctx.clearRect(0, 0, state.size.width, state.size.height);
+      } else {
+        ctx.clearRect(
+          state.skierScreenX - SKIER_DIRTY_RADIUS,
+          state.skierScreenY - SKIER_DIRTY_RADIUS,
+          SKIER_DIRTY_RADIUS * 2,
+          SKIER_DIRTY_RADIUS * 2,
+        );
       }
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    function drawSkier(projector) {
-      const point = projector.worldToScreen(state.pos[0], state.pos[1]);
+      const x = screenX(state.posX);
+      const y = screenY(state.posY);
       ctx.save();
       ctx.shadowBlur = 7;
       ctx.shadowColor = "rgba(15, 23, 42, 0.28)";
@@ -523,34 +635,27 @@
       ctx.strokeStyle = "#ffffff";
       ctx.lineWidth = 2.2;
       ctx.beginPath();
-      ctx.arc(point.x, point.y, 6.4, 0, Math.PI * 2);
+      ctx.arc(x, y, 6.4, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
       ctx.restore();
-    }
-
-    function draw() {
-      const { width, height } = state.size;
-      if (!width || !height) return;
-      const projector = createProjector(meta, state.size);
-      ctx.clearRect(0, 0, width, height);
-      drawTrail(projector);
-      drawSkier(projector);
+      state.skierScreenX = x;
+      state.skierScreenY = y;
     }
 
     function placePois() {
       if (!poiLayer || !state.size.width) return;
-      const projector = createProjector(meta, state.size);
       poiLayer.textContent = "";
       meta.poi.forEach((poi) => {
-        const point = projector.worldToScreen(poi.x, poi.y);
+        const x = screenX(poi.x);
+        const y = screenY(poi.y);
         let side = poi.side || "right";
-        if (state.size.width < 620 && point.x > state.size.width * 0.68) side = "left";
-        if (state.size.width < 620 && point.x < state.size.width * 0.24) side = "right";
+        if (state.size.width < 620 && x > state.size.width * 0.68) side = "left";
+        if (state.size.width < 620 && x < state.size.width * 0.24) side = "right";
         const item = document.createElement("div");
         item.className = `sochi-skier__poi sochi-skier__poi--${side}`;
-        item.style.left = `${point.x}px`;
-        item.style.top = `${point.y}px`;
+        item.style.left = `${x}px`;
+        item.style.top = `${y}px`;
 
         const marker = document.createElement("span");
         marker.className = `sochi-skier__poi-marker sochi-skier__poi-marker--${poi.type}`;
@@ -571,8 +676,8 @@
     function updateReadout(now, force) {
       if (!force && now - state.lastReadout < 160) return;
       state.lastReadout = now;
-      elevationValue.textContent = `${field.elevation(state.pos[0], state.pos[1]).toFixed(0)} m`;
-      positionValue.textContent = `${(state.pos[0] / 1000).toFixed(2)}, ${(state.pos[1] / 1000).toFixed(2)} km`;
+      elevationValue.textContent = `${field.elevation(state.posX, state.posY).toFixed(0)} m`;
+      positionValue.textContent = `${(state.posX / 1000).toFixed(2)}, ${(state.posY / 1000).toFixed(2)} km`;
     }
 
     function frame(now) {
@@ -585,8 +690,10 @@
         const steps = Math.min(maxSteps, Math.floor(state.tickAccumulator));
         state.tickAccumulator -= steps;
         if (steps > 0) {
+          beginTrailPath();
           for (let index = 0; index < steps; index += 1) stepSimulation();
-          draw();
+          strokeTrailPath();
+          drawSkier();
           updateReadout(now, false);
         }
       }
@@ -594,14 +701,15 @@
     }
 
     stage.addEventListener("pointerdown", (event) => {
+      if (!state.size.width || !state.size.height) return;
       const rect = stage.getBoundingClientRect();
-      const projector = createProjector(meta, state.size);
-      const point = projector.screenToWorld(event.clientX - rect.left, event.clientY - rect.top);
-      if (isInside(point.x, point.y)) resetTrail(point.x, point.y);
+      const x = meta.xMin + ((event.clientX - rect.left) / state.size.width) * xSpan;
+      const y = meta.yMax - ((event.clientY - rect.top) / state.size.height) * ySpan;
+      if (isInside(x, y)) resetTrail(x, y);
     });
 
-    restartButton.addEventListener("click", () => resetTrail(meta.start.x, meta.start.y));
-    clearButton.addEventListener("click", () => resetTrail(state.pos[0], state.pos[1]));
+    restartButton.addEventListener("click", () => resetTrail(restartPoint.x, restartPoint.y));
+    clearButton.addEventListener("click", () => resetTrail(state.posX, state.posY));
     toggleButton.addEventListener("click", () => {
       state.paused = !state.paused;
       toggleButton.textContent = state.paused ? "Resume" : "Pause";
@@ -617,8 +725,8 @@
 
     loading.hidden = true;
     root.dataset.sochiReady = "ready";
-    resetTrail(meta.start.x, meta.start.y);
     resize();
+    resetTrail(restartPoint.x, restartPoint.y);
     requestAnimationFrame(frame);
   }
 

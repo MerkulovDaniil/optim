@@ -823,7 +823,13 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#fokkerplanck-particle-fields" id="toc-fokkerplanck-particle-fields" class="nav-link active" data-scroll-target="#fokkerplanck-particle-fields"><span class="header-section-number">1</span> Fokker–Planck particle fields</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/sochi_skier.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -875,7 +881,7 @@ dx = -\nabla h(x)\,dt + \sigma\,dW
       </span>
       <input class="sochi-skier__range" data-role="sigma" type="range" min="0" max="120" step="0.5" value="10">
     </label>
-    <button class="sochi-skier__button sochi-skier__button--primary" data-role="restart" type="button">Roza Khutor</button>
+    <button class="sochi-skier__button sochi-skier__button--primary" data-role="restart" type="button">Аибга-2</button>
     <button class="sochi-skier__button" data-role="clear" type="button">Clear trail</button>
     <button class="sochi-skier__button" data-role="toggle" type="button" aria-pressed="false">Pause</button>
   </div>
@@ -890,9 +896,59 @@ dx = -\nabla h(x)\,dt + \sigma\,dW
   </div>
 </div>
 <p>Tap or click the map to set a new starting point.</p>
+<section id="fokkerplanck-particle-fields" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="fokkerplanck-particle-fields"><span class="header-section-number">1</span> Fokker–Planck particle fields</h2>
+<p>The pre-rendered videos below start 4464 particles from a uniform grid over the same map and evolve their independent Langevin trajectories for 10 seconds at 60 fps. The batched trajectory step is computed with <code>jax.vmap</code>. The noise values are uniformly spaced from <span class="math inline">\sigma = 0</span> to <span class="math inline">\sigma = 15</span>.</p>
+<div class="sochi-skier-fp" aria-label="Fokker-Planck particle and KDE videos">
+  <div class="sochi-skier-fp__grid">
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_000.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 0: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_025.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 2.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_050.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_075.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 7.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_100.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 10: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_125.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 12.5: particles left, KDE right</figcaption>
+    </figure>
+    <figure class="sochi-skier-fp__item figure">
+      <video class="sochi-skier-fp__video" controls="" muted="" playsinline="" preload="metadata">
+        <source src="sochi_skier_fp_combined_web_sigma_150.mp4" type="video/mp4">
+      </video>
+      <figcaption class="sochi-skier-fp__caption">σ = 15: particles left, KDE right</figcaption>
+    </figure>
+  </div>
+</div>
 <script defer="" src="sochi_skier.js"></script>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1304,4 +1360,4 @@ dx = -\nabla h(x)\,dt + \sigma\,dW
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/sochi_skier.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/sochi_skier.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

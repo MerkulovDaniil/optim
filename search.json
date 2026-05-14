@@ -4,7 +4,18 @@
     "href": "docs/visualizations/sochi_skier.html",
     "title": "Brownian skier on the Sochi DEM",
     "section": "",
-    "text": "The skier follows an overdamped Langevin dynamics on a digital elevation model of the Roza Khutor to Sirius corridor:\n\ndx = -\\nabla h(x)\\,dt + \\sigma\\,dW\n\nThe drift term moves the point downhill; the Brownian term adds controllable noise, so larger \\sigma makes the trajectory explore the terrain instead of sliding along one deterministic descent line.\n\n\n\n\n  \n    \n      \n        Simulation fps\n        60\n      \n      \n    \n    \n      \n        Brownian noise, σ\n        10.0\n      \n      \n    \n    Roza Khutor\n    Clear trail\n    Pause\n  \n  \n    \n    \n    Loading Sochi DEM...\n  \n  \n    Elevation ...\n    Position ...\n  \n\nTap or click the map to set a new starting point.",
+    "text": "The skier follows an overdamped Langevin dynamics on a digital elevation model of the Roza Khutor to Sirius corridor:\ndx = -\\nabla h(x)\\,dt + \\sigma\\,dW\nThe drift term moves the point downhill; the Brownian term adds controllable noise, so larger \\sigma makes the trajectory explore the terrain instead of sliding along one deterministic descent line.\nTap or click the map to set a new starting point.",
+    "crumbs": [
+      "Visualizations",
+      "Brownian skier on the Sochi DEM"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
+    "href": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
+    "title": "Brownian skier on the Sochi DEM",
+    "section": "1 Fokker–Planck particle fields",
+    "text": "1 Fokker–Planck particle fields\nThe pre-rendered videos below start 4464 particles from a uniform grid over the same map and evolve their independent Langevin trajectories for 10 seconds at 60 fps. The batched trajectory step is computed with jax.vmap. The noise values are uniformly spaced from \\sigma = 0 to \\sigma = 15.\n\n  \n    \n      \n        \n      \n      σ = 0: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 2.5: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 5: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 7.5: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 10: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 12.5: particles left, KDE right\n    \n    \n      \n        \n      \n      σ = 15: particles left, KDE right",
     "crumbs": [
       "Visualizations",
       "Brownian skier on the Sochi DEM"
