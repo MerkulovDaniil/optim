@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conjugate sets</title>
+<title>Zero-order gradient estimator</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,8 +90,10 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Conjugate sets">
-<meta name="twitter:title" content="Conjugate sets">
+<meta property="og:title" content="Zero-order gradient estimator">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="Zero-order gradient estimator">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -120,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/conjugate_sets.html">Conjugate sets</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/beam_search_tree.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/zero_order_gradient_estimator.html">Zero-order gradient estimator</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -435,11 +437,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -466,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conjugate sets</span></a>
   </div>
 </li>
@@ -686,13 +688,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/beam_search_tree.html" class="sidebar-item-text sidebar-link">
@@ -839,7 +841,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/zero_order_gradient_estimator.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/zero_order_gradient_estimator.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Zero-order gradient estimator</span></a>
   </div>
 </li>
@@ -851,13 +853,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#conjugate-sets" id="toc-conjugate-sets" class="nav-link active" data-scroll-target="#conjugate-sets">Conjugate sets</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/conjugate_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -867,9 +863,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/conjugate_sets.html">Conjugate sets</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/beam_search_tree.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/zero_order_gradient_estimator.html">Zero-order gradient estimator</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Conjugate sets</h1>
+<h1 class="title">Zero-order gradient estimator</h1>
 </div>
 
 
@@ -885,83 +881,100 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="conjugate-sets" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conjugate-sets">Conjugate sets</h2>
-<ol type="1">
-<li><p>Prove that <span class="math inline">S^* = \left(\overline{S}\right)^*</span></p></li>
-<li><p>Prove that <span class="math inline">\left( \mathbf{conv}(S) \right)^* = S^*</span></p></li>
-<li><p>Prove that if <span class="math inline">B(0,r)</span> is a ball of radius <span class="math inline">r</span> at some norm with the center in zero, then <span class="math inline">\left( B(0,r) \right)^* = B(0,1/r)</span></p></li>
-<li><p>Find a dual cone for a monotonous non-negative cone:</p>
-<p><span class="math display">
-K = \{ x \in \mathbb{R}^n \mid x_1 \ge x_2 \ge \ldots \ge x_n \ge 0\}
-</span></p></li>
-<li><p>Find and sketch on the plane a conjugate set to a multi-faceted cone: <span class="math inline">S = \mathbf{cone} \{ (-3,1), (2,3), (4,5)\}</span></p></li>
-<li><p>Derive the definition of the cone from the definition of the conjugate set.</p></li>
-<li><p>Name any 3 non-trivial facts about conjugate sets.</p></li>
-<li><p>How to write down a set conjugate to the polyhedron?</p></li>
-<li><p>Draw a conjugate set by hand for simple sets. Conjugate to zero, conjugate to the halfline, to two random points, to their convex hull, etc.</p></li>
-<li><p>Give examples of self-conjugate sets.</p></li>
-<li><p>Using a lemma about a cone conjugate, conjugate to the sum of cones and a lemma about a cone, conjugate to the intersection of closed convex cones, prove that cones</p>
-<p><span class="math display">
-K_1 = \{x \in \mathbb{R}^n \mid x = Ay, y \ge 0, y \in \mathbb{R}^m, A \in \mathbb{R}^{n \times}, \}, \;\; K_2 = \{p \in \mathbb{R}^n \mid A^Tp \ge 0\}
-</span></p>
-<p>are inter conjugated.</p></li>
-<li><p>Find the sets <span class="math inline">S^{*}, S^{**}, S^{***}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; 2x_1 + x_2 \ge -4, \;\; -2x_1 + x_2 \ge -4\}
-</span></p></li>
-<li><p>Find the sets <span class="math inline">S^{*}, S^{**}, S^{***}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge -1, \;\; 2x_1 - x_2 \ge 0, \;\; -x_1 + 2x_2 \ge -2\}
-</span></p></li>
-<li><p>Find conjugate cone for the cone of positive definite (semi-definite) matrices.</p></li>
-<li><p>Find the conjugate cone for the exponential cone:</p>
-<p><span class="math display">
-K = \{(x, y, z) \mid y &gt; 0, y e^{x/y} \leq z\}
-</span></p></li>
-<li><p>Prove that’s fair for closed convex cones:</p>
-<p><span class="math display">
-(K_1 \cap K_2)^* = K_1^* + K_2^*
-</span></p></li>
-<li><p>Find the dual cone for the following cones:</p>
-<ul>
-<li><span class="math inline">K = \{0\}</span></li>
-<li><span class="math inline">K = \mathbb{R}^2</span></li>
-<li><span class="math inline">K = \{(x_1, x_2) \mid \vert x_1\vert \leq x_2\}</span></li>
-<li><span class="math inline">K = \{(x_1, x_2) \mid x_1 + x_2 = 0\}</span></li>
-</ul></li>
-<li><p>Find and sketch on the plane a conjugate set to a multifaced cone:</p>
-<p><span class="math display">
-  S = \mathbf{conv} \left\{ (-4,-1), (-2,-1), (-2,1)\right\} + \mathbf{cone} \left\{ (1,0), (2,1)\right\}
-</span></p></li>
-<li><p>Find and sketch on the plane a conjugate set to a polyhedra:</p>
-<p><span class="math display">
-S = \left\{ x \in \mathbb{R}^2 \mid -3x_1 + 2x_2 \le 7, x_1 + 5x_2 \le 9, x_1 - x_2 \le 3, -x_2 \le 1\right\}
-</span></p></li>
-<li><p>Prove that if we define the conjugate set to <span class="math inline">S</span> as follows:</p>
-<p><span class="math display">
-S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \le 1 \;\; \forall x \in S\},
-</span></p>
-<p>then unit ball with the zero point as the center is the only self conjugate set in <span class="math inline">\mathbb{R}^n</span>.</p></li>
-<li><p>Find the conjugate set to the ellipsoid:</p>
-<p><span class="math display">
-  S = \left\{ x \in \mathbb{R}^n \mid \sum\limits_{i = 1}^n a_i^2 x_i^2 \le \varepsilon^2 \right\}
-</span></p></li>
-<li><p>Let <span class="math inline">L</span> be the subspace of a Euclidian space <span class="math inline">X</span>. Prove that <span class="math inline">L^* = L^\bot</span>, where <span class="math inline">L^\bot</span> - orthogonal complement to <span class="math inline">L</span>.</p></li>
-<li><p>Let <span class="math inline">\mathbb{A}_n</span> be the set of all <span class="math inline">n</span> dimensional antisymmetric matrices. Show that <span class="math inline">\left( \mathbb{A}_n\right)^* = \mathbb{S}_n</span>.</p></li>
-<li><p>Prove, that <span class="math inline">B_p</span> and <span class="math inline">B_{p_*}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(B_p)^* = B_{p_*}, (B_{p_*})^* = B_p</span>, where <span class="math inline">B_p</span> is the unit ball (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_*</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}_* = 1</span>. You can assume, that <span class="math inline">p_* = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-<li><p>Prove, that <span class="math inline">K_p</span> and <span class="math inline">K_{p_*}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(K_p)^* = K_{p_*}, (K_{p_*})^* = K_p</span>, where <span class="math inline">K_p = \left\{ [x, \mu] \in \mathbb{R}^{n+1} : \|x\|_p \leq \mu \right\}, \; 1 &lt; p &lt; \infty</span> is the norm cone (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_*</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}_* = 1</span>. You can assume, that <span class="math inline">p_* = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-<li><p>Suppose, <span class="math inline">S = S^*</span>. Could the set <span class="math inline">S</span> be anything, but a unit ball? If it can, provide an example of another self-conjugate set. If it couldn’t, prove it.</p></li>
-<li><p>Let <span class="math inline">\mathbb{A}_n</span> be the set of all <span class="math inline">n</span> dimensional antisymmetric matrices (s.t. <span class="math inline">X^T = - X</span>). Show that <span class="math inline">\left( \mathbb{A}_n\right)^* = \mathbb{S}_n</span>.</p></li>
-<li><p>Find the sets <span class="math inline">S^{\star}, S^{\star\star}, S^{\star\star\star}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; -\dfrac12x_1 + x_2 \ge 0, \;\; 2x_1 + x_2 \ge -1 \;\; -2x_1 + x_2 \ge -3\}
-</span></p></li>
-<li><p>Prove, that <span class="math inline">B_p</span> and <span class="math inline">B_{p_\star}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(B_p)^\star = B_{p_\star}, (B_{p_\star})^\star = B_p</span>, where <span class="math inline">B_p</span> is the unit ball (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_\star</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}\_\star = 1</span>. You can assume, that <span class="math inline">p_\star = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-</ol>
+<p>Двухточечная оценка градиента использует только значения функции. Двигайте число направлений и размерность: при фиксированном бюджете ошибка растёт как √d.</p>
+<style>
+  .evo-widget {
+    max-width: 980px;
+    margin: 1rem auto;
+  }
+  .evo-widget .controls {
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.75rem 0 0.9rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .evo-widget label {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #495057;
+  }
+  .evo-widget button {
+    border: 1px solid #2780e3;
+    background: #2780e3;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.72rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+  .evo-widget input[type=range] {
+    width: 230px;
+    accent-color: #2780e3;
+  }
+  .evo-widget canvas,
+  .evo-widget svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+    border: 1px solid #dee2e6;
+  }
+  .evo-widget .metric {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #212529;
+  }
+</style>
+<div class="evo-widget">
+  <div class="controls">
+    <label>направлений m: <span id="mVal" class="metric">8</span><br><input id="m" type="range" min="1" max="64" value="8"></label>
+    <label>размерность d: <span id="dVal" class="metric">50</span><br><input id="d" type="range" min="2" max="400" value="50"></label>
+    <span>RMS error ≈ <span id="err" class="metric"></span></span>
+  </div>
+  <canvas id="cv" width="1000" height="520"></canvas>
+</div>
+<script>
+const cv=document.getElementById('cv'), ctx=cv.getContext('2d');
+const m=document.getElementById('m'), d=document.getElementById('d');
+function rnd(i){ return (Math.sin(i*127.1+13.7)*43758.5453)%1; }
+function draw(){
+  const M=+m.value, D=+d.value; mVal.textContent=M; dVal.textContent=D;
+  const e=Math.sqrt((D-1)/M); err.textContent=e.toFixed(2);
+  ctx.clearRect(0,0,cv.width,cv.height); ctx.fillStyle='#fff'; ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.strokeStyle='#e5e7eb'; ctx.lineWidth=1;
+  for(let r=45;r<260;r+=32){ctx.beginPath();ctx.ellipse(280,260,r,r*0.72,0,0,7);ctx.stroke();}
+  const x=280,y=260;
+  ctx.fillStyle='#111827'; ctx.beginPath(); ctx.arc(x,y,7,0,7); ctx.fill();
+  let ax=0, ay=0;
+  for(let i=0;i<M;i++){
+    const a=2*Math.PI*Math.abs(rnd(i+M*3));
+    const len=90+25*Math.abs(rnd(i+77));
+    const ux=Math.cos(a), uy=Math.sin(a); ax+=ux; ay+=uy;
+    ctx.globalAlpha=.24; ctx.strokeStyle='#f59e0b'; ctx.lineWidth=2;
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+len*ux,y+len*uy); ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  function arrow(dx,dy,color,label){
+    ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+dx,y+dy); ctx.stroke();
+    const ang=Math.atan2(dy,dx); ctx.beginPath(); ctx.moveTo(x+dx,y+dy); ctx.lineTo(x+dx-15*Math.cos(ang-.35),y+dy-15*Math.sin(ang-.35)); ctx.lineTo(x+dx-15*Math.cos(ang+.35),y+dy-15*Math.sin(ang+.35)); ctx.closePath(); ctx.fill();
+    ctx.font='18px Inter, sans-serif'; ctx.fillText(label,x+dx+12,y+dy);
+  }
+  arrow(155,-95,'#2563eb','true ∇f');
+  arrow(155+90*ax/M*e, -95+90*ay/M*e, '#b91c1c','noisy ĝ');
+  ctx.fillStyle='#111827'; ctx.font='22px Inter, sans-serif'; ctx.fillText('Estimator noise grows with dimension',570,130);
+  ctx.fillStyle='#475569'; ctx.font='18px Inter, sans-serif'; ctx.fillText('same m, larger d → less reliable direction',570,164);
+  ctx.strokeStyle='#2563eb'; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(590,340); ctx.lineTo(900,220); ctx.stroke();
+  ctx.fillStyle='#2563eb'; ctx.font='20px Inter, sans-serif'; ctx.fillText('need m = O(d)',710,275);
+}
+m.oninput=d.oninput=draw; draw();
+</script>
 
 
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1373,4 +1386,4 @@ S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; -\dfrac12x_1 + x_2 \ge 0, \
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/conjugate_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/zero_order_gradient_estimator.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

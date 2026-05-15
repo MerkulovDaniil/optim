@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conjugate sets</title>
+<title>Program evolution sorting</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,8 +90,10 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Conjugate sets">
-<meta name="twitter:title" content="Conjugate sets">
+<meta property="og:title" content="Program evolution sorting">
+<meta property="og:description" content="">
+<meta name="twitter:title" content="Program evolution sorting">
+<meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -120,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/conjugate_sets.html">Conjugate sets</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/beam_search_tree.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/program_evolution_sorting.html">Program evolution sorting</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -435,11 +437,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -466,7 +468,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../docs/exercises/conjugate_sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conjugate sets</span></a>
   </div>
 </li>
@@ -686,13 +688,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
  <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/beam_search_tree.html" class="sidebar-item-text sidebar-link">
@@ -791,7 +793,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/program_evolution_sorting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../docs/visualizations/program_evolution_sorting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Program evolution sorting</span></a>
   </div>
 </li>
@@ -851,13 +853,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#conjugate-sets" id="toc-conjugate-sets" class="nav-link active" data-scroll-target="#conjugate-sets">Conjugate sets</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/conjugate_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+        
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -867,9 +863,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/exercises/index.html">Exercises</a></li><li class="breadcrumb-item"><a href="../../docs/exercises/conjugate_sets.html">Conjugate sets</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/beam_search_tree.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/program_evolution_sorting.html">Program evolution sorting</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Conjugate sets</h1>
+<h1 class="title">Program evolution sorting</h1>
 </div>
 
 
@@ -885,83 +881,69 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="conjugate-sets" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conjugate-sets">Conjugate sets</h2>
-<ol type="1">
-<li><p>Prove that <span class="math inline">S^* = \left(\overline{S}\right)^*</span></p></li>
-<li><p>Prove that <span class="math inline">\left( \mathbf{conv}(S) \right)^* = S^*</span></p></li>
-<li><p>Prove that if <span class="math inline">B(0,r)</span> is a ball of radius <span class="math inline">r</span> at some norm with the center in zero, then <span class="math inline">\left( B(0,r) \right)^* = B(0,1/r)</span></p></li>
-<li><p>Find a dual cone for a monotonous non-negative cone:</p>
-<p><span class="math display">
-K = \{ x \in \mathbb{R}^n \mid x_1 \ge x_2 \ge \ldots \ge x_n \ge 0\}
-</span></p></li>
-<li><p>Find and sketch on the plane a conjugate set to a multi-faceted cone: <span class="math inline">S = \mathbf{cone} \{ (-3,1), (2,3), (4,5)\}</span></p></li>
-<li><p>Derive the definition of the cone from the definition of the conjugate set.</p></li>
-<li><p>Name any 3 non-trivial facts about conjugate sets.</p></li>
-<li><p>How to write down a set conjugate to the polyhedron?</p></li>
-<li><p>Draw a conjugate set by hand for simple sets. Conjugate to zero, conjugate to the halfline, to two random points, to their convex hull, etc.</p></li>
-<li><p>Give examples of self-conjugate sets.</p></li>
-<li><p>Using a lemma about a cone conjugate, conjugate to the sum of cones and a lemma about a cone, conjugate to the intersection of closed convex cones, prove that cones</p>
-<p><span class="math display">
-K_1 = \{x \in \mathbb{R}^n \mid x = Ay, y \ge 0, y \in \mathbb{R}^m, A \in \mathbb{R}^{n \times}, \}, \;\; K_2 = \{p \in \mathbb{R}^n \mid A^Tp \ge 0\}
-</span></p>
-<p>are inter conjugated.</p></li>
-<li><p>Find the sets <span class="math inline">S^{*}, S^{**}, S^{***}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; 2x_1 + x_2 \ge -4, \;\; -2x_1 + x_2 \ge -4\}
-</span></p></li>
-<li><p>Find the sets <span class="math inline">S^{*}, S^{**}, S^{***}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge -1, \;\; 2x_1 - x_2 \ge 0, \;\; -x_1 + 2x_2 \ge -2\}
-</span></p></li>
-<li><p>Find conjugate cone for the cone of positive definite (semi-definite) matrices.</p></li>
-<li><p>Find the conjugate cone for the exponential cone:</p>
-<p><span class="math display">
-K = \{(x, y, z) \mid y &gt; 0, y e^{x/y} \leq z\}
-</span></p></li>
-<li><p>Prove that’s fair for closed convex cones:</p>
-<p><span class="math display">
-(K_1 \cap K_2)^* = K_1^* + K_2^*
-</span></p></li>
-<li><p>Find the dual cone for the following cones:</p>
-<ul>
-<li><span class="math inline">K = \{0\}</span></li>
-<li><span class="math inline">K = \mathbb{R}^2</span></li>
-<li><span class="math inline">K = \{(x_1, x_2) \mid \vert x_1\vert \leq x_2\}</span></li>
-<li><span class="math inline">K = \{(x_1, x_2) \mid x_1 + x_2 = 0\}</span></li>
-</ul></li>
-<li><p>Find and sketch on the plane a conjugate set to a multifaced cone:</p>
-<p><span class="math display">
-  S = \mathbf{conv} \left\{ (-4,-1), (-2,-1), (-2,1)\right\} + \mathbf{cone} \left\{ (1,0), (2,1)\right\}
-</span></p></li>
-<li><p>Find and sketch on the plane a conjugate set to a polyhedra:</p>
-<p><span class="math display">
-S = \left\{ x \in \mathbb{R}^2 \mid -3x_1 + 2x_2 \le 7, x_1 + 5x_2 \le 9, x_1 - x_2 \le 3, -x_2 \le 1\right\}
-</span></p></li>
-<li><p>Prove that if we define the conjugate set to <span class="math inline">S</span> as follows:</p>
-<p><span class="math display">
-S^* = \{y \ \in \mathbb{R}^n \mid \langle y, x\rangle \le 1 \;\; \forall x \in S\},
-</span></p>
-<p>then unit ball with the zero point as the center is the only self conjugate set in <span class="math inline">\mathbb{R}^n</span>.</p></li>
-<li><p>Find the conjugate set to the ellipsoid:</p>
-<p><span class="math display">
-  S = \left\{ x \in \mathbb{R}^n \mid \sum\limits_{i = 1}^n a_i^2 x_i^2 \le \varepsilon^2 \right\}
-</span></p></li>
-<li><p>Let <span class="math inline">L</span> be the subspace of a Euclidian space <span class="math inline">X</span>. Prove that <span class="math inline">L^* = L^\bot</span>, where <span class="math inline">L^\bot</span> - orthogonal complement to <span class="math inline">L</span>.</p></li>
-<li><p>Let <span class="math inline">\mathbb{A}_n</span> be the set of all <span class="math inline">n</span> dimensional antisymmetric matrices. Show that <span class="math inline">\left( \mathbb{A}_n\right)^* = \mathbb{S}_n</span>.</p></li>
-<li><p>Prove, that <span class="math inline">B_p</span> and <span class="math inline">B_{p_*}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(B_p)^* = B_{p_*}, (B_{p_*})^* = B_p</span>, where <span class="math inline">B_p</span> is the unit ball (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_*</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}_* = 1</span>. You can assume, that <span class="math inline">p_* = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-<li><p>Prove, that <span class="math inline">K_p</span> and <span class="math inline">K_{p_*}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(K_p)^* = K_{p_*}, (K_{p_*})^* = K_p</span>, where <span class="math inline">K_p = \left\{ [x, \mu] \in \mathbb{R}^{n+1} : \|x\|_p \leq \mu \right\}, \; 1 &lt; p &lt; \infty</span> is the norm cone (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_*</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}_* = 1</span>. You can assume, that <span class="math inline">p_* = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-<li><p>Suppose, <span class="math inline">S = S^*</span>. Could the set <span class="math inline">S</span> be anything, but a unit ball? If it can, provide an example of another self-conjugate set. If it couldn’t, prove it.</p></li>
-<li><p>Let <span class="math inline">\mathbb{A}_n</span> be the set of all <span class="math inline">n</span> dimensional antisymmetric matrices (s.t. <span class="math inline">X^T = - X</span>). Show that <span class="math inline">\left( \mathbb{A}_n\right)^* = \mathbb{S}_n</span>.</p></li>
-<li><p>Find the sets <span class="math inline">S^{\star}, S^{\star\star}, S^{\star\star\star}</span>, if</p>
-<p><span class="math display">
-S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; -\dfrac12x_1 + x_2 \ge 0, \;\; 2x_1 + x_2 \ge -1 \;\; -2x_1 + x_2 \ge -3\}
-</span></p></li>
-<li><p>Prove, that <span class="math inline">B_p</span> and <span class="math inline">B_{p_\star}</span> are inter-conjugate, i.e.&nbsp;<span class="math inline">(B_p)^\star = B_{p_\star}, (B_{p_\star})^\star = B_p</span>, where <span class="math inline">B_p</span> is the unit ball (w.r.t. <span class="math inline">p</span> - norm) and <span class="math inline">p, p_\star</span> are conjugated, i.e.&nbsp;<span class="math inline">p^{-1} + p^{-1}\_\star = 1</span>. You can assume, that <span class="math inline">p_\star = \infty</span> if <span class="math inline">p = 1</span> and vice versa.</p></li>
-</ol>
+<p>Особь — программа из compare-swap операторов. Evaluator прогоняет все 720 перестановок шести чисел. Эволюция находит корректную программу.</p>
+<style>
+  .evo-widget {
+    max-width: 980px;
+    margin: 1rem auto;
+  }
+  .evo-widget .controls {
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.75rem 0 0.9rem;
+    padding: 0.65rem 0;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+  }
+  .evo-widget label {
+    margin: 0;
+    font-size: 0.92rem;
+    color: #495057;
+  }
+  .evo-widget button {
+    border: 1px solid #2780e3;
+    background: #2780e3;
+    color: white;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.72rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+  }
+  .evo-widget input[type=range] {
+    width: 230px;
+    accent-color: #2780e3;
+  }
+  .evo-widget canvas,
+  .evo-widget svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #fff;
+    border: 1px solid #dee2e6;
+  }
+  .evo-widget .metric {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #212529;
+  }
+</style>
+<div class="evo-widget"><div class="controls"><button id="play">play</button><label>generation: <span id="gVal" class="metric">0</span><br><input id="g" type="range" min="0" max="259" value="0"></label></div><canvas id="cv" width="1000" height="560"></canvas></div>
+<script>
+const data={"hist": [[0.0, 0.46667, 0.58333], [1.0, 0.46667, 0.6], [2.0, 0.26667, 0.73333], [3.0, 0.26667, 0.73333], [4.0, 0.26667, 0.73333], [5.0, 0.26667, 0.73333], [6.0, 0.21667, 0.78333], [7.0, 0.21667, 0.78333], [8.0, 0.21667, 0.78333], [9.0, 0.21667, 0.78333], [10.0, 0.2, 0.8], [11.0, 0.2, 0.8], [12.0, 0.2, 0.8], [13.0, 0.2, 0.82222], [14.0, 0.2, 0.82222], [15.0, 0.1, 0.9], [16.0, 0.1, 0.9], [17.0, 0.1, 0.9], [18.0, 0.1, 0.9], [19.0, 0.1, 0.9], [20.0, 0.1, 0.9], [21.0, 0.1, 0.9], [22.0, 0.1, 0.9], [23.0, 0.1, 0.9], [24.0, 0.1, 0.9], [25.0, 0.1, 0.9], [26.0, 0.1, 0.9], [27.0, 0.1, 0.9], [28.0, 0.1, 0.9], [29.0, 0.1, 0.9], [30.0, 0.1, 0.9], [31.0, 0.1, 0.9], [32.0, 0.1, 0.9], [33.0, 0.1, 0.9], [34.0, 0.1, 0.9], [35.0, 0.1, 0.9], [36.0, 0.1, 0.9], [37.0, 0.1, 0.9], [38.0, 0.05, 0.95], [39.0, 0.05, 0.95], [40.0, 0.05, 0.95], [41.0, 0.05, 0.95], [42.0, 0.05, 0.95], [43.0, 0.05, 0.95], [44.0, 0.05, 0.95], [45.0, 0.05, 0.95], [46.0, 0.05, 0.95], [47.0, 0.05, 0.95], [48.0, 0.05, 0.95], [49.0, 0.05, 0.95], [50.0, 0.05, 0.95], [51.0, 0.0, 1.0], [52.0, 0.0, 1.0], [53.0, 0.0, 1.0], [54.0, 0.0, 1.0], [55.0, 0.0, 1.0], [56.0, 0.0, 1.0], [57.0, 0.0, 1.0], [58.0, 0.0, 1.0], [59.0, 0.0, 1.0], [60.0, 0.0, 1.0], [61.0, 0.0, 1.0], [62.0, 0.0, 1.0], [63.0, 0.0, 1.0], [64.0, 0.0, 1.0], [65.0, 0.0, 1.0], [66.0, 0.0, 1.0], [67.0, 0.0, 1.0], [68.0, 0.0, 1.0], [69.0, 0.0, 1.0], [70.0, 0.0, 1.0], [71.0, 0.0, 1.0], [72.0, 0.0, 1.0], [73.0, 0.0, 1.0], [74.0, 0.0, 1.0], [75.0, 0.0, 1.0], [76.0, 0.0, 1.0], [77.0, 0.0, 1.0], [78.0, 0.0, 1.0], [79.0, 0.0, 1.0], [80.0, 0.0, 1.0], [81.0, 0.0, 1.0], [82.0, 0.0, 1.0], [83.0, 0.0, 1.0], [84.0, 0.0, 1.0], [85.0, 0.0, 1.0], [86.0, 0.0, 1.0], [87.0, 0.0, 1.0], [88.0, 0.0, 1.0], [89.0, 0.0, 1.0], [90.0, 0.0, 1.0], [91.0, 0.0, 1.0], [92.0, 0.0, 1.0], [93.0, 0.0, 1.0], [94.0, 0.0, 1.0], [95.0, 0.0, 1.0], [96.0, 0.0, 1.0], [97.0, 0.0, 1.0], [98.0, 0.0, 1.0], [99.0, 0.0, 1.0], [100.0, 0.0, 1.0], [101.0, 0.0, 1.0], [102.0, 0.0, 1.0], [103.0, 0.0, 1.0], [104.0, 0.0, 1.0], [105.0, 0.0, 1.0], [106.0, 0.0, 1.0], [107.0, 0.0, 1.0], [108.0, 0.0, 1.0], [109.0, 0.0, 1.0], [110.0, 0.0, 1.0], [111.0, 0.0, 1.0], [112.0, 0.0, 1.0], [113.0, 0.0, 1.0], [114.0, 0.0, 1.0], [115.0, 0.0, 1.0], [116.0, 0.0, 1.0], [117.0, 0.0, 1.0], [118.0, 0.0, 1.0], [119.0, 0.0, 1.0], [120.0, 0.0, 1.0], [121.0, 0.0, 1.0], [122.0, 0.0, 1.0], [123.0, 0.0, 1.0], [124.0, 0.0, 1.0], [125.0, 0.0, 1.0], [126.0, 0.0, 1.0], [127.0, 0.0, 1.0], [128.0, 0.0, 1.0], [129.0, 0.0, 1.0], [130.0, 0.0, 1.0], [131.0, 0.0, 1.0], [132.0, 0.0, 1.0], [133.0, 0.0, 1.0], [134.0, 0.0, 1.0], [135.0, 0.0, 1.0], [136.0, 0.0, 1.0], [137.0, 0.0, 1.0], [138.0, 0.0, 1.0], [139.0, 0.0, 1.0], [140.0, 0.0, 1.0], [141.0, 0.0, 1.0], [142.0, 0.0, 1.0], [143.0, 0.0, 1.0], [144.0, 0.0, 1.0], [145.0, 0.0, 1.0], [146.0, 0.0, 1.0], [147.0, 0.0, 1.0], [148.0, 0.0, 1.0], [149.0, 0.0, 1.0], [150.0, 0.0, 1.0], [151.0, 0.0, 1.0], [152.0, 0.0, 1.0], [153.0, 0.0, 1.0], [154.0, 0.0, 1.0], [155.0, 0.0, 1.0], [156.0, 0.0, 1.0], [157.0, 0.0, 1.0], [158.0, 0.0, 1.0], [159.0, 0.0, 1.0], [160.0, 0.0, 1.0], [161.0, 0.0, 1.0], [162.0, 0.0, 1.0], [163.0, 0.0, 1.0], [164.0, 0.0, 1.0], [165.0, 0.0, 1.0], [166.0, 0.0, 1.0], [167.0, 0.0, 1.0], [168.0, 0.0, 1.0], [169.0, 0.0, 1.0], [170.0, 0.0, 1.0], [171.0, 0.0, 1.0], [172.0, 0.0, 1.0], [173.0, 0.0, 1.0], [174.0, 0.0, 1.0], [175.0, 0.0, 1.0], [176.0, 0.0, 1.0], [177.0, 0.0, 1.0], [178.0, 0.0, 1.0], [179.0, 0.0, 1.0], [180.0, 0.0, 1.0], [181.0, 0.0, 1.0], [182.0, 0.0, 1.0], [183.0, 0.0, 1.0], [184.0, 0.0, 1.0], [185.0, 0.0, 1.0], [186.0, 0.0, 1.0], [187.0, 0.0, 1.0], [188.0, 0.0, 1.0], [189.0, 0.0, 1.0], [190.0, 0.0, 1.0], [191.0, 0.0, 1.0], [192.0, 0.0, 1.0], [193.0, 0.0, 1.0], [194.0, 0.0, 1.0], [195.0, 0.0, 1.0], [196.0, 0.0, 1.0], [197.0, 0.0, 1.0], [198.0, 0.0, 1.0], [199.0, 0.0, 1.0], [200.0, 0.0, 1.0], [201.0, 0.0, 1.0], [202.0, 0.0, 1.0], [203.0, 0.0, 1.0], [204.0, 0.0, 1.0], [205.0, 0.0, 1.0], [206.0, 0.0, 1.0], [207.0, 0.0, 1.0], [208.0, 0.0, 1.0], [209.0, 0.0, 1.0], [210.0, 0.0, 1.0], [211.0, 0.0, 1.0], [212.0, 0.0, 1.0], [213.0, 0.0, 1.0], [214.0, 0.0, 1.0], [215.0, 0.0, 1.0], [216.0, 0.0, 1.0], [217.0, 0.0, 1.0], [218.0, 0.0, 1.0], [219.0, 0.0, 1.0], [220.0, 0.0, 1.0], [221.0, 0.0, 1.0], [222.0, 0.0, 1.0], [223.0, 0.0, 1.0], [224.0, 0.0, 1.0], [225.0, 0.0, 1.0], [226.0, 0.0, 1.0], [227.0, 0.0, 1.0], [228.0, 0.0, 1.0], [229.0, 0.0, 1.0], [230.0, 0.0, 1.0], [231.0, 0.0, 1.0], [232.0, 0.0, 1.0], [233.0, 0.0, 1.0], [234.0, 0.0, 1.0], [235.0, 0.0, 1.0], [236.0, 0.0, 1.0], [237.0, 0.0, 1.0], [238.0, 0.0, 1.0], [239.0, 0.0, 1.0], [240.0, 0.0, 1.0], [241.0, 0.0, 1.0], [242.0, 0.0, 1.0], [243.0, 0.0, 1.0], [244.0, 0.0, 1.0], [245.0, 0.0, 1.0], [246.0, 0.0, 1.0], [247.0, 0.0, 1.0], [248.0, 0.0, 1.0], [249.0, 0.0, 1.0], [250.0, 0.0, 1.0], [251.0, 0.0, 1.0], [252.0, 0.0, 1.0], [253.0, 0.0, 1.0], [254.0, 0.0, 1.0], [255.0, 0.0, 1.0], [256.0, 0.0, 1.0], [257.0, 0.0, 1.0], [258.0, 0.0, 1.0], [259.0, 0.0, 1.0]], "nets": [[[0, 5], [4, 5], [0, 4], [2, 5], [1, 2], [2, 4], [2, 3], [3, 4], [1, 2], [4, 5], [3, 5], [0, 1]], [[0, 5], [1, 4], [0, 3], [2, 3], [4, 5], [3, 4], [3, 5], [0, 2], [2, 3], [1, 3], [0, 1], [1, 2]], [[3, 4], [1, 5], [1, 3], [2, 3], [3, 5], [0, 2], [2, 3], [0, 2], [2, 4], [3, 4], [0, 1], [4, 5]], [[3, 4], [1, 5], [1, 3], [2, 3], [3, 5], [0, 2], [2, 3], [0, 2], [2, 4], [3, 4], [0, 1], [4, 5]], [[3, 4], [1, 5], [1, 3], [2, 3], [3, 5], [0, 2], [2, 3], [0, 2], [2, 4], [3, 4], [0, 1], [4, 5]], [[3, 4], [1, 5], [1, 3], [2, 3], [3, 5], [0, 2], [2, 3], [0, 2], [2, 4], [3, 4], [0, 1], [4, 5]], [[1, 5], [0, 5], [0, 4], [2, 5], [1, 2], [2, 4], [2, 3], [3, 4], [1, 2], [4, 5], [0, 2], [0, 1]], [[1, 5], [0, 5], [0, 4], [2, 5], [1, 2], [2, 4], [2, 3], [3, 4], [1, 2], [4, 5], [0, 2], [0, 1]], [[1, 5], [0, 5], [0, 4], [2, 5], [1, 2], [2, 4], [2, 3], [3, 4], [1, 2], [4, 5], [0, 2], [0, 1]], [[1, 5], [0, 5], [0, 4], [2, 5], [1, 2], [2, 4], [2, 3], [3, 4], [1, 2], [4, 5], [0, 2], [0, 1]], [[3, 4], [1, 3], [0, 4], [2, 5], [0, 2], [3, 4], [3, 5], [1, 3], [2, 3], [0, 1], [4, 5], [1, 2]], [[3, 4], [1, 3], [0, 4], [2, 5], [0, 2], [3, 4], [3, 5], [1, 3], [2, 3], [0, 1], [4, 5], [1, 2]], [[3, 4], [1, 3], [0, 4], [2, 5], [0, 2], [3, 4], [3, 5], [1, 3], [2, 3], [0, 1], [4, 5], [1, 2]], [[2, 4], [3, 5], [0, 1], [0, 2], [1, 3], [3, 5], [3, 4], [1, 2], [2, 3], [3, 5], [0, 1], [4, 5]], [[2, 4], [3, 5], [0, 1], [0, 2], [1, 3], [3, 5], [3, 4], [1, 2], [2, 3], [3, 5], [0, 1], [4, 5]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [2, 3], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [3, 5], [1, 2], [0, 3], [3, 5], [2, 4], [1, 5], [2, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]], [[1, 4], [2, 5], [1, 2], [0, 3], [3, 5], [3, 4], [2, 3], [0, 3], [4, 5], [0, 1], [1, 2], [3, 4]]]}, cv=document.getElementById('cv'), ctx=cv.getContext('2d'), g=document.getElementById('g'); let timer=null;
+function draw(){const gen=+g.value; gVal.textContent=gen; ctx.clearRect(0,0,1000,560); ctx.fillStyle='#fff';ctx.fillRect(0,0,1000,560);
+ ctx.strokeStyle='#e5e7eb';ctx.lineWidth=1; for(let i=0;i<6;i++){let y=95+i*38;ctx.beginPath();ctx.moveTo(520,y);ctx.lineTo(940,y);ctx.stroke();ctx.fillStyle='#64748b';ctx.fillText(i,495,y+4);}
+ const net=data.nets[gen]; for(let k=0;k<net.length;k++){let x=535+k*34,[a,b]=net[k],y1=95+a*38,y2=95+b*38;ctx.strokeStyle='#2563eb';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x,y1);ctx.lineTo(x,y2);ctx.stroke();ctx.fillStyle='#2563eb';ctx.beginPath();ctx.arc(x,y1,5,0,7);ctx.arc(x,y2,5,0,7);ctx.fill();}
+ ctx.strokeStyle='#b91c1c';ctx.lineWidth=3;ctx.beginPath(); for(let i=0;i<=gen;i++){let h=data.hist[i],x=60+i*3.2,y=430-280*Math.min(h[1]/2.5,1); if(i==0)ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke();
+ ctx.strokeStyle='#2563eb';ctx.beginPath(); for(let i=0;i<=gen;i++){let h=data.hist[i],x=60+i*3.2,y=430-280*h[2]; if(i==0)ctx.moveTo(x,y); else ctx.lineTo(x,y);} ctx.stroke();
+ const h=data.hist[gen];ctx.fillStyle='#111827';ctx.font='22px Inter';ctx.fillText('best program at generation '+gen,520,55);ctx.font='18px Inter';ctx.fillText('inversions: '+h[1].toFixed(3),60,70);ctx.fillText('tests passed: '+(100*h[2]).toFixed(1)+'%',60,98);ctx.fillStyle='#b91c1c';ctx.fillText('red: inversions',60,465);ctx.fillStyle='#2563eb';ctx.fillText('blue: passed tests',210,465);
+}
+g.oninput=draw; play.onclick=()=>{if(timer){clearInterval(timer);timer=null;play.textContent='play';return} play.textContent='pause'; timer=setInterval(()=>{g.value=(+g.value+1)%g.max;draw()},70)}; draw();
+</script>
 
 
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1373,4 +1355,4 @@ S = \{ x \in \mathbb{R}^2 \mid x_1 + x_2 \ge 0, \;\; -\dfrac12x_1 + x_2 \ge 0, \
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/exercises/conjugate_sets.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/program_evolution_sorting.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
