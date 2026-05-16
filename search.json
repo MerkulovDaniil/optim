@@ -1,35 +1,46 @@
 [
   {
-    "objectID": "docs/visualizations/tsp_village_split.html",
-    "href": "docs/visualizations/tsp_village_split.html",
-    "title": "TSP: сходимость генетического алгоритма",
+    "objectID": "docs/visualizations/tsp.html",
+    "href": "docs/visualizations/tsp.html",
+    "title": "Задача коммивояжёра: генетический алгоритм и LKH",
     "section": "",
-    "text": "Тот же генетический алгоритм на 40 домах: слева эволюционирует лучший маршрут, справа падает длина \\ell(\\pi) по поколениям.\nПараметры: популяция 80, элита 8, OX-скрещивание + swap/reverse-мутация, 200 поколений.\nYour browser does not support the video tag.",
+    "text": "Задача коммивояжёра (TSP): пройти все N городов по одному разу и вернуться в начало кратчайшим путём. Маршрут — это перестановка \\pi=(\\pi_1,\\dots,\\pi_N), и нужно минимизировать суммарную длину рёбер \\ell(\\pi).\nНиже — три постановки разного масштаба и два класса решателей: генетический алгоритм (общий метод) и Lin–Kernighan–Helsgaun (специализированная TSP-эвристика).",
     "crumbs": [
       "Visualizations",
-      "TSP: сходимость генетического алгоритма"
+      "Задача коммивояжёра: генетический алгоритм и LKH"
     ]
   },
   {
-    "objectID": "docs/visualizations/tsp_russia_split.html",
-    "href": "docs/visualizations/tsp_russia_split.html",
-    "title": "TSP: 16 городов-миллионников России",
-    "section": "",
-    "text": "Реальная задача коммивояжёра: 16 крупнейших городов России (от Санкт-Петербурга до Красноярска), реальные координаты, расстояния по сфере Земли (haversine).\nСлева — карта с эволюционирующим лучшим маршрутом, справа — падение длины тура (в километрах).\nДлина маршрута падает с 19 100 до 9 820 км (-49\\%) за 200 поколений генетического алгоритма с OX-скрещиванием и swap/reverse-мутацией.\nYour browser does not support the video tag.",
+    "objectID": "docs/visualizations/tsp.html#деревня-из-40-домов",
+    "href": "docs/visualizations/tsp.html#деревня-из-40-домов",
+    "title": "Задача коммивояжёра: генетический алгоритм и LKH",
+    "section": "1 Деревня из 40 домов",
+    "text": "1 Деревня из 40 домов\nМаршрут эволюционирует за 200 поколений генетического алгоритма (популяция 80, OX-скрещивание, swap/reverse-мутация, элитизм). Длина пути падает с 29.2 до 8.7 (-70\\%).\nYour browser does not support the video tag.\nТот же запуск в формате split — слева маршрут, справа кривая длины \\ell(\\pi) по поколениям:\nYour browser does not support the video tag.",
     "crumbs": [
       "Visualizations",
-      "TSP: 16 городов-миллионников России"
+      "Задача коммивояжёра: генетический алгоритм и LKH"
     ]
   },
   {
-    "objectID": "docs/visualizations/tsp_pcb_ga_split.html",
-    "href": "docs/visualizations/tsp_pcb_ga_split.html",
-    "title": "TSP: Memetic 1+1 ES на pcb442",
-    "section": "",
-    "text": "Бенчмарк TSPLIB pcb442 (Groetschel/Juenger/Reinelt, 1991) — реальная задача сверления печатной платы из 442 отверстий. Известный оптимум LKH: 50\\,778 единиц.\nMemetic-комбинация: оптимизатор OnePlusOne из библиотеки nevergrad генерирует кандидата через random-keys, каждый кандидат полируется полным 2-opt (numba-JIT). При застое — double-bridge perturbation и рестарт.\nСлева — маршрут на плате (треугольники — отверстия, красная линия — путь сверла), справа — длина маршрута по числу вызовов оракула на лог-шкале.\nВыходит на 54\\,154 единиц (gap +6.65%). 2-opt-плато для этого класса методов пробить нельзя без chain edge exchange — см. LKH-3 ниже.\nYour browser does not support the video tag.",
+    "objectID": "docs/visualizations/tsp.html#городов-миллионников-россии",
+    "href": "docs/visualizations/tsp.html#городов-миллионников-россии",
+    "title": "Задача коммивояжёра: генетический алгоритм и LKH",
+    "section": "2 16 городов-миллионников России",
+    "text": "2 16 городов-миллионников России\nРеальная задача: координаты крупнейших городов России (от Санкт-Петербурга до Красноярска), расстояния по сфере Земли (haversine). Длина маршрута падает с 19 100 до 9 820 км (-49\\%) за 200 поколений того же генетического алгоритма.\nYour browser does not support the video tag.",
     "crumbs": [
       "Visualizations",
-      "TSP: Memetic 1+1 ES на pcb442"
+      "Задача коммивояжёра: генетический алгоритм и LKH"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/tsp.html#pcb442-реальная-задача-сверления-печатной-платы",
+    "href": "docs/visualizations/tsp.html#pcb442-реальная-задача-сверления-печатной-платы",
+    "title": "Задача коммивояжёра: генетический алгоритм и LKH",
+    "section": "3 pcb442: реальная задача сверления печатной платы",
+    "text": "3 pcb442: реальная задача сверления печатной платы\nБенчмарк TSPLIB pcb442 (Groetschel/Juenger/Reinelt, 1991): 442 отверстия, известный оптимум 50\\,778 единиц.\n\n3.1 Memetic 1+1 ES: общий оптимизатор с локальным поиском\nОптимизатор OnePlusOne из nevergrad генерирует кандидата через random-keys, каждый кандидат полируется полным 2-opt (JIT через numba). При застое — double-bridge perturbation и рестарт.\nВыходит на 54\\,154 единиц (gap +6.65%). 2-opt-плато для этого класса методов пробить нельзя без chain edge exchange.\nYour browser does not support the video tag.\n\n\n3.2 LKH-3: специализированная TSP-эвристика\nLKH-3 (Lin–Kernighan–Helsgaun) — chain edge exchange переменной глубины. Доступ через биндинг elkai.\nВыходит точно на TSPLIB-оптимум 50\\,778 единиц (gap 0%) за десятки секунд. Общие методы оптимизации с 2-opt-эвристикой это плато пробить не могут — нужна специализированная процедура поиска по семейству k-opt move’ов.\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Задача коммивояжёра: генетический алгоритм и LKH"
     ]
   },
   {
@@ -4394,28 +4405,6 @@
     "crumbs": [
       "Visualizations",
       "Brownian skier on the Sochi DEM"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/tsp_pcb_lkh_split.html",
-    "href": "docs/visualizations/tsp_pcb_lkh_split.html",
-    "title": "TSP: LKH-3 находит оптимум на pcb442",
-    "section": "",
-    "text": "Тот же бенчмарк TSPLIB pcb442 (442 отверстия, оптимум 50\\,778 единиц), но решаемый LKH-3 (Lin–Kernighan–Helsgaun) — специализированной эвристикой для TSP с chain edge exchange переменной глубины.\nLKH-3 выходит точно на TSPLIB-оптимум 50\\,778 units (gap 0%) за десятки секунд — общие методы оптимизации с 2-opt-эвристикой такое плато (~+5%) пробить не могут.\nДоступ через python-биндинг elkai.\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "TSP: LKH-3 находит оптимум на pcb442"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/tsp_village_ga.html",
-    "href": "docs/visualizations/tsp_village_ga.html",
-    "title": "TSP: генетический алгоритм на деревне из 40 домов",
-    "section": "",
-    "text": "Задача коммивояжёра: пройти все N домов по одному разу и вернуться в начало кратчайшим путём.\nРешаем генетическим алгоритмом над перестановками:\n\nскрещивание (OX, Order Crossover) — берём сегмент маршрута из родителя P_1, остальные города достраиваем из P_2 в порядке появления;\nмутация — swap меняет два города местами; reverse разворачивает сегмент;\nотбор — сортируем популяцию по длине маршрута \\ell(\\pi) и оставляем лучшие \\mu решений как родителей следующего поколения.\n\nПопуляция из 80 особей, 200 поколений. Длина маршрута падает с 29.2 до 8.7 (-70\\%).\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "TSP: генетический алгоритм на деревне из 40 домов"
     ]
   },
   {

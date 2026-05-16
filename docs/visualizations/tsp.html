@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>TSP: Memetic 1+1 ES на pcb442</title>
+<title>Задача коммивояжёра: генетический алгоритм и LKH</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,9 +90,9 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="TSP: Memetic 1+1 ES на pcb442">
+<meta property="og:title" content="Задача коммивояжёра: генетический алгоритм и LKH">
 <meta property="og:description" content="">
-<meta name="twitter:title" content="TSP: Memetic 1+1 ES на pcb442">
+<meta name="twitter:title" content="Задача коммивояжёра: генетический алгоритм и LKH">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/tsp_pcb_ga_split.html">TSP: Memetic 1+1 ES на pcb442</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/tsp.html">Задача коммивояжёра: генетический алгоритм и LKH</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -817,32 +817,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/tsp_pcb_ga_split.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">TSP: Memetic 1+1 ES на pcb442</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/tsp_pcb_lkh_split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TSP: LKH-3 находит оптимум на pcb442</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/tsp_russia_split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TSP: 16 городов-миллионников России</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/tsp_village_ga.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TSP: генетический алгоритм на деревне из 40 домов</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/tsp_village_split.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">TSP: сходимость генетического алгоритма</span></a>
+  <a href="../../docs/visualizations/tsp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Задача коммивояжёра: генетический алгоритм и LKH</span></a>
   </div>
 </li>
       </ul>
@@ -853,7 +829,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#деревня-из-40-домов" id="toc-деревня-из-40-домов" class="nav-link active" data-scroll-target="#деревня-из-40-домов"><span class="header-section-number">1</span> Деревня из 40 домов</a></li>
+  <li><a href="#городов-миллионников-россии" id="toc-городов-миллионников-россии" class="nav-link" data-scroll-target="#городов-миллионников-россии"><span class="header-section-number">2</span> 16 городов-миллионников России</a></li>
+  <li><a href="#pcb442-реальная-задача-сверления-печатной-платы" id="toc-pcb442-реальная-задача-сверления-печатной-платы" class="nav-link" data-scroll-target="#pcb442-реальная-задача-сверления-печатной-платы"><span class="header-section-number">3</span> pcb442: реальная задача сверления печатной платы</a>
+  <ul class="collapse">
+  <li><a href="#memetic-11-es-общий-оптимизатор-с-локальным-поиском" id="toc-memetic-11-es-общий-оптимизатор-с-локальным-поиском" class="nav-link" data-scroll-target="#memetic-11-es-общий-оптимизатор-с-локальным-поиском"><span class="header-section-number">3.1</span> Memetic 1+1 ES: общий оптимизатор с локальным поиском</a></li>
+  <li><a href="#lkh-3-специализированная-tsp-эвристика" id="toc-lkh-3-специализированная-tsp-эвристика" class="nav-link" data-scroll-target="#lkh-3-специализированная-tsp-эвристика"><span class="header-section-number">3.2</span> LKH-3: специализированная TSP-эвристика</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/tsp.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -863,9 +851,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/tsp_pcb_ga_split.html">TSP: Memetic 1+1 ES на pcb442</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/tsp.html">Задача коммивояжёра: генетический алгоритм и LKH</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">TSP: Memetic 1+1 ES на pcb442</h1>
+<h1 class="title">Задача коммивояжёра: генетический алгоритм и LKH</h1>
 </div>
 
 
@@ -881,13 +869,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Бенчмарк TSPLIB <strong>pcb442</strong> (Groetschel/Juenger/Reinelt, 1991) — реальная задача сверления печатной платы из 442 отверстий. Известный оптимум LKH: <span class="math inline">50\,778</span> единиц.</p>
-<p>Memetic-комбинация: оптимизатор <code>OnePlusOne</code> из библиотеки <a href="https://github.com/facebookresearch/nevergrad">nevergrad</a> генерирует кандидата через random-keys, каждый кандидат полируется полным 2-opt (numba-JIT). При застое — double-bridge perturbation и рестарт.</p>
-<p>Слева — маршрут на плате (треугольники — отверстия, красная линия — путь сверла), справа — длина маршрута по числу вызовов оракула на лог-шкале.</p>
-<p>Выходит на <span class="math inline">54\,154</span> единиц (gap +6.65%). 2-opt-плато для этого класса методов пробить нельзя без chain edge exchange — см. LKH-3 ниже.</p>
+<p>Задача коммивояжёра (TSP): пройти все <span class="math inline">N</span> городов <strong>по одному разу</strong> и вернуться в начало кратчайшим путём. Маршрут — это перестановка <span class="math inline">\pi=(\pi_1,\dots,\pi_N)</span>, и нужно минимизировать суммарную длину рёбер <span class="math inline">\ell(\pi)</span>.</p>
+<p>Ниже — три постановки разного масштаба и два класса решателей: генетический алгоритм (общий метод) и Lin–Kernighan–Helsgaun (специализированная TSP-эвристика).</p>
+<section id="деревня-из-40-домов" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="деревня-из-40-домов"><span class="header-section-number">1</span> Деревня из 40 домов</h2>
+<p>Маршрут эволюционирует за 200 поколений генетического алгоритма (популяция 80, OX-скрещивание, swap/reverse-мутация, элитизм). Длина пути падает с 29.2 до 8.7 (<span class="math inline">-70\%</span>).</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="tsp_village_ga.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p>Тот же запуск в формате split — слева маршрут, справа кривая длины <span class="math inline">\ell(\pi)</span> по поколениям:</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="tsp_village_split.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="городов-миллионников-россии" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="городов-миллионников-россии"><span class="header-section-number">2</span> 16 городов-миллионников России</h2>
+<p>Реальная задача: координаты крупнейших городов России (от Санкт-Петербурга до Красноярска), расстояния по сфере Земли (haversine). Длина маршрута падает с 19 100 до 9 820 км (<span class="math inline">-49\%</span>) за 200 поколений того же генетического алгоритма.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="tsp_russia_split.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="pcb442-реальная-задача-сверления-печатной-платы" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="pcb442-реальная-задача-сверления-печатной-платы"><span class="header-section-number">3</span> pcb442: реальная задача сверления печатной платы</h2>
+<p>Бенчмарк TSPLIB <strong>pcb442</strong> (Groetschel/Juenger/Reinelt, 1991): 442 отверстия, известный оптимум <span class="math inline">50\,778</span> единиц.</p>
+<section id="memetic-11-es-общий-оптимизатор-с-локальным-поиском" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="memetic-11-es-общий-оптимизатор-с-локальным-поиском"><span class="header-section-number">3.1</span> Memetic 1+1 ES: общий оптимизатор с локальным поиском</h3>
+<p>Оптимизатор <code>OnePlusOne</code> из <a href="https://github.com/facebookresearch/nevergrad">nevergrad</a> генерирует кандидата через random-keys, каждый кандидат полируется полным 2-opt (JIT через <a href="https://numba.pydata.org">numba</a>). При застое — double-bridge perturbation и рестарт.</p>
+<p>Выходит на <span class="math inline">54\,154</span> единиц (gap +6.65%). 2-opt-плато для этого класса методов пробить нельзя без chain edge exchange.</p>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="tsp_pcb_ga_split.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="lkh-3-специализированная-tsp-эвристика" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="lkh-3-специализированная-tsp-эвристика"><span class="header-section-number">3.2</span> LKH-3: специализированная TSP-эвристика</h3>
+<p><strong>LKH-3</strong> (Lin–Kernighan–Helsgaun) — chain edge exchange переменной глубины. Доступ через биндинг <a href="https://github.com/fikisipi/elkai"><code>elkai</code></a>.</p>
+<p>Выходит <strong>точно</strong> на TSPLIB-оптимум <span class="math inline">50\,778</span> единиц (gap 0%) за десятки секунд. Общие методы оптимизации с 2-opt-эвристикой это плато пробить не могут — нужна специализированная процедура поиска по семейству <span class="math inline">k</span>-opt move’ов.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="tsp_pcb_lkh_split.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1299,4 +1312,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/tsp_pcb_ga_split.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/tsp.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
