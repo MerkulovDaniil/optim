@@ -22,11 +22,11 @@ muon_spiral.mp4
 
 ### Decision boundary snapshots
 
-![](muon_spiral_boundaries.pdf){width="100%"}
+![](muon_spiral_boundaries.svg){width="100%"}
 
 ### Convergence
 
-![](muon_spiral_loss.pdf){width="70%" fig-align="center"}
+![](muon_spiral_loss.svg){width="70%" fig-align="center"}
 
 ## Hyperparameters (main experiment)
 
@@ -62,15 +62,15 @@ To ensure a fair comparison, we run [Optuna](https://optuna.readthedocs.io/) TPE
 
 ### Decision boundaries after Optuna tuning
 
-![](muon_spiral_optuna_boundaries.pdf){width="100%"}
+![](muon_spiral_optuna_boundaries.svg){width="100%"}
 
 ### Optimization history
 
-![](muon_spiral_optuna_history.pdf){width="100%"}
+![](muon_spiral_optuna_history.svg){width="100%"}
 
 ### Hyperparameter importance (fANOVA)
 
-![](muon_spiral_optuna_importance.pdf){width="100%"}
+![](muon_spiral_optuna_importance.svg){width="100%"}
 
 For SGD, Nesterov, and AdamW the **learning rate dominates** (>70% importance). For Muon, **weight decay and lr_muon are equally important** (~50/40%), while Newton-Schulz iterations and momentum are less critical.
 
