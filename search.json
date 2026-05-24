@@ -125,51 +125,62 @@
     "href": "docs/visualizations/muon_spiral.html",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
     "section": "",
-    "text": "Binary classification of two interleaved 2D spirals using a 1-hidden-layer neural network:\n\n\\hat y = \\sigma\\!\\bigl(W_2\\, \\tanh(W_1\\, x)\\bigr), \\qquad W_1 \\in \\mathbb{R}^{64 \\times 3},\\; W_2 \\in \\mathbb{R}^{1 \\times 64}\n\nThe input is augmented with a bias column: x = [x_1,\\, x_2,\\, 1]^\\top. The loss is binary cross-entropy, trained with mini-batch SGD (batch size 40, total 400 points, 3000 steps).\nW_1 is a matrix parameter — this is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization. For the output layer W_2, all methods use AdamW — this isolates the effect of the optimizer on the matrix parameter.",
+    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#problem-setup",
-    "href": "docs/visualizations/muon_spiral.html#problem-setup",
+    "objectID": "docs/visualizations/muon_spiral.html#the-dataset",
+    "href": "docs/visualizations/muon_spiral.html#the-dataset",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
     "section": "",
-    "text": "Binary classification of two interleaved 2D spirals using a 1-hidden-layer neural network:\n\n\\hat y = \\sigma\\!\\bigl(W_2\\, \\tanh(W_1\\, x)\\bigr), \\qquad W_1 \\in \\mathbb{R}^{64 \\times 3},\\; W_2 \\in \\mathbb{R}^{1 \\times 64}\n\nThe input is augmented with a bias column: x = [x_1,\\, x_2,\\, 1]^\\top. The loss is binary cross-entropy, trained with mini-batch SGD (batch size 40, total 400 points, 3000 steps).\nW_1 is a matrix parameter — this is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization. For the output layer W_2, all methods use AdamW — this isolates the effect of the optimizer on the matrix parameter.",
+    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#results",
-    "href": "docs/visualizations/muon_spiral.html#results",
+    "objectID": "docs/visualizations/muon_spiral.html#the-model",
+    "href": "docs/visualizations/muon_spiral.html#the-model",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "2 Results",
-    "text": "2 Results\nYour browser does not support the video tag.\n\n2.1 Decision boundary snapshots\n\n\n\n2.2 Convergence",
+    "section": "2 The model",
+    "text": "2 The model\nA single-hidden-layer network with 64 neurons and \\tanh activation:\n\n\\hat y = \\sigma\\!\\bigl(W_2\\, \\tanh(W_1\\, x)\\bigr)\n\nThe input is augmented with a constant feature for the bias: x = [x_1,\\, x_2,\\, 1]^\\top. The loss is binary cross-entropy.\n\n\n\n\n\nThe key detail: W_1 \\in \\mathbb{R}^{64 \\times 3} is a matrix parameter. This is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization of the gradient. For the output layer W_2 \\in \\mathbb{R}^{1 \\times 64}, all four methods use the same AdamW — this isolates the effect of the optimizer on the matrix weight.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#hyperparameters-main-experiment",
-    "href": "docs/visualizations/muon_spiral.html#hyperparameters-main-experiment",
+    "objectID": "docs/visualizations/muon_spiral.html#training",
+    "href": "docs/visualizations/muon_spiral.html#training",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "3 Hyperparameters (main experiment)",
-    "text": "3 Hyperparameters (main experiment)\n\n\n\n\n\n\n\n\n\n\nMethod\nlr\nMomentum\nWeight decay\nOther\n\n\n\n\nSGD\n0.23\n—\n10^{-4}\n—\n\n\nNesterov\n1.4\n\\mu = 0.9\n10^{-4}\n—\n\n\nAdamW\n0.37\n\\beta_1 = 0.9,\\; \\beta_2 = 0.999\n10^{-4}\n—\n\n\nMuon (W_1)\n0.44\n\\mu = 0.95\n10^{-4}\nNewton-Schulz: 7 iters\n\n\nMuon (W_2)\n0.37\n\\beta_1 = 0.9,\\; \\beta_2 = 0.999\n10^{-4}\nAdamW for output layer",
+    "section": "3 Training",
+    "text": "3 Training\nMini-batch training with batch size 40, for 3000 gradient steps. Same random seed controls batch sampling for all methods.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#hyperparameter-tuning-with-optuna",
-    "href": "docs/visualizations/muon_spiral.html#hyperparameter-tuning-with-optuna",
+    "objectID": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
+    "href": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "4 Hyperparameter tuning with Optuna",
-    "text": "4 Hyperparameter tuning with Optuna\nTo ensure a fair comparison, we run Optuna TPE search with a fixed compute budget: 500 trials per method, each trained for 1000 steps. All hyperparameters are tuned simultaneously.\n\n4.1 Search spaces\n\n\n\n\n\n\n\nMethod\nTuned parameters\n\n\n\n\nSGD\nlr \\in [10^{-3}, 30], momentum \\in [0, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nNesterov\nlr \\in [10^{-3}, 30], momentum \\in [0.5, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nAdamW\nlr \\in [10^{-4}, 3], \\beta_1 \\in [0.8, 0.99], \\beta_2 \\in [0.9, 0.9999], wd \\in [10^{-6}, 0.1], \\varepsilon \\in [10^{-10}, 10^{-4}]\n\n\nMuon\nlr_muon \\in [10^{-3}, 3], \\mu_{\\text{muon}} \\in [0.8, 0.999], ns_steps \\in [3, 10], lr_adam \\in [10^{-4}, 3], \\beta_1, \\beta_2, wd, \\varepsilon\n\n\n\n\n\n4.2 Best configurations (500 trials)\n\n\n\n\n\n\n\n\n\nMethod\nBest HPs\nFinal loss\nAccuracy\n\n\n\n\nMuon\nlr=0.27, \\mu=0.999, ns=7, wd$$0\n0.090\n96.2%\n\n\nAdamW\nlr=0.26, \\beta_1=0.96, \\beta_2=0.96, wd=4\\cdot 10^{-4}\n0.095\n96.5%\n\n\nNesterov\nlr=0.14, \\mu=0.99, wd$0 | 0.161 | 94.2% |\n| SGD | lr=0.70, momentum=0.93, wd$0\n0.310\n86.2%\n\n\n\n\n\n4.3 Decision boundaries after Optuna tuning\n\n\n\n4.4 Optimization history\n\n\n\n4.5 Hyperparameter importance (fANOVA)\n\nFor SGD, Nesterov, and AdamW the learning rate dominates (&gt;70% importance). For Muon, weight decay and lr_muon are equally important (~50/40%), while Newton-Schulz iterations and momentum are less critical.",
+    "section": "4 Part 1 — Hand-tuned hyperparameters",
+    "text": "4 Part 1 — Hand-tuned hyperparameters\nYour browser does not support the video tag.\n\n4.1 Decision boundary snapshots\n\n\n\n4.2 Convergence (raw + EMA-smoothed)\n\n\n\n\n\n\n\n4.3 Hyperparameters used\n\n\n\nMethod\nlr\nMomentum\nWeight decay\n\n\n\n\nSGD\n0.23\n—\n10^{-4}\n\n\nNesterov\n1.4\n\\mu = 0.9\n10^{-4}\n\n\nAdamW\n0.37\n\\beta_1 = 0.9,\\; \\beta_2 = 0.999\n10^{-4}\n\n\nMuon (W_1)\n0.44\n\\mu = 0.95\n10^{-4}",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
+    "href": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "5 Part 2 — Optuna hyperparameter tuning",
+    "text": "5 Part 2 — Optuna hyperparameter tuning\nHand-tuning gives one method an unfair advantage if its HPs were chosen more carefully. To ensure a fair comparison, we give each method the same budget of Optuna TPE trials: 500 trials × 1000 steps, tuning all hyperparameters simultaneously.\n\n5.1 Search spaces\n\n\n\n\n\n\n\nMethod\nTuned parameters\n\n\n\n\nSGD\nlr \\in [10^{-3}, 30], momentum \\in [0, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nNesterov\nlr \\in [10^{-3}, 30], momentum \\in [0.5, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nAdamW\nlr \\in [10^{-4}, 3], \\beta_1 \\in [0.8, 0.99], \\beta_2 \\in [0.9, 0.9999], wd \\in [10^{-6}, 0.1], \\varepsilon \\in [10^{-10}, 10^{-4}]\n\n\nMuon\nlr_muon \\in [10^{-3}, 3], \\mu \\in [0.8, 0.999], ns_steps \\in [3, 10], lr_adam, \\beta_1, \\beta_2, wd, \\varepsilon\n\n\n\n\n\n5.2 Best configurations found\n\n\n\n\n\n\n\n\n\nMethod\nBest HPs\nFinal loss\nAccuracy\n\n\n\n\nMuon\nlr=0.27, \\mu=0.999, ns=7, wd$$0\n0.090\n96.2%\n\n\nAdamW\nlr=0.26, \\beta_1=0.96, \\beta_2=0.96, wd=4\\cdot 10^{-4}\n0.095\n96.5%\n\n\nNesterov\nlr=0.14, \\mu=0.99, wd$0 | 0.161 | 94.2% |\n| SGD | lr=0.70, momentum=0.93, wd$0\n0.310\n86.2%\n\n\n\n\n\n5.3 Training with Optuna-tuned HPs (3000 steps)\nYour browser does not support the video tag.\n\n\n5.4 Decision boundaries after Optuna tuning\n\n\n\n5.5 Optuna optimization history\nEach dot is one trial. Bold line shows the best loss found so far.\n\n\n\n5.6 Hyperparameter importance (fANOVA)\n\nFor SGD, Nesterov, and AdamW the learning rate dominates ($&gt;$70% importance). For Muon, weight decay and lr_muon are equally important (~50%/40%), while Newton-Schulz iterations and momentum have low importance.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
@@ -179,8 +190,8 @@
     "objectID": "docs/visualizations/muon_spiral.html#takeaways",
     "href": "docs/visualizations/muon_spiral.html#takeaways",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "5 Takeaways",
-    "text": "5 Takeaways\n\nMuon consistently beats AdamW on this matrix-parameterized neural network, even after full Optuna HP tuning (500 trials each).\nSGD and Nesterov struggle in the mini-batch regime — adaptive methods are essential.\nMuon’s advantage comes from spectral orthogonalization of the gradient: it makes equal progress across all singular directions of W_1, whereas AdamW can only adapt per-element.\nMuon has more hyperparameters (8 vs 5 for AdamW), but its performance is robust — fANOVA shows most of them have low importance.",
+    "section": "6 Takeaways",
+    "text": "6 Takeaways\n\nMuon consistently matches or beats AdamW on this matrix-parameterized neural network, even after full Optuna HP tuning with equal budget (500 trials each).\nSGD and Nesterov struggle in the mini-batch regime — adaptive scaling is essential for efficient neural network training.\nMuon’s advantage comes from spectral orthogonalization of the gradient: it makes equal progress across all singular directions of W_1, whereas AdamW can only adapt per-element.\nMuon has more hyperparameters (8 vs 5 for AdamW), but fANOVA shows most of them have low importance — the method is robust to HP choices.",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
@@ -190,8 +201,8 @@
     "objectID": "docs/visualizations/muon_spiral.html#code",
     "href": "docs/visualizations/muon_spiral.html#code",
     "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "6 Code",
-    "text": "6 Code\n\nMain experiment\nOptuna tuning",
+    "section": "7 Code",
+    "text": "7 Code\n\nMain experiment\nOptuna tuning",
     "crumbs": [
       "Visualizations",
       "SGD vs Nesterov vs AdamW vs Muon on spiral classification"

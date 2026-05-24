@@ -92,10 +92,10 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="SGD vs Nesterov vs AdamW vs Muon on spiral classification">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_boundaries.svg">
+<meta property="og:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_data.svg">
 <meta name="twitter:title" content="SGD vs Nesterov vs AdamW vs Muon on spiral classification">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_boundaries.svg">
+<meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_data.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -841,23 +841,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#problem-setup" id="toc-problem-setup" class="nav-link active" data-scroll-target="#problem-setup"><span class="header-section-number">1</span> Problem setup</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">2</span> Results</a>
+  <li><a href="#the-dataset" id="toc-the-dataset" class="nav-link active" data-scroll-target="#the-dataset"><span class="header-section-number">1</span> The dataset</a></li>
+  <li><a href="#the-model" id="toc-the-model" class="nav-link" data-scroll-target="#the-model"><span class="header-section-number">2</span> The model</a></li>
+  <li><a href="#training" id="toc-training" class="nav-link" data-scroll-target="#training"><span class="header-section-number">3</span> Training</a></li>
+  <li><a href="#part-1-hand-tuned-hyperparameters" id="toc-part-1-hand-tuned-hyperparameters" class="nav-link" data-scroll-target="#part-1-hand-tuned-hyperparameters"><span class="header-section-number">4</span> Part 1 — Hand-tuned hyperparameters</a>
   <ul class="collapse">
-  <li><a href="#decision-boundary-snapshots" id="toc-decision-boundary-snapshots" class="nav-link" data-scroll-target="#decision-boundary-snapshots"><span class="header-section-number">2.1</span> Decision boundary snapshots</a></li>
-  <li><a href="#convergence" id="toc-convergence" class="nav-link" data-scroll-target="#convergence"><span class="header-section-number">2.2</span> Convergence</a></li>
+  <li><a href="#decision-boundary-snapshots" id="toc-decision-boundary-snapshots" class="nav-link" data-scroll-target="#decision-boundary-snapshots"><span class="header-section-number">4.1</span> Decision boundary snapshots</a></li>
+  <li><a href="#convergence-raw-ema-smoothed" id="toc-convergence-raw-ema-smoothed" class="nav-link" data-scroll-target="#convergence-raw-ema-smoothed"><span class="header-section-number">4.2</span> Convergence (raw + EMA-smoothed)</a></li>
+  <li><a href="#hyperparameters-used" id="toc-hyperparameters-used" class="nav-link" data-scroll-target="#hyperparameters-used"><span class="header-section-number">4.3</span> Hyperparameters used</a></li>
   </ul></li>
-  <li><a href="#hyperparameters-main-experiment" id="toc-hyperparameters-main-experiment" class="nav-link" data-scroll-target="#hyperparameters-main-experiment"><span class="header-section-number">3</span> Hyperparameters (main experiment)</a></li>
-  <li><a href="#hyperparameter-tuning-with-optuna" id="toc-hyperparameter-tuning-with-optuna" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-optuna"><span class="header-section-number">4</span> Hyperparameter tuning with Optuna</a>
+  <li><a href="#part-2-optuna-hyperparameter-tuning" id="toc-part-2-optuna-hyperparameter-tuning" class="nav-link" data-scroll-target="#part-2-optuna-hyperparameter-tuning"><span class="header-section-number">5</span> Part 2 — Optuna hyperparameter tuning</a>
   <ul class="collapse">
-  <li><a href="#search-spaces" id="toc-search-spaces" class="nav-link" data-scroll-target="#search-spaces"><span class="header-section-number">4.1</span> Search spaces</a></li>
-  <li><a href="#best-configurations-500-trials" id="toc-best-configurations-500-trials" class="nav-link" data-scroll-target="#best-configurations-500-trials"><span class="header-section-number">4.2</span> Best configurations (500 trials)</a></li>
-  <li><a href="#decision-boundaries-after-optuna-tuning" id="toc-decision-boundaries-after-optuna-tuning" class="nav-link" data-scroll-target="#decision-boundaries-after-optuna-tuning"><span class="header-section-number">4.3</span> Decision boundaries after Optuna tuning</a></li>
-  <li><a href="#optimization-history" id="toc-optimization-history" class="nav-link" data-scroll-target="#optimization-history"><span class="header-section-number">4.4</span> Optimization history</a></li>
-  <li><a href="#hyperparameter-importance-fanova" id="toc-hyperparameter-importance-fanova" class="nav-link" data-scroll-target="#hyperparameter-importance-fanova"><span class="header-section-number">4.5</span> Hyperparameter importance (fANOVA)</a></li>
+  <li><a href="#search-spaces" id="toc-search-spaces" class="nav-link" data-scroll-target="#search-spaces"><span class="header-section-number">5.1</span> Search spaces</a></li>
+  <li><a href="#best-configurations-found" id="toc-best-configurations-found" class="nav-link" data-scroll-target="#best-configurations-found"><span class="header-section-number">5.2</span> Best configurations found</a></li>
+  <li><a href="#training-with-optuna-tuned-hps-3000-steps" id="toc-training-with-optuna-tuned-hps-3000-steps" class="nav-link" data-scroll-target="#training-with-optuna-tuned-hps-3000-steps"><span class="header-section-number">5.3</span> Training with Optuna-tuned HPs (3000 steps)</a></li>
+  <li><a href="#decision-boundaries-after-optuna-tuning" id="toc-decision-boundaries-after-optuna-tuning" class="nav-link" data-scroll-target="#decision-boundaries-after-optuna-tuning"><span class="header-section-number">5.4</span> Decision boundaries after Optuna tuning</a></li>
+  <li><a href="#optuna-optimization-history" id="toc-optuna-optimization-history" class="nav-link" data-scroll-target="#optuna-optimization-history"><span class="header-section-number">5.5</span> Optuna optimization history</a></li>
+  <li><a href="#hyperparameter-importance-fanova" id="toc-hyperparameter-importance-fanova" class="nav-link" data-scroll-target="#hyperparameter-importance-fanova"><span class="header-section-number">5.6</span> Hyperparameter importance (fANOVA)</a></li>
   </ul></li>
-  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways"><span class="header-section-number">5</span> Takeaways</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">6</span> Code</a></li>
+  <li><a href="#takeaways" id="toc-takeaways" class="nav-link" data-scroll-target="#takeaways"><span class="header-section-number">6</span> Takeaways</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code"><span class="header-section-number">7</span> Code</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/muon_spiral.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
@@ -887,48 +890,58 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="problem-setup" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="problem-setup"><span class="header-section-number">1</span> Problem setup</h2>
-<p>Binary classification of two interleaved 2D spirals using a 1-hidden-layer neural network:</p>
-<p><span class="math display">
-\hat y = \sigma\!\bigl(W_2\, \tanh(W_1\, x)\bigr), \qquad W_1 \in \mathbb{R}^{64 \times 3},\; W_2 \in \mathbb{R}^{1 \times 64}
-</span></p>
-<p>The input is augmented with a bias column: <span class="math inline">x = [x_1,\, x_2,\, 1]^\top</span>. The loss is binary cross-entropy, trained with <strong>mini-batch SGD</strong> (batch size 40, total 400 points, 3000 steps).</p>
-<p><span class="math inline">W_1</span> is a <strong>matrix</strong> parameter — this is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization. For the output layer <span class="math inline">W_2</span>, <strong>all methods use AdamW</strong> — this isolates the effect of the optimizer on the matrix parameter.</p>
+<section id="the-dataset" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-dataset"><span class="header-section-number">1</span> The dataset</h2>
+<p>We generate <strong>400 points</strong> forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="muon_spiral_data.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+<p>No linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.</p>
 </section>
-<section id="results" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="results"><span class="header-section-number">2</span> Results</h2>
+<section id="the-model" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-model"><span class="header-section-number">2</span> The model</h2>
+<p>A single-hidden-layer network with 64 neurons and <span class="math inline">\tanh</span> activation:</p>
+<p><span class="math display">
+\hat y = \sigma\!\bigl(W_2\, \tanh(W_1\, x)\bigr)
+</span></p>
+<p>The input is augmented with a constant feature for the bias: <span class="math inline">x = [x_1,\, x_2,\, 1]^\top</span>. The loss is binary cross-entropy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="muon_spiral_architecture.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>The key detail: <span class="math inline">W_1 \in \mathbb{R}^{64 \times 3}</span> is a <strong>matrix</strong> parameter. This is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization of the gradient. For the output layer <span class="math inline">W_2 \in \mathbb{R}^{1 \times 64}</span>, <strong>all four methods use the same AdamW</strong> — this isolates the effect of the optimizer on the matrix weight.</p>
+</section>
+<section id="training" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="training"><span class="header-section-number">3</span> Training</h2>
+<p>Mini-batch training with batch size 40, for 3000 gradient steps. Same random seed controls batch sampling for all methods.</p>
+</section>
+<section id="part-1-hand-tuned-hyperparameters" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="part-1-hand-tuned-hyperparameters"><span class="header-section-number">4</span> Part 1 — Hand-tuned hyperparameters</h2>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="muon_spiral.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
-<section id="decision-boundary-snapshots" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="decision-boundary-snapshots"><span class="header-section-number">2.1</span> Decision boundary snapshots</h3>
+<section id="decision-boundary-snapshots" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="decision-boundary-snapshots"><span class="header-section-number">4.1</span> Decision boundary snapshots</h3>
 <p><img src="muon_spiral_boundaries.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
-<section id="convergence" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="convergence"><span class="header-section-number">2.2</span> Convergence</h3>
+<section id="convergence-raw-ema-smoothed" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="convergence-raw-ema-smoothed"><span class="header-section-number">4.2</span> Convergence (raw + EMA-smoothed)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="muon_spiral_loss.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </section>
-</section>
-<section id="hyperparameters-main-experiment" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="hyperparameters-main-experiment"><span class="header-section-number">3</span> Hyperparameters (main experiment)</h2>
+<section id="hyperparameters-used" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="hyperparameters-used"><span class="header-section-number">4.3</span> Hyperparameters used</h3>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 9%">
-<col style="width: 23%">
-<col style="width: 32%">
-<col style="width: 16%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: center;">Method</th>
 <th style="text-align: center;">lr</th>
 <th style="text-align: center;">Momentum</th>
 <th style="text-align: center;">Weight decay</th>
-<th style="text-align: center;">Other</th>
 </tr>
 </thead>
 <tbody>
@@ -937,44 +950,34 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: center;">0.23</td>
 <td style="text-align: center;">—</td>
 <td style="text-align: center;"><span class="math inline">10^{-4}</span></td>
-<td style="text-align: center;">—</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Nesterov</td>
 <td style="text-align: center;">1.4</td>
 <td style="text-align: center;"><span class="math inline">\mu = 0.9</span></td>
 <td style="text-align: center;"><span class="math inline">10^{-4}</span></td>
-<td style="text-align: center;">—</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">AdamW</td>
 <td style="text-align: center;">0.37</td>
 <td style="text-align: center;"><span class="math inline">\beta_1 = 0.9,\; \beta_2 = 0.999</span></td>
 <td style="text-align: center;"><span class="math inline">10^{-4}</span></td>
-<td style="text-align: center;">—</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">Muon (<span class="math inline">W_1</span>)</td>
 <td style="text-align: center;">0.44</td>
 <td style="text-align: center;"><span class="math inline">\mu = 0.95</span></td>
 <td style="text-align: center;"><span class="math inline">10^{-4}</span></td>
-<td style="text-align: center;">Newton-Schulz: 7 iters</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">Muon (<span class="math inline">W_2</span>)</td>
-<td style="text-align: center;">0.37</td>
-<td style="text-align: center;"><span class="math inline">\beta_1 = 0.9,\; \beta_2 = 0.999</span></td>
-<td style="text-align: center;"><span class="math inline">10^{-4}</span></td>
-<td style="text-align: center;">AdamW for output layer</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="hyperparameter-tuning-with-optuna" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="hyperparameter-tuning-with-optuna"><span class="header-section-number">4</span> Hyperparameter tuning with Optuna</h2>
-<p>To ensure a fair comparison, we run <a href="https://optuna.readthedocs.io/">Optuna</a> TPE search with a <strong>fixed compute budget</strong>: 500 trials per method, each trained for 1000 steps. <strong>All</strong> hyperparameters are tuned simultaneously.</p>
-<section id="search-spaces" class="level3" data-number="4.1">
-<h3 data-number="4.1" class="anchored" data-anchor-id="search-spaces"><span class="header-section-number">4.1</span> Search spaces</h3>
+</section>
+<section id="part-2-optuna-hyperparameter-tuning" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="part-2-optuna-hyperparameter-tuning"><span class="header-section-number">5</span> Part 2 — Optuna hyperparameter tuning</h2>
+<p>Hand-tuning gives one method an unfair advantage if its HPs were chosen more carefully. To ensure a fair comparison, we give each method the same budget of <a href="https://optuna.readthedocs.io/">Optuna</a> TPE trials: <strong>500 trials × 1000 steps</strong>, tuning <strong>all</strong> hyperparameters simultaneously.</p>
+<section id="search-spaces" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="search-spaces"><span class="header-section-number">5.1</span> Search spaces</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 38%">
@@ -1001,13 +1004,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td style="text-align: center;">Muon</td>
-<td style="text-align: left;"><code>lr_muon</code> <span class="math inline">\in [10^{-3}, 3]</span>, <span class="math inline">\mu_{\text{muon}} \in [0.8, 0.999]</span>, <code>ns_steps</code> <span class="math inline">\in [3, 10]</span>, <code>lr_adam</code> <span class="math inline">\in [10^{-4}, 3]</span>, <span class="math inline">\beta_1</span>, <span class="math inline">\beta_2</span>, <code>wd</code>, <span class="math inline">\varepsilon</span></td>
+<td style="text-align: left;"><code>lr_muon</code> <span class="math inline">\in [10^{-3}, 3]</span>, <span class="math inline">\mu \in [0.8, 0.999]</span>, <code>ns_steps</code> <span class="math inline">\in [3, 10]</span>, <code>lr_adam</code>, <span class="math inline">\beta_1</span>, <span class="math inline">\beta_2</span>, <code>wd</code>, <span class="math inline">\varepsilon</span></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="best-configurations-500-trials" class="level3" data-number="4.2">
-<h3 data-number="4.2" class="anchored" data-anchor-id="best-configurations-500-trials"><span class="header-section-number">4.2</span> Best configurations (500 trials)</h3>
+<section id="best-configurations-found" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="best-configurations-found"><span class="header-section-number">5.2</span> Best configurations found</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -1046,31 +1049,36 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="decision-boundaries-after-optuna-tuning" class="level3" data-number="4.3">
-<h3 data-number="4.3" class="anchored" data-anchor-id="decision-boundaries-after-optuna-tuning"><span class="header-section-number">4.3</span> Decision boundaries after Optuna tuning</h3>
+<section id="training-with-optuna-tuned-hps-3000-steps" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="training-with-optuna-tuned-hps-3000-steps"><span class="header-section-number">5.3</span> Training with Optuna-tuned HPs (3000 steps)</h3>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="muon_spiral_optuna.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+</section>
+<section id="decision-boundaries-after-optuna-tuning" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="decision-boundaries-after-optuna-tuning"><span class="header-section-number">5.4</span> Decision boundaries after Optuna tuning</h3>
 <p><img src="muon_spiral_optuna_boundaries.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
-<section id="optimization-history" class="level3" data-number="4.4">
-<h3 data-number="4.4" class="anchored" data-anchor-id="optimization-history"><span class="header-section-number">4.4</span> Optimization history</h3>
+<section id="optuna-optimization-history" class="level3" data-number="5.5">
+<h3 data-number="5.5" class="anchored" data-anchor-id="optuna-optimization-history"><span class="header-section-number">5.5</span> Optuna optimization history</h3>
+<p>Each dot is one trial. Bold line shows the best loss found so far.</p>
 <p><img src="muon_spiral_optuna_history.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
-<section id="hyperparameter-importance-fanova" class="level3" data-number="4.5">
-<h3 data-number="4.5" class="anchored" data-anchor-id="hyperparameter-importance-fanova"><span class="header-section-number">4.5</span> Hyperparameter importance (fANOVA)</h3>
+<section id="hyperparameter-importance-fanova" class="level3" data-number="5.6">
+<h3 data-number="5.6" class="anchored" data-anchor-id="hyperparameter-importance-fanova"><span class="header-section-number">5.6</span> Hyperparameter importance (fANOVA)</h3>
 <p><img src="muon_spiral_optuna_importance.svg" class="img-fluid" style="width:100.0%"></p>
-<p>For SGD, Nesterov, and AdamW the <strong>learning rate dominates</strong> (&gt;70% importance). For Muon, <strong>weight decay and lr_muon are equally important</strong> (~50/40%), while Newton-Schulz iterations and momentum are less critical.</p>
+<p>For SGD, Nesterov, and AdamW the <strong>learning rate dominates</strong> ($&gt;$70% importance). For Muon, <strong>weight decay and lr_muon are equally important</strong> (~50%/40%), while Newton-Schulz iterations and momentum have low importance.</p>
 </section>
 </section>
-<section id="takeaways" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="takeaways"><span class="header-section-number">5</span> Takeaways</h2>
+<section id="takeaways" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="takeaways"><span class="header-section-number">6</span> Takeaways</h2>
 <ol type="1">
-<li><strong>Muon consistently beats AdamW</strong> on this matrix-parameterized neural network, even after full Optuna HP tuning (500 trials each).</li>
-<li><strong>SGD and Nesterov struggle</strong> in the mini-batch regime — adaptive methods are essential.</li>
+<li><strong>Muon consistently matches or beats AdamW</strong> on this matrix-parameterized neural network, even after full Optuna HP tuning with equal budget (500 trials each).</li>
+<li><strong>SGD and Nesterov struggle</strong> in the mini-batch regime — adaptive scaling is essential for efficient neural network training.</li>
 <li>Muon’s advantage comes from <strong>spectral orthogonalization</strong> of the gradient: it makes equal progress across all singular directions of <span class="math inline">W_1</span>, whereas AdamW can only adapt per-element.</li>
-<li>Muon has <strong>more hyperparameters</strong> (8 vs 5 for AdamW), but its performance is robust — fANOVA shows most of them have low importance.</li>
+<li>Muon has more hyperparameters (8 vs 5 for AdamW), but fANOVA shows most of them have low importance — the method is <strong>robust</strong> to HP choices.</li>
 </ol>
 </section>
-<section id="code" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="code"><span class="header-section-number">6</span> Code</h2>
+<section id="code" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="code"><span class="header-section-number">7</span> Code</h2>
 <ul>
 <li><a href="muon_spiral.py">Main experiment</a></li>
 <li><a href="muon_spiral_optuna.py">Optuna tuning</a></li>
