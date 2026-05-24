@@ -92,9 +92,11 @@ ul.task-list li input[type="checkbox"] {
 
 <meta property="og:title" content="SGD vs Nesterov vs AdamW vs Muon on spiral classification">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_boundaries.svg">
 <meta name="twitter:title" content="SGD vs Nesterov vs AdamW vs Muon on spiral classification">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fmin.xyz/docs/visualizations/muon_spiral_boundaries.svg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -899,13 +901,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="muon_spiral.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <section id="decision-boundary-snapshots" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="decision-boundary-snapshots"><span class="header-section-number">2.1</span> Decision boundary snapshots</h3>
-<p><embed src="muon_spiral_boundaries.pdf" class="img-fluid" style="width:100.0%"></p>
+<p><img src="muon_spiral_boundaries.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="convergence" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="convergence"><span class="header-section-number">2.2</span> Convergence</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><embed src="muon_spiral_loss.pdf" class="img-fluid quarto-figure quarto-figure-center" style="width:70.0%"></p>
+<p><img src="muon_spiral_loss.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
 </figure>
 </div>
 </section>
@@ -1046,15 +1048,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="decision-boundaries-after-optuna-tuning" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="decision-boundaries-after-optuna-tuning"><span class="header-section-number">4.3</span> Decision boundaries after Optuna tuning</h3>
-<p><embed src="muon_spiral_optuna_boundaries.pdf" class="img-fluid" style="width:100.0%"></p>
+<p><img src="muon_spiral_optuna_boundaries.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="optimization-history" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="optimization-history"><span class="header-section-number">4.4</span> Optimization history</h3>
-<p><embed src="muon_spiral_optuna_history.pdf" class="img-fluid" style="width:100.0%"></p>
+<p><img src="muon_spiral_optuna_history.svg" class="img-fluid" style="width:100.0%"></p>
 </section>
 <section id="hyperparameter-importance-fanova" class="level3" data-number="4.5">
 <h3 data-number="4.5" class="anchored" data-anchor-id="hyperparameter-importance-fanova"><span class="header-section-number">4.5</span> Hyperparameter importance (fANOVA)</h3>
-<p><embed src="muon_spiral_optuna_importance.pdf" class="img-fluid" style="width:100.0%"></p>
+<p><img src="muon_spiral_optuna_importance.svg" class="img-fluid" style="width:100.0%"></p>
 <p>For SGD, Nesterov, and AdamW the <strong>learning rate dominates</strong> (&gt;70% importance). For Muon, <strong>weight decay and lr_muon are equally important</strong> (~50/40%), while Newton-Schulz iterations and momentum are less critical.</p>
 </section>
 </section>
