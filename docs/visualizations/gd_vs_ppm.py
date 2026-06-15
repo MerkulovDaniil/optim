@@ -7,7 +7,7 @@ monotonically toward the minimizer.
 """
 from __future__ import annotations
 
-from flows_common import OPTIM_VIS, render_trajectory_poster, render_trajectory_video, spiral_problem, write_page
+from flows_common import OPTIM_VIS, render_trajectory_poster, render_trajectory_video, spiral_problem
 
 GD_BLUE = "#2E6FE0"
 PPM_RED = "#FF3B30"
@@ -47,7 +47,6 @@ def main():
     prob, specs, corners = build()
     render_trajectory_poster(OPTIM_VIS / "gd_vs_ppm_poster.pdf", prob, specs, corner_labels=corners)
     render_trajectory_video(OPTIM_VIS / "gd_vs_ppm.mp4", prob, specs, corner_labels=corners, frames=240, fps=60)
-    write_page("gd_vs_ppm", TITLE, DESCRIPTION, __file__)
 
 
 if __name__ == "__main__":

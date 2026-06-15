@@ -143,7 +143,10 @@ def _prepare(specs, n_dense=600):
     for s in specs:
         pts = np.asarray(s["points"], dtype=float)
         dense = smooth_through(pts, n_dense) if s.get("smooth") else resample_by_arclength(pts, n_dense)
-        out.append({**s, "vertices": pts, "dense": dense})
+        # index in `dense` where each iterate sits, so a marker only appears once
+        # the drawn line tip has actually reached it (line and markers share one clock)
+        vertex_idx = np.array([int(np.argmin(np.sum((dense - p) ** 2, axis=1))) for p in pts])
+        out.append({**s, "vertices": pts, "dense": dense, "vertex_idx": vertex_idx})
     return out
 
 
@@ -168,8 +171,8 @@ def render_trajectory_video(out_path: Path, prob, specs, *, corner_labels=None, 
             seg = dense[:n]
             ax.plot(seg[:, 0], seg[:, 1], color=s["color"], lw=2.4, zorder=10, solid_capstyle="round")
             if s.get("markers"):
-                # show iterate vertices that are already revealed
-                revealed = s["vertices"][: 1 + int(round(progress * (len(s["vertices"]) - 1)))]
+                # only the iterates the line tip has already passed
+                revealed = s["vertices"][s["vertex_idx"] < n]
                 ax.plot(revealed[:, 0], revealed[:, 1], "o", color=s["color"], ms=5.0, zorder=11, alpha=0.9)
             ax.plot(seg[-1, 0], seg[-1, 1], "o", color=s["color"], ms=7.0, zorder=13)
         if corner_labels:
