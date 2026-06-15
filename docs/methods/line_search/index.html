@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.5">
+<meta name="generator" content="quarto-1.10.11">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-832852b6563d68d88ceb798efa7195d4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-cfaa25cd813152bbda0063f8e52548ae.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -770,8 +770,38 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/gd_gf_nag_hb.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GD / GF / NAG-SC / Polyak HB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent for linear regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/gd_vs_gf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Descent vs Gradient Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/gd_vs_ppm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Descent vs Proximal Point</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/gd_vs_ppm_optimal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient Descent vs Proximal Point (optimal step)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/himmelblau_flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gradient flow on Himmelblau</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -790,6 +820,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/ls_gd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Step Size Selection in Gradient Descent via Line Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/lyapunov_energy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lyapunov energy of the accelerated flow (convex)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/lyapunov_energy_sc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lyapunov energy of the accelerated flow (strongly convex)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -856,6 +898,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/sochi_skier.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Brownian skier on the Sochi DEM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/visualizations/stochastic_escape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Escaping a local minimum: GF vs SDE</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -947,7 +995,7 @@ f(x) \to \min_{x \in [a,b]}
 <p><a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Line_search.ipynb">Open In Colab</a></p>
 <div id="listing-ls" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1779689333715" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781524873915" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
 <a href="../../../docs/methods/line_search/binary_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -961,7 +1009,7 @@ We divide a segment into two equal parts and choose the one that contains the so
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1779689333715" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781524873915" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
 <a href="../../../docs/methods/line_search/golden_search.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -975,7 +1023,7 @@ The idea is quite similar to the dichotomy method. There are two golden points o
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1779689333715" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781524873915" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
 <a href="../../../docs/methods/line_search/inexact.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -989,7 +1037,7 @@ The strategy of inexact line search is practical and has a significant geometric
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1779689333715" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781524873915" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
 <a href="../../../docs/methods/line_search/parabola.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>

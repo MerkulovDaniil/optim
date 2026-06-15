@@ -44,146 +44,245 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/sochi_skier.html",
-    "href": "docs/visualizations/sochi_skier.html",
-    "title": "Brownian skier on the Sochi DEM",
+    "objectID": "docs/visualizations/stochastic_escape.html",
+    "href": "docs/visualizations/stochastic_escape.html",
+    "title": "Escaping a local minimum: GF vs SDE",
     "section": "",
-    "text": "The skier follows an overdamped Langevin dynamics on a digital elevation model of the Roza Khutor to Sirius corridor:\ndx = -\\nabla h(x)\\,dt + \\sigma\\,dW\nThe drift term moves the point downhill; the Brownian term adds controllable noise, so larger \\sigma makes the trajectory explore the terrain instead of sliding along one deterministic descent line.\nTap or click the map to set a new starting point.",
+    "text": "On a double-well potential the deterministic gradient flow \\dot x=-f'(x) is trapped in its starting basin. The stochastic flow \ndx(t) = -f'\\bigl(x(t)\\bigr)\\,dt + \\sigma\\,dW(t)\n keeps exploring: it climbs over the barrier and its density relaxes to the Gibbs distribution \\rho^*(x)\\propto e^{-2f(x)/\\sigma^2}, concentrated on the global minimum. The bottom bars track the fraction of trajectories that have reached the global well.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Brownian skier on the Sochi DEM"
+      "Escaping a local minimum: GF vs SDE"
     ]
   },
   {
-    "objectID": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
-    "href": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
-    "title": "Brownian skier on the Sochi DEM",
-    "section": "1 Fokker–Planck particle fields",
-    "text": "1 Fokker–Planck particle fields\nThe pre-rendered videos below start 4464 particles from a uniform grid over the same map and evolve their independent Langevin trajectories for 10 seconds at 60 fps. The batched trajectory step is computed with jax.vmap. The noise values are uniformly spaced from \\sigma = 0 to \\sigma = 15.\n\n\\sigma = 0: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 2.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 7.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 10: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 12.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 15: particles left, KDE right\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "Brownian skier on the Sochi DEM"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/sgd_divergence.html",
-    "href": "docs/visualizations/sgd_divergence.html",
-    "title": "Why stochastic gradient descent does not converge?",
+    "objectID": "docs/visualizations/sgd_scalar.html",
+    "href": "docs/visualizations/sgd_scalar.html",
+    "title": "SGD intuition in a scalar case",
     "section": "",
-    "text": "Many people are used to apply SGD(stochastic gradient descent), but not everyone knows that it is guaranteed(!) to be non convergent in the constant stepsize (learning rate) case even for the world’s nicest function - a strongly convex quadratic (even on average).\nWhy so? The point is that SGD actually solves a different problem built on the selected data at each iteration. And this problem on the batch may be radically different from the full problem (however, the careful reader may note that this does not guarantee a very bad step). That is, at each iteration we actually converge, but to the minimum of a different problem, and each iteration we change the rules of the game for the method, preventing it from taking more than one step.\nAt the end of the attached video, you can see that using selected points from the linear regression problem, we can construct an optimal solution to the batched problem and a gradient to it - this will be called the stochastic gradient for the original problem. Most often the stochasticity of SGD is analyzed using noise in the gradient and less often we consider noise due to randomness/incompleteness of the choice of the problem to be solved (interestingly, these are not exactly the same thing).\nThis is certainly not a reason not to use the method, because convergence to an approximate solution is still guaranteed. For convex problems it is possible to deal with nonconvergence by * gradually decreasing the step (slow convergence) * increasing the patch size (expensive) * using variance reduction methods (more on this later)\nYour browser does not support the video tag.\nCode",
+    "text": "Gradient descent with an appropriate constant learning rate converges for a minimum for a convex function:\nYour browser does not support the video tag.\nBut what if the minimized function is not convex?\nYour browser does not support the video tag.\nIn contrast, Stochastic Gradient Descent (SGD) could escape local minimuma:\nYour browser does not support the video tag.\nRecent studies suggest, that we should care not only about the depth of the local minimum, but of its width as well:\n  \nOne more interesting case, where the classical convergence of Gradient Descent may not be useful:\nYour browser does not support the video tag.\nWhile what initially looks like a clear divergence leads to a better minimum from the generalization perspective:\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Why stochastic gradient descent does not converge?"
+      "SGD intuition in a scalar case"
     ]
   },
   {
-    "objectID": "docs/visualizations/scalar_methods_dynamics.html",
-    "href": "docs/visualizations/scalar_methods_dynamics.html",
-    "title": "Scalar Dynamics: GF / HB / NAG",
+    "objectID": "docs/visualizations/sg_algorithms.html",
+    "href": "docs/visualizations/sg_algorithms.html",
+    "title": "Adaptive gradient algorithms visualization",
     "section": "",
-    "text": "Your browser does not support the video tag.\nCode",
+    "text": "Your browser does not support the video tag.\nYour browser does not support the video tag.\nWatching points rolling off the surface of the minimized function is my guilty pleasure. Put Lipschitz if you like such animations too.\nCode",
     "crumbs": [
       "Visualizations",
-      "Scalar Dynamics: GF / HB / NAG"
+      "Adaptive gradient algorithms visualization"
     ]
   },
   {
-    "objectID": "docs/visualizations/optimization_3d.html",
-    "href": "docs/visualizations/optimization_3d.html",
-    "title": "Simple 3D visualization of gradient descent",
+    "objectID": "docs/visualizations/qr_algorithm.html",
+    "href": "docs/visualizations/qr_algorithm.html",
+    "title": "QR Algorithm",
     "section": "",
-    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "text": "The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm’s beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.",
     "crumbs": [
       "Visualizations",
-      "Simple 3D visualization of gradient descent"
+      "QR Algorithm"
     ]
   },
   {
-    "objectID": "docs/visualizations/optimization_3d.html#gradient-descent",
-    "href": "docs/visualizations/optimization_3d.html#gradient-descent",
-    "title": "Simple 3D visualization of gradient descent",
+    "objectID": "docs/visualizations/qr_algorithm.html#algorithm-overview",
+    "href": "docs/visualizations/qr_algorithm.html#algorithm-overview",
+    "title": "QR Algorithm",
+    "section": "1 Algorithm Overview",
+    "text": "1 Algorithm Overview\nThe basic QR iteration proceeds as follows:\n\nStart with a matrix A_0 = A\nFor k = 0, 1, 2, \\ldots :\n\nCompute QR decomposition: A_k = Q_kR_k\nForm next iterate: A_{k+1} = R_kQ_k\n\n\nFor symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré post.\nYour browser does not support the video tag.\nThe visualization above demonstrates how the QR algorithm gradually transforms a symmetric matrix into diagonal form, with the off-diagonal elements converging to zero. The convergence rate depends on the separation of eigenvalues - better separated eigenvalues typically lead to faster convergence.",
+    "crumbs": [
+      "Visualizations",
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/qr_algorithm.html#implementation",
+    "href": "docs/visualizations/qr_algorithm.html#implementation",
+    "title": "QR Algorithm",
+    "section": "2 Implementation",
+    "text": "2 Implementation\nCode",
+    "crumbs": [
+      "Visualizations",
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/qr_algorithm.html#key-properties",
+    "href": "docs/visualizations/qr_algorithm.html#key-properties",
+    "title": "QR Algorithm",
+    "section": "3 Key Properties",
+    "text": "3 Key Properties\n\nPreservation of Eigenvalues: Each iteration Aₖ₊₁ = RₖQₖ is similar to Aₖ, thus preserving eigenvalues\nConvergence: For symmetric matrices, the algorithm converges to a diagonal matrix\nNumerical Stability: The use of orthogonal transformations ensures good numerical properties\n\nThe QR algorithm forms the basis of modern eigenvalue computations and is implemented in most numerical linear algebra libraries. While the basic version shown here is elegant, practical implementations use various enhancements like shifts and deflation to improve efficiency.",
+    "crumbs": [
+      "Visualizations",
+      "QR Algorithm"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/newton_method_local_convergence.html",
+    "href": "docs/visualizations/newton_method_local_convergence.html",
+    "title": "Local convergence of Newton method",
     "section": "",
-    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "text": "It is well known that Newton method converges quadratically to the root of a function if the initial point is close enough to the root and the Hessian is Lipschitz continuous. \nx_{k+1} = x_k - \\left[\\nabla^2 f(x_k)\\right]^{-1} \\nabla f(x_k)\n If you will consider the following function: \nf(x) = \\begin{cases}\n(x - 1)^2, & x \\leq -1 \\\\\n-\\frac{1}{4}x^4 + \\frac{5}{2}x^2 + \\frac{7}{4}, & -1 &lt; x &lt; 1 \\\\\n(x + 1)^2, & x \\geq 1\n\\end{cases}\n You will see, that it is strongly convex function with smooth gradient (i.e. Lipschitz continuous Hessian).\n\n\n\nNote, that the Hessian is Lipschitz continuous and strictly positive\n\n\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Simple 3D visualization of gradient descent"
+      "Local convergence of Newton method"
     ]
   },
   {
-    "objectID": "docs/visualizations/nesterov_infinite_length.html",
-    "href": "docs/visualizations/nesterov_infinite_length.html",
-    "title": "Nesterov Flow: Infinite Path Length",
+    "objectID": "docs/visualizations/muon_spiral.html",
+    "href": "docs/visualizations/muon_spiral.html",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
     "section": "",
-    "text": "Your browser does not support the video tag.\nCode",
+    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
     "crumbs": [
       "Visualizations",
-      "Nesterov Flow: Infinite Path Length"
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/mds.html",
-    "href": "docs/visualizations/mds.html",
-    "title": "Multidimensional scaling",
+    "objectID": "docs/visualizations/muon_spiral.html#the-dataset",
+    "href": "docs/visualizations/muon_spiral.html#the-dataset",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
     "section": "",
-    "text": "Your browser does not support the video tag.\nWhy does everyone use gradient methods to train large models?\nWe’ll demonstrate it with the example of solving the Multidimensional Scaling (MDS) problem. In this problem, we need to draw objects on the plane that we only know how far each of them is from each other. That is, we have a matrix of pairwise distances as input, and coordinates of objects on the plane as output. And these coordinates should be such that the ratio of distances between the objects remains as close as possible to the original ones. As a loss function is the sum of squares of deviations of distances between cities at the current coordinates and the given value.\nSuppose, we have a pairwise distance matrix for N d-dimensional objects D \\in \\mathbb{R}^{N \\times N}. Given this matrix, our goal is to recover the initial coordinates W_i \\in \\mathbb{R}^d, \\; i = 1, \\ldots, N.\n\nL(W) = \\sum_{i, j = 1}^N \\left(\\|W_i - W_j\\|^2_2 - D_{i,j}\\right)^2 \\to \\min_{W \\in \\mathbb{R}^{N \\times d}}\n\nDespite the increase in dimensionality, the entire trajectory of the method can be visualized in the plane. The number of variables in the problem here is 2*(number of cities), since for each of the cities we are looking for 2 coordinates in the plane.\n️We run in a sequence the usual gradient descent, which requires knowledge of the gradient, and the Nelder-Mead method from scipy (a widely used gradient-free method). At first the problem is solved for the 6 most populated European cities, then for 15 and for 34 (that’s all the European cities with millions of residents from wikipedia).\nIt can be seen that the more cities on the map (the higher the dimensionality of the problem), the larger the gap between gradient and gradient-free methods. This is one of the main reasons why we need not only the value of the function being minimized, but also its derivative to solve huge-scale problems.\nIt turns out that for gradient methods (under a set of reasonable assumptions), the number of iterations required before the method converges does not depend directly on the dimensionality of the problem. That is, if you consider a correctly tuned gradient descent on a ten-dimensional problem, it will need, say, at most 20 iterations to converge. And if you take conventionally the same problem but 100500-dimensional, it will need the same 20 iterations. Of course, the cost of one iteration grows with the dimensionality of the problem, but at least the number of iterations does not grow.\nCode",
+    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
     "crumbs": [
       "Visualizations",
-      "Multidimensional scaling"
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
     ]
   },
   {
-    "objectID": "docs/visualizations/lipschitz_cone.html",
-    "href": "docs/visualizations/lipschitz_cone.html",
-    "title": "Lipschitz continuity",
+    "objectID": "docs/visualizations/muon_spiral.html#the-model",
+    "href": "docs/visualizations/muon_spiral.html#the-model",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "2 The model",
+    "text": "2 The model\nA single-hidden-layer network with 64 neurons and \\tanh activation:\n\n\\hat y = \\sigma\\!\\bigl(W_2\\, \\tanh(W_1\\, x)\\bigr)\n\nThe input is augmented with a constant feature for the bias: x = [x_1,\\, x_2,\\, 1]^\\top. The loss is binary cross-entropy.\n\n\n\n\n\nThe key detail: W_1 \\in \\mathbb{R}^{64 \\times 3} is a matrix parameter. This is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization of the gradient. For the output layer W_2 \\in \\mathbb{R}^{1 \\times 64}, all four methods use the same AdamW — this isolates the effect of the optimizer on the matrix weight.",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#training",
+    "href": "docs/visualizations/muon_spiral.html#training",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "3 Training",
+    "text": "3 Training\nMini-batch training with batch size 40, for 3000 gradient steps. Same random seed controls batch sampling for all methods.",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
+    "href": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "4 Part 1 — Hand-tuned hyperparameters",
+    "text": "4 Part 1 — Hand-tuned hyperparameters\nYour browser does not support the video tag.\n\n4.1 Decision boundary snapshots\n\n\n\n4.2 Convergence (raw + EMA-smoothed)\n\n\n\n\n\n\n\n4.3 Hyperparameters used\n\n\n\nMethod\nlr\nMomentum\nWeight decay\n\n\n\n\nSGD\n0.23\n—\n10^{-4}\n\n\nNesterov\n1.4\n\\mu = 0.9\n10^{-4}\n\n\nAdamW\n0.37\n\\beta_1 = 0.9,\\; \\beta_2 = 0.999\n10^{-4}\n\n\nMuon (W_1)\n0.44\n\\mu = 0.95\n10^{-4}",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
+    "href": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "5 Part 2 — Optuna hyperparameter tuning",
+    "text": "5 Part 2 — Optuna hyperparameter tuning\nHand-tuning gives one method an unfair advantage if its HPs were chosen more carefully. To ensure a fair comparison, we give each method the same budget of Optuna TPE trials: 500 trials × 1000 steps, tuning all hyperparameters simultaneously.\n\n5.1 Search spaces\n\n\n\n\n\n\n\nMethod\nTuned parameters\n\n\n\n\nSGD\nlr \\in [10^{-3}, 30], momentum \\in [0, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nNesterov\nlr \\in [10^{-3}, 30], momentum \\in [0.5, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nAdamW\nlr \\in [10^{-4}, 3], \\beta_1 \\in [0.8, 0.99], \\beta_2 \\in [0.9, 0.9999], wd \\in [10^{-6}, 0.1], \\varepsilon \\in [10^{-10}, 10^{-4}]\n\n\nMuon\nlr_muon \\in [10^{-3}, 3], \\mu \\in [0.8, 0.999], ns_steps \\in [3, 10], lr_adam, \\beta_1, \\beta_2, wd, \\varepsilon\n\n\n\n\n\n5.2 Best configurations found\n\n\n\n\n\n\n\n\n\nMethod\nBest HPs\nFinal loss\nAccuracy\n\n\n\n\nMuon\nlr=0.27, \\mu=0.999, ns=7, wd$$0\n0.090\n96.2%\n\n\nAdamW\nlr=0.26, \\beta_1=0.96, \\beta_2=0.96, wd=4\\cdot 10^{-4}\n0.095\n96.5%\n\n\nNesterov\nlr=0.14, \\mu=0.99, wd$0 | 0.161 | 94.2% |\n| SGD | lr=0.70, momentum=0.93, wd$0\n0.310\n86.2%\n\n\n\n\n\n5.3 Training with Optuna-tuned HPs (3000 steps)\nYour browser does not support the video tag.\n\n\n5.4 Decision boundaries after Optuna tuning\n\n\n\n5.5 Optuna optimization history\nEach dot is one trial. Bold line shows the best loss found so far.\n\n\n\n5.6 Hyperparameter importance (fANOVA)\n\nFor SGD, Nesterov, and AdamW the learning rate dominates ($&gt;$70% importance). For Muon, weight decay and lr_muon are equally important (~50%/40%), while Newton-Schulz iterations and momentum have low importance.",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#takeaways",
+    "href": "docs/visualizations/muon_spiral.html#takeaways",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "6 Takeaways",
+    "text": "6 Takeaways\n\nMuon consistently matches or beats AdamW on this matrix-parameterized neural network, even after full Optuna HP tuning with equal budget (500 trials each).\nSGD and Nesterov struggle in the mini-batch regime — adaptive scaling is essential for efficient neural network training.\nMuon’s advantage comes from spectral orthogonalization of the gradient: it makes equal progress across all singular directions of W_1, whereas AdamW can only adapt per-element.\nMuon has more hyperparameters (8 vs 5 for AdamW), but fANOVA shows most of them have low importance — the method is robust to HP choices.",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/muon_spiral.html#code",
+    "href": "docs/visualizations/muon_spiral.html#code",
+    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "section": "7 Code",
+    "text": "7 Code\n\nMain experiment\nOptuna tuning",
+    "crumbs": [
+      "Visualizations",
+      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lyapunov_energy_sc.html",
+    "href": "docs/visualizations/lyapunov_energy_sc.html",
+    "title": "Lyapunov energy of the accelerated flow (strongly convex)",
     "section": "",
-    "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
+    "text": "For \\mu-strongly convex f the right flow has constant damping \\ddot X + 2\\sqrt{\\mu}\\,\\dot X + \\nabla f(X)=0 and converges linearly. The Lyapunov energy \nE(t)=\\bigl(f(X(t))-f^*\\bigr)+\\tfrac12\\bigl\\|\\dot X(t)+\\sqrt{\\mu}\\,(X(t)-x^*)\\bigr\\|^2\n satisfies \\dot E\\le-\\sqrt{\\mu}\\,E, hence E(t)\\le E(0)e^{-\\sqrt{\\mu}\\,t} and f(X(t))-f^*\\le E(0)e^{-\\sqrt{\\mu}\\,t} — a straight line on the semi-log plot.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Lipschitz continuity"
+      "Lyapunov energy of the accelerated flow (strongly convex)"
     ]
   },
   {
-    "objectID": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
-    "href": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
-    "title": "Lipschitz continuity",
+    "objectID": "docs/visualizations/ls_gd.html",
+    "href": "docs/visualizations/ls_gd.html",
+    "title": "Step Size Selection in Gradient Descent via Line Search",
     "section": "",
-    "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
+    "text": "If a function is strongly convex with known parameters, the optimal fixed step size is \\frac{2}{\\mu + L}, where \\mu and L are the smallest and largest Hessian eigenvalues.\nIn practice, these are rarely known, and functions may be non-convex. Instead, we tune the learning rate manually, use line search, or adaptive methods like AdamW & NAG-GS.\n\nGolden-section search works well for convex functions but lacks guarantees for non-unimodal ones.\nWolfe conditions ensure sufficient function decrease while avoiding too tiny steps.\n\nLine search often reduces function values faster with fewer iterations, despite higher per-step costs.\n\n\n\nLine search\n\n\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Lipschitz continuity"
+      "Step Size Selection in Gradient Descent via Line Search"
     ]
   },
   {
-    "objectID": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
-    "href": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
-    "title": "Lipschitz continuity",
-    "section": "2 L-smoothness and the descent lemma",
-    "text": "2 L-smoothness and the descent lemma\nA function f is called L-smooth if its gradient is L-Lipschitz continuous:\n\n\\|\\nabla f(x) - \\nabla f(y)\\| \\leq L \\|x - y\\|\n\nAn equivalent characterization is the descent lemma: for all x, y,\n\nf(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2} \\|y - x\\|^2\n\nThis means the function is always bounded above by a parabola with curvature L tangent at any point. The animation shows how moving the tangent point shifts the bounding parabola while the function stays below it.\n\n\n\nL-smoothness\n\n\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "Lipschitz continuity"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
-    "href": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
-    "title": "Lipschitz continuity",
-    "section": "3 Strong convexity and smoothness bounds",
-    "text": "3 Strong convexity and smoothness bounds\nWhen a function is both \\mu-strongly convex and L-smooth, its Hessian satisfies:\n\n\\mu I \\preceq \\nabla^2 f(x) \\preceq L I\n\nThis gives two-sided quadratic bounds at every point:\n\nf(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{\\mu}{2}\\|y-x\\|^2 \\leq f(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2}\\|y-x\\|^2\n\nThe ratio \\kappa = L / \\mu is the condition number, which determines convergence rates of optimization methods. The animation shows how the function is sandwiched between a lower parabola (strong convexity) and an upper parabola (smoothness) at each point.\n\n\n\nStrong convexity and smoothness\n\n\nYour browser does not support the video tag.",
-    "crumbs": [
-      "Visualizations",
-      "Lipschitz continuity"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/gd_lls.html",
-    "href": "docs/visualizations/gd_lls.html",
-    "title": "Gradient descent for linear regression",
+    "objectID": "docs/visualizations/l1_sparsity.html",
+    "href": "docs/visualizations/l1_sparsity.html",
+    "title": "L1 sparsity: subgradient vs proximal",
     "section": "",
-    "text": "Your browser does not support the video tag.\nWhat could be simpler than that? However, I’m using this animation as an illustration for people unfamiliar with optimization algorithms how minimizing the loss function corresponds to training a machine learning model ( even though there are only two trainable parameters).\n Code",
+    "text": "Consider the LASSO problem: \n\\min_{x \\in \\mathbb{R}^n} \\frac{1}{2m} \\|Ax - b\\|_2^2 + \\lambda \\|x\\|_1\n\nThe \\ell_1 regularization promotes sparsity in the solution. However, the method used to solve the problem affects whether the solution components become exactly zero or just very small.\nSubgradient method updates: \nx_{k+1} = x_k - \\alpha_k g_k, \\quad g_k \\in \\partial \\left( f(x_k) + \\lambda \\|x_k\\|_1 \\right)\n The subgradient of |x_i| at zero is [-1, 1], so subgradient steps almost never land exactly at zero.\nProximal gradient method updates: \nx_{k+1} = \\text{prox}_{\\lambda \\alpha \\|\\cdot\\|_1}(x_k - \\alpha \\nabla f(x_k)) = S_{\\lambda \\alpha}(x_k - \\alpha \\nabla f(x_k))\n where the soft-thresholding operator S_\\kappa(x)_i = \\text{sign}(x_i) \\cdot [|x_i| - \\kappa]_+ snaps components to exact zero when |x_i| \\leq \\kappa.\nThe animation shows both methods starting from the same random x_0 and converging to the same optimal solution x^*. The proximal method quickly produces exact zeros (13 out of 20 components), while the subgradient method keeps all components nonzero throughout.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Gradient descent for linear regression"
+      "L1 sparsity: subgradient vs proximal"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/gd_vs_ppm_optimal.html",
+    "href": "docs/visualizations/gd_vs_ppm_optimal.html",
+    "title": "Gradient Descent vs Proximal Point (optimal step)",
+    "section": "",
+    "text": "For the quadratic f(x)=\\tfrac12 x^\\top A x every PPM eigen-factor 1/(1+\\alpha\\lambda_i) is below one for any \\alpha&gt;0 — the method never diverges. So while gradient descent is capped at \\alpha^\\star_{GD}=2/(\\mu+L), the proximal point method can safely take a much larger step \\alpha^\\star_{PPM} and contracts faster, reaching the minimizer in fewer, smoother iterations.\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Gradient Descent vs Proximal Point (optimal step)"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/gd_vs_gf.html",
+    "href": "docs/visualizations/gd_vs_gf.html",
+    "title": "Gradient Descent vs Gradient Flow",
+    "section": "",
+    "text": "Gradient descent is the explicit Euler discretization of the gradient flow ODE: \n\\frac{x_{k+1}-x_k}{\\alpha} = -\\nabla f(x_k)\n\\quad\\xrightarrow{\\;\\alpha\\to 0\\;}\\quad\n\\dot x(t) = -\\nabla f\\bigl(x(t)\\bigr).\n On an ill-conditioned quadratic f(x)=\\tfrac12 x^\\top A x the optimal step \\alpha^\\star = 2/(\\mu+L) makes GD zig-zag across the steep valley, while the gradient flow follows the smooth continuous trajectory GD is trying to track.\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Gradient Descent vs Gradient Flow"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/gd_gf_nag_hb.html",
+    "href": "docs/visualizations/gd_gf_nag_hb.html",
+    "title": "GD / GF / NAG-SC / Polyak HB",
+    "section": "",
+    "text": "On a \\mu-strongly convex quadratic f(x)=\\tfrac12 x^\\top A x four dynamics race to the minimizer. Gradient descent and the gradient flow descend monotonically; the accelerated schemes carry momentum and overshoot: \n\\text{NAG-SC:}\\;\\; \\ddot x + 2\\sqrt{\\mu}\\,\\dot x + \\nabla f(x)=0,\n\\qquad\n\\text{HB:}\\;\\; x_{k+1}=x_k-\\alpha\\nabla f(x_k)+\\beta(x_k-x_{k-1}),\n with Polyak’s optimal \\alpha^\\star=\\tfrac{4}{(\\sqrt L+\\sqrt\\mu)^2}, \\beta^\\star=\\bigl(\\tfrac{\\sqrt L-\\sqrt\\mu}{\\sqrt L+\\sqrt\\mu}\\bigr)^2. The oscillations are the price (and the engine) of acceleration.\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "GD / GF / NAG-SC / Polyak HB"
     ]
   },
   {
@@ -4309,190 +4408,179 @@
     ]
   },
   {
-    "objectID": "docs/visualizations/l1_sparsity.html",
-    "href": "docs/visualizations/l1_sparsity.html",
-    "title": "L1 sparsity: subgradient vs proximal",
+    "objectID": "docs/visualizations/gd_lls.html",
+    "href": "docs/visualizations/gd_lls.html",
+    "title": "Gradient descent for linear regression",
     "section": "",
-    "text": "Consider the LASSO problem: \n\\min_{x \\in \\mathbb{R}^n} \\frac{1}{2m} \\|Ax - b\\|_2^2 + \\lambda \\|x\\|_1\n\nThe \\ell_1 regularization promotes sparsity in the solution. However, the method used to solve the problem affects whether the solution components become exactly zero or just very small.\nSubgradient method updates: \nx_{k+1} = x_k - \\alpha_k g_k, \\quad g_k \\in \\partial \\left( f(x_k) + \\lambda \\|x_k\\|_1 \\right)\n The subgradient of |x_i| at zero is [-1, 1], so subgradient steps almost never land exactly at zero.\nProximal gradient method updates: \nx_{k+1} = \\text{prox}_{\\lambda \\alpha \\|\\cdot\\|_1}(x_k - \\alpha \\nabla f(x_k)) = S_{\\lambda \\alpha}(x_k - \\alpha \\nabla f(x_k))\n where the soft-thresholding operator S_\\kappa(x)_i = \\text{sign}(x_i) \\cdot [|x_i| - \\kappa]_+ snaps components to exact zero when |x_i| \\leq \\kappa.\nThe animation shows both methods starting from the same random x_0 and converging to the same optimal solution x^*. The proximal method quickly produces exact zeros (13 out of 20 components), while the subgradient method keeps all components nonzero throughout.\nYour browser does not support the video tag.\nCode",
+    "text": "Your browser does not support the video tag.\nWhat could be simpler than that? However, I’m using this animation as an illustration for people unfamiliar with optimization algorithms how minimizing the loss function corresponds to training a machine learning model ( even though there are only two trainable parameters).\n Code",
     "crumbs": [
       "Visualizations",
-      "L1 sparsity: subgradient vs proximal"
+      "Gradient descent for linear regression"
     ]
   },
   {
-    "objectID": "docs/visualizations/ls_gd.html",
-    "href": "docs/visualizations/ls_gd.html",
-    "title": "Step Size Selection in Gradient Descent via Line Search",
+    "objectID": "docs/visualizations/gd_vs_ppm.html",
+    "href": "docs/visualizations/gd_vs_ppm.html",
+    "title": "Gradient Descent vs Proximal Point",
     "section": "",
-    "text": "If a function is strongly convex with known parameters, the optimal fixed step size is \\frac{2}{\\mu + L}, where \\mu and L are the smallest and largest Hessian eigenvalues.\nIn practice, these are rarely known, and functions may be non-convex. Instead, we tune the learning rate manually, use line search, or adaptive methods like AdamW & NAG-GS.\n\nGolden-section search works well for convex functions but lacks guarantees for non-unimodal ones.\nWolfe conditions ensure sufficient function decrease while avoiding too tiny steps.\n\nLine search often reduces function values faster with fewer iterations, despite higher per-step costs.\n\n\n\nLine search\n\n\nYour browser does not support the video tag.\nCode",
+    "text": "The proximal point method is the implicit Euler discretization of the gradient flow: \n\\frac{x_{k+1}-x_k}{\\alpha}=-\\nabla f(x_{k+1})\n\\;\\Longleftrightarrow\\;\nx_{k+1}=\\operatorname{prox}_{\\alpha f}(x_k)=(I+\\alpha A)^{-1}x_k .\n At the same step \\alpha=\\alpha^\\star_{GD}=2/(\\mu+L) where gradient descent already zig-zags, every eigen-factor 1/(1+\\alpha\\lambda_i) of PPM stays in (0,1), so the proximal iterates approach the minimizer smoothly and monotonically.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "Step Size Selection in Gradient Descent via Line Search"
+      "Gradient Descent vs Proximal Point"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html",
-    "href": "docs/visualizations/muon_spiral.html",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "objectID": "docs/visualizations/himmelblau_flow.html",
+    "href": "docs/visualizations/himmelblau_flow.html",
+    "title": "Gradient flow on Himmelblau",
     "section": "",
-    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
+    "text": "Himmelblau’s function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 has four equal global minima. The gradient flow \\dot x=-\\nabla f(x) sends each starting point to one of them; coloring trajectories by their limit reveals the four basins of attraction. On a non-convex landscape the initial point alone decides the outcome.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+      "Gradient flow on Himmelblau"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#the-dataset",
-    "href": "docs/visualizations/muon_spiral.html#the-dataset",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
+    "objectID": "docs/visualizations/lipschitz_cone.html",
+    "href": "docs/visualizations/lipschitz_cone.html",
+    "title": "Lipschitz continuity",
     "section": "",
-    "text": "We generate 400 points forming two interleaved spirals — a classic non-linearly-separable binary classification benchmark.\n\n\n\n\n\nNo linear classifier can solve this — the optimizer must find a non-trivial decision boundary through a neural network.",
+    "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
     "crumbs": [
       "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
+      "Lipschitz continuity"
     ]
   },
   {
-    "objectID": "docs/visualizations/muon_spiral.html#the-model",
-    "href": "docs/visualizations/muon_spiral.html#the-model",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "2 The model",
-    "text": "2 The model\nA single-hidden-layer network with 64 neurons and \\tanh activation:\n\n\\hat y = \\sigma\\!\\bigl(W_2\\, \\tanh(W_1\\, x)\\bigr)\n\nThe input is augmented with a constant feature for the bias: x = [x_1,\\, x_2,\\, 1]^\\top. The loss is binary cross-entropy.\n\n\n\n\n\nThe key detail: W_1 \\in \\mathbb{R}^{64 \\times 3} is a matrix parameter. This is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization of the gradient. For the output layer W_2 \\in \\mathbb{R}^{1 \\times 64}, all four methods use the same AdamW — this isolates the effect of the optimizer on the matrix weight.",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/muon_spiral.html#training",
-    "href": "docs/visualizations/muon_spiral.html#training",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "3 Training",
-    "text": "3 Training\nMini-batch training with batch size 40, for 3000 gradient steps. Same random seed controls batch sampling for all methods.",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
-    "href": "docs/visualizations/muon_spiral.html#part-1-hand-tuned-hyperparameters",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "4 Part 1 — Hand-tuned hyperparameters",
-    "text": "4 Part 1 — Hand-tuned hyperparameters\nYour browser does not support the video tag.\n\n4.1 Decision boundary snapshots\n\n\n\n4.2 Convergence (raw + EMA-smoothed)\n\n\n\n\n\n\n\n4.3 Hyperparameters used\n\n\n\nMethod\nlr\nMomentum\nWeight decay\n\n\n\n\nSGD\n0.23\n—\n10^{-4}\n\n\nNesterov\n1.4\n\\mu = 0.9\n10^{-4}\n\n\nAdamW\n0.37\n\\beta_1 = 0.9,\\; \\beta_2 = 0.999\n10^{-4}\n\n\nMuon (W_1)\n0.44\n\\mu = 0.95\n10^{-4}",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
-    "href": "docs/visualizations/muon_spiral.html#part-2-optuna-hyperparameter-tuning",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "5 Part 2 — Optuna hyperparameter tuning",
-    "text": "5 Part 2 — Optuna hyperparameter tuning\nHand-tuning gives one method an unfair advantage if its HPs were chosen more carefully. To ensure a fair comparison, we give each method the same budget of Optuna TPE trials: 500 trials × 1000 steps, tuning all hyperparameters simultaneously.\n\n5.1 Search spaces\n\n\n\n\n\n\n\nMethod\nTuned parameters\n\n\n\n\nSGD\nlr \\in [10^{-3}, 30], momentum \\in [0, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nNesterov\nlr \\in [10^{-3}, 30], momentum \\in [0.5, 0.99], wd \\in [10^{-6}, 0.1]\n\n\nAdamW\nlr \\in [10^{-4}, 3], \\beta_1 \\in [0.8, 0.99], \\beta_2 \\in [0.9, 0.9999], wd \\in [10^{-6}, 0.1], \\varepsilon \\in [10^{-10}, 10^{-4}]\n\n\nMuon\nlr_muon \\in [10^{-3}, 3], \\mu \\in [0.8, 0.999], ns_steps \\in [3, 10], lr_adam, \\beta_1, \\beta_2, wd, \\varepsilon\n\n\n\n\n\n5.2 Best configurations found\n\n\n\n\n\n\n\n\n\nMethod\nBest HPs\nFinal loss\nAccuracy\n\n\n\n\nMuon\nlr=0.27, \\mu=0.999, ns=7, wd$$0\n0.090\n96.2%\n\n\nAdamW\nlr=0.26, \\beta_1=0.96, \\beta_2=0.96, wd=4\\cdot 10^{-4}\n0.095\n96.5%\n\n\nNesterov\nlr=0.14, \\mu=0.99, wd$0 | 0.161 | 94.2% |\n| SGD | lr=0.70, momentum=0.93, wd$0\n0.310\n86.2%\n\n\n\n\n\n5.3 Training with Optuna-tuned HPs (3000 steps)\nYour browser does not support the video tag.\n\n\n5.4 Decision boundaries after Optuna tuning\n\n\n\n5.5 Optuna optimization history\nEach dot is one trial. Bold line shows the best loss found so far.\n\n\n\n5.6 Hyperparameter importance (fANOVA)\n\nFor SGD, Nesterov, and AdamW the learning rate dominates ($&gt;$70% importance). For Muon, weight decay and lr_muon are equally important (~50%/40%), while Newton-Schulz iterations and momentum have low importance.",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/muon_spiral.html#takeaways",
-    "href": "docs/visualizations/muon_spiral.html#takeaways",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "6 Takeaways",
-    "text": "6 Takeaways\n\nMuon consistently matches or beats AdamW on this matrix-parameterized neural network, even after full Optuna HP tuning with equal budget (500 trials each).\nSGD and Nesterov struggle in the mini-batch regime — adaptive scaling is essential for efficient neural network training.\nMuon’s advantage comes from spectral orthogonalization of the gradient: it makes equal progress across all singular directions of W_1, whereas AdamW can only adapt per-element.\nMuon has more hyperparameters (8 vs 5 for AdamW), but fANOVA shows most of them have low importance — the method is robust to HP choices.",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/muon_spiral.html#code",
-    "href": "docs/visualizations/muon_spiral.html#code",
-    "title": "SGD vs Nesterov vs AdamW vs Muon on spiral classification",
-    "section": "7 Code",
-    "text": "7 Code\n\nMain experiment\nOptuna tuning",
-    "crumbs": [
-      "Visualizations",
-      "SGD vs Nesterov vs AdamW vs Muon on spiral classification"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/newton_method_local_convergence.html",
-    "href": "docs/visualizations/newton_method_local_convergence.html",
-    "title": "Local convergence of Newton method",
+    "objectID": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
+    "href": "docs/visualizations/lipschitz_cone.html#lipschitz-continuity-of-a-function",
+    "title": "Lipschitz continuity",
     "section": "",
-    "text": "It is well known that Newton method converges quadratically to the root of a function if the initial point is close enough to the root and the Hessian is Lipschitz continuous. \nx_{k+1} = x_k - \\left[\\nabla^2 f(x_k)\\right]^{-1} \\nabla f(x_k)\n If you will consider the following function: \nf(x) = \\begin{cases}\n(x - 1)^2, & x \\leq -1 \\\\\n-\\frac{1}{4}x^4 + \\frac{5}{2}x^2 + \\frac{7}{4}, & -1 &lt; x &lt; 1 \\\\\n(x + 1)^2, & x \\geq 1\n\\end{cases}\n You will see, that it is strongly convex function with smooth gradient (i.e. Lipschitz continuous Hessian).\n\n\n\nNote, that the Hessian is Lipschitz continuous and strictly positive\n\n\nYour browser does not support the video tag.\nCode",
+    "text": "A function f: \\mathbb{R}^n \\to \\mathbb{R} is called G-Lipschitz continuous on a set S if there exists a constant G \\geq 0 such that for all x, y \\in S:\n\n|f(x) - f(y)| \\leq G \\|x - y\\|\n\nGeometrically, the Lipschitz condition means the function graph lies inside a cone of slope G centered at any point (x, f(x)). The animation below illustrates how moving the reference point shifts the cone while the function always remains inside it.\n\n\n\nLipschitz continuity\n\n\nYour browser does not support the video tag.",
     "crumbs": [
       "Visualizations",
-      "Local convergence of Newton method"
+      "Lipschitz continuity"
     ]
   },
   {
-    "objectID": "docs/visualizations/qr_algorithm.html",
-    "href": "docs/visualizations/qr_algorithm.html",
-    "title": "QR Algorithm",
+    "objectID": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
+    "href": "docs/visualizations/lipschitz_cone.html#l-smoothness-and-the-descent-lemma",
+    "title": "Lipschitz continuity",
+    "section": "2 L-smoothness and the descent lemma",
+    "text": "2 L-smoothness and the descent lemma\nA function f is called L-smooth if its gradient is L-Lipschitz continuous:\n\n\\|\\nabla f(x) - \\nabla f(y)\\| \\leq L \\|x - y\\|\n\nAn equivalent characterization is the descent lemma: for all x, y,\n\nf(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2} \\|y - x\\|^2\n\nThis means the function is always bounded above by a parabola with curvature L tangent at any point. The animation shows how moving the tangent point shifts the bounding parabola while the function stays below it.\n\n\n\nL-smoothness\n\n\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Lipschitz continuity"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
+    "href": "docs/visualizations/lipschitz_cone.html#strong-convexity-and-smoothness-bounds",
+    "title": "Lipschitz continuity",
+    "section": "3 Strong convexity and smoothness bounds",
+    "text": "3 Strong convexity and smoothness bounds\nWhen a function is both \\mu-strongly convex and L-smooth, its Hessian satisfies:\n\n\\mu I \\preceq \\nabla^2 f(x) \\preceq L I\n\nThis gives two-sided quadratic bounds at every point:\n\nf(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{\\mu}{2}\\|y-x\\|^2 \\leq f(y) \\leq f(x) + \\langle \\nabla f(x), y - x \\rangle + \\frac{L}{2}\\|y-x\\|^2\n\nThe ratio \\kappa = L / \\mu is the condition number, which determines convergence rates of optimization methods. The animation shows how the function is sandwiched between a lower parabola (strong convexity) and an upper parabola (smoothness) at each point.\n\n\n\nStrong convexity and smoothness\n\n\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Lipschitz continuity"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/lyapunov_energy.html",
+    "href": "docs/visualizations/lyapunov_energy.html",
+    "title": "Lyapunov energy of the accelerated flow (convex)",
     "section": "",
-    "text": "The QR algorithm is one of the most elegant and powerful methods in numerical linear algebra for computing eigenvalues of matrices. The algorithm’s beauty lies in its simplicity and theoretical depth: through iterative QR decompositions, it converges to a triangular (or diagonal for symmetric matrices) form, revealing the eigenvalues along the diagonal.",
+    "text": "The accelerated gradient flow \\ddot X + \\tfrac{3}{t}\\dot X + \\nabla f(X)=0 reaches the \\mathcal{O}(1/t^2) rate. The proof uses the Lyapunov energy \nE(t)=t^2\\bigl(f(X(t))-f^*\\bigr)+2\\Bigl\\|X(t)-x^*+\\tfrac{t}{2}\\dot X(t)\\Bigr\\|^2,\n which is non-increasing along the trajectory. Since E(t)\\le E(0)=2\\|x_0-x^*\\|^2, the first term gives f(X(t))-f^*\\le 2\\|x_0-x^*\\|^2/t^2. The objective oscillates under the curve while the energy decreases monotonically.\nYour browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "QR Algorithm"
+      "Lyapunov energy of the accelerated flow (convex)"
     ]
   },
   {
-    "objectID": "docs/visualizations/qr_algorithm.html#algorithm-overview",
-    "href": "docs/visualizations/qr_algorithm.html#algorithm-overview",
-    "title": "QR Algorithm",
-    "section": "1 Algorithm Overview",
-    "text": "1 Algorithm Overview\nThe basic QR iteration proceeds as follows:\n\nStart with a matrix A_0 = A\nFor k = 0, 1, 2, \\ldots :\n\nCompute QR decomposition: A_k = Q_kR_k\nForm next iterate: A_{k+1} = R_kQ_k\n\n\nFor symmetric matrices, this process converges to a diagonal matrix containing the eigenvalues. For general matrices, it converges to an upper triangular (Schur) form, where the diagonal elements are still the eigenvalues. The animation below was inspired by the Gabriel Peyré post.\nYour browser does not support the video tag.\nThe visualization above demonstrates how the QR algorithm gradually transforms a symmetric matrix into diagonal form, with the off-diagonal elements converging to zero. The convergence rate depends on the separation of eigenvalues - better separated eigenvalues typically lead to faster convergence.",
-    "crumbs": [
-      "Visualizations",
-      "QR Algorithm"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/qr_algorithm.html#implementation",
-    "href": "docs/visualizations/qr_algorithm.html#implementation",
-    "title": "QR Algorithm",
-    "section": "2 Implementation",
-    "text": "2 Implementation\nCode",
-    "crumbs": [
-      "Visualizations",
-      "QR Algorithm"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/qr_algorithm.html#key-properties",
-    "href": "docs/visualizations/qr_algorithm.html#key-properties",
-    "title": "QR Algorithm",
-    "section": "3 Key Properties",
-    "text": "3 Key Properties\n\nPreservation of Eigenvalues: Each iteration Aₖ₊₁ = RₖQₖ is similar to Aₖ, thus preserving eigenvalues\nConvergence: For symmetric matrices, the algorithm converges to a diagonal matrix\nNumerical Stability: The use of orthogonal transformations ensures good numerical properties\n\nThe QR algorithm forms the basis of modern eigenvalue computations and is implemented in most numerical linear algebra libraries. While the basic version shown here is elegant, practical implementations use various enhancements like shifts and deflation to improve efficiency.",
-    "crumbs": [
-      "Visualizations",
-      "QR Algorithm"
-    ]
-  },
-  {
-    "objectID": "docs/visualizations/sg_algorithms.html",
-    "href": "docs/visualizations/sg_algorithms.html",
-    "title": "Adaptive gradient algorithms visualization",
+    "objectID": "docs/visualizations/mds.html",
+    "href": "docs/visualizations/mds.html",
+    "title": "Multidimensional scaling",
     "section": "",
-    "text": "Your browser does not support the video tag.\nYour browser does not support the video tag.\nWatching points rolling off the surface of the minimized function is my guilty pleasure. Put Lipschitz if you like such animations too.\nCode",
+    "text": "Your browser does not support the video tag.\nWhy does everyone use gradient methods to train large models?\nWe’ll demonstrate it with the example of solving the Multidimensional Scaling (MDS) problem. In this problem, we need to draw objects on the plane that we only know how far each of them is from each other. That is, we have a matrix of pairwise distances as input, and coordinates of objects on the plane as output. And these coordinates should be such that the ratio of distances between the objects remains as close as possible to the original ones. As a loss function is the sum of squares of deviations of distances between cities at the current coordinates and the given value.\nSuppose, we have a pairwise distance matrix for N d-dimensional objects D \\in \\mathbb{R}^{N \\times N}. Given this matrix, our goal is to recover the initial coordinates W_i \\in \\mathbb{R}^d, \\; i = 1, \\ldots, N.\n\nL(W) = \\sum_{i, j = 1}^N \\left(\\|W_i - W_j\\|^2_2 - D_{i,j}\\right)^2 \\to \\min_{W \\in \\mathbb{R}^{N \\times d}}\n\nDespite the increase in dimensionality, the entire trajectory of the method can be visualized in the plane. The number of variables in the problem here is 2*(number of cities), since for each of the cities we are looking for 2 coordinates in the plane.\n️We run in a sequence the usual gradient descent, which requires knowledge of the gradient, and the Nelder-Mead method from scipy (a widely used gradient-free method). At first the problem is solved for the 6 most populated European cities, then for 15 and for 34 (that’s all the European cities with millions of residents from wikipedia).\nIt can be seen that the more cities on the map (the higher the dimensionality of the problem), the larger the gap between gradient and gradient-free methods. This is one of the main reasons why we need not only the value of the function being minimized, but also its derivative to solve huge-scale problems.\nIt turns out that for gradient methods (under a set of reasonable assumptions), the number of iterations required before the method converges does not depend directly on the dimensionality of the problem. That is, if you consider a correctly tuned gradient descent on a ten-dimensional problem, it will need, say, at most 20 iterations to converge. And if you take conventionally the same problem but 100500-dimensional, it will need the same 20 iterations. Of course, the cost of one iteration grows with the dimensionality of the problem, but at least the number of iterations does not grow.\nCode",
     "crumbs": [
       "Visualizations",
-      "Adaptive gradient algorithms visualization"
+      "Multidimensional scaling"
     ]
   },
   {
-    "objectID": "docs/visualizations/sgd_scalar.html",
-    "href": "docs/visualizations/sgd_scalar.html",
-    "title": "SGD intuition in a scalar case",
+    "objectID": "docs/visualizations/nesterov_infinite_length.html",
+    "href": "docs/visualizations/nesterov_infinite_length.html",
+    "title": "Nesterov Flow: Infinite Path Length",
     "section": "",
-    "text": "Gradient descent with an appropriate constant learning rate converges for a minimum for a convex function:\nYour browser does not support the video tag.\nBut what if the minimized function is not convex?\nYour browser does not support the video tag.\nIn contrast, Stochastic Gradient Descent (SGD) could escape local minimuma:\nYour browser does not support the video tag.\nRecent studies suggest, that we should care not only about the depth of the local minimum, but of its width as well:\n  \nOne more interesting case, where the classical convergence of Gradient Descent may not be useful:\nYour browser does not support the video tag.\nWhile what initially looks like a clear divergence leads to a better minimum from the generalization perspective:\nYour browser does not support the video tag.\nCode",
+    "text": "Your browser does not support the video tag.\nCode",
     "crumbs": [
       "Visualizations",
-      "SGD intuition in a scalar case"
+      "Nesterov Flow: Infinite Path Length"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/optimization_3d.html",
+    "href": "docs/visualizations/optimization_3d.html",
+    "title": "Simple 3D visualization of gradient descent",
+    "section": "",
+    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Simple 3D visualization of gradient descent"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/optimization_3d.html#gradient-descent",
+    "href": "docs/visualizations/optimization_3d.html#gradient-descent",
+    "title": "Simple 3D visualization of gradient descent",
+    "section": "",
+    "text": "Let’s start with the simplest case of the gradient descent method applied to a quadratic function: \nf(x) = \\frac{1}{2} x^T A x - b^T x \\qquad x_k+1 = x_k - \\alpha_k \\nabla f(x_k).\n\nThe gradient of the quadratic function is: \n\\nabla f(x) = A x - b\n\nSo the update rule is: \nx_{k+1} = x_k - \\alpha_k (A x_k - b)\n\nLet’s visualize the gradient descent method applied to a quadratic function:\n\n\nHere we have a strongly convex quadratic function with \\mu = 0.1 and L = 3. Theory claims that we have a convergence both in the objective value and in the domain here.\nWe can see, that the optimal learning rate \\alpha^* = \\frac{2}{\\mu + L} outperforms other options. While the upper limit for the convergent learning rate is \\frac{1}{L}.\nYour browser does not support the video tag.\n\n\n\nIn this case we have a strongly convex quadratic function with \\mu = L =3.\nIt is interesting, that the optimal learning rate gives us convergence exactly to the optimal point in a single step.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0.01, having almost convex (but formally still strongly convex) function.\nYour browser does not support the video tag.\n\n\n\nWe lower the \\mu to 0, having convex function. It is very important, that the optimal learning rate is \\frac{1}{L} in this case and putting the optimal learning rate for strongly convex case won’t give us convergence.\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Simple 3D visualization of gradient descent"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/scalar_methods_dynamics.html",
+    "href": "docs/visualizations/scalar_methods_dynamics.html",
+    "title": "Scalar Dynamics: GF / HB / NAG",
+    "section": "",
+    "text": "Your browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Scalar Dynamics: GF / HB / NAG"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/sgd_divergence.html",
+    "href": "docs/visualizations/sgd_divergence.html",
+    "title": "Why stochastic gradient descent does not converge?",
+    "section": "",
+    "text": "Many people are used to apply SGD(stochastic gradient descent), but not everyone knows that it is guaranteed(!) to be non convergent in the constant stepsize (learning rate) case even for the world’s nicest function - a strongly convex quadratic (even on average).\nWhy so? The point is that SGD actually solves a different problem built on the selected data at each iteration. And this problem on the batch may be radically different from the full problem (however, the careful reader may note that this does not guarantee a very bad step). That is, at each iteration we actually converge, but to the minimum of a different problem, and each iteration we change the rules of the game for the method, preventing it from taking more than one step.\nAt the end of the attached video, you can see that using selected points from the linear regression problem, we can construct an optimal solution to the batched problem and a gradient to it - this will be called the stochastic gradient for the original problem. Most often the stochasticity of SGD is analyzed using noise in the gradient and less often we consider noise due to randomness/incompleteness of the choice of the problem to be solved (interestingly, these are not exactly the same thing).\nThis is certainly not a reason not to use the method, because convergence to an approximate solution is still guaranteed. For convex problems it is possible to deal with nonconvergence by * gradually decreasing the step (slow convergence) * increasing the patch size (expensive) * using variance reduction methods (more on this later)\nYour browser does not support the video tag.\nCode",
+    "crumbs": [
+      "Visualizations",
+      "Why stochastic gradient descent does not converge?"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/sochi_skier.html",
+    "href": "docs/visualizations/sochi_skier.html",
+    "title": "Brownian skier on the Sochi DEM",
+    "section": "",
+    "text": "The skier follows an overdamped Langevin dynamics on a digital elevation model of the Roza Khutor to Sirius corridor:\ndx = -\\nabla h(x)\\,dt + \\sigma\\,dW\nThe drift term moves the point downhill; the Brownian term adds controllable noise, so larger \\sigma makes the trajectory explore the terrain instead of sliding along one deterministic descent line.\nTap or click the map to set a new starting point.",
+    "crumbs": [
+      "Visualizations",
+      "Brownian skier on the Sochi DEM"
+    ]
+  },
+  {
+    "objectID": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
+    "href": "docs/visualizations/sochi_skier.html#fokkerplanck-particle-fields",
+    "title": "Brownian skier on the Sochi DEM",
+    "section": "1 Fokker–Planck particle fields",
+    "text": "1 Fokker–Planck particle fields\nThe pre-rendered videos below start 4464 particles from a uniform grid over the same map and evolve their independent Langevin trajectories for 10 seconds at 60 fps. The batched trajectory step is computed with jax.vmap. The noise values are uniformly spaced from \\sigma = 0 to \\sigma = 15.\n\n\\sigma = 0: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 2.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 7.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 10: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 12.5: particles left, KDE right\nYour browser does not support the video tag.\n\\sigma = 15: particles left, KDE right\nYour browser does not support the video tag.",
+    "crumbs": [
+      "Visualizations",
+      "Brownian skier on the Sochi DEM"
     ]
   },
   {
