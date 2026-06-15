@@ -9,7 +9,7 @@ from __future__ import annotations
 import numpy as np
 from scipy.integrate import solve_ivp
 
-from flows_common import OPTIM_VIS, render_trajectory_poster, render_trajectory_video, resample_by_arclength, write_page
+from flows_common import OPTIM_VIS, render_trajectory_poster, render_trajectory_video, resample_by_arclength
 
 GD_BLUE = "#2E6FE0"
 GF_RED = "#FF3B30"
@@ -108,7 +108,6 @@ def main():
     prob, specs, corners = build()
     render_trajectory_poster(OPTIM_VIS / "gd_gf_nag_hb_poster.pdf", prob, specs, corner_labels=corners)
     render_trajectory_video(OPTIM_VIS / "gd_gf_nag_hb.mp4", prob, specs, corner_labels=corners, frames=260, fps=60)
-    write_page("gd_gf_nag_hb", TITLE, DESCRIPTION, __file__)
 
 
 if __name__ == "__main__":

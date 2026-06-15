@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Gradient Descent vs Proximal Point (optimal step)</title>
+<title>Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -90,9 +90,9 @@ ul.task-list li input[type="checkbox"] {
 </script>
 <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
-<meta property="og:title" content="Gradient Descent vs Proximal Point (optimal step)">
+<meta property="og:title" content="Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball">
 <meta property="og:description" content="">
-<meta name="twitter:title" content="Gradient Descent vs Proximal Point (optimal step)">
+<meta name="twitter:title" content="Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/gd_vs_ppm_optimal.html">Gradient Descent vs Proximal Point (optimal step)</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/gradient_flow_methods.html">Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -733,32 +733,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/gd_gf_nag_hb.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GD / GF / NAG-SC / Polyak HB</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/gd_lls.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Gradient descent for linear regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/gd_vs_gf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gradient Descent vs Gradient Flow</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/gd_vs_ppm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Gradient Descent vs Proximal Point</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../docs/visualizations/gd_vs_ppm_optimal.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Gradient Descent vs Proximal Point (optimal step)</span></a>
+  <a href="../../docs/visualizations/gradient_flow_methods.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -889,7 +871,16 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#gradient-descent-vs-gradient-flow" id="toc-gradient-descent-vs-gradient-flow" class="nav-link active" data-scroll-target="#gradient-descent-vs-gradient-flow"><span class="header-section-number">1</span> Gradient descent vs gradient flow</a></li>
+  <li><a href="#gradient-descent-vs-proximal-point-same-step" id="toc-gradient-descent-vs-proximal-point-same-step" class="nav-link" data-scroll-target="#gradient-descent-vs-proximal-point-same-step"><span class="header-section-number">2</span> Gradient descent vs proximal point (same step)</a></li>
+  <li><a href="#proximal-point-with-a-larger-step" id="toc-proximal-point-with-a-larger-step" class="nav-link" data-scroll-target="#proximal-point-with-a-larger-step"><span class="header-section-number">3</span> Proximal point with a larger step</a></li>
+  <li><a href="#gd-gf-nag-sc-polyak-heavy-ball" id="toc-gd-gf-nag-sc-polyak-heavy-ball" class="nav-link" data-scroll-target="#gd-gf-nag-sc-polyak-heavy-ball"><span class="header-section-number">4</span> GD / GF / NAG-SC / Polyak Heavy Ball</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/gradient_flow_methods.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     <div class="quarto-margin-footer"><div class="margin-footer-item">
 <button type="button" name="button" class="btn" id="toggleSpoilers">
 🔽
@@ -899,9 +890,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/gd_vs_ppm_optimal.html">Gradient Descent vs Proximal Point (optimal step)</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/gradient_flow_methods.html">Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Gradient Descent vs Proximal Point (optimal step)</h1>
+<h1 class="title">Discretizing the gradient flow: GD, PPM, NAG, Heavy Ball</h1>
 </div>
 
 
@@ -917,11 +908,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>For the quadratic <span class="math inline">f(x)=\tfrac12 x^\top A x</span> every PPM eigen-factor <span class="math inline">1/(1+\alpha\lambda_i)</span> is below one for <strong>any</strong> <span class="math inline">\alpha&gt;0</span> — the method never diverges. So while gradient descent is capped at <span class="math inline">\alpha^\star_{GD}=2/(\mu+L)</span>, the proximal point method can safely take a much larger step <span class="math inline">\alpha^\star_{PPM}</span> and contracts faster, reaching the minimizer in fewer, smoother iterations.</p>
+<p>Every first-order method is a discretization of a continuous-time flow. Below, four scenes on the same kind of quadratic landscape contrast the discrete iterates with the smooth ODE trajectory they approximate.</p>
+<section id="gradient-descent-vs-gradient-flow" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="gradient-descent-vs-gradient-flow"><span class="header-section-number">1</span> Gradient descent vs gradient flow</h2>
+<p>Gradient descent is the <strong>explicit Euler</strong> discretization of the gradient flow: <span class="math display">
+\frac{x_{k+1}-x_k}{\alpha} = -\nabla f(x_k)
+\quad\xrightarrow{\;\alpha\to 0\;}\quad
+\dot x(t) = -\nabla f\bigl(x(t)\bigr).
+</span> With the optimal step <span class="math inline">\alpha^\star=2/(\mu+L)</span>, GD <strong>zig-zags</strong> across the steep valley while the gradient flow follows the smooth trajectory GD tries to track.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="gd_vs_gf.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="gd_vs_gf.py">Code</a></p>
+</section>
+<section id="gradient-descent-vs-proximal-point-same-step" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="gradient-descent-vs-proximal-point-same-step"><span class="header-section-number">2</span> Gradient descent vs proximal point (same step)</h2>
+<p>The proximal point method is the <strong>implicit Euler</strong> discretization <span class="math inline">x_{k+1}=\operatorname{prox}_{\alpha f}(x_k)=(I+\alpha A)^{-1}x_k</span>. At the <em>same</em> step where GD already zig-zags, every PPM eigen-factor <span class="math inline">1/(1+\alpha\lambda_i)</span> stays in <span class="math inline">(0,1)</span>, so the proximal iterates approach the minimizer smoothly.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="gd_vs_ppm.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="gd_vs_ppm.py">Code</a></p>
+</section>
+<section id="proximal-point-with-a-larger-step" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="proximal-point-with-a-larger-step"><span class="header-section-number">3</span> Proximal point with a larger step</h2>
+<p>PPM is unconditionally stable for any <span class="math inline">\alpha&gt;0</span>, so it can safely take a step far larger than GD’s <span class="math inline">\alpha^\star_{GD}=2/(\mu+L)</span> and contract faster, reaching the minimizer in fewer, smoother iterations.</p>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="gd_vs_ppm_optimal.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <p><a href="gd_vs_ppm_optimal.py">Code</a></p>
+</section>
+<section id="gd-gf-nag-sc-polyak-heavy-ball" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="gd-gf-nag-sc-polyak-heavy-ball"><span class="header-section-number">4</span> GD / GF / NAG-SC / Polyak Heavy Ball</h2>
+<p>On a strongly convex quadratic, the accelerated schemes carry <strong>momentum</strong> and overshoot: <span class="math display">
+\text{NAG-SC:}\;\; \ddot x + 2\sqrt{\mu}\,\dot x + \nabla f(x)=0,
+\qquad
+\text{HB:}\;\; x_{k+1}=x_k-\alpha\nabla f(x_k)+\beta(x_k-x_{k-1}).
+</span> The oscillations are the price — and the engine — of acceleration.</p>
+<div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="gd_gf_nag_hb.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
+<p><a href="gd_gf_nag_hb.py">Code</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1333,4 +1354,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/gd_vs_ppm_optimal.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MerkulovDaniil/optim/edit/master/docs/visualizations/gradient_flow_methods.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
