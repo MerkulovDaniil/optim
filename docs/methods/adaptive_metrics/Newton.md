@@ -112,32 +112,24 @@ $$
 
 Already smells like quadratic convergence. All that remains is to estimate the value of Hessian's reverse. 
 
-Because of Hessian's Lipschitz continuity and symmetry: 
+Since $f$ is $\mu$-strongly convex,
+$$
+f''(x_k) \succeq \mu I_n \succ 0
+$$
 
 $$
 \begin{align*} 
-f''(x_k) - f''(x^*) \succeq - Mr_k I_n \\
-f''(x_k) \succeq f''(x^*) - Mr_k I_n \\
-f''(x_k) \succeq \mu I_n - Mr_k I_n \\
-f''(x_k) \succeq (\mu- Mr_k )I_n \\
-\end{align*} 
-$$
-
-So, (here we should already limit the necessity of being $f''(x_k) \succ 0$ for such estimations, i.e. $r_k < \frac{\mu}{M}$). 
-
-$$
-\begin{align*} 
-\left\|\left[ f''(x_k)\right]^{-1}\right\| \leq (\mu - Mr_k)^{-1} 
+\left\|\left[ f''(x_k)\right]^{-1}\right\| \leq \mu^{-1} 
 \end{align*} 
 $$ 
 
 $$ 
-r_{k+1}  \leq \dfrac{r_k^2 M}{2(\mu - Mr_k)} 
+r_{k+1}  \leq \dfrac{r_k^2 M}{2\mu} 
 $$
 
-The convergence condition $r_{k+1} < r_k$ imposes additional conditions on $r_k:  \;\;\; r_k < \frac{2 \mu}{3M}$ 
+The convergence condition $r_{k+1} < r_k$ imposes additional conditions on $r_k:  \;\;\; r_k < \frac{2 \mu}{M}$ 
 
-Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($\| x_0 - x^* \| < \frac{2 \mu}{3M}$) to the solution. 
+Thus, we have an important result: Newton's method for the function with Lipschitz positive Hessian converges **quadratically** near ($\| x_0 - x^* \| < \frac{2 \mu}{M}$) to the solution. 
 
 
 ### Theorem
