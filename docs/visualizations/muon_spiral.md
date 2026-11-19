@@ -22,7 +22,7 @@ The input is augmented with a constant feature for the bias: $x = [x_1,\, x_2,\,
 
 ![](muon_spiral_architecture.svg){width="75%" fig-align="center"}
 
-The key detail: $W_1 \in \mathbb{R}^{64 \times 3}$ is a **matrix** parameter. This is where Muon applies spectral-norm steepest descent via Newton-Schulz orthogonalization of the gradient. For the output layer $W_2 \in \mathbb{R}^{1 \times 64}$, **all four methods use the same AdamW** — this isolates the effect of the optimizer on the matrix weight.
+The comparison uses four optimizer configurations for the full model. SGD, Nesterov, and AdamW each update both layers. The Muon configuration updates the hidden-layer matrix $W_1 \in \mathbb{R}^{64 \times 3}$ with Muon (using Newton–Schulz on its momentum update) and the output weights $W_2 \in \mathbb{R}^{1 \times 64}$ with AdamW. In the hand-tuned run, the AdamW and Muon configurations use the same AdamW hyperparameters on $W_2$; in the Optuna run those settings are tuned separately. The four-way comparison does not isolate changes to $W_1$.
 
 ## Training
 
@@ -99,7 +99,7 @@ For SGD, Nesterov, and AdamW the **learning rate dominates** ($>$70% importance)
 
 1. **Muon consistently matches or beats AdamW** on this matrix-parameterized neural network, even after full Optuna HP tuning with equal budget (500 trials each).
 2. **SGD and Nesterov struggle** in the mini-batch regime — adaptive scaling is essential for efficient neural network training.
-3. Muon's advantage comes from **spectral orthogonalization** of the gradient: it makes equal progress across all singular directions of $W_1$, whereas AdamW can only adapt per-element.
+3. Muon approximately orthogonalizes the momentum update for $W_1$, whereas AdamW adapts elementwise. These runs compare complete optimizer configurations rather than testing orthogonalization alone.
 4. Muon has more hyperparameters (8 vs 5 for AdamW), but fANOVA shows most of them have low importance — the method is **robust** to HP choices.
 
 ## Code
