@@ -76,7 +76,9 @@ window.document.addEventListener("DOMContentLoaded", function () {
           hideBackToTop();
         } else if (
           window.innerHeight + currentScrollTop >=
-          document.body.offsetHeight
+          // 1px tolerance: sub-pixel scroll positions (e.g. Firefox) can
+          // stop a fraction short of the document height at the bottom
+          document.documentElement.scrollHeight - 1
         ) {
           showBackToTop();
         }
@@ -274,7 +276,10 @@ window.document.addEventListener("DOMContentLoaded", function () {
     for (let i = 0; i < links.length; i++) {
       if (links[i].href) {
         links[i].dataset.originalHref = links[i].href;
-        links[i].href = links[i].href.replace(/\/index\.html/, "/");
+        // only strip index.html at the end of the path (optionally followed
+        // by a query or fragment) so that files like index.html.md
+        // (alternate-format twins) are left alone (#14667)
+        links[i].href = links[i].href.replace(/\/index\.html(?=[?#]|$)/, "/");
       }
     }
 

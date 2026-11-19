@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.11">
+<meta name="generator" content="quarto-1.12.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -23,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+@media print {
+  html {
+    color-scheme: light only;
+  }
+  html, body, pre, code {
+    background-color: transparent;
+  }
+  body, a, a:visited, blockquote {
+    color: black;
+  }
+  pre, code {
+    padding: 0;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,14 +59,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c65da67e2ccd7271deb104e05bb4b4d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2985fcfa2e43afc3ff4a427edbe84b2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -119,13 +143,13 @@ ul.task-list li input[type="checkbox"] {
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Simplex.html">Linear Programming and simplex algorithm</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Simplex.html">Linear Programming and simplex algorithm</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -133,18 +157,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Theory</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section: Theory">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -154,12 +178,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Convex sets</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: Convex sets">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -245,21 +269,21 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section: Methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Line search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Line search</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Line search">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
@@ -289,12 +313,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Zero order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Zero order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Zero order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
@@ -318,12 +342,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">First order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section: First order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
@@ -389,12 +413,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adaptive metric methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Adaptive metric methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Adaptive metric methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
@@ -438,12 +462,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Exercises</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Exercises">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -551,12 +575,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Applications</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Applications">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -640,12 +664,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmarks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Benchmarks</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: Benchmarks">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
@@ -663,21 +687,18 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Materials</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Materials">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Tutorials</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
@@ -690,13 +711,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Visualizations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
@@ -873,7 +891,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -901,10 +919,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
 </div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Simplex.html">Linear Programming and simplex algorithm</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../docs/methods/Simplex.html">Linear Programming and simplex algorithm</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Linear Programming and simplex algorithm</h1>
 </div>
@@ -925,13 +943,11 @@ ul.task-list li input[type="checkbox"] {
 <section id="what-is-linear-programming" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="what-is-linear-programming"><span class="header-section-number">1</span> What is Linear Programming?</h2>
 <p>Generally speaking, all problems with linear objective and linear equalities/inequalities constraints could be considered as Linear Programming. However, there are some widely accepted formulations.</p>
-<p><span class="math display">
-\tag{LP.Basic}
+<p><span class="math display">\tag{LP.Basic}
 \begin{align*}
 &amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
 \text{s.t. } &amp; Ax \leq b\\
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP.svg" class="img-fluid figure-img"></p>
@@ -940,14 +956,12 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>for some vectors <span class="math inline">c \in \mathbb{R}^n</span>, <span class="math inline">b \in \mathbb{R}^m</span> and matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>. Where the inequalities are interpreted component-wise.</p>
 <p><strong>Standard form.</strong> This form seems to be the most intuitive and geometric in terms of visualization. Let us have vectors <span class="math inline">c \in \mathbb{R}^n</span>, <span class="math inline">b \in \mathbb{R}^m</span> and matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>.</p>
-<p><span class="math display">
-\tag{LP.Standard}
+<p><span class="math display">\tag{LP.Standard}
 \begin{align*}
 &amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
 \text{s.t. } &amp; Ax = b\\
 &amp; x_i \geq 0, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 </section>
 <section id="examples-of-lp-problems" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="examples-of-lp-problems"><span class="header-section-number">2</span> Examples of LP problems</h2>
@@ -964,13 +978,11 @@ ul.task-list li input[type="checkbox"] {
 <div>
 <div class="callout-example">
 <p>Imagine, that you have to construct a diet plan from some set of products: 🍌🍰🍗🥚🐟. Each of the products has its own vector of nutrients. Thus, all the food information could be processed through the matrix <span class="math inline">W</span>. Let also assume, that we have the vector of requirements for each of nutrients <span class="math inline">r \in \mathbb{R}^n</span>. We need to find the cheapest configuration of the diet, which meets all the requirements:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\min_{x \in \mathbb{R}^p} c^{\top}x \\
 \text{s.t. } &amp; Wx \geq r\\
 &amp; x_i \geq 0, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="diet_LP.svg" class="img-fluid figure-img"></p>
@@ -1100,37 +1112,25 @@ ul.task-list li input[type="checkbox"] {
 <section id="objective-function" class="level5" data-number="2.0.1.1">
 <h5 data-number="2.0.1.1" class="anchored" data-anchor-id="objective-function"><span class="header-section-number">2.0.1.1</span> Objective Function</h5>
 <p>If we let subscript <span class="math inline">c</span> denote a blending component from the set of blending components <span class="math inline">C</span>, and denote the volume of <span class="math inline">c</span> used in the blend as <span class="math inline">x_c</span>, the cost of the blend is</p>
-<p><span class="math display">
-\text{cost}  = \sum_{c\in C} x_c P_c
-</span></p>
+<p><span class="math display">\text{cost}  = \sum_{c\in C} x_c P_c</span></p>
 <p>where <span class="math inline">P_c</span> is the price per unit volume of <span class="math inline">c</span>. Using the Python data dictionary defined above, the price <span class="math inline">P_c</span> is given by <code>data[c]['cost']</code>.</p>
 </section>
 <section id="volume-constraint" class="level5" data-number="2.0.1.2">
 <h5 data-number="2.0.1.2" class="anchored" data-anchor-id="volume-constraint"><span class="header-section-number">2.0.1.2</span> Volume Constraint</h5>
 <p>The customer requirement is produce a total volume <span class="math inline">V</span>. Assuming ideal solutions, the constraint is given by</p>
-<p><span class="math display">
-V  = \sum_{c\in C} x_c
-</span></p>
+<p><span class="math display">V  = \sum_{c\in C} x_c</span></p>
 <p>where <span class="math inline">x_c</span> denotes the volume of component <span class="math inline">c</span> used in the blend.</p>
 </section>
 <section id="product-composition-constraint" class="level5" data-number="2.0.1.3">
 <h5 data-number="2.0.1.3" class="anchored" data-anchor-id="product-composition-constraint"><span class="header-section-number">2.0.1.3</span> Product Composition Constraint</h5>
 <p>The product composition is specified as 4% alchohol by volume. Denoting this as <span class="math inline">\bar{A}</span>, the constraint may be written as</p>
-<p><span class="math display">
-\bar{A} = \frac{\sum_{c\in C}x_c A_c}{\sum_{c\in C} x_c}
-</span></p>
+<p><span class="math display">\bar{A} = \frac{\sum_{c\in C}x_c A_c}{\sum_{c\in C} x_c}</span></p>
 <p>where <span class="math inline">A_c</span> is the alcohol by volume for component <span class="math inline">c</span>. As written, this is a nonlinear constraint. Multiplying both sides of the equation by the denominator yields a linear constraint</p>
-<p><span class="math display">
-\bar{A}\sum_{c\in C} x_c  = \sum_{c\in C}x_c A_c
-</span></p>
+<p><span class="math display">\bar{A}\sum_{c\in C} x_c  = \sum_{c\in C}x_c A_c</span></p>
 <p>A final form for this constraint can be given in either of two versions. In the first version we subtract the left-hand side from the right to give</p>
-<p><span class="math display">
-0  = \sum_{c\in C}x_c \left(A_c - \bar{A}\right)  \text{ Version 1 of the linear blending constraint}
-</span></p>
+<p><span class="math display">0  = \sum_{c\in C}x_c \left(A_c - \bar{A}\right)  \text{ Version 1 of the linear blending constraint}</span></p>
 <p>Alternatively, the summation on the left-hand side corresponds to total volume. Since that is known as part of the problem specification, the blending constraint could also be written as</p>
-<p><span class="math display">
-\bar{A}V  = \sum_{c\in C}x_c A_c   \text{ Version 2 of the linear blending constraint}
-</span></p>
+<p><span class="math display">\bar{A}V  = \sum_{c\in C}x_c A_c   \text{ Version 2 of the linear blending constraint}</span></p>
 <p>Which should you use? Either will generally work well. The advantage of version 1 is that it is fully specified by a product requirement <span class="math inline">\bar{A}</span>, which is sometimes helpful in writing elegant Python code.</p>
 <p>The code for the problem is available here: <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/LP_blending.ipynb">💻</a></p>
 </section>
@@ -1143,22 +1143,18 @@ V  = \sum_{c\in C} x_c
 <section id="basic-transformations" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="basic-transformations"><span class="header-section-number">3</span> Basic transformations</h2>
 <p>Inequality to equality by increasing the dimension of the problem by <span class="math inline">m</span>.</p>
-<p><span class="math display">
-Ax \leq b \leftrightarrow
+<p><span class="math display">Ax \leq b \leftrightarrow
 \begin{cases}
 Ax + z =  b\\
 z \geq 0
-\end{cases}
-</span></p>
+\end{cases}</span></p>
 <p>unsigned variables to nonnegative variables.</p>
-<p><span class="math display">
-x \leftrightarrow
+<p><span class="math display">x \leftrightarrow
 \begin{cases}
 x = x_+ - x_-\\
 x_+ \geq 0 \\
 x_- \geq 0
-\end{cases}
-</span></p>
+\end{cases}</span></p>
 <div class="callout callout-style-default callout-example no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1171,17 +1167,13 @@ x_- \geq 0
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<p><span class="math display">
-\min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|
-</span></p>
+<p><span class="math display">\min_{x \in \mathbb{R}^n} \|Ax - b\|_\infty \leftrightarrow \min_{x \in \mathbb{R}^n} \max_{i} |a_i^\top x - b_i|</span></p>
 <p>Could be equivalently written as a LP with thre replacement of maximum coordinate of a vector:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\min_{t \in \mathbb{R}, x \in \mathbb{R}^n} t \\
 \text{s.t. } &amp; a_i^\top x - b_i \leq t, \; i = 1,\dots, n\\
 &amp; -a_i^\top x + b_i \leq t, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 </div>
 </div>
 </div>
@@ -1198,17 +1190,13 @@ x_- \geq 0
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<p><span class="math display">
-\min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|
-</span></p>
+<p><span class="math display">\min_{x \in \mathbb{R}^n} \|Ax - b\|_1 \leftrightarrow \min_{x \in \mathbb{R}^n} \sum_{i=1}^n |a_i^\top x - b_i|</span></p>
 <p>Could be equivalently written as a LP with thre replacement of the sum of coordinates of a vector:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\min_{t \in \mathbb{R}^n, x \in \mathbb{R}^n} \mathbf{1}^\top t \\
 \text{s.t. } &amp; a_i^\top x - b_i \leq t_i, \; i = 1,\dots, n\\
 &amp; -a_i^\top x + b_i \leq t_i, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 </div>
 </div>
 </div>
@@ -1236,20 +1224,16 @@ x_- \geq 0
 <div>
 <div class="callout-example">
 <p>Ensure, that the following standard form LP:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
 \text{s.t. } &amp; Ax = b\\
 &amp; x_i \geq 0, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Has the following dual:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\max_{y \in \mathbb{R}^n} b^{\top}y \\
 \text{s.t. } &amp; A^Ty \preceq c\\
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Find the dual problem to the problem above (it should be the original LP).</p>
 </div>
 </div>
@@ -1263,13 +1247,11 @@ x_- \geq 0
 <li>This either terminates at a corner, or leads to an unconstrained edge (<span class="math inline">-\infty</span> optimum)</li>
 </ul>
 <p>We will illustrate simplex algorithm for the simple inequality form of LP:</p>
-<p><span class="math display">
-\tag{LP.Inequality}
+<p><span class="math display">\tag{LP.Inequality}
 \begin{align*}
 &amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
 \text{s.t. } &amp; Ax \leq b
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Definition: a <strong>basis</strong> <span class="math inline">B</span> is a subset of <span class="math inline">n</span> (integer) numbers between <span class="math inline">1</span> and <span class="math inline">m</span>, so that <span class="math inline">\text{rank} A_B = n</span>. Note, that we can associate submatrix <span class="math inline">A_B</span> and corresponding right-hand side <span class="math inline">b_B</span> with the basis <span class="math inline">B</span>. Also, we can derive a point of intersection of all these hyperplanes from basis: <span class="math inline">x_B = A^{-1}_B b_B</span>.</p>
 <p>If <span class="math inline">A x_B \leq b</span>, then basis <span class="math inline">B</span> is <strong>feasible</strong>.</p>
 <p>A basis <span class="math inline">B</span> is optimal if <span class="math inline">x_B</span> is an optimum of the <span class="math inline">\text{LP.Inequality}</span>.</p>
@@ -1301,9 +1283,7 @@ x_- \geq 0
 </div>
 </div>
 <p>Since we have a basis, we can decompose our objective vector <span class="math inline">c</span> in this basis and find the scalar coefficients <span class="math inline">\lambda_B</span>:</p>
-<p><span class="math display">
-\lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}
-</span></p>
+<p><span class="math display">\lambda^\top_B A_B = c^\top \leftrightarrow \lambda^\top_B = c^\top A_B^{-1}</span></p>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1331,15 +1311,13 @@ x_- \geq 0
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-proof">
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \exists x^*: Ax^* &amp;\leq b, c^\top x^* &lt; c^\top x_B \\
 A_B x^* &amp;\leq b_B \\
 \lambda_B^\top A_B x^* &amp;\geq \lambda_B^\top b_B \\
 c^\top x^* &amp; \geq \lambda_B^\top A_B x_B \\
 c^\top x^* &amp; \geq c^\top  x_B \\
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 </div>
 </div>
 </div>
@@ -1358,33 +1336,25 @@ c^\top x^* &amp; \geq c^\top  x_B \\
 <figcaption>Illustration</figcaption>
 </figure>
 </div>
-<p><span class="math display">
-x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
-</span></p>
+<p><span class="math display">x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}</span></p>
 </section>
 <section id="finding-an-initial-basic-feasible-solution" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="finding-an-initial-basic-feasible-solution"><span class="header-section-number">5.2</span> Finding an initial basic feasible solution</h3>
 <p>Let us consider <span class="math inline">\text{LP.Canonical}</span>.</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp;\min_{x \in \mathbb{R}^n} c^{\top}x \\
 \text{s.t. } &amp; Ax = b\\
 &amp; x_i \geq 0, \; i = 1,\dots, n
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>The proposed algorithm requires an initial basic feasible solution and corresponding basis. To compute this solution and basis, we start by multiplying by <span class="math inline">−1</span> any row <span class="math inline">i</span> of <span class="math inline">Ax = b</span> such that <span class="math inline">b_i &lt; 0</span>. This ensures that <span class="math inline">b \geq 0</span>. We then introduce artificial variables <span class="math inline">z \in \mathbb{R}^m</span> and consider the following LP:</p>
-<p><span class="math display">
-\tag{LP.Phase 1}
+<p><span class="math display">\tag{LP.Phase 1}
 \begin{align*}
 &amp;\min_{x \in \mathbb{R}^n, z \in \mathbb{R}^m} 1^{\top}z \\
 \text{s.t. } &amp; Ax + Iz = b\\
 &amp; x_i, z_j \geq 0, \; i = 1,\dots, n \; j = 1,\dots, m
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>which can be written in canonical form <span class="math inline">\min\{\tilde{c}^\top \tilde{x} \mid \tilde{A}\tilde{x} = \tilde{b}, \tilde{x} \geq 0\}</span> by setting</p>
-<p><span class="math display">
-\tilde{x} = \begin{bmatrix}x\\z\end{bmatrix}, \quad \tilde{A} = [A \; I], \quad \tilde{b} = b, \quad \tilde{c} = \begin{bmatrix}0_n\\1_m\end{bmatrix}
-</span></p>
+<p><span class="math display">\tilde{x} = \begin{bmatrix}x\\z\end{bmatrix}, \quad \tilde{A} = [A \; I], \quad \tilde{b} = b, \quad \tilde{c} = \begin{bmatrix}0_n\\1_m\end{bmatrix}</span></p>
 <p>An initial basis for <span class="math inline">\text{LP.Phase 1}</span> is <span class="math inline">\tilde{A}_B = I, \tilde{A}_N = A</span> with corresponding basic feasible solution <span class="math inline">\tilde{x}_N = 0, \tilde{x}_B = \tilde{A}^{-1}_B \tilde{b} = \tilde{b} \geq 0</span>. We can therefore run the simplex method on <span class="math inline">\text{LP.Phase 1}</span>, which will converge to an optimum <span class="math inline">\tilde{x}^*</span>. <span class="math inline">\tilde{x} = (\tilde{x}_N \; \tilde{x}_B)</span>. There are several possible outcomes:</p>
 <ul>
 <li><span class="math inline">\tilde{c}^\top \tilde{x} &gt; 0</span>. Original primal is infeasible.</li>
@@ -1398,16 +1368,14 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
 <section id="klee-minty-example" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="klee-minty-example"><span class="header-section-number">6.1</span> <a href="https://en.wikipedia.org/wiki/Klee%E2%80%93Minty_cube">Klee Minty</a> example</h3>
 <p>In the following problem simplex algorithm needs to check <span class="math inline">2^n - 1</span> vertexes with <span class="math inline">x_0 = 0</span>.</p>
-<p><span class="math display">
-\begin{align*} &amp; \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
+<p><span class="math display">\begin{align*} &amp; \max_{x \in \mathbb{R}^n} 2^{n-1}x_1 + 2^{n-2}x_2 + \dots + 2x_{n-1} + x_n\\
 \text{s.t. } &amp; x_1 \leq 5\\
 &amp; 4x_1 + x_2 \leq 25\\
 &amp; 8x_1 + 4x_2 + x_3 \leq 125\\
 &amp; \ldots\\
 &amp; 2^n x_1 + 2^{n-1}x_2 + 2^{n-2}x_3 + \ldots + x_n \leq 5^n\\
 &amp; x \geq 0
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LP_KM.svg" class="img-fluid figure-img"></p>
@@ -1519,11 +1487,34 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1532,13 +1523,79 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
+            // an explicit target wins over the site-wide setting
+            if (link.getAttribute("target") === null) {
+              link.setAttribute("target", "_blank");
+            }
+            if (link.getAttribute("rel") === null && opensNewContext(link)) {
               link.setAttribute("rel", "noopener");
             }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1552,6 +1609,7 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1714,44 +1772,54 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1849,6 +1917,9 @@ x_{B'} = x_B + \mu d = A^{-1}_{B'} b_{B'}
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 

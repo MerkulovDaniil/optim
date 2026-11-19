@@ -1,4 +1,5 @@
 import * as tabsets from "./tabsets/tabsets.js";
+import * as scrollableRegions from "./scrollable-regions/scrollable-regions.js";
 
 const sectionChanged = new CustomEvent("quarto-sectionChanged", {
   detail: {},
@@ -34,21 +35,25 @@ const layoutMarginEls = () => {
 };
 
 window.document.addEventListener("DOMContentLoaded", function (_event) {
-  // Recompute the position of margin elements anytime the body size changes
+  // Recompute the position of margin elements and re-sync scrollable regions
+  // anytime the body size changes. Trailing, so a resize that ends inside the
+  // wait is still handled rather than left at a size the page no longer has.
   if (window.ResizeObserver) {
     const resizeObserver = new window.ResizeObserver(
       throttle(() => {
         layoutMarginEls();
+        scrollableRegions.syncScrollableRegions();
         if (
           window.document.body.getBoundingClientRect().width < 990 &&
           isReaderMode()
         ) {
           quartoToggleReader();
         }
-      }, 50)
+      }, 50, true)
     );
     resizeObserver.observe(window.document.body);
   }
+  scrollableRegions.syncScrollableRegions();
 
   const tocEl = window.document.querySelector('nav.toc-active[role="doc-toc"]');
   const sidebarEl = window.document.getElementById("quarto-sidebar");
@@ -137,12 +142,33 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
     });
   });
 
+  // An id may contain a "%" that does not start a valid escape (#15297), so
+  // decoding must not throw: that would stop the rest of this handler.
+  const safeDecodeURI = (value) => {
+    try {
+      return decodeURI(value);
+    } catch {
+      return value;
+    }
+  };
+
+  // data-scroll-target holds the link's raw href with ":" escaped as "\:".
+  // Like the browser does for a URL fragment, look the id up as written first,
+  // then percent-decoded.
   const sections = tocLinks.map((link) => {
     const target = link.getAttribute("data-scroll-target");
     if (target.startsWith("#")) {
-      return window.document.getElementById(decodeURI(`${target.slice(1)}`));
+      const id = target.slice(1).replace(/\\:/g, ":");
+      return (
+        window.document.getElementById(id) ||
+        window.document.getElementById(safeDecodeURI(id))
+      );
     } else {
-      return window.document.querySelector(decodeURI(`${target}`));
+      try {
+        return window.document.querySelector(safeDecodeURI(target));
+      } catch {
+        return null;
+      }
     }
   });
 
@@ -220,6 +246,11 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
     return window.document.querySelector(categorySelector) !== null;
   }
 
+  // The directory part of a path, with its trailing slash.
+  function directoryOf(path) {
+    return path.replace(/[^/]+$/, "");
+  }
+
   function offsetRelativeUrl(url) {
     const offset = getMeta("quarto:offset");
     return offset ? offset + url : url;
@@ -283,25 +314,40 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
           offsetAbsoluteUrl(window.location.pathname),
           listingHrefs
         );
-        if (nearestListing) {
-          activateCategories(nearestListing);
-        } else {
-          // See if the referrer is a listing page for this item
-          const referredRelativePath = offsetAbsoluteUrl(document.referrer);
-          const referrerListing = listingHrefs.find((listingHref) => {
-            const isListingReferrer =
-              listingHref === referredRelativePath ||
-              listingHref === referredRelativePath + "index.html";
-            return isListingReferrer;
-          });
 
-          if (referrerListing) {
-            // Try to use the referrer if possible
-            activateCategories(referrerListing);
-          } else if (listingHrefs.length > 0) {
-            // Otherwise, just fall back to the first listing
-            activateCategories(listingHrefs[0]);
-          }
+        // See if the referrer is a listing page for this item. listingHrefs
+        // are full pathnames, so compare against the referrer's pathname.
+        const referrer = document.referrer
+          ? new URL(document.referrer)
+          : undefined;
+        const referrerListing =
+          referrer?.origin === window.location.origin
+            ? listingHrefs.find(
+                (listingHref) =>
+                  listingHref === referrer.pathname ||
+                  listingHref === referrer.pathname + "index.html"
+              )
+            : undefined;
+
+        // The listing the reader came from wins when the nearest listing is
+        // no more specific: the site root listing, which is an ancestor of
+        // every page, or another listing in the referrer's own directory.
+        const nearestDir = nearestListing && directoryOf(nearestListing);
+        const siteRootDir = directoryOf(
+          new URL(offsetRelativeUrl(""), window.location).pathname
+        );
+        const preferReferrer =
+          referrerListing &&
+          (nearestDir === siteRootDir ||
+            nearestDir === directoryOf(referrerListing));
+
+        if (nearestListing && !preferReferrer) {
+          activateCategories(nearestListing);
+        } else if (referrerListing) {
+          activateCategories(referrerListing);
+        } else if (listingHrefs.length > 0) {
+          // Otherwise, just fall back to the first listing
+          activateCategories(listingHrefs[0]);
         }
       });
     }
@@ -311,22 +357,22 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
   }
 
   const findNearestParentListing = (href, listingHrefs) => {
-    if (!href || !listingHrefs) {
+    if (!href || !listingHrefs?.length) {
       return undefined;
     }
-    // Look up the tree for a nearby linting and use that if we find one
-    const relativeParts = href.substring(1).split("/");
-    while (relativeParts.length > 0) {
-      const path = relativeParts.join("/");
-      for (const listingHref of listingHrefs) {
-        if (listingHref.startsWith(path)) {
-          return listingHref;
-        }
+    // Match listings whose directory is a prefix of the post directory at a
+    // path-segment boundary, then keep the deepest one.
+    const postDir = directoryOf(href);
+    let best;
+    let bestLen = -1;
+    for (const listingHref of listingHrefs) {
+      const listingDir = directoryOf(listingHref);
+      if (postDir.startsWith(listingDir) && listingDir.length > bestLen) {
+        best = listingHref;
+        bestLen = listingDir.length;
       }
-      relativeParts.pop();
     }
-
-    return undefined;
+    return best;
   };
 
   const manageSidebarVisiblity = (el, placeholderDescriptor) => {
@@ -827,16 +873,31 @@ window.document.addEventListener("DOMContentLoaded", function (_event) {
 
 tabsets.init();
 
-function throttle(func, wait) {
+// With `trailing`, a call dropped during the wait runs once the wait ends, so
+// the last event of a burst is never lost.
+function throttle(func, wait, trailing = false) {
   let waiting = false;
-  return function () {
-    if (!waiting) {
-      func.apply(this, arguments);
-      waiting = true;
-      setTimeout(function () {
-        waiting = false;
-      }, wait);
+  let pending = null;
+  const release = function () {
+    if (pending) {
+      const [context, args] = pending;
+      pending = null;
+      func.apply(context, args);
+      setTimeout(release, wait);
+    } else {
+      waiting = false;
     }
+  };
+  return function () {
+    if (waiting) {
+      if (trailing) {
+        pending = [this, arguments];
+      }
+      return;
+    }
+    func.apply(this, arguments);
+    waiting = true;
+    setTimeout(release, wait);
   };
 }
 

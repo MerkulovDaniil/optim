@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.11">
+<meta name="generator" content="quarto-1.12.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -23,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+@media print {
+  html {
+    color-scheme: light only;
+  }
+  html, body, pre, code {
+    background-color: transparent;
+  }
+  body, a, a:visited, blockquote {
+    color: black;
+  }
+  pre, code {
+    padding: 0;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -38,14 +61,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-c65da67e2ccd7271deb104e05bb4b4d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2985fcfa2e43afc3ff4a427edbe84b2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -95,12 +119,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -124,12 +142,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -152,12 +164,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -181,12 +187,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
@@ -209,12 +209,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 <script defer="" type="text/javascript" src="./assets/toggle_button.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/copy-tex.min.js" integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
@@ -243,11 +237,11 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
@@ -263,13 +257,13 @@ ul.task-list li input[type="checkbox"] {
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Welcome to 💎fmin.xyz!</li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item">Welcome to 💎fmin.xyz!</li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -277,18 +271,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Theory</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section: Theory">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -298,12 +292,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Convex sets</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: Convex sets">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -389,21 +383,21 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/methods/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section: Methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Line search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Line search</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Line search">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
@@ -433,12 +427,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Zero order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Zero order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Zero order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
@@ -462,12 +456,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">First order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section: First order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
@@ -533,12 +527,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adaptive metric methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Adaptive metric methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Adaptive metric methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
@@ -582,12 +576,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/exercises/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Exercises</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Exercises">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -695,12 +689,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/applications/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Applications</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Applications">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -784,12 +778,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmarks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Benchmarks</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: Benchmarks">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
@@ -807,21 +801,18 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./docs/materials/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Materials</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Materials">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Tutorials</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
@@ -834,13 +825,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Visualizations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
@@ -1023,7 +1011,7 @@ ul.task-list li input[type="checkbox"] {
 </button>
 </div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -1057,8 +1045,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div id="listing-theory" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781525724639" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
-<a href="./docs/theory/convex sets/Affine_sets.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1795089218542" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
+<a href="./docs/theory/convex sets/Affine_sets.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/convex sets/line.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1068,8 +1056,8 @@ Affine set
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="30" data-listing-word-count-sort="5995">
-<a href="./docs/theory/Matrix_calculus.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="30" data-listing-word-count-sort="5995">
+<a href="./docs/theory/Matrix_calculus.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/vector_im.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1079,8 +1067,8 @@ Matrix calculus
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781525724640" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
-<a href="./docs/theory/convex sets/Convex_set.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1795089218543" data-listing-reading-time-sort="6" data-listing-word-count-sort="1015">
+<a href="./docs/theory/convex sets/Convex_set.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/convex sets/line_segment.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1090,8 +1078,8 @@ Convex set
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781525724640" data-listing-reading-time-sort="1" data-listing-word-count-sort="149">
-<a href="./docs/theory/convex sets/Conic_sets.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1795089218543" data-listing-reading-time-sort="1" data-listing-word-count-sort="149">
+<a href="./docs/theory/convex sets/Conic_sets.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/convex sets/cone.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1101,8 +1089,8 @@ Conic set
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="13" data-listing-word-count-sort="2551">
-<a href="./docs/theory/Convex_function.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="13" data-listing-word-count-sort="2551">
+<a href="./docs/theory/Convex_function.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/convex_function.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1112,8 +1100,8 @@ Convex function
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="7" data-listing-word-count-sort="1265">
-<a href="./docs/theory/Conjugate_set.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="7" data-listing-word-count-sort="1265">
+<a href="./docs/theory/Conjugate_set.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/conjugate_set.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1123,8 +1111,8 @@ Conjugate set
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1781525724631" data-listing-reading-time-sort="6" data-listing-word-count-sort="1123">
-<a href="./docs/theory/Conjugate function.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1795089218534" data-listing-reading-time-sort="6" data-listing-word-count-sort="1123">
+<a href="./docs/theory/Conjugate function.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/conj.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1134,8 +1122,8 @@ Conjugate function
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1781525724640" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072">
-<a href="./docs/theory/convex sets/Projection.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1795089218543" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072">
+<a href="./docs/theory/convex sets/Projection.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/theory/convex sets/proj_ball.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1145,8 +1133,8 @@ Projection
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
-<a href="./docs/theory/Dual norm.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
+<a href="./docs/theory/Dual norm.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/dual_pq.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1156,8 +1144,8 @@ Dual norm
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="12" data-listing-word-count-sort="2305">
-<a href="./docs/theory/Subgradient.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="12" data-listing-word-count-sort="2305">
+<a href="./docs/theory/Subgradient.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/conv_support.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1167,8 +1155,8 @@ Subgradient and subdifferential
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="14" data-listing-word-count-sort="2660">
-<a href="./docs/theory/Optimality.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="14" data-listing-word-count-sort="2660">
+<a href="./docs/theory/Optimality.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/critical_points.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1178,8 +1166,8 @@ Optimality conditions. KKT
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
-<a href="./docs/theory/Convex_optimization_problem.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="1" data-listing-word-count-sort="194">
+<a href="./docs/theory/Convex_optimization_problem.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/cop.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1189,8 +1177,8 @@ Convex optimization problem
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="23" data-listing-word-count-sort="4558">
-<a href="./docs/theory/Duality.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="23" data-listing-word-count-sort="4558">
+<a href="./docs/theory/Duality.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/partition.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1200,8 +1188,8 @@ Duality
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1781525724632" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
-<a href="./docs/theory/Rates_of_convergence.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1795089218535" data-listing-reading-time-sort="4" data-listing-word-count-sort="633">
+<a href="./docs/theory/Rates_of_convergence.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/theory/convergence.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1211,8 +1199,8 @@ Rates of convergence
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1781525785369">
-<a href="./docs/theory/Matrix_calculus-gfm.md" class="quarto-grid-link">
+<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1795089277379">
+<a href="./docs/theory/Matrix_calculus-gfm.md" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 
 </div></a>
@@ -1227,8 +1215,8 @@ Rates of convergence
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div id="listing-methods" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781525724412" data-listing-reading-time-sort="13" data-listing-word-count-sort="2559">
-<a href="./docs/methods/fom/GD.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1795089218306" data-listing-reading-time-sort="13" data-listing-word-count-sort="2559">
+<a href="./docs/methods/fom/GD.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/fom/GD_vs_GF.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1238,8 +1226,8 @@ Gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781525724407" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
-<a href="./docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1795089218300" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<a href="./docs/methods/adaptive_metrics/Newton.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/adaptive_metrics/newton_1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1249,8 +1237,8 @@ Newton method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781525724422" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
-<a href="./docs/methods/fom/heavy_ball.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1795089218316" data-listing-reading-time-sort="5" data-listing-word-count-sort="933">
+<a href="./docs/methods/fom/heavy_ball.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/fom/GD_vs_HB_hor.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1260,8 +1248,8 @@ Heavy Ball Method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781525724407" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
-<a href="./docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1795089218300" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
+<a href="./docs/methods/adaptive_metrics/Quasi_newton.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1271,8 +1259,8 @@ Quasi Newton methods
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1781525724417" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
-<a href="./docs/methods/fom/Subgradient descent.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1795089218310" data-listing-reading-time-sort="7" data-listing-word-count-sort="1224">
+<a href="./docs/methods/fom/Subgradient descent.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/fom/SD.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1282,8 +1270,8 @@ Subgradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1781525724414" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
-<a href="./docs/methods/fom/Projected_subgradient_descent.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1795089218308" data-listing-reading-time-sort="7" data-listing-word-count-sort="1305">
+<a href="./docs/methods/fom/Projected_subgradient_descent.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/fom/geom_bound.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1293,8 +1281,8 @@ Projected subgradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1781525724406" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
-<a href="./docs/methods/Simplex.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1795089218299" data-listing-reading-time-sort="10" data-listing-word-count-sort="1892">
+<a href="./docs/methods/Simplex.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/LP.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1304,8 +1292,8 @@ Linear Programming and simplex algorithm
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1781525724414" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
-<a href="./docs/methods/fom/Mirror_descent.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1795089218308" data-listing-reading-time-sort="9" data-listing-word-count-sort="1705">
+<a href="./docs/methods/fom/Mirror_descent.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/methods/fom/bregman.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1315,8 +1303,8 @@ Mirror descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1781525724403" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
-<a href="./docs/methods/Autograd.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1795089218296" data-listing-reading-time-sort="18" data-listing-word-count-sort="3560">
+<a href="./docs/methods/Autograd.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/comp_graph.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1326,8 +1314,8 @@ Automatic differentiation
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1781525724415" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
-<a href="./docs/methods/fom/SGD.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1795089218308" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<a href="./docs/methods/fom/SGD.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1337,8 +1325,8 @@ Stochastic gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1781525724414" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
-<a href="./docs/methods/fom/SAG.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1795089218308" data-listing-reading-time-sort="2" data-listing-word-count-sort="286">
+<a href="./docs/methods/fom/SAG.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1348,8 +1336,8 @@ Stochastic average gradient
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1781525724411" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
-<a href="./docs/methods/fom/ADAM.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1795089218305" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
+<a href="./docs/methods/fom/ADAM.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1359,8 +1347,8 @@ ADAM: A Method for Stochastic Optimization
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1781525724414" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
-<a href="./docs/methods/fom/Lookahead.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1795089218308" data-listing-reading-time-sort="2" data-listing-word-count-sort="225">
+<a href="./docs/methods/fom/Lookahead.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/fom/fast_vs_slow.png" alt="Illustration" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1370,8 +1358,8 @@ Lookahead Optimizer: <span class="math inline">k</span> steps forward, <span cla
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1781525724440" data-listing-reading-time-sort="23" data-listing-word-count-sort="4533">
-<a href="./docs/methods/fom/proximal_gradient.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="13" data-listing-file-modified-sort="1795089218335" data-listing-reading-time-sort="23" data-listing-word-count-sort="4533">
+<a href="./docs/methods/fom/proximal_gradient.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/fom/prox_vis.jpeg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1381,8 +1369,8 @@ Proximal gradient method
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1781525724475" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
-<a href="./docs/methods/zom/bee_algorithm.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="14" data-listing-file-modified-sort="1795089218371" data-listing-reading-time-sort="5" data-listing-word-count-sort="989">
+<a href="./docs/methods/zom/bee_algorithm.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/zom/Schwefel_function_plot.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1392,8 +1380,8 @@ Bee algorithm
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1781525724442" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
-<a href="./docs/methods/line_search/binary_search.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="15" data-listing-file-modified-sort="1795089218337" data-listing-reading-time-sort="2" data-listing-word-count-sort="343">
+<a href="./docs/methods/line_search/binary_search.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/line_search/binary_search.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1403,8 +1391,8 @@ Binary search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1781525724406" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
-<a href="./docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="16" data-listing-file-modified-sort="1795089218299" data-listing-reading-time-sort="5" data-listing-word-count-sort="921">
+<a href="./docs/methods/adaptive_metrics/CG.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/adaptive_metrics/cg_win.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1414,8 +1402,8 @@ Conjugate gradients
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1781525724442" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
-<a href="./docs/methods/line_search/golden_search.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="17" data-listing-file-modified-sort="1795089218337" data-listing-reading-time-sort="2" data-listing-word-count-sort="296">
+<a href="./docs/methods/line_search/golden_search.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/line_search/golden_search.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1425,8 +1413,8 @@ Golden search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1781525724442" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
-<a href="./docs/methods/line_search/inexact.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="18" data-listing-file-modified-sort="1795089218337" data-listing-reading-time-sort="3" data-listing-word-count-sort="553">
+<a href="./docs/methods/line_search/inexact.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/line_search/inexact.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1436,8 +1424,8 @@ Inexact Line Search
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1781525724407" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
-<a href="./docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="19" data-listing-file-modified-sort="1795089218300" data-listing-reading-time-sort="2" data-listing-word-count-sort="294">
+<a href="./docs/methods/adaptive_metrics/Natural_gradient.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1447,8 +1435,8 @@ Natural gradient descent
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1781525724475" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
-<a href="./docs/methods/zom/nelder-mead.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="20" data-listing-file-modified-sort="1795089218371" data-listing-reading-time-sort="4" data-listing-word-count-sort="777">
+<a href="./docs/methods/zom/nelder-mead.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/zom/nm_mishra3d.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1458,8 +1446,8 @@ Nelder–Mead
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="21" data-listing-file-modified-sort="1781525724631" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
-<a href="./docs/methods/zom/simulated-annealing.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="21" data-listing-file-modified-sort="1795089218534" data-listing-reading-time-sort="3" data-listing-word-count-sort="540">
+<a href="./docs/methods/zom/simulated-annealing.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/methods/zom/sa_wiki.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1469,8 +1457,8 @@ Simulated annealing
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="22" data-listing-file-modified-sort="1781525724443" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
-<a href="./docs/methods/line_search/parabola.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="22" data-listing-file-modified-sort="1795089218338" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+<a href="./docs/methods/line_search/parabola.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="/favicon.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1517,7 +1505,7 @@ Successive parabolic interpolation
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="4" data-listing-word-count-sort="752" data-listing-title-sort="Matrix calculus" data-listing-filename-sort="matrix_calculus.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="4" data-listing-word-count-sort="752" data-listing-title-sort="Matrix calculus" data-listing-filename-sort="matrix_calculus.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/matrix_calculus.html" class="title listing-title">Matrix calculus</a>
@@ -1525,7 +1513,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="8" data-listing-word-count-sort="1552" data-listing-title-sort="Convex sets" data-listing-filename-sort="convex_sets.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="8" data-listing-word-count-sort="1552" data-listing-title-sort="Convex sets" data-listing-filename-sort="convex_sets.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/convex_sets.html" class="title listing-title">Convex sets</a>
@@ -1533,7 +1521,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="3" data-listing-word-count-sort="417" data-listing-title-sort="Projection" data-listing-filename-sort="projection.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="2" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="3" data-listing-word-count-sort="417" data-listing-title-sort="Projection" data-listing-filename-sort="projection.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/projection.html" class="title listing-title">Projection</a>
@@ -1541,7 +1529,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="3" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="2" data-listing-word-count-sort="334" data-listing-title-sort="Separation" data-listing-filename-sort="separation.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="3" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="2" data-listing-word-count-sort="334" data-listing-title-sort="Separation" data-listing-filename-sort="separation.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/separation.html" class="title listing-title">Separation</a>
@@ -1549,7 +1537,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="4" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="5" data-listing-word-count-sort="974" data-listing-title-sort="Conjugate sets" data-listing-filename-sort="conjugate_sets.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="4" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="5" data-listing-word-count-sort="974" data-listing-title-sort="Conjugate sets" data-listing-filename-sort="conjugate_sets.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/conjugate_sets.html" class="title listing-title">Conjugate sets</a>
@@ -1557,7 +1545,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="5" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163" data-listing-title-sort="Convex functions" data-listing-filename-sort="convex_functions.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="5" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163" data-listing-title-sort="Convex functions" data-listing-filename-sort="convex_functions.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/convex_functions.html" class="title listing-title">Convex functions</a>
@@ -1565,7 +1553,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="6" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="2" data-listing-word-count-sort="337" data-listing-title-sort="Subgradient and subdifferential" data-listing-filename-sort="subgradient.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="6" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="2" data-listing-word-count-sort="337" data-listing-title-sort="Subgradient and subdifferential" data-listing-filename-sort="subgradient.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/subgradient.html" class="title listing-title">Subgradient and subdifferential</a>
@@ -1573,7 +1561,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="7" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="2" data-listing-word-count-sort="244" data-listing-title-sort="Conjugate functions" data-listing-filename-sort="conjugate_functions.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="7" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="2" data-listing-word-count-sort="244" data-listing-title-sort="Conjugate functions" data-listing-filename-sort="conjugate_functions.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/conjugate_functions.html" class="title listing-title">Conjugate functions</a>
@@ -1581,7 +1569,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="8" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="4" data-listing-word-count-sort="786" data-listing-title-sort="General optimization problems" data-listing-filename-sort="gop.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="8" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="4" data-listing-word-count-sort="786" data-listing-title-sort="General optimization problems" data-listing-filename-sort="gop.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/gop.html" class="title listing-title">General optimization problems</a>
@@ -1589,7 +1577,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="9" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="6" data-listing-word-count-sort="1114" data-listing-title-sort="Duality" data-listing-filename-sort="duality.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="9" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="6" data-listing-word-count-sort="1114" data-listing-title-sort="Duality" data-listing-filename-sort="duality.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/duality.html" class="title listing-title">Duality</a>
@@ -1597,7 +1585,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="10" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="2" data-listing-word-count-sort="258" data-listing-title-sort="Rates of convergence" data-listing-filename-sort="convergence.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="10" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="2" data-listing-word-count-sort="258" data-listing-title-sort="Rates of convergence" data-listing-filename-sort="convergence.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/convergence.html" class="title listing-title">Rates of convergence</a>
@@ -1605,7 +1593,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="11" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="3" data-listing-word-count-sort="431" data-listing-title-sort="Line search" data-listing-filename-sort="line_search.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="11" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="3" data-listing-word-count-sort="431" data-listing-title-sort="Line search" data-listing-filename-sort="line_search.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/line_search.html" class="title listing-title">Line search</a>
@@ -1613,7 +1601,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="12" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="3" data-listing-word-count-sort="525" data-listing-title-sort="CVXPY library" data-listing-filename-sort="cvxpy.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="12" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="3" data-listing-word-count-sort="525" data-listing-title-sort="CVXPY library" data-listing-filename-sort="cvxpy.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/cvxpy.html" class="title listing-title">CVXPY library</a>
@@ -1621,7 +1609,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="13" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="4" data-listing-word-count-sort="602" data-listing-title-sort="Automatic differentiation" data-listing-filename-sort="automatic_differentiation.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="13" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="4" data-listing-word-count-sort="602" data-listing-title-sort="Automatic differentiation" data-listing-filename-sort="automatic_differentiation.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/automatic_differentiation.html" class="title listing-title">Automatic differentiation</a>
@@ -1629,7 +1617,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="14" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="13" data-listing-word-count-sort="2528" data-listing-title-sort="Zero order methods" data-listing-filename-sort="zom.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="14" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="13" data-listing-word-count-sort="2528" data-listing-title-sort="Zero order methods" data-listing-filename-sort="zom.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/zom.html" class="title listing-title">Zero order methods</a>
@@ -1637,7 +1625,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="15" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="8" data-listing-word-count-sort="1487" data-listing-title-sort="First order methods" data-listing-filename-sort="fom.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="15" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="8" data-listing-word-count-sort="1487" data-listing-title-sort="First order methods" data-listing-filename-sort="fom.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/fom.html" class="title listing-title">First order methods</a>
@@ -1645,7 +1633,7 @@ Successive parabolic interpolation
 
 </tr>
 
-<tr data-index="16" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="2" data-listing-word-count-sort="338" data-listing-title-sort="Uncategorized" data-listing-filename-sort="uncategorized.md" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="16" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="2" data-listing-word-count-sort="338" data-listing-title-sort="Uncategorized" data-listing-filename-sort="uncategorized.md" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <a href="./docs/exercises/uncategorized.html" class="title listing-title">Uncategorized</a>
@@ -1661,8 +1649,8 @@ Successive parabolic interpolation
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div id="listing-applications" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781525724371" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163">
-<a href="./docs/applications/A-Star.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1795089218263" data-listing-reading-time-sort="6" data-listing-word-count-sort="1163">
+<a href="./docs/applications/A-Star.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/a_star_dijkstra.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1672,8 +1660,8 @@ Successive parabolic interpolation
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781525724380" data-listing-reading-time-sort="2" data-listing-word-count-sort="220">
-<a href="./docs/applications/deep_learning.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1795089218272" data-listing-reading-time-sort="2" data-listing-word-count-sort="220">
+<a href="./docs/applications/deep_learning.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/dl.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1683,8 +1671,8 @@ Deep learning
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1781525724381" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
-<a href="./docs/applications/knapsack_problem.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1795089218273" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<a href="./docs/applications/knapsack_problem.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/knapsack_problem_1.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1694,8 +1682,8 @@ Knapsack problem
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1781525724381" data-listing-reading-time-sort="3" data-listing-word-count-sort="439">
-<a href="./docs/applications/least_squares.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1795089218274" data-listing-reading-time-sort="3" data-listing-word-count-sort="439">
+<a href="./docs/applications/least_squares.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/lls_idea.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1705,8 +1693,8 @@ Linear least squares
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1781525724371" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
-<a href="./docs/applications/MLE.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1795089218263" data-listing-reading-time-sort="3" data-listing-word-count-sort="480">
+<a href="./docs/applications/MLE.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/mle.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1716,8 +1704,8 @@ Maximum likelihood estimation
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1781525724381" data-listing-reading-time-sort="1" data-listing-word-count-sort="188">
-<a href="./docs/applications/ellipsoid.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1795089218273" data-listing-reading-time-sort="1" data-listing-word-count-sort="188">
+<a href="./docs/applications/ellipsoid.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/ellipsoid.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1727,8 +1715,8 @@ Minimum volume ellipsoid
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1781525724371" data-listing-reading-time-sort="2" data-listing-word-count-sort="339">
-<a href="./docs/applications/NN_Loss_Surface.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1795089218263" data-listing-reading-time-sort="2" data-listing-word-count-sort="339">
+<a href="./docs/applications/NN_Loss_Surface.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/nn_vis_CNN_line_no_drop.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1738,8 +1726,8 @@ Neural Network Loss Surface Visualization
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1781525724371" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
-<a href="./docs/applications/Neural_Lipschitz_constant.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1795089218263" data-listing-reading-time-sort="4" data-listing-word-count-sort="668">
+<a href="./docs/applications/Neural_Lipschitz_constant.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' src="docs/applications/adv_attack.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1749,8 +1737,8 @@ Neural network Lipschitz constant
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1781525724384" data-listing-reading-time-sort="3" data-listing-word-count-sort="520">
-<a href="./docs/applications/pca.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1795089218277" data-listing-reading-time-sort="3" data-listing-word-count-sort="520">
+<a href="./docs/applications/pca.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/applications/pca_exp_var_iris.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1760,8 +1748,8 @@ Principal component analysis
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1781525724385" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
-<a href="./docs/applications/rendezvous.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1795089218277" data-listing-reading-time-sort="1" data-listing-word-count-sort="164">
+<a href="./docs/applications/rendezvous.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/applications/rendezvous.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1771,8 +1759,8 @@ Rendezvous problem
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1781525724392" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
-<a href="./docs/applications/total_variation_inpainting.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1795089218285" data-listing-reading-time-sort="3" data-listing-word-count-sort="407">
+<a href="./docs/applications/total_variation_inpainting.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/applications/tv_start.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1782,8 +1770,8 @@ Total variation in-painting
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1781525724392" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
-<a href="./docs/applications/salesman_problem.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="11" data-listing-file-modified-sort="1795089218284" data-listing-reading-time-sort="3" data-listing-word-count-sort="425">
+<a href="./docs/applications/salesman_problem.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/applications/salesman_problem.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1793,8 +1781,8 @@ Travelling salesman problem
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1781525724394" data-listing-reading-time-sort="3" data-listing-word-count-sort="411">
-<a href="./docs/applications/two_way_partitioning.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="12" data-listing-file-modified-sort="1795089218287" data-listing-reading-time-sort="3" data-listing-word-count-sort="411">
+<a href="./docs/applications/two_way_partitioning.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <p class="card-img-top"><img loading='lazy' data-src="docs/applications/partition.svg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
@@ -1814,8 +1802,8 @@ Two way partitioning problem
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div id="listing-benchmarks" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-4">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
-<a href="./docs/benchmarks/CNN_on_Fashion_MNIST.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="1" data-listing-word-count-sort="23">
+<a href="./docs/benchmarks/CNN_on_Fashion_MNIST.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
 <div class="card-body post-contents">
@@ -1825,8 +1813,8 @@ CNN on FashionMNIST
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1781525724395" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
-<a href="./docs/benchmarks/linear_least_squares.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1795089218288" data-listing-reading-time-sort="1" data-listing-word-count-sort="53">
+<a href="./docs/benchmarks/linear_least_squares.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left borderless">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
 <div class="card-body post-contents">
@@ -1947,11 +1935,34 @@ Linear Least Squares
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1960,13 +1971,79 @@ Linear Least Squares
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
+            // an explicit target wins over the site-wide setting
+            if (link.getAttribute("target") === null) {
+              link.setAttribute("target", "_blank");
+            }
+            if (link.getAttribute("rel") === null && opensNewContext(link)) {
               link.setAttribute("rel", "noopener");
             }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1980,6 +2057,7 @@ Linear Least Squares
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -2142,44 +2220,54 @@ Linear Least Squares
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -2277,6 +2365,9 @@ Linear Least Squares
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 

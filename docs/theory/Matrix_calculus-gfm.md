@@ -10,18 +10,16 @@ real vectors of length $n$ is denoted by $\mathbb{R}^n$, while the space
 of real-valued $m \times n$ matrices is denoted by
 $\mathbb{R}^{m \times n}$. That’s it: [^1]
 
-<span id="eq-vector">
-$$x = \begin{bmatrix}
+<span id="eq-vector">$$x = \begin{bmatrix}
 x_1 \\
 x_2 \\
 \vdots \\
 x_n
 \end{bmatrix} \quad x^T = \begin{bmatrix}
 x_1 & x_2 & \dots & x_n
-\end{bmatrix} \quad x \in \mathbb{R}^n, x_i \in \mathbb{R}
- \qquad(1)$$</span> Similarly, if $A \in \mathbb{R}^{m \times n}$ we
-denote transposition as $A^T \in \mathbb{R}^{n \times m}$:
-$$A = \begin{bmatrix}
+\end{bmatrix} \quad x \in \mathbb{R}^n, x_i \in \mathbb{R} \qquad(1)$$</span>
+Similarly, if $A \in \mathbb{R}^{m \times n}$ we denote transposition as
+$A^T \in \mathbb{R}^{n \times m}$: $$A = \begin{bmatrix}
 a_{11} & a_{12} & \dots & a_{1n} \\
 a_{21} & a_{22} & \dots & a_{2n} \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -74,19 +72,18 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
-> > **Answer: No.**  
+> > **Answer: No.**\
 > > A positive semidefinite matrix does not necessarily have all
 > > non-negative entries. The definition of a positive semidefinite
 > > matrix is that for any non-zero vector $x$, the quadratic form
 > > $x^\top A x > 0$. This implies that the matrix has non-negative
 > > eigenvalues, but the individual entries of the matrix could be
 > > negative. For example, the matrix
-> > $$A = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$$
-> > is positive semidefinite, because
-> > $x^\top A x = x_1^2 + x_2^2 - 2x_1x_2 \geq 0$ but it contains
-> > negative entries.
+> > $$A = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$$ is positive
+> > semidefinite, because $x^\top A x = x_1^2 + x_2^2 - 2x_1x_2 \geq 0$
+> > but it contains negative entries.
 > >
 > > </div>
 > >
@@ -113,17 +110,16 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
-> > **Answer: No.**  
+> > **Answer: No.**\
 > > A matrix being symmetric does not necessarily mean it is positive
 > > definite. A symmetric matrix can have negative or zero eigenvalues,
 > > in which case it would be either negative definite, indefinite, or
 > > positive semidefinite. A matrix is positive definite only if all its
 > > eigenvalues are positive. For instance, the matrix
-> > $$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$
-> > is symmetric but not positive definite because it has a negative
-> > eigenvalue.
+> > $$A = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$$ is symmetric
+> > but not positive definite because it has a negative eigenvalue.
 > >
 > > </div>
 > >
@@ -150,18 +146,17 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > It is a tricky question. By definition a matrix is called positive
 > > definite only if it is symmetric. But in fact, if we talk about the
 > > real field $x \in \mathbb{R}^n$, it is easy to imagine a
 > > non-symmetric matrix for which $x^T A x \geq 0$ is satisfied, but
 > > the matrix will not be symmetric:
-> > $$A = \begin{pmatrix} 1 & 0 \\ -3 & 1 \end{pmatrix}$$
-> > However, the reader will not be able to come up with such a matrix
-> > if we allow the vector $x \in \mathbb{C}^n$ to have complex entries
-> > and replace the transpose in the definition with a complex
-> > conjugation.
+> > $$A = \begin{pmatrix} 1 & 0 \\ -3 & 1 \end{pmatrix}$$ However, the
+> > reader will not be able to come up with such a matrix if we allow
+> > the vector $x \in \mathbb{C}^n$ to have complex entries and replace
+> > the transpose in the definition with a complex conjugation.
 > >
 > > </div>
 > >
@@ -174,9 +169,8 @@ $\mathbb{S}^n_{+} (\mathbb{S}^n_{-})$
 ### Matrix and vector product
 
 Let $A$ be a matrix of size $m \times n$, and $B$ be a matrix of size
-$n \times p$, and let the product $AB$ be:
-$$C = AB$$
-then $C$ is a $m \times p$ matrix, with element $(i, j)$ given by:
+$n \times p$, and let the product $AB$ be: $$C = AB$$ then $C$ is a
+$m \times p$ matrix, with element $(i, j)$ given by:
 $$c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}.$$
 
 This operation in a naive form requires $\mathcal{O}(n^3)$ arithmetical
@@ -199,10 +193,8 @@ matrices.
 > </div>
 
 Let $A$ be a matrix of shape $m \times n$, and $x$ be $n \times 1$
-vector, then the $i$-th component of the product:
-$$z = Ax$$
-is given by:
-$$z_i = \sum_{k=1}^n a_{ik}x_k$$
+vector, then the $i$-th component of the product: $$z = Ax$$ is given
+by: $$z_i = \sum_{k=1}^n a_{ik}x_k$$
 
 This operation in a naive form requires $\mathcal{O}(n^2)$ arithmetical
 operations, where $n$ is usually assumed as the largest dimension of
@@ -262,24 +254,24 @@ The norm should satisfy certain properties:
     inequality)
 3.  If $\Vert x \Vert = 0$ then $x = 0$
 
-The distance between two vectors is then defined as $$ 
-d(x, y) = \Vert x - y \Vert. $$
-The most well-known and widely used norm is **Euclidean norm**:
-$$\Vert x \Vert_2 = \sqrt{\sum_{i=1}^n |x_i|^2},$$
-which corresponds to the distance in our real life. If the vectors have
-complex elements, we use their modulus.
+The distance between two vectors is then defined as
+$$d(x, y) = \Vert x - y \Vert.$$ The most well-known and widely used
+norm is **Euclidean norm**:
+$$\Vert x \Vert_2 = \sqrt{\sum_{i=1}^n |x_i|^2},$$ which corresponds to
+the distance in our real life. If the vectors have complex elements, we
+use their modulus.
 
 Euclidean norm, or $2$-norm, is a subclass of an important class of
 $p$-norms:
 
-$$\Vert x \Vert_p = \Big(\sum_{i=1}^n |x_i|^p\Big)^{1/p}. $$
-There are two very important special cases. The infinity norm, or
-Chebyshev norm is defined as the element of the maximal absolute value:
-$$\Vert x \Vert_{\infty} = \max_i | x_i| $$
-$L_1$ norm (or **Manhattan distance**) which is defined as the sum of
-modules of the elements of $x$:
+$$\Vert x \Vert_p = \Big(\sum_{i=1}^n |x_i|^p\Big)^{1/p}.$$ There are
+two very important special cases. The infinity norm, or Chebyshev norm
+is defined as the element of the maximal absolute value:
+$$\Vert x \Vert_{\infty} = \max_i | x_i|$$ $L_1$ norm (or **Manhattan
+distance**) which is defined as the sum of modules of the elements of
+$x$:
 
-$$\Vert x \Vert_1 = \sum_i |x_i| $$
+$$\Vert x \Vert_1 = \sum_i |x_i|$$
 
 $L_1$ norm plays a very important role: it all relates to the
 **compressed sensing** methods that emerged in the mid-00s as one of the
@@ -398,8 +390,7 @@ $$\langle X, Y \rangle = \text{tr}(X^T Y) = \sum\limits_{i=1}^m\sum\limits_{j=1}
 > <div class="callout-example">
 >
 > Simplify the following expression:
-> $$\sum\limits_{i=1}^n \langle S^{-1} a_i, a_i \rangle,$$
-> where
+> $$\sum\limits_{i=1}^n \langle S^{-1} a_i, a_i \rangle,$$ where
 > $S = \sum\limits_{i=1}^n a_ia_i^T, a_i \in \mathbb{R}^n, \det(S) \neq 0$
 >
 > > [!SOLUTION]
@@ -408,7 +399,7 @@ $$\langle X, Y \rangle = \text{tr}(X^T Y) = \sum\limits_{i=1}^m\sum\limits_{j=1}
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > 1.  Let $A$ be the matrix of columns vector $a_i$, therefore matrix
 > >     $A^T$ contains rows $a_i^T$
@@ -433,13 +424,11 @@ $$\langle X, Y \rangle = \text{tr}(X^T Y) = \sum\limits_{i=1}^m\sum\limits_{j=1}
 > >     matrix $S^{-1} A$ is clearly $S^>{-1} a_i$.
 > >
 > >     Indeed, $m_{ii} = a_i^T S^{-1} a_i$, then we can finish the
-> >     exercise:
-> >     $$ \begin{split}
+> >     exercise: $$\begin{split}
 > >      \sum\limits_{i=1}^n a_i^T S^{-1} a_i &= \sum\limits_{i=1}^n m_{ii} = \text{tr} M \\
 > >      &= \text{tr} \left( A^T S^{-1} A\right) =  \text{tr} \left( AA^T S^{-1} \right) \\
 > >      &=  \text{tr } \left( SS^{-1} \right) =  \text{tr} \left( I\right) = n
-> >      \end{split}
-> >      $$
+> >      \end{split}$$
 > >
 > > </div>
 > >
@@ -454,8 +443,7 @@ $$\langle X, Y \rangle = \text{tr}(X^T Y) = \sum\limits_{i=1}^m\sum\limits_{j=1}
 #### Eigenvalues
 
 A scalar value $\lambda$ is an eigenvalue of the $n \times n$ matrix $A$
-if there is a nonzero vector $q$ such that $$ 
-Aq = \lambda q. $$
+if there is a nonzero vector $q$ such that $$Aq = \lambda q.$$
 
 > [!EXAMPLE]
 >
@@ -465,17 +453,14 @@ Aq = \lambda q. $$
 >
 > <div class="callout-example">
 >
-> Consider a 2x2 matrix:
-> $$A = \begin{bmatrix}
+> Consider a 2x2 matrix: $$A = \begin{bmatrix}
 > 2 & 1 \\
 > 1 & 2 \\
-> \end{bmatrix}$$
-> The eigenvalues of this matrix can be found by solving the
-> characteristic equation:
-> $$\text{det}(A - \lambda I) = 0$$
-> For this matrix, the eigenvalues are $\lambda_1 = 1$ and
-> $\lambda_2 = 3$. These eigenvalues tell us about the scaling factors
-> of the matrix along its principal axes.
+> \end{bmatrix}$$ The eigenvalues of this matrix can be found by solving
+> the characteristic equation: $$\text{det}(A - \lambda I) = 0$$ For
+> this matrix, the eigenvalues are $\lambda_1 = 1$ and $\lambda_2 = 3$.
+> These eigenvalues tell us about the scaling factors of the matrix
+> along its principal axes.
 >
 > </div>
 >
@@ -495,8 +480,7 @@ as symmetric, its eigenvalues are all positive real numbers.
 >
 > <div class="callout-theorem">
 >
-> $$A \succeq 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } \geq 0 $$
->
+> $$A \succeq 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } \geq 0$$
 > $$A \succ 0 \Leftrightarrow \text{all eigenvalues of } A \text{ are } > 0$$
 >
 > > [!PROOF]
@@ -505,23 +489,22 @@ as symmetric, its eigenvalues are all positive real numbers.
 > >
 > > <div>
 > >
-> > <div class="callout-proof" collapse="true">
+> > <div class="callout-proof" data-collapse="true">
 > >
 > > We will just prove the first point here. The second one can be
 > > proved analogously.
 > >
 > > 1.  $\rightarrow$ Suppose some eigenvalue $\lambda$ is negative and
 > >     let $x$ denote its corresponding eigenvector. Then
-> >     $$Ax = \lambda x \rightarrow x^T Ax = \lambda x^T x < 0$$
-> >     which contradicts the condition of $A \succeq 0$.
+> >     $$Ax = \lambda x \rightarrow x^T Ax = \lambda x^T x < 0$$ which
+> >     contradicts the condition of $A \succeq 0$.
 > > 2.  $\leftarrow$ For any symmetric matrix, we can pick a set of
 > >     eigenvectors $v_1, \dots, v_n$ that form an orthogonal basis of
-> >     $\mathbb{R}^n$. Pick any $x \in \mathbb{R}^n$.
-> >     $$\begin{split}
+> >     $\mathbb{R}^n$. Pick any $x \in \mathbb{R}^n$. $$\begin{split}
 > >     x^T A x &= (\alpha_1 v_1 + \ldots + \alpha_n v_n)^T A (\alpha_1 v_1 + \ldots + \alpha_n v_n)\\
 > >     &= \sum \alpha_i^2 v_i^T A v_i = \sum \alpha_i^2 \lambda_i v_i^T v_i \geq 0
-> >     \end{split}$$
-> >     here we have used the fact that $v_i^T v_j = 0$, for $i \neq j$.
+> >     \end{split}$$ here we have used the fact that $v_i^T v_j = 0$,
+> >     for $i \neq j$.
 > >
 > > </div>
 > >
@@ -549,8 +532,7 @@ as symmetric, its eigenvalues are all positive real numbers.
 Suppose $A \in S_n$, i.e., $A$ is a real symmetric $n \times n$ matrix.
 Then $A$ can be factorized as
 
-$$ 
-A = Q\Lambda Q^T,$$
+$$A = Q\Lambda Q^T,$$
 
 where $Q \in \mathbb{R}^{n \times n}$ is orthogonal, i.e., satisfies
 $Q^T Q = I$, and $\Lambda = \text{diag}(\lambda_1, \ldots , \lambda_n)$.
@@ -614,7 +596,7 @@ $V \in \mathbb{R}^{n \times r}$ satisfies $V^T V = I$, and $\Sigma$ is a
 diagonal matrix with $\Sigma = \text{diag}(\sigma_1, ..., \sigma_r)$,
 such that
 
-$$\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0. $$
+$$\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r > 0.$$
 
 This factorization is called the **singular value decomposition (SVD)**
 of $A$. The columns of $U$ are called left singular vectors of $A$, the
@@ -635,17 +617,14 @@ $v_i \in \mathbb{R}^n$ are the right singular vectors.
 >
 > <div class="callout-example">
 >
-> Consider a 2x2 matrix:
-> $$B = \begin{bmatrix}
+> Consider a 2x2 matrix: $$B = \begin{bmatrix}
 > 4 & 0 \\
 > 0 & 2 \\
-> \end{bmatrix}$$
-> The singular value decomposition of this matrix can be represented as:
-> $$B = U \Sigma V^T.$$
-> Where $U$ and $V$ are orthogonal matrices and $\Sigma$ is a diagonal
-> matrix with the singular values on its diagonal. For this matrix, the
-> singular values are 4 and 2, which are also the eigenvalues of the
-> matrix.
+> \end{bmatrix}$$ The singular value decomposition of this matrix can be
+> represented as: $$B = U \Sigma V^T.$$ Where $U$ and $V$ are orthogonal
+> matrices and $\Sigma$ is a diagonal matrix with the singular values on
+> its diagonal. For this matrix, the singular values are 4 and 2, which
+> are also the eigenvalues of the matrix.
 >
 > </div>
 >
@@ -660,12 +639,11 @@ $v_i \in \mathbb{R}^n$ are the right singular vectors.
 > <div class="callout-example">
 >
 > Let $A \in \mathbb{R}^{m \times n}$, and let $q := \min\{m, n\}$. Show
-> that  
->
-> $$\|A\|_F^2 = \sum_{i=1}^{q} \sigma_i^2(A),$$
-> where $\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0$ are the
-> singular values of matrix $A$. Hint: use the connection between
-> Frobenius norm and scalar product and SVD.
+> that\
+> $$\|A\|_F^2 = \sum_{i=1}^{q} \sigma_i^2(A),$$ where
+> $\sigma_1(A) \geq \ldots \geq \sigma_q(A) \geq 0$ are the singular
+> values of matrix $A$. Hint: use the connection between Frobenius norm
+> and scalar product and SVD.
 >
 > > [!SOLUTION]
 > >
@@ -673,7 +651,7 @@ $v_i \in \mathbb{R}^n$ are the right singular vectors.
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > 1.  $\|A\|_F^2 = \langle A, A\rangle = \text{tr }(A^T A)$
 > > 2.  Using SVD: $A = U \Sigma V^T \quad A^T = V \Sigma U^T$
@@ -704,7 +682,7 @@ $v_i \in \mathbb{R}^n$ are the right singular vectors.
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > $$\sigma(A) = \lambda(A) > 0$$
 > >
@@ -733,7 +711,7 @@ $v_i \in \mathbb{R}^n$ are the right singular vectors.
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > $$\sigma(A) = \sqrt{\lambda(A^TA)} = |\lambda(A)|$$
 > >
@@ -863,16 +841,14 @@ $$\text{tr} (ABCD) = \text{tr} (DABC) = \text{tr} (CDAB) = \text{tr} (BCDA)$$
 >
 > <div class="callout-example">
 >
-> For the matrix:  
->
+> For the matrix:\
 > $$C = \begin{bmatrix}
 > 2 & 1 \\
 > 1 & 3 \\
-> \end{bmatrix}$$
-> The determinant is $\text{det}(C) = 6 - 1 = 5$, and the trace is
-> $\text{tr}(C) = 2 + 3 = 5$. The determinant gives us a measure of the
-> volume scaling factor of the matrix, while the trace provides the sum
-> of the eigenvalues.
+> \end{bmatrix}$$ The determinant is $\text{det}(C) = 6 - 1 = 5$, and
+> the trace is $\text{tr}(C) = 2 + 3 = 5$. The determinant gives us a
+> measure of the volume scaling factor of the matrix, while the trace
+> provides the sum of the eigenvalues.
 >
 > </div>
 >
@@ -939,9 +915,8 @@ vector is always orthogonal to the contour line in the point.
 > \begin{bmatrix}
 > 2x \\
 > 2y \\
-> \end{bmatrix}$$
-> This gradient points in the direction of the steepest ascent of the
-> function.
+> \end{bmatrix}$$ This gradient points in the direction of the steepest
+> ascent of the function.
 >
 > </div>
 >
@@ -1090,14 +1065,11 @@ $$J_f = f'(x) = \dfrac{df}{dx^T} = \begin{pmatrix}
 >
 > <div class="callout-example">
 >
-> For the function  
->
+> For the function\
 > $$f(x, y) = \begin{bmatrix}
 > x + y \\
 > x - y \\
-> \end{bmatrix}, $$
-> the Jacobian is:
-> $$J_f(x, y) = \begin{bmatrix}
+> \end{bmatrix},$$ the Jacobian is: $$J_f(x, y) = \begin{bmatrix}
 > 1 & 1 \\
 > 1 & -1 \\
 > \end{bmatrix}$$
@@ -1191,12 +1163,11 @@ Figure 7: First order Taylor approximation near the point $x_0$
 > <div class="callout-example">
 >
 > For the function $f(x) = e^x$ around the point $x_0 = 0$, the first
-> order Taylor approximation is:
-> $$f_{x_0}^I(x) = 1 + x$$
-> The second-order Taylor approximation is:
-> $$f_{x_0}^{II}(x) = 1 + x + \frac{x^2}{2}$$
-> These approximations provide polynomial representations of the
-> function near the point $x_0$.
+> order Taylor approximation is: $$f_{x_0}^I(x) = 1 + x$$ The
+> second-order Taylor approximation is:
+> $$f_{x_0}^{II}(x) = 1 + x + \frac{x^2}{2}$$ These approximations
+> provide polynomial representations of the function near the point
+> $x_0$.
 >
 > </div>
 >
@@ -1250,45 +1221,38 @@ functions.
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > **First-order Taylor Approximation**
 > >
 > > 1.  **Function evaluation at $x_0$:**
-> >     $$  f(x_0) = \dfrac{1}{2}x_0^T A x_0 - b^T x_0 + c
-> >       $$
+> >     $$f(x_0) = \dfrac{1}{2}x_0^T A x_0 - b^T x_0 + c$$
 > >
 > > 2.  **Gradient of $f(x)$:** The gradient of $f(x)$ is:
-> >     $$  \nabla f(x) = \frac12(A+A^T) x - b
-> >       $$ So, at $x_0$:
-> >     $$  \nabla f(x_0) = \frac12(A+A^T) x_0 - b
-> >       $$
+> >     $$\nabla f(x) = \frac12(A+A^T) x - b$$ So, at $x_0$:
+> >     $$\nabla f(x_0) = \frac12(A+A^T) x_0 - b$$
 > >
 > > 3.  **First-order approximation:** Using the first-order Taylor
 > >     expansion formula:
-> >     $$  f_{x_0}^I(x) = f(x_0) + \nabla f(x_0)^T (x - x_0)
-> >       $$ Substituting the expressions:
-> >     $$  \begin{split}
+> >     $$f_{x_0}^I(x) = f(x_0) + \nabla f(x_0)^T (x - x_0)$$
+> >     Substituting the expressions: $$\begin{split}
 > >       f_{x_0}^I(x) &= \left( \dfrac{1}{2}x_0^T A x_0 - b^T x_0 + c \right) + (\frac12(A+A^T) x_0 - b)^T (x - x_0)\\ 
 > >       &= c - \frac12x_0^T(A+A^T)x_0 + \left(\frac12(A+A^T) x_0 - b\right)x
-> >       \end{split}
-> >       $$
+> >       \end{split}$$
 > >
 > > **Second-order Taylor Approximation**
 > >
 > > 1.  **Hessian matrix of $f(x)$:** The Hessian of $f(x)$ is:
-> >     $$  \nabla^2 f(x) = \frac12(A+A^T)
-> >       $$ Since $A$ is constant, it is the same at $x_0$.
+> >     $$\nabla^2 f(x) = \frac12(A+A^T)$$ Since $A$ is constant, it is
+> >     the same at $x_0$.
 > >
 > > 2.  **Second-order approximation:** Using the second-order Taylor
 > >     expansion formula:
-> >     $$  f_{x_0}^{II}(x) = f_{x_0}^I(x) + \dfrac{1}{2}(x - x_0)^T A (x - x_0)
-> >       $$ Substituting the expressions:
-> >     $$  \begin{split}
+> >     $$f_{x_0}^{II}(x) = f_{x_0}^I(x) + \dfrac{1}{2}(x - x_0)^T A (x - x_0)$$
+> >     Substituting the expressions: $$\begin{split}
 > >       f_{x_0}^{II}(x) &= c - \frac12x_0^T(A+A^T)x_0 + \left(\frac12(A+A^T) x_0 - b\right)x + \dfrac{1}{2}(x - x_0)^T A (x - x_0) \\
 > >       &= \dfrac{1}{2}x^T A x - b^Tx + c = f(x)
-> >       \end{split}
-> >       $$
+> >       \end{split}$$
 > >
 > > </div>
 > >
@@ -1347,11 +1311,11 @@ be convenient to use the differential notation here. [^3]
 > Let $x \in S$ be an interior point of the set $S$, and let
 > $D : U \rightarrow V$ be a linear operator. We say that the function
 > $f$ is differentiable at the point $x$ with derivative $D$ if for all
-> sufficiently small $h \in U$ the following decomposition holds: $$ 
-> f(x + h) = f(x) + D[h] + o(\|h\|)$$
-> If for any linear operator $D : U \rightarrow V$ the function $f$ is
-> not differentiable at the point $x$ with derivative $D$, then we say
-> that $f$ is not differentiable at the point $x$.
+> sufficiently small $h \in U$ the following decomposition holds:
+> $$f(x + h) = f(x) + D[h] + o(\|h\|)$$ If for any linear operator
+> $D : U \rightarrow V$ the function $f$ is not differentiable at the
+> point $x$ with derivative $D$, then we say that $f$ is not
+> differentiable at the point $x$.
 >
 > </div>
 >
@@ -1406,28 +1370,24 @@ variables (or matrix functions).
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
-> > 1.  Let’s write down differential $df$
-> >     $$ \begin{split}
+> > 1.  Let’s write down differential $df$ $$\begin{split}
 > >      df &= d\left(\langle Ax, x\rangle - \langle b, x\rangle + c\right) \\
 > >      &= \langle Ax, dx\rangle + \langle x, Adx\rangle - \langle b, dx\rangle \\
 > >      &= \langle Ax, dx\rangle + \langle A^Tx, dx\rangle - \langle b, dx\rangle \\
 > >      &= \langle (A+A^T)x - b, dx\rangle  \\
-> >      \end{split}
-> >      $$
+> >      \end{split}$$
 > >
 > >     Which essentially means $\nabla f = (A+A^T)x - b$.
 > >
 > > 2.  Let’s find $d^2f = d(df)$, assuming, that
-> >     $dx=dx_1 = \text{const}$:
-> >     $$ \begin{split}
+> >     $dx=dx_1 = \text{const}$: $$\begin{split}
 > >      d^2f &= d\left(\langle (A+A^T)x - b, dx_1\rangle\right) \\
 > >      &= \langle (A+A^T)dx, dx_1\rangle \\
 > >      &= \langle dx, (A+A^T)^Tdx_1\rangle \\
 > >      &= \langle (A+A^T)dx_1, dx\rangle 
-> >      \end{split}
-> >      $$
+> >      \end{split}$$
 > >
 > >     Thus, the hessian is $\nabla^2 f = (A+A^T)$.
 > >
@@ -1455,12 +1415,11 @@ variables (or matrix functions).
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > 1.  It is essential for $A$ to be positive definite, because it is a
 > >     logarithm argument. So, $A \in \mathbb{S}^n_{++}$Let’s find the
-> >     differential first:
-> >     $$\begin{split}
+> >     differential first: $$\begin{split}
 > >         df &= d \left( \ln \langle x, Ax\rangle \right) = \dfrac{d \left( \langle x, Ax\rangle \right)}{ \langle x, Ax\rangle} = \dfrac{\langle dx, Ax\rangle +  \langle x, d(Ax)\rangle}{ \langle x, Ax\rangle} = \\
 > >         &= \dfrac{\langle Ax, dx\rangle + \langle x, Adx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle Ax, dx\rangle + \langle A^T x, dx\rangle}{ \langle x, Ax\rangle} = \dfrac{\langle (A + A^T) x, dx\rangle}{ \langle x, Ax\rangle} 
 > >     \end{split}$$
@@ -1494,10 +1453,9 @@ variables (or matrix functions).
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
-> > Let’s write down differential $df$
-> > $$\begin{split}
+> > Let’s write down differential $df$ $$\begin{split}
 > > df &= d\left(\Vert AX - B\Vert_F\right) = d\left(\langle AX - B, AX - B \rangle^{\frac12}\right) \\
 > > &= \frac12 \langle AX - B, AX - B \rangle^{-\frac12} 2\langle AX - B, d\left(AX - B\right) \rangle \\
 > > &= \dfrac{\langle (AX-B), AdX\rangle}{\sqrt{\langle AX - B, AX - B \rangle}} =\dfrac{\langle A^T(AX-B), dX\rangle}{\Vert AX - B\Vert_F}
@@ -1530,7 +1488,7 @@ variables (or matrix functions).
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > $df(X) = d\left(\langle S, X\rangle - \log \det X\right) = \langle S, dX\rangle - \dfrac{d\left(\det X\right)}{\det X} = \langle S, dX\rangle - \dfrac{\det X \langle X^{-T}, dX \rangle}{\det X} = \langle S - X^{-T}, dX \rangle$
 > >
@@ -1561,58 +1519,47 @@ variables (or matrix functions).
 > >
 > > <div>
 > >
-> > <div class="callout-solution" collapse="true">
+> > <div class="callout-solution" data-collapse="true">
 > >
 > > 1.  Let’s start by computing the differential $df$. We have:
-> >     $$ f(x) = \ln \left( 1 + \exp\langle a, x\rangle\right)
-> >      $$
+> >     $$f(x) = \ln \left( 1 + \exp\langle a, x\rangle\right)$$
 > >
 > >     Using the chain rule, the differential is:
-> >     $$ df = d \left( \ln \left( 1 + \exp\langle a, x\rangle\right) \right)
-> >      = \frac{d \left( 1 + \exp\langle a, x\rangle \right)}{1 + \exp\langle a, x\rangle}
-> >      $$
+> >     $$df = d \left( \ln \left( 1 + \exp\langle a, x\rangle\right) \right)
+> >      = \frac{d \left( 1 + \exp\langle a, x\rangle \right)}{1 + \exp\langle a, x\rangle}$$
 > >
 > >     Now, compute the differential of the exponential term:
-> >     $$ d \left( \exp\langle a, x\rangle \right) = \exp\langle a, x\rangle \langle a, dx\rangle
-> >      $$
+> >     $$d \left( \exp\langle a, x\rangle \right) = \exp\langle a, x\rangle \langle a, dx\rangle$$
 > >
 > >     Substituting this into the previous equation, we get:
-> >     $$ df = \frac{\exp\langle a, x\rangle \langle a, dx\rangle}{1 + \exp\langle a, x\rangle}
-> >      $$
+> >     $$df = \frac{\exp\langle a, x\rangle \langle a, dx\rangle}{1 + \exp\langle a, x\rangle}$$
 > >
 > > 2.  To express $df$ in the desired form, we write:
-> >     $$ df = \left\langle \frac{\exp\langle a, x\rangle}{1 + \exp\langle a, x\rangle} a, dx\right\rangle
-> >      $$
+> >     $$df = \left\langle \frac{\exp\langle a, x\rangle}{1 + \exp\langle a, x\rangle} a, dx\right\rangle$$
 > >
 > >     Recall that the sigmoid function is defined as:
-> >     $$ \sigma(t) = \frac{1}{1 + \exp(-t)}
-> >      $$ Thus, we can rewrite the differential as:
-> >     $$ df = \langle \sigma(\langle a, x\rangle) a, dx \rangle
-> >      $$
+> >     $$\sigma(t) = \frac{1}{1 + \exp(-t)}$$ Thus, we can rewrite the
+> >     differential as:
+> >     $$df = \langle \sigma(\langle a, x\rangle) a, dx \rangle$$
 > >
 > >     Therefore, the gradient is:
-> >     $$ \nabla f(x) = \sigma(\langle a, x\rangle) a
-> >      $$
+> >     $$\nabla f(x) = \sigma(\langle a, x\rangle) a$$
 > >
 > > 3.  Now, let’s find the Hessian $\nabla^2 f(x)$ by differentiating
 > >     the gradient:
-> >     $$ d(\nabla f(x)) = d\left( \sigma(\langle a, x\rangle) a \right)
-> >      $$ Since $a$ is constant, we only need to differentiate the
-> >     sigmoid term. Using the chain rule:
-> >     $$ d\left( \sigma(\langle a, x\rangle) \right) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) \langle a, dx\rangle
-> >      $$
+> >     $$d(\nabla f(x)) = d\left( \sigma(\langle a, x\rangle) a \right)$$
+> >     Since $a$ is constant, we only need to differentiate the sigmoid
+> >     term. Using the chain rule:
+> >     $$d\left( \sigma(\langle a, x\rangle) \right) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) \langle a, dx\rangle$$
 > >
 > >     Therefore:
-> >     $$ d(\nabla f(x)) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) \langle a, dx\rangle a
-> >      $$
+> >     $$d(\nabla f(x)) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) \langle a, dx\rangle a$$
 > >
 > >     We can now express the Hessian as:
-> >     $$ \nabla^2 f(x) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) a a^T
-> >      $$
+> >     $$\nabla^2 f(x) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) a a^T$$
 > >
 > >     Thus, the Hessian matrix is:
-> >     $$ \nabla^2 f(x) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) a a^T
-> >      $$
+> >     $$\nabla^2 f(x) = \sigma(\langle a, x\rangle)(1 - \sigma(\langle a, x\rangle)) a a^T$$
 > >
 > > </div>
 > >

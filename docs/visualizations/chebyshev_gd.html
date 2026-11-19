@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.11">
+<meta name="generator" content="quarto-1.12.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -23,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+@media print {
+  html {
+    color-scheme: light only;
+  }
+  html, body, pre, code {
+    background-color: transparent;
+  }
+  body, a, a:visited, blockquote {
+    color: black;
+  }
+  pre, code {
+    padding: 0;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,14 +59,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c65da67e2ccd7271deb104e05bb4b4d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2985fcfa2e43afc3ff4a427edbe84b2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -119,13 +143,13 @@ ul.task-list li input[type="checkbox"] {
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/chebyshev_gd.html">Chebyshev’s acceleration of gradient descent</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/chebyshev_gd.html">Chebyshev’s acceleration of gradient descent</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -133,18 +157,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Theory</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section: Theory">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -154,12 +178,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Convex sets</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: Convex sets">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -245,21 +269,21 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section: Methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Line search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Line search</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Line search">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
@@ -289,12 +313,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Zero order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Zero order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Zero order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
@@ -318,12 +342,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">First order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section: First order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
@@ -389,12 +413,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adaptive metric methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Adaptive metric methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Adaptive metric methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
@@ -438,12 +462,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Exercises</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Exercises">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -551,12 +575,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Applications</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Applications">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -640,12 +664,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmarks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Benchmarks</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: Benchmarks">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
@@ -663,21 +687,18 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Materials</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Materials">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Tutorials</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
@@ -690,13 +711,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true">
- <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="true">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Visualizations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
@@ -873,7 +891,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -893,10 +911,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
 </div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/chebyshev_gd.html">Chebyshev’s acceleration of gradient descent</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/visualizations/cg_quad.html">Visualizations</a></li><li class="breadcrumb-item"><a href="../../docs/visualizations/chebyshev_gd.html">Chebyshev’s acceleration of gradient descent</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Chebyshev’s acceleration of gradient descent</h1>
 </div>
@@ -915,29 +933,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Suppose, we have a strongly convex quadratic function minimization problem solved by the gradient descent method:</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \qquad x_{k+1} = x_k - \alpha_k \nabla f(x_k).
-</span></p>
-<p>Let <span class="math inline">x^*</span> be the unique solution of the linear system <span class="math inline">Ax=b</span> and put <span class="math inline">e_k = \|x_k-x^*\|</span>, where <span class="math inline">x_{k+1}=x_k - \alpha_k (Ax_k-b)</span> is defined recursively starting from some <span class="math inline">x_0,</span> and <span class="math inline">\alpha_k</span> is a step size we’ll determine shortly. <span class="math display">
-e_{k+1} = (I-\alpha_k A)e_k.
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \qquad x_{k+1} = x_k - \alpha_k \nabla f(x_k).</span></p>
+<p>Let <span class="math inline">x^*</span> be the unique solution of the linear system <span class="math inline">Ax=b</span> and put <span class="math inline">e_k = \|x_k-x^*\|</span>, where <span class="math inline">x_{k+1}=x_k - \alpha_k (Ax_k-b)</span> is defined recursively starting from some <span class="math inline">x_0,</span> and <span class="math inline">\alpha_k</span> is a step size we’ll determine shortly. <span class="math display">e_{k+1} = (I-\alpha_k A)e_k.</span></p>
 <section id="polynomials" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="polynomials"><span class="header-section-number">1</span> Polynomials</h2>
 <p>The above calculation gives us <span class="math inline">e_k = p_k(A)e_0,</span></p>
-<p>where <span class="math inline">p_k</span> is the polynomial <span class="math display">
-p_k(a) = \prod_{i=1}^k (1-\alpha_ka).
-</span> We can upper bound the norm of the error term as <span class="math display">
-\|e_k\|\le \|p_k(A)\|\cdot\|e_0\|\,.
-</span></p>
-<p>Since <span class="math inline">A</span> is a symmetric matrix with eigenvalues in <span class="math inline">[\mu,L],</span>: <span class="math display">
-\|p_k(A)\|\le \max_{\mu\le a\le L} \left|p_k(a)\right|\,.
-</span> This leads to an interesting problem: Among all polynomials that satisfy <span class="math inline">p_k(0)=1</span> we’re looking for a polynomial whose magnitude is as small as possible in the interval <span class="math inline">[\mu, L]</span>.</p>
+<p>where <span class="math inline">p_k</span> is the polynomial <span class="math display">p_k(a) = \prod_{i=1}^k (1-\alpha_ka).</span> We can upper bound the norm of the error term as <span class="math display">\|e_k\|\le \|p_k(A)\|\cdot\|e_0\|\,.</span></p>
+<p>Since <span class="math inline">A</span> is a symmetric matrix with eigenvalues in <span class="math inline">[\mu,L],</span>: <span class="math display">\|p_k(A)\|\le \max_{\mu\le a\le L} \left|p_k(a)\right|\,.</span> This leads to an interesting problem: Among all polynomials that satisfy <span class="math inline">p_k(0)=1</span> we’re looking for a polynomial whose magnitude is as small as possible in the interval <span class="math inline">[\mu, L]</span>.</p>
 </section>
 <section id="naive-polynomial-solution" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="naive-polynomial-solution"><span class="header-section-number">2</span> Naive polynomial solution</h2>
-<p>A naive solution is to choose a uniform step size <span class="math inline">\alpha_k=\frac{2}{\mu+L}</span> in the expression. This choice makes <span class="math inline">|p_k(\mu)| = |p_k(L)|</span>. <span class="math display">
-\|e_k\|\le \left(1-\frac1{\varkappa}\right)^k\|e_0\|
-</span> This is exactly the rate we proved in the previous lecture for any smooth and strongly convex function.</p>
+<p>A naive solution is to choose a uniform step size <span class="math inline">\alpha_k=\frac{2}{\mu+L}</span> in the expression. This choice makes <span class="math inline">|p_k(\mu)| = |p_k(L)|</span>. <span class="math display">\|e_k\|\le \left(1-\frac1{\varkappa}\right)^k\|e_0\|</span> This is exactly the rate we proved in the previous lecture for any smooth and strongly convex function.</p>
 <p>Let’s look at this polynomial a bit closer. In the figure, we choose <span class="math inline">\alpha=1</span> and <span class="math inline">\beta=10</span> so that <span class="math inline">\kappa=10.</span> The relevant interval is therefore <span class="math inline">[1,10].</span></p>
 <p>Can we do better? The answer is yes.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -949,13 +955,11 @@ p_k(a) = \prod_{i=1}^k (1-\alpha_ka).
 <section id="chebyshev-polynomials" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="chebyshev-polynomials"><span class="header-section-number">3</span> Chebyshev polynomials</h2>
 <p>Chebyshev polynomials turn out to give an optimal answer to the question that we asked. Suitably rescaled, they minimize the absolute value in a desired interval <span class="math inline">[\mu, L]</span> while satisfying the normalization constraint of having value 1 at the origin.</p>
-<p><span class="math display">
-\begin{aligned}
+<p><span class="math display">\begin{aligned}
 T_0(x) &amp;= 1\\
 T_1(x) &amp;= x\\
 T_k(x) &amp;=2xT_{k-1}(x)-T_{k-2}(x),\qquad k\ge 2.\\
-\end{aligned}
-</span></p>
+\end{aligned}</span></p>
 <p>Let’s plot the standard Chebyshev polynomials (without rescaling):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -966,16 +970,10 @@ T_k(x) &amp;=2xT_{k-1}(x)-T_{k-2}(x),\qquad k\ge 2.\\
 <section id="rescaled-chebyshev-polynomials" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="rescaled-chebyshev-polynomials"><span class="header-section-number">4</span> Rescaled Chebyshev polynomials</h2>
 <p>Original Chebyshev polynomials are defined on the interval <span class="math inline">[-1,1]</span>. To use them for our purposes, we must rescale them to the interval <span class="math inline">[\mu, L]</span>.</p>
-<p>We will use the following affine transformation to map our interval <span class="math inline">[\mu, L]</span> to the standard interval <span class="math inline">[-1,1]</span> where Chebyshev polynomials are defined: <span class="math display">
-x = \frac{L + \mu - 2a}{L - \mu}, \quad a \in [\mu,L], \quad x \in [-1,1].
-</span></p>
+<p>We will use the following affine transformation to map our interval <span class="math inline">[\mu, L]</span> to the standard interval <span class="math inline">[-1,1]</span> where Chebyshev polynomials are defined: <span class="math display">x = \frac{L + \mu - 2a}{L - \mu}, \quad a \in [\mu,L], \quad x \in [-1,1].</span></p>
 <p>Note, that <span class="math inline">x=1</span> corresponds to <span class="math inline">a=\mu</span>, <span class="math inline">x=-1</span> corresponds to <span class="math inline">a=L</span> and <span class="math inline">x=0</span> corresponds to <span class="math inline">a=\frac{\mu+L}{2}</span>. This transformation ensures that the behavior of the Chebyshev polynomial on <span class="math inline">[-1,1]</span> is reflected on the interval <span class="math inline">[\mu, L]</span></p>
-<p>In our error analysis, we require that the polynomial equals 1 at 0 (i.e., <span class="math inline">p_k(0)=1</span>). After applying the transformation, the value <span class="math inline">T_k</span> takes at the point corresponding to <span class="math inline">a=0</span> might not be 1. Thus, we multiply by the inverse of <span class="math inline">T_k</span> evaluated at <span class="math display">
-\frac{L+\mu}{L-\mu}, \qquad \text{ensuring that} \qquad P_k(0)= T_k\left(\frac{L+\mu-0}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = 1.
-</span></p>
-<p>Let’s plot the rescaled Chebyshev polynomials <span class="math display">
-P_k(a) = T_k\left(\frac{L+\mu-2a}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1}
-</span> and observe, that they are much better behaved than the naive polynomials in terms of the magnitude in the interval <span class="math inline">[\mu, L]</span>.</p>
+<p>In our error analysis, we require that the polynomial equals 1 at 0 (i.e., <span class="math inline">p_k(0)=1</span>). After applying the transformation, the value <span class="math inline">T_k</span> takes at the point corresponding to <span class="math inline">a=0</span> might not be 1. Thus, we multiply by the inverse of <span class="math inline">T_k</span> evaluated at <span class="math display">\frac{L+\mu}{L-\mu}, \qquad \text{ensuring that} \qquad P_k(0)= T_k\left(\frac{L+\mu-0}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = 1.</span></p>
+<p>Let’s plot the rescaled Chebyshev polynomials <span class="math display">P_k(a) = T_k\left(\frac{L+\mu-2a}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1}</span> and observe, that they are much better behaved than the naive polynomials in terms of the magnitude in the interval <span class="math inline">[\mu, L]</span>.</p>
 </section>
 <section id="rescaled-chebyshev-polynomials-1" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="rescaled-chebyshev-polynomials-1"><span class="header-section-number">5</span> Rescaled Chebyshev polynomials</h2>
@@ -1007,96 +1005,64 @@ P_k(a) = T_k\left(\frac{L+\mu-2a}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\m
 </section>
 <section id="chebyshev-polynomials-upper-bound" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="chebyshev-polynomials-upper-bound"><span class="header-section-number">6</span> Chebyshev polynomials upper bound</h2>
-<p>We can see, that the maximum value of the Chebyshev polynomial on the interval <span class="math inline">[\mu, L]</span> is achieved at the point <span class="math inline">a=\mu</span>. Therefore, we can use the following upper bound: <span class="math display">
-\|P_k(A)\|_2 \le P_k(\mu) = T_k\left(\frac{L+\mu-2\mu}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = T_k\left(1\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1}
-</span> Using the definition of condition number <span class="math inline">\varkappa = \frac{L}{\mu}</span>, we get: <span class="math display">
-\|P_k(A)\|_2 \le T_k\left(\frac{\varkappa+1}{\varkappa-1}\right)^{-1} = T_k\left(1 + \frac{2}{\varkappa-1}\right)^{-1} = T_k\left(1 + \epsilon\right)^{-1}, \quad \epsilon = \frac{2}{\varkappa-1}.
-</span></p>
+<p>We can see, that the maximum value of the Chebyshev polynomial on the interval <span class="math inline">[\mu, L]</span> is achieved at the point <span class="math inline">a=\mu</span>. Therefore, we can use the following upper bound: <span class="math display">\|P_k(A)\|_2 \le P_k(\mu) = T_k\left(\frac{L+\mu-2\mu}{L-\mu}\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = T_k\left(1\right) \cdot T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1} = T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1}</span> Using the definition of condition number <span class="math inline">\varkappa = \frac{L}{\mu}</span>, we get: <span class="math display">\|P_k(A)\|_2 \le T_k\left(\frac{\varkappa+1}{\varkappa-1}\right)^{-1} = T_k\left(1 + \frac{2}{\varkappa-1}\right)^{-1} = T_k\left(1 + \epsilon\right)^{-1}, \quad \epsilon = \frac{2}{\varkappa-1}.</span></p>
 <p>Therefore, we only need to understand the value of <span class="math inline">T_k</span> at <span class="math inline">1+\epsilon</span>. This is where the acceleration comes from. We will bound this value with <span class="math inline">\mathcal{O}\left(\frac{1}{\sqrt{\epsilon}}\right)</span>.</p>
 </section>
 <section id="chebyshev-polynomials-upper-bound-1" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="chebyshev-polynomials-upper-bound-1"><span class="header-section-number">7</span> Chebyshev polynomials upper bound</h2>
 <p>To upper bound <span class="math inline">|P_k|</span>, we need to lower bound <span class="math inline">|T_k(1 + \epsilon)|</span>.</p>
 <ol type="1">
-<li><p>For any <span class="math inline">x\ge 1</span>, the Chebyshev polynomial of the first kind can be written as <span class="math display">
-\begin{aligned}
+<li><p>For any <span class="math inline">x\ge 1</span>, the Chebyshev polynomial of the first kind can be written as <span class="math display">\begin{aligned}
 T_k(x)&amp;=\cosh\left(k\,\mathrm{arccosh}(x)\right)\\
 T_k(1+\epsilon)&amp;=\cosh\left(k\,\mathrm{arccosh}(1+\epsilon)\right).
-\end{aligned}
-</span></p></li>
-<li><p>Recall that: <span class="math display">
-\cosh(x)=\frac{e^x+e^{-x}}{2} \quad \mathrm{arccosh}(x) = \ln(x + \sqrt{x^2-1}).
-</span></p></li>
-<li><p>Now, letting <span class="math inline">\phi=\mathrm{arccosh}(1+\epsilon)</span>, <span class="math display">
-e^{\phi}=1+\epsilon + \sqrt{2\epsilon+\epsilon^2} \geq 1+\sqrt{\epsilon}.
-</span></p></li>
-<li><p>Therefore, <span class="math display">
-\begin{aligned}
+\end{aligned}</span></p></li>
+<li><p>Recall that: <span class="math display">\cosh(x)=\frac{e^x+e^{-x}}{2} \quad \mathrm{arccosh}(x) = \ln(x + \sqrt{x^2-1}).</span></p></li>
+<li><p>Now, letting <span class="math inline">\phi=\mathrm{arccosh}(1+\epsilon)</span>, <span class="math display">e^{\phi}=1+\epsilon + \sqrt{2\epsilon+\epsilon^2} \geq 1+\sqrt{\epsilon}.</span></p></li>
+<li><p>Therefore, <span class="math display">\begin{aligned}
 T_k(1+\epsilon)&amp;=\cosh\left(k\,\mathrm{arccosh}(1+\epsilon)\right) \\
 &amp;= \cosh\left(k\phi\right) \\
 &amp;= \frac{e^{k\phi} + e^{-k\phi}}{2} \geq\frac{e^{k\phi}}{2} \\
 &amp;= \frac{\left(1+\sqrt{\epsilon}\right)^k}{2}.
-\end{aligned}
-</span></p></li>
-<li><p>Finally, we get: <span class="math display">
-\begin{aligned}
+\end{aligned}</span></p></li>
+<li><p>Finally, we get: <span class="math display">\begin{aligned}
 \|e_k\| &amp;\leq \|P_k(A)\| \|e_0\| \leq \frac{2}{\left(1 + \sqrt{\epsilon}\right)^k} \|e_0\| \\
 &amp;\leq 2 \left(1 + \sqrt{\frac{2}{\varkappa-1}}\right)^{-k} \|e_0\| \\
 &amp;\leq 2 \exp\left( - \sqrt{\frac{2}{\varkappa-1}} k\right) \|e_0\|
-\end{aligned}
-</span></p></li>
+\end{aligned}</span></p></li>
 </ol>
 </section>
 <section id="accelerated-method" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="accelerated-method"><span class="header-section-number">8</span> Accelerated method</h2>
-<p>Due to the recursive definition of the Chebyshev polynomials, we directly obtain an iterative acceleration scheme. Reformulating the recurrence in terms of our rescaled Chebyshev polynomials, we get: <span class="math display">
-T_{k+1}(x) =2xT_{k}(x)-T_{k-1}(x)
-</span> Given the fact, that <span class="math inline">x = \frac{L+\mu-2a}{L-\mu}</span>, and:</p>
-<p><span class="math display">
-\begin{aligned}
+<p>Due to the recursive definition of the Chebyshev polynomials, we directly obtain an iterative acceleration scheme. Reformulating the recurrence in terms of our rescaled Chebyshev polynomials, we get: <span class="math display">T_{k+1}(x) =2xT_{k}(x)-T_{k-1}(x)</span> Given the fact, that <span class="math inline">x = \frac{L+\mu-2a}{L-\mu}</span>, and:</p>
+<p><span class="math display">\begin{aligned}
 P_k(a) &amp;= T_k\left(\frac{L+\mu-2a}{L-\mu}\right) T_k\left(\frac{L+\mu}{L-\mu}\right)^{-1}\\
 T_k\left(\frac{L+\mu-2a}{L-\mu}\right) &amp;= P_k(a) T_k\left(\frac{L+\mu}{L-\mu}\right)
-\end{aligned}
-</span></p>
-<p><span class="math display">
-\begin{aligned}
+\end{aligned}</span></p>
+<p><span class="math display">\begin{aligned}
 T_{k-1}\left(\frac{L+\mu-2a}{L-\mu}\right) &amp;= P_{k-1}(a) T_{k-1}\left(\frac{L+\mu}{L-\mu}\right) \\
 T_{k+1}\left(\frac{L+\mu-2a}{L-\mu}\right) &amp;= P_{k+1}(a) T_{k+1}\left(\frac{L+\mu}{L-\mu}\right)
-\end{aligned}
-</span></p>
-<p><span class="math display">
-\begin{aligned}
+\end{aligned}</span></p>
+<p><span class="math display">\begin{aligned}
 P_{k+1}(a) t_{k+1} &amp;= 2 \frac{L+\mu-2a}{L-\mu} P_{k}(a) t_{k} - P_{k-1}(a) t_{k-1} \text{, where } t_{k} = T_{k}\left(\frac{L+\mu}{L-\mu}\right) \\
 P_{k+1}(a) &amp;= 2 \frac{L+\mu-2a}{L-\mu} P_{k}(a) \frac{t_{k}}{t_{k+1}} - P_{k-1}(a) \frac{t_{k-1}}{t_{k+1}}
-\end{aligned}
-</span></p>
-<p>Since we have <span class="math inline">P_{k+1}(0) = P_{k}(0) = P_{k-1}(0) = 1</span>, we can find the method in the following form: <span class="math display">
-P_{k+1}(a) = (1 - \alpha_k a) P_k(a) + \beta_k \left(P_{k}(a) - P_{k-1}(a) \right).
-</span></p>
-<p>Rearranging the terms, we get: <span class="math display">
-\begin{aligned}
+\end{aligned}</span></p>
+<p>Since we have <span class="math inline">P_{k+1}(0) = P_{k}(0) = P_{k-1}(0) = 1</span>, we can find the method in the following form: <span class="math display">P_{k+1}(a) = (1 - \alpha_k a) P_k(a) + \beta_k \left(P_{k}(a) - P_{k-1}(a) \right).</span></p>
+<p>Rearranging the terms, we get: <span class="math display">\begin{aligned}
 P_{k+1}(a) &amp;= (1 + \beta_k) P_k(a) - \alpha_k a P_k(a) - \beta_k P_{k-1}(a),\\
 P_{k+1}(a) &amp;= 2 \frac{L+\mu}{L-\mu}  \frac{t_{k}}{t_{k+1}} P_{k}(a) - \frac{4a}{L-\mu}  \frac{t_{k}}{t_{k+1}}P_{k}(a) - \frac{t_{k-1}}{t_{k+1}} P_{k-1}(a)
-\end{aligned}
-</span></p>
-<p><span class="math display">
-\begin{cases}
+\end{aligned}</span></p>
+<p><span class="math display">\begin{cases}
 \beta_k = \dfrac{t_{k-1}}{t_{k+1}}, \\[6pt]
 \alpha_k = \dfrac{4}{L-\mu} \dfrac{t_k}{t_{k+1}}, \\[6pt]
 1 + \beta_k = 2 \dfrac{L + \mu}{L - \mu} \dfrac{t_k}{t_{k+1}}
-\end{cases}
-</span></p>
-<p>We are almost done :) We remember, that <span class="math inline">e_{k+1} = P_{k+1}(A) e_0</span>. Note also, that we work with the quadratic problem, so we can assume <span class="math inline">x^* = 0</span> without loss of generality. In this case, <span class="math inline">e_0 = x_0</span> and <span class="math inline">e_{k+1} = x_{k+1}</span>. <span class="math display">
-\begin{aligned}
+\end{cases}</span></p>
+<p>We are almost done :) We remember, that <span class="math inline">e_{k+1} = P_{k+1}(A) e_0</span>. Note also, that we work with the quadratic problem, so we can assume <span class="math inline">x^* = 0</span> without loss of generality. In this case, <span class="math inline">e_0 = x_0</span> and <span class="math inline">e_{k+1} = x_{k+1}</span>. <span class="math display">\begin{aligned}
 x_{k+1} &amp;= P_{k+1}(A) x_0 =  (I - \alpha_k A) P_k(A) x_0 + \beta_k \left(P_{k}(A) - P_{k-1}(A) \right) x_0 \\
 &amp;= (I - \alpha_k A) x_k + \beta_k \left(x_k - x_{k-1}\right)
-\end{aligned}
-</span></p>
-<p>For quadratic problem, we have <span class="math inline">\nabla f(x_k) = A x_k</span>, so we can rewrite the update as: <span class="math display">
-\boxed{
+\end{aligned}</span></p>
+<p>For quadratic problem, we have <span class="math inline">\nabla f(x_k) = A x_k</span>, so we can rewrite the update as: <span class="math display">\boxed{
 x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
-}
-</span></p>
+}</span></p>
 <p>The following visualization demonstrates the convergence behavior of the Chebyshev-accelerated gradient descent compared to standard gradient descent:</p>
 <div class="responsive-video"><video autoplay="" loop="" muted="" playsinline="" webkit-playsinline="" preload="metadata" class="video"><source src="chebyshev_gd.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>
 <p><a href="chebyshev_gd.py">Code</a></p>
@@ -1179,11 +1145,34 @@ x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1192,13 +1181,79 @@ x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
+            // an explicit target wins over the site-wide setting
+            if (link.getAttribute("target") === null) {
+              link.setAttribute("target", "_blank");
+            }
+            if (link.getAttribute("rel") === null && opensNewContext(link)) {
               link.setAttribute("rel", "noopener");
             }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1212,6 +1267,7 @@ x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1374,44 +1430,54 @@ x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1509,6 +1575,9 @@ x_{k+1} = x_k - \alpha_k \nabla f(x_k) + \beta_k \left(x_k - x_{k-1}\right)
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 

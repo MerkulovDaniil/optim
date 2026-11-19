@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.11">
+<meta name="generator" content="quarto-1.12.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -23,7 +26,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+@media print {
+  html {
+    color-scheme: light only;
+  }
+  html, body, pre, code {
+    background-color: transparent;
+  }
+  body, a, a:visited, blockquote {
+    color: black;
+  }
+  pre, code {
+    padding: 0;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -36,14 +59,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c65da67e2ccd7271deb104e05bb4b4d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-2985fcfa2e43afc3ff4a427edbe84b2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
@@ -119,13 +143,13 @@ ul.task-list li input[type="checkbox"] {
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Duality.html">Duality</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Duality.html">Duality</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -133,18 +157,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Theory</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section: Theory">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -154,12 +178,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Convex sets</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: Convex sets">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -245,21 +269,21 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section: Methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Line search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Line search</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Line search">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
@@ -289,12 +313,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Zero order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Zero order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Zero order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
@@ -318,12 +342,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">First order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section: First order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link">
@@ -389,12 +413,12 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adaptive metric methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Adaptive metric methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Adaptive metric methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
@@ -438,12 +462,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Exercises</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Exercises">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -551,12 +575,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Applications</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Applications">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -640,12 +664,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmarks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Benchmarks</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: Benchmarks">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
@@ -663,21 +687,18 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Materials</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Materials">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Tutorials</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
@@ -690,13 +711,10 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Visualizations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
@@ -873,7 +891,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -904,10 +922,10 @@ ul.task-list li input[type="checkbox"] {
 </button>
 </div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Duality.html">Duality</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../docs/theory/index.html">Theory</a></li><li class="breadcrumb-item"><a href="../../docs/theory/Duality.html">Duality</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Duality</h1>
 </div>
@@ -928,52 +946,32 @@ ul.task-list li input[type="checkbox"] {
 <section id="motivation" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1</span> Motivation</h2>
 <p>Duality lets us associate to any constrained optimization problem a concave maximization problem, whose solutions lower bound the optimal value of the original problem. What is interesting is that there are cases, when one can solve the primal problem by first solving the dual one. Now, consider a general constrained optimization problem:</p>
-<p><span class="math display">
-\text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega}
-</span></p>
+<p><span class="math display">\text{ Primal: }f(x) \to \min\limits_{x \in S}  \qquad \text{ Dual: } g(y) \to \max\limits_{y \in \Omega}</span></p>
 <p>We’ll build <span class="math inline">g(y)</span>, that preserves the uniform bound:</p>
-<p><span class="math display">
-g(y) \leq f(x) \qquad \forall x \in S, \forall y \in \Omega
-</span></p>
+<p><span class="math display">g(y) \leq f(x) \qquad \forall x \in S, \forall y \in \Omega</span></p>
 <p>As a consequence:</p>
-<p><span class="math display">
-\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x)  
-</span></p>
+<p><span class="math display">\max\limits_{y \in \Omega} g(y) \leq \min\limits_{x \in S} f(x)</span></p>
 <p>We’ll consider one of many possible ways to construct <span class="math inline">g(y)</span> in case, when we have a general mathematical programming problem with functional constraints:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\
 &amp; h_i(x) = 0, \; i = 1,\ldots, p
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>And the Lagrangian, associated with this problem:</p>
-<p><span class="math display">
-L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f_0(x) + \lambda^\top f(x) + \nu^\top h(x)
-</span></p>
+<p><span class="math display">L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) = f_0(x) + \lambda^\top f(x) + \nu^\top h(x)</span></p>
 <p>We assume <span class="math inline">\mathcal{D} = \bigcap\limits_{i=0}^m\textbf{dom } f_i \cap \bigcap\limits_{i=1}^p\textbf{dom } h_i</span> is nonempty. We define the Lagrange dual function (or just dual function) <span class="math inline">g: \mathbb{R}^m \times \mathbb{R}^p \to \mathbb{R}</span> as the minimum value of the Lagrangian over <span class="math inline">x</span>: for <span class="math inline">\lambda \in \mathbb{R}^m, \nu \in \mathbb{R}^p</span></p>
-<p><span class="math display">
-g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) = \inf_{x \in \mathcal{D}} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)
-</span></p>
+<p><span class="math display">g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) = \inf_{x \in \mathcal{D}} \left( f_0(x) +\sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x) \right)</span></p>
 <p>When the Lagrangian is unbounded below in <span class="math inline">x</span>, the dual function takes on the value <span class="math inline">−\infty</span>. Since the dual function is the pointwise infimum of a family of affine functions of <span class="math inline">(\lambda, \nu)</span>, it is concave, even when the original problem is not convex.</p>
 <p>Let us show, that the dual function yields lower bounds on the optimal value <span class="math inline">p^*</span> of the original problem for any <span class="math inline">\lambda \succeq 0, \nu</span>. Suppose some <span class="math inline">\hat{x}</span> is a feasible point for the original problem, i.e., <span class="math inline">f_i(\hat{x}) \leq 0</span> and <span class="math inline">h_i(\hat{x}) = 0, \; λ \succeq 0</span>. Then we have:</p>
-<p><span class="math display">
-L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \underbrace{\lambda^\top f(\hat{x})}_{\leq 0} + \underbrace{\nu^\top h(\hat{x})}_{= 0} \leq f_0(\hat{x})
-</span></p>
+<p><span class="math display">L(\hat{x}, \lambda, \nu) = f_0(\hat{x}) + \underbrace{\lambda^\top f(\hat{x})}_{\leq 0} + \underbrace{\nu^\top h(\hat{x})}_{= 0} \leq f_0(\hat{x})</span></p>
 <p>Hence</p>
-<p><span class="math display">
-g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})
-</span></p>
-<p><span class="math display">
-g(\lambda, \nu) \leq p^*
-</span></p>
+<p><span class="math display">g(\lambda, \nu) = \inf_{x \in \mathcal{D}} L(x, \lambda, \nu) \leq L(\hat{x}, \lambda, \nu)  \leq f_0(\hat{x})</span></p>
+<p><span class="math display">g(\lambda, \nu) \leq p^*</span></p>
 <p>A natural question is: what is the <em>best</em> lower bound that can be obtained from the Lagrange dual function? This leads to the following optimization problem:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; g(\lambda, \nu) \to \max\limits_{\lambda \in \mathbb{R}^m, \; \nu \in \mathbb{R}^p }\\
 \text{s.t. } &amp; \lambda \succeq 0
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>The term “dual feasible”, to describe a pair <span class="math inline">(\lambda, \nu)</span> with <span class="math inline">\lambda \succeq 0</span> and <span class="math inline">g(\lambda, \nu) &gt; −\infty</span>, now makes sense. It means, as the name implies, that <span class="math inline">(\lambda, \nu)</span> is feasible for the dual problem. We refer to <span class="math inline">(\lambda^*, \nu^*)</span> as dual optimal or optimal Lagrange multipliers if they are optimal for the above problem.</p>
 <section id="summary" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.1</span> Summary</h3>
@@ -1038,12 +1036,10 @@ g(\lambda, \nu) \leq p^*
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<p>We are addressing a problem within a non-empty budget set, defined as follows: <span class="math display">
-\begin{aligned}
+<p>We are addressing a problem within a non-empty budget set, defined as follows: <span class="math display">\begin{aligned}
     &amp; \text{min} \quad x^T x \\
     &amp; \text{s.t.} \quad Ax = b,
-\end{aligned}
-</span> with the matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>.</p>
+\end{aligned}</span> with the matrix <span class="math inline">A \in \mathbb{R}^{m \times n}</span>.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1058,13 +1054,7 @@ g(\lambda, \nu) \leq p^*
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-solution" data-collapse="true">
-<p>This problem is devoid of inequality constraints, presenting <span class="math inline">m</span> linear equality constraints instead. The Lagrangian is expressed as <span class="math inline">L(x, \nu) = x^T x + \nu^T (Ax - b)</span>, spanning the domain <span class="math inline">\mathbb{R}^n \times \mathbb{R}^m</span>. The dual function is denoted by <span class="math inline">g(\nu) = \inf_x L(x, \nu)</span>. Given that <span class="math inline">L(x, \nu)</span> manifests as a convex quadratic function in terms of <span class="math inline">x</span>, the minimizing <span class="math inline">x</span> can be derived from the optimality condition <span class="math display">
-\nabla_x L(x, \nu) = 2x + A^T \nu = 0,
-</span> leading to <span class="math inline">x = -(1/2)A^T \nu</span>. As a result, the dual function is articulated as <span class="math display">
-    g(\nu) = L(-(1/2)A^T \nu, \nu) = -(1/4)\nu^T A A^T \nu - b^T \nu,
-</span> emerging as a concave quadratic function within the domain <span class="math inline">\mathbb{R}^p</span>. According to the lower bound property (5.2), for any <span class="math inline">\nu \in \mathbb{R}^p</span>, the following holds true: <span class="math display">
-    -(1/4)\nu^T A A^T \nu - b^T \nu \leq \inf\{x^T x \,|\, Ax = b\}.
-</span> Which is a simple non-trivial lower bound without any problem solving.</p>
+<p>This problem is devoid of inequality constraints, presenting <span class="math inline">m</span> linear equality constraints instead. The Lagrangian is expressed as <span class="math inline">L(x, \nu) = x^T x + \nu^T (Ax - b)</span>, spanning the domain <span class="math inline">\mathbb{R}^n \times \mathbb{R}^m</span>. The dual function is denoted by <span class="math inline">g(\nu) = \inf_x L(x, \nu)</span>. Given that <span class="math inline">L(x, \nu)</span> manifests as a convex quadratic function in terms of <span class="math inline">x</span>, the minimizing <span class="math inline">x</span> can be derived from the optimality condition <span class="math display">\nabla_x L(x, \nu) = 2x + A^T \nu = 0,</span> leading to <span class="math inline">x = -(1/2)A^T \nu</span>. As a result, the dual function is articulated as <span class="math display">g(\nu) = L(-(1/2)A^T \nu, \nu) = -(1/4)\nu^T A A^T \nu - b^T \nu,</span> emerging as a concave quadratic function within the domain <span class="math inline">\mathbb{R}^p</span>. According to the lower bound property (5.2), for any <span class="math inline">\nu \in \mathbb{R}^p</span>, the following holds true: <span class="math display">-(1/4)\nu^T A A^T \nu - b^T \nu \leq \inf\{x^T x \,|\, Ax = b\}.</span> Which is a simple non-trivial lower bound without any problem solving.</p>
 </div>
 </div>
 </div>
@@ -1087,12 +1077,10 @@ g(\lambda, \nu) \leq p^*
 <div>
 <div class="callout-example">
 <p><img src="partition.svg" class="img-fluid"></p>
-<p>We are examining a (nonconvex) problem: <span class="math display">
-\begin{aligned}
+<p>We are examining a (nonconvex) problem: <span class="math display">\begin{aligned}
     &amp; \text{minimize} \quad x^T W x \\
     &amp; \text{subject to} \quad x_i^2 =1, \quad i=1,\ldots,n,
-\end{aligned}
-</span></p>
+\end{aligned}</span></p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1108,31 +1096,19 @@ g(\lambda, \nu) \leq p^*
 <div>
 <div class="callout-solution" data-collapse="true">
 <p>The matrix <span class="math inline">W</span> belongs to <span class="math inline">S_n</span>. The constraints stipulate that the values of <span class="math inline">x_i</span> can only be 1 or <span class="math inline">-1</span>, rendering this problem analogous to finding a vector, with components <span class="math inline">\pm1</span>, that minimizes <span class="math inline">x^T W x</span>. The set of feasible solutions is finite, encompassing <span class="math inline">2^n</span> points, thereby allowing, in theory, for the resolution of this problem by evaluating the objective value at each feasible point. However, as the count of feasible points escalates exponentially, this approach is viable only for modest-sized problems (for instance, when <span class="math inline">n \leq 30</span>). Generally, and especially when <span class="math inline">n</span> exceeds 50, the problem poses a formidable challenge to solve.</p>
-<p>This problem can be construed as a two-way partitioning problem over a set of <span class="math inline">n</span> elements, denoted as <span class="math inline">\{1, \ldots , n\}</span>: A viable <span class="math inline">x</span> corresponds to the partition <span class="math display">
-\{1,\ldots,n\} = \{i|x_i =-1\} \cup \{i|x_i =1\}.
-</span> The coefficient <span class="math inline">W_{ij}</span> in the matrix represents the expense associated with placing elements <span class="math inline">i</span> and <span class="math inline">j</span> in the same partition, while <span class="math inline">-W_{ij}</span> signifies the cost of segregating them. The objective encapsulates the aggregate cost across all pairs of elements, and the challenge posed by problem is to find the partition that minimizes the total cost.</p>
-<p>We now derive the dual function for this problem. The Lagrangian is expressed as <span class="math display">
-L(x,\nu) = x^T W x + \sum_{i=1}^n \nu_i (x_i^2 -1) = x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu.
-</span> By minimizing over <span class="math inline">x</span>, we procure the Lagrange dual function: <span class="math display">
-g(\nu) = \inf_x x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu
+<p>This problem can be construed as a two-way partitioning problem over a set of <span class="math inline">n</span> elements, denoted as <span class="math inline">\{1, \ldots , n\}</span>: A viable <span class="math inline">x</span> corresponds to the partition <span class="math display">\{1,\ldots,n\} = \{i|x_i =-1\} \cup \{i|x_i =1\}.</span> The coefficient <span class="math inline">W_{ij}</span> in the matrix represents the expense associated with placing elements <span class="math inline">i</span> and <span class="math inline">j</span> in the same partition, while <span class="math inline">-W_{ij}</span> signifies the cost of segregating them. The objective encapsulates the aggregate cost across all pairs of elements, and the challenge posed by problem is to find the partition that minimizes the total cost.</p>
+<p>We now derive the dual function for this problem. The Lagrangian is expressed as <span class="math display">L(x,\nu) = x^T W x + \sum_{i=1}^n \nu_i (x_i^2 -1) = x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu.</span> By minimizing over <span class="math inline">x</span>, we procure the Lagrange dual function: <span class="math display">g(\nu) = \inf_x x^T (W + \text{diag}(\nu)) x - \mathbf{1}^T \nu
 = \begin{cases}\begin{array}{ll}
     -\mathbf{1}^T\nu &amp; \text{if } W+\text{diag}(\nu) \succeq 0 \\
     -\infty &amp; \text{otherwise},
-\end{array} \end{cases}
-</span></p>
+\end{array} \end{cases}</span></p>
 <p>exploiting the realization that the infimum of a quadratic form is either zero (when the form is positive semidefinite) or <span class="math inline">-\infty</span> (when it’s not).</p>
 <p>This dual function furnishes lower bounds on the optimal value of the problem. For instance, we can adopt the particular value of the dual variable</p>
-<p><span class="math display">
-\nu = -\lambda_{\text{min}}(W) \mathbf{1}
-</span></p>
+<p><span class="math display">\nu = -\lambda_{\text{min}}(W) \mathbf{1}</span></p>
 <p>which is dual feasible, since</p>
-<p><span class="math display">
-W +\text{diag}(\nu)=W -\lambda_{\text{min}}(W) I \succeq 0.
-</span></p>
+<p><span class="math display">W +\text{diag}(\nu)=W -\lambda_{\text{min}}(W) I \succeq 0.</span></p>
 <p>This renders a simple bound on the optimal value <span class="math inline">p^*</span></p>
-<p><span class="math display">
-p^* \geq -\mathbf{1}^T\nu = n \lambda_{\text{min}}(W).
-</span></p>
+<p><span class="math display">p^* \geq -\mathbf{1}^T\nu = n \lambda_{\text{min}}(W).</span></p>
 <p>The code for the problem is available here <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/Partitioning.ipynb">🧑‍💻</a></p>
 </div>
 </div>
@@ -1148,18 +1124,12 @@ p^* \geq -\mathbf{1}^T\nu = n \lambda_{\text{min}}(W).
 <section id="strong-duality" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="strong-duality"><span class="header-section-number">2</span> Strong duality</h2>
 <p>It is common to name this relation between optimals of primal and dual problems as <strong>weak duality</strong>. For problem, we have:</p>
-<p><span class="math display">
-p^* \geq d^*
-</span></p>
+<p><span class="math display">p^* \geq d^*</span></p>
 <p>While the difference between them is often called <strong>duality gap:</strong></p>
-<p><span class="math display">
-p^* - d^* \geq 0
-</span></p>
+<p><span class="math display">p^* - d^* \geq 0</span></p>
 <p>Note, that we always have weak duality, if we’ve formulated primal and dual problem. It means, that if we have managed to solve the dual problem (which is always concave, no matter whether the initial problem was or not), then we have some lower bound. Surprisingly, there are some notable cases, when these solutions are equal.</p>
 <p><strong>Strong duality</strong> happens if duality gap is zero:</p>
-<p><span class="math display">
-p^∗ = d^*
-</span></p>
+<p><span class="math display">p^∗ = d^*</span></p>
 <p>Notice: both <span class="math inline">p^*</span> and <span class="math inline">d^*</span> may be <span class="math inline">+ \infty</span>.</p>
 <ul>
 <li>Several sufficient conditions known!</li>
@@ -1210,16 +1180,12 @@ p^∗ = d^*
 <div>
 <div class="callout-example">
 <p>To find the Euclidean projection of <span class="math inline">x \in \mathbb{R}^n</span> onto probability simplex <span class="math inline">\mathcal{P} = \{z \in \mathbb{R}^n \mid z \succeq 0, \mathbf{1}^\top z = 1\}</span>, we solve the following problem:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; \dfrac{1}{2}\|y - x\|_2^2 \to \min\limits_{y \in \mathbb{R}^{n} \succeq 0}\\
 \text{s.t. } &amp; \mathbf{1}^\top y = 1
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p><em>Hint:</em> Consider the problem of minimizing <span class="math inline">\frac{1}{2}\|y - x\|_2^2</span> subject to subject to <span class="math inline">y \succeq 0, \mathbf{1}^\top y = 1</span>. Form the partial Lagrangian</p>
-<p><span class="math display">
-L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
-</span></p>
+<p><span class="math display">L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),</span></p>
 <p>leaving the constraint <span class="math inline">y \succeq 0</span> implicit. Show that <span class="math inline">y = (x − \nu \mathbf{1})_+</span> minimizes <span class="math inline">L(y, \nu)</span> over <span class="math inline">y \succeq 0</span>.</p>
 </div>
 </div>
@@ -1237,12 +1203,10 @@ L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-question">
-<p>Find the projection of a point <span class="math inline">x</span> on the Euclidian ball <span class="math display">
-\begin{split}
+<p>Find the projection of a point <span class="math inline">x</span> on the Euclidian ball <span class="math display">\begin{split}
 &amp; \dfrac{1}{2}\|y - x\|_2^2 \to \min\limits_{y \in \mathbb{R}^{n}}\\
 \text{s.t. } &amp; \|y\|_2^2 \leq 1
-\end{split}
-</span></p>
+\end{split}</span></p>
 </div>
 </div>
 </div>
@@ -1279,12 +1243,8 @@ L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<p><span class="math display">
-\min \{ f_0(x) = x \mid f_1(x) = \frac{x^2}{2} \leq 0 \},
-</span></p>
-<p>The only point in the budget set is: <span class="math inline">x^* = 0</span>. However, it is impossible to find a non-negative <span class="math inline">\lambda^* \geq 0</span>, such that <span class="math display">
-\nabla f_0(0) + \lambda^* \nabla f_1(0) = 1 + \lambda^* x = 0.
-</span></p>
+<p><span class="math display">\min \{ f_0(x) = x \mid f_1(x) = \frac{x^2}{2} \leq 0 \},</span></p>
+<p>The only point in the budget set is: <span class="math inline">x^* = 0</span>. However, it is impossible to find a non-negative <span class="math inline">\lambda^* \geq 0</span>, such that <span class="math display">\nabla f_0(0) + \lambda^* \nabla f_1(0) = 1 + \lambda^* x = 0.</span></p>
 </div>
 </div>
 </div>
@@ -1302,12 +1262,10 @@ L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 <div>
 <div class="callout-example">
 <p>On rare occasions strong duality obtains for a nonconvex problem. As an important example, we consider the problem of minimizing a nonconvex quadratic function over the unit ball</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; x^\top A x  + 2b^\top x\to \min\limits_{x \in \mathbb{R}^{n} }\\
 \text{s.t. } &amp; x^\top x \leq 1
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>where <span class="math inline">A \in \mathbb{S}^n, A \nsucceq 0</span> and <span class="math inline">b \in \mathbb{R}^n</span>. Since <span class="math inline">A \nsucceq 0</span>, this is not a convex problem. This problem is sometimes called the trust region problem, and arises in minimizing a second-order approximation of a function over the unit ball, which is the region in which the approximation is assumed to be approximately valid.</p>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -1324,25 +1282,17 @@ L(y, \nu) = \dfrac{1}{2}\|y - x\|_2^2 +\nu(\mathbf{1}^\top y - 1),
 <div>
 <div class="callout-solution" data-collapse="true">
 <p>Lagrangian and dual function</p>
-<p><span class="math display">
-L(x, \lambda) = x^\top A x + 2 b^\top x + \lambda (x^\top x - 1) = x^\top( A + \lambda I)x + 2 b^\top x - \lambda
-</span></p>
-<p><span class="math display">
-g(\lambda) = \begin{cases} -b^\top(A + \lambda I)^{\dagger}b - \lambda &amp;\text{ if } A + \lambda I \succeq 0 \\ -\infty, &amp;\text{ otherwise}  \end{cases}
-</span></p>
+<p><span class="math display">L(x, \lambda) = x^\top A x + 2 b^\top x + \lambda (x^\top x - 1) = x^\top( A + \lambda I)x + 2 b^\top x - \lambda</span></p>
+<p><span class="math display">g(\lambda) = \begin{cases} -b^\top(A + \lambda I)^{\dagger}b - \lambda &amp;\text{ if } A + \lambda I \succeq 0 \\ -\infty, &amp;\text{ otherwise}  \end{cases}</span></p>
 <p>Dual problem:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; -b^\top(A + \lambda I)^{\dagger}b - \lambda \to \max\limits_{\lambda \in \mathbb{R}}\\
 \text{s.t. } &amp; A + \lambda I \succeq 0
-\end{split}
-</span></p>
-<p><span class="math display">
-\begin{split}
+\end{split}</span></p>
+<p><span class="math display">\begin{split}
 &amp; -\sum\limits_{i=1}^n \dfrac{(q_i^\top b)^2}{\lambda_i + \lambda} - \lambda  \to \max\limits_{\lambda \in \mathbb{R}}\\
 \text{s.t. } &amp; \lambda \geq - \lambda_{min}(A)
-\end{split}
-</span></p>
+\end{split}</span></p>
 </div>
 </div>
 </div>
@@ -1355,35 +1305,27 @@ g(\lambda) = \begin{cases} -b^\top(A + \lambda I)^{\dagger}b - \lambda &amp;\tex
 <section id="reminder-of-kkt-statements" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="reminder-of-kkt-statements"><span class="header-section-number">4.1</span> Reminder of KKT statements:</h3>
 <p>Suppose we have a general optimization problem (from the <a href="../../docs/theory/Optimality.html">chapter</a>)</p>
-<p><span id="eq-gop"><span class="math display">
-\begin{split}
+<p><span id="eq-gop"><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\
 &amp; h_i(x) = 0, \; i = 1,\ldots, p
-\end{split}
-\tag{1}</span></span></p>
+\end{split} \tag{1}</span></span></p>
 <p>and convex optimization problem (see corresponding <a href="../../docs/theory/Convex_optimization_problem.html">chapter</a>), where all equality constraints are affine: <span class="math inline">h_i(x) = a_i^Tx - b_i, i \in 1, \ldots p</span></p>
-<p><span id="eq-cop"><span class="math display">
-\begin{split}
+<p><span id="eq-cop"><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\
 &amp; Ax = b,
-\end{split}
-\tag{2}</span></span></p>
+\end{split} \tag{2}</span></span></p>
 <p>The Lagrangian is</p>
-<p><span class="math display">
-L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)
-</span></p>
+<p><span class="math display">L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits_{i=1}^p\nu_i h_i(x)</span></p>
 <p>The KKT system is:</p>
-<p><span id="eq-kkt"><span class="math display">
-\begin{split}
+<p><span id="eq-kkt"><span class="math display">\begin{split}
 &amp; \nabla_x L(x^*, \lambda^*, \nu^*) = 0 \\
 &amp; \nabla_\nu L(x^*, \lambda^*, \nu^*) = 0 \\
 &amp; \lambda^*_i \geq 0, i = 1,\ldots,m \\
 &amp; \lambda^*_i f_i(x^*) = 0, i = 1,\ldots,m \\
 &amp; f_i(x^*) \leq 0, i = 1,\ldots,m \\
-\end{split}
-\tag{3}</span></span></p>
+\end{split} \tag{3}</span></span></p>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1443,61 +1385,43 @@ L(x, \lambda, \nu) = f_0(x) + \sum\limits_{i=1}^m \lambda_i f_i(x) + \sum\limits
 <div class="callout-body-container callout-body">
 <div>
 <div class="callout-example">
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f_0(x) = \sum_{i=1}^n f_i(x_i)\to \min\limits_{x \in \mathbb{R}^{n} }\\
 \text{s.t. } &amp; a^\top x = b
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>The dual problem is thus</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; -b \nu - \sum_{i=1}^n f_i^*(-\nu a_i)  \to \max\limits_{\nu \in \mathbb{R}}\\
 \text{s.t. } &amp; \nu \geq - \lambda_{\text{min}}(A)
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>with (scalar) variable <span class="math inline">\nu \in \mathbb{R}</span>. Now suppose we have found an optimal dual variable <span class="math inline">\nu^*</span> (There are several simple methods for solving a convex problem with one scalar variable, such as the bisection method.). It is very easy to recover the optimal value for the primal problem.</p>
 </div>
 </div>
 </div>
 </div>
 <p>Let <span class="math inline">f: E \to \mathbb{R}</span> and <span class="math inline">g: G \to \mathbb{R}</span> — function, defined on the sets <span class="math inline">E</span> and <span class="math inline">G</span> in Euclidian Spaces <span class="math inline">V</span> and <span class="math inline">W</span> respectively. Let <span class="math inline">f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}</span> be the conjugate functions to the <span class="math inline">f</span> and <span class="math inline">g</span> respectively. Let <span class="math inline">A: V \to W</span> — linear mapping. We call Fenchel - Rockafellar problem the following minimization task:</p>
-<p><span class="math display">
-f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
-</span></p>
+<p><span class="math display">f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}</span></p>
 <p>where <span class="math inline">A^{-1}(G) := \{x \in V : Ax \in G\}</span> — preimage of <span class="math inline">G</span>. We’ll build the dual problem using variable separation. Let’s introduce new variable <span class="math inline">y = Ax</span>. The problem could be rewritten:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f(x) + g(y) \to \min\limits_{x \in E, \; y \in G }\\
 \text{s.t. } &amp; Ax = y
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>Lagrangian</p>
-<p><span class="math display">
-L(x,y, \lambda) =  f(x) + g(y) + \lambda^\top (Ax - y)
-</span></p>
+<p><span class="math display">L(x,y, \lambda) =  f(x) + g(y) + \lambda^\top (Ax - y)</span></p>
 <p>Dual function</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 g_d(\lambda) &amp;= \min\limits_{x \in E, \; y \in G} L(x,y, \lambda) \\
 &amp;= \min\limits_{x \in E}\left[ f(x) + (A^*\lambda)^\top x \right] + \min\limits_{y \in G} \left[g(y) - \lambda^\top y\right] = \\
 &amp;= -\max\limits_{x \in E}\left[(-A^*\lambda)^\top x - f(x) \right] - \max\limits_{y \in G} \left[\lambda^\top y - g(y)\right]
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>Now, we need to remember the definition of the conjugate function:</p>
-<p><span class="math display">
-\sup_{y \in G}\left[\lambda^\top y - g(y)\right] = \begin{cases} g^*(\lambda), &amp;\text{ if } \lambda \in G_*\\ +\infty, &amp;\text{ otherwise} \end{cases}
-</span></p>
-<p><span class="math display">
-\sup_{x \in E}\left[(-A^*\lambda)^\top x - f(x) \right] = \begin{cases} f^*(-A^*\lambda), &amp;\text{ if } \lambda \in (-A^*)^{-1}(E_*)\\ +\infty, &amp;\text{ otherwise} \end{cases}
-</span></p>
+<p><span class="math display">\sup_{y \in G}\left[\lambda^\top y - g(y)\right] = \begin{cases} g^*(\lambda), &amp;\text{ if } \lambda \in G_*\\ +\infty, &amp;\text{ otherwise} \end{cases}</span></p>
+<p><span class="math display">\sup_{x \in E}\left[(-A^*\lambda)^\top x - f(x) \right] = \begin{cases} f^*(-A^*\lambda), &amp;\text{ if } \lambda \in (-A^*)^{-1}(E_*)\\ +\infty, &amp;\text{ otherwise} \end{cases}</span></p>
 <p>So, we have:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 g_d(\lambda) &amp;= \min\limits_{x \in E, y \in G} L(x,y, \lambda) = \\
 &amp;= \begin{cases} -g^*(\lambda) - f^*(-A^*\lambda) &amp;\text{ if } \lambda \in G_* \cap (-A^*)^{-1}(E_*)\\ -\infty, &amp;\text{ otherwise}  \end{cases}
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>which allows us to formulate one of the most important theorems, that connects dual problems and conjugate functions:</p>
 <div class="callout callout-style-default callout-theorem no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1512,19 +1436,13 @@ g_d(\lambda) &amp;= \min\limits_{x \in E, y \in G} L(x,y, \lambda) = \\
 <div>
 <div class="callout-theorem">
 <p>Let <span class="math inline">f: E \to \mathbb{R}</span> and <span class="math inline">g: G \to \mathbb{R}</span> — function, defined on the sets <span class="math inline">E</span> and <span class="math inline">G</span> in Euclidian Spaces <span class="math inline">V</span> and <span class="math inline">W</span> respectively. Let <span class="math inline">f^*:E_* \to \mathbb{R}, g^*:G_* \to \mathbb{R}</span> be the conjugate functions to the <span class="math inline">f</span> and <span class="math inline">g</span> respectively. Let <span class="math inline">A: V \to W</span> — linear mapping. Let <span class="math inline">p^*, d^* \in [- \infty, + \infty]</span> - optimal values of primal and dual problems:</p>
-<p><span class="math display">
-p^* = f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}
-</span></p>
-<p><span class="math display">
-d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},
-</span></p>
+<p><span class="math display">p^* = f(x) + g(Ax) \to \min\limits_{x \in E \cap A^{-1}(G)}</span></p>
+<p><span class="math display">d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^*)^{-1}(E_*)},</span></p>
 <p>Then we have weak duality: <span class="math inline">p^* \geq d^*</span>. Furthermore, if the functions <span class="math inline">f</span> and <span class="math inline">g</span> are convex and <span class="math inline">A(\mathbf{relint}(E)) \cap \mathbf{relint}(G) \neq \varnothing</span>, then we have strong duality: <span class="math inline">p^* = d^*</span>. While points <span class="math inline">x^* \in E \cap A^{-1}(G)</span> and <span class="math inline">\lambda^* \in G_* \cap (-A^*)^{-1}(E_*)</span> are optimal values for primal and dual problem if and only if:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 -A^*\lambda^* &amp;\in \partial f(x^*) \\
 \lambda^* &amp;\in \partial g(Ax^*)
-\end{split}
-</span></p>
+\end{split}</span></p>
 </div>
 </div>
 </div>
@@ -1534,23 +1452,19 @@ d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^
 <section id="sensitivity-analysis" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="sensitivity-analysis"><span class="header-section-number">5.2</span> Sensitivity analysis</h3>
 <p>Let us switch from the original optimization problem</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m\\
 &amp; h_i(x) = 0, \; i = 1,\ldots, p
 \end{split}
-\tag{P}
-</span></p>
+\tag{P}</span></p>
 <p>To the perturbed version of it:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq u_i, \; i = 1,\ldots,m\\
 &amp; h_i(x) = v_i, \; i = 1,\ldots, p
 \end{split}
-\tag{Per}
-</span></p>
+\tag{Per}</span></p>
 <p>Note, that we still have the only variable <span class="math inline">x \in \mathbb{R}^n</span>, while treating <span class="math inline">u \in \mathbb{R}^m, v \in \mathbb{R}^p</span> as parameters. It is obvious, that <span class="math inline">\text{Per}(u,v) \to \text{P}</span> if <span class="math inline">u = 0, v = 0</span>. We will denote the optimal value of <span class="math inline">\text{Per}</span> as <span class="math inline">p^*(u, v)</span>, while the optimal value of the original problem <span class="math inline">\text{P}</span> is just <span class="math inline">p^*</span>. One can immediately say, that <span class="math inline">p^*(u, v) = p^*</span>.</p>
 <p>Speaking of the value of some <span class="math inline">i</span>-th constraint we can say, that</p>
 <ul>
@@ -1560,24 +1474,18 @@ d^* = f^*(-A^*\lambda) + g^*(\lambda) \to \min\limits_{\lambda \in G_* \cap (-A^
 </ul>
 <p>One can even show, that when <span class="math inline">\text{P}</span> is convex optimization problem, <span class="math inline">p^*(u,v)</span> is a convex function.</p>
 <p>Suppose, that strong duality holds for the orriginal problem and suppose, that <span class="math inline">x</span> is any feasible point for the perturbed problem:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 p^*(0,0) &amp;= p^* = d^* = g(\lambda^*, \nu^*) \leq \\
 &amp; \leq L(x, \lambda^*, \nu^*) = \\
 &amp; = f_0(x) + \sum\limits_{i=1}^m \lambda_i^* f_i(x) + \sum\limits_{i=1}^p\nu_i^* h_i(x) \leq \\
 &amp; \leq f_0(x) + \sum\limits_{i=1}^m \lambda_i^* u_i + \sum\limits_{i=1}^p\nu_i^* v_i
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>Which means</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 f_0(x) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>And taking the optimal <span class="math inline">x</span> for the perturbed problem, we have:</p>
-<p><span id="eq-sensitivity"><span class="math display">
-p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v
-\tag{4}</span></span></p>
+<p><span id="eq-sensitivity"><span class="math display">p^*(u,v) \geq p^*(0,0) - {\lambda^*}^T u - {\nu^*}^T v \tag{4}</span></span></p>
 <p>In scenarios where strong duality holds, we can draw several insights about the sensitivity of optimal solutions in relation to the Lagrange multipliers. These insights are derived from the inequality expressed in equation above:</p>
 <ol type="1">
 <li><p><strong>Impact of Tightening a Constraint (Large <span class="math inline">\lambda_i^\star</span>)</strong>:<br>
@@ -1604,21 +1512,13 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <section id="local-sensitivity" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="local-sensitivity"><span class="header-section-number">5.3</span> Local sensitivity</h3>
 <p>Suppose now that <span class="math inline">p^*(u, v)</span> is differentiable at <span class="math inline">u = 0, v = 0</span>.</p>
-<p><span id="eq-local-sensitivity"><span class="math display">
-\lambda_i^* = -\dfrac{\partial p^*(0,0)}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0)}{\partial v_i}
-\tag{5}</span></span></p>
+<p><span id="eq-local-sensitivity"><span class="math display">\lambda_i^* = -\dfrac{\partial p^*(0,0)}{\partial u_i} \quad \nu_i^* = -\dfrac{\partial p^*(0,0)}{\partial v_i} \tag{5}</span></span></p>
 <p>To show this result we consider the directional derivative of <span class="math inline">p^*(u,v)</span> along the direction of some <span class="math inline">i</span>-th basis vector <span class="math inline">e_i</span>:</p>
-<p><span class="math display">
-\lim_{t \to 0} \dfrac{p^*(t e_i,0) - p^*(0,0)}{t} = \dfrac{\partial p^*(0,0)}{\partial u_i}
-</span></p>
+<p><span class="math display">\lim_{t \to 0} \dfrac{p^*(t e_i,0) - p^*(0,0)}{t} = \dfrac{\partial p^*(0,0)}{\partial u_i}</span></p>
 <p>From the inequality <a href="#eq-sensitivity" class="quarto-xref">Equation&nbsp;4</a> and taking the limit <span class="math inline">t \to0</span> with <span class="math inline">t&gt;0</span> we have</p>
-<p><span class="math display">
-\dfrac{p^*(t e_i,0) - p^*}{t} \geq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \geq -\lambda_i^*
-</span></p>
+<p><span class="math display">\dfrac{p^*(t e_i,0) - p^*}{t} \geq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \geq -\lambda_i^*</span></p>
 <p>For the negative <span class="math inline">t &lt; 0</span> we have:</p>
-<p><span class="math display">
-\dfrac{p^*(t e_i,0) - p^*}{t} \leq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \leq -\lambda_i^*
-</span></p>
+<p><span class="math display">\dfrac{p^*(t e_i,0) - p^*}{t} \leq -\lambda_i^* \to  \dfrac{\partial p^*(0,0)}{\partial u_i} \leq -\lambda_i^*</span></p>
 <p>The same idea can be used to establish the fact about <span class="math inline">v_i</span>.</p>
 <p>The local sensitivity result <a href="#eq-local-sensitivity" class="quarto-xref">Equation&nbsp;5</a> provides a way to understand the impact of constraints on the optimal solution <span class="math inline">x^*</span> of an optimization problem. If a constraint <span class="math inline">f_i(x^*)</span> is negative at <span class="math inline">x^*</span>, it’s not affecting the optimal solution, meaning small changes to this constraint won’t alter the optimal value. In this case, the corresponding optimal Lagrange multiplier will be zero, as per the principle of complementary slackness.</p>
 <p>However, if <span class="math inline">f_i(x^*) = 0</span>, meaning the constraint is precisely met at the optimum, then the situation is different. The value of the <span class="math inline">i</span>-th optimal Lagrange multiplier, <span class="math inline">\lambda^*_i</span>, gives us insight into how ‘sensitive’ or ‘active’ this constraint is. A small <span class="math inline">\lambda^*_i</span> indicates that slight adjustments to the constraint won’t significantly affect the optimal value. Conversely, a large <span class="math inline">\lambda^*_i</span> implies that even minor changes to the constraint can have a significant impact on the optimal solution.</p>
@@ -1626,12 +1526,10 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <section id="shadow-prices-or-tax-interpretation" class="level3" data-number="5.4">
 <h3 data-number="5.4" class="anchored" data-anchor-id="shadow-prices-or-tax-interpretation"><span class="header-section-number">5.4</span> Shadow prices or tax interpretation</h3>
 <p>Consider an enterprise where <span class="math inline">x</span> represents its operational strategy and <span class="math inline">f_0(x)</span> is the operating cost. Therefore, <span class="math inline">-f_0(x)</span> denotes the profit in dollars. Each constraint <span class="math inline">f_i(x) \leq 0</span> signifies a resource or regulatory limit. The goal is to maximize profit while adhering to these limits, which is equivalent to solving:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; f_0(x) \to \min\limits_{x \in \mathbb{R}^n}\\
 \text{s.t. } &amp; f_i(x) \leq 0, \; i = 1,\ldots,m
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>The optimal profit here is <span class="math inline">-p^*</span>.</p>
 <p>Now, imagine a scenario where exceeding limits is allowed, but at a cost. This cost is linear to the extent of violation, quantified by <span class="math inline">f_i</span>. The charge for breaching the <span class="math inline">i^{th}</span> constraint is <span class="math inline">\lambda_i f_i(x)</span>. If <span class="math inline">f_i(x) &lt; 0</span>, meaning the constraint is not fully utilized, <span class="math inline">\lambda_i f_i(x)</span> represents income for the firm. Here, <span class="math inline">\lambda_i</span> is the cost (in dollars) per unit of violation for <span class="math inline">f_i(x)</span>.</p>
 <p>For instance, if <span class="math inline">f_1(x) \leq 0</span> limits warehouse space, the firm can rent out extra space at <span class="math inline">\lambda_1</span> dollars per square meter or rent out unused space for the same rate.</p>
@@ -1652,33 +1550,25 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <section id="player-1s-perspective" class="level4" data-number="5.5.1">
 <h4 data-number="5.5.1" class="anchored" data-anchor-id="player-1s-perspective"><span class="header-section-number">5.5.1</span> Player 1’s Perspective</h4>
 <p>Assuming player 2 knows player 1’s strategy <span class="math inline">u</span>, player 2 will choose <span class="math inline">v</span> to maximize <span class="math inline">u^T P v</span>. The worst-case expected payoff is thus:</p>
-<p><span class="math display">
-\max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i
-</span></p>
+<p><span class="math display">\max_{v \geq 0, 1^T v = 1} u^T P v = \max_{i=1,...,m} (P^T u)_i</span></p>
 <p>Player 1’s optimal strategy minimizes this worst-case payoff, leading to the optimization problem:</p>
-<p><span id="eq-player1-problem"><span class="math display">
-\begin{split}
+<p><span id="eq-player1-problem"><span class="math display">\begin{split}
 &amp; \min \max_{i=1,...,m} (P^T u)_i\\
 &amp; \text{s.t. } u \geq 0 \\
 &amp; 1^T u = 1
-\end{split}
-\tag{6}</span></span></p>
+\end{split} \tag{6}</span></span></p>
 <p>This forms a convex optimization problem with the optimal value denoted as <span class="math inline">p^*_1</span>.</p>
 </section>
 <section id="player-2s-perspective" class="level4" data-number="5.5.2">
 <h4 data-number="5.5.2" class="anchored" data-anchor-id="player-2s-perspective"><span class="header-section-number">5.5.2</span> Player 2’s Perspective</h4>
 <p>Conversely, if player 1 knows player 2’s strategy <span class="math inline">v</span>, the goal is to minimize <span class="math inline">u^T P v</span>. This leads to:</p>
-<p><span class="math display">
-\min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i
-</span></p>
+<p><span class="math display">\min_{u \geq 0, 1^T u = 1} u^T P v = \min_{i=1,...,n} (P v)_i</span></p>
 <p>Player 2 then maximizes this to get the largest guaranteed payoff, solving the optimization problem:</p>
-<p><span id="eq-player2-problem"><span class="math display">
-\begin{split}
+<p><span id="eq-player2-problem"><span class="math display">\begin{split}
 &amp; \max \min_{i=1,...,n} (P v)_i \\
 &amp; \text{s.t. }  v \geq 0 \\
 &amp; 1^T v = 1
-\end{split}
-\tag{7}</span></span></p>
+\end{split} \tag{7}</span></span></p>
 <p>The optimal value here is <span class="math inline">p^*_2</span>.</p>
 </section>
 <section id="duality-and-equivalence" class="level4" data-number="5.5.3">
@@ -1698,20 +1588,16 @@ in both cases, the optimal value <span class="math inline">p^\star(u, v)</span> 
 <section id="constructing-the-lagrangian" class="level4" data-number="5.5.5">
 <h4 data-number="5.5.5" class="anchored" data-anchor-id="constructing-the-lagrangian"><span class="header-section-number">5.5.5</span> Constructing the Lagrangian</h4>
 <p>We introduce multipliers for the constraints: <span class="math inline">\lambda</span> for <span class="math inline">P^T u \leq t \mathbf{1}</span>, <span class="math inline">\mu</span> for <span class="math inline">u \geq 0</span>, and <span class="math inline">\nu</span> for <span class="math inline">1^T u = 1</span>. The Lagrangian is then formed as:</p>
-<p><span class="math display">
-L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u
-</span></p>
+<p><span class="math display">L = t + \lambda^T (P^T u - t \mathbf{1}) - \mu^T u + \nu (1 - 1^T u) = \nu + (1 - 1^T \lambda)t + (P\lambda - \nu \mathbf{1} - \mu)^T u</span></p>
 </section>
 <section id="defining-the-dual-function" class="level4" data-number="5.5.6">
 <h4 data-number="5.5.6" class="anchored" data-anchor-id="defining-the-dual-function"><span class="header-section-number">5.5.6</span> Defining the Dual Function</h4>
 <p>The dual function <span class="math inline">g(\lambda, \mu, \nu)</span> is defined as:</p>
-<p><span class="math display">
-g(\lambda, \mu, \nu) =
+<p><span class="math display">g(\lambda, \mu, \nu) =
 \begin{cases}
 \nu &amp; \text{if } 1^T\lambda=1 \text{ and } P\lambda - \nu \mathbf{1} = \mu \\
 -\infty &amp; \text{otherwise}
-\end{cases}
-</span></p>
+\end{cases}</span></p>
 </section>
 <section id="solving-the-dual-problem" class="level4" data-number="5.5.7">
 <h4 data-number="5.5.7" class="anchored" data-anchor-id="solving-the-dual-problem"><span class="header-section-number">5.5.7</span> Solving the Dual Problem</h4>
@@ -1723,14 +1609,12 @@ g(\lambda, \mu, \nu) =
 <li><span class="math inline">P\lambda - \nu \mathbf{1} = \mu</span>.</li>
 </ol>
 <p>Upon eliminating <span class="math inline">\mu</span>, we obtain the Lagrange dual of <a href="#eq-player1-problem" class="quarto-xref">Equation&nbsp;6</a>:</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 &amp; \max \nu \\
 &amp; \text{s.t. }   \lambda \geq 0 \\
 &amp;  \lambda \geq 0 \\
 &amp; P\lambda \geq \nu \mathbf{1}
-\end{split}
-</span></p>
+\end{split}</span></p>
 </section>
 <section id="conclusion" class="level4" data-number="5.5.8">
 <h4 data-number="5.5.8" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">5.5.8</span> Conclusion</h4>
@@ -1828,11 +1712,34 @@ g(\lambda, \mu, \nu) =
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1841,13 +1748,79 @@ g(\lambda, \mu, \nu) =
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
+            // an explicit target wins over the site-wide setting
+            if (link.getAttribute("target") === null) {
+              link.setAttribute("target", "_blank");
+            }
+            if (link.getAttribute("rel") === null && opensNewContext(link)) {
               link.setAttribute("rel", "noopener");
             }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1861,6 +1834,7 @@ g(\lambda, \mu, \nu) =
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -2023,44 +1997,54 @@ g(\lambda, \mu, \nu) =
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -2158,6 +2142,9 @@ g(\lambda, \mu, \nu) =
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.11">
+<meta name="generator" content="quarto-1.12.3">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -58,7 +61,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+@media print {
+  html {
+    color-scheme: light only;
+  }
+  html, body, pre, code {
+    background-color: transparent;
+  }
+  body, a, a:visited, blockquote {
+    color: black;
+  }
+  pre, code {
+    padding: 0;
+  }
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,14 +94,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-5947b73a06bce04bf1d622ae23e1ec5b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-c65da67e2ccd7271deb104e05bb4b4d6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-6c8e108f06d32d4e468cd3b711e43ab0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-2985fcfa2e43afc3ff4a427edbe84b2f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -134,11 +158,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
@@ -154,13 +178,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/GD.html">Gradient descent</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/GD.html">Gradient descent</a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -168,18 +192,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto" aria-label="Section">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/theory/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Theory</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-1-label">Theory</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-controls="quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section: Theory">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" aria-labelledby="quarto-sidebar-section-1-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/theory/Matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -189,12 +213,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/theory/convex sets/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Convex sets</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-2-label">Convex sets</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-controls="quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section: Convex sets">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" aria-labelledby="quarto-sidebar-section-2-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/theory/convex sets/Affine_sets.html" class="sidebar-item-text sidebar-link">
@@ -280,21 +304,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-3-label">Methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-controls="quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section: Methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" aria-labelledby="quarto-sidebar-section-3-label" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/line_search/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Line search</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-4-label">Line search</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-controls="quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section: Line search">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" aria-labelledby="quarto-sidebar-section-4-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/line_search/binary_search.html" class="sidebar-item-text sidebar-link">
@@ -324,12 +348,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/zom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Zero order methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-5-label">Zero order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-controls="quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section: Zero order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-5" aria-labelledby="quarto-sidebar-section-5-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/zom/bee_algorithm.html" class="sidebar-item-text sidebar-link">
@@ -353,12 +377,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/fom/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">First order methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-6-label">First order methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-controls="quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section: First order methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-6" aria-labelledby="quarto-sidebar-section-6-label" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/fom/GD.html" class="sidebar-item-text sidebar-link active">
@@ -424,12 +448,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/methods/adaptive_metrics/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Adaptive metric methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-7-label">Adaptive metric methods</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-controls="quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section: Adaptive metric methods">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-7" aria-labelledby="quarto-sidebar-section-7-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/methods/adaptive_metrics/Newton.html" class="sidebar-item-text sidebar-link">
@@ -473,12 +497,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/exercises/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-8-label">Exercises</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-controls="quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section: Exercises">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-8" aria-labelledby="quarto-sidebar-section-8-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/exercises/matrix_calculus.html" class="sidebar-item-text sidebar-link">
@@ -586,12 +610,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/applications/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Applications</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-9-label">Applications</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-controls="quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section: Applications">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-9" aria-labelledby="quarto-sidebar-section-9-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/applications/A-Star.html" class="sidebar-item-text sidebar-link">
@@ -675,12 +699,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/benchmarks/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Benchmarks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-10-label">Benchmarks</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-controls="quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section: Benchmarks">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-10" aria-labelledby="quarto-sidebar-section-10-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/benchmarks/CNN_on_Fashion_MNIST.html" class="sidebar-item-text sidebar-link">
@@ -698,21 +722,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../../docs/materials/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+ <span class="menu-text" id="quarto-sidebar-section-11-label">Materials</span></a>
+            <button type="button" class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-controls="quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section: Materials">
+              <i class="bi bi-chevron-right ms-2" aria-hidden="true"></i>
+            </button> 
       </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-11" aria-labelledby="quarto-sidebar-section-11-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false">
- <span class="menu-text">Tutorials</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-controls="quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-12-label">Tutorials</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-12" aria-labelledby="quarto-sidebar-section-12-label" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/materials/tutorials/Colab tutorial.html" class="sidebar-item-text sidebar-link">
@@ -725,13 +746,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false">
- <span class="menu-text">Visualizations</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+            <button type="button" class="sidebar-item-text sidebar-item-toggle sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-controls="quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text" id="quarto-sidebar-section-13-label">Visualizations</span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-13" aria-labelledby="quarto-sidebar-section-13-label" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../docs/visualizations/cg_quad.html" class="sidebar-item-text sidebar-link">
@@ -908,7 +926,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -944,10 +962,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </button>
 </div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content" tabindex="-1">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/GD.html">Gradient descent</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/methods/index.html">Methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/index.html">First order methods</a></li><li class="breadcrumb-item"><a href="../../../docs/methods/fom/GD.html">Gradient descent</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Gradient descent</h1>
 </div>
@@ -986,70 +1004,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="summary" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="summary"><span class="header-section-number">1</span> Summary</h2>
 <p>A classical problem of function minimization is considered.</p>
-<p><span class="math display">
-\tag{GD}
-x_{k+1} = x_k - \eta_k\nabla f(x_k)
-</span></p>
+<p><span class="math display">\tag{GD}
+x_{k+1} = x_k - \eta_k\nabla f(x_k)</span></p>
 <ul>
 <li>The bottleneck (for almost all gradient methods) is choosing step-size, which can lead to the dramatic difference in method’s behavior.</li>
 <li>One of the theoretical suggestions: choosing stepsize inversly proportional to the gradient Lipschitz constant <span class="math inline">\eta_k = \dfrac{1}{L}</span>.</li>
 <li>In huge-scale applications the cost of iteration is usually defined by the cost of gradient calculation (at least <span class="math inline">\mathcal{O}(p)</span>).</li>
 <li>If function has Lipschitz-continious gradient, then method could be rewritten as follows:</li>
 </ul>
-<p><span class="math display">
-\begin{align*}x_{k+1} &amp;= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
-&amp;= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}
-</span></p>
+<p><span class="math display">\begin{align*}x_{k+1} &amp;= x_{k}-\dfrac{1}{L} \nabla f\left(x_{k}\right)= \\
+&amp;= \arg \min\limits_{x \in \mathbb{R}^{n}}\left\{f\left(x_{k}\right)+\left\langle\nabla f\left(x_{k}\right), x-x_{k}\right\rangle+\frac{L}{2}\left\|x-x_{k}\right\|_{2}^{2}\right\} \end{align*}</span></p>
 </section>
 <section id="intuition" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="intuition"><span class="header-section-number">2</span> Intuition</h2>
 <section id="direction-of-local-steepest-descent" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="direction-of-local-steepest-descent"><span class="header-section-number">2.1</span> Direction of local steepest descent</h3>
 <p>Let’s consider a linear approximation of the differentiable function <span class="math inline">f</span> along some direction <span class="math inline">h, \|h\|_2 = 1</span>:</p>
-<p><span class="math display">
-f(x + \eta h) = f(x) + \eta \langle f'(x), h \rangle + o(\eta)
-</span></p>
+<p><span class="math display">f(x + \eta h) = f(x) + \eta \langle f'(x), h \rangle + o(\eta)</span></p>
 <p>We want <span class="math inline">h</span> to be a decreasing direction:</p>
-<p><span class="math display">
-f(x + \eta h) &lt; f(x)
-</span></p>
-<p><span class="math display">
-f(x) + \eta \langle f'(x), h \rangle + o(\eta) &lt; f(x)
-</span></p>
+<p><span class="math display">f(x + \eta h) &lt; f(x)</span></p>
+<p><span class="math display">f(x) + \eta \langle f'(x), h \rangle + o(\eta) &lt; f(x)</span></p>
 <p>and going to the limit at <span class="math inline">\eta \rightarrow 0</span>:</p>
-<p><span class="math display">
-\langle f'(x), h \rangle \leq 0
-</span></p>
+<p><span class="math display">\langle f'(x), h \rangle \leq 0</span></p>
 <p>Also from Cauchy–Bunyakovsky–Schwarz inequality:</p>
-<p><span class="math display">
-|\langle f'(x), h \rangle | \leq \| f'(x) \|_2 \| h \|_2 \;\;\;\to\;\;\; \langle f'(x), h \rangle \geq -\| f'(x) \|_2 \| h \|_2 = -\| f'(x) \|_2
-</span></p>
+<p><span class="math display">|\langle f'(x), h \rangle | \leq \| f'(x) \|_2 \| h \|_2 \;\;\;\to\;\;\; \langle f'(x), h \rangle \geq -\| f'(x) \|_2 \| h \|_2 = -\| f'(x) \|_2</span></p>
 <p>Thus, the direction of the antigradient</p>
-<p><span class="math display">
-h = -\dfrac{f'(x)}{\|f'(x)\|_2}
-</span></p>
+<p><span class="math display">h = -\dfrac{f'(x)}{\|f'(x)\|_2}</span></p>
 <p>gives the direction of the <strong>steepest local</strong> decreasing of the function <span class="math inline">f</span>.</p>
 <p>The result of this method is</p>
-<p><span class="math display">
-x_{k+1} = x_k - \eta f'(x_k)
-</span></p>
+<p><span class="math display">x_{k+1} = x_k - \eta f'(x_k)</span></p>
 </section>
 <section id="gradient-flow-ode" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="gradient-flow-ode"><span class="header-section-number">2.2</span> Gradient flow ODE</h3>
 <p>Let’s consider the following ODE, which is referred as Gradient Flow equation.</p>
-<p><span class="math display">
-\tag{GF}
-\frac{dx}{dt} = -f'(x(t))
-</span></p>
+<p><span class="math display">\tag{GF}
+\frac{dx}{dt} = -f'(x(t))</span></p>
 <p>and discretize it on a uniform grid with <span class="math inline">\eta</span> step:</p>
-<p><span class="math display">
-\frac{x_{k+1} - x_k}{\eta} = -f'(x_k),
-</span></p>
+<p><span class="math display">\frac{x_{k+1} - x_k}{\eta} = -f'(x_k),</span></p>
 <p>where <span class="math inline">x_k \equiv x(t_k)</span> and <span class="math inline">\eta = t_{k+1} - t_k</span> - is the grid step.</p>
 <p>From here we get the expression for <span class="math inline">x_{k+1}</span></p>
-<p><span class="math display">
-x_{k+1} = x_k - \eta f'(x_k),
-</span></p>
+<p><span class="math display">x_{k+1} = x_k - \eta f'(x_k),</span></p>
 <p>which is exactly gradient descent.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1061,42 +1055,30 @@ x_{k+1} = x_k - \eta f'(x_k),
 </section>
 <section id="necessary-local-minimum-condition" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="necessary-local-minimum-condition"><span class="header-section-number">2.3</span> Necessary local minimum condition</h3>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp; f'(x) = 0\\
 &amp; -\eta f'(x) = 0\\
 &amp; x - \eta f'(x) = x\\
 &amp; x_k - \eta f'(x_k) = x_{k+1}
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>This is, surely, not a proof at all, but some kind of intuitive explanation.</p>
 </section>
 <section id="minimizer-of-lipschitz-parabola" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="minimizer-of-lipschitz-parabola"><span class="header-section-number">2.4</span> Minimizer of Lipschitz parabola</h3>
 <p>Some general highlights about Lipschitz properties are needed for explanation. If a function <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is continuously differentiable and its gradient satisfies Lipschitz conditions with constant <span class="math inline">L</span>, then <span class="math inline">\forall x,y \in \mathbb{R}^n</span>:</p>
-<p><span class="math display">
-|f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,
-</span></p>
+<p><span class="math display">|f(y) - f(x) - \langle \nabla f(x), y-x \rangle| \leq \frac{L}{2} \|y-x\|^2,</span></p>
 <p>which geometrically means, that if we’ll fix some point <span class="math inline">x_0 \in \mathbb{R}^n</span> and define two parabolas:</p>
-<p><span class="math display">
-\phi_1(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle - \frac{L}{2} \|x-x_0\|^2,
-</span></p>
-<p><span class="math display">
-\phi_2(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle + \frac{L}{2} \|x-x_0\|^2.
-</span></p>
+<p><span class="math display">\phi_1(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle - \frac{L}{2} \|x-x_0\|^2,</span></p>
+<p><span class="math display">\phi_2(x) = f(x_0) + \langle \nabla f(x_0), x - x_0 \rangle + \frac{L}{2} \|x-x_0\|^2.</span></p>
 <p>Then</p>
-<p><span class="math display">
-\phi_1(x) \leq f(x) \leq \phi_2(x) \quad \forall x \in \mathbb{R}^n.
-</span></p>
+<p><span class="math display">\phi_1(x) \leq f(x) \leq \phi_2(x) \quad \forall x \in \mathbb{R}^n.</span></p>
 <p>Now, if we have global upper bound on the function, in a form of parabola, we can try to go directly to its minimum.</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 &amp; \nabla \phi_2(x) = 0 \\
 &amp; \nabla f(x_0) + L (x^* - x_0) = 0 \\
 &amp; x^* = x_0 - \frac{1}{L}\nabla f(x_0) \\
 &amp; x_{k+1} = x_k - \frac{1}{L} \nabla f(x_k)
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="lipschitz_parabola.svg" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -1105,13 +1087,9 @@ x_{k+1} = x_k - \eta f'(x_k),
 </div>
 <p>This way leads to the <span class="math inline">\frac{1}{L}</span> stepsize choosing. However, often the <span class="math inline">L</span> constant is not known.</p>
 <p>But if the function is twice continuously differentiable and its gradient has Lipschitz constant <span class="math inline">L</span>, we can derive a way to estimate this constant <span class="math inline">\forall x \in \mathbb{R}^n</span>:</p>
-<p><span class="math display">
-\|\nabla^2 f(x) \| \leq L
-</span></p>
+<p><span class="math display">\|\nabla^2 f(x) \| \leq L</span></p>
 <p>or</p>
-<p><span class="math display">
--L I_n \preceq \nabla^2 f(x) \preceq L I_n
-</span></p>
+<p><span class="math display">-L I_n \preceq \nabla^2 f(x) \preceq L I_n</span></p>
 </section>
 </section>
 <section id="stepsize-choosing-strategies" class="level2" data-number="3">
@@ -1120,38 +1098,24 @@ x_{k+1} = x_k - \eta f'(x_k),
 <section id="constant-stepsize" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="constant-stepsize"><span class="header-section-number">3.1</span> Constant stepsize</h3>
 <p>For <span class="math inline">f \in C_L^{1,1}</span>:</p>
-<p><span class="math display">
-\eta_k = \eta
-</span></p>
-<p><span class="math display">
-f(x_k) - f(x_{k+1}) \geq \eta \left(1 - \frac{1}{2}L\eta \right) \|\nabla f(x_k)\|^2
-</span></p>
+<p><span class="math display">\eta_k = \eta</span></p>
+<p><span class="math display">f(x_k) - f(x_{k+1}) \geq \eta \left(1 - \frac{1}{2}L\eta \right) \|\nabla f(x_k)\|^2</span></p>
 <p>With choosing <span class="math inline">\eta = \frac{1}{L}</span>, we have:</p>
-<p><span class="math display">
-f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
-</span></p>
+<p><span class="math display">f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2</span></p>
 </section>
 <section id="fixed-sequence" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="fixed-sequence"><span class="header-section-number">3.2</span> Fixed sequence</h3>
-<p><span class="math display">
-\eta_k = \dfrac{1}{\sqrt{k+1}}
-</span></p>
+<p><span class="math display">\eta_k = \dfrac{1}{\sqrt{k+1}}</span></p>
 <p>The latter 2 strategies are the simplest in terms of implementation and analytical analysis. It is clear that this approach does not often work very well in practice (the function geometry is not known in advance).</p>
 </section>
 <section id="exact-line-search-aka-steepest-descent" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="exact-line-search-aka-steepest-descent"><span class="header-section-number">3.3</span> Exact line search aka steepest descent</h3>
-<p><span class="math display">
-\eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_{k+1}) = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))
-</span></p>
+<p><span class="math display">\eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_{k+1}) = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))</span></p>
 <p>More theoretical than practical approach. It also allows you to analyze the convergence, but often exact line search can be difficult if the function calculation takes too long or costs a lot.</p>
 <p>Interesting theoretical property of this method is that each following iteration is orthogonal to the previous one:</p>
-<p><span class="math display">
-\eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))
-</span></p>
+<p><span class="math display">\eta_k = \text{arg}\min_{\eta \in \mathbb{R^+}} f(x_k - \eta \nabla f(x_k))</span></p>
 <p>Optimality conditions:</p>
-<p><span class="math display">
-\nabla f(x_{k+1})^\top \nabla f(x_k) = 0
-</span></p>
+<p><span class="math display">\nabla f(x_{k+1})^\top \nabla f(x_k) = 0</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="GD_vs_Steepest.svg" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -1167,51 +1131,40 @@ f(x_k) - f(x_{k+1}) \geq \dfrac{1}{2L}\|\nabla f(x_k)\|^2
 <h3 data-number="4.1" class="anchored" data-anchor-id="strongly-convex-quadratics"><span class="header-section-number">4.1</span> Strongly convex quadratics</h3>
 <section id="coordinate-shift" class="level4" data-number="4.1.1">
 <h4 data-number="4.1.1" class="anchored" data-anchor-id="coordinate-shift"><span class="header-section-number">4.1.1</span> Coordinate shift</h4>
-<p>Consider the following quadratic optimization problem: <span class="math display">
-\min\limits_{x \in \mathbb{R}^d} f(x) =  \min\limits_{x \in \mathbb{R}^d} \dfrac{1}{2} x^\top  A x - b^\top  x + c, \text{ where }A \in \mathbb{S}^d_{++}.
-</span></p>
+<p>Consider the following quadratic optimization problem: <span class="math display">\min\limits_{x \in \mathbb{R}^d} f(x) =  \min\limits_{x \in \mathbb{R}^d} \dfrac{1}{2} x^\top  A x - b^\top  x + c, \text{ where }A \in \mathbb{S}^d_{++}.</span></p>
 <ul>
 <li>Firstly, without loss of generality we can set <span class="math inline">c = 0</span>, which will or affect optimization process.</li>
 <li>Secondly, we have a spectral decomposition of the matrix <span class="math inline">A = Q \Lambda Q^T</span>.</li>
 <li>Let’s show, that we can switch coordinates to make an analysis a little bit easier. Let <span class="math inline">\hat{x} = Q^T(x - x^*)</span>, where <span class="math inline">x^*</span> is the minimum point of initial function, defined by <span class="math inline">Ax^* = b</span>. At the same time <span class="math inline">x = Q\hat{x} + x^*</span>.</li>
 </ul>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 f(\hat{x})
 &amp;= \frac{1}{2} (Q\hat{x} + x^*)^\top A (Q\hat{x} + x^*) - b^\top (Q\hat{x} + x^*) \\
 &amp;= \frac{1}{2} \hat{x}^\top Q^\top A Q \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - b^\top Q\hat{x} - b^\top x^* \\
 &amp;= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} + \frac{1}{2} (x^*)^\top A x^* + (x^*)^\top A Q\hat{x} - (x^*)^\top A^\top Q\hat{x} - (x^*)^\top A x^* \\
 &amp;= \frac{1}{2} \hat{x}^\top \Lambda \hat{x} - \frac{1}{2} (x^*)^\top A x^* \\
 &amp;\simeq \frac{1}{2} \hat{x}^\top \Lambda \hat{x}
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p><img src="coordinate_shift_horizontal.svg" width="70%" style="display:block; margin:auto;"></p>
 </section>
 <section id="convergence-analysis-1" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="convergence-analysis-1"><span class="header-section-number">4.1.2</span> Convergence analysis</h4>
 <p>Now we can work with the function <span class="math inline">f(x) = \frac12 x^T \Lambda x</span> with <span class="math inline">x^* = 0</span> without loss of generality (drop the hat from the <span class="math inline">\hat{x}</span>)</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 x^{k+1} &amp;= x^k - \alpha^k \nabla f(x^k) \\
         &amp;= x^k - \alpha^k \Lambda x^k \\
         &amp;= (I - \alpha^k \Lambda) x^k \\
 x^{k+1}_{(i)} &amp;= (1 - \alpha^k \lambda_{(i)}) x^k_{(i)} \quad \text{(for $i$-th coordinate)} \\
 x^{k}_{(i)}   &amp;= (1 - \alpha^k \lambda_{(i)})^k x^0_{(i)}
-\end{align*}
-</span></p>
-<p>Let’s use constant stepsize <span class="math inline">\alpha^k = \alpha</span>. Convergence condition: <span class="math display">
-\rho(\alpha) = \max_{i} |1 - \alpha \lambda_{(i)}| &lt; 1
-</span> Remember, that <span class="math inline">\lambda_{\text{min}} = \mu &gt; 0, \lambda_{\text{max}} = L \geq \mu</span>.}</p>
-<p><span class="math display">
-\begin{align*}
+\end{align*}</span></p>
+<p>Let’s use constant stepsize <span class="math inline">\alpha^k = \alpha</span>. Convergence condition: <span class="math display">\rho(\alpha) = \max_{i} |1 - \alpha \lambda_{(i)}| &lt; 1</span> Remember, that <span class="math inline">\lambda_{\text{min}} = \mu &gt; 0, \lambda_{\text{max}} = L \geq \mu</span>.}</p>
+<p><span class="math display">\begin{align*}
 &amp; |1 - \alpha L| &lt; 1 \\
 &amp; -1 &lt; 1 - \alpha L &lt; 1 \\
 &amp; \alpha &lt; \frac{2}{L} \quad \alpha L &gt; 0
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p><span class="math inline">\alpha &lt; \frac{2}{L}</span> is needed for convergence.</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \rho^* &amp;=  \min_{\alpha} \rho(\alpha) = \min_{\alpha} \max_{i} |1 - \alpha \lambda_{(i)}| \\
 &amp;=  \min_{\alpha} \left\{|1 - \alpha \mu|, |1 - \alpha L| \right\} \\
 \alpha^*: &amp; \quad  1 - \alpha^* \mu = \alpha^* L - 1 \\
@@ -1219,8 +1172,7 @@ x^{k}_{(i)}   &amp;= (1 - \alpha^k \lambda_{(i)})^k x^0_{(i)}
 x^{k+1}_{(i)} &amp;= \left( \frac{L - \mu}{L + \mu} \right)^k x^0_{(i)} \\
 \|x^{k+1}\|_2 &amp;\leq \left( \frac{L - \mu}{L + \mu} \right)^k \|x^0\|_2 \\
 f(x^{k+1}) &amp;\leq \left( \frac{L - \mu}{L + \mu} \right)^{2k} f(x^0)
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>So, we have a linear convergence in the domain with rate <span class="math inline">\frac{\varkappa - 1}{\varkappa + 1} = 1 - \frac{2}{\varkappa + 1}</span>, where <span class="math inline">\varkappa = \frac{L}{\mu}</span> is sometimes called <em>condition number</em> of the quadratic problem.</p>
 <table class="caption-top table">
 <colgroup>
@@ -1298,150 +1250,94 @@ f(x^{k+1}) &amp;\leq \left( \frac{L - \mu}{L + \mu} \right)^{2k} f(x^0)
 <h3 data-number="4.2" class="anchored" data-anchor-id="convex-case"><span class="header-section-number">4.2</span> Convex case</h3>
 <section id="lipischitz-continuity-of-the-gradient" class="level4" data-number="4.2.1">
 <h4 data-number="4.2.1" class="anchored" data-anchor-id="lipischitz-continuity-of-the-gradient"><span class="header-section-number">4.2.1</span> Lipischitz continuity of the gradient</h4>
-<p>Assume that <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is convex and differentiable, and additionally <span class="math display">
-\|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n
-</span></p>
+<p>Assume that <span class="math inline">f: \mathbb{R}^n \to \mathbb{R}</span> is convex and differentiable, and additionally <span class="math display">\|\nabla f(x) − \nabla f(y) \| \leq L \|x − y \| \; \forall x, y \in \mathbb{R}^n</span></p>
 <p>i.e.&nbsp;, <span class="math inline">\nabla f</span> is Lipschitz continuous with constant <span class="math inline">L &gt; 0</span>.</p>
 <p>Since <span class="math inline">\nabla f</span> Lipschitz with constant <span class="math inline">L</span>, which means <span class="math inline">\nabla^2 f \preceq LI</span>, we have <span class="math inline">\forall x, y, z</span>:</p>
-<p><span class="math display">
-(x − y)^\top(\nabla^2 f(z) − LI)(x − y) \leq 0
-</span></p>
-<p><span class="math display">
-(x − y)^\top\nabla^2 f(z)(x − y) \leq L \|x-y\|^2
-</span></p>
+<p><span class="math display">(x − y)^\top(\nabla^2 f(z) − LI)(x − y) \leq 0</span></p>
+<p><span class="math display">(x − y)^\top\nabla^2 f(z)(x − y) \leq L \|x-y\|^2</span></p>
 <p>Now we’ll consider second order Taylor approximation of <span class="math inline">f(y)</span> and Taylor’s Remainder Theorem (we assume, that the function <span class="math inline">f</span> is continuously differentiable), we have <span class="math inline">\forall x, y, \exists z ∈ [x, y]:</span></p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 f(y) &amp;= f(x) + \nabla f(x)^\top(y − x) + \frac{1}{2}(x − y)^\top \nabla^2 f(z)(x − y) \\
 &amp; \leq f(x) + \nabla f(x)^\top(y − x) + \frac{L}{2} \|x-y\|^2
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>For the gradient descent we have <span class="math inline">x = x_k, y = x_{k+1}, x_{k+1} = x_k - \eta_k\nabla f(x_k)</span>:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 f(x_{k+1}) &amp;\leq  f(x_k) + \nabla f(x_k)^\top(-\eta_k\nabla f(x_k)) + \frac{L}{2} \| \eta_k\nabla f(x_k) \|^2  \\
 &amp; \leq f(x_k) - \left( 1 - \dfrac{L\eta}{2}\right)\eta \|\nabla f(x_k)\|^2
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 </section>
 <section id="optimal-constant-stepsize" class="level4" data-number="4.2.2">
 <h4 data-number="4.2.2" class="anchored" data-anchor-id="optimal-constant-stepsize"><span class="header-section-number">4.2.2</span> Optimal constant stepsize</h4>
 <p>Now, if we’ll consider constant stepsize strategy and will maximize <span class="math inline">\left( 1 - \dfrac{L\eta}{2}\right)\eta \to \max\limits_{\eta}</span>, we’ll get <span class="math inline">\eta = \dfrac{1}{L}</span>.</p>
-<p><span class="math display">
-f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2
-</span></p>
+<p><span class="math display">f(x_{k+1}) \leq f(x_k) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2</span></p>
 </section>
 <section id="convexity" class="level4" data-number="4.2.3">
 <h4 data-number="4.2.3" class="anchored" data-anchor-id="convexity"><span class="header-section-number">4.2.3</span> Convexity</h4>
-<p><span class="math display">
-f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*)
-</span></p>
+<p><span class="math display">f(x_{k}) \leq f(x^*) + \nabla f(x_k)^\top (x_k − x^*)</span></p>
 <p>That’s why we have:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 f(x_{k+1}) &amp; \leq  f(x^*) + \nabla f(x_k)^\top (x_k − x^*) -  \dfrac{1}{2L}\|\nabla f(x_k)\|^2 \\
 &amp; = f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_k − x^* − \dfrac{1}{L}\nabla f(x_k)\|^2\right) \\
 &amp; =  f(x^*) + \dfrac{L}{2}\left(\|x_k − x^*\|^2 − \|x_{k+1} − x^*\|^2\right)
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Thus, summing over all iterations, we have:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \sum\limits_{i=1}^k (f(x_i) - f(x^*)) &amp;\leq \dfrac{L}{2} \left(\|x_0 − x^*\|^2 − \|x_{k} − x^*\|^2\right) \\
 &amp; \leq  \dfrac{L}{2} \|x_0 − x^*\|^2 =  \dfrac{LR^2}{2},
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>where <span class="math inline">R = \|x_0 - x^*\|</span>. And due to function monotonicity:</p>
-<p><span class="math display">
-f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k}
-</span></p>
+<p><span class="math display">f(x_k) - f(x^*) \leq \dfrac{1}{k}\sum\limits_{i=1}^k (f(x_i) - f(x^*)) \leq \dfrac{LR^2}{2k} = \dfrac{R^2}{2\eta k}</span></p>
 </section>
 </section>
 <section id="strongly-convex-case" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="strongly-convex-case"><span class="header-section-number">4.3</span> Strongly convex case</h3>
 <p>If the function is strongly convex:</p>
-<p><span class="math display">
-f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n
-</span></p>
-<p><span class="math display">
-f(x^*) \geq f(x) + \nabla f(x)^\top (x^* - x) + \frac{\mu}{2}\|x^* - x\|^2
-</span></p>
-<p><span class="math display">
-f(x^*) \leq f(x)
-</span></p>
-<p><span class="math display">
-\nabla f(x)^\top (x - x^*) \geq f(x) - f(x^*) + \frac{\mu}{2}\|x - x^*\|^2
-</span></p>
+<p><span class="math display">f(y) \geq f(x) + \nabla f(x)^\top (y − x) + \dfrac{\mu}{2}\|y − x \|^2 \; \forall x, y \in \mathbb{R}^n</span></p>
+<p><span class="math display">f(x^*) \geq f(x) + \nabla f(x)^\top (x^* - x) + \frac{\mu}{2}\|x^* - x\|^2</span></p>
+<p><span class="math display">f(x^*) \leq f(x)</span></p>
+<p><span class="math display">\nabla f(x)^\top (x - x^*) \geq f(x) - f(x^*) + \frac{\mu}{2}\|x - x^*\|^2</span></p>
 <p>Since <span class="math inline">\nabla f</span> Lipschitz with constant <span class="math inline">L</span> and we proved that</p>
-<p><span class="math display">
-f(x_{k}) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2
-</span></p>
+<p><span class="math display">f(x_{k}) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2</span></p>
 <p>We get</p>
-<p><span class="math display">
-f(x_k) - f(x^*) \geq f(x_k) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2
-</span></p>
-<p><span class="math display">
-\nabla f(x_k)^\top (x_k - x^*) \geq \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \quad (1)
-</span></p>
+<p><span class="math display">f(x_k) - f(x^*) \geq f(x_k) - f(x^{k + 1}) \geq \frac{1}{2L} \|\nabla f(x_k)\|^2</span></p>
+<p><span class="math display">\nabla f(x_k)^\top (x_k - x^*) \geq \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \quad (1)</span></p>
 <p>Then we break down <span class="math inline">\|x_{k+1} - x^*\|^2</span></p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \|x_{k+1} - x^*\|^2 &amp;= \|(x_k - \eta \nabla f(x_k)) - x^*\|^2 \\
 &amp;= \|(x_k - x^*) - \eta \nabla f(x_k)\|^2 \\
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Using <span class="math inline">\|a-b\|^2 = \|a\|^2 - 2a^\top b + \|b\|^2</span>:</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \|x_{k+1} - x^*\|^2 &amp;= \|x_k - x^*\|^2 - 2\eta \nabla f(x_k)^\top (x_k - x^*) + \eta^2 \|\nabla f(x_k)\|^2 \quad (2)
-\end{align*}
-</span></p>
+\end{align*}</span></p>
 <p>Multipling by <span class="math inline">-2\eta</span> inequality (1):</p>
-<p><span class="math display">
--2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -2\eta \left( \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \right)
-</span></p>
-<p><span class="math display">
--2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -\frac{\eta}{L}\|\nabla f(x_k)\|^2 - \eta\mu\|x_k - x^*\|^2
-</span></p>
+<p><span class="math display">-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -2\eta \left( \frac{1}{2L}\|\nabla f(x_k)\|^2 + \frac{\mu}{2}\|x_k - x^*\|^2 \right)</span></p>
+<p><span class="math display">-2\eta \nabla f(x_k)^\top (x_k - x^*) \leq -\frac{\eta}{L}\|\nabla f(x_k)\|^2 - \eta\mu\|x_k - x^*\|^2</span></p>
 <p>And then plug into (2):</p>
-<p><span class="math display">
-\begin{align*}
+<p><span class="math display">\begin{align*}
 \|x_{k+1} - x^*\|^2 &amp;\leq \|x_k - x^*\|^2 - \left(\frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta\mu\|x_k - x^*\|^2\right) + \eta^2 \|\nabla f(x_k)\|^2 \\
 &amp;= \|x_k - x^*\|^2 - \eta\mu\|x_k - x^*\|^2 - \frac{\eta}{L}\|\nabla f(x_k)\|^2 + \eta^2 \|\nabla f(x_k)\|^2 \\
 &amp;= (1 - \eta\mu)\|x_k - x^*\|^2 - \eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2
-\end{align*}
-</span></p>
-<p>Since we choose <span class="math inline">\eta \leq \frac{1}{L}</span> <span class="math display">
-\frac{1}{L} - \eta \geq 0
-</span></p>
-<p><span class="math display">
--\eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2 \leq 0
-</span></p>
+\end{align*}</span></p>
+<p>Since we choose <span class="math inline">\eta \leq \frac{1}{L}</span> <span class="math display">\frac{1}{L} - \eta \geq 0</span></p>
+<p><span class="math display">-\eta\left(\frac{1}{L} - \eta\right)\|\nabla f(x_k)\|^2 \leq 0</span></p>
 <p>So, we can drop it and get:</p>
-<p><span class="math display">
-\|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2
-</span></p>
+<p><span class="math display">\|x_{k+1} − x^*\|^2 \leq (1 − \eta \mu)\|x_k − x^* \|^2</span></p>
 </section>
 <section id="polyak-lojasiewicz-smooth-case" class="level3" data-number="4.4">
 <h3 data-number="4.4" class="anchored" data-anchor-id="polyak-lojasiewicz-smooth-case"><span class="header-section-number">4.4</span> Polyak-Lojasiewicz smooth case</h3>
 <section id="polyak-lojasiewicz-condition.-linear-convergence-of-gradient-descent-without-convexity" class="level4" data-number="4.4.1">
 <h4 data-number="4.4.1" class="anchored" data-anchor-id="polyak-lojasiewicz-condition.-linear-convergence-of-gradient-descent-without-convexity"><span class="header-section-number">4.4.1</span> Polyak-Lojasiewicz condition. Linear convergence of gradient descent without convexity</h4>
-<p>PL inequality holds if the following condition is satisfied for some <span class="math inline">\mu &gt; 0</span>, <span class="math display">
-\Vert \nabla f(x) \Vert^2 \geq 2 \mu (f(x) - f^*) \quad \forall x
-</span> It is interesting, that the Gradient Descent algorithm might converge linearly even without convexity.</p>
+<p>PL inequality holds if the following condition is satisfied for some <span class="math inline">\mu &gt; 0</span>, <span class="math display">\Vert \nabla f(x) \Vert^2 \geq 2 \mu (f(x) - f^*) \quad \forall x</span> It is interesting, that the Gradient Descent algorithm might converge linearly even without convexity.</p>
 <p>The following functions satisfy the PL condition but are not convex. <a href="https://colab.research.google.com/github/MerkulovDaniil/optim/blob/master/assets/Notebooks/PL_function.ipynb">Link to the code</a></p>
-<p><span class="math display">
-f(x) = x^2 + 3\sin^2(x)
-</span></p>
+<p><span class="math display">f(x) = x^2 + 3\sin^2(x)</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="pl_2d.svg" class="img-fluid figure-img" style="width:65.0%"></p>
 <figcaption>PL function</figcaption>
 </figure>
 </div>
-<p><span class="math display">
-f(x,y) = \dfrac{(y - \sin x)^2}{2}
-</span></p>
+<p><span class="math display">f(x,y) = \dfrac{(y - \sin x)^2}{2}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="pl_3d.svg" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -1464,32 +1360,24 @@ f(x,y) = \dfrac{(y - \sin x)^2}{2}
 <div>
 <div class="callout-theorem">
 <p>Consider the Problem</p>
-<p><span class="math display">
-f(x) \to \min_{x \in \mathbb{R}^d}
-</span></p>
+<p><span class="math display">f(x) \to \min_{x \in \mathbb{R}^d}</span></p>
 <p>and assume that <span class="math inline">f</span> is <span class="math inline">\mu</span>-Polyak-Lojasiewicz and <span class="math inline">L</span>-smooth, for some <span class="math inline">L\geq \mu &gt;0</span>.</p>
 <p>Consider <span class="math inline">(x^k)_{k \in \mathbb{N}}</span> a sequence generated by the gradient descent constant stepsize algorithm, with a stepsize satisfying <span class="math inline">0&lt;\alpha \leq \frac{1}{L}</span>. Then:</p>
-<p><span class="math display">
-f(x^{k})-f^* \leq (1-\alpha \mu)^k (f(x^0)-f^*).
-</span></p>
+<p><span class="math display">f(x^{k})-f^* \leq (1-\alpha \mu)^k (f(x^0)-f^*).</span></p>
 </div>
 </div>
 </div>
 </div>
 <p>We can use <span class="math inline">L</span>-smoothness, together with the update rule of the algorithm, to write</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 f(x^{k+1}) &amp;\leq f(x^{k}) + \langle \nabla f(x^{k}), x^{k+1}-x^{k} \rangle +\frac{L}{2} \| x^{k+1}-x^{k}\|^2\\
 &amp;= f(x^{k})-\alpha\Vert \nabla f(x^{k}) \Vert^2 +\frac{L \alpha^2}{2} \| \nabla f(x^{k})\|^2 \\
 &amp;= f(x^{k}) - \frac{\alpha}{2} \left(2 - L \alpha \right)\Vert \nabla f(x^{k}) \Vert^2 \\
 &amp; \leq f(x^{k}) - \frac{\alpha}{2}\Vert \nabla f(x^{k})\Vert^2,
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>where in the last inequality we used our hypothesis on the stepsize that <span class="math inline">\alpha L \leq 1</span>.</p>
 <p>We can now use the Polyak-Lojasiewicz property to write:</p>
-<p><span class="math display">
-f(x^{k+1}) \leq f(x^{k}) - \alpha \mu (f(x^{k}) - f^*).
-</span></p>
+<p><span class="math display">f(x^{k+1}) \leq f(x^{k}) - \alpha \mu (f(x^{k}) - f^*).</span></p>
 <p>The conclusion follows after subtracting <span class="math inline">f^*</span> on both sides of this inequality and using recursion.</p>
 </section>
 <section id="any-mu-strongly-convex-differentiable-function-is-a-pl-function" class="level4" data-number="4.4.3">
@@ -1512,24 +1400,18 @@ f(x^{k+1}) \leq f(x^{k}) - \alpha \mu (f(x^{k}) - f^*).
 </div>
 </div>
 <p><strong>Proof</strong></p>
-<p>By first order strong convexity criterion: <span class="math display">
-f(y) \geq f(x) + \nabla f(x)^T(y-x) + \dfrac{\mu}{2}\|y-x\|_2^2
-</span> Putting <span class="math inline">y = x^*</span>: <span class="math display">
-\begin{split}
+<p>By first order strong convexity criterion: <span class="math display">f(y) \geq f(x) + \nabla f(x)^T(y-x) + \dfrac{\mu}{2}\|y-x\|_2^2</span> Putting <span class="math inline">y = x^*</span>: <span class="math display">\begin{split}
 f(x^*) &amp;\geq f(x) + \nabla f(x)^T(x^*-x) + \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
 f(x) - f(x^*) &amp;\leq \nabla f(x)^T(x-x^*) - \dfrac{\mu}{2}\|x^*-x\|_2^2 \\
 &amp;= \left(\nabla f(x)^T - \dfrac{\mu}{2}(x^*-x)\right)^T (x-x^*) \\
 &amp;= \frac12 \left(\frac{2}{\sqrt{\mu}}\nabla f(x)^T - \sqrt{\mu}(x^*-x)\right)^T \sqrt{\mu}(x-x^*)
-\end{split}
-</span></p>
+\end{split}</span></p>
 <p>Let <span class="math inline">a = \frac{1}{\sqrt{\mu}}\nabla f(x)</span> and <span class="math inline">b =\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)</span></p>
 <p>Then <span class="math inline">a+b = \sqrt{\mu}(x-x^*)</span> and <span class="math inline">a-b=\frac{2}{\sqrt{\mu}}\nabla f(x)-\sqrt{\mu}(x-x^*)</span>, which leads to</p>
-<p><span class="math display">
-\begin{split}
+<p><span class="math display">\begin{split}
 f(x) - f(x^*) &amp;\leq \frac12 \left(\frac{1}{\mu}\|\nabla f(x)\|^2_2 - \left\|\sqrt{\mu}(x-x^*) -\frac{1}{\sqrt{\mu}}\nabla f(x)\right\|_2^2\right) \\
 f(x) - f(x^*) &amp;\leq \frac{1}{2\mu}\|\nabla f(x)\|^2_2,
-\end{split}
-</span></p>
+\end{split}</span></p>
 <!-- which is exactly the PL condition. It means, that we already have linear convergence proof for any strongly convex function.
 
 ### $\mu$-strongly convex differentiable case
@@ -1587,67 +1469,45 @@ We have already proved that $\mu$-strongly convex differentiable function is PL,
 </section>
 <section id="numerical-experiments" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="numerical-experiments"><span class="header-section-number">6</span> Numerical experiments</h2>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_random_0.001_100_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_random_10_100_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_random_10_1000_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_clustered_10_1000_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_clustered_10_1000_600.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_uniform spectrum_1_100_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{1}{2} x^T A x - b^T x \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_Hilbert_1_10_60.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="GD 0.07GD 0.9GD 10.0_0.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
 </figure>
 </div>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="GD 0.12GD 0.14GD 0.15_0.1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
 </figure>
 </div>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_non_linear_1000_300_0_None.svg" class="img-fluid"></p>
 <p>\</p>
-<p><span class="math display">
-f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}
-</span></p>
+<p><span class="math display">f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \langle a_i, x \rangle)) \to \min_{x \in \mathbb{R}^n}</span></p>
 <p><img src="gd_non_linear_1000_300_1_None.svg" class="img-fluid"></p>
 </section>
 <section id="materials" class="level2" data-number="7">
@@ -1736,11 +1596,34 @@ f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \lang
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp("https:\/\/fmin\.xyz");
+      const newWindowLabel = "(opens in a new tab)";
+      const newWindowNoteId = "quarto-ext-newwindow-label";
+      // Links reference one hidden label through aria-describedby, so the
+      // announcement never changes their accessible name.
+      var describeNewWindow = (link) => {
+        if (!window.document.getElementById(newWindowNoteId)) {
+          var newWindowNote = window.document.createElement("span");
+          newWindowNote.id = newWindowNoteId;
+          newWindowNote.hidden = true;
+          newWindowNote.textContent = newWindowLabel;
+          window.document.body.appendChild(newWindowNote);
+        }
+        var describedBy = (link.getAttribute("aria-describedby") || "").split(/\s+/).filter(Boolean);
+        if (!describedBy.includes(newWindowNoteId)) {
+          describedBy.push(newWindowNoteId);
+          link.setAttribute("aria-describedby", describedBy.join(" "));
+        }
+      }
+      var opensNewContext = (link) => {
+        var target = (link.getAttribute("target") || "").toLowerCase();
+        return target !== "" && !["_self", "_parent", "_top"].includes(target);
+      }
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -1749,13 +1632,79 @@ f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \lang
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
+            // an explicit target wins over the site-wide setting
+            if (link.getAttribute("target") === null) {
+              link.setAttribute("target", "_blank");
+            }
+            if (link.getAttribute("rel") === null && opensNewContext(link)) {
               link.setAttribute("rel", "noopener");
             }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+        if (opensNewContext(link)) {
+          describeNewWindow(link);
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -1769,6 +1718,7 @@ f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \lang
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -1931,44 +1881,54 @@ f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \lang
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -2066,6 +2026,9 @@ f(x) = \frac{\mu}{2} \|x\|_2^2 + \frac1m \sum_{i=1}^m \log (1 + \exp(- y_i \lang
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 
